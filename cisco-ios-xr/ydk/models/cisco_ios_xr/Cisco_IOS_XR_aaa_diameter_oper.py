@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class DisconnectCause(Enum):
     do_not_wait_to_talk = Enum.YLeaf(2, "do-not-wait-to-talk")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['DisconnectCause']
+
+
 class Peer(Enum):
     """
     Peer (Enum Class)
@@ -66,6 +75,12 @@ class Peer(Enum):
     undefined = Enum.YLeaf(0, "undefined")
 
     server = Enum.YLeaf(1, "server")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['Peer']
 
 
 class PeerStateValue(Enum):
@@ -119,6 +134,12 @@ class PeerStateValue(Enum):
     suspect = Enum.YLeaf(6, "suspect")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['PeerStateValue']
+
+
 class ProtocolTypeValue(Enum):
     """
     ProtocolTypeValue (Enum Class)
@@ -138,6 +159,12 @@ class ProtocolTypeValue(Enum):
     protocol_none = Enum.YLeaf(0, "protocol-none")
 
     tcp = Enum.YLeaf(1, "tcp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['ProtocolTypeValue']
 
 
 class SecurityTypeValue(Enum):
@@ -167,6 +194,12 @@ class SecurityTypeValue(Enum):
     ipsec = Enum.YLeaf(2, "ipsec")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['SecurityTypeValue']
+
+
 class WhoInitiatedDisconnect(Enum):
     """
     WhoInitiatedDisconnect (Enum Class)
@@ -192,6 +225,12 @@ class WhoInitiatedDisconnect(Enum):
     host = Enum.YLeaf(1, "host")
 
     peer = Enum.YLeaf(2, "peer")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_diameter_oper as meta
+        return meta._meta_table['WhoInitiatedDisconnect']
 
 
 

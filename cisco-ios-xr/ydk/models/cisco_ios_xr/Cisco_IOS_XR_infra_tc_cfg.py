@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -102,6 +105,12 @@ class CollectIonInterval(Enum):
     Y_60_minutes = Enum.YLeaf(60, "60-minutes")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+        return meta._meta_table['CollectIonInterval']
+
+
 class HistorySize(Enum):
     """
     HistorySize (Enum Class)
@@ -115,6 +124,12 @@ class HistorySize(Enum):
     """
 
     max = Enum.YLeaf(10, "max")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+        return meta._meta_table['HistorySize']
 
 
 class HistoryTimeout(Enum):
@@ -132,8 +147,14 @@ class HistoryTimeout(Enum):
     max = Enum.YLeaf(720, "max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+        return meta._meta_table['HistoryTimeout']
 
-class TrafficCollector(Entity):
+
+
+class TrafficCollector(_Entity_):
     """
     Global Traffic Collector configuration commands
     
@@ -160,7 +181,10 @@ class TrafficCollector(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(TrafficCollector, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TrafficCollector, self).__init__()
         self._top_entity = None
 
         self.yang_name = "traffic-collector"
@@ -188,7 +212,7 @@ class TrafficCollector(Entity):
         self._perform_setattr(TrafficCollector, ['enable_traffic_collector'], name, value)
 
 
-    class ExternalInterfaces(Entity):
+    class ExternalInterfaces(_Entity_):
         """
         Configure external interfaces
         
@@ -205,7 +229,10 @@ class TrafficCollector(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(TrafficCollector.ExternalInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.ExternalInterfaces, self).__init__()
 
             self.yang_name = "external-interfaces"
             self.yang_parent_name = "traffic-collector"
@@ -224,7 +251,7 @@ class TrafficCollector(Entity):
             self._perform_setattr(TrafficCollector.ExternalInterfaces, [], name, value)
 
 
-        class ExternalInterface(Entity):
+        class ExternalInterface(_Entity_):
             """
             Configure an external internface
             
@@ -248,7 +275,10 @@ class TrafficCollector(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
 
                 self.yang_name = "external-interface"
                 self.yang_parent_name = "external-interfaces"
@@ -269,10 +299,18 @@ class TrafficCollector(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+                return meta._meta_table['TrafficCollector.ExternalInterfaces.ExternalInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+            return meta._meta_table['TrafficCollector.ExternalInterfaces']['meta_info']
 
 
-
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Configure statistics related parameters
         
@@ -316,7 +354,10 @@ class TrafficCollector(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(TrafficCollector.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "traffic-collector"
@@ -341,10 +382,18 @@ class TrafficCollector(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TrafficCollector.Statistics, ['history_size', 'collection_interval', 'enable_traffic_collector_statistics', 'history_timeout'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+            return meta._meta_table['TrafficCollector.Statistics']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TrafficCollector()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_cfg as meta
+        return meta._meta_table['TrafficCollector']['meta_info']
 
 

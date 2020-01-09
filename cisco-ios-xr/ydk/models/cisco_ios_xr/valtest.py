@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Config(Entity):
+class Config(_Entity_):
     """
     
     
@@ -36,7 +39,10 @@ class Config(Entity):
     _revision = '2012-08-20'
 
     def __init__(self):
-        super(Config, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Config, self).__init__()
         self._top_entity = None
 
         self.yang_name = "config"
@@ -57,7 +63,7 @@ class Config(Entity):
         self._perform_setattr(Config, [], name, value)
 
 
-    class Valtest(Entity):
+    class Valtest(_Entity_):
         """
         
         
@@ -87,7 +93,10 @@ class Config(Entity):
         _revision = '2012-08-20'
 
         def __init__(self):
-            super(Config.Valtest, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.Valtest, self).__init__()
 
             self.yang_name = "valtest"
             self.yang_parent_name = "config"
@@ -108,10 +117,18 @@ class Config(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Config.Valtest, ['a_number', 'b_number'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _valtest as meta
+            return meta._meta_table['Config.Valtest']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _valtest as meta
+        return meta._meta_table['Config']['meta_info']
 
 

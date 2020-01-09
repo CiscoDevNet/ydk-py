@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Radius(Entity):
+class Radius(_Entity_):
     """
     RADIUS operational data
     
@@ -44,7 +47,10 @@ class Radius(Entity):
     _revision = '2017-11-13'
 
     def __init__(self):
-        super(Radius, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Radius, self).__init__()
         self._top_entity = None
 
         self.yang_name = "radius"
@@ -65,7 +71,7 @@ class Radius(Entity):
         self._perform_setattr(Radius, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Contains all the nodes
         
@@ -84,7 +90,10 @@ class Radius(Entity):
         _revision = '2017-11-13'
 
         def __init__(self):
-            super(Radius.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Radius.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "radius"
@@ -103,7 +112,7 @@ class Radius(Entity):
             self._perform_setattr(Radius.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             RADIUS operational data for a particular node
             
@@ -173,7 +182,10 @@ class Radius(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Radius.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Radius.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -221,7 +233,7 @@ class Radius(Entity):
                 self._perform_setattr(Radius.Nodes.Node, ['node_name'], name, value)
 
 
-            class Client(Entity):
+            class Client(_Entity_):
                 """
                 RADIUS client data
                 
@@ -258,7 +270,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.Client, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.Client, self).__init__()
 
                     self.yang_name = "client"
                     self.yang_parent_name = "node"
@@ -280,9 +295,13 @@ class Radius(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.Client, ['unknown_authentication_responses', 'authentication_nas_id', 'unknown_accounting_responses'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.Client']['meta_info']
 
 
-            class DeadCriteria(Entity):
+            class DeadCriteria(_Entity_):
                 """
                 RADIUS dead criteria information
                 
@@ -301,7 +320,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.DeadCriteria, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.DeadCriteria, self).__init__()
 
                     self.yang_name = "dead-criteria"
                     self.yang_parent_name = "node"
@@ -321,7 +343,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.DeadCriteria, [], name, value)
 
 
-                class Hosts(Entity):
+                class Hosts(_Entity_):
                     """
                     RADIUS server dead criteria host table
                     
@@ -340,7 +362,10 @@ class Radius(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Radius.Nodes.Node.DeadCriteria.Hosts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Radius.Nodes.Node.DeadCriteria.Hosts, self).__init__()
 
                         self.yang_name = "hosts"
                         self.yang_parent_name = "dead-criteria"
@@ -358,7 +383,7 @@ class Radius(Entity):
                         self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts, [], name, value)
 
 
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         RADIUS Server
                         
@@ -417,7 +442,10 @@ class Radius(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Radius.Nodes.Node.DeadCriteria.Hosts.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Radius.Nodes.Node.DeadCriteria.Hosts.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "hosts"
@@ -448,7 +476,7 @@ class Radius(Entity):
                             self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host, ['ip_address', 'auth_port_number', 'acct_port_number'], name, value)
 
 
-                        class Time(Entity):
+                        class Time(_Entity_):
                             """
                             Time in seconds
                             
@@ -476,7 +504,10 @@ class Radius(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, self).__init__()
 
                                 self.yang_name = "time"
                                 self.yang_parent_name = "host"
@@ -496,9 +527,13 @@ class Radius(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, ['value', 'is_computed'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                                return meta._meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time']['meta_info']
 
 
-                        class Tries(Entity):
+                        class Tries(_Entity_):
                             """
                             Number of tries
                             
@@ -526,7 +561,10 @@ class Radius(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, self).__init__()
 
                                 self.yang_name = "tries"
                                 self.yang_parent_name = "host"
@@ -546,12 +584,28 @@ class Radius(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, ['value', 'is_computed'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                                return meta._meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                            return meta._meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                        return meta._meta_table['Radius.Nodes.Node.DeadCriteria.Hosts']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.DeadCriteria']['meta_info']
 
 
-
-
-
-            class Authentication(Entity):
+            class Authentication(_Entity_):
                 """
                 RADIUS authentication data
                 
@@ -570,7 +624,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.Authentication, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.Authentication, self).__init__()
 
                     self.yang_name = "authentication"
                     self.yang_parent_name = "node"
@@ -588,7 +645,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.Authentication, [], name, value)
 
 
-                class AuthenticationGroup(Entity):
+                class AuthenticationGroup(_Entity_):
                     """
                     List of authentication groups
                     
@@ -630,7 +687,10 @@ class Radius(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Radius.Nodes.Node.Authentication.AuthenticationGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Radius.Nodes.Node.Authentication.AuthenticationGroup, self).__init__()
 
                         self.yang_name = "authentication-group"
                         self.yang_parent_name = "authentication"
@@ -657,7 +717,7 @@ class Radius(Entity):
                         self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, ['port', 'ip_address', 'family'], name, value)
 
 
-                    class Authentication_(Entity):
+                    class Authentication_(_Entity_):
                         """
                         Authentication data
                         
@@ -878,7 +938,10 @@ class Radius(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, self).__init__()
 
                             self.yang_name = "authentication"
                             self.yang_parent_name = "authentication-group"
@@ -940,11 +1003,23 @@ class Radius(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses', 'auth_throttled_transactions', 'auth_max_transactions', 'total_test_auth_reqs', 'total_test_auth_timeouts', 'total_test_auth_response', 'total_test_auth_pending'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                            return meta._meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                        return meta._meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.Authentication']['meta_info']
 
 
-
-
-            class Accounting(Entity):
+            class Accounting(_Entity_):
                 """
                 RADIUS accounting data
                 
@@ -963,7 +1038,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.Accounting, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.Accounting, self).__init__()
 
                     self.yang_name = "accounting"
                     self.yang_parent_name = "node"
@@ -981,7 +1059,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.Accounting, [], name, value)
 
 
-                class AccountingGroup(Entity):
+                class AccountingGroup(_Entity_):
                     """
                     List of accounting groups
                     
@@ -1023,7 +1101,10 @@ class Radius(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Radius.Nodes.Node.Accounting.AccountingGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Radius.Nodes.Node.Accounting.AccountingGroup, self).__init__()
 
                         self.yang_name = "accounting-group"
                         self.yang_parent_name = "accounting"
@@ -1050,7 +1131,7 @@ class Radius(Entity):
                         self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, ['port', 'ip_address', 'family'], name, value)
 
 
-                    class Accounting_(Entity):
+                    class Accounting_(_Entity_):
                         """
                         Accounting data
                         
@@ -1235,7 +1316,10 @@ class Radius(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, self).__init__()
 
                             self.yang_name = "accounting"
                             self.yang_parent_name = "accounting-group"
@@ -1289,11 +1373,23 @@ class Radius(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_transaction_successess', 'acct_transaction_failure', 'acct_throttled_transactions', 'acct_max_throttle_trans', 'total_test_acct_reqs', 'total_test_acct_timeouts', 'total_test_acct_response', 'total_test_acct_pending'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                            return meta._meta_table['Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                        return meta._meta_table['Radius.Nodes.Node.Accounting.AccountingGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.Accounting']['meta_info']
 
 
-
-
-            class DynamicAuthorizationClients(Entity):
+            class DynamicAuthorizationClients(_Entity_):
                 """
                 Dynamic authorization client data
                 
@@ -1312,7 +1408,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.DynamicAuthorizationClients, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.DynamicAuthorizationClients, self).__init__()
 
                     self.yang_name = "dynamic-authorization-clients"
                     self.yang_parent_name = "node"
@@ -1330,7 +1429,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients, [], name, value)
 
 
-                class DynamicAuthorClient(Entity):
+                class DynamicAuthorClient(_Entity_):
                     """
                     List of dynamic author clients
                     
@@ -1554,7 +1653,10 @@ class Radius(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, self).__init__()
 
                         self.yang_name = "dynamic-author-client"
                         self.yang_parent_name = "dynamic-authorization-clients"
@@ -1618,10 +1720,18 @@ class Radius(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, ['disc_reqs', 'disc_acks', 'disc_naks', 'disc_bad_auth', 'drop_disc_reqs', 'coa_reqs', 'coa_acks', 'coa_naks', 'coa_bad_auth', 'drop_coa_reqs', 'unknown_types', 'internal_error', 'pak_decode_fail', 'vrf_parse_fail_err', 'unknown_vsa_error', 'send_msg_failed', 'radius_to_ch', 'ch_to_radius', 'service_parse_fail', 'multi_subs_error', 'service_not_present', 'send_to_ch_fail', 'vrf_name', 'client_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                        return meta._meta_table['Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.DynamicAuthorizationClients']['meta_info']
 
 
-
-            class ServerGroups(Entity):
+            class ServerGroups(_Entity_):
                 """
                 RADIUS server group table
                 
@@ -1640,7 +1750,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.ServerGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.ServerGroups, self).__init__()
 
                     self.yang_name = "server-groups"
                     self.yang_parent_name = "node"
@@ -1658,7 +1771,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.ServerGroups, [], name, value)
 
 
-                class ServerGroup(Entity):
+                class ServerGroup(_Entity_):
                     """
                     RADIUS server group data
                     
@@ -1722,7 +1835,10 @@ class Radius(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Radius.Nodes.Node.ServerGroups.ServerGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Radius.Nodes.Node.ServerGroups.ServerGroup, self).__init__()
 
                         self.yang_name = "server-group"
                         self.yang_parent_name = "server-groups"
@@ -1751,7 +1867,7 @@ class Radius(Entity):
                         self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', 'groups', 'vrf_name', 'dead_time', 'servers'], name, value)
 
 
-                    class ServerGroup_(Entity):
+                    class ServerGroup_(_Entity_):
                         """
                         Server groups
                         
@@ -1832,7 +1948,10 @@ class Radius(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, self).__init__()
 
                             self.yang_name = "server-group"
                             self.yang_parent_name = "server-group"
@@ -1873,7 +1992,7 @@ class Radius(Entity):
                             self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, ['authentication_port', 'accounting_port', 'is_private', 'ip_address', 'family', 'redirected_requests'], name, value)
 
 
-                        class Accounting(Entity):
+                        class Accounting(_Entity_):
                             """
                             Accounting data
                             
@@ -2058,7 +2177,10 @@ class Radius(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, self).__init__()
 
                                 self.yang_name = "accounting"
                                 self.yang_parent_name = "server-group"
@@ -2112,9 +2234,13 @@ class Radius(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_transaction_successess', 'acct_transaction_failure', 'acct_throttled_transactions', 'acct_max_throttle_trans', 'total_test_acct_reqs', 'total_test_acct_timeouts', 'total_test_acct_response', 'total_test_acct_pending'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting']['meta_info']
 
 
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Authentication data
                             
@@ -2335,7 +2461,10 @@ class Radius(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "server-group"
@@ -2397,9 +2526,13 @@ class Radius(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses', 'auth_throttled_transactions', 'auth_max_transactions', 'total_test_auth_reqs', 'total_test_auth_timeouts', 'total_test_auth_response', 'total_test_auth_pending'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication']['meta_info']
 
 
-                        class Authorization(Entity):
+                        class Authorization(_Entity_):
                             """
                             Authorization data
                             
@@ -2483,7 +2616,10 @@ class Radius(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, self).__init__()
 
                                 self.yang_name = "authorization"
                                 self.yang_parent_name = "server-group"
@@ -2515,12 +2651,28 @@ class Radius(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, ['author_requests', 'author_request_timeouts', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                            return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                        return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.ServerGroups']['meta_info']
 
 
-
-
-
-            class DynamicAuthorization(Entity):
+            class DynamicAuthorization(_Entity_):
                 """
                 Dynamic authorization data
                 
@@ -2568,7 +2720,10 @@ class Radius(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.DynamicAuthorization, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Radius.Nodes.Node.DynamicAuthorization, self).__init__()
 
                     self.yang_name = "dynamic-authorization"
                     self.yang_parent_name = "node"
@@ -2592,12 +2747,28 @@ class Radius(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, ['disconnected_invalid_requests', 'invalid_coa_requests', 'radius_context_not_found', 'client_context_not_found'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                    return meta._meta_table['Radius.Nodes.Node.DynamicAuthorization']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+                return meta._meta_table['Radius.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+            return meta._meta_table['Radius.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Radius()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
+        return meta._meta_table['Radius']['meta_info']
 
 

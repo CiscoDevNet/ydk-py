@@ -7,8 +7,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Fpdserv(Entity):
+class Fpdserv(_Entity_):
     """
     
     
@@ -36,7 +39,10 @@ class Fpdserv(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Fpdserv, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Fpdserv, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fpdserv"
@@ -55,7 +61,7 @@ class Fpdserv(Entity):
         self._perform_setattr(Fpdserv, [], name, value)
 
 
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -81,7 +87,10 @@ class Fpdserv(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Fpdserv.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fpdserv.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "fpdserv"
@@ -103,7 +112,7 @@ class Fpdserv(Entity):
             self._perform_setattr(Fpdserv.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -129,7 +138,10 @@ class Fpdserv(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Fpdserv.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fpdserv.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -150,7 +162,7 @@ class Fpdserv(Entity):
                 self._perform_setattr(Fpdserv.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -176,7 +188,10 @@ class Fpdserv(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Fpdserv.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fpdserv.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -197,7 +212,7 @@ class Fpdserv(Entity):
                     self._perform_setattr(Fpdserv.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -216,7 +231,10 @@ class Fpdserv(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Fpdserv.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fpdserv.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -234,13 +252,33 @@ class Fpdserv(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace as meta
+                        return meta._meta_table['Fpdserv.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace as meta
+                    return meta._meta_table['Fpdserv.Trace.Location.AllOptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace as meta
+                return meta._meta_table['Fpdserv.Trace.Location']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace as meta
+            return meta._meta_table['Fpdserv.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Fpdserv()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace as meta
+        return meta._meta_table['Fpdserv']['meta_info']
 
 

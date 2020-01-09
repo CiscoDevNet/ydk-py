@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ProcessesMemory(Entity):
+class ProcessesMemory(_Entity_):
     """
     Process statistics
     
@@ -40,7 +43,10 @@ class ProcessesMemory(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(ProcessesMemory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ProcessesMemory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "processes-memory"
@@ -61,7 +67,7 @@ class ProcessesMemory(Entity):
         self._perform_setattr(ProcessesMemory, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes
         
@@ -80,7 +86,10 @@ class ProcessesMemory(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(ProcessesMemory.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ProcessesMemory.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "processes-memory"
@@ -99,7 +108,7 @@ class ProcessesMemory(Entity):
             self._perform_setattr(ProcessesMemory.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node ID
             
@@ -127,7 +136,10 @@ class ProcessesMemory(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ProcessesMemory.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ProcessesMemory.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -151,7 +163,7 @@ class ProcessesMemory(Entity):
                 self._perform_setattr(ProcessesMemory.Nodes.Node, ['node_name'], name, value)
 
 
-            class ProcessIds(Entity):
+            class ProcessIds(_Entity_):
                 """
                 List of jobs
                 
@@ -170,7 +182,10 @@ class ProcessesMemory(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ProcessesMemory.Nodes.Node.ProcessIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ProcessesMemory.Nodes.Node.ProcessIds, self).__init__()
 
                     self.yang_name = "process-ids"
                     self.yang_parent_name = "node"
@@ -188,7 +203,7 @@ class ProcessesMemory(Entity):
                     self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds, [], name, value)
 
 
-                class ProcessId(Entity):
+                class ProcessId(_Entity_):
                     """
                     Process Id
                     
@@ -297,7 +312,10 @@ class ProcessesMemory(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, self).__init__()
 
                         self.yang_name = "process-id"
                         self.yang_parent_name = "process-ids"
@@ -335,13 +353,33 @@ class ProcessesMemory(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', 'name', 'jid', 'pid', 'text_seg_size', 'data_seg_size', 'stack_seg_size', 'malloc_size', 'dyn_limit', 'shared_mem', 'physical_mem'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_procmem_oper as meta
+                        return meta._meta_table['ProcessesMemory.Nodes.Node.ProcessIds.ProcessId']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_procmem_oper as meta
+                    return meta._meta_table['ProcessesMemory.Nodes.Node.ProcessIds']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_procmem_oper as meta
+                return meta._meta_table['ProcessesMemory.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_procmem_oper as meta
+            return meta._meta_table['ProcessesMemory.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ProcessesMemory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_procmem_oper as meta
+        return meta._meta_table['ProcessesMemory']['meta_info']
 
 

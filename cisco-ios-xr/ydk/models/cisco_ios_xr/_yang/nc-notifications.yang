@@ -1,59 +1,51 @@
 module nc-notifications {
-  namespace "urn:ietf:params:xml:ns:netmod:notification";
-  prefix manageEvent;
 
-  import ietf-yang-types {
-    prefix yang;
-  }
-  import notifications {
-    prefix ncEvent;
-  }
+  namespace "urn:ietf:params:xml:ns:netmod:notification";
+  prefix "manageEvent";
+
+  import ietf-yang-types{ prefix yang; }
+  import notifications { prefix ncEvent; }
 
   organization
     "IETF NETCONF WG";
+
   contact
     "netconf@ietf.org";
+
   description
     "Conversion of the 'manageEvent' XSD in the NETCONF
      Notifications RFC.";
 
   revision 2008-07-14 {
-    description
+    description 
       "Initial revision.";
-    reference "RFC 5277: NETCONF Event Notifications";
+    reference
+      "RFC 5277: NETCONF Event Notifications";
   }
 
-  notification replayComplete {
-    description
-      "This notification is sent to signal the end of a replay
-       portion of a subscription.";
-  }
-  notification notificationComplete {
-    description
-      "This notification is sent to signal the end of a notification
-       subscription. It is sent in the case that stopTime was
-       specified during the creation of the subscription.";
-  }
   container netconf {
     config false;
-    description
-      "Top-level element in the notification namespace";
+    description "Top-level element in the notification namespace";
+
     container streams {
-      description
+      description 
         "The list of event streams supported by the system. When
          a query is issued, the returned set of streams is 
          determined based on user privileges.";
+
       list stream {
-        key "name";
+        key name;
         min-elements 1;
-        description
+        description 
           "Stream name, description and other information.";
+
         leaf name {
           type ncEvent:streamNameType;
           description
             "The name of the event stream. If this is the default
              NETCONF stream, this must have the value 'NETCONF'.";
         }
+
         leaf description {
           type string;
           mandatory true;
@@ -62,6 +54,7 @@ module nc-notifications {
              information as the type of events that are sent over
              this stream.";
         }
+
         leaf replaySupport {
           type boolean;
           mandatory true;
@@ -70,6 +63,7 @@ module nc-notifications {
              information as the type of events that are sent over
              this stream.";
         }
+
         leaf replayLogCreationTime {
           type yang:date-and-time;
           description
@@ -82,5 +76,18 @@ module nc-notifications {
         }
       }
     }
+  }
+
+  notification replayComplete {
+    description
+      "This notification is sent to signal the end of a replay
+       portion of a subscription.";
+  }
+
+  notification notificationComplete {
+    description
+      "This notification is sent to signal the end of a notification
+       subscription. It is sent in the case that stopTime was
+       specified during the creation of the subscription.";
   }
 }

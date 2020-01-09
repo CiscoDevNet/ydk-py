@@ -612,6 +612,11 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         "Next Hop";
       uses L2RIB-NEXT-HOP;
     }
+    container backup-next-hop {
+      description
+        "Secondary Next Hop";
+      uses L2RIB-NEXT-HOP;
+    }
   }
 
   grouping MAC-ROUTE {
@@ -820,6 +825,11 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
     container next-hop {
       description
         "Next Hop";
+      uses L2RIB-NEXT-HOP;
+    }
+    container backup-next-hop {
+      description
+        "Secondary Next Hop";
       uses L2RIB-NEXT-HOP;
     }
     leaf mac-address {

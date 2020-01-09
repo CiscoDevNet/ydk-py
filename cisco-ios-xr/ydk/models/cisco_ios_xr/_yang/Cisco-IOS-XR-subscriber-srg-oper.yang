@@ -6,7 +6,7 @@ module Cisco-IOS-XR-subscriber-srg-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-subscriber-srg-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2019-10-03;
   }
 
   organization
@@ -34,6 +34,10 @@ module Cisco-IOS-XR-subscriber-srg-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-03 {
+    description
+      "added new bags and bag elements in srg-show bag.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

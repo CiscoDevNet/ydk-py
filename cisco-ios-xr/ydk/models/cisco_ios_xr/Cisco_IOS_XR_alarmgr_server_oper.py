@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -57,6 +60,12 @@ class AlarmClient(Enum):
     subscriber = Enum.YLeaf(8, "subscriber")
 
     client_last = Enum.YLeaf(16, "client-last")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmClient']
 
 
 class AlarmClientState(Enum):
@@ -110,6 +119,12 @@ class AlarmClientState(Enum):
     ready = Enum.YLeaf(6, "ready")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmClientState']
+
+
 class AlarmDirection(Enum):
     """
     AlarmDirection (Enum Class)
@@ -143,6 +158,12 @@ class AlarmDirection(Enum):
     send_receive = Enum.YLeaf(3, "send-receive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmDirection']
+
+
 class AlarmEvent(Enum):
     """
     AlarmEvent (Enum Class)
@@ -174,6 +195,12 @@ class AlarmEvent(Enum):
     condition = Enum.YLeaf(2, "condition")
 
     last = Enum.YLeaf(3, "last")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmEvent']
 
 
 class AlarmGroups(Enum):
@@ -299,6 +326,12 @@ class AlarmGroups(Enum):
     last = Enum.YLeaf(18, "last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmGroups']
+
+
 class AlarmNotificationSrc(Enum):
     """
     AlarmNotificationSrc (Enum Class)
@@ -324,6 +357,12 @@ class AlarmNotificationSrc(Enum):
     near_end = Enum.YLeaf(1, "near-end")
 
     far_end = Enum.YLeaf(2, "far-end")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmNotificationSrc']
 
 
 class AlarmServiceAffecting(Enum):
@@ -353,6 +392,12 @@ class AlarmServiceAffecting(Enum):
     not_service_affecting = Enum.YLeaf(1, "not-service-affecting")
 
     service_affecting = Enum.YLeaf(2, "service-affecting")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmServiceAffecting']
 
 
 class AlarmSeverity(Enum):
@@ -416,6 +461,12 @@ class AlarmSeverity(Enum):
     severity_last = Enum.YLeaf(6, "severity-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmSeverity']
+
+
 class AlarmStatus(Enum):
     """
     AlarmStatus (Enum Class)
@@ -461,6 +512,12 @@ class AlarmStatus(Enum):
     last = Enum.YLeaf(4, "last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['AlarmStatus']
+
+
 class TimingBucket(Enum):
     """
     TimingBucket (Enum Class)
@@ -488,8 +545,14 @@ class TimingBucket(Enum):
     one_day = Enum.YLeaf(2, "one-day")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['TimingBucket']
 
-class Alarms(Entity):
+
+
+class Alarms(_Entity_):
     """
     Show Alarms associated with XR
     
@@ -515,7 +578,10 @@ class Alarms(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Alarms, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Alarms, self).__init__()
         self._top_entity = None
 
         self.yang_name = "alarms"
@@ -540,7 +606,7 @@ class Alarms(Entity):
         self._perform_setattr(Alarms, [], name, value)
 
 
-    class Detail(Entity):
+    class Detail(_Entity_):
         """
         A set of detail alarm commands.
         
@@ -566,7 +632,10 @@ class Alarms(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Alarms.Detail, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Alarms.Detail, self).__init__()
 
             self.yang_name = "detail"
             self.yang_parent_name = "alarms"
@@ -591,7 +660,7 @@ class Alarms(Entity):
             self._perform_setattr(Alarms.Detail, [], name, value)
 
 
-        class DetailSystem(Entity):
+        class DetailSystem(_Entity_):
             """
             show detail system scope alarm related data.
             
@@ -645,7 +714,10 @@ class Alarms(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Alarms.Detail.DetailSystem, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Alarms.Detail.DetailSystem, self).__init__()
 
                 self.yang_name = "detail-system"
                 self.yang_parent_name = "detail"
@@ -686,7 +758,7 @@ class Alarms(Entity):
                 self._perform_setattr(Alarms.Detail.DetailSystem, [], name, value)
 
 
-            class Conditions(Entity):
+            class Conditions(_Entity_):
                 """
                 Show the Conditions present at this scope.
                 
@@ -705,7 +777,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.Conditions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.Conditions, self).__init__()
 
                     self.yang_name = "conditions"
                     self.yang_parent_name = "detail-system"
@@ -724,7 +799,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailSystem.Conditions, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -909,7 +984,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "conditions"
@@ -973,7 +1051,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Detail.DetailSystem.Conditions.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                    class Otn(Entity):
+                    class Otn(_Entity_):
                         """
                         OTN feature specific alarm attributes
                         
@@ -999,7 +1077,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Otn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Otn, self).__init__()
 
                             self.yang_name = "otn"
                             self.yang_parent_name = "alarm-info"
@@ -1020,9 +1101,13 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Otn']['meta_info']
 
 
-                    class Tca(Entity):
+                    class Tca(_Entity_):
                         """
                         TCA feature specific alarm attributes
                         
@@ -1059,7 +1144,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Tca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Tca, self).__init__()
 
                             self.yang_name = "tca"
                             self.yang_parent_name = "alarm-info"
@@ -1082,11 +1170,23 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.Conditions.AlarmInfo.Tca']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailSystem.Conditions.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.Conditions']['meta_info']
 
 
-
-
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 Show the active alarms at this scope.
                 
@@ -1105,7 +1205,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "detail-system"
@@ -1124,7 +1227,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailSystem.Active, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -1309,7 +1412,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailSystem.Active.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailSystem.Active.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "active"
@@ -1373,7 +1479,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Detail.DetailSystem.Active.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                    class Otn(Entity):
+                    class Otn(_Entity_):
                         """
                         OTN feature specific alarm attributes
                         
@@ -1399,7 +1505,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn, self).__init__()
 
                             self.yang_name = "otn"
                             self.yang_parent_name = "alarm-info"
@@ -1420,9 +1529,13 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn']['meta_info']
 
 
-                    class Tca(Entity):
+                    class Tca(_Entity_):
                         """
                         TCA feature specific alarm attributes
                         
@@ -1459,7 +1572,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca, self).__init__()
 
                             self.yang_name = "tca"
                             self.yang_parent_name = "alarm-info"
@@ -1482,11 +1598,23 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailSystem.Active.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.Active']['meta_info']
 
 
-
-
-            class History(Entity):
+            class History(_Entity_):
                 """
                 Show the history alarms at this scope.
                 
@@ -1505,7 +1633,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.History, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.History, self).__init__()
 
                     self.yang_name = "history"
                     self.yang_parent_name = "detail-system"
@@ -1524,7 +1655,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailSystem.History, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -1709,7 +1840,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailSystem.History.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailSystem.History.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "history"
@@ -1773,7 +1907,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Detail.DetailSystem.History.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                    class Otn(Entity):
+                    class Otn(_Entity_):
                         """
                         OTN feature specific alarm attributes
                         
@@ -1799,7 +1933,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.History.AlarmInfo.Otn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.History.AlarmInfo.Otn, self).__init__()
 
                             self.yang_name = "otn"
                             self.yang_parent_name = "alarm-info"
@@ -1820,9 +1957,13 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.History.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.History.AlarmInfo.Otn']['meta_info']
 
 
-                    class Tca(Entity):
+                    class Tca(_Entity_):
                         """
                         TCA feature specific alarm attributes
                         
@@ -1859,7 +2000,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.History.AlarmInfo.Tca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.History.AlarmInfo.Tca, self).__init__()
 
                             self.yang_name = "tca"
                             self.yang_parent_name = "alarm-info"
@@ -1882,11 +2026,23 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.History.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.History.AlarmInfo.Tca']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailSystem.History.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.History']['meta_info']
 
 
-
-
-            class Suppressed(Entity):
+            class Suppressed(_Entity_):
                 """
                 Show the suppressed alarms at this scope.
                 
@@ -1905,7 +2061,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.Suppressed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.Suppressed, self).__init__()
 
                     self.yang_name = "suppressed"
                     self.yang_parent_name = "detail-system"
@@ -1924,7 +2083,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailSystem.Suppressed, [], name, value)
 
 
-                class SuppressedInfo(Entity):
+                class SuppressedInfo(_Entity_):
                     """
                     Suppressed Alarm List
                     
@@ -2095,7 +2254,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo, self).__init__()
 
                         self.yang_name = "suppressed-info"
                         self.yang_parent_name = "suppressed"
@@ -2153,7 +2315,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'suppressed_time', 'suppressed_timestamp', 'service_affecting', 'interface', 'alarm_name'], name, value)
 
 
-                    class Otn(Entity):
+                    class Otn(_Entity_):
                         """
                         OTN feature specific alarm attributes
                         
@@ -2179,7 +2341,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn, self).__init__()
 
                             self.yang_name = "otn"
                             self.yang_parent_name = "suppressed-info"
@@ -2200,11 +2365,23 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.Suppressed']['meta_info']
 
 
-
-
-            class Stats(Entity):
+            class Stats(_Entity_):
                 """
                 Show the service statistics.
                 
@@ -2351,7 +2528,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.Stats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.Stats, self).__init__()
 
                     self.yang_name = "stats"
                     self.yang_parent_name = "detail-system"
@@ -2398,9 +2578,13 @@ class Alarms(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Alarms.Detail.DetailSystem.Stats, ['reported', 'dropped', 'active', 'history', 'suppressed', 'sysadmin_active', 'sysadmin_history', 'sysadmin_suppressed', 'dropped_invalid_aid', 'dropped_insuff_mem', 'dropped_db_error', 'dropped_clear_without_set', 'dropped_duplicate', 'cache_hit', 'cache_miss'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.Stats']['meta_info']
 
 
-            class Clients(Entity):
+            class Clients(_Entity_):
                 """
                 Show the clients associated with this service.
                 
@@ -2419,7 +2603,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailSystem.Clients, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailSystem.Clients, self).__init__()
 
                     self.yang_name = "clients"
                     self.yang_parent_name = "detail-system"
@@ -2438,7 +2625,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailSystem.Clients, [], name, value)
 
 
-                class ClientInfo(Entity):
+                class ClientInfo(_Entity_):
                     """
                     Client List
                     
@@ -2582,7 +2769,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailSystem.Clients.ClientInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailSystem.Clients.ClientInfo, self).__init__()
 
                         self.yang_name = "client-info"
                         self.yang_parent_name = "clients"
@@ -2631,11 +2821,23 @@ class Alarms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Detail.DetailSystem.Clients.ClientInfo, ['name', 'id', 'location', 'handle', 'state', 'type', 'filter_disp', 'subscriber_id', 'filter_severity', 'filter_state', 'filter_group', 'connect_count', 'connect_timestamp', 'get_count', 'subscribe_count', 'report_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailSystem.Clients.ClientInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailSystem.Clients']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                return meta._meta_table['Alarms.Detail.DetailSystem']['meta_info']
 
 
-
-
-        class DetailCard(Entity):
+        class DetailCard(_Entity_):
             """
             Show detail card scope alarm related data.
             
@@ -2654,7 +2856,10 @@ class Alarms(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Alarms.Detail.DetailCard, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Alarms.Detail.DetailCard, self).__init__()
 
                 self.yang_name = "detail-card"
                 self.yang_parent_name = "detail"
@@ -2675,7 +2880,7 @@ class Alarms(Entity):
                 self._perform_setattr(Alarms.Detail.DetailCard, [], name, value)
 
 
-            class DetailLocations(Entity):
+            class DetailLocations(_Entity_):
                 """
                 Table of DetailLocation
                 
@@ -2694,7 +2899,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Detail.DetailCard.DetailLocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Detail.DetailCard.DetailLocations, self).__init__()
 
                     self.yang_name = "detail-locations"
                     self.yang_parent_name = "detail-card"
@@ -2713,7 +2921,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations, [], name, value)
 
 
-                class DetailLocation(Entity):
+                class DetailLocation(_Entity_):
                     """
                     Specify a card location for alarms.
                     
@@ -2776,7 +2984,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation, self).__init__()
 
                         self.yang_name = "detail-location"
                         self.yang_parent_name = "detail-locations"
@@ -2820,7 +3031,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation, ['node_id'], name, value)
 
 
-                    class Conditions(Entity):
+                    class Conditions(_Entity_):
                         """
                         Show the conditions present at this scope.
                         
@@ -2839,7 +3050,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions, self).__init__()
 
                             self.yang_name = "conditions"
                             self.yang_parent_name = "detail-location"
@@ -2857,7 +3071,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -3042,7 +3256,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "conditions"
@@ -3105,7 +3322,7 @@ class Alarms(Entity):
                                 self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                            class Otn(Entity):
+                            class Otn(_Entity_):
                                 """
                                 OTN feature specific alarm attributes
                                 
@@ -3131,7 +3348,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Otn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Otn, self).__init__()
 
                                     self.yang_name = "otn"
                                     self.yang_parent_name = "alarm-info"
@@ -3151,9 +3371,13 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Otn']['meta_info']
 
 
-                            class Tca(Entity):
+                            class Tca(_Entity_):
                                 """
                                 TCA feature specific alarm attributes
                                 
@@ -3190,7 +3414,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Tca, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Tca, self).__init__()
 
                                     self.yang_name = "tca"
                                     self.yang_parent_name = "alarm-info"
@@ -3212,11 +3439,23 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo.Tca']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Conditions']['meta_info']
 
 
-
-
-                    class Active(Entity):
+                    class Active(_Entity_):
                         """
                         Show the active alarms at this scope.
                         
@@ -3235,7 +3474,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active, self).__init__()
 
                             self.yang_name = "active"
                             self.yang_parent_name = "detail-location"
@@ -3253,7 +3495,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -3438,7 +3680,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "active"
@@ -3501,7 +3746,7 @@ class Alarms(Entity):
                                 self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                            class Otn(Entity):
+                            class Otn(_Entity_):
                                 """
                                 OTN feature specific alarm attributes
                                 
@@ -3527,7 +3772,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn, self).__init__()
 
                                     self.yang_name = "otn"
                                     self.yang_parent_name = "alarm-info"
@@ -3547,9 +3795,13 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn']['meta_info']
 
 
-                            class Tca(Entity):
+                            class Tca(_Entity_):
                                 """
                                 TCA feature specific alarm attributes
                                 
@@ -3586,7 +3838,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca, self).__init__()
 
                                     self.yang_name = "tca"
                                     self.yang_parent_name = "alarm-info"
@@ -3608,11 +3863,23 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active']['meta_info']
 
 
-
-
-                    class History(Entity):
+                    class History(_Entity_):
                         """
                         Show the history alarms at this scope.
                         
@@ -3631,7 +3898,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History, self).__init__()
 
                             self.yang_name = "history"
                             self.yang_parent_name = "detail-location"
@@ -3649,7 +3919,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -3834,7 +4104,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "history"
@@ -3897,7 +4170,7 @@ class Alarms(Entity):
                                 self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'service_affecting', 'type', 'interface', 'alarm_name'], name, value)
 
 
-                            class Otn(Entity):
+                            class Otn(_Entity_):
                                 """
                                 OTN feature specific alarm attributes
                                 
@@ -3923,7 +4196,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn, self).__init__()
 
                                     self.yang_name = "otn"
                                     self.yang_parent_name = "alarm-info"
@@ -3943,9 +4219,13 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn']['meta_info']
 
 
-                            class Tca(Entity):
+                            class Tca(_Entity_):
                                 """
                                 TCA feature specific alarm attributes
                                 
@@ -3982,7 +4262,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca, self).__init__()
 
                                     self.yang_name = "tca"
                                     self.yang_parent_name = "alarm-info"
@@ -4004,11 +4287,23 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca, ['threshold_value', 'current_value', 'bucket_type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History']['meta_info']
 
 
-
-
-                    class Suppressed(Entity):
+                    class Suppressed(_Entity_):
                         """
                         Show the suppressed alarms at this scope.
                         
@@ -4027,7 +4322,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed, self).__init__()
 
                             self.yang_name = "suppressed"
                             self.yang_parent_name = "detail-location"
@@ -4045,7 +4343,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed, [], name, value)
 
 
-                        class SuppressedInfo(Entity):
+                        class SuppressedInfo(_Entity_):
                             """
                             Suppressed Alarm List
                             
@@ -4216,7 +4514,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo, self).__init__()
 
                                 self.yang_name = "suppressed-info"
                                 self.yang_parent_name = "suppressed"
@@ -4273,7 +4574,7 @@ class Alarms(Entity):
                                 self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo, ['description', 'location', 'aid', 'tag', 'module', 'eid', 'reporting_agent_id', 'pending_sync', 'severity', 'status', 'group', 'set_time', 'set_timestamp', 'suppressed_time', 'suppressed_timestamp', 'service_affecting', 'interface', 'alarm_name'], name, value)
 
 
-                            class Otn(Entity):
+                            class Otn(_Entity_):
                                 """
                                 OTN feature specific alarm attributes
                                 
@@ -4299,7 +4600,10 @@ class Alarms(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn, self).__init__()
 
                                     self.yang_name = "otn"
                                     self.yang_parent_name = "suppressed-info"
@@ -4319,11 +4623,23 @@ class Alarms(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn, ['direction', 'notification_source'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed']['meta_info']
 
 
-
-
-                    class Stats(Entity):
+                    class Stats(_Entity_):
                         """
                         Show the service statistics.
                         
@@ -4470,7 +4786,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats, self).__init__()
 
                             self.yang_name = "stats"
                             self.yang_parent_name = "detail-location"
@@ -4516,9 +4835,13 @@ class Alarms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats, ['reported', 'dropped', 'active', 'history', 'suppressed', 'sysadmin_active', 'sysadmin_history', 'sysadmin_suppressed', 'dropped_invalid_aid', 'dropped_insuff_mem', 'dropped_db_error', 'dropped_clear_without_set', 'dropped_duplicate', 'cache_hit', 'cache_miss'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats']['meta_info']
 
 
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         Show the clients associated with this
                         service.
@@ -4538,7 +4861,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "detail-location"
@@ -4556,7 +4882,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients, [], name, value)
 
 
-                        class ClientInfo(Entity):
+                        class ClientInfo(_Entity_):
                             """
                             Client List
                             
@@ -4700,7 +5026,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo, self).__init__()
 
                                 self.yang_name = "client-info"
                                 self.yang_parent_name = "clients"
@@ -4748,14 +5077,38 @@ class Alarms(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo, ['name', 'id', 'location', 'handle', 'state', 'type', 'filter_disp', 'subscriber_id', 'filter_severity', 'filter_state', 'filter_group', 'connect_count', 'connect_timestamp', 'get_count', 'subscribe_count', 'report_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations.DetailLocation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Detail.DetailCard.DetailLocations']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                return meta._meta_table['Alarms.Detail.DetailCard']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+            return meta._meta_table['Alarms.Detail']['meta_info']
 
 
-
-
-
-
-
-    class Brief(Entity):
+    class Brief(_Entity_):
         """
         A set of brief alarm commands.
         
@@ -4781,7 +5134,10 @@ class Alarms(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Alarms.Brief, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Alarms.Brief, self).__init__()
 
             self.yang_name = "brief"
             self.yang_parent_name = "alarms"
@@ -4806,7 +5162,7 @@ class Alarms(Entity):
             self._perform_setattr(Alarms.Brief, [], name, value)
 
 
-        class BriefCard(Entity):
+        class BriefCard(_Entity_):
             """
             Show brief card scope alarm related data.
             
@@ -4825,7 +5181,10 @@ class Alarms(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Alarms.Brief.BriefCard, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Alarms.Brief.BriefCard, self).__init__()
 
                 self.yang_name = "brief-card"
                 self.yang_parent_name = "brief"
@@ -4846,7 +5205,7 @@ class Alarms(Entity):
                 self._perform_setattr(Alarms.Brief.BriefCard, [], name, value)
 
 
-            class BriefLocations(Entity):
+            class BriefLocations(_Entity_):
                 """
                 Table of BriefLocation
                 
@@ -4865,7 +5224,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Brief.BriefCard.BriefLocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Brief.BriefCard.BriefLocations, self).__init__()
 
                     self.yang_name = "brief-locations"
                     self.yang_parent_name = "brief-card"
@@ -4884,7 +5246,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations, [], name, value)
 
 
-                class BriefLocation(Entity):
+                class BriefLocation(_Entity_):
                     """
                     Specify a card location for alarms.
                     
@@ -4933,7 +5295,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation, self).__init__()
 
                         self.yang_name = "brief-location"
                         self.yang_parent_name = "brief-locations"
@@ -4969,7 +5334,7 @@ class Alarms(Entity):
                         self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation, ['node_id'], name, value)
 
 
-                    class Conditions(Entity):
+                    class Conditions(_Entity_):
                         """
                         Show the conditions present at this scope.
                         
@@ -4988,7 +5353,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions, self).__init__()
 
                             self.yang_name = "conditions"
                             self.yang_parent_name = "brief-location"
@@ -5006,7 +5374,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -5086,7 +5454,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "conditions"
@@ -5118,10 +5489,18 @@ class Alarms(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Conditions']['meta_info']
 
 
-
-                    class Active(Entity):
+                    class Active(_Entity_):
                         """
                         Show the active alarms at this scope.
                         
@@ -5140,7 +5519,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active, self).__init__()
 
                             self.yang_name = "active"
                             self.yang_parent_name = "brief-location"
@@ -5158,7 +5540,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -5238,7 +5620,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "active"
@@ -5270,10 +5655,18 @@ class Alarms(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active']['meta_info']
 
 
-
-                    class History(Entity):
+                    class History(_Entity_):
                         """
                         Show the history alarms at this scope.
                         
@@ -5292,7 +5685,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History, self).__init__()
 
                             self.yang_name = "history"
                             self.yang_parent_name = "brief-location"
@@ -5310,7 +5706,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History, [], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             Alarm List
                             
@@ -5390,7 +5786,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "history"
@@ -5422,10 +5821,18 @@ class Alarms(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History']['meta_info']
 
 
-
-                    class Suppressed(Entity):
+                    class Suppressed(_Entity_):
                         """
                         Show the suppressed alarms at this scope.
                         
@@ -5444,7 +5851,10 @@ class Alarms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed, self).__init__()
 
                             self.yang_name = "suppressed"
                             self.yang_parent_name = "brief-location"
@@ -5462,7 +5872,7 @@ class Alarms(Entity):
                             self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed, [], name, value)
 
 
-                        class SuppressedInfo(Entity):
+                        class SuppressedInfo(_Entity_):
                             """
                             Suppressed Alarm List
                             
@@ -5542,7 +5952,10 @@ class Alarms(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo, self).__init__()
 
                                 self.yang_name = "suppressed-info"
                                 self.yang_parent_name = "suppressed"
@@ -5574,13 +5987,33 @@ class Alarms(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'suppressed_time', 'suppressed_timestamp', 'description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                                return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                            return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations.BriefLocation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Brief.BriefCard.BriefLocations']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                return meta._meta_table['Alarms.Brief.BriefCard']['meta_info']
 
 
-
-
-
-
-        class BriefSystem(Entity):
+        class BriefSystem(_Entity_):
             """
             Show brief system scope alarm related data.
             
@@ -5620,7 +6053,10 @@ class Alarms(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Alarms.Brief.BriefSystem, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Alarms.Brief.BriefSystem, self).__init__()
 
                 self.yang_name = "brief-system"
                 self.yang_parent_name = "brief"
@@ -5653,7 +6089,7 @@ class Alarms(Entity):
                 self._perform_setattr(Alarms.Brief.BriefSystem, [], name, value)
 
 
-            class Conditions(Entity):
+            class Conditions(_Entity_):
                 """
                 Show the conditions present at this scope.
                 
@@ -5672,7 +6108,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Brief.BriefSystem.Conditions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Brief.BriefSystem.Conditions, self).__init__()
 
                     self.yang_name = "conditions"
                     self.yang_parent_name = "brief-system"
@@ -5691,7 +6130,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Brief.BriefSystem.Conditions, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -5771,7 +6210,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Brief.BriefSystem.Conditions.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Brief.BriefSystem.Conditions.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "conditions"
@@ -5804,10 +6246,18 @@ class Alarms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Brief.BriefSystem.Conditions.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Brief.BriefSystem.Conditions.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Brief.BriefSystem.Conditions']['meta_info']
 
 
-
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 Show the active alarms at this scope.
                 
@@ -5826,7 +6276,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Brief.BriefSystem.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Brief.BriefSystem.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "brief-system"
@@ -5845,7 +6298,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Brief.BriefSystem.Active, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -5925,7 +6378,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Brief.BriefSystem.Active.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Brief.BriefSystem.Active.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "active"
@@ -5958,10 +6414,18 @@ class Alarms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Brief.BriefSystem.Active.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Brief.BriefSystem.Active.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Brief.BriefSystem.Active']['meta_info']
 
 
-
-            class History(Entity):
+            class History(_Entity_):
                 """
                 Show the history alarms at this scope.
                 
@@ -5980,7 +6444,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Brief.BriefSystem.History, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Brief.BriefSystem.History, self).__init__()
 
                     self.yang_name = "history"
                     self.yang_parent_name = "brief-system"
@@ -5999,7 +6466,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Brief.BriefSystem.History, [], name, value)
 
 
-                class AlarmInfo(Entity):
+                class AlarmInfo(_Entity_):
                     """
                     Alarm List
                     
@@ -6079,7 +6546,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Brief.BriefSystem.History.AlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Brief.BriefSystem.History.AlarmInfo, self).__init__()
 
                         self.yang_name = "alarm-info"
                         self.yang_parent_name = "history"
@@ -6112,10 +6582,18 @@ class Alarms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Brief.BriefSystem.History.AlarmInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'clear_time', 'clear_timestamp', 'description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Brief.BriefSystem.History.AlarmInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Brief.BriefSystem.History']['meta_info']
 
 
-
-            class Suppressed(Entity):
+            class Suppressed(_Entity_):
                 """
                 Show the suppressed alarms at this scope.
                 
@@ -6134,7 +6612,10 @@ class Alarms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Alarms.Brief.BriefSystem.Suppressed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Alarms.Brief.BriefSystem.Suppressed, self).__init__()
 
                     self.yang_name = "suppressed"
                     self.yang_parent_name = "brief-system"
@@ -6153,7 +6634,7 @@ class Alarms(Entity):
                     self._perform_setattr(Alarms.Brief.BriefSystem.Suppressed, [], name, value)
 
 
-                class SuppressedInfo(Entity):
+                class SuppressedInfo(_Entity_):
                     """
                     Suppressed Alarm List
                     
@@ -6233,7 +6714,10 @@ class Alarms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo, self).__init__()
 
                         self.yang_name = "suppressed-info"
                         self.yang_parent_name = "suppressed"
@@ -6266,13 +6750,33 @@ class Alarms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo, ['location', 'severity', 'group', 'set_time', 'set_timestamp', 'suppressed_time', 'suppressed_timestamp', 'description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                        return meta._meta_table['Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                    return meta._meta_table['Alarms.Brief.BriefSystem.Suppressed']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+                return meta._meta_table['Alarms.Brief.BriefSystem']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+            return meta._meta_table['Alarms.Brief']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Alarms()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_alarmgr_server_oper as meta
+        return meta._meta_table['Alarms']['meta_info']
 
 

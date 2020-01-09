@@ -7,8 +7,11 @@ Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Traceroute(Entity):
+class Traceroute(_Entity_):
     """
     Trace route to destination
     
@@ -39,7 +42,10 @@ class Traceroute(Entity):
     _revision = '2018-10-01'
 
     def __init__(self):
-        super(Traceroute, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Traceroute, self).__init__()
         self._top_entity = None
 
         self.yang_name = "traceroute"
@@ -61,7 +67,7 @@ class Traceroute(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -94,7 +100,10 @@ class Traceroute(Entity):
         _revision = '2018-10-01'
 
         def __init__(self):
-            super(Traceroute.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Traceroute.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "traceroute"
@@ -120,7 +129,7 @@ class Traceroute(Entity):
             self._perform_setattr(Traceroute.Input, [], name, value)
 
 
-        class Destination(Entity):
+        class Destination(_Entity_):
             """
             
             
@@ -221,7 +230,10 @@ class Traceroute(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Traceroute.Input.Destination, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Traceroute.Input.Destination, self).__init__()
 
                 self.yang_name = "destination"
                 self.yang_parent_name = "input"
@@ -265,9 +277,13 @@ class Traceroute(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header', 'priority', 'outgoing_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                return meta._meta_table['Traceroute.Input.Destination']['meta_info']
 
 
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             
             
@@ -356,7 +372,10 @@ class Traceroute(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Traceroute.Input.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Traceroute.Input.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "input"
@@ -396,9 +415,13 @@ class Traceroute(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                return meta._meta_table['Traceroute.Input.Ipv4']['meta_info']
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             
             
@@ -499,7 +522,10 @@ class Traceroute(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Traceroute.Input.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Traceroute.Input.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "input"
@@ -543,10 +569,18 @@ class Traceroute(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'srv6_header', 'priority', 'outgoing_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                return meta._meta_table['Traceroute.Input.Ipv6']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+            return meta._meta_table['Traceroute.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -563,7 +597,10 @@ class Traceroute(Entity):
         _revision = '2018-10-01'
 
         def __init__(self):
-            super(Traceroute.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Traceroute.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "traceroute"
@@ -584,7 +621,7 @@ class Traceroute(Entity):
             self._perform_setattr(Traceroute.Output, [], name, value)
 
 
-        class TracerouteResponse(Entity):
+        class TracerouteResponse(_Entity_):
             """
             
             
@@ -610,7 +647,10 @@ class Traceroute(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Traceroute.Output.TracerouteResponse, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Traceroute.Output.TracerouteResponse, self).__init__()
 
                 self.yang_name = "traceroute-response"
                 self.yang_parent_name = "output"
@@ -633,7 +673,7 @@ class Traceroute(Entity):
                 self._perform_setattr(Traceroute.Output.TracerouteResponse, [], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 
                 
@@ -662,7 +702,10 @@ class Traceroute(Entity):
                 _revision = '2018-10-01'
 
                 def __init__(self):
-                    super(Traceroute.Output.TracerouteResponse.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Traceroute.Output.TracerouteResponse.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "traceroute-response"
@@ -689,7 +732,7 @@ class Traceroute(Entity):
                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4, ['destination', 'verbose_output'], name, value)
 
 
-                class Hops(Entity):
+                class Hops(_Entity_):
                     """
                     
                     
@@ -706,7 +749,10 @@ class Traceroute(Entity):
                     _revision = '2018-10-01'
 
                     def __init__(self):
-                        super(Traceroute.Output.TracerouteResponse.Ipv4.Hops, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Traceroute.Output.TracerouteResponse.Ipv4.Hops, self).__init__()
 
                         self.yang_name = "hops"
                         self.yang_parent_name = "ipv4"
@@ -725,7 +771,7 @@ class Traceroute(Entity):
                         self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops, [], name, value)
 
 
-                    class Hop(Entity):
+                    class Hop(_Entity_):
                         """
                         
                         
@@ -759,7 +805,10 @@ class Traceroute(Entity):
                         _revision = '2018-10-01'
 
                         def __init__(self):
-                            super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, self).__init__()
 
                             self.yang_name = "hop"
                             self.yang_parent_name = "hops"
@@ -787,7 +836,7 @@ class Traceroute(Entity):
                             self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
-                        class Probes(Entity):
+                        class Probes(_Entity_):
                             """
                             
                             
@@ -804,7 +853,10 @@ class Traceroute(Entity):
                             _revision = '2018-10-01'
 
                             def __init__(self):
-                                super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes, self).__init__()
 
                                 self.yang_name = "probes"
                                 self.yang_parent_name = "hop"
@@ -822,7 +874,7 @@ class Traceroute(Entity):
                                 self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes, [], name, value)
 
 
-                            class Probe(Entity):
+                            class Probe(_Entity_):
                                 """
                                 
                                 
@@ -868,7 +920,10 @@ class Traceroute(Entity):
                                 _revision = '2018-10-01'
 
                                 def __init__(self):
-                                    super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, self).__init__()
 
                                     self.yang_name = "probe"
                                     self.yang_parent_name = "probes"
@@ -899,7 +954,7 @@ class Traceroute(Entity):
                                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
 
-                                class Srv6Header(Entity):
+                                class Srv6Header(_Entity_):
                                     """
                                     
                                     
@@ -930,7 +985,10 @@ class Traceroute(Entity):
                                     _revision = '2018-10-01'
 
                                     def __init__(self):
-                                        super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
 
                                         self.yang_name = "srv6-header"
                                         self.yang_parent_name = "probe"
@@ -955,7 +1013,7 @@ class Traceroute(Entity):
                                         self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header, ['destination_address', 'segments_left'], name, value)
 
 
-                                    class Segments(Entity):
+                                    class Segments(_Entity_):
                                         """
                                         
                                         
@@ -972,7 +1030,10 @@ class Traceroute(Entity):
                                         _revision = '2018-10-01'
 
                                         def __init__(self):
-                                            super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
 
                                             self.yang_name = "segments"
                                             self.yang_parent_name = "srv6-header"
@@ -990,15 +1051,43 @@ class Traceroute(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments, ['segment'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                            return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header.Segments']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                        return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe.Srv6Header']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                    return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                            return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                        return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4.Hops']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                    return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv4']['meta_info']
 
 
-
-
-
-
-
-
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 
                 
@@ -1027,7 +1116,10 @@ class Traceroute(Entity):
                 _revision = '2018-10-01'
 
                 def __init__(self):
-                    super(Traceroute.Output.TracerouteResponse.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Traceroute.Output.TracerouteResponse.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "traceroute-response"
@@ -1054,7 +1146,7 @@ class Traceroute(Entity):
                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6, ['destination', 'verbose_output'], name, value)
 
 
-                class Hops(Entity):
+                class Hops(_Entity_):
                     """
                     
                     
@@ -1071,7 +1163,10 @@ class Traceroute(Entity):
                     _revision = '2018-10-01'
 
                     def __init__(self):
-                        super(Traceroute.Output.TracerouteResponse.Ipv6.Hops, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Traceroute.Output.TracerouteResponse.Ipv6.Hops, self).__init__()
 
                         self.yang_name = "hops"
                         self.yang_parent_name = "ipv6"
@@ -1090,7 +1185,7 @@ class Traceroute(Entity):
                         self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops, [], name, value)
 
 
-                    class Hop(Entity):
+                    class Hop(_Entity_):
                         """
                         
                         
@@ -1124,7 +1219,10 @@ class Traceroute(Entity):
                         _revision = '2018-10-01'
 
                         def __init__(self):
-                            super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, self).__init__()
 
                             self.yang_name = "hop"
                             self.yang_parent_name = "hops"
@@ -1152,7 +1250,7 @@ class Traceroute(Entity):
                             self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop, ['hop_index', 'hop_address', 'hop_hostname'], name, value)
 
 
-                        class Probes(Entity):
+                        class Probes(_Entity_):
                             """
                             
                             
@@ -1169,7 +1267,10 @@ class Traceroute(Entity):
                             _revision = '2018-10-01'
 
                             def __init__(self):
-                                super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes, self).__init__()
 
                                 self.yang_name = "probes"
                                 self.yang_parent_name = "hop"
@@ -1187,7 +1288,7 @@ class Traceroute(Entity):
                                 self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes, [], name, value)
 
 
-                            class Probe(Entity):
+                            class Probe(_Entity_):
                                 """
                                 
                                 
@@ -1233,7 +1334,10 @@ class Traceroute(Entity):
                                 _revision = '2018-10-01'
 
                                 def __init__(self):
-                                    super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, self).__init__()
 
                                     self.yang_name = "probe"
                                     self.yang_parent_name = "probes"
@@ -1264,7 +1368,7 @@ class Traceroute(Entity):
                                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
 
-                                class Srv6Header(Entity):
+                                class Srv6Header(_Entity_):
                                     """
                                     
                                     
@@ -1295,7 +1399,10 @@ class Traceroute(Entity):
                                     _revision = '2018-10-01'
 
                                     def __init__(self):
-                                        super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header, self).__init__()
 
                                         self.yang_name = "srv6-header"
                                         self.yang_parent_name = "probe"
@@ -1320,7 +1427,7 @@ class Traceroute(Entity):
                                         self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header, ['destination_address', 'segments_left'], name, value)
 
 
-                                    class Segments(Entity):
+                                    class Segments(_Entity_):
                                         """
                                         
                                         
@@ -1337,7 +1444,10 @@ class Traceroute(Entity):
                                         _revision = '2018-10-01'
 
                                         def __init__(self):
-                                            super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments, self).__init__()
 
                                             self.yang_name = "segments"
                                             self.yang_parent_name = "srv6-header"
@@ -1355,18 +1465,58 @@ class Traceroute(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments, ['segment'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                            return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header.Segments']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                        return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe.Srv6Header']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                    return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                                return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                            return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                        return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6.Hops']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                    return meta._meta_table['Traceroute.Output.TracerouteResponse.Ipv6']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+                return meta._meta_table['Traceroute.Output.TracerouteResponse']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+            return meta._meta_table['Traceroute.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Traceroute()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traceroute_act as meta
+        return meta._meta_table['Traceroute']['meta_info']
 
 

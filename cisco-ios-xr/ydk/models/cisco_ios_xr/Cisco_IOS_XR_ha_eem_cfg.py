@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class EventManagerChecksum(Enum):
     md5 = Enum.YLeaf(2, "md5")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerChecksum']
+
+
 class EventManagerPolicy(Enum):
     """
     EventManagerPolicy (Enum Class)
@@ -60,6 +69,12 @@ class EventManagerPolicy(Enum):
     system = Enum.YLeaf(0, "system")
 
     user = Enum.YLeaf(1, "user")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerPolicy']
 
 
 class EventManagerPolicyMode(Enum):
@@ -83,6 +98,12 @@ class EventManagerPolicyMode(Enum):
     trust = Enum.YLeaf(2, "trust")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerPolicyMode']
+
+
 class EventManagerPolicySec(Enum):
     """
     EventManagerPolicySec (Enum Class)
@@ -104,8 +125,14 @@ class EventManagerPolicySec(Enum):
     trust = Enum.YLeaf(3, "trust")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerPolicySec']
 
-class EventManager(Entity):
+
+
+class EventManager(_Entity_):
     """
     Event manager configuration
     
@@ -158,7 +185,10 @@ class EventManager(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(EventManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EventManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "event-manager"
@@ -196,7 +226,7 @@ class EventManager(Entity):
         self._perform_setattr(EventManager, ['refresh_time', 'schedule_suspend', 'directory_user_policy', 'directory_user_library'], name, value)
 
 
-    class Policies(Entity):
+    class Policies(_Entity_):
         """
         Register an event manager policy
         
@@ -213,7 +243,10 @@ class EventManager(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(EventManager.Policies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EventManager.Policies, self).__init__()
 
             self.yang_name = "policies"
             self.yang_parent_name = "event-manager"
@@ -232,7 +265,7 @@ class EventManager(Entity):
             self._perform_setattr(EventManager.Policies, [], name, value)
 
 
-        class Policy(Entity):
+        class Policy(_Entity_):
             """
             Name of the policy file
             
@@ -294,7 +327,10 @@ class EventManager(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(EventManager.Policies.Policy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EventManager.Policies.Policy, self).__init__()
 
                 self.yang_name = "policy"
                 self.yang_parent_name = "policies"
@@ -327,10 +363,18 @@ class EventManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.Policies.Policy, ['policy_name', 'username', 'persist_time', 'policy_type', 'checksum_type', 'check_sum_value', 'policy_security_mode', 'policy_security_level'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+                return meta._meta_table['EventManager.Policies.Policy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+            return meta._meta_table['EventManager.Policies']['meta_info']
 
 
-
-    class SchedulerScript(Entity):
+    class SchedulerScript(_Entity_):
         """
         scheduler classs type
         
@@ -347,7 +391,10 @@ class EventManager(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(EventManager.SchedulerScript, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EventManager.SchedulerScript, self).__init__()
 
             self.yang_name = "scheduler-script"
             self.yang_parent_name = "event-manager"
@@ -368,7 +415,7 @@ class EventManager(Entity):
             self._perform_setattr(EventManager.SchedulerScript, [], name, value)
 
 
-        class ThreadClasses(Entity):
+        class ThreadClasses(_Entity_):
             """
             scheduler thread classs 
             
@@ -385,7 +432,10 @@ class EventManager(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(EventManager.SchedulerScript.ThreadClasses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EventManager.SchedulerScript.ThreadClasses, self).__init__()
 
                 self.yang_name = "thread-classes"
                 self.yang_parent_name = "scheduler-script"
@@ -404,7 +454,7 @@ class EventManager(Entity):
                 self._perform_setattr(EventManager.SchedulerScript.ThreadClasses, [], name, value)
 
 
-            class ThreadClass(Entity):
+            class ThreadClass(_Entity_):
                 """
                 scheduler classs type argument
                 
@@ -432,7 +482,10 @@ class EventManager(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(EventManager.SchedulerScript.ThreadClasses.ThreadClass, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EventManager.SchedulerScript.ThreadClasses.ThreadClass, self).__init__()
 
                     self.yang_name = "thread-class"
                     self.yang_parent_name = "thread-classes"
@@ -453,11 +506,23 @@ class EventManager(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EventManager.SchedulerScript.ThreadClasses.ThreadClass, ['thread_class_name', 'num_threads'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+                    return meta._meta_table['EventManager.SchedulerScript.ThreadClasses.ThreadClass']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+                return meta._meta_table['EventManager.SchedulerScript.ThreadClasses']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+            return meta._meta_table['EventManager.SchedulerScript']['meta_info']
 
 
-
-
-    class Environments(Entity):
+    class Environments(_Entity_):
         """
         Set an event manager global variable for event
         manager policies
@@ -475,7 +540,10 @@ class EventManager(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(EventManager.Environments, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EventManager.Environments, self).__init__()
 
             self.yang_name = "environments"
             self.yang_parent_name = "event-manager"
@@ -494,7 +562,7 @@ class EventManager(Entity):
             self._perform_setattr(EventManager.Environments, [], name, value)
 
 
-        class Environment(Entity):
+        class Environment(_Entity_):
             """
             Name of the global variable
             
@@ -520,7 +588,10 @@ class EventManager(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(EventManager.Environments.Environment, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EventManager.Environments.Environment, self).__init__()
 
                 self.yang_name = "environment"
                 self.yang_parent_name = "environments"
@@ -541,11 +612,23 @@ class EventManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.Environments.Environment, ['environment_name', 'environment_value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+                return meta._meta_table['EventManager.Environments.Environment']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+            return meta._meta_table['EventManager.Environments']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EventManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManager']['meta_info']
 
 

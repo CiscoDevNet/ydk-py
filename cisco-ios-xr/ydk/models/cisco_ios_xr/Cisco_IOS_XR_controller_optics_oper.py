@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -233,6 +236,12 @@ class EthernetPmd(Enum):
     optics_eth_undefined = Enum.YLeaf(33, "optics-eth-undefined")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['EthernetPmd']
+
+
 class FiberConnector(Enum):
     """
     FiberConnector (Enum Class)
@@ -272,6 +281,12 @@ class FiberConnector(Enum):
     optics_undefined_connect_or = Enum.YLeaf(4, "optics-undefined-connect-or")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['FiberConnector']
+
+
 class Optics(Enum):
     """
     Optics (Enum Class)
@@ -305,6 +320,12 @@ class Optics(Enum):
     optics_cwdm = Enum.YLeaf(3, "optics-cwdm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['Optics']
+
+
 class OpticsAinsStateEt(Enum):
     """
     OpticsAinsStateEt (Enum Class)
@@ -332,6 +353,12 @@ class OpticsAinsStateEt(Enum):
     active_pending = Enum.YLeaf(2, "active-pending")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsAinsStateEt']
+
+
 class OpticsAmplifierControlMode(Enum):
     """
     OpticsAmplifierControlMode (Enum Class)
@@ -351,6 +378,12 @@ class OpticsAmplifierControlMode(Enum):
     automatic = Enum.YLeaf(1, "automatic")
 
     manual = Enum.YLeaf(2, "manual")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsAmplifierControlMode']
 
 
 class OpticsAmplifierGainRange(Enum):
@@ -380,6 +413,12 @@ class OpticsAmplifierGainRange(Enum):
     optics_amplifier_gain_range_ext_end_ed = Enum.YLeaf(2, "optics-amplifier-gain-range-ext-end-ed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsAmplifierGainRange']
+
+
 class OpticsAmplifierSafetyControlMode(Enum):
     """
     OpticsAmplifierSafetyControlMode (Enum Class)
@@ -407,6 +446,12 @@ class OpticsAmplifierSafetyControlMode(Enum):
     optics_amplifier_safety_mode_disabled = Enum.YLeaf(2, "optics-amplifier-safety-mode-disabled")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsAmplifierSafetyControlMode']
+
+
 class OpticsControllerState(Enum):
     """
     OpticsControllerState (Enum Class)
@@ -432,6 +477,12 @@ class OpticsControllerState(Enum):
     optics_state_down = Enum.YLeaf(1, "optics-state-down")
 
     optics_state_admin_down = Enum.YLeaf(2, "optics-state-admin-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsControllerState']
 
 
 class OpticsFec(Enum):
@@ -489,6 +540,12 @@ class OpticsFec(Enum):
     fec_not_set = Enum.YLeaf(32, "fec-not-set")
 
     fec_cl91 = Enum.YLeaf(64, "fec-cl91")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsFec']
 
 
 class OpticsFormFactor(Enum):
@@ -573,6 +630,10 @@ class OpticsFormFactor(Enum):
 
     	Other
 
+    .. data:: sfp28 = 19
+
+    	SFP28
+
     """
 
     not_set = Enum.YLeaf(0, "not-set")
@@ -612,6 +673,14 @@ class OpticsFormFactor(Enum):
     non_pluggable = Enum.YLeaf(17, "non-pluggable")
 
     other = Enum.YLeaf(18, "other")
+
+    sfp28 = Enum.YLeaf(19, "sfp28")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsFormFactor']
 
 
 class OpticsLaserState(Enum):
@@ -653,6 +722,12 @@ class OpticsLaserState(Enum):
     na = Enum.YLeaf(4, "na")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsLaserState']
+
+
 class OpticsLedState(Enum):
     """
     OpticsLedState (Enum Class)
@@ -687,6 +762,10 @@ class OpticsLedState(Enum):
 
     	Red Flashing
 
+    .. data:: na = 7
+
+    	N/A
+
     """
 
     off = Enum.YLeaf(0, "off")
@@ -702,6 +781,14 @@ class OpticsLedState(Enum):
     red_on = Enum.YLeaf(5, "red-on")
 
     red_flashing = Enum.YLeaf(6, "red-flashing")
+
+    na = Enum.YLeaf(7, "na")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsLedState']
 
 
 class OpticsModulation(Enum):
@@ -783,6 +870,12 @@ class OpticsModulation(Enum):
     mode_16qam_32qam = Enum.YLeaf(10, "mode-16qam-32qam")
 
     mod_32qam_64qam = Enum.YLeaf(11, "mod-32qam-64qam")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsModulation']
 
 
 class OpticsPhy(Enum):
@@ -1087,6 +1180,10 @@ class OpticsPhy(Enum):
 
     	Short reach Bi-Directional
 
+    .. data:: far_reach = 74
+
+    	Far reach duplex SMF
+
     """
 
     not_set = Enum.YLeaf(0, "not-set")
@@ -1237,6 +1334,14 @@ class OpticsPhy(Enum):
 
     short_reach_bd = Enum.YLeaf(73, "short-reach-bd")
 
+    far_reach = Enum.YLeaf(74, "far-reach")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsPhy']
+
 
 class OpticsPort(Enum):
     """
@@ -1283,6 +1388,12 @@ class OpticsPort(Enum):
     prot = Enum.YLeaf(5, "prot")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsPort']
+
+
 class OpticsPortStatus(Enum):
     """
     OpticsPortStatus (Enum Class)
@@ -1302,6 +1413,12 @@ class OpticsPortStatus(Enum):
     active = Enum.YLeaf(0, "active")
 
     standby = Enum.YLeaf(1, "standby")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsPortStatus']
 
 
 class OpticsTas(Enum):
@@ -1335,6 +1452,12 @@ class OpticsTas(Enum):
     tas_ui_is = Enum.YLeaf(2, "tas-ui-is")
 
     tas_ui_ains = Enum.YLeaf(3, "tas-ui-ains")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsTas']
 
 
 class OpticsWaveBand(Enum):
@@ -1376,6 +1499,12 @@ class OpticsWaveBand(Enum):
     invalid_band = Enum.YLeaf(4, "invalid-band")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsWaveBand']
+
+
 class OtnApplicationCode(Enum):
     """
     OtnApplicationCode (Enum Class)
@@ -1413,6 +1542,12 @@ class OtnApplicationCode(Enum):
     optics_p1l1_2d2 = Enum.YLeaf(3, "optics-p1l1-2d2")
 
     optics_undefined = Enum.YLeaf(4, "optics-undefined")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OtnApplicationCode']
 
 
 class SonetApplicationCode(Enum):
@@ -1454,8 +1589,14 @@ class SonetApplicationCode(Enum):
     optics_sonet_undefined = Enum.YLeaf(4, "optics-sonet-undefined")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['SonetApplicationCode']
 
-class OpticsOper(Entity):
+
+
+class OpticsOper(_Entity_):
     """
     Optics operational data
     
@@ -1474,7 +1615,10 @@ class OpticsOper(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(OpticsOper, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(OpticsOper, self).__init__()
         self._top_entity = None
 
         self.yang_name = "optics-oper"
@@ -1495,7 +1639,7 @@ class OpticsOper(Entity):
         self._perform_setattr(OpticsOper, [], name, value)
 
 
-    class OpticsPorts(Entity):
+    class OpticsPorts(_Entity_):
         """
         All Optics Port operational data
         
@@ -1514,7 +1658,10 @@ class OpticsOper(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(OpticsOper.OpticsPorts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(OpticsOper.OpticsPorts, self).__init__()
 
             self.yang_name = "optics-ports"
             self.yang_parent_name = "optics-oper"
@@ -1533,7 +1680,7 @@ class OpticsOper(Entity):
             self._perform_setattr(OpticsOper.OpticsPorts, [], name, value)
 
 
-        class OpticsPort(Entity):
+        class OpticsPort(_Entity_):
             """
             Optics operational data
             
@@ -1596,7 +1743,10 @@ class OpticsOper(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(OpticsOper.OpticsPorts.OpticsPort, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(OpticsOper.OpticsPorts.OpticsPort, self).__init__()
 
                 self.yang_name = "optics-port"
                 self.yang_parent_name = "optics-ports"
@@ -1640,7 +1790,7 @@ class OpticsOper(Entity):
                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort, ['name'], name, value)
 
 
-            class OpticsDwdmCarrierChannelMap(Entity):
+            class OpticsDwdmCarrierChannelMap(_Entity_):
                 """
                 Optics operational data
                 
@@ -1684,7 +1834,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, self).__init__()
 
                     self.yang_name = "optics-dwdm-carrier-channel-map"
                     self.yang_parent_name = "optics-port"
@@ -1709,7 +1862,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
-                class DwdmCarrierMapInfo(Entity):
+                class DwdmCarrierMapInfo(_Entity_):
                     """
                     DWDM carrier mapping info
                     
@@ -1757,7 +1910,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, self).__init__()
 
                         self.yang_name = "dwdm-carrier-map-info"
                         self.yang_parent_name = "optics-dwdm-carrier-channel-map"
@@ -1781,10 +1937,18 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap']['meta_info']
 
 
-
-            class OtsSpectrumInfo(Entity):
+            class OtsSpectrumInfo(_Entity_):
                 """
                 Ots Spectrum Operational data
                 
@@ -1803,7 +1967,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, self).__init__()
 
                     self.yang_name = "ots-spectrum-info"
                     self.yang_parent_name = "optics-port"
@@ -1823,7 +1990,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, [], name, value)
 
 
-                class SpectrumInfo(Entity):
+                class SpectrumInfo(_Entity_):
                     """
                     OTS Spectrum information
                     
@@ -1869,7 +2036,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, self).__init__()
 
                         self.yang_name = "spectrum-info"
                         self.yang_parent_name = "ots-spectrum-info"
@@ -1894,7 +2064,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
 
 
-                    class SpectrumSlicePowerInfo(Entity):
+                    class SpectrumSlicePowerInfo(_Entity_):
                         """
                         Power information of spectrum slice info
                         
@@ -1969,7 +2139,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, self).__init__()
 
                             self.yang_name = "spectrum-slice-power-info"
                             self.yang_parent_name = "spectrum-info"
@@ -1999,11 +2172,23 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo']['meta_info']
 
 
-
-
-            class OpticsDwdmCarrierChannelMapFlexi(Entity):
+            class OpticsDwdmCarrierChannelMapFlexi(_Entity_):
                 """
                 Optics operational data
                 
@@ -2047,7 +2232,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, self).__init__()
 
                     self.yang_name = "optics-dwdm-carrier-channel-map-flexi"
                     self.yang_parent_name = "optics-port"
@@ -2072,7 +2260,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
-                class DwdmCarrierMapInfo(Entity):
+                class DwdmCarrierMapInfo(_Entity_):
                     """
                     DWDM carrier mapping info
                     
@@ -2120,7 +2308,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
 
                         self.yang_name = "dwdm-carrier-map-info"
                         self.yang_parent_name = "optics-dwdm-carrier-channel-map-flexi"
@@ -2144,10 +2335,18 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi']['meta_info']
 
 
-
-            class OpticsInfo(Entity):
+            class OpticsInfo(_Entity_):
                 """
                 Optics operational data
                 
@@ -3051,7 +3250,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, self).__init__()
 
                     self.yang_name = "optics-info"
                     self.yang_parent_name = "optics-port"
@@ -3308,7 +3510,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'modulation_type', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'rx_thr_fail_low_delta_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current', 'rx_span_loss', 'tx_span_loss', 'baud_rate', 'bits_per_symbol', 'rx_low_threshold_delta', 'wait_to_restore'], name, value)
 
 
-                class NetworkSrlgInfo(Entity):
+                class NetworkSrlgInfo(_Entity_):
                     """
                     Network SRLG information
                     
@@ -3327,7 +3529,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo, self).__init__()
 
                         self.yang_name = "network-srlg-info"
                         self.yang_parent_name = "optics-info"
@@ -3345,7 +3550,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo, [], name, value)
 
 
-                    class NetworkSrlgArray(Entity):
+                    class NetworkSrlgArray(_Entity_):
                         """
                         Network Srlg Array
                         
@@ -3375,7 +3580,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
 
                             self.yang_name = "network-srlg-array"
                             self.yang_parent_name = "network-srlg-info"
@@ -3395,10 +3603,18 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo']['meta_info']
 
 
-
-                class OpticsAlarmInfo(Entity):
+                class OpticsAlarmInfo(_Entity_):
                     """
                     Optics Alarm Information
                     
@@ -3746,7 +3962,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, self).__init__()
 
                         self.yang_name = "optics-alarm-info"
                         self.yang_parent_name = "optics-info"
@@ -3954,7 +4173,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, [], name, value)
 
 
-                    class HighRxPower(Entity):
+                    class HighRxPower(_Entity_):
                         """
                         High Rx Power in units of 0.1 dBm
                         
@@ -3982,7 +4201,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, self).__init__()
 
                             self.yang_name = "high-rx-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4002,9 +4224,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower']['meta_info']
 
 
-                    class LowRxPower(Entity):
+                    class LowRxPower(_Entity_):
                         """
                         Low Rx Power in units of 0.1 dBm
                         
@@ -4032,7 +4258,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, self).__init__()
 
                             self.yang_name = "low-rx-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4052,9 +4281,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower']['meta_info']
 
 
-                    class HighTxPower(Entity):
+                    class HighTxPower(_Entity_):
                         """
                         High Tx Power in units of 0.1 dBm
                         
@@ -4082,7 +4315,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, self).__init__()
 
                             self.yang_name = "high-tx-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4102,9 +4338,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower']['meta_info']
 
 
-                    class LowTxPower(Entity):
+                    class LowTxPower(_Entity_):
                         """
                         Low Tx Power in units of 0.1 dBm
                         
@@ -4132,7 +4372,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, self).__init__()
 
                             self.yang_name = "low-tx-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4152,9 +4395,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower']['meta_info']
 
 
-                    class HighLbc(Entity):
+                    class HighLbc(_Entity_):
                         """
                         High laser bias current in units of percentage
                         
@@ -4182,7 +4429,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, self).__init__()
 
                             self.yang_name = "high-lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4202,9 +4452,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc']['meta_info']
 
 
-                    class LowTemperature(Entity):
+                    class LowTemperature(_Entity_):
                         """
                         Low Temperature alarm
                         
@@ -4232,7 +4486,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, self).__init__()
 
                             self.yang_name = "low-temperature"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4252,9 +4509,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature']['meta_info']
 
 
-                    class HighTemperature(Entity):
+                    class HighTemperature(_Entity_):
                         """
                         High Temperature alarm
                         
@@ -4282,7 +4543,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, self).__init__()
 
                             self.yang_name = "high-temperature"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4302,9 +4566,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature']['meta_info']
 
 
-                    class LowVoltage(Entity):
+                    class LowVoltage(_Entity_):
                         """
                         Low Voltage alarm
                         
@@ -4332,7 +4600,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, self).__init__()
 
                             self.yang_name = "low-voltage"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4352,9 +4623,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage']['meta_info']
 
 
-                    class HighVoltage(Entity):
+                    class HighVoltage(_Entity_):
                         """
                         High Voltage alarm
                         
@@ -4382,7 +4657,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, self).__init__()
 
                             self.yang_name = "high-voltage"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4402,9 +4680,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage']['meta_info']
 
 
-                    class HighRx1Power(Entity):
+                    class HighRx1Power(_Entity_):
                         """
                         High Rx1 Power in units of 0.1 dBm
                         
@@ -4432,7 +4714,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, self).__init__()
 
                             self.yang_name = "high-rx1-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4452,9 +4737,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power']['meta_info']
 
 
-                    class HighRx2Power(Entity):
+                    class HighRx2Power(_Entity_):
                         """
                         High Rx2 Power in units of 0.1 dBm
                         
@@ -4482,7 +4771,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, self).__init__()
 
                             self.yang_name = "high-rx2-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4502,9 +4794,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power']['meta_info']
 
 
-                    class HighRx3Power(Entity):
+                    class HighRx3Power(_Entity_):
                         """
                         High Rx3 Power in units of 0.1 dBm
                         
@@ -4532,7 +4828,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, self).__init__()
 
                             self.yang_name = "high-rx3-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4552,9 +4851,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power']['meta_info']
 
 
-                    class HighRx4Power(Entity):
+                    class HighRx4Power(_Entity_):
                         """
                         High Rx4 Power in units of 0.1 dBm
                         
@@ -4582,7 +4885,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, self).__init__()
 
                             self.yang_name = "high-rx4-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4602,9 +4908,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power']['meta_info']
 
 
-                    class LowRx1Power(Entity):
+                    class LowRx1Power(_Entity_):
                         """
                         Low Rx1 Power in units of 0.1 dBm
                         
@@ -4632,7 +4942,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, self).__init__()
 
                             self.yang_name = "low-rx1-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4652,9 +4965,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power']['meta_info']
 
 
-                    class LowRx2Power(Entity):
+                    class LowRx2Power(_Entity_):
                         """
                         Low Rx2 Power in units of 0.1 dBm
                         
@@ -4682,7 +4999,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, self).__init__()
 
                             self.yang_name = "low-rx2-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4702,9 +5022,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power']['meta_info']
 
 
-                    class LowRx3Power(Entity):
+                    class LowRx3Power(_Entity_):
                         """
                         Low Rx3 Power in units of 0.1 dBm
                         
@@ -4732,7 +5056,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, self).__init__()
 
                             self.yang_name = "low-rx3-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4752,9 +5079,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power']['meta_info']
 
 
-                    class LowRx4Power(Entity):
+                    class LowRx4Power(_Entity_):
                         """
                         Low Rx4 Power in units of 0.1 dBm
                         
@@ -4782,7 +5113,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, self).__init__()
 
                             self.yang_name = "low-rx4-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4802,9 +5136,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power']['meta_info']
 
 
-                    class HighTx1Power(Entity):
+                    class HighTx1Power(_Entity_):
                         """
                         High Tx1 Power in units of 0.1 dBm
                         
@@ -4832,7 +5170,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, self).__init__()
 
                             self.yang_name = "high-tx1-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4852,9 +5193,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power']['meta_info']
 
 
-                    class HighTx2Power(Entity):
+                    class HighTx2Power(_Entity_):
                         """
                         High Tx2 Power in units of 0.1 dBm
                         
@@ -4882,7 +5227,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, self).__init__()
 
                             self.yang_name = "high-tx2-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4902,9 +5250,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power']['meta_info']
 
 
-                    class HighTx3Power(Entity):
+                    class HighTx3Power(_Entity_):
                         """
                         High Tx3 Power in units of 0.1 dBm
                         
@@ -4932,7 +5284,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, self).__init__()
 
                             self.yang_name = "high-tx3-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -4952,9 +5307,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power']['meta_info']
 
 
-                    class HighTx4Power(Entity):
+                    class HighTx4Power(_Entity_):
                         """
                         High Tx4 Power in units of 0.1 dBm
                         
@@ -4982,7 +5341,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, self).__init__()
 
                             self.yang_name = "high-tx4-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5002,9 +5364,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power']['meta_info']
 
 
-                    class LowTx1Power(Entity):
+                    class LowTx1Power(_Entity_):
                         """
                         Low Tx1 Power in units of 0.1 dBm
                         
@@ -5032,7 +5398,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, self).__init__()
 
                             self.yang_name = "low-tx1-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5052,9 +5421,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power']['meta_info']
 
 
-                    class LowTx2Power(Entity):
+                    class LowTx2Power(_Entity_):
                         """
                         Low Tx2 Power in units of 0.1 dBm
                         
@@ -5082,7 +5455,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, self).__init__()
 
                             self.yang_name = "low-tx2-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5102,9 +5478,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power']['meta_info']
 
 
-                    class LowTx3Power(Entity):
+                    class LowTx3Power(_Entity_):
                         """
                         Low Tx3 Power in units of 0.1 dBm
                         
@@ -5132,7 +5512,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, self).__init__()
 
                             self.yang_name = "low-tx3-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5152,9 +5535,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power']['meta_info']
 
 
-                    class LowTx4Power(Entity):
+                    class LowTx4Power(_Entity_):
                         """
                         Low Tx4 Power in units of 0.1 dBm
                         
@@ -5182,7 +5569,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, self).__init__()
 
                             self.yang_name = "low-tx4-power"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5202,9 +5592,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power']['meta_info']
 
 
-                    class HighTx1lbc(Entity):
+                    class HighTx1lbc(_Entity_):
                         """
                         High Tx1 laser bias current in units of
                         percentage
@@ -5233,7 +5627,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, self).__init__()
 
                             self.yang_name = "high-tx1lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5253,9 +5650,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc']['meta_info']
 
 
-                    class HighTx2lbc(Entity):
+                    class HighTx2lbc(_Entity_):
                         """
                         High Tx2 laser bias current in units of
                         percentage
@@ -5284,7 +5685,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, self).__init__()
 
                             self.yang_name = "high-tx2lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5304,9 +5708,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc']['meta_info']
 
 
-                    class HighTx3lbc(Entity):
+                    class HighTx3lbc(_Entity_):
                         """
                         High Tx3 laser bias current in units of
                         percentage
@@ -5335,7 +5743,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, self).__init__()
 
                             self.yang_name = "high-tx3lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5355,9 +5766,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc']['meta_info']
 
 
-                    class HighTx4lbc(Entity):
+                    class HighTx4lbc(_Entity_):
                         """
                         High Tx4 laser bias current in units of
                         percentage
@@ -5386,7 +5801,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, self).__init__()
 
                             self.yang_name = "high-tx4lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5406,9 +5824,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc']['meta_info']
 
 
-                    class LowTx1lbc(Entity):
+                    class LowTx1lbc(_Entity_):
                         """
                         Low Tx1 laser bias current in units of
                         percentage
@@ -5437,7 +5859,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, self).__init__()
 
                             self.yang_name = "low-tx1lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5457,9 +5882,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc']['meta_info']
 
 
-                    class LowTx2lbc(Entity):
+                    class LowTx2lbc(_Entity_):
                         """
                         Low Tx2 laser bias current in units of
                         percentage
@@ -5488,7 +5917,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, self).__init__()
 
                             self.yang_name = "low-tx2lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5508,9 +5940,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc']['meta_info']
 
 
-                    class LowTx3lbc(Entity):
+                    class LowTx3lbc(_Entity_):
                         """
                         Low Tx3 laser bias current in units of
                         percentage
@@ -5539,7 +5975,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, self).__init__()
 
                             self.yang_name = "low-tx3lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5559,9 +5998,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc']['meta_info']
 
 
-                    class LowTx4lbc(Entity):
+                    class LowTx4lbc(_Entity_):
                         """
                         Low Tx4 laser bias current in units of
                         percentage
@@ -5590,7 +6033,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, self).__init__()
 
                             self.yang_name = "low-tx4lbc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5610,9 +6056,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc']['meta_info']
 
 
-                    class RxLos(Entity):
+                    class RxLos(_Entity_):
                         """
                         RX LOS
                         
@@ -5640,7 +6090,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, self).__init__()
 
                             self.yang_name = "rx-los"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5660,9 +6113,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos']['meta_info']
 
 
-                    class TxLos(Entity):
+                    class TxLos(_Entity_):
                         """
                         TX LOS
                         
@@ -5690,7 +6147,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, self).__init__()
 
                             self.yang_name = "tx-los"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5710,9 +6170,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos']['meta_info']
 
 
-                    class RxLol(Entity):
+                    class RxLol(_Entity_):
                         """
                         RX LOL
                         
@@ -5740,7 +6204,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, self).__init__()
 
                             self.yang_name = "rx-lol"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5760,9 +6227,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol']['meta_info']
 
 
-                    class TxLol(Entity):
+                    class TxLol(_Entity_):
                         """
                         TX LOL
                         
@@ -5790,7 +6261,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, self).__init__()
 
                             self.yang_name = "tx-lol"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5810,9 +6284,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol']['meta_info']
 
 
-                    class TxFault(Entity):
+                    class TxFault(_Entity_):
                         """
                         TX Fault
                         
@@ -5840,7 +6318,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, self).__init__()
 
                             self.yang_name = "tx-fault"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5860,9 +6341,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault']['meta_info']
 
 
-                    class Hidgd(Entity):
+                    class Hidgd(_Entity_):
                         """
                         HI DGD
                         
@@ -5890,7 +6375,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, self).__init__()
 
                             self.yang_name = "hidgd"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5910,9 +6398,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd']['meta_info']
 
 
-                    class Oorcd(Entity):
+                    class Oorcd(_Entity_):
                         """
                         OOR CD
                         
@@ -5940,7 +6432,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, self).__init__()
 
                             self.yang_name = "oorcd"
                             self.yang_parent_name = "optics-alarm-info"
@@ -5960,9 +6455,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd']['meta_info']
 
 
-                    class Osnr(Entity):
+                    class Osnr(_Entity_):
                         """
                         OSNR
                         
@@ -5990,7 +6489,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, self).__init__()
 
                             self.yang_name = "osnr"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6010,9 +6512,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr']['meta_info']
 
 
-                    class Wvlool(Entity):
+                    class Wvlool(_Entity_):
                         """
                         WVL OOL
                         
@@ -6040,7 +6546,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, self).__init__()
 
                             self.yang_name = "wvlool"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6060,9 +6569,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool']['meta_info']
 
 
-                    class Mea(Entity):
+                    class Mea(_Entity_):
                         """
                         MEA
                         
@@ -6090,7 +6603,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, self).__init__()
 
                             self.yang_name = "mea"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6110,9 +6626,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea']['meta_info']
 
 
-                    class ImpRemoval(Entity):
+                    class ImpRemoval(_Entity_):
                         """
                         IMPROPER REM
                         
@@ -6140,7 +6660,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, self).__init__()
 
                             self.yang_name = "imp-removal"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6160,9 +6683,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval']['meta_info']
 
 
-                    class RxLoc(Entity):
+                    class RxLoc(_Entity_):
                         """
                         Rx LOC
                         
@@ -6190,7 +6717,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, self).__init__()
 
                             self.yang_name = "rx-loc"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6210,9 +6740,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc']['meta_info']
 
 
-                    class AmpGainDegLow(Entity):
+                    class AmpGainDegLow(_Entity_):
                         """
                         Ampli Gain Deg Low
                         
@@ -6240,7 +6774,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, self).__init__()
 
                             self.yang_name = "amp-gain-deg-low"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6260,9 +6797,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow']['meta_info']
 
 
-                    class AmpGainDegHigh(Entity):
+                    class AmpGainDegHigh(_Entity_):
                         """
                         Ampli Gain Deg High
                         
@@ -6290,7 +6831,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, self).__init__()
 
                             self.yang_name = "amp-gain-deg-high"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6310,9 +6854,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh']['meta_info']
 
 
-                    class TxpwrMismatch(Entity):
+                    class TxpwrMismatch(_Entity_):
                         """
                         TX POWER PROV MISMATCH
                         
@@ -6340,7 +6888,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, self).__init__()
 
                             self.yang_name = "txpwr-mismatch"
                             self.yang_parent_name = "optics-alarm-info"
@@ -6360,10 +6911,18 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info']
 
 
-
-                class OtsAlarmInfo(Entity):
+                class OtsAlarmInfo(_Entity_):
                     """
                     Ots Alarm Information
                     
@@ -6459,7 +7018,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, self).__init__()
 
                         self.yang_name = "ots-alarm-info"
                         self.yang_parent_name = "optics-info"
@@ -6523,7 +7085,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, [], name, value)
 
 
-                    class LowTxPower(Entity):
+                    class LowTxPower(_Entity_):
                         """
                         Low Tx Power in units of 0.1 dBm
                         
@@ -6551,7 +7113,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, self).__init__()
 
                             self.yang_name = "low-tx-power"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6571,9 +7136,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower']['meta_info']
 
 
-                    class LowRxPower(Entity):
+                    class LowRxPower(_Entity_):
                         """
                         Low Rx Power in units of 0.1 dBm
                         
@@ -6601,7 +7170,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, self).__init__()
 
                             self.yang_name = "low-rx-power"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6621,9 +7193,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower']['meta_info']
 
 
-                    class RxLosP(Entity):
+                    class RxLosP(_Entity_):
                         """
                         Rx LOS\_P
                         
@@ -6651,7 +7227,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, self).__init__()
 
                             self.yang_name = "rx-los-p"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6671,9 +7250,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP']['meta_info']
 
 
-                    class RxLoc(Entity):
+                    class RxLoc(_Entity_):
                         """
                         Rx LOC
                         
@@ -6701,7 +7284,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, self).__init__()
 
                             self.yang_name = "rx-loc"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6721,9 +7307,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc']['meta_info']
 
 
-                    class AmpGainDegLow(Entity):
+                    class AmpGainDegLow(_Entity_):
                         """
                         Ampli Gain Deg Low
                         
@@ -6751,7 +7341,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, self).__init__()
 
                             self.yang_name = "amp-gain-deg-low"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6771,9 +7364,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow']['meta_info']
 
 
-                    class AmpGainDegHigh(Entity):
+                    class AmpGainDegHigh(_Entity_):
                         """
                         Ampli Gain Deg High
                         
@@ -6801,7 +7398,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, self).__init__()
 
                             self.yang_name = "amp-gain-deg-high"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6821,9 +7421,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh']['meta_info']
 
 
-                    class AutoLaserShut(Entity):
+                    class AutoLaserShut(_Entity_):
                         """
                         Auto Laser Shut
                         
@@ -6851,7 +7455,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, self).__init__()
 
                             self.yang_name = "auto-laser-shut"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6871,9 +7478,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut']['meta_info']
 
 
-                    class AutoPowerRed(Entity):
+                    class AutoPowerRed(_Entity_):
                         """
                         Auto Power Red
                         
@@ -6901,7 +7512,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, self).__init__()
 
                             self.yang_name = "auto-power-red"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6921,9 +7535,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed']['meta_info']
 
 
-                    class AutoAmpliCtrlDisabled(Entity):
+                    class AutoAmpliCtrlDisabled(_Entity_):
                         """
                         Auto Ampli Ctrl Disabled
                         
@@ -6951,7 +7569,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, self).__init__()
 
                             self.yang_name = "auto-ampli-ctrl-disabled"
                             self.yang_parent_name = "ots-alarm-info"
@@ -6971,9 +7592,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled']['meta_info']
 
 
-                    class AutoAmpliCtrlConfigMismatch(Entity):
+                    class AutoAmpliCtrlConfigMismatch(_Entity_):
                         """
                         Auto Ampli Ctrl Config Mismatch
                         
@@ -7001,7 +7626,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, self).__init__()
 
                             self.yang_name = "auto-ampli-ctrl-config-mismatch"
                             self.yang_parent_name = "ots-alarm-info"
@@ -7021,9 +7649,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch']['meta_info']
 
 
-                    class SwitchToProtect(Entity):
+                    class SwitchToProtect(_Entity_):
                         """
                         Switch To Protect
                         
@@ -7051,7 +7683,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, self).__init__()
 
                             self.yang_name = "switch-to-protect"
                             self.yang_parent_name = "ots-alarm-info"
@@ -7071,9 +7706,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect']['meta_info']
 
 
-                    class AutoAmpliCtrlRunning(Entity):
+                    class AutoAmpliCtrlRunning(_Entity_):
                         """
                         Auto Ampli Ctrl Running
                         
@@ -7101,7 +7740,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, self).__init__()
 
                             self.yang_name = "auto-ampli-ctrl-running"
                             self.yang_parent_name = "ots-alarm-info"
@@ -7121,10 +7763,18 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
 
 
-
-                class TransceiverInfo(Entity):
+                class TransceiverInfo(_Entity_):
                     """
                     Transceiver Vendor Details
                     
@@ -7250,7 +7900,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, self).__init__()
 
                         self.yang_name = "transceiver-info"
                         self.yang_parent_name = "optics-info"
@@ -7298,9 +7951,13 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, ['vendor_info', 'adapter_vendor_info', 'date', 'optics_vendor_rev', 'optics_serial_no', 'optics_vendor_part', 'optics_type', 'vendor_name', 'oui_no', 'optics_pid', 'optics_vid', 'connector_type', 'otn_application_code', 'sonet_application_code', 'ethernet_compliance_code', 'internal_temperature'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo']['meta_info']
 
 
-                class ExtParamVal(Entity):
+                class ExtParamVal(_Entity_):
                     """
                     Extended optics parameters
                     
@@ -7510,7 +8167,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, self).__init__()
 
                         self.yang_name = "ext-param-val"
                         self.yang_parent_name = "optics-info"
@@ -7570,9 +8230,13 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, ['snr_lane1', 'snr_lane2', 'isi_correction_lane1', 'isi_correction_lane2', 'pam_rate_lane1', 'pam_rate_lane2', 'pre_fec_ber', 'uncorrected_ber', 'tec_current_lane1', 'tec_current_lane2', 'laser_diff_frequency_lane1', 'laser_diff_frequency_lane2', 'laser_diff_temperature_lane1', 'laser_diff_temperature_lane2', 'pre_fec_ber_latched_min', 'pre_fec_ber_latched_max', 'pre_fec_ber_accumulated', 'pre_fec_ber_instantaneous', 'uncorrected_ber_latched_min', 'uncorrected_ber_latched_max', 'uncorrected_ber_accumulated', 'uncorrected_ber_instantaneous'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal']['meta_info']
 
 
-                class ExtParamThresholdVal(Entity):
+                class ExtParamThresholdVal(_Entity_):
                     """
                     Extended optics parameters threshold values
                     
@@ -8160,7 +8824,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, self).__init__()
 
                         self.yang_name = "ext-param-threshold-val"
                         self.yang_parent_name = "optics-info"
@@ -8304,9 +8971,13 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, ['snr_alarm_high_threshold', 'snr_alarm_low_threshold', 'snr_warn_high_threshold', 'snr_warn_low_threshold', 'isi_correction_alarm_high_threshold', 'isi_correction_alarm_low_threshold', 'isi_correction_warn_high_threshold', 'isi_correction_warn_low_threshold', 'pam_rate_alarm_high_threshold', 'pam_rate_alarm_low_threshold', 'pam_rate_warn_high_threshold', 'pam_rate_warn_low_threshold', 'pre_fec_ber_alarm_high_threshold', 'pre_fec_ber_alarm_low_threshold', 'pre_fec_ber_warn_high_threshold', 'pre_fec_ber_warn_low_threshold', 'uncorrected_ber_alarm_high_threshold', 'uncorrected_ber_alarm_low_threshold', 'uncorrected_ber_warn_high_threshold', 'uncorrected_ber_warn_low_threshold', 'tec_current_alarm_high_threshold', 'tec_current_alarm_low_threshold', 'tec_current_warn_high_threshold', 'tec_current_warn_low_threshold', 'laser_diff_frequency_alarm_high_threshold', 'laser_diff_frequency_alarm_low_threshold', 'laser_diff_frequency_warn_high_threshold', 'laser_diff_frequency_warn_low_threshold', 'laser_diff_temperature_alarm_high_threshold', 'laser_diff_temperature_alarm_low_threshold', 'laser_diff_temperature_warn_high_threshold', 'laser_diff_temperature_warn_low_threshold', 'pre_fec_ber_latched_min_alarm_high_threshold', 'pre_fec_ber_latched_min_alarm_low_threshold', 'pre_fec_ber_latched_min_warn_high_threshold', 'pre_fec_ber_latched_min_warn_low_threshold', 'pre_fec_ber_latched_max_alarm_high_threshold', 'pre_fec_ber_latched_max_alarm_low_threshold', 'pre_fec_ber_latched_max_warn_high_threshold', 'pre_fec_ber_latched_max_warn_low_threshold', 'pre_fec_ber_accumulated_alarm_high_threshold', 'pre_fec_ber_accumulated_alarm_low_threshold', 'pre_fec_ber_accumulated_warn_high_threshold', 'pre_fec_ber_accumulated_warn_low_threshold', 'pre_fec_ber_instantaneous_alarm_high_threshold', 'pre_fec_ber_instantaneous_alarm_low_threshold', 'pre_fec_ber_instantaneous_warn_high_threshold', 'pre_fec_ber_instantaneous_warn_low_threshold', 'uncorrected_ber_latched_min_alarm_high_threshold', 'uncorrected_ber_latched_min_alarm_low_threshold', 'uncorrected_ber_latched_min_warn_high_threshold', 'uncorrected_ber_latched_min_warn_low_threshold', 'uncorrected_ber_latched_max_alarm_high_threshold', 'uncorrected_ber_latched_max_alarm_low_threshold', 'uncorrected_ber_latched_max_warn_high_threshold', 'uncorrected_ber_latched_max_warn_low_threshold', 'uncorrected_ber_accumulated_alarm_high_threshold', 'uncorrected_ber_accumulated_alarm_low_threshold', 'uncorrected_ber_accumulated_warn_high_threshold', 'uncorrected_ber_accumulated_warn_low_threshold', 'uncorrected_ber_instantaneous_alarm_high_threshold', 'uncorrected_ber_instantaneous_alarm_low_threshold', 'uncorrected_ber_instantaneous_warn_high_threshold', 'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal']['meta_info']
 
 
-                class ExtendedAlarmAlarmInfo(Entity):
+                class ExtendedAlarmAlarmInfo(_Entity_):
                     """
                     Extended DOM alarm Information
                     
@@ -8528,7 +9199,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, self).__init__()
 
                         self.yang_name = "extended-alarm-alarm-info"
                         self.yang_parent_name = "optics-info"
@@ -8664,7 +9338,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, [], name, value)
 
 
-                    class LoSnr(Entity):
+                    class LoSnr(_Entity_):
                         """
                         Low SNR Alarm for Lane1
                         
@@ -8692,7 +9366,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, self).__init__()
 
                             self.yang_name = "lo-snr"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8712,9 +9389,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr']['meta_info']
 
 
-                    class HiSnr1(Entity):
+                    class HiSnr1(_Entity_):
                         """
                         High SNR Alarm for Lane1
                         
@@ -8742,7 +9423,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, self).__init__()
 
                             self.yang_name = "hi-snr1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8762,9 +9446,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1']['meta_info']
 
 
-                    class LoSnr1(Entity):
+                    class LoSnr1(_Entity_):
                         """
                         Low SNR Alarm for Lane2
                         
@@ -8792,7 +9480,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, self).__init__()
 
                             self.yang_name = "lo-snr1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8812,9 +9503,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1']['meta_info']
 
 
-                    class HiSnr2(Entity):
+                    class HiSnr2(_Entity_):
                         """
                         High SNR Alarm for Lane2
                         
@@ -8842,7 +9537,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, self).__init__()
 
                             self.yang_name = "hi-snr2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8862,9 +9560,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2']['meta_info']
 
 
-                    class LoIsi1(Entity):
+                    class LoIsi1(_Entity_):
                         """
                         Low ISI Correction Alarm for Lane1
                         
@@ -8892,7 +9594,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, self).__init__()
 
                             self.yang_name = "lo-isi1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8912,9 +9617,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1']['meta_info']
 
 
-                    class HiIsi1(Entity):
+                    class HiIsi1(_Entity_):
                         """
                         High ISI Correction Alarm for Lane1
                         
@@ -8942,7 +9651,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, self).__init__()
 
                             self.yang_name = "hi-isi1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -8962,9 +9674,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1']['meta_info']
 
 
-                    class LoIsi2(Entity):
+                    class LoIsi2(_Entity_):
                         """
                         Low ISI Correction Alarm for Lane2
                         
@@ -8992,7 +9708,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, self).__init__()
 
                             self.yang_name = "lo-isi2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9012,9 +9731,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2']['meta_info']
 
 
-                    class HiIsi2(Entity):
+                    class HiIsi2(_Entity_):
                         """
                         High ISI Correction Alarm for Lane2
                         
@@ -9042,7 +9765,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, self).__init__()
 
                             self.yang_name = "hi-isi2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9062,9 +9788,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2']['meta_info']
 
 
-                    class LoPam1(Entity):
+                    class LoPam1(_Entity_):
                         """
                         Low PAM Rate Alarm for Lane1
                         
@@ -9092,7 +9822,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, self).__init__()
 
                             self.yang_name = "lo-pam1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9112,9 +9845,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1']['meta_info']
 
 
-                    class HiPam1(Entity):
+                    class HiPam1(_Entity_):
                         """
                         High PAM Rate Alarm for Lane1
                         
@@ -9142,7 +9879,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, self).__init__()
 
                             self.yang_name = "hi-pam1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9162,9 +9902,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1']['meta_info']
 
 
-                    class LoPam2(Entity):
+                    class LoPam2(_Entity_):
                         """
                         Low PAM Rate Alarm for Lane2
                         
@@ -9192,7 +9936,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, self).__init__()
 
                             self.yang_name = "lo-pam2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9212,9 +9959,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2']['meta_info']
 
 
-                    class HiPam2(Entity):
+                    class HiPam2(_Entity_):
                         """
                         High PAM Rate Alarm for Lane2
                         
@@ -9242,7 +9993,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, self).__init__()
 
                             self.yang_name = "hi-pam2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9262,9 +10016,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2']['meta_info']
 
 
-                    class LoTec1(Entity):
+                    class LoTec1(_Entity_):
                         """
                         Low TEC Current Alarm for Lane1
                         
@@ -9292,7 +10050,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, self).__init__()
 
                             self.yang_name = "lo-tec1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9312,9 +10073,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1']['meta_info']
 
 
-                    class HiTec1(Entity):
+                    class HiTec1(_Entity_):
                         """
                         High TEC Current Alarm for Lane1
                         
@@ -9342,7 +10107,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, self).__init__()
 
                             self.yang_name = "hi-tec1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9362,9 +10130,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1']['meta_info']
 
 
-                    class LoTec2(Entity):
+                    class LoTec2(_Entity_):
                         """
                         Low TEC Current Alarm for Lane2
                         
@@ -9392,7 +10164,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, self).__init__()
 
                             self.yang_name = "lo-tec2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9412,9 +10187,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2']['meta_info']
 
 
-                    class HiTec2(Entity):
+                    class HiTec2(_Entity_):
                         """
                         High TEC Current Alarm for Lane2
                         
@@ -9442,7 +10221,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, self).__init__()
 
                             self.yang_name = "hi-tec2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9462,9 +10244,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2']['meta_info']
 
 
-                    class LoLaserFreq1(Entity):
+                    class LoLaserFreq1(_Entity_):
                         """
                         Low Laser Differential Frequency Alarm for Lane1
                         
@@ -9492,7 +10278,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, self).__init__()
 
                             self.yang_name = "lo-laser-freq1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9512,9 +10301,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1']['meta_info']
 
 
-                    class HiLaserFreq1(Entity):
+                    class HiLaserFreq1(_Entity_):
                         """
                         High Laser Differential Frequency Alarm for
                         Lane1
@@ -9543,7 +10336,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, self).__init__()
 
                             self.yang_name = "hi-laser-freq1"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9563,9 +10359,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1']['meta_info']
 
 
-                    class LoLaserFreq2(Entity):
+                    class LoLaserFreq2(_Entity_):
                         """
                         Low Laser Differential Frequency Alarm for Lane2
                         
@@ -9593,7 +10393,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, self).__init__()
 
                             self.yang_name = "lo-laser-freq2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9613,9 +10416,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2']['meta_info']
 
 
-                    class HiLaserFreq2(Entity):
+                    class HiLaserFreq2(_Entity_):
                         """
                         High Laser Differential Frequency Alarm for
                         Lane2
@@ -9644,7 +10451,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, self).__init__()
 
                             self.yang_name = "hi-laser-freq2"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9664,9 +10474,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2']['meta_info']
 
 
-                    class HiPreFecberCurAcc(Entity):
+                    class HiPreFecberCurAcc(_Entity_):
                         """
                         High Pre FEC BER Current Accumulated Alarm
                         
@@ -9694,7 +10508,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, self).__init__()
 
                             self.yang_name = "hi-pre-fecber-cur-acc"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9714,9 +10531,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc']['meta_info']
 
 
-                    class HiPreFecberMin(Entity):
+                    class HiPreFecberMin(_Entity_):
                         """
                         High Pre FEC BER Min Alarm
                         
@@ -9744,7 +10565,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, self).__init__()
 
                             self.yang_name = "hi-pre-fecber-min"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9764,9 +10588,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin']['meta_info']
 
 
-                    class HiPreFecberMax(Entity):
+                    class HiPreFecberMax(_Entity_):
                         """
                         High Pre FEC BER Max Alarm
                         
@@ -9794,7 +10622,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, self).__init__()
 
                             self.yang_name = "hi-pre-fecber-max"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9814,9 +10645,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax']['meta_info']
 
 
-                    class HiPreFecberPriorAcc(Entity):
+                    class HiPreFecberPriorAcc(_Entity_):
                         """
                         High Pre FEC BER Prior Accumulated Alarm
                         
@@ -9844,7 +10679,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, self).__init__()
 
                             self.yang_name = "hi-pre-fecber-prior-acc"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9864,9 +10702,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc']['meta_info']
 
 
-                    class HiPreFecberCur(Entity):
+                    class HiPreFecberCur(_Entity_):
                         """
                         High Pre FEC BER Current Alarm
                         
@@ -9894,7 +10736,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, self).__init__()
 
                             self.yang_name = "hi-pre-fecber-cur"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9914,9 +10759,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur']['meta_info']
 
 
-                    class HiUncorrectedBerCurAcc(Entity):
+                    class HiUncorrectedBerCurAcc(_Entity_):
                         """
                         High Uncorrected BER Current Accumulated Alarm
                         
@@ -9944,7 +10793,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, self).__init__()
 
                             self.yang_name = "hi-uncorrected-ber-cur-acc"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -9964,9 +10816,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc']['meta_info']
 
 
-                    class HiUncorrectedBerMin(Entity):
+                    class HiUncorrectedBerMin(_Entity_):
                         """
                         High Uncorrected BER Min Alarm
                         
@@ -9994,7 +10850,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, self).__init__()
 
                             self.yang_name = "hi-uncorrected-ber-min"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -10014,9 +10873,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin']['meta_info']
 
 
-                    class HiUncorrectedBerMax(Entity):
+                    class HiUncorrectedBerMax(_Entity_):
                         """
                         High Uncorrected BER Max Alarm
                         
@@ -10044,7 +10907,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, self).__init__()
 
                             self.yang_name = "hi-uncorrected-ber-max"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -10064,9 +10930,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax']['meta_info']
 
 
-                    class HiUncorrectedBerPriorAcc(Entity):
+                    class HiUncorrectedBerPriorAcc(_Entity_):
                         """
                         High Uncorrected BER Prior Accumulated Alarm
                         
@@ -10094,7 +10964,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, self).__init__()
 
                             self.yang_name = "hi-uncorrected-ber-prior-acc"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -10114,9 +10987,13 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc']['meta_info']
 
 
-                    class HiUncorrectedBerCur(Entity):
+                    class HiUncorrectedBerCur(_Entity_):
                         """
                         High Uncorrected BER Current Alarm
                         
@@ -10144,7 +11021,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, self).__init__()
 
                             self.yang_name = "hi-uncorrected-ber-cur"
                             self.yang_parent_name = "extended-alarm-alarm-info"
@@ -10164,10 +11044,18 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, ['is_detected', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo']['meta_info']
 
 
-
-                class AinsInfo(Entity):
+                class AinsInfo(_Entity_):
                     """
                     AINS information
                     
@@ -10208,7 +11096,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, self).__init__()
 
                         self.yang_name = "ains-info"
                         self.yang_parent_name = "optics-info"
@@ -10230,9 +11121,13 @@ class OpticsOper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo']['meta_info']
 
 
-                class LaneData(Entity):
+                class LaneData(_Entity_):
                     """
                     Lane information
                     
@@ -10334,7 +11229,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, self).__init__()
 
                         self.yang_name = "lane-data"
                         self.yang_parent_name = "optics-info"
@@ -10373,7 +11271,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, ['lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
 
 
-                    class LaneAlarmInfo(Entity):
+                    class LaneAlarmInfo(_Entity_):
                         """
                         Lane Alarm Information
                         
@@ -10420,7 +11318,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, self).__init__()
 
                             self.yang_name = "lane-alarm-info"
                             self.yang_parent_name = "lane-data"
@@ -10456,7 +11357,7 @@ class OpticsOper(Entity):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, [], name, value)
 
 
-                        class HighRxPower(Entity):
+                        class HighRxPower(_Entity_):
                             """
                             High Rx Power
                             
@@ -10484,7 +11385,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, self).__init__()
 
                                 self.yang_name = "high-rx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -10504,9 +11408,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower']['meta_info']
 
 
-                        class LowRxPower(Entity):
+                        class LowRxPower(_Entity_):
                             """
                             Low Rx Power
                             
@@ -10534,7 +11442,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, self).__init__()
 
                                 self.yang_name = "low-rx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -10554,9 +11465,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower']['meta_info']
 
 
-                        class HighTxPower(Entity):
+                        class HighTxPower(_Entity_):
                             """
                             High Tx Power
                             
@@ -10584,7 +11499,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, self).__init__()
 
                                 self.yang_name = "high-tx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -10604,9 +11522,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower']['meta_info']
 
 
-                        class LowTxPower(Entity):
+                        class LowTxPower(_Entity_):
                             """
                             Low Tx Power
                             
@@ -10634,7 +11556,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, self).__init__()
 
                                 self.yang_name = "low-tx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -10654,9 +11579,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower']['meta_info']
 
 
-                        class HighLbc(Entity):
+                        class HighLbc(_Entity_):
                             """
                             High laser bias current
                             
@@ -10684,7 +11613,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, self).__init__()
 
                                 self.yang_name = "high-lbc"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -10704,12 +11636,28 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 
 
-
-
-
-            class OpticsLanes(Entity):
+            class OpticsLanes(_Entity_):
                 """
                 All Optics Port operational data
                 
@@ -10728,7 +11676,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes, self).__init__()
 
                     self.yang_name = "optics-lanes"
                     self.yang_parent_name = "optics-port"
@@ -10746,7 +11697,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes, [], name, value)
 
 
-                class OpticsLane(Entity):
+                class OpticsLane(_Entity_):
                     """
                     Lane Information
                     
@@ -10857,7 +11808,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, self).__init__()
 
                         self.yang_name = "optics-lane"
                         self.yang_parent_name = "optics-lanes"
@@ -10898,7 +11852,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', 'lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
 
 
-                    class LaneAlarmInfo(Entity):
+                    class LaneAlarmInfo(_Entity_):
                         """
                         Lane Alarm Information
                         
@@ -10945,7 +11899,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, self).__init__()
 
                             self.yang_name = "lane-alarm-info"
                             self.yang_parent_name = "optics-lane"
@@ -10981,7 +11938,7 @@ class OpticsOper(Entity):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, [], name, value)
 
 
-                        class HighRxPower(Entity):
+                        class HighRxPower(_Entity_):
                             """
                             High Rx Power
                             
@@ -11009,7 +11966,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, self).__init__()
 
                                 self.yang_name = "high-rx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -11029,9 +11989,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower']['meta_info']
 
 
-                        class LowRxPower(Entity):
+                        class LowRxPower(_Entity_):
                             """
                             Low Rx Power
                             
@@ -11059,7 +12023,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, self).__init__()
 
                                 self.yang_name = "low-rx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -11079,9 +12046,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower']['meta_info']
 
 
-                        class HighTxPower(Entity):
+                        class HighTxPower(_Entity_):
                             """
                             High Tx Power
                             
@@ -11109,7 +12080,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, self).__init__()
 
                                 self.yang_name = "high-tx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -11129,9 +12103,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower']['meta_info']
 
 
-                        class LowTxPower(Entity):
+                        class LowTxPower(_Entity_):
                             """
                             Low Tx Power
                             
@@ -11159,7 +12137,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, self).__init__()
 
                                 self.yang_name = "low-tx-power"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -11179,9 +12160,13 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower']['meta_info']
 
 
-                        class HighLbc(Entity):
+                        class HighLbc(_Entity_):
                             """
                             High laser bias current
                             
@@ -11209,7 +12194,10 @@ class OpticsOper(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, self).__init__()
 
                                 self.yang_name = "high-lbc"
                                 self.yang_parent_name = "lane-alarm-info"
@@ -11229,12 +12217,28 @@ class OpticsOper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes']['meta_info']
 
 
-
-
-
-            class OpticsDbInfo(Entity):
+            class OpticsDbInfo(_Entity_):
                 """
                 Optics operational data
                 
@@ -11267,7 +12271,10 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, self).__init__()
 
                     self.yang_name = "optics-db-info"
                     self.yang_parent_name = "optics-port"
@@ -11292,7 +12299,7 @@ class OpticsOper(Entity):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, ['transport_admin_state', 'controller_state'], name, value)
 
 
-                class NetworkSrlgInfo(Entity):
+                class NetworkSrlgInfo(_Entity_):
                     """
                     Network SRLG information
                     
@@ -11311,7 +12318,10 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo, self).__init__()
 
                         self.yang_name = "network-srlg-info"
                         self.yang_parent_name = "optics-db-info"
@@ -11329,7 +12339,7 @@ class OpticsOper(Entity):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo, [], name, value)
 
 
-                    class NetworkSrlgArray(Entity):
+                    class NetworkSrlgArray(_Entity_):
                         """
                         Network Srlg Array
                         
@@ -11359,7 +12369,10 @@ class OpticsOper(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, self).__init__()
 
                             self.yang_name = "network-srlg-array"
                             self.yang_parent_name = "network-srlg-info"
@@ -11379,14 +12392,38 @@ class OpticsOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+            return meta._meta_table['OpticsOper.OpticsPorts']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = OpticsOper()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsOper']['meta_info']
 
 

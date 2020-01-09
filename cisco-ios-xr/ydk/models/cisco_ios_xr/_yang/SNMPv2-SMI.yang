@@ -1,6 +1,8 @@
 module SNMPv2-SMI {
   namespace "http://tail-f.com/ns/mibs/SNMPv2-SMI/1.0";
   prefix SNMPv2_SMI;
+  tailf:id "";
+  tailf:snmp-mib-module-name "SNMPv2-SMI";
 
   import ietf-yang-types {
     prefix yang;
@@ -68,6 +70,4 @@ module SNMPv2-SMI {
       range "0 .. 18446744073709551615";
     }
   }
-  tailf:id "";
-  tailf:snmp-mib-module-name "SNMPv2-SMI";
 }

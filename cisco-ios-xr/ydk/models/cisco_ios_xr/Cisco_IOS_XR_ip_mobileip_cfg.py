@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class EncapOpt(Enum):
     mgreipv6 = Enum.YLeaf(8, "mgreipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['EncapOpt']
+
+
 class GreKeyType(Enum):
     """
     GreKeyType (Enum Class)
@@ -68,6 +77,12 @@ class GreKeyType(Enum):
     """
 
     symmetric = Enum.YLeaf(1, "symmetric")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['GreKeyType']
 
 
 class LmaRat(Enum):
@@ -151,6 +166,12 @@ class LmaRat(Enum):
     Y_3gpp2umb = Enum.YLeaf(11, "3gpp2umb")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['LmaRat']
+
+
 class LmaRole(Enum):
     """
     LmaRole (Enum Class)
@@ -166,6 +187,12 @@ class LmaRole(Enum):
     Y_3gma = Enum.YLeaf(0, "3gma")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['LmaRole']
+
+
 class LmaService(Enum):
     """
     LmaService (Enum Class)
@@ -179,6 +206,12 @@ class LmaService(Enum):
     """
 
     service_mll = Enum.YLeaf(1, "service-mll")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['LmaService']
 
 
 class RedistSubType(Enum):
@@ -204,6 +237,12 @@ class RedistSubType(Enum):
     disable = Enum.YLeaf(2, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['RedistSubType']
+
+
 class RedistType(Enum):
     """
     RedistType (Enum Class)
@@ -217,6 +256,12 @@ class RedistType(Enum):
     """
 
     home_address = Enum.YLeaf(1, "home-address")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['RedistType']
 
 
 class ServiceType(Enum):
@@ -246,8 +291,14 @@ class ServiceType(Enum):
     dual = Enum.YLeaf(3, "dual")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['ServiceType']
 
-class MobileIp(Entity):
+
+
+class MobileIp(_Entity_):
     """
     MobileIP configuration
     
@@ -269,7 +320,10 @@ class MobileIp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MobileIp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MobileIp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mobile-ip"
@@ -294,7 +348,7 @@ class MobileIp(Entity):
         self._perform_setattr(MobileIp, [], name, value)
 
 
-    class Domains(Entity):
+    class Domains(_Entity_):
         """
         Table of Domain
         
@@ -311,7 +365,10 @@ class MobileIp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MobileIp.Domains, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MobileIp.Domains, self).__init__()
 
             self.yang_name = "domains"
             self.yang_parent_name = "mobile-ip"
@@ -330,7 +387,7 @@ class MobileIp(Entity):
             self._perform_setattr(MobileIp.Domains, [], name, value)
 
 
-        class Domain(Entity):
+        class Domain(_Entity_):
             """
             PMIPv6 domain configuration
             
@@ -374,7 +431,10 @@ class MobileIp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MobileIp.Domains.Domain, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MobileIp.Domains.Domain, self).__init__()
 
                 self.yang_name = "domain"
                 self.yang_parent_name = "domains"
@@ -412,7 +472,7 @@ class MobileIp(Entity):
                 self._perform_setattr(MobileIp.Domains.Domain, ['domain_name', 'enable'], name, value)
 
 
-            class Mags(Entity):
+            class Mags(_Entity_):
                 """
                 Table of MAG
                 
@@ -429,7 +489,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Domains.Domain.Mags, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Domains.Domain.Mags, self).__init__()
 
                     self.yang_name = "mags"
                     self.yang_parent_name = "domain"
@@ -447,7 +510,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Domains.Domain.Mags, [], name, value)
 
 
-                class Mag(Entity):
+                class Mag(_Entity_):
                     """
                     MAG within domain
                     
@@ -466,7 +529,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Domains.Domain.Mags.Mag, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Domains.Domain.Mags.Mag, self).__init__()
 
                         self.yang_name = "mag"
                         self.yang_parent_name = "mags"
@@ -484,10 +550,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Mags.Mag, ['mag_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Domains.Domain.Mags.Mag']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Domains.Domain.Mags']['meta_info']
 
 
-
-            class Nais(Entity):
+            class Nais(_Entity_):
                 """
                 Table of NAI
                 
@@ -504,7 +578,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Domains.Domain.Nais, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Domains.Domain.Nais, self).__init__()
 
                     self.yang_name = "nais"
                     self.yang_parent_name = "domain"
@@ -522,7 +599,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Domains.Domain.Nais, [], name, value)
 
 
-                class Nai(Entity):
+                class Nai(_Entity_):
                     """
                     Network access identifier or Realm
                     
@@ -574,7 +651,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Domains.Domain.Nais.Nai, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Domains.Domain.Nais.Nai, self).__init__()
 
                         self.yang_name = "nai"
                         self.yang_parent_name = "nais"
@@ -602,10 +682,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Nais.Nai, ['nai_name', 'lma', 'apn', 'customer', 'service', 'network'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Domains.Domain.Nais.Nai']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Domains.Domain.Nais']['meta_info']
 
 
-
-            class AuthenticateOption(Entity):
+            class AuthenticateOption(_Entity_):
                 """
                 Authentication option between PMIPV6 entities
                 
@@ -631,7 +719,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Domains.Domain.AuthenticateOption, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Domains.Domain.AuthenticateOption, self).__init__()
 
                     self.yang_name = "authenticate-option"
                     self.yang_parent_name = "domain"
@@ -651,9 +742,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.AuthenticateOption, ['spi', 'key'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Domains.Domain.AuthenticateOption']['meta_info']
 
 
-            class Lmas(Entity):
+            class Lmas(_Entity_):
                 """
                 Table of LMA
                 
@@ -670,7 +765,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Domains.Domain.Lmas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Domains.Domain.Lmas, self).__init__()
 
                     self.yang_name = "lmas"
                     self.yang_parent_name = "domain"
@@ -688,7 +786,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Domains.Domain.Lmas, [], name, value)
 
 
-                class Lma(Entity):
+                class Lma(_Entity_):
                     """
                     LMA within domain
                     
@@ -707,7 +805,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Domains.Domain.Lmas.Lma, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Domains.Domain.Lmas.Lma, self).__init__()
 
                         self.yang_name = "lma"
                         self.yang_parent_name = "lmas"
@@ -725,12 +826,28 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Lmas.Lma, ['lma_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Domains.Domain.Lmas.Lma']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Domains.Domain.Lmas']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                return meta._meta_table['MobileIp.Domains.Domain']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+            return meta._meta_table['MobileIp.Domains']['meta_info']
 
 
-
-
-
-    class Lmas(Entity):
+    class Lmas(_Entity_):
         """
         Table of LMA
         
@@ -747,7 +864,10 @@ class MobileIp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MobileIp.Lmas, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MobileIp.Lmas, self).__init__()
 
             self.yang_name = "lmas"
             self.yang_parent_name = "mobile-ip"
@@ -766,7 +886,7 @@ class MobileIp(Entity):
             self._perform_setattr(MobileIp.Lmas, [], name, value)
 
 
-        class Lma(Entity):
+        class Lma(_Entity_):
             """
             PMIPv6 LMA configuration
             
@@ -930,7 +1050,10 @@ class MobileIp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MobileIp.Lmas.Lma, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MobileIp.Lmas.Lma, self).__init__()
 
                 self.yang_name = "lma"
                 self.yang_parent_name = "lmas"
@@ -1036,7 +1159,7 @@ class MobileIp(Entity):
                 self._perform_setattr(MobileIp.Lmas.Lma, ['lma_name', 'domain_name', 'generate', 'mobile_route_ad', 'ani', 'multipath', 'dynamic', 'enforce', 'default_profile', 'interface', 'mobile_map', 'pgw_subs_cont'], name, value)
 
 
-            class BindingRevocationAttributes(Entity):
+            class BindingRevocationAttributes(_Entity_):
                 """
                 LMA Binding Revocation Attributes
                 
@@ -1060,7 +1183,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.BindingRevocationAttributes, self).__init__()
 
                     self.yang_name = "binding-revocation-attributes"
                     self.yang_parent_name = "lma"
@@ -1083,7 +1209,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes, ['retry'], name, value)
 
 
-                class Delay(Entity):
+                class Delay(_Entity_):
                     """
                     Time to wait before Retransmitting BRI
                     Message
@@ -1110,7 +1236,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, self).__init__()
 
                         self.yang_name = "delay"
                         self.yang_parent_name = "binding-revocation-attributes"
@@ -1130,10 +1259,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, ['br_min', 'br_max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.BindingRevocationAttributes']['meta_info']
 
 
-
-            class RatAttributes(Entity):
+            class RatAttributes(_Entity_):
                 """
                 Radio access technology type config  this LMA
                 
@@ -1157,7 +1294,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.RatAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.RatAttributes, self).__init__()
 
                     self.yang_name = "rat-attributes"
                     self.yang_parent_name = "lma"
@@ -1177,9 +1317,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.RatAttributes, ['lma_rat', 'priority_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.RatAttributes']['meta_info']
 
 
-            class HeartBeatAttributes(Entity):
+            class HeartBeatAttributes(_Entity_):
                 """
                 heartbeat config for this LMA
                 
@@ -1212,7 +1356,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.HeartBeatAttributes, self).__init__()
 
                     self.yang_name = "heart-beat-attributes"
                     self.yang_parent_name = "lma"
@@ -1234,9 +1381,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.HeartBeatAttributes']['meta_info']
 
 
-            class Lmaipv6Addresses(Entity):
+            class Lmaipv6Addresses(_Entity_):
                 """
                 Table of LMAIPv6Address
                 
@@ -1253,7 +1404,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Lmaipv6Addresses, self).__init__()
 
                     self.yang_name = "lmaipv6-addresses"
                     self.yang_parent_name = "lma"
@@ -1271,7 +1425,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses, [], name, value)
 
 
-                class Lmaipv6Address(Entity):
+                class Lmaipv6Address(_Entity_):
                     """
                     Configure IPv6 address for this LMA
                     
@@ -1290,7 +1444,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, self).__init__()
 
                         self.yang_name = "lmaipv6-address"
                         self.yang_parent_name = "lmaipv6-addresses"
@@ -1308,10 +1465,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, ['address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv6Addresses']['meta_info']
 
 
-
-            class Hnp(Entity):
+            class Hnp(_Entity_):
                 """
                 LMA HNP options
                 
@@ -1330,7 +1495,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Hnp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Hnp, self).__init__()
 
                     self.yang_name = "hnp"
                     self.yang_parent_name = "lma"
@@ -1348,9 +1516,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Hnp, ['maximum'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Hnp']['meta_info']
 
 
-            class Redistribute(Entity):
+            class Redistribute(_Entity_):
                 """
                 Redistribute routes
                 
@@ -1372,7 +1544,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Redistribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Redistribute, self).__init__()
 
                     self.yang_name = "redistribute"
                     self.yang_parent_name = "lma"
@@ -1392,9 +1567,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Redistribute, ['redist_type', 'redist_sub_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Redistribute']['meta_info']
 
 
-            class Aaa(Entity):
+            class Aaa(_Entity_):
                 """
                 AAA configuration for this LMA
                 
@@ -1411,7 +1590,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Aaa, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Aaa, self).__init__()
 
                     self.yang_name = "aaa"
                     self.yang_parent_name = "lma"
@@ -1431,7 +1613,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Aaa, [], name, value)
 
 
-                class Accounting(Entity):
+                class Accounting(_Entity_):
                     """
                     AAA accounting for this LMA
                     
@@ -1457,7 +1639,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Aaa.Accounting, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Aaa.Accounting, self).__init__()
 
                         self.yang_name = "accounting"
                         self.yang_parent_name = "aaa"
@@ -1477,10 +1662,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Aaa.Accounting, ['enable', 'interim_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Aaa.Accounting']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Aaa']['meta_info']
 
 
-
-            class Dscp(Entity):
+            class Dscp(_Entity_):
                 """
                 DSCP for packets originating from this LMA
                 
@@ -1504,7 +1697,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Dscp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Dscp, self).__init__()
 
                     self.yang_name = "dscp"
                     self.yang_parent_name = "lma"
@@ -1524,9 +1720,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Dscp, ['value', 'force'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Dscp']['meta_info']
 
 
-            class Lmaipv4Addresses(Entity):
+            class Lmaipv4Addresses(_Entity_):
                 """
                 Table of LMAIPv4Address
                 
@@ -1543,7 +1743,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Lmaipv4Addresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Lmaipv4Addresses, self).__init__()
 
                     self.yang_name = "lmaipv4-addresses"
                     self.yang_parent_name = "lma"
@@ -1561,7 +1764,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses, [], name, value)
 
 
-                class Lmaipv4Address(Entity):
+                class Lmaipv4Address(_Entity_):
                     """
                     Configure IPv4 address for this LMA
                     
@@ -1580,7 +1783,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, self).__init__()
 
                         self.yang_name = "lmaipv4-address"
                         self.yang_parent_name = "lmaipv4-addresses"
@@ -1598,10 +1804,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, ['address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Lmaipv4Addresses']['meta_info']
 
 
-
-            class Roles(Entity):
+            class Roles(_Entity_):
                 """
                 Table of Role
                 
@@ -1618,7 +1832,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Roles, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Roles, self).__init__()
 
                     self.yang_name = "roles"
                     self.yang_parent_name = "lma"
@@ -1636,7 +1853,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Roles, [], name, value)
 
 
-                class Role(Entity):
+                class Role(_Entity_):
                     """
                     Role of this LMA
                     
@@ -1653,7 +1870,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Roles.Role, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Roles.Role, self).__init__()
 
                         self.yang_name = "role"
                         self.yang_parent_name = "roles"
@@ -1671,10 +1891,18 @@ class MobileIp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Roles.Role, ['lma_role'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Roles.Role']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Roles']['meta_info']
 
 
-
-            class BindingAttributes(Entity):
+            class BindingAttributes(_Entity_):
                 """
                 LMA binding attributes
                 
@@ -1725,7 +1953,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.BindingAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.BindingAttributes, self).__init__()
 
                     self.yang_name = "binding-attributes"
                     self.yang_parent_name = "lma"
@@ -1751,9 +1982,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.BindingAttributes, ['refresh_time', 'delete_wait_interval', 'create_wait_interval', 'max_life_time', 'maximum'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.BindingAttributes']['meta_info']
 
 
-            class Mags(Entity):
+            class Mags(_Entity_):
                 """
                 Table of MAG
                 
@@ -1770,7 +2005,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Mags, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Mags, self).__init__()
 
                     self.yang_name = "mags"
                     self.yang_parent_name = "lma"
@@ -1788,7 +2026,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Mags, [], name, value)
 
 
-                class Mag(Entity):
+                class Mag(_Entity_):
                     """
                     MAG within LMA
                     
@@ -1850,7 +2088,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Mags.Mag, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Mags.Mag, self).__init__()
 
                         self.yang_name = "mag"
                         self.yang_parent_name = "mags"
@@ -1887,7 +2128,7 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag, ['mag_name', 'domain_name', 'encap_option', 'ipv4_address', 'ipv6_address', 'tunnel'], name, value)
 
 
-                    class AuthenticateOption(Entity):
+                    class AuthenticateOption(_Entity_):
                         """
                         Authentication option between PMIPV6
                         entities
@@ -1914,7 +2155,10 @@ class MobileIp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, self).__init__()
 
                             self.yang_name = "authenticate-option"
                             self.yang_parent_name = "mag"
@@ -1934,9 +2178,13 @@ class MobileIp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, ['spi', 'key'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                            return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption']['meta_info']
 
 
-                    class Dscp(Entity):
+                    class Dscp(_Entity_):
                         """
                         DSCP for packets originating from this MAG
                         
@@ -1960,7 +2208,10 @@ class MobileIp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MobileIp.Lmas.Lma.Mags.Mag.Dscp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MobileIp.Lmas.Lma.Mags.Mag.Dscp, self).__init__()
 
                             self.yang_name = "dscp"
                             self.yang_parent_name = "mag"
@@ -1980,11 +2231,23 @@ class MobileIp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.Dscp, ['value', 'force'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                            return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag.Dscp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Mags.Mag']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Mags']['meta_info']
 
 
-
-
-            class TunnelAttributes(Entity):
+            class TunnelAttributes(_Entity_):
                 """
                 tunnel attributes
                 
@@ -2010,7 +2273,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.TunnelAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.TunnelAttributes, self).__init__()
 
                     self.yang_name = "tunnel-attributes"
                     self.yang_parent_name = "lma"
@@ -2030,9 +2296,13 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.TunnelAttributes, ['mtu', 'acl'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.TunnelAttributes']['meta_info']
 
 
-            class Services(Entity):
+            class Services(_Entity_):
                 """
                 Table of Service
                 
@@ -2049,7 +2319,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Services, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Services, self).__init__()
 
                     self.yang_name = "services"
                     self.yang_parent_name = "lma"
@@ -2067,7 +2340,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Services, [], name, value)
 
 
-                class Service(Entity):
+                class Service(_Entity_):
                     """
                     Service of this LMA
                     
@@ -2136,7 +2409,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Services.Service, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Services.Service, self).__init__()
 
                         self.yang_name = "service"
                         self.yang_parent_name = "services"
@@ -2173,7 +2449,7 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service, ['lma_service', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'ignore_home_address', 'mnp_ipv4_customer', 'mnp_ipv6_customer'], name, value)
 
 
-                    class Customers(Entity):
+                    class Customers(_Entity_):
                         """
                         Table of Customer
                         
@@ -2190,7 +2466,10 @@ class MobileIp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MobileIp.Lmas.Lma.Services.Service.Customers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MobileIp.Lmas.Lma.Services.Service.Customers, self).__init__()
 
                             self.yang_name = "customers"
                             self.yang_parent_name = "service"
@@ -2208,7 +2487,7 @@ class MobileIp(Entity):
                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers, [], name, value)
 
 
-                        class Customer(Entity):
+                        class Customer(_Entity_):
                             """
                             customer configuration on this mobile local
                             loop service
@@ -2323,7 +2602,10 @@ class MobileIp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, self).__init__()
 
                                 self.yang_name = "customer"
                                 self.yang_parent_name = "customers"
@@ -2384,7 +2666,7 @@ class MobileIp(Entity):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, ['customer_name', 'vrf_name', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'mnp_ipv4_customer', 'mnp_ipv6_customer', 'mobile_route_ad', 'bandwidth_aggregate'], name, value)
 
 
-                            class AuthenticateOption(Entity):
+                            class AuthenticateOption(_Entity_):
                                 """
                                 Authentication option between PMIPV6
                                 entities
@@ -2411,7 +2693,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, self).__init__()
 
                                     self.yang_name = "authenticate-option"
                                     self.yang_parent_name = "customer"
@@ -2431,9 +2716,13 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, ['spi', 'key'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption']['meta_info']
 
 
-                            class HeartBeatAttributes(Entity):
+                            class HeartBeatAttributes(_Entity_):
                                 """
                                 heartbeat config for this Customer
                                 
@@ -2466,7 +2755,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, self).__init__()
 
                                     self.yang_name = "heart-beat-attributes"
                                     self.yang_parent_name = "customer"
@@ -2488,9 +2780,13 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes']['meta_info']
 
 
-                            class Transports(Entity):
+                            class Transports(_Entity_):
                                 """
                                 Table of Transport
                                 
@@ -2507,7 +2803,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, self).__init__()
 
                                     self.yang_name = "transports"
                                     self.yang_parent_name = "customer"
@@ -2525,7 +2824,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, [], name, value)
 
 
-                                class Transport(Entity):
+                                class Transport(_Entity_):
                                     """
                                     Customer transport attributes
                                     
@@ -2558,7 +2857,10 @@ class MobileIp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, self).__init__()
 
                                         self.yang_name = "transport"
                                         self.yang_parent_name = "transports"
@@ -2580,10 +2882,18 @@ class MobileIp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, ['vrf_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports']['meta_info']
 
 
-
-                            class NetworkAttributes(Entity):
+                            class NetworkAttributes(_Entity_):
                                 """
                                 network parameters for the customer
                                 
@@ -2605,7 +2915,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, self).__init__()
 
                                     self.yang_name = "network-attributes"
                                     self.yang_parent_name = "customer"
@@ -2628,7 +2941,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, ['unauthorize'], name, value)
 
 
-                                class Authorizes(Entity):
+                                class Authorizes(_Entity_):
                                     """
                                     Table of Authorize
                                     
@@ -2645,7 +2958,10 @@ class MobileIp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, self).__init__()
 
                                         self.yang_name = "authorizes"
                                         self.yang_parent_name = "network-attributes"
@@ -2663,7 +2979,7 @@ class MobileIp(Entity):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, [], name, value)
 
 
-                                    class Authorize(Entity):
+                                    class Authorize(_Entity_):
                                         """
                                         not authorize the network prefixes
                                         
@@ -2687,7 +3003,10 @@ class MobileIp(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, self).__init__()
 
                                             self.yang_name = "authorize"
                                             self.yang_parent_name = "authorizes"
@@ -2710,7 +3029,7 @@ class MobileIp(Entity):
                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, ['name'], name, value)
 
 
-                                        class PoolAttributes(Entity):
+                                        class PoolAttributes(_Entity_):
                                             """
                                             Pool configs for this network
                                             
@@ -2732,7 +3051,10 @@ class MobileIp(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, self).__init__()
 
                                                 self.yang_name = "pool-attributes"
                                                 self.yang_parent_name = "authorize"
@@ -2756,7 +3078,7 @@ class MobileIp(Entity):
                                                 self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, [], name, value)
 
 
-                                            class MobileNode(Entity):
+                                            class MobileNode(_Entity_):
                                                 """
                                                 pool configs for the mobile nodes
                                                 
@@ -2778,7 +3100,10 @@ class MobileIp(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, self).__init__()
 
                                                     self.yang_name = "mobile-node"
                                                     self.yang_parent_name = "pool-attributes"
@@ -2802,7 +3127,7 @@ class MobileIp(Entity):
                                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, [], name, value)
 
 
-                                                class Ipv4Pool(Entity):
+                                                class Ipv4Pool(_Entity_):
                                                     """
                                                     None
                                                     
@@ -2828,7 +3153,10 @@ class MobileIp(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
 
                                                         self.yang_name = "ipv4-pool"
                                                         self.yang_parent_name = "mobile-node"
@@ -2848,9 +3176,13 @@ class MobileIp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool']['meta_info']
 
 
-                                                class Ipv6Pool(Entity):
+                                                class Ipv6Pool(_Entity_):
                                                     """
                                                     None
                                                     
@@ -2876,7 +3208,10 @@ class MobileIp(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
 
                                                         self.yang_name = "ipv6-pool"
                                                         self.yang_parent_name = "mobile-node"
@@ -2896,10 +3231,18 @@ class MobileIp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode']['meta_info']
 
 
-
-                                            class MobileNetwork(Entity):
+                                            class MobileNetwork(_Entity_):
                                                 """
                                                 pool configs for the mobile network
                                                 
@@ -2921,7 +3264,10 @@ class MobileIp(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, self).__init__()
 
                                                     self.yang_name = "mobile-network"
                                                     self.yang_parent_name = "pool-attributes"
@@ -2945,7 +3291,7 @@ class MobileIp(Entity):
                                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, [], name, value)
 
 
-                                                class Mripv6Pools(Entity):
+                                                class Mripv6Pools(_Entity_):
                                                     """
                                                     Table of MRIPV6Pool
                                                     
@@ -2962,7 +3308,10 @@ class MobileIp(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
 
                                                         self.yang_name = "mripv6-pools"
                                                         self.yang_parent_name = "mobile-network"
@@ -2980,7 +3329,7 @@ class MobileIp(Entity):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
 
 
-                                                    class Mripv6Pool(Entity):
+                                                    class Mripv6Pool(_Entity_):
                                                         """
                                                         ipv6 pool
                                                         
@@ -3013,7 +3362,10 @@ class MobileIp(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
 
                                                             self.yang_name = "mripv6-pool"
                                                             self.yang_parent_name = "mripv6-pools"
@@ -3035,10 +3387,18 @@ class MobileIp(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools']['meta_info']
 
 
-
-                                                class Mripv4Pools(Entity):
+                                                class Mripv4Pools(_Entity_):
                                                     """
                                                     Table of MRIPV4Pool
                                                     
@@ -3055,7 +3415,10 @@ class MobileIp(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
 
                                                         self.yang_name = "mripv4-pools"
                                                         self.yang_parent_name = "mobile-network"
@@ -3073,7 +3436,7 @@ class MobileIp(Entity):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
 
 
-                                                    class Mripv4Pool(Entity):
+                                                    class Mripv4Pool(_Entity_):
                                                         """
                                                         ipv4 pool
                                                         
@@ -3106,7 +3469,10 @@ class MobileIp(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
 
                                                             self.yang_name = "mripv4-pool"
                                                             self.yang_parent_name = "mripv4-pools"
@@ -3128,15 +3494,43 @@ class MobileIp(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                                return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes']['meta_info']
 
 
-
-
-
-
-
-
-                            class GreKey(Entity):
+                            class GreKey(_Entity_):
                                 """
                                 Customer specific GRE key
                                 
@@ -3160,7 +3554,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, self).__init__()
 
                                     self.yang_name = "gre-key"
                                     self.yang_parent_name = "customer"
@@ -3180,9 +3577,13 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, ['gre_key_type', 'gre_key_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey']['meta_info']
 
 
-                            class BindingAttributes(Entity):
+                            class BindingAttributes(_Entity_):
                                 """
                                 Customer specific binding attributes
                                 
@@ -3203,7 +3604,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, self).__init__()
 
                                     self.yang_name = "binding-attributes"
                                     self.yang_parent_name = "customer"
@@ -3221,13 +3625,33 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, ['max_life_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers.Customer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                            return meta._meta_table['MobileIp.Lmas.Lma.Services.Service.Customers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Services.Service']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Services']['meta_info']
 
 
-
-
-
-
-            class Networks(Entity):
+            class Networks(_Entity_):
                 """
                 Table of Network
                 
@@ -3244,7 +3668,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.Networks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.Networks, self).__init__()
 
                     self.yang_name = "networks"
                     self.yang_parent_name = "lma"
@@ -3262,7 +3689,7 @@ class MobileIp(Entity):
                     self._perform_setattr(MobileIp.Lmas.Lma.Networks, [], name, value)
 
 
-                class Network(Entity):
+                class Network(_Entity_):
                     """
                     network for this LMA
                     
@@ -3286,7 +3713,10 @@ class MobileIp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MobileIp.Lmas.Lma.Networks.Network, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MobileIp.Lmas.Lma.Networks.Network, self).__init__()
 
                         self.yang_name = "network"
                         self.yang_parent_name = "networks"
@@ -3309,7 +3739,7 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network, ['lma_network'], name, value)
 
 
-                    class PoolAttributes(Entity):
+                    class PoolAttributes(_Entity_):
                         """
                         Pool configs for this network
                         
@@ -3331,7 +3761,10 @@ class MobileIp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, self).__init__()
 
                             self.yang_name = "pool-attributes"
                             self.yang_parent_name = "network"
@@ -3355,7 +3788,7 @@ class MobileIp(Entity):
                             self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, [], name, value)
 
 
-                        class MobileNode(Entity):
+                        class MobileNode(_Entity_):
                             """
                             pool configs for the mobile nodes
                             
@@ -3377,7 +3810,10 @@ class MobileIp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, self).__init__()
 
                                 self.yang_name = "mobile-node"
                                 self.yang_parent_name = "pool-attributes"
@@ -3401,7 +3837,7 @@ class MobileIp(Entity):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, [], name, value)
 
 
-                            class Ipv4Pool(Entity):
+                            class Ipv4Pool(_Entity_):
                                 """
                                 None
                                 
@@ -3427,7 +3863,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, self).__init__()
 
                                     self.yang_name = "ipv4-pool"
                                     self.yang_parent_name = "mobile-node"
@@ -3447,9 +3886,13 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool']['meta_info']
 
 
-                            class Ipv6Pool(Entity):
+                            class Ipv6Pool(_Entity_):
                                 """
                                 None
                                 
@@ -3475,7 +3918,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, self).__init__()
 
                                     self.yang_name = "ipv6-pool"
                                     self.yang_parent_name = "mobile-node"
@@ -3495,10 +3941,18 @@ class MobileIp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode']['meta_info']
 
 
-
-                        class MobileNetwork(Entity):
+                        class MobileNetwork(_Entity_):
                             """
                             pool configs for the mobile network
                             
@@ -3520,7 +3974,10 @@ class MobileIp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, self).__init__()
 
                                 self.yang_name = "mobile-network"
                                 self.yang_parent_name = "pool-attributes"
@@ -3544,7 +4001,7 @@ class MobileIp(Entity):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, [], name, value)
 
 
-                            class Mripv6Pools(Entity):
+                            class Mripv6Pools(_Entity_):
                                 """
                                 Table of MRIPV6Pool
                                 
@@ -3561,7 +4018,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, self).__init__()
 
                                     self.yang_name = "mripv6-pools"
                                     self.yang_parent_name = "mobile-network"
@@ -3579,7 +4039,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
 
 
-                                class Mripv6Pool(Entity):
+                                class Mripv6Pool(_Entity_):
                                     """
                                     ipv6 pool
                                     
@@ -3612,7 +4072,10 @@ class MobileIp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, self).__init__()
 
                                         self.yang_name = "mripv6-pool"
                                         self.yang_parent_name = "mripv6-pools"
@@ -3634,10 +4097,18 @@ class MobileIp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools']['meta_info']
 
 
-
-                            class Mripv4Pools(Entity):
+                            class Mripv4Pools(_Entity_):
                                 """
                                 Table of MRIPV4Pool
                                 
@@ -3654,7 +4125,10 @@ class MobileIp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, self).__init__()
 
                                     self.yang_name = "mripv4-pools"
                                     self.yang_parent_name = "mobile-network"
@@ -3672,7 +4146,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
 
 
-                                class Mripv4Pool(Entity):
+                                class Mripv4Pool(_Entity_):
                                     """
                                     ipv4 pool
                                     
@@ -3705,7 +4179,10 @@ class MobileIp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, self).__init__()
 
                                         self.yang_name = "mripv4-pool"
                                         self.yang_parent_name = "mripv4-pools"
@@ -3727,14 +4204,38 @@ class MobileIp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                    return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                                return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                            return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network.PoolAttributes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                        return meta._meta_table['MobileIp.Lmas.Lma.Networks.Network']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.Networks']['meta_info']
 
 
-
-
-
-
-
-            class ReplayProtection(Entity):
+            class ReplayProtection(_Entity_):
                 """
                 Replay Protection Method
                 
@@ -3755,7 +4256,10 @@ class MobileIp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MobileIp.Lmas.Lma.ReplayProtection, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MobileIp.Lmas.Lma.ReplayProtection, self).__init__()
 
                     self.yang_name = "replay-protection"
                     self.yang_parent_name = "lma"
@@ -3773,12 +4277,28 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.ReplayProtection, ['timestamp_window'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                    return meta._meta_table['MobileIp.Lmas.Lma.ReplayProtection']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+                return meta._meta_table['MobileIp.Lmas.Lma']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+            return meta._meta_table['MobileIp.Lmas']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MobileIp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_cfg as meta
+        return meta._meta_table['MobileIp']['meta_info']
 
 

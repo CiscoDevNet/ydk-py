@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -83,8 +86,14 @@ class Track(Enum):
     bfd_type = Enum.YLeaf(9, "bfd-type")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+        return meta._meta_table['Track']
 
-class ObjectTracking(Entity):
+
+
+class ObjectTracking(_Entity_):
     """
     Object Tracking operational data
     
@@ -152,7 +161,10 @@ class ObjectTracking(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(ObjectTracking, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ObjectTracking, self).__init__()
         self._top_entity = None
 
         self.yang_name = "object-tracking"
@@ -201,7 +213,7 @@ class ObjectTracking(Entity):
         self._perform_setattr(ObjectTracking, [], name, value)
 
 
-    class TrackTypeInterface(Entity):
+    class TrackTypeInterface(_Entity_):
         """
         Object Tracking Type interface info
         
@@ -220,7 +232,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeInterface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeInterface, self).__init__()
 
             self.yang_name = "track-type-interface"
             self.yang_parent_name = "object-tracking"
@@ -239,7 +254,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeInterface, [], name, value)
 
 
-        class TrackInfo(Entity):
+        class TrackInfo(_Entity_):
             """
             track info
             
@@ -347,7 +362,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeInterface.TrackInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeInterface.TrackInfo, self).__init__()
 
                 self.yang_name = "track-info"
                 self.yang_parent_name = "track-type-interface"
@@ -399,7 +417,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -446,7 +464,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info"
@@ -482,7 +503,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -503,7 +524,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -522,9 +546,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -572,7 +600,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -597,9 +628,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -647,7 +682,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -672,9 +710,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -722,7 +764,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -747,10 +792,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo']['meta_info']
 
 
-
-            class BoolTracks(Entity):
+            class BoolTracks(_Entity_):
                 """
                 boolean objects
                 
@@ -769,7 +822,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks, self).__init__()
 
                     self.yang_name = "bool-tracks"
                     self.yang_parent_name = "track-info"
@@ -788,7 +844,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks, [], name, value)
 
 
-                class BoolTrackInfo(Entity):
+                class BoolTrackInfo(_Entity_):
                     """
                     bool track info
                     
@@ -823,7 +879,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
 
                         self.yang_name = "bool-track-info"
                         self.yang_parent_name = "bool-tracks"
@@ -846,10 +905,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks']['meta_info']
 
 
-
-            class ThresholdTracks(Entity):
+            class ThresholdTracks(_Entity_):
                 """
                 Threshold objects
                 
@@ -868,7 +935,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks, self).__init__()
 
                     self.yang_name = "threshold-tracks"
                     self.yang_parent_name = "track-info"
@@ -887,7 +957,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks, [], name, value)
 
 
-                class ThresholdTrackInfo(Entity):
+                class ThresholdTrackInfo(_Entity_):
                     """
                     threshold track info
                     
@@ -926,7 +996,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
 
                         self.yang_name = "threshold-track-info"
                         self.yang_parent_name = "threshold-tracks"
@@ -949,10 +1022,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks']['meta_info']
 
 
-
-            class TrackingInteraces(Entity):
+            class TrackingInteraces(_Entity_):
                 """
                 Tracking Interfaces
                 
@@ -971,7 +1052,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces, self).__init__()
 
                     self.yang_name = "tracking-interaces"
                     self.yang_parent_name = "track-info"
@@ -990,7 +1074,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces, [], name, value)
 
 
-                class InterfaceTrackingInfo(Entity):
+                class InterfaceTrackingInfo(_Entity_):
                     """
                     interface tracking info
                     
@@ -1011,7 +1095,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
 
                         self.yang_name = "interface-tracking-info"
                         self.yang_parent_name = "tracking-interaces"
@@ -1030,10 +1117,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces']['meta_info']
 
 
-
-            class Delayed(Entity):
+            class Delayed(_Entity_):
                 """
                 Is the state change delay counter in progress
                 
@@ -1063,7 +1158,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, self).__init__()
 
                     self.yang_name = "delayed"
                     self.yang_parent_name = "track-info"
@@ -1084,11 +1182,23 @@ class ObjectTracking(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo.Delayed']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeInterface.TrackInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeInterface']['meta_info']
 
 
-
-
-    class TrackBriefs(Entity):
+    class TrackBriefs(_Entity_):
         """
         Object Tracking Track table brief
         
@@ -1107,7 +1217,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackBriefs, self).__init__()
 
             self.yang_name = "track-briefs"
             self.yang_parent_name = "object-tracking"
@@ -1126,7 +1239,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackBriefs, [], name, value)
 
 
-        class TrackBrief(Entity):
+        class TrackBrief(_Entity_):
             """
             Track name \- maximum 32 characters
             
@@ -1154,7 +1267,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackBriefs.TrackBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackBriefs.TrackBrief, self).__init__()
 
                 self.yang_name = "track-brief"
                 self.yang_parent_name = "track-briefs"
@@ -1176,7 +1292,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief, ['track_name'], name, value)
 
 
-            class TrackInfoBrief(Entity):
+            class TrackInfoBrief(_Entity_):
                 """
                 track info brief
                 
@@ -1218,7 +1334,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, self).__init__()
 
                     self.yang_name = "track-info-brief"
                     self.yang_parent_name = "track-brief"
@@ -1245,7 +1364,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
-                class TrackTypeInfo(Entity):
+                class TrackTypeInfo(_Entity_):
                     """
                     Track type information
                     
@@ -1292,7 +1411,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
 
                         self.yang_name = "track-type-info"
                         self.yang_parent_name = "track-info-brief"
@@ -1327,7 +1449,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                    class InterfaceTracks(Entity):
+                    class InterfaceTracks(_Entity_):
                         """
                         track type interface info
                         
@@ -1348,7 +1470,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                             self.yang_name = "interface-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -1366,9 +1491,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                    class RouteTracks(Entity):
+                    class RouteTracks(_Entity_):
                         """
                         track type route info
                         
@@ -1416,7 +1545,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
 
                             self.yang_name = "route-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -1440,9 +1572,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                    class IpslaTracks(Entity):
+                    class IpslaTracks(_Entity_):
                         """
                         track type rtr info
                         
@@ -1490,7 +1626,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
 
                             self.yang_name = "ipsla-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -1514,9 +1653,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                    class BfdTracks(Entity):
+                    class BfdTracks(_Entity_):
                         """
                         track type bfdrtr info
                         
@@ -1564,7 +1707,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
 
                             self.yang_name = "bfd-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -1588,13 +1734,33 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackBriefs.TrackBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackBriefs']['meta_info']
 
 
-
-
-
-
-    class TrackTypeRtrReachability(Entity):
+    class TrackTypeRtrReachability(_Entity_):
         """
         Object Tracking Type RTR Reachability info
         
@@ -1613,7 +1779,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeRtrReachability, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeRtrReachability, self).__init__()
 
             self.yang_name = "track-type-rtr-reachability"
             self.yang_parent_name = "object-tracking"
@@ -1632,7 +1801,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeRtrReachability, [], name, value)
 
 
-        class TrackInfo(Entity):
+        class TrackInfo(_Entity_):
             """
             track info
             
@@ -1740,7 +1909,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeRtrReachability.TrackInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo, self).__init__()
 
                 self.yang_name = "track-info"
                 self.yang_parent_name = "track-type-rtr-reachability"
@@ -1792,7 +1964,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -1839,7 +2011,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info"
@@ -1875,7 +2050,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -1896,7 +2071,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -1915,9 +2093,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -1965,7 +2147,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -1990,9 +2175,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -2040,7 +2229,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2065,9 +2257,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -2115,7 +2311,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2140,10 +2339,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo']['meta_info']
 
 
-
-            class BoolTracks(Entity):
+            class BoolTracks(_Entity_):
                 """
                 boolean objects
                 
@@ -2162,7 +2369,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks, self).__init__()
 
                     self.yang_name = "bool-tracks"
                     self.yang_parent_name = "track-info"
@@ -2181,7 +2391,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks, [], name, value)
 
 
-                class BoolTrackInfo(Entity):
+                class BoolTrackInfo(_Entity_):
                     """
                     bool track info
                     
@@ -2216,7 +2426,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
 
                         self.yang_name = "bool-track-info"
                         self.yang_parent_name = "bool-tracks"
@@ -2239,10 +2452,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks']['meta_info']
 
 
-
-            class ThresholdTracks(Entity):
+            class ThresholdTracks(_Entity_):
                 """
                 Threshold objects
                 
@@ -2261,7 +2482,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks, self).__init__()
 
                     self.yang_name = "threshold-tracks"
                     self.yang_parent_name = "track-info"
@@ -2280,7 +2504,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks, [], name, value)
 
 
-                class ThresholdTrackInfo(Entity):
+                class ThresholdTrackInfo(_Entity_):
                     """
                     threshold track info
                     
@@ -2319,7 +2543,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
 
                         self.yang_name = "threshold-track-info"
                         self.yang_parent_name = "threshold-tracks"
@@ -2342,10 +2569,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks']['meta_info']
 
 
-
-            class TrackingInteraces(Entity):
+            class TrackingInteraces(_Entity_):
                 """
                 Tracking Interfaces
                 
@@ -2364,7 +2599,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces, self).__init__()
 
                     self.yang_name = "tracking-interaces"
                     self.yang_parent_name = "track-info"
@@ -2383,7 +2621,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces, [], name, value)
 
 
-                class InterfaceTrackingInfo(Entity):
+                class InterfaceTrackingInfo(_Entity_):
                     """
                     interface tracking info
                     
@@ -2404,7 +2642,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
 
                         self.yang_name = "interface-tracking-info"
                         self.yang_parent_name = "tracking-interaces"
@@ -2423,10 +2664,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces']['meta_info']
 
 
-
-            class Delayed(Entity):
+            class Delayed(_Entity_):
                 """
                 Is the state change delay counter in progress
                 
@@ -2456,7 +2705,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, self).__init__()
 
                     self.yang_name = "delayed"
                     self.yang_parent_name = "track-info"
@@ -2477,11 +2729,23 @@ class ObjectTracking(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeRtrReachability.TrackInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeRtrReachability']['meta_info']
 
 
-
-
-    class TrackTypeRtrReachabilityBrief(Entity):
+    class TrackTypeRtrReachabilityBrief(_Entity_):
         """
         Object Tracking Type RTR Reachability brief info
         
@@ -2500,7 +2764,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeRtrReachabilityBrief, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeRtrReachabilityBrief, self).__init__()
 
             self.yang_name = "track-type-rtr-reachability-brief"
             self.yang_parent_name = "object-tracking"
@@ -2519,7 +2786,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief, [], name, value)
 
 
-        class TrackInfoBrief(Entity):
+        class TrackInfoBrief(_Entity_):
             """
             track info brief
             
@@ -2561,7 +2828,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, self).__init__()
 
                 self.yang_name = "track-info-brief"
                 self.yang_parent_name = "track-type-rtr-reachability-brief"
@@ -2589,7 +2859,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -2636,7 +2906,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info-brief"
@@ -2672,7 +2945,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -2693,7 +2966,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2712,9 +2988,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -2762,7 +3042,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2787,9 +3070,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -2837,7 +3124,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2862,9 +3152,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -2912,7 +3206,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -2937,12 +3234,28 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeRtrReachabilityBrief']['meta_info']
 
 
-
-
-
-    class Tracks(Entity):
+    class Tracks(_Entity_):
         """
         Object Tracking Track table
         
@@ -2961,7 +3274,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.Tracks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.Tracks, self).__init__()
 
             self.yang_name = "tracks"
             self.yang_parent_name = "object-tracking"
@@ -2980,7 +3296,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.Tracks, [], name, value)
 
 
-        class Track(Entity):
+        class Track(_Entity_):
             """
             Track name \- maximum 32 characters
             
@@ -3008,7 +3324,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.Tracks.Track, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.Tracks.Track, self).__init__()
 
                 self.yang_name = "track"
                 self.yang_parent_name = "tracks"
@@ -3030,7 +3349,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.Tracks.Track, ['track_name'], name, value)
 
 
-            class TrackInfo(Entity):
+            class TrackInfo(_Entity_):
                 """
                 track info
                 
@@ -3138,7 +3457,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.Tracks.Track.TrackInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.Tracks.Track.TrackInfo, self).__init__()
 
                     self.yang_name = "track-info"
                     self.yang_parent_name = "track"
@@ -3189,7 +3511,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
-                class TrackTypeInfo(Entity):
+                class TrackTypeInfo(_Entity_):
                     """
                     Track type information
                     
@@ -3236,7 +3558,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, self).__init__()
 
                         self.yang_name = "track-type-info"
                         self.yang_parent_name = "track-info"
@@ -3271,7 +3596,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                    class InterfaceTracks(Entity):
+                    class InterfaceTracks(_Entity_):
                         """
                         track type interface info
                         
@@ -3292,7 +3617,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                             self.yang_name = "interface-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -3310,9 +3638,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                    class RouteTracks(Entity):
+                    class RouteTracks(_Entity_):
                         """
                         track type route info
                         
@@ -3360,7 +3692,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
 
                             self.yang_name = "route-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -3384,9 +3719,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                    class IpslaTracks(Entity):
+                    class IpslaTracks(_Entity_):
                         """
                         track type rtr info
                         
@@ -3434,7 +3773,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
 
                             self.yang_name = "ipsla-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -3458,9 +3800,13 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                    class BfdTracks(Entity):
+                    class BfdTracks(_Entity_):
                         """
                         track type bfdrtr info
                         
@@ -3508,7 +3854,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
 
                             self.yang_name = "bfd-tracks"
                             self.yang_parent_name = "track-type-info"
@@ -3532,10 +3881,18 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo']['meta_info']
 
 
-
-                class BoolTracks(Entity):
+                class BoolTracks(_Entity_):
                     """
                     boolean objects
                     
@@ -3554,7 +3911,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks, self).__init__()
 
                         self.yang_name = "bool-tracks"
                         self.yang_parent_name = "track-info"
@@ -3572,7 +3932,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks, [], name, value)
 
 
-                    class BoolTrackInfo(Entity):
+                    class BoolTrackInfo(_Entity_):
                         """
                         bool track info
                         
@@ -3607,7 +3967,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
 
                             self.yang_name = "bool-track-info"
                             self.yang_parent_name = "bool-tracks"
@@ -3629,10 +3992,18 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.BoolTracks']['meta_info']
 
 
-
-                class ThresholdTracks(Entity):
+                class ThresholdTracks(_Entity_):
                     """
                     Threshold objects
                     
@@ -3651,7 +4022,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks, self).__init__()
 
                         self.yang_name = "threshold-tracks"
                         self.yang_parent_name = "track-info"
@@ -3669,7 +4043,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks, [], name, value)
 
 
-                    class ThresholdTrackInfo(Entity):
+                    class ThresholdTrackInfo(_Entity_):
                         """
                         threshold track info
                         
@@ -3708,7 +4082,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
 
                             self.yang_name = "threshold-track-info"
                             self.yang_parent_name = "threshold-tracks"
@@ -3730,10 +4107,18 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks']['meta_info']
 
 
-
-                class TrackingInteraces(Entity):
+                class TrackingInteraces(_Entity_):
                     """
                     Tracking Interfaces
                     
@@ -3752,7 +4137,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces, self).__init__()
 
                         self.yang_name = "tracking-interaces"
                         self.yang_parent_name = "track-info"
@@ -3770,7 +4158,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces, [], name, value)
 
 
-                    class InterfaceTrackingInfo(Entity):
+                    class InterfaceTrackingInfo(_Entity_):
                         """
                         interface tracking info
                         
@@ -3791,7 +4179,10 @@ class ObjectTracking(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
 
                             self.yang_name = "interface-tracking-info"
                             self.yang_parent_name = "tracking-interaces"
@@ -3809,10 +4200,18 @@ class ObjectTracking(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                            return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces']['meta_info']
 
 
-
-                class Delayed(Entity):
+                class Delayed(_Entity_):
                     """
                     Is the state change delay counter in progress
                     
@@ -3842,7 +4241,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.Tracks.Track.TrackInfo.Delayed, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.Tracks.Track.TrackInfo.Delayed, self).__init__()
 
                         self.yang_name = "delayed"
                         self.yang_parent_name = "track-info"
@@ -3862,12 +4264,28 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo.Delayed']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.Tracks.Track.TrackInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.Tracks.Track']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.Tracks']['meta_info']
 
 
-
-
-
-    class TrackTypeIpv4RouteBrief(Entity):
+    class TrackTypeIpv4RouteBrief(_Entity_):
         """
         Object Tracking Type Ipv4 Route brief info
         
@@ -3886,7 +4304,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeIpv4RouteBrief, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeIpv4RouteBrief, self).__init__()
 
             self.yang_name = "track-type-ipv4-route-brief"
             self.yang_parent_name = "object-tracking"
@@ -3905,7 +4326,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief, [], name, value)
 
 
-        class TrackInfoBrief(Entity):
+        class TrackInfoBrief(_Entity_):
             """
             track info brief
             
@@ -3947,7 +4368,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, self).__init__()
 
                 self.yang_name = "track-info-brief"
                 self.yang_parent_name = "track-type-ipv4-route-brief"
@@ -3975,7 +4399,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -4022,7 +4446,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info-brief"
@@ -4058,7 +4485,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -4079,7 +4506,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4098,9 +4528,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -4148,7 +4582,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4173,9 +4610,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -4223,7 +4664,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4248,9 +4692,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -4298,7 +4746,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4323,12 +4774,28 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeIpv4RouteBrief']['meta_info']
 
 
-
-
-
-    class TrackTypeIpv4Route(Entity):
+    class TrackTypeIpv4Route(_Entity_):
         """
         Object Tracking Type IPV4 route info
         
@@ -4347,7 +4814,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeIpv4Route, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeIpv4Route, self).__init__()
 
             self.yang_name = "track-type-ipv4-route"
             self.yang_parent_name = "object-tracking"
@@ -4366,7 +4836,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeIpv4Route, [], name, value)
 
 
-        class TrackInfo(Entity):
+        class TrackInfo(_Entity_):
             """
             track info
             
@@ -4474,7 +4944,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeIpv4Route.TrackInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo, self).__init__()
 
                 self.yang_name = "track-info"
                 self.yang_parent_name = "track-type-ipv4-route"
@@ -4526,7 +4999,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -4573,7 +5046,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info"
@@ -4609,7 +5085,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -4630,7 +5106,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4649,9 +5128,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -4699,7 +5182,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4724,9 +5210,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -4774,7 +5264,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4799,9 +5292,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -4849,7 +5346,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -4874,10 +5374,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo']['meta_info']
 
 
-
-            class BoolTracks(Entity):
+            class BoolTracks(_Entity_):
                 """
                 boolean objects
                 
@@ -4896,7 +5404,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks, self).__init__()
 
                     self.yang_name = "bool-tracks"
                     self.yang_parent_name = "track-info"
@@ -4915,7 +5426,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks, [], name, value)
 
 
-                class BoolTrackInfo(Entity):
+                class BoolTrackInfo(_Entity_):
                     """
                     bool track info
                     
@@ -4950,7 +5461,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, self).__init__()
 
                         self.yang_name = "bool-track-info"
                         self.yang_parent_name = "bool-tracks"
@@ -4973,10 +5487,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks']['meta_info']
 
 
-
-            class ThresholdTracks(Entity):
+            class ThresholdTracks(_Entity_):
                 """
                 Threshold objects
                 
@@ -4995,7 +5517,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks, self).__init__()
 
                     self.yang_name = "threshold-tracks"
                     self.yang_parent_name = "track-info"
@@ -5014,7 +5539,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks, [], name, value)
 
 
-                class ThresholdTrackInfo(Entity):
+                class ThresholdTrackInfo(_Entity_):
                     """
                     threshold track info
                     
@@ -5053,7 +5578,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, self).__init__()
 
                         self.yang_name = "threshold-track-info"
                         self.yang_parent_name = "threshold-tracks"
@@ -5076,10 +5604,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks']['meta_info']
 
 
-
-            class TrackingInteraces(Entity):
+            class TrackingInteraces(_Entity_):
                 """
                 Tracking Interfaces
                 
@@ -5098,7 +5634,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces, self).__init__()
 
                     self.yang_name = "tracking-interaces"
                     self.yang_parent_name = "track-info"
@@ -5117,7 +5656,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces, [], name, value)
 
 
-                class InterfaceTrackingInfo(Entity):
+                class InterfaceTrackingInfo(_Entity_):
                     """
                     interface tracking info
                     
@@ -5138,7 +5677,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, self).__init__()
 
                         self.yang_name = "interface-tracking-info"
                         self.yang_parent_name = "tracking-interaces"
@@ -5157,10 +5699,18 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces']['meta_info']
 
 
-
-            class Delayed(Entity):
+            class Delayed(_Entity_):
                 """
                 Is the state change delay counter in progress
                 
@@ -5190,7 +5740,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, self).__init__()
 
                     self.yang_name = "delayed"
                     self.yang_parent_name = "track-info"
@@ -5211,11 +5764,23 @@ class ObjectTracking(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeIpv4Route.TrackInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeIpv4Route']['meta_info']
 
 
-
-
-    class TrackTypeInterfaceBrief(Entity):
+    class TrackTypeInterfaceBrief(_Entity_):
         """
         Object Tracking Type Interface brief info
         
@@ -5234,7 +5799,10 @@ class ObjectTracking(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ObjectTracking.TrackTypeInterfaceBrief, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTracking.TrackTypeInterfaceBrief, self).__init__()
 
             self.yang_name = "track-type-interface-brief"
             self.yang_parent_name = "object-tracking"
@@ -5253,7 +5821,7 @@ class ObjectTracking(Entity):
             self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief, [], name, value)
 
 
-        class TrackInfoBrief(Entity):
+        class TrackInfoBrief(_Entity_):
             """
             track info brief
             
@@ -5295,7 +5863,10 @@ class ObjectTracking(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, self).__init__()
 
                 self.yang_name = "track-info-brief"
                 self.yang_parent_name = "track-type-interface-brief"
@@ -5323,7 +5894,7 @@ class ObjectTracking(Entity):
                 self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
 
 
-            class TrackTypeInfo(Entity):
+            class TrackTypeInfo(_Entity_):
                 """
                 Track type information
                 
@@ -5370,7 +5941,10 @@ class ObjectTracking(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, self).__init__()
 
                     self.yang_name = "track-type-info"
                     self.yang_parent_name = "track-info-brief"
@@ -5406,7 +5980,7 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
 
 
-                class InterfaceTracks(Entity):
+                class InterfaceTracks(_Entity_):
                     """
                     track type interface info
                     
@@ -5427,7 +6001,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, self).__init__()
 
                         self.yang_name = "interface-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -5446,9 +6023,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks']['meta_info']
 
 
-                class RouteTracks(Entity):
+                class RouteTracks(_Entity_):
                     """
                     track type route info
                     
@@ -5496,7 +6077,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, self).__init__()
 
                         self.yang_name = "route-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -5521,9 +6105,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks']['meta_info']
 
 
-                class IpslaTracks(Entity):
+                class IpslaTracks(_Entity_):
                     """
                     track type rtr info
                     
@@ -5571,7 +6159,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, self).__init__()
 
                         self.yang_name = "ipsla-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -5596,9 +6187,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code', 'return_code_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks']['meta_info']
 
 
-                class BfdTracks(Entity):
+                class BfdTracks(_Entity_):
                     """
                     track type bfdrtr info
                     
@@ -5646,7 +6241,10 @@ class ObjectTracking(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, self).__init__()
 
                         self.yang_name = "bfd-tracks"
                         self.yang_parent_name = "track-type-info"
@@ -5671,13 +6269,33 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                        return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                    return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+                return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+            return meta._meta_table['ObjectTracking.TrackTypeInterfaceBrief']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ObjectTracking()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_oper as meta
+        return meta._meta_table['ObjectTracking']['meta_info']
 
 

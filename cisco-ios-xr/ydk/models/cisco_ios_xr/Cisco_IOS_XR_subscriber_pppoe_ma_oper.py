@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class PppoeMaLimitState(Enum):
     block = Enum.YLeaf(2, "block")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['PppoeMaLimitState']
+
+
 class PppoeMaSessionIdbSrgState(Enum):
     """
     PppoeMaSessionIdbSrgState (Enum Class)
@@ -72,6 +81,12 @@ class PppoeMaSessionIdbSrgState(Enum):
     active = Enum.YLeaf(1, "active")
 
     standby = Enum.YLeaf(2, "standby")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['PppoeMaSessionIdbSrgState']
 
 
 class PppoeMaSessionState(Enum):
@@ -129,6 +144,12 @@ class PppoeMaSessionState(Enum):
     activated = Enum.YLeaf(6, "activated")
 
     complete = Enum.YLeaf(7, "complete")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['PppoeMaSessionState']
 
 
 class PppoeMaSessionTrig(Enum):
@@ -217,7 +238,11 @@ class PppoeMaSessionTrig(Enum):
 
     	pppoe ma session trig srg sweep
 
-    .. data:: pppoe_ma_session_trig_count = 20
+    .. data:: pppoe_ma_session_trig_renegotiation = 20
+
+    	pppoe ma session trig renegotiation
+
+    .. data:: pppoe_ma_session_trig_count = 21
 
     	pppoe ma session trig count
 
@@ -263,7 +288,15 @@ class PppoeMaSessionTrig(Enum):
 
     pppoe_ma_session_trig_srg_sweep = Enum.YLeaf(19, "pppoe-ma-session-trig-srg-sweep")
 
-    pppoe_ma_session_trig_count = Enum.YLeaf(20, "pppoe-ma-session-trig-count")
+    pppoe_ma_session_trig_renegotiation = Enum.YLeaf(20, "pppoe-ma-session-trig-renegotiation")
+
+    pppoe_ma_session_trig_count = Enum.YLeaf(21, "pppoe-ma-session-trig-count")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['PppoeMaSessionTrig']
 
 
 class PppoeMaThrottleState(Enum):
@@ -293,8 +326,14 @@ class PppoeMaThrottleState(Enum):
     block = Enum.YLeaf(2, "block")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['PppoeMaThrottleState']
 
-class Pppoe(Entity):
+
+
+class Pppoe(_Entity_):
     """
     PPPoE operational data
     
@@ -317,10 +356,13 @@ class Pppoe(Entity):
     """
 
     _prefix = 'subscriber-pppoe-ma-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-10-07'
 
     def __init__(self):
-        super(Pppoe, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pppoe, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pppoe"
@@ -345,7 +387,7 @@ class Pppoe(Entity):
         self._perform_setattr(Pppoe, [], name, value)
 
 
-    class AccessInterfaceStatistics(Entity):
+    class AccessInterfaceStatistics(_Entity_):
         """
         PPPoE access interface statistics information
         
@@ -361,10 +403,13 @@ class Pppoe(Entity):
         """
 
         _prefix = 'subscriber-pppoe-ma-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-07'
 
         def __init__(self):
-            super(Pppoe.AccessInterfaceStatistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pppoe.AccessInterfaceStatistics, self).__init__()
 
             self.yang_name = "access-interface-statistics"
             self.yang_parent_name = "pppoe"
@@ -383,7 +428,7 @@ class Pppoe(Entity):
             self._perform_setattr(Pppoe.AccessInterfaceStatistics, [], name, value)
 
 
-        class AccessInterfaceStatistic(Entity):
+        class AccessInterfaceStatistic(_Entity_):
             """
             Statistics information for a PPPoE\-enabled
             access interface
@@ -409,10 +454,13 @@ class Pppoe(Entity):
             """
 
             _prefix = 'subscriber-pppoe-ma-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-10-07'
 
             def __init__(self):
-                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, self).__init__()
 
                 self.yang_name = "access-interface-statistic"
                 self.yang_parent_name = "access-interface-statistics"
@@ -436,7 +484,7 @@ class Pppoe(Entity):
                 self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, ['interface_name'], name, value)
 
 
-            class PacketCounts(Entity):
+            class PacketCounts(_Entity_):
                 """
                 Packet Counts
                 
@@ -501,10 +549,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, self).__init__()
 
                     self.yang_name = "packet-counts"
                     self.yang_parent_name = "access-interface-statistic"
@@ -552,7 +603,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, [], name, value)
 
 
-                class Padi(Entity):
+                class Padi(_Entity_):
                     """
                     PADI counts
                     
@@ -588,10 +639,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, self).__init__()
 
                         self.yang_name = "padi"
                         self.yang_parent_name = "packet-counts"
@@ -613,9 +667,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi']['meta_info']
 
 
-                class Pado(Entity):
+                class Pado(_Entity_):
                     """
                     PADO counts
                     
@@ -651,10 +709,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, self).__init__()
 
                         self.yang_name = "pado"
                         self.yang_parent_name = "packet-counts"
@@ -676,9 +737,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado']['meta_info']
 
 
-                class Padr(Entity):
+                class Padr(_Entity_):
                     """
                     PADR counts
                     
@@ -714,10 +779,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, self).__init__()
 
                         self.yang_name = "padr"
                         self.yang_parent_name = "packet-counts"
@@ -739,9 +807,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr']['meta_info']
 
 
-                class PadsSuccess(Entity):
+                class PadsSuccess(_Entity_):
                     """
                     PADS Success counts
                     
@@ -777,10 +849,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, self).__init__()
 
                         self.yang_name = "pads-success"
                         self.yang_parent_name = "packet-counts"
@@ -802,9 +877,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess']['meta_info']
 
 
-                class PadsError(Entity):
+                class PadsError(_Entity_):
                     """
                     PADS Error counts
                     
@@ -840,10 +919,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, self).__init__()
 
                         self.yang_name = "pads-error"
                         self.yang_parent_name = "packet-counts"
@@ -865,9 +947,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError']['meta_info']
 
 
-                class Padt(Entity):
+                class Padt(_Entity_):
                     """
                     PADT counts
                     
@@ -903,10 +989,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, self).__init__()
 
                         self.yang_name = "padt"
                         self.yang_parent_name = "packet-counts"
@@ -928,9 +1017,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt']['meta_info']
 
 
-                class SessionState(Entity):
+                class SessionState(_Entity_):
                     """
                     Session Stage counts
                     
@@ -966,10 +1059,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, self).__init__()
 
                         self.yang_name = "session-state"
                         self.yang_parent_name = "packet-counts"
@@ -991,9 +1087,13 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState']['meta_info']
 
 
-                class Other(Entity):
+                class Other(_Entity_):
                     """
                     Other counts
                     
@@ -1029,10 +1129,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, self).__init__()
 
                         self.yang_name = "other"
                         self.yang_parent_name = "packet-counts"
@@ -1054,12 +1157,28 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+            return meta._meta_table['Pppoe.AccessInterfaceStatistics']['meta_info']
 
 
-
-
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per\-node PPPoE operational data
         
@@ -1075,10 +1194,13 @@ class Pppoe(Entity):
         """
 
         _prefix = 'subscriber-pppoe-ma-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-07'
 
         def __init__(self):
-            super(Pppoe.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pppoe.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "pppoe"
@@ -1097,7 +1219,7 @@ class Pppoe(Entity):
             self._perform_setattr(Pppoe.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             PPPoE operational data for a particular node
             
@@ -1164,10 +1286,13 @@ class Pppoe(Entity):
             """
 
             _prefix = 'subscriber-pppoe-ma-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-10-07'
 
             def __init__(self):
-                super(Pppoe.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pppoe.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1215,7 +1340,7 @@ class Pppoe(Entity):
                 self._perform_setattr(Pppoe.Nodes.Node, ['node_name'], name, value)
 
 
-            class DisconnectHistory(Entity):
+            class DisconnectHistory(_Entity_):
                 """
                 PPPoE disconnect history for a given node
                 
@@ -1240,10 +1365,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.DisconnectHistory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.DisconnectHistory, self).__init__()
 
                     self.yang_name = "disconnect-history"
                     self.yang_parent_name = "node"
@@ -1264,7 +1392,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory, ['current_idx'], name, value)
 
 
-                class Entry(Entity):
+                class Entry(_Entity_):
                     """
                     Array of disconnected subscribers
                     
@@ -1303,10 +1431,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.DisconnectHistory.Entry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.DisconnectHistory.Entry, self).__init__()
 
                         self.yang_name = "entry"
                         self.yang_parent_name = "disconnect-history"
@@ -1333,7 +1464,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry, ['timestamp', 'ifname', 'trigger'], name, value)
 
 
-                    class SessionIdb(Entity):
+                    class SessionIdb(_Entity_):
                         """
                         Session IDB
                         
@@ -1701,10 +1832,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, self).__init__()
 
                             self.yang_name = "session-idb"
                             self.yang_parent_name = "entry"
@@ -1809,7 +1943,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, ['interface', 'access_interface', 'session_id', 'sub_label', 'peer_mac_address', 'state', 'cdm_object_handle', 'chkpt_id', 'punted_count', 'port_limit', 'is_counted', 'is_vlan_outer_tag', 'is_vlan_inner_tag', 'is_cleanup_pending', 'is_disconnect_done_pending', 'is_delete_done_pending', 'is_intf_create_callback_pending', 'is_publish_encaps_attr_pending', 'is_publish_encaps_attr_cb_pending', 'is_intf_delete_callback_pending', 'is_intf_delete_pending', 'is_im_owned_resource', 'is_im_final_received', 'is_im_owned_resource_missing', 'is_aaa_start_request_callback_pending', 'is_aaa_owned_resource', 'is_aaa_disconnect_requested', 'is_aaa_disconnect_received', 'is_sub_db_activate_callback_pending', 'is_pads_sent', 'is_padt_received', 'is_in_flight', 'is_radius_override', 'expected_notifications', 'received_notifications', 'srg_state', 'is_srg_data_received', 'is_iedge_data_received'], name, value)
 
 
-                        class Tags(Entity):
+                        class Tags(_Entity_):
                             """
                             Tags
                             
@@ -2215,10 +2349,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, self).__init__()
 
                                 self.yang_name = "tags"
                                 self.yang_parent_name = "session-idb"
@@ -2327,7 +2464,7 @@ class Pppoe(Entity):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, ['is_service_name', 'is_max_payload', 'is_host_uniq', 'is_relay_session_id', 'is_vendor_specific', 'is_iwf', 'is_remote_id', 'is_circuit_id', 'is_dsl_tag', 'service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_dsl_actual_up', 'is_dsl_actual_down', 'is_dsl_min_up', 'is_dsl_min_down', 'is_dsl_attain_up', 'is_dsl_attain_down', 'is_dsl_max_up', 'is_dsl_max_down', 'is_dsl_min_up_low', 'is_dsl_min_down_low', 'is_dsl_max_delay_up', 'is_dsl_actual_delay_up', 'is_dsl_max_delay_down', 'is_dsl_actual_delay_down', 'is_access_loop_encapsulation', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
-                            class AccessLoopEncapsulation(Entity):
+                            class AccessLoopEncapsulation(_Entity_):
                                 """
                                 Access Loop Encapsulation
                                 
@@ -2363,10 +2500,13 @@ class Pppoe(Entity):
                                 """
 
                                 _prefix = 'subscriber-pppoe-ma-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-10-07'
 
                                 def __init__(self):
-                                    super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
 
                                     self.yang_name = "access-loop-encapsulation"
                                     self.yang_parent_name = "tags"
@@ -2388,10 +2528,18 @@ class Pppoe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                    return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags']['meta_info']
 
 
-
-                        class VlanOuterTag(Entity):
+                        class VlanOuterTag(_Entity_):
                             """
                             VLAN Outer Tag
                             
@@ -2436,10 +2584,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, self).__init__()
 
                                 self.yang_name = "vlan-outer-tag"
                                 self.yang_parent_name = "session-idb"
@@ -2463,9 +2614,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag']['meta_info']
 
 
-                        class VlanInnerTag(Entity):
+                        class VlanInnerTag(_Entity_):
                             """
                             VLAN Inner Tag
                             
@@ -2510,10 +2665,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, self).__init__()
 
                                 self.yang_name = "vlan-inner-tag"
                                 self.yang_parent_name = "session-idb"
@@ -2537,12 +2695,28 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory.Entry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistory']['meta_info']
 
 
-
-
-
-            class DisconnectHistoryUnique(Entity):
+            class DisconnectHistoryUnique(_Entity_):
                 """
                 PPPoE unique disconnect history for a given
                 node
@@ -2568,10 +2742,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.DisconnectHistoryUnique, self).__init__()
 
                     self.yang_name = "disconnect-history-unique"
                     self.yang_parent_name = "node"
@@ -2592,7 +2769,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique, ['disconnect_count'], name, value)
 
 
-                class Entry(Entity):
+                class Entry(_Entity_):
                     """
                     Array of disconnected subscribers
                     
@@ -2631,10 +2808,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, self).__init__()
 
                         self.yang_name = "entry"
                         self.yang_parent_name = "disconnect-history-unique"
@@ -2661,7 +2841,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, ['timestamp', 'ifname', 'trigger'], name, value)
 
 
-                    class SessionIdb(Entity):
+                    class SessionIdb(_Entity_):
                         """
                         Session IDB
                         
@@ -3029,10 +3209,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, self).__init__()
 
                             self.yang_name = "session-idb"
                             self.yang_parent_name = "entry"
@@ -3137,7 +3320,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, ['interface', 'access_interface', 'session_id', 'sub_label', 'peer_mac_address', 'state', 'cdm_object_handle', 'chkpt_id', 'punted_count', 'port_limit', 'is_counted', 'is_vlan_outer_tag', 'is_vlan_inner_tag', 'is_cleanup_pending', 'is_disconnect_done_pending', 'is_delete_done_pending', 'is_intf_create_callback_pending', 'is_publish_encaps_attr_pending', 'is_publish_encaps_attr_cb_pending', 'is_intf_delete_callback_pending', 'is_intf_delete_pending', 'is_im_owned_resource', 'is_im_final_received', 'is_im_owned_resource_missing', 'is_aaa_start_request_callback_pending', 'is_aaa_owned_resource', 'is_aaa_disconnect_requested', 'is_aaa_disconnect_received', 'is_sub_db_activate_callback_pending', 'is_pads_sent', 'is_padt_received', 'is_in_flight', 'is_radius_override', 'expected_notifications', 'received_notifications', 'srg_state', 'is_srg_data_received', 'is_iedge_data_received'], name, value)
 
 
-                        class Tags(Entity):
+                        class Tags(_Entity_):
                             """
                             Tags
                             
@@ -3543,10 +3726,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, self).__init__()
 
                                 self.yang_name = "tags"
                                 self.yang_parent_name = "session-idb"
@@ -3655,7 +3841,7 @@ class Pppoe(Entity):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, ['is_service_name', 'is_max_payload', 'is_host_uniq', 'is_relay_session_id', 'is_vendor_specific', 'is_iwf', 'is_remote_id', 'is_circuit_id', 'is_dsl_tag', 'service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_dsl_actual_up', 'is_dsl_actual_down', 'is_dsl_min_up', 'is_dsl_min_down', 'is_dsl_attain_up', 'is_dsl_attain_down', 'is_dsl_max_up', 'is_dsl_max_down', 'is_dsl_min_up_low', 'is_dsl_min_down_low', 'is_dsl_max_delay_up', 'is_dsl_actual_delay_up', 'is_dsl_max_delay_down', 'is_dsl_actual_delay_down', 'is_access_loop_encapsulation', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
-                            class AccessLoopEncapsulation(Entity):
+                            class AccessLoopEncapsulation(_Entity_):
                                 """
                                 Access Loop Encapsulation
                                 
@@ -3691,10 +3877,13 @@ class Pppoe(Entity):
                                 """
 
                                 _prefix = 'subscriber-pppoe-ma-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-10-07'
 
                                 def __init__(self):
-                                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
 
                                     self.yang_name = "access-loop-encapsulation"
                                     self.yang_parent_name = "tags"
@@ -3716,10 +3905,18 @@ class Pppoe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                    return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags']['meta_info']
 
 
-
-                        class VlanOuterTag(Entity):
+                        class VlanOuterTag(_Entity_):
                             """
                             VLAN Outer Tag
                             
@@ -3764,10 +3961,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, self).__init__()
 
                                 self.yang_name = "vlan-outer-tag"
                                 self.yang_parent_name = "session-idb"
@@ -3791,9 +3991,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag']['meta_info']
 
 
-                        class VlanInnerTag(Entity):
+                        class VlanInnerTag(_Entity_):
                             """
                             VLAN Inner Tag
                             
@@ -3838,10 +4042,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, self).__init__()
 
                                 self.yang_name = "vlan-inner-tag"
                                 self.yang_parent_name = "session-idb"
@@ -3865,12 +4072,28 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.DisconnectHistoryUnique']['meta_info']
 
 
-
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 PPPoE statistics for a given node
                 
@@ -3893,10 +4116,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -3920,7 +4146,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.Statistics, [], name, value)
 
 
-                class PacketCounts(Entity):
+                class PacketCounts(_Entity_):
                     """
                     Packet Counts
                     
@@ -3985,10 +4211,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.Statistics.PacketCounts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts, self).__init__()
 
                         self.yang_name = "packet-counts"
                         self.yang_parent_name = "statistics"
@@ -4036,7 +4265,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts, [], name, value)
 
 
-                    class Padi(Entity):
+                    class Padi(_Entity_):
                         """
                         PADI counts
                         
@@ -4072,10 +4301,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, self).__init__()
 
                             self.yang_name = "padi"
                             self.yang_parent_name = "packet-counts"
@@ -4097,9 +4329,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padi']['meta_info']
 
 
-                    class Pado(Entity):
+                    class Pado(_Entity_):
                         """
                         PADO counts
                         
@@ -4135,10 +4371,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, self).__init__()
 
                             self.yang_name = "pado"
                             self.yang_parent_name = "packet-counts"
@@ -4160,9 +4399,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Pado']['meta_info']
 
 
-                    class Padr(Entity):
+                    class Padr(_Entity_):
                         """
                         PADR counts
                         
@@ -4198,10 +4441,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, self).__init__()
 
                             self.yang_name = "padr"
                             self.yang_parent_name = "packet-counts"
@@ -4223,9 +4469,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padr']['meta_info']
 
 
-                    class PadsSuccess(Entity):
+                    class PadsSuccess(_Entity_):
                         """
                         PADS Success counts
                         
@@ -4261,10 +4511,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, self).__init__()
 
                             self.yang_name = "pads-success"
                             self.yang_parent_name = "packet-counts"
@@ -4286,9 +4539,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess']['meta_info']
 
 
-                    class PadsError(Entity):
+                    class PadsError(_Entity_):
                         """
                         PADS Error counts
                         
@@ -4324,10 +4581,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, self).__init__()
 
                             self.yang_name = "pads-error"
                             self.yang_parent_name = "packet-counts"
@@ -4349,9 +4609,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError']['meta_info']
 
 
-                    class Padt(Entity):
+                    class Padt(_Entity_):
                         """
                         PADT counts
                         
@@ -4387,10 +4651,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, self).__init__()
 
                             self.yang_name = "padt"
                             self.yang_parent_name = "packet-counts"
@@ -4412,9 +4679,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padt']['meta_info']
 
 
-                    class SessionState(Entity):
+                    class SessionState(_Entity_):
                         """
                         Session Stage counts
                         
@@ -4450,10 +4721,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, self).__init__()
 
                             self.yang_name = "session-state"
                             self.yang_parent_name = "packet-counts"
@@ -4475,9 +4749,13 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState']['meta_info']
 
 
-                    class Other(Entity):
+                    class Other(_Entity_):
                         """
                         Other counts
                         
@@ -4513,10 +4791,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, self).__init__()
 
                             self.yang_name = "other"
                             self.yang_parent_name = "packet-counts"
@@ -4538,10 +4819,18 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Other']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts']['meta_info']
 
 
-
-                class PacketErrorCounts(Entity):
+                class PacketErrorCounts(_Entity_):
                     """
                     Packet Error Counts
                     
@@ -5018,10 +5307,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, self).__init__()
 
                         self.yang_name = "packet-error-counts"
                         self.yang_parent_name = "statistics"
@@ -5141,10 +5433,18 @@ class Pppoe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, ['no_interface_handle', 'no_packet_payload', 'no_packet_mac_address', 'invalid_version_type_value', 'bad_packet_length', 'unknown_interface', 'pado_received', 'pads_received', 'unknown_packet_type_received', 'unexpected_session_id_in_packet', 'no_service_name_tag', 'padt_for_unknown_session', 'padt_with_wrong_peer_mac', 'padt_with_wrong_vlan_tags', 'zero_length_host_uniq', 'padt_before_pads_sent', 'session_stage_packet_for_unknown_session', 'session_stage_packet_with_wrong_mac', 'session_stage_packet_with_wrong_vlan_tags', 'session_stage_packet_with_no_error', 'tag_too_short', 'bad_tag_length_field', 'multiple_service_name_tags', 'multiple_max_payload_tags', 'invalid_max_payload_tag', 'multiple_vendor_specific_tags', 'unexpected_ac_name_tag', 'unexpected_error_tags', 'unknown_tag_received', 'no_iana_code_invendor_tag', 'invalid_iana_code_invendor_tag', 'vendor_tag_too_short', 'bad_vendor_tag_length_field', 'multiple_host_uniq_tags', 'multiple_relay_session_id_tags', 'multiple_circuit_id_tags', 'multiple_remote_id_tags', 'invalid_dsl_tag', 'multiple_of_the_same_dsl_tag', 'invalid_iwf_tag', 'multiple_iwf_tags', 'unknownvendor_tag', 'no_space_left_in_packet', 'duplicate_host_uniq_tag_received', 'duplicate_relay_session_id_tag_received', 'packet_too_long', 'invalid_ale_tag', 'multiple_ale_tags', 'invalid_service_name', 'invalid_peer_mac', 'invalid_vlan_tags', 'packet_on_srg_slave'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketErrorCounts']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.Statistics']['meta_info']
 
 
-
-            class AccessInterface(Entity):
+            class AccessInterface(_Entity_):
                 """
                 PPPoE access interface information
                 
@@ -5160,10 +5460,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.AccessInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.AccessInterface, self).__init__()
 
                     self.yang_name = "access-interface"
                     self.yang_parent_name = "node"
@@ -5183,7 +5486,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.AccessInterface, [], name, value)
 
 
-                class Summaries(Entity):
+                class Summaries(_Entity_):
                     """
                     PPPoE access interface summary information
                     
@@ -5199,10 +5502,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.AccessInterface.Summaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.AccessInterface.Summaries, self).__init__()
 
                         self.yang_name = "summaries"
                         self.yang_parent_name = "access-interface"
@@ -5220,7 +5526,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         Summary information for a PPPoE\-enabled
                         access interface
@@ -5300,10 +5606,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "summaries"
@@ -5335,11 +5644,23 @@ class Pppoe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', 'interface_name_xr', 'interface_state', 'mac_address', 'bba_group_name', 'is_ready', 'sessions', 'incomplete_sessions'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.AccessInterface.Summaries.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.AccessInterface.Summaries']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.AccessInterface']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Per interface PPPoE operational data
                 
@@ -5355,10 +5676,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -5376,7 +5700,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Data for a PPPoE interface
                     
@@ -5487,10 +5811,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -5533,7 +5860,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'access_interface_name', 'bba_group_name', 'session_id', 'local_mac_address', 'peer_mac_address', 'is_complete', 'vlan_outer_id', 'vlan_inner_id', 'srg_state'], name, value)
 
 
-                    class Tags(Entity):
+                    class Tags(_Entity_):
                         """
                         Tags
                         
@@ -5732,10 +6059,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.Interfaces.Interface.Tags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.Interfaces.Interface.Tags, self).__init__()
 
                             self.yang_name = "tags"
                             self.yang_parent_name = "interface"
@@ -5798,7 +6128,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags, ['service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_iwf', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
-                        class AccessLoopEncapsulation(Entity):
+                        class AccessLoopEncapsulation(_Entity_):
                             """
                             Access Loop Encapsulation
                             
@@ -5834,10 +6164,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, self).__init__()
 
                                 self.yang_name = "access-loop-encapsulation"
                                 self.yang_parent_name = "tags"
@@ -5859,12 +6192,28 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface.Tags']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-
-            class BbaGroups(Entity):
+            class BbaGroups(_Entity_):
                 """
                 PPPoE BBA\-Group information
                 
@@ -5880,10 +6229,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.BbaGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.BbaGroups, self).__init__()
 
                     self.yang_name = "bba-groups"
                     self.yang_parent_name = "node"
@@ -5901,7 +6253,7 @@ class Pppoe(Entity):
                     self._perform_setattr(Pppoe.Nodes.Node.BbaGroups, [], name, value)
 
 
-                class BbaGroup(Entity):
+                class BbaGroup(_Entity_):
                     """
                     PPPoE BBA\-Group information
                     
@@ -5947,10 +6299,13 @@ class Pppoe(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup, self).__init__()
 
                         self.yang_name = "bba-group"
                         self.yang_parent_name = "bba-groups"
@@ -5985,7 +6340,7 @@ class Pppoe(Entity):
                         self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup, ['bba_group_name'], name, value)
 
 
-                    class LimitConfig(Entity):
+                    class LimitConfig(_Entity_):
                         """
                         BBA\-Group limit configuration information
                         
@@ -6078,10 +6433,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, self).__init__()
 
                             self.yang_name = "limit-config"
                             self.yang_parent_name = "bba-group"
@@ -6145,7 +6503,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, [], name, value)
 
 
-                        class Card(Entity):
+                        class Card(_Entity_):
                             """
                             Card
                             
@@ -6181,10 +6539,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, self).__init__()
 
                                 self.yang_name = "card"
                                 self.yang_parent_name = "limit-config"
@@ -6206,9 +6567,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card']['meta_info']
 
 
-                        class AccessIntf(Entity):
+                        class AccessIntf(_Entity_):
                             """
                             Access Interface
                             
@@ -6244,10 +6609,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, self).__init__()
 
                                 self.yang_name = "access-intf"
                                 self.yang_parent_name = "limit-config"
@@ -6269,9 +6637,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf']['meta_info']
 
 
-                        class Mac(Entity):
+                        class Mac(_Entity_):
                             """
                             MAC
                             
@@ -6307,10 +6679,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, self).__init__()
 
                                 self.yang_name = "mac"
                                 self.yang_parent_name = "limit-config"
@@ -6332,9 +6707,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac']['meta_info']
 
 
-                        class MacIwf(Entity):
+                        class MacIwf(_Entity_):
                             """
                             MAC IWF
                             
@@ -6370,10 +6749,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, self).__init__()
 
                                 self.yang_name = "mac-iwf"
                                 self.yang_parent_name = "limit-config"
@@ -6395,9 +6777,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf']['meta_info']
 
 
-                        class MacAccessInterface(Entity):
+                        class MacAccessInterface(_Entity_):
                             """
                             MAC Access Interface
                             
@@ -6433,10 +6819,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, self).__init__()
 
                                 self.yang_name = "mac-access-interface"
                                 self.yang_parent_name = "limit-config"
@@ -6458,9 +6847,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface']['meta_info']
 
 
-                        class MacIwfAccessInterface(Entity):
+                        class MacIwfAccessInterface(_Entity_):
                             """
                             MAC IWF Access Interface
                             
@@ -6496,10 +6889,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, self).__init__()
 
                                 self.yang_name = "mac-iwf-access-interface"
                                 self.yang_parent_name = "limit-config"
@@ -6521,9 +6917,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface']['meta_info']
 
 
-                        class CircuitId(Entity):
+                        class CircuitId(_Entity_):
                             """
                             Circuit ID
                             
@@ -6559,10 +6959,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, self).__init__()
 
                                 self.yang_name = "circuit-id"
                                 self.yang_parent_name = "limit-config"
@@ -6584,9 +6987,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId']['meta_info']
 
 
-                        class RemoteId(Entity):
+                        class RemoteId(_Entity_):
                             """
                             Remote ID
                             
@@ -6622,10 +7029,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, self).__init__()
 
                                 self.yang_name = "remote-id"
                                 self.yang_parent_name = "limit-config"
@@ -6647,9 +7057,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId']['meta_info']
 
 
-                        class CircuitIdAndRemoteId(Entity):
+                        class CircuitIdAndRemoteId(_Entity_):
                             """
                             Circuit ID and Remote ID
                             
@@ -6685,10 +7099,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, self).__init__()
 
                                 self.yang_name = "circuit-id-and-remote-id"
                                 self.yang_parent_name = "limit-config"
@@ -6710,9 +7127,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId']['meta_info']
 
 
-                        class OuterVlanId(Entity):
+                        class OuterVlanId(_Entity_):
                             """
                             Outer VLAN ID
                             
@@ -6748,10 +7169,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, self).__init__()
 
                                 self.yang_name = "outer-vlan-id"
                                 self.yang_parent_name = "limit-config"
@@ -6773,9 +7197,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId']['meta_info']
 
 
-                        class InnerVlanId(Entity):
+                        class InnerVlanId(_Entity_):
                             """
                             Inner VLAN ID
                             
@@ -6811,10 +7239,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, self).__init__()
 
                                 self.yang_name = "inner-vlan-id"
                                 self.yang_parent_name = "limit-config"
@@ -6836,9 +7267,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId']['meta_info']
 
 
-                        class VlanId(Entity):
+                        class VlanId(_Entity_):
                             """
                             VLAN ID
                             
@@ -6874,10 +7309,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, self).__init__()
 
                                 self.yang_name = "vlan-id"
                                 self.yang_parent_name = "limit-config"
@@ -6899,10 +7337,18 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig']['meta_info']
 
 
-
-                    class Limits(Entity):
+                    class Limits(_Entity_):
                         """
                         PPPoE session limit information
                         
@@ -6918,10 +7364,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, self).__init__()
 
                             self.yang_name = "limits"
                             self.yang_parent_name = "bba-group"
@@ -6939,7 +7388,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, [], name, value)
 
 
-                        class Limit(Entity):
+                        class Limit(_Entity_):
                             """
                             PPPoE session limit state
                             
@@ -7043,10 +7492,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, self).__init__()
 
                                 self.yang_name = "limit"
                                 self.yang_parent_name = "limits"
@@ -7084,10 +7536,18 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'session_count', 'radius_override_set', 'override_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits']['meta_info']
 
 
-
-                    class Throttles(Entity):
+                    class Throttles(_Entity_):
                         """
                         PPPoE throttle information
                         
@@ -7103,10 +7563,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, self).__init__()
 
                             self.yang_name = "throttles"
                             self.yang_parent_name = "bba-group"
@@ -7124,7 +7587,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, [], name, value)
 
 
-                        class Throttle(Entity):
+                        class Throttle(_Entity_):
                             """
                             PPPoE session throttle state
                             
@@ -7241,10 +7704,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, self).__init__()
 
                                 self.yang_name = "throttle"
                                 self.yang_parent_name = "throttles"
@@ -7284,10 +7750,18 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'time_left', 'since_reset', 'padi_count', 'padr_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles']['meta_info']
 
 
-
-                    class ThrottleConfig(Entity):
+                    class ThrottleConfig(_Entity_):
                         """
                         BBA\-Group throttle configuration information
                         
@@ -7359,10 +7833,13 @@ class Pppoe(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, self).__init__()
 
                             self.yang_name = "throttle-config"
                             self.yang_parent_name = "bba-group"
@@ -7414,7 +7891,7 @@ class Pppoe(Entity):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, [], name, value)
 
 
-                        class Mac(Entity):
+                        class Mac(_Entity_):
                             """
                             MAC
                             
@@ -7450,10 +7927,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, self).__init__()
 
                                 self.yang_name = "mac"
                                 self.yang_parent_name = "throttle-config"
@@ -7475,9 +7955,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac']['meta_info']
 
 
-                        class MacAccessInterface(Entity):
+                        class MacAccessInterface(_Entity_):
                             """
                             MAC Access Interface
                             
@@ -7513,10 +7997,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, self).__init__()
 
                                 self.yang_name = "mac-access-interface"
                                 self.yang_parent_name = "throttle-config"
@@ -7538,9 +8025,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface']['meta_info']
 
 
-                        class MacIwfAccessInterface(Entity):
+                        class MacIwfAccessInterface(_Entity_):
                             """
                             MAC IWF Access Interface
                             
@@ -7576,10 +8067,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, self).__init__()
 
                                 self.yang_name = "mac-iwf-access-interface"
                                 self.yang_parent_name = "throttle-config"
@@ -7601,9 +8095,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface']['meta_info']
 
 
-                        class CircuitId(Entity):
+                        class CircuitId(_Entity_):
                             """
                             Circuit ID
                             
@@ -7639,10 +8137,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, self).__init__()
 
                                 self.yang_name = "circuit-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7664,9 +8165,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId']['meta_info']
 
 
-                        class RemoteId(Entity):
+                        class RemoteId(_Entity_):
                             """
                             Remote ID
                             
@@ -7702,10 +8207,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, self).__init__()
 
                                 self.yang_name = "remote-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7727,9 +8235,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId']['meta_info']
 
 
-                        class CircuitIdAndRemoteId(Entity):
+                        class CircuitIdAndRemoteId(_Entity_):
                             """
                             Circuit ID and Remote ID
                             
@@ -7765,10 +8277,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, self).__init__()
 
                                 self.yang_name = "circuit-id-and-remote-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7790,9 +8305,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId']['meta_info']
 
 
-                        class OuterVlanId(Entity):
+                        class OuterVlanId(_Entity_):
                             """
                             Outer VLAN ID
                             
@@ -7828,10 +8347,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, self).__init__()
 
                                 self.yang_name = "outer-vlan-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7853,9 +8375,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId']['meta_info']
 
 
-                        class InnerVlanId(Entity):
+                        class InnerVlanId(_Entity_):
                             """
                             Inner VLAN ID
                             
@@ -7891,10 +8417,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, self).__init__()
 
                                 self.yang_name = "inner-vlan-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7916,9 +8445,13 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId']['meta_info']
 
 
-                        class VlanId(Entity):
+                        class VlanId(_Entity_):
                             """
                             VLAN ID
                             
@@ -7954,10 +8487,13 @@ class Pppoe(Entity):
                             """
 
                             _prefix = 'subscriber-pppoe-ma-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-10-07'
 
                             def __init__(self):
-                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, self).__init__()
 
                                 self.yang_name = "vlan-id"
                                 self.yang_parent_name = "throttle-config"
@@ -7979,12 +8515,28 @@ class Pppoe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, ['limit', 'request_period', 'blocking_period'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                        return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.BbaGroups']['meta_info']
 
 
-
-
-
-            class SummaryTotal(Entity):
+            class SummaryTotal(_Entity_):
                 """
                 PPPoE statistics for a given node
                 
@@ -8083,10 +8635,13 @@ class Pppoe(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(Pppoe.Nodes.Node.SummaryTotal, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppoe.Nodes.Node.SummaryTotal, self).__init__()
 
                     self.yang_name = "summary-total"
                     self.yang_parent_name = "node"
@@ -8122,12 +8677,28 @@ class Pppoe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.Nodes.Node.SummaryTotal, ['ready_access_interfaces', 'not_ready_access_interfaces', 'complete_sessions', 'incomplete_sessions', 'flow_control_limit', 'flow_control_in_flight_sessions', 'flow_control_dropped_sessions', 'flow_control_disconnected_sessions', 'flow_control_successful_sessions', 'pppoema_subscriber_infra_flow_control'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                    return meta._meta_table['Pppoe.Nodes.Node.SummaryTotal']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+                return meta._meta_table['Pppoe.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+            return meta._meta_table['Pppoe.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pppoe()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
+        return meta._meta_table['Pppoe']['meta_info']
 
 

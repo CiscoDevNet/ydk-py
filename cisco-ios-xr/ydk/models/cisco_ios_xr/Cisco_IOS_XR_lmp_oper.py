@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class OlmAddrTypeId(Enum):
     unnumbered = Enum.YLeaf(103, "unnumbered")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmAddrTypeId']
+
+
 class OlmCompLinkImState(Enum):
     """
     OlmCompLinkImState (Enum Class)
@@ -90,6 +99,12 @@ class OlmCompLinkImState(Enum):
     comp_link_im_state_up = Enum.YLeaf(3, "comp-link-im-state-up")
 
     comp_link_im_state_unknown = Enum.YLeaf(4, "comp-link-im-state-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmCompLinkImState']
 
 
 class OlmCompLinkLmpState(Enum):
@@ -137,6 +152,12 @@ class OlmCompLinkLmpState(Enum):
     comp_link_lmp_state_unknown = Enum.YLeaf(5, "comp-link-lmp-state-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmCompLinkLmpState']
+
+
 class OlmCompLinkLmpStatus(Enum):
     """
     OlmCompLinkLmpStatus (Enum Class)
@@ -156,6 +177,12 @@ class OlmCompLinkLmpStatus(Enum):
     comp_link_lmp_status_if_id_mismatch = Enum.YLeaf(0, "comp-link-lmp-status-if-id-mismatch")
 
     comp_link_lmp_status_switch_cap_mismatch = Enum.YLeaf(1, "comp-link-lmp-status-switch-cap-mismatch")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmCompLinkLmpStatus']
 
 
 class OlmLinkEncoding(Enum):
@@ -245,6 +272,12 @@ class OlmLinkEncoding(Enum):
     lencode_unknown = Enum.YLeaf(12, "lencode-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmLinkEncoding']
+
+
 class OlmMuxCap(Enum):
     """
     OlmMuxCap (Enum Class)
@@ -308,6 +341,12 @@ class OlmMuxCap(Enum):
     unknown_mux_cap = Enum.YLeaf(8, "unknown-mux-cap")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmMuxCap']
+
+
 class OlmObjectOwner(Enum):
     """
     OlmObjectOwner (Enum Class)
@@ -339,6 +378,12 @@ class OlmObjectOwner(Enum):
     gmpls_nni = Enum.YLeaf(2, "gmpls-nni")
 
     gmpls_uni = Enum.YLeaf(3, "gmpls-uni")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmObjectOwner']
 
 
 class OlmRouterId(Enum):
@@ -388,6 +433,12 @@ class OlmRouterId(Enum):
     unknown_type = Enum.YLeaf(5, "unknown-type")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmRouterId']
+
+
 class Olmipcc(Enum):
     """
     Olmipcc (Enum Class)
@@ -419,6 +470,12 @@ class Olmipcc(Enum):
     ipcc_type_ldcc_sdcc = Enum.YLeaf(2, "ipcc-type-ldcc-sdcc")
 
     ipcc_type_unknown = Enum.YLeaf(3, "ipcc-type-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['Olmipcc']
 
 
 class OlmipccState(Enum):
@@ -484,6 +541,12 @@ class OlmipccState(Enum):
     ipcc_state_unknown = Enum.YLeaf(8, "ipcc-state-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmipccState']
+
+
 class OlmteLinkLmpState(Enum):
     """
     OlmteLinkLmpState (Enum Class)
@@ -523,8 +586,14 @@ class OlmteLinkLmpState(Enum):
     te_link_lmp_state_unknown = Enum.YLeaf(4, "te-link-lmp-state-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['OlmteLinkLmpState']
 
-class Lmp(Entity):
+
+
+class Lmp(_Entity_):
     """
     Main common UCP/OLM operational data
     
@@ -564,7 +633,10 @@ class Lmp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Lmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lmp"
@@ -597,7 +669,7 @@ class Lmp(Entity):
         self._perform_setattr(Lmp, [], name, value)
 
 
-    class GlobalStatus(Entity):
+    class GlobalStatus(_Entity_):
         """
         Global OLM process information
         
@@ -665,7 +737,10 @@ class Lmp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Lmp.GlobalStatus, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lmp.GlobalStatus, self).__init__()
 
             self.yang_name = "global-status"
             self.yang_parent_name = "lmp"
@@ -705,7 +780,7 @@ class Lmp(Entity):
             self._perform_setattr(Lmp.GlobalStatus, ['local_ouni_lmp_node_id_interface', 'local_ouni_lmp_node_id_type', 'is_ouni_config_exist', 'is_gmpls_nni_config_exist', 'is_gmpls_uni_config_exist'], name, value)
 
 
-        class LocalOuniLmpNodeId(Entity):
+        class LocalOuniLmpNodeId(_Entity_):
             """
             Local OUNI LMP Node ID
             
@@ -724,7 +799,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.GlobalStatus.LocalOuniLmpNodeId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.GlobalStatus.LocalOuniLmpNodeId, self).__init__()
 
                 self.yang_name = "local-ouni-lmp-node-id"
                 self.yang_parent_name = "global-status"
@@ -745,7 +823,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId, [], name, value)
 
 
-            class Address(Entity):
+            class Address(_Entity_):
                 """
                 Address Union
                 
@@ -791,7 +869,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, self).__init__()
 
                     self.yang_name = "address"
                     self.yang_parent_name = "local-ouni-lmp-node-id"
@@ -816,10 +897,18 @@ class Lmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.GlobalStatus.LocalOuniLmpNodeId.Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.GlobalStatus.LocalOuniLmpNodeId']['meta_info']
 
 
-
-        class LocalMplsTeLmpNodeId(Entity):
+        class LocalMplsTeLmpNodeId(_Entity_):
             """
             MPLS TE LMP Node ID
             
@@ -838,7 +927,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.GlobalStatus.LocalMplsTeLmpNodeId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.GlobalStatus.LocalMplsTeLmpNodeId, self).__init__()
 
                 self.yang_name = "local-mpls-te-lmp-node-id"
                 self.yang_parent_name = "global-status"
@@ -859,7 +951,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId, [], name, value)
 
 
-            class Address(Entity):
+            class Address(_Entity_):
                 """
                 Address Union
                 
@@ -905,7 +997,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, self).__init__()
 
                     self.yang_name = "address"
                     self.yang_parent_name = "local-mpls-te-lmp-node-id"
@@ -930,10 +1025,18 @@ class Lmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.GlobalStatus.LocalMplsTeLmpNodeId']['meta_info']
 
 
-
-        class LocalGmplsUniLmpNodeId(Entity):
+        class LocalGmplsUniLmpNodeId(_Entity_):
             """
             GMPLS UNI LMP Node ID
             
@@ -952,7 +1055,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId, self).__init__()
 
                 self.yang_name = "local-gmpls-uni-lmp-node-id"
                 self.yang_parent_name = "global-status"
@@ -973,7 +1079,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId, [], name, value)
 
 
-            class Address(Entity):
+            class Address(_Entity_):
                 """
                 Address Union
                 
@@ -1019,7 +1125,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, self).__init__()
 
                     self.yang_name = "address"
                     self.yang_parent_name = "local-gmpls-uni-lmp-node-id"
@@ -1044,11 +1153,23 @@ class Lmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.GlobalStatus.LocalGmplsUniLmpNodeId']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+            return meta._meta_table['Lmp.GlobalStatus']['meta_info']
 
 
-
-
-    class Clients(Entity):
+    class Clients(_Entity_):
         """
         UCP OLM clients container class
         
@@ -1067,7 +1188,10 @@ class Lmp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Lmp.Clients, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lmp.Clients, self).__init__()
 
             self.yang_name = "clients"
             self.yang_parent_name = "lmp"
@@ -1086,7 +1210,7 @@ class Lmp(Entity):
             self._perform_setattr(Lmp.Clients, [], name, value)
 
 
-        class Client(Entity):
+        class Client(_Entity_):
             """
             Information on a particular OLM API client
             
@@ -1121,7 +1245,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.Clients.Client, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.Clients.Client, self).__init__()
 
                 self.yang_name = "client"
                 self.yang_parent_name = "clients"
@@ -1147,7 +1274,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.Clients.Client, ['client_name', 'node_name'], name, value)
 
 
-            class ConnectedTime(Entity):
+            class ConnectedTime(_Entity_):
                 """
                 The time the clientconnected in sec
                 
@@ -1168,7 +1295,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.Clients.Client.ConnectedTime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.Clients.Client.ConnectedTime, self).__init__()
 
                     self.yang_name = "connected-time"
                     self.yang_parent_name = "client"
@@ -1186,11 +1316,23 @@ class Lmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.Clients.Client.ConnectedTime, ['time_connected'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.Clients.Client.ConnectedTime']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.Clients.Client']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+            return meta._meta_table['Lmp.Clients']['meta_info']
 
 
-
-
-    class GmplsUni(Entity):
+    class GmplsUni(_Entity_):
         """
         GMPLS UNI specific OLM/LMP configuration
         
@@ -1216,7 +1358,10 @@ class Lmp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Lmp.GmplsUni, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lmp.GmplsUni, self).__init__()
 
             self.yang_name = "gmpls-uni"
             self.yang_parent_name = "lmp"
@@ -1241,7 +1386,7 @@ class Lmp(Entity):
             self._perform_setattr(Lmp.GmplsUni, [], name, value)
 
 
-        class TeLinks(Entity):
+        class TeLinks(_Entity_):
             """
             UCP OLM TE Links container class
             
@@ -1260,7 +1405,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.GmplsUni.TeLinks, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.GmplsUni.TeLinks, self).__init__()
 
                 self.yang_name = "te-links"
                 self.yang_parent_name = "gmpls-uni"
@@ -1279,7 +1427,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.GmplsUni.TeLinks, [], name, value)
 
 
-            class TeLink(Entity):
+            class TeLink(_Entity_):
                 """
                 Information on a particular OLM TE Link
                 
@@ -1511,7 +1659,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.GmplsUni.TeLinks.TeLink, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.GmplsUni.TeLinks.TeLink, self).__init__()
 
                     self.yang_name = "te-link"
                     self.yang_parent_name = "te-links"
@@ -1597,7 +1748,7 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', 'interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
 
 
-                class LocalLinkId(Entity):
+                class LocalLinkId(_Entity_):
                     """
                     The local datalink ID
                     
@@ -1616,7 +1767,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId, self).__init__()
 
                         self.yang_name = "local-link-id"
                         self.yang_parent_name = "te-link"
@@ -1636,7 +1790,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -1682,7 +1836,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "local-link-id"
@@ -1706,10 +1863,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId']['meta_info']
 
 
-
-                class RemoteLinkId(Entity):
+                class RemoteLinkId(_Entity_):
                     """
                     The remote datalink ID
                     
@@ -1728,7 +1893,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId, self).__init__()
 
                         self.yang_name = "remote-link-id"
                         self.yang_parent_name = "te-link"
@@ -1748,7 +1916,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -1794,7 +1962,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "remote-link-id"
@@ -1818,10 +1989,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId']['meta_info']
 
 
-
-                class LocalTeLinkId(Entity):
+                class LocalTeLinkId(_Entity_):
                     """
                     Local TE\-Link ID/ TNA address
                     
@@ -1840,7 +2019,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId, self).__init__()
 
                         self.yang_name = "local-te-link-id"
                         self.yang_parent_name = "te-link"
@@ -1860,7 +2042,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -1906,7 +2088,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "local-te-link-id"
@@ -1930,10 +2115,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId']['meta_info']
 
 
-
-                class RemoteTeLinkId(Entity):
+                class RemoteTeLinkId(_Entity_):
                     """
                     Remote TE\-Link ID/ TNA address
                     
@@ -1952,7 +2145,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId, self).__init__()
 
                         self.yang_name = "remote-te-link-id"
                         self.yang_parent_name = "te-link"
@@ -1972,7 +2168,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -2018,7 +2214,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "remote-te-link-id"
@@ -2042,10 +2241,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId']['meta_info']
 
 
-
-                class NeighborAddress(Entity):
+                class NeighborAddress(_Entity_):
                     """
                     The address of the neighbor
                     
@@ -2064,7 +2271,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress, self).__init__()
 
                         self.yang_name = "neighbor-address"
                         self.yang_parent_name = "te-link"
@@ -2084,7 +2294,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -2130,7 +2340,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "neighbor-address"
@@ -2154,10 +2367,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress']['meta_info']
 
 
-
-                class RemoteIpccAddress(Entity):
+                class RemoteIpccAddress(_Entity_):
                     """
                     The remote node's IPCC address
                     
@@ -2176,7 +2397,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress, self).__init__()
 
                         self.yang_name = "remote-ipcc-address"
                         self.yang_parent_name = "te-link"
@@ -2196,7 +2420,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -2242,7 +2466,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "remote-ipcc-address"
@@ -2266,12 +2493,28 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.GmplsUni.TeLinks.TeLink']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.GmplsUni.TeLinks']['meta_info']
 
 
-
-
-
-        class Neighbors(Entity):
+        class Neighbors(_Entity_):
             """
             UCP OLM neighbors container class
             
@@ -2290,7 +2533,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.GmplsUni.Neighbors, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.GmplsUni.Neighbors, self).__init__()
 
                 self.yang_name = "neighbors"
                 self.yang_parent_name = "gmpls-uni"
@@ -2309,7 +2555,7 @@ class Lmp(Entity):
                 self._perform_setattr(Lmp.GmplsUni.Neighbors, [], name, value)
 
 
-            class Neighbor(Entity):
+            class Neighbor(_Entity_):
                 """
                 Information on a particular OLM neighbor
                 
@@ -2417,7 +2663,10 @@ class Lmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Lmp.GmplsUni.Neighbors.Neighbor, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lmp.GmplsUni.Neighbors.Neighbor, self).__init__()
 
                     self.yang_name = "neighbor"
                     self.yang_parent_name = "neighbors"
@@ -2460,7 +2709,7 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', 'protocol_owner', 'ipcc_id', 'is_lmp_enabled', 'is_lmp_config_disabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
 
 
-                class NeighborAddress(Entity):
+                class NeighborAddress(_Entity_):
                     """
                     The remote node ID of the neighbor
                     
@@ -2479,7 +2728,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress, self).__init__()
 
                         self.yang_name = "neighbor-address"
                         self.yang_parent_name = "neighbor"
@@ -2499,7 +2751,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Address Union
                         
@@ -2545,7 +2797,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "neighbor-address"
@@ -2569,10 +2824,18 @@ class Lmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress']['meta_info']
 
 
-
-                class TeLink(Entity):
+                class TeLink(_Entity_):
                     """
                     A list of TE Links connected to this neighbor
                     
@@ -2795,7 +3058,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, self).__init__()
 
                         self.yang_name = "te-link"
                         self.yang_parent_name = "neighbor"
@@ -2878,7 +3144,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, ['interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
 
 
-                    class LocalLinkId(Entity):
+                    class LocalLinkId(_Entity_):
                         """
                         The local datalink ID
                         
@@ -2897,7 +3163,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId, self).__init__()
 
                             self.yang_name = "local-link-id"
                             self.yang_parent_name = "te-link"
@@ -2917,7 +3186,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -2963,7 +3232,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "local-link-id"
@@ -2987,10 +3259,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId']['meta_info']
 
 
-
-                    class RemoteLinkId(Entity):
+                    class RemoteLinkId(_Entity_):
                         """
                         The remote datalink ID
                         
@@ -3009,7 +3289,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId, self).__init__()
 
                             self.yang_name = "remote-link-id"
                             self.yang_parent_name = "te-link"
@@ -3029,7 +3312,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3075,7 +3358,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "remote-link-id"
@@ -3099,10 +3385,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId']['meta_info']
 
 
-
-                    class LocalTeLinkId(Entity):
+                    class LocalTeLinkId(_Entity_):
                         """
                         Local TE\-Link ID/ TNA address
                         
@@ -3121,7 +3415,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId, self).__init__()
 
                             self.yang_name = "local-te-link-id"
                             self.yang_parent_name = "te-link"
@@ -3141,7 +3438,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3187,7 +3484,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "local-te-link-id"
@@ -3211,10 +3511,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId']['meta_info']
 
 
-
-                    class RemoteTeLinkId(Entity):
+                    class RemoteTeLinkId(_Entity_):
                         """
                         Remote TE\-Link ID/ TNA address
                         
@@ -3233,7 +3541,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId, self).__init__()
 
                             self.yang_name = "remote-te-link-id"
                             self.yang_parent_name = "te-link"
@@ -3253,7 +3564,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3299,7 +3610,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "remote-te-link-id"
@@ -3323,10 +3637,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId']['meta_info']
 
 
-
-                    class NeighborAddress(Entity):
+                    class NeighborAddress(_Entity_):
                         """
                         The address of the neighbor
                         
@@ -3345,7 +3667,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress, self).__init__()
 
                             self.yang_name = "neighbor-address"
                             self.yang_parent_name = "te-link"
@@ -3365,7 +3690,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3411,7 +3736,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "neighbor-address"
@@ -3435,10 +3763,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress']['meta_info']
 
 
-
-                    class RemoteIpccAddress(Entity):
+                    class RemoteIpccAddress(_Entity_):
                         """
                         The remote node's IPCC address
                         
@@ -3457,7 +3793,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress, self).__init__()
 
                             self.yang_name = "remote-ipcc-address"
                             self.yang_parent_name = "te-link"
@@ -3477,7 +3816,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3523,7 +3862,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "remote-ipcc-address"
@@ -3547,11 +3889,23 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.TeLink']['meta_info']
 
 
-
-
-                class Ipcc(Entity):
+                class Ipcc(_Entity_):
                     """
                     A list of IPCCs connected to this neighbor
                     
@@ -3740,7 +4094,10 @@ class Lmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, self).__init__()
 
                         self.yang_name = "ipcc"
                         self.yang_parent_name = "neighbor"
@@ -3803,7 +4160,7 @@ class Lmp(Entity):
                         self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, ['ipcc_id', 'ipc_ctype', 'interface_name', 'neighbor_name', 'ipcc_state', 'lmp_hello_interval', 'lmp_hello_interval_minimum', 'lmp_hello_interval_maximum', 'lmp_hello_dead_interval', 'lmp_hello_dead_interval_minimum', 'lmp_hello_dead_interval_maximum', 'lmp_hello_transmit_packets', 'lmp_hello_receive_packets', 'lmp_hello_transmit_packet_sequence_number', 'lmp_hello_receive_packet_sequence_number', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
 
 
-                    class RemoteIpccAddress(Entity):
+                    class RemoteIpccAddress(_Entity_):
                         """
                         The remote node'sIPCC address
                         
@@ -3822,7 +4179,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress, self).__init__()
 
                             self.yang_name = "remote-ipcc-address"
                             self.yang_parent_name = "ipcc"
@@ -3842,7 +4202,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -3888,7 +4248,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "remote-ipcc-address"
@@ -3912,10 +4275,18 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress']['meta_info']
 
 
-
-                    class SourceIpCcAddress(Entity):
+                    class SourceIpCcAddress(_Entity_):
                         """
                         The local IPCC address
                         
@@ -3934,7 +4305,10 @@ class Lmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress, self).__init__()
 
                             self.yang_name = "source-ip-cc-address"
                             self.yang_parent_name = "ipcc"
@@ -3954,7 +4328,7 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address Union
                             
@@ -4000,7 +4374,10 @@ class Lmp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "source-ip-cc-address"
@@ -4024,14 +4401,38 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                                return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                            return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                        return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor.Ipcc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                    return meta._meta_table['Lmp.GmplsUni.Neighbors.Neighbor']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.GmplsUni.Neighbors']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+            return meta._meta_table['Lmp.GmplsUni']['meta_info']
 
 
-
-
-
-
-
-    class ComponentLinkIds(Entity):
+    class ComponentLinkIds(_Entity_):
         """
         UCP OLM component link ID container class
         
@@ -4050,7 +4451,10 @@ class Lmp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Lmp.ComponentLinkIds, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lmp.ComponentLinkIds, self).__init__()
 
             self.yang_name = "component-link-ids"
             self.yang_parent_name = "lmp"
@@ -4069,7 +4473,7 @@ class Lmp(Entity):
             self._perform_setattr(Lmp.ComponentLinkIds, [], name, value)
 
 
-        class ComponentLinkId(Entity):
+        class ComponentLinkId(_Entity_):
             """
             Retrieve the LMP component link ID for a given
             controller
@@ -4100,7 +4504,10 @@ class Lmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Lmp.ComponentLinkIds.ComponentLinkId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lmp.ComponentLinkIds.ComponentLinkId, self).__init__()
 
                 self.yang_name = "component-link-id"
                 self.yang_parent_name = "component-link-ids"
@@ -4121,11 +4528,23 @@ class Lmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', 'component_interface_id'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+                return meta._meta_table['Lmp.ComponentLinkIds.ComponentLinkId']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+            return meta._meta_table['Lmp.ComponentLinkIds']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Lmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lmp_oper as meta
+        return meta._meta_table['Lmp']['meta_info']
 
 

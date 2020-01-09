@@ -568,7 +568,7 @@ submodule Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper-sub1 {
     leaf redundancystate {
       type int32;
       description
-        "integer value for Redundancy State if    
+        "integer value for Redundancy State if
          applicable to this entity";
     }
     leaf ceport {
@@ -590,6 +590,11 @@ submodule Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper-sub1 {
       type int32;
       description
         "Allocated power for an entity";
+    }
+    leaf power-capacity {
+      type int32;
+      description
+        "Power Capacity of a Power Module";
     }
   }
 }

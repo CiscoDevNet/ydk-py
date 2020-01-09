@@ -2,6 +2,10 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-lsd-cfg";
   prefix mpls-lsd-cfg;
 
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+
   organization
     "Cisco Systems, Inc.";
   contact
@@ -25,6 +29,14 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-08-20 {
+    description
+      "MPLS label block config default values added.";
+  }
+  revision 2019-08-05 {
+    description
+      "MPLS label block config added.";
+  }
   revision 2018-06-15 {
     description
       "Allow min..max in range when min == max.";
@@ -32,6 +44,43 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Label-block {
+    type enumeration {
+      enum "cbf" {
+        value 3;
+        description
+          "CBF block";
+      }
+    }
+    description
+      "Label block";
+  }
+
+  typedef Label-block-client-name {
+    type xr:Cisco-ios-xr-string {
+      length "1..48";
+    }
+    description
+      "Label block client name";
+  }
+
+  typedef Label-range {
+    type enumeration {
+      enum "lower-upper" {
+        value 0;
+        description
+          "Start and end of block";
+      }
+      enum "lower-size" {
+        value 1;
+        description
+          "Start and size of block";
+      }
+    }
+    description
+      "Label range";
   }
 
   typedef Mpls-ip-ttl-propagate-disable {
@@ -120,6 +169,70 @@ module Cisco-IOS-XR-mpls-lsd-cfg {
             }
             description
               "Maximum static label value";
+          }
+        }
+        container label-blocks {
+          description
+            "A label blocks database";
+          list label-block {
+            key "block-name";
+            description
+              "Label block";
+            leaf block-name {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Label block identifier";
+            }
+            leaf block-type {
+              type Label-block;
+              default "cbf";
+              description
+                "Label block type";
+            }
+            leaf range-type {
+              type Label-range;
+              default "lower-upper";
+              description
+                "Label range type";
+            }
+            leaf lower-bound {
+              type uint32 {
+                range "16000..1048575";
+              }
+              default "16000";
+              description
+                "Lower bound of block";
+            }
+            leaf upper-bound {
+              when "../range-type != 'lower-size'" {
+                description
+                  "../RangeType != LowerSize";
+              }
+              type uint32 {
+                range "16000..1048575";
+              }
+              default "16000";
+              description
+                "Upper bound of block";
+            }
+            leaf block-size {
+              when "../range-type != 'lower-upper'" {
+                description
+                  "../RangeType != LowerUpper";
+              }
+              type uint32 {
+                range "1..1032576";
+              }
+              default "1";
+              description
+                "Size of block";
+            }
+            leaf client-instance-name {
+              type Label-block-client-name;
+              default "any";
+              description
+                "Client instance name";
+            }
           }
         }
         leaf label-database-id {

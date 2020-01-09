@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -78,8 +81,14 @@ class VsNshStats(Enum):
     vs_nsh_stats_max = Enum.YLeaf(7, "vs-nsh-stats-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+        return meta._meta_table['VsNshStats']
 
-class GlobalServiceFunctionChaining(Entity):
+
+
+class GlobalServiceFunctionChaining(_Entity_):
     """
     NSH Service Function Chaining global operational
     data
@@ -113,7 +122,10 @@ class GlobalServiceFunctionChaining(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(GlobalServiceFunctionChaining, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GlobalServiceFunctionChaining, self).__init__()
         self._top_entity = None
 
         self.yang_name = "global-service-function-chaining"
@@ -142,7 +154,7 @@ class GlobalServiceFunctionChaining(Entity):
         self._perform_setattr(GlobalServiceFunctionChaining, [], name, value)
 
 
-    class ServiceFunctionPath(Entity):
+    class ServiceFunctionPath(_Entity_):
         """
         Service Function Path operational data
         
@@ -161,7 +173,10 @@ class GlobalServiceFunctionChaining(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(GlobalServiceFunctionChaining.ServiceFunctionPath, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GlobalServiceFunctionChaining.ServiceFunctionPath, self).__init__()
 
             self.yang_name = "service-function-path"
             self.yang_parent_name = "global-service-function-chaining"
@@ -182,7 +197,7 @@ class GlobalServiceFunctionChaining(Entity):
             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath, [], name, value)
 
 
-        class PathIds(Entity):
+        class PathIds(_Entity_):
             """
             Service Function Path Id 
             
@@ -201,7 +216,10 @@ class GlobalServiceFunctionChaining(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, self).__init__()
 
                 self.yang_name = "path-ids"
                 self.yang_parent_name = "service-function-path"
@@ -220,7 +238,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds, [], name, value)
 
 
-            class PathId(Entity):
+            class PathId(_Entity_):
                 """
                 Specific Service\-Function\-Path identifier 
                 
@@ -255,7 +273,10 @@ class GlobalServiceFunctionChaining(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, self).__init__()
 
                     self.yang_name = "path-id"
                     self.yang_parent_name = "path-ids"
@@ -283,7 +304,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId, ['id'], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     SFP Statistics
                     
@@ -309,7 +330,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "path-id"
@@ -333,7 +357,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, [], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Detail statistics per service index 
                         
@@ -359,7 +383,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "stats"
@@ -381,7 +408,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail, [], name, value)
 
 
-                        class Data(Entity):
+                        class Data(_Entity_):
                             """
                             Statistics data
                             
@@ -442,7 +469,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, self).__init__()
 
                                 self.yang_name = "data"
                                 self.yang_parent_name = "detail"
@@ -485,7 +515,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, ['type'], name, value)
 
 
-                            class Sfp(Entity):
+                            class Sfp(_Entity_):
                                 """
                                 SFP stats
                                 
@@ -511,7 +541,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, self).__init__()
 
                                     self.yang_name = "sfp"
                                     self.yang_parent_name = "data"
@@ -535,7 +568,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, [], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     Service index counters
                                     
@@ -567,7 +600,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "sfp"
@@ -587,9 +623,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate counters
                                     
@@ -621,7 +661,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "sfp"
@@ -641,10 +684,18 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp']['meta_info']
 
 
-
-                            class SpiSi(Entity):
+                            class SpiSi(_Entity_):
                                 """
                                 SPI SI stats
                                 
@@ -676,7 +727,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, self).__init__()
 
                                     self.yang_name = "spi-si"
                                     self.yang_parent_name = "data"
@@ -696,9 +750,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi']['meta_info']
 
 
-                            class Term(Entity):
+                            class Term(_Entity_):
                                 """
                                 Terminate stats
                                 
@@ -730,7 +788,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, self).__init__()
 
                                     self.yang_name = "term"
                                     self.yang_parent_name = "data"
@@ -750,9 +811,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term']['meta_info']
 
 
-                            class Sf(Entity):
+                            class Sf(_Entity_):
                                 """
                                 Service function stats
                                 
@@ -784,7 +849,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, self).__init__()
 
                                     self.yang_name = "sf"
                                     self.yang_parent_name = "data"
@@ -804,9 +872,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf']['meta_info']
 
 
-                            class Sff(Entity):
+                            class Sff(_Entity_):
                                 """
                                 Service function forwarder stats
                                 
@@ -838,7 +910,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, self).__init__()
 
                                     self.yang_name = "sff"
                                     self.yang_parent_name = "data"
@@ -858,9 +933,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff']['meta_info']
 
 
-                            class SffLocal(Entity):
+                            class SffLocal(_Entity_):
                                 """
                                 Local service function forwarder stats
                                 
@@ -912,7 +991,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, self).__init__()
 
                                     self.yang_name = "sff-local"
                                     self.yang_parent_name = "data"
@@ -936,10 +1018,18 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data']['meta_info']
 
 
-
-                        class SiArr(Entity):
+                        class SiArr(_Entity_):
                             """
                             SI array in case of detail stats
                             
@@ -967,7 +1057,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, self).__init__()
 
                                 self.yang_name = "si-arr"
                                 self.yang_parent_name = "detail"
@@ -990,7 +1083,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, ['si'], name, value)
 
 
-                            class Data(Entity):
+                            class Data(_Entity_):
                                 """
                                 Stats counter for this index
                                 
@@ -1023,7 +1116,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, self).__init__()
 
                                     self.yang_name = "data"
                                     self.yang_parent_name = "si-arr"
@@ -1050,7 +1146,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, ['type'], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     SF/SFF stats
                                     
@@ -1082,7 +1178,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "data"
@@ -1102,9 +1201,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate stats
                                     
@@ -1136,7 +1239,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "data"
@@ -1156,12 +1262,28 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail']['meta_info']
 
 
-
-
-
-                    class Summarized(Entity):
+                    class Summarized(_Entity_):
                         """
                         Combined statistics of all service index in
                         service functionpath
@@ -1188,7 +1310,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, self).__init__()
 
                             self.yang_name = "summarized"
                             self.yang_parent_name = "stats"
@@ -1210,7 +1335,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, [], name, value)
 
 
-                        class Data(Entity):
+                        class Data(_Entity_):
                             """
                             Statistics data
                             
@@ -1271,7 +1396,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, self).__init__()
 
                                 self.yang_name = "data"
                                 self.yang_parent_name = "summarized"
@@ -1314,7 +1442,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, ['type'], name, value)
 
 
-                            class Sfp(Entity):
+                            class Sfp(_Entity_):
                                 """
                                 SFP stats
                                 
@@ -1340,7 +1468,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, self).__init__()
 
                                     self.yang_name = "sfp"
                                     self.yang_parent_name = "data"
@@ -1364,7 +1495,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, [], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     Service index counters
                                     
@@ -1396,7 +1527,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "sfp"
@@ -1416,9 +1550,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate counters
                                     
@@ -1450,7 +1588,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "sfp"
@@ -1470,10 +1611,18 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp']['meta_info']
 
 
-
-                            class SpiSi(Entity):
+                            class SpiSi(_Entity_):
                                 """
                                 SPI SI stats
                                 
@@ -1505,7 +1654,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, self).__init__()
 
                                     self.yang_name = "spi-si"
                                     self.yang_parent_name = "data"
@@ -1525,9 +1677,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi']['meta_info']
 
 
-                            class Term(Entity):
+                            class Term(_Entity_):
                                 """
                                 Terminate stats
                                 
@@ -1559,7 +1715,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, self).__init__()
 
                                     self.yang_name = "term"
                                     self.yang_parent_name = "data"
@@ -1579,9 +1738,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term']['meta_info']
 
 
-                            class Sf(Entity):
+                            class Sf(_Entity_):
                                 """
                                 Service function stats
                                 
@@ -1613,7 +1776,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, self).__init__()
 
                                     self.yang_name = "sf"
                                     self.yang_parent_name = "data"
@@ -1633,9 +1799,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf']['meta_info']
 
 
-                            class Sff(Entity):
+                            class Sff(_Entity_):
                                 """
                                 Service function forwarder stats
                                 
@@ -1667,7 +1837,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, self).__init__()
 
                                     self.yang_name = "sff"
                                     self.yang_parent_name = "data"
@@ -1687,9 +1860,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff']['meta_info']
 
 
-                            class SffLocal(Entity):
+                            class SffLocal(_Entity_):
                                 """
                                 Local service function forwarder stats
                                 
@@ -1741,7 +1918,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, self).__init__()
 
                                     self.yang_name = "sff-local"
                                     self.yang_parent_name = "data"
@@ -1765,10 +1945,18 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data']['meta_info']
 
 
-
-                        class SiArr(Entity):
+                        class SiArr(_Entity_):
                             """
                             SI array in case of detail stats
                             
@@ -1796,7 +1984,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, self).__init__()
 
                                 self.yang_name = "si-arr"
                                 self.yang_parent_name = "summarized"
@@ -1819,7 +2010,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, ['si'], name, value)
 
 
-                            class Data(Entity):
+                            class Data(_Entity_):
                                 """
                                 Stats counter for this index
                                 
@@ -1852,7 +2043,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, self).__init__()
 
                                     self.yang_name = "data"
                                     self.yang_parent_name = "si-arr"
@@ -1879,7 +2073,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, ['type'], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     SF/SFF stats
                                     
@@ -1911,7 +2105,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "data"
@@ -1931,9 +2128,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate stats
                                     
@@ -1965,7 +2166,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "data"
@@ -1985,13 +2189,33 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats']['meta_info']
 
 
-
-
-
-
-                class ServiceIndexes(Entity):
+                class ServiceIndexes(_Entity_):
                     """
                     Service Index Belonging to Path
                     
@@ -2010,7 +2234,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, self).__init__()
 
                         self.yang_name = "service-indexes"
                         self.yang_parent_name = "path-id"
@@ -2028,7 +2255,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, [], name, value)
 
 
-                    class ServiceIndex(Entity):
+                    class ServiceIndex(_Entity_):
                         """
                         Service index operational data belonging to
                         this path
@@ -2064,7 +2291,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, self).__init__()
 
                             self.yang_name = "service-index"
                             self.yang_parent_name = "service-indexes"
@@ -2089,7 +2319,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, ['index'], name, value)
 
 
-                        class Data(Entity):
+                        class Data(_Entity_):
                             """
                             Statistics data
                             
@@ -2150,7 +2380,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, self).__init__()
 
                                 self.yang_name = "data"
                                 self.yang_parent_name = "service-index"
@@ -2193,7 +2426,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, ['type'], name, value)
 
 
-                            class Sfp(Entity):
+                            class Sfp(_Entity_):
                                 """
                                 SFP stats
                                 
@@ -2219,7 +2452,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, self).__init__()
 
                                     self.yang_name = "sfp"
                                     self.yang_parent_name = "data"
@@ -2243,7 +2479,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, [], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     Service index counters
                                     
@@ -2275,7 +2511,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "sfp"
@@ -2295,9 +2534,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate counters
                                     
@@ -2329,7 +2572,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "sfp"
@@ -2349,10 +2595,18 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp']['meta_info']
 
 
-
-                            class SpiSi(Entity):
+                            class SpiSi(_Entity_):
                                 """
                                 SPI SI stats
                                 
@@ -2384,7 +2638,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, self).__init__()
 
                                     self.yang_name = "spi-si"
                                     self.yang_parent_name = "data"
@@ -2404,9 +2661,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi']['meta_info']
 
 
-                            class Term(Entity):
+                            class Term(_Entity_):
                                 """
                                 Terminate stats
                                 
@@ -2438,7 +2699,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, self).__init__()
 
                                     self.yang_name = "term"
                                     self.yang_parent_name = "data"
@@ -2458,9 +2722,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term']['meta_info']
 
 
-                            class Sf(Entity):
+                            class Sf(_Entity_):
                                 """
                                 Service function stats
                                 
@@ -2492,7 +2760,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, self).__init__()
 
                                     self.yang_name = "sf"
                                     self.yang_parent_name = "data"
@@ -2512,9 +2783,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf']['meta_info']
 
 
-                            class Sff(Entity):
+                            class Sff(_Entity_):
                                 """
                                 Service function forwarder stats
                                 
@@ -2546,7 +2821,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, self).__init__()
 
                                     self.yang_name = "sff"
                                     self.yang_parent_name = "data"
@@ -2566,9 +2844,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff']['meta_info']
 
 
-                            class SffLocal(Entity):
+                            class SffLocal(_Entity_):
                                 """
                                 Local service function forwarder stats
                                 
@@ -2620,7 +2902,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, self).__init__()
 
                                     self.yang_name = "sff-local"
                                     self.yang_parent_name = "data"
@@ -2644,10 +2929,18 @@ class GlobalServiceFunctionChaining(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data']['meta_info']
 
 
-
-                        class SiArr(Entity):
+                        class SiArr(_Entity_):
                             """
                             SI array in case of detail stats
                             
@@ -2675,7 +2968,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, self).__init__()
 
                                 self.yang_name = "si-arr"
                                 self.yang_parent_name = "service-index"
@@ -2698,7 +2994,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, ['si'], name, value)
 
 
-                            class Data(Entity):
+                            class Data(_Entity_):
                                 """
                                 Stats counter for this index
                                 
@@ -2731,7 +3027,10 @@ class GlobalServiceFunctionChaining(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, self).__init__()
 
                                     self.yang_name = "data"
                                     self.yang_parent_name = "si-arr"
@@ -2758,7 +3057,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, ['type'], name, value)
 
 
-                                class SpiSi(Entity):
+                                class SpiSi(_Entity_):
                                     """
                                     SF/SFF stats
                                     
@@ -2790,7 +3089,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, self).__init__()
 
                                         self.yang_name = "spi-si"
                                         self.yang_parent_name = "data"
@@ -2810,9 +3112,13 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi']['meta_info']
 
 
-                                class Term(Entity):
+                                class Term(_Entity_):
                                     """
                                     Terminate stats
                                     
@@ -2844,7 +3150,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, self).__init__()
 
                                         self.yang_name = "term"
                                         self.yang_parent_name = "data"
@@ -2864,16 +3173,48 @@ class GlobalServiceFunctionChaining(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionPath']['meta_info']
 
 
-
-
-
-
-
-
-
-    class ServiceFunction(Entity):
+    class ServiceFunction(_Entity_):
         """
         Service Function operational data
         
@@ -2892,7 +3233,10 @@ class GlobalServiceFunctionChaining(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(GlobalServiceFunctionChaining.ServiceFunction, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GlobalServiceFunctionChaining.ServiceFunction, self).__init__()
 
             self.yang_name = "service-function"
             self.yang_parent_name = "global-service-function-chaining"
@@ -2913,7 +3257,7 @@ class GlobalServiceFunctionChaining(Entity):
             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction, [], name, value)
 
 
-        class SfNames(Entity):
+        class SfNames(_Entity_):
             """
             List of Service Function Names
             
@@ -2932,7 +3276,10 @@ class GlobalServiceFunctionChaining(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames, self).__init__()
 
                 self.yang_name = "sf-names"
                 self.yang_parent_name = "service-function"
@@ -2951,7 +3298,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames, [], name, value)
 
 
-            class SfName(Entity):
+            class SfName(_Entity_):
                 """
                 Name of Service Function
                 
@@ -2986,7 +3333,10 @@ class GlobalServiceFunctionChaining(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, self).__init__()
 
                     self.yang_name = "sf-name"
                     self.yang_parent_name = "sf-names"
@@ -3012,7 +3362,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName, ['name'], name, value)
 
 
-                class Data(Entity):
+                class Data(_Entity_):
                     """
                     Statistics data
                     
@@ -3073,7 +3423,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, self).__init__()
 
                         self.yang_name = "data"
                         self.yang_parent_name = "sf-name"
@@ -3116,7 +3469,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, ['type'], name, value)
 
 
-                    class Sfp(Entity):
+                    class Sfp(_Entity_):
                         """
                         SFP stats
                         
@@ -3142,7 +3495,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp, self).__init__()
 
                             self.yang_name = "sfp"
                             self.yang_parent_name = "data"
@@ -3166,7 +3522,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp, [], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             Service index counters
                             
@@ -3198,7 +3554,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "sfp"
@@ -3218,9 +3577,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate counters
                             
@@ -3252,7 +3615,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "sfp"
@@ -3272,10 +3638,18 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp']['meta_info']
 
 
-
-                    class SpiSi(Entity):
+                    class SpiSi(_Entity_):
                         """
                         SPI SI stats
                         
@@ -3307,7 +3681,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, self).__init__()
 
                             self.yang_name = "spi-si"
                             self.yang_parent_name = "data"
@@ -3327,9 +3704,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi']['meta_info']
 
 
-                    class Term(Entity):
+                    class Term(_Entity_):
                         """
                         Terminate stats
                         
@@ -3361,7 +3742,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, self).__init__()
 
                             self.yang_name = "term"
                             self.yang_parent_name = "data"
@@ -3381,9 +3765,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term']['meta_info']
 
 
-                    class Sf(Entity):
+                    class Sf(_Entity_):
                         """
                         Service function stats
                         
@@ -3415,7 +3803,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, self).__init__()
 
                             self.yang_name = "sf"
                             self.yang_parent_name = "data"
@@ -3435,9 +3826,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf']['meta_info']
 
 
-                    class Sff(Entity):
+                    class Sff(_Entity_):
                         """
                         Service function forwarder stats
                         
@@ -3469,7 +3864,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, self).__init__()
 
                             self.yang_name = "sff"
                             self.yang_parent_name = "data"
@@ -3489,9 +3887,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff']['meta_info']
 
 
-                    class SffLocal(Entity):
+                    class SffLocal(_Entity_):
                         """
                         Local service function forwarder stats
                         
@@ -3543,7 +3945,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, self).__init__()
 
                             self.yang_name = "sff-local"
                             self.yang_parent_name = "data"
@@ -3567,10 +3972,18 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data']['meta_info']
 
 
-
-                class SiArr(Entity):
+                class SiArr(_Entity_):
                     """
                     SI array in case of detail stats
                     
@@ -3598,7 +4011,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, self).__init__()
 
                         self.yang_name = "si-arr"
                         self.yang_parent_name = "sf-name"
@@ -3621,7 +4037,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, ['si'], name, value)
 
 
-                    class Data(Entity):
+                    class Data(_Entity_):
                         """
                         Stats counter for this index
                         
@@ -3654,7 +4070,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, self).__init__()
 
                             self.yang_name = "data"
                             self.yang_parent_name = "si-arr"
@@ -3681,7 +4100,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, ['type'], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             SF/SFF stats
                             
@@ -3713,7 +4132,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "data"
@@ -3733,9 +4155,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate stats
                             
@@ -3767,7 +4193,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "data"
@@ -3787,14 +4216,38 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction.SfNames']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunction']['meta_info']
 
 
-
-
-
-
-
-    class ServiceFunctionForwarder(Entity):
+    class ServiceFunctionForwarder(_Entity_):
         """
         Service Function Forwarder operational data
         
@@ -3820,7 +4273,10 @@ class GlobalServiceFunctionChaining(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder, self).__init__()
 
             self.yang_name = "service-function-forwarder"
             self.yang_parent_name = "global-service-function-chaining"
@@ -3845,7 +4301,7 @@ class GlobalServiceFunctionChaining(Entity):
             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder, [], name, value)
 
 
-        class SffNames(Entity):
+        class SffNames(_Entity_):
             """
             List of Service Function Forwarder Names
             
@@ -3864,7 +4320,10 @@ class GlobalServiceFunctionChaining(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, self).__init__()
 
                 self.yang_name = "sff-names"
                 self.yang_parent_name = "service-function-forwarder"
@@ -3883,7 +4342,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames, [], name, value)
 
 
-            class SffName(Entity):
+            class SffName(_Entity_):
                 """
                 Name of Service Function Forwarder
                 
@@ -3918,7 +4377,10 @@ class GlobalServiceFunctionChaining(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, self).__init__()
 
                     self.yang_name = "sff-name"
                     self.yang_parent_name = "sff-names"
@@ -3944,7 +4406,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName, ['name'], name, value)
 
 
-                class Data(Entity):
+                class Data(_Entity_):
                     """
                     Statistics data
                     
@@ -4005,7 +4467,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, self).__init__()
 
                         self.yang_name = "data"
                         self.yang_parent_name = "sff-name"
@@ -4048,7 +4513,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, ['type'], name, value)
 
 
-                    class Sfp(Entity):
+                    class Sfp(_Entity_):
                         """
                         SFP stats
                         
@@ -4074,7 +4539,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, self).__init__()
 
                             self.yang_name = "sfp"
                             self.yang_parent_name = "data"
@@ -4098,7 +4566,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, [], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             Service index counters
                             
@@ -4130,7 +4598,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "sfp"
@@ -4150,9 +4621,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate counters
                             
@@ -4184,7 +4659,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "sfp"
@@ -4204,10 +4682,18 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp']['meta_info']
 
 
-
-                    class SpiSi(Entity):
+                    class SpiSi(_Entity_):
                         """
                         SPI SI stats
                         
@@ -4239,7 +4725,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, self).__init__()
 
                             self.yang_name = "spi-si"
                             self.yang_parent_name = "data"
@@ -4259,9 +4748,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi']['meta_info']
 
 
-                    class Term(Entity):
+                    class Term(_Entity_):
                         """
                         Terminate stats
                         
@@ -4293,7 +4786,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, self).__init__()
 
                             self.yang_name = "term"
                             self.yang_parent_name = "data"
@@ -4313,9 +4809,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term']['meta_info']
 
 
-                    class Sf(Entity):
+                    class Sf(_Entity_):
                         """
                         Service function stats
                         
@@ -4347,7 +4847,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, self).__init__()
 
                             self.yang_name = "sf"
                             self.yang_parent_name = "data"
@@ -4367,9 +4870,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf']['meta_info']
 
 
-                    class Sff(Entity):
+                    class Sff(_Entity_):
                         """
                         Service function forwarder stats
                         
@@ -4401,7 +4908,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, self).__init__()
 
                             self.yang_name = "sff"
                             self.yang_parent_name = "data"
@@ -4421,9 +4931,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff']['meta_info']
 
 
-                    class SffLocal(Entity):
+                    class SffLocal(_Entity_):
                         """
                         Local service function forwarder stats
                         
@@ -4475,7 +4989,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, self).__init__()
 
                             self.yang_name = "sff-local"
                             self.yang_parent_name = "data"
@@ -4499,10 +5016,18 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data']['meta_info']
 
 
-
-                class SiArr(Entity):
+                class SiArr(_Entity_):
                     """
                     SI array in case of detail stats
                     
@@ -4530,7 +5055,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, self).__init__()
 
                         self.yang_name = "si-arr"
                         self.yang_parent_name = "sff-name"
@@ -4553,7 +5081,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, ['si'], name, value)
 
 
-                    class Data(Entity):
+                    class Data(_Entity_):
                         """
                         Stats counter for this index
                         
@@ -4586,7 +5114,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, self).__init__()
 
                             self.yang_name = "data"
                             self.yang_parent_name = "si-arr"
@@ -4613,7 +5144,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, ['type'], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             SF/SFF stats
                             
@@ -4645,7 +5176,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "data"
@@ -4665,9 +5199,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate stats
                             
@@ -4699,7 +5237,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "data"
@@ -4719,13 +5260,33 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames']['meta_info']
 
 
-
-
-
-
-        class Local(Entity):
+        class Local(_Entity_):
             """
             Local Service Function Forwarder operational
             data
@@ -4745,7 +5306,10 @@ class GlobalServiceFunctionChaining(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local, self).__init__()
 
                 self.yang_name = "local"
                 self.yang_parent_name = "service-function-forwarder"
@@ -4766,7 +5330,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local, [], name, value)
 
 
-            class Error(Entity):
+            class Error(_Entity_):
                 """
                 Error Statistics for local service function
                 forwarder
@@ -4793,7 +5357,10 @@ class GlobalServiceFunctionChaining(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, self).__init__()
 
                     self.yang_name = "error"
                     self.yang_parent_name = "local"
@@ -4816,7 +5383,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error, [], name, value)
 
 
-                class Data(Entity):
+                class Data(_Entity_):
                     """
                     Statistics data
                     
@@ -4877,7 +5444,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, self).__init__()
 
                         self.yang_name = "data"
                         self.yang_parent_name = "error"
@@ -4921,7 +5491,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, ['type'], name, value)
 
 
-                    class Sfp(Entity):
+                    class Sfp(_Entity_):
                         """
                         SFP stats
                         
@@ -4947,7 +5517,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp, self).__init__()
 
                             self.yang_name = "sfp"
                             self.yang_parent_name = "data"
@@ -4972,7 +5545,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp, [], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             Service index counters
                             
@@ -5004,7 +5577,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "sfp"
@@ -5025,9 +5601,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate counters
                             
@@ -5059,7 +5639,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "sfp"
@@ -5080,10 +5663,18 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp']['meta_info']
 
 
-
-                    class SpiSi(Entity):
+                    class SpiSi(_Entity_):
                         """
                         SPI SI stats
                         
@@ -5115,7 +5706,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, self).__init__()
 
                             self.yang_name = "spi-si"
                             self.yang_parent_name = "data"
@@ -5136,9 +5730,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi']['meta_info']
 
 
-                    class Term(Entity):
+                    class Term(_Entity_):
                         """
                         Terminate stats
                         
@@ -5170,7 +5768,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, self).__init__()
 
                             self.yang_name = "term"
                             self.yang_parent_name = "data"
@@ -5191,9 +5792,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term']['meta_info']
 
 
-                    class Sf(Entity):
+                    class Sf(_Entity_):
                         """
                         Service function stats
                         
@@ -5225,7 +5830,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, self).__init__()
 
                             self.yang_name = "sf"
                             self.yang_parent_name = "data"
@@ -5246,9 +5854,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf']['meta_info']
 
 
-                    class Sff(Entity):
+                    class Sff(_Entity_):
                         """
                         Service function forwarder stats
                         
@@ -5280,7 +5892,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, self).__init__()
 
                             self.yang_name = "sff"
                             self.yang_parent_name = "data"
@@ -5301,9 +5916,13 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff']['meta_info']
 
 
-                    class SffLocal(Entity):
+                    class SffLocal(_Entity_):
                         """
                         Local service function forwarder stats
                         
@@ -5355,7 +5974,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, self).__init__()
 
                             self.yang_name = "sff-local"
                             self.yang_parent_name = "data"
@@ -5380,10 +6002,18 @@ class GlobalServiceFunctionChaining(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data']['meta_info']
 
 
-
-                class SiArr(Entity):
+                class SiArr(_Entity_):
                     """
                     SI array in case of detail stats
                     
@@ -5411,7 +6041,10 @@ class GlobalServiceFunctionChaining(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, self).__init__()
 
                         self.yang_name = "si-arr"
                         self.yang_parent_name = "error"
@@ -5435,7 +6068,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, ['si'], name, value)
 
 
-                    class Data(Entity):
+                    class Data(_Entity_):
                         """
                         Stats counter for this index
                         
@@ -5468,7 +6101,10 @@ class GlobalServiceFunctionChaining(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, self).__init__()
 
                             self.yang_name = "data"
                             self.yang_parent_name = "si-arr"
@@ -5496,7 +6132,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, ['type'], name, value)
 
 
-                        class SpiSi(Entity):
+                        class SpiSi(_Entity_):
                             """
                             SF/SFF stats
                             
@@ -5528,7 +6164,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, self).__init__()
 
                                 self.yang_name = "spi-si"
                                 self.yang_parent_name = "data"
@@ -5549,9 +6188,13 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi']['meta_info']
 
 
-                        class Term(Entity):
+                        class Term(_Entity_):
                             """
                             Terminate stats
                             
@@ -5583,7 +6226,10 @@ class GlobalServiceFunctionChaining(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, self).__init__()
 
                                 self.yang_name = "term"
                                 self.yang_parent_name = "data"
@@ -5604,15 +6250,43 @@ class GlobalServiceFunctionChaining(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                        return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                    return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+                return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+            return meta._meta_table['GlobalServiceFunctionChaining.ServiceFunctionForwarder']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GlobalServiceFunctionChaining()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vservice_mgr_oper as meta
+        return meta._meta_table['GlobalServiceFunctionChaining']['meta_info']
 
 

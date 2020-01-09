@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Sbfd(Entity):
+class Sbfd(_Entity_):
     """
     SBFD Configuration ,Seamless\-BFD is method for
     detecting faultsbetween two different nodes in a
@@ -46,7 +49,10 @@ class Sbfd(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Sbfd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sbfd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sbfd"
@@ -71,7 +77,7 @@ class Sbfd(Entity):
         self._perform_setattr(Sbfd, [], name, value)
 
 
-    class RemoteTarget(Entity):
+    class RemoteTarget(_Entity_):
         """
         configure remote target
         
@@ -93,7 +99,10 @@ class Sbfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Sbfd.RemoteTarget, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sbfd.RemoteTarget, self).__init__()
 
             self.yang_name = "remote-target"
             self.yang_parent_name = "sbfd"
@@ -118,7 +127,7 @@ class Sbfd(Entity):
             self._perform_setattr(Sbfd.RemoteTarget, [], name, value)
 
 
-        class Ipv4Addresses(Entity):
+        class Ipv4Addresses(_Entity_):
             """
             ipv4 address as target
             
@@ -135,7 +144,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.RemoteTarget.Ipv4Addresses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.RemoteTarget.Ipv4Addresses, self).__init__()
 
                 self.yang_name = "ipv4-addresses"
                 self.yang_parent_name = "remote-target"
@@ -154,7 +166,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.RemoteTarget.Ipv4Addresses, [], name, value)
 
 
-            class Ipv4Address(Entity):
+            class Ipv4Address(_Entity_):
                 """
                 IP Address Value for RemoteDiscriminatorTable
                 
@@ -178,7 +190,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address, self).__init__()
 
                     self.yang_name = "ipv4-address"
                     self.yang_parent_name = "ipv4-addresses"
@@ -200,7 +215,7 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address, ['address'], name, value)
 
 
-                class RemoteDiscriminator(Entity):
+                class RemoteDiscriminator(_Entity_):
                     """
                     Remote Discriminator value
                     
@@ -219,7 +234,10 @@ class Sbfd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator, self).__init__()
 
                         self.yang_name = "remote-discriminator"
                         self.yang_parent_name = "ipv4-address"
@@ -237,11 +255,23 @@ class Sbfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                        return meta._meta_table['Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.RemoteTarget.Ipv4Addresses']['meta_info']
 
 
-
-
-        class Ipv6Addresses(Entity):
+        class Ipv6Addresses(_Entity_):
             """
             ipv6 address as target
             
@@ -258,7 +288,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.RemoteTarget.Ipv6Addresses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.RemoteTarget.Ipv6Addresses, self).__init__()
 
                 self.yang_name = "ipv6-addresses"
                 self.yang_parent_name = "remote-target"
@@ -277,7 +310,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.RemoteTarget.Ipv6Addresses, [], name, value)
 
 
-            class Ipv6Address(Entity):
+            class Ipv6Address(_Entity_):
                 """
                 IP Address Value for RemoteDiscriminatorTable
                 
@@ -301,7 +334,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address, self).__init__()
 
                     self.yang_name = "ipv6-address"
                     self.yang_parent_name = "ipv6-addresses"
@@ -323,7 +359,7 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address, ['address'], name, value)
 
 
-                class RemoteDiscriminator(Entity):
+                class RemoteDiscriminator(_Entity_):
                     """
                     Remote Discriminator value
                     
@@ -342,7 +378,10 @@ class Sbfd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator, self).__init__()
 
                         self.yang_name = "remote-discriminator"
                         self.yang_parent_name = "ipv6-address"
@@ -360,12 +399,28 @@ class Sbfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                        return meta._meta_table['Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.RemoteTarget.Ipv6Addresses']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+            return meta._meta_table['Sbfd.RemoteTarget']['meta_info']
 
 
-
-
-
-    class LocalDiscriminator(Entity):
+    class LocalDiscriminator(_Entity_):
         """
         Configure local discriminator
         
@@ -397,7 +452,10 @@ class Sbfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Sbfd.LocalDiscriminator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sbfd.LocalDiscriminator, self).__init__()
 
             self.yang_name = "local-discriminator"
             self.yang_parent_name = "sbfd"
@@ -430,7 +488,7 @@ class Sbfd(Entity):
             self._perform_setattr(Sbfd.LocalDiscriminator, [], name, value)
 
 
-        class IntfDiscriminators(Entity):
+        class IntfDiscriminators(_Entity_):
             """
             Configure local discriminator from interface
             address
@@ -448,7 +506,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.LocalDiscriminator.IntfDiscriminators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.LocalDiscriminator.IntfDiscriminators, self).__init__()
 
                 self.yang_name = "intf-discriminators"
                 self.yang_parent_name = "local-discriminator"
@@ -467,7 +528,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.LocalDiscriminator.IntfDiscriminators, [], name, value)
 
 
-            class IntfDiscriminator(Entity):
+            class IntfDiscriminator(_Entity_):
                 """
                 interface address as discriminator
                 
@@ -486,7 +547,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator, self).__init__()
 
                     self.yang_name = "intf-discriminator"
                     self.yang_parent_name = "intf-discriminators"
@@ -505,10 +569,18 @@ class Sbfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator, ['interface_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.LocalDiscriminator.IntfDiscriminators']['meta_info']
 
 
-
-        class DynamicDiscriminators(Entity):
+        class DynamicDiscriminators(_Entity_):
             """
             Configure local discriminator dynamically
             
@@ -525,7 +597,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.LocalDiscriminator.DynamicDiscriminators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.LocalDiscriminator.DynamicDiscriminators, self).__init__()
 
                 self.yang_name = "dynamic-discriminators"
                 self.yang_parent_name = "local-discriminator"
@@ -544,7 +619,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.LocalDiscriminator.DynamicDiscriminators, [], name, value)
 
 
-            class DynamicDiscriminator(Entity):
+            class DynamicDiscriminator(_Entity_):
                 """
                 Local discriminator value
                 
@@ -563,7 +638,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator, self).__init__()
 
                     self.yang_name = "dynamic-discriminator"
                     self.yang_parent_name = "dynamic-discriminators"
@@ -582,10 +660,18 @@ class Sbfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator, ['discriminator'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.LocalDiscriminator.DynamicDiscriminators']['meta_info']
 
 
-
-        class Ipv4Discriminators(Entity):
+        class Ipv4Discriminators(_Entity_):
             """
             Configure local discriminator as an ipv4
             address
@@ -603,7 +689,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.LocalDiscriminator.Ipv4Discriminators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.LocalDiscriminator.Ipv4Discriminators, self).__init__()
 
                 self.yang_name = "ipv4-discriminators"
                 self.yang_parent_name = "local-discriminator"
@@ -622,7 +711,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.LocalDiscriminator.Ipv4Discriminators, [], name, value)
 
 
-            class Ipv4Discriminator(Entity):
+            class Ipv4Discriminator(_Entity_):
                 """
                 ipv4 address as discriminator
                 
@@ -647,7 +736,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator, self).__init__()
 
                     self.yang_name = "ipv4-discriminator"
                     self.yang_parent_name = "ipv4-discriminators"
@@ -666,10 +758,18 @@ class Sbfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator, ['address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.LocalDiscriminator.Ipv4Discriminators']['meta_info']
 
 
-
-        class Val32Discriminators(Entity):
+        class Val32Discriminators(_Entity_):
             """
             Configure local discriminator as an integer
             
@@ -686,7 +786,10 @@ class Sbfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Sbfd.LocalDiscriminator.Val32Discriminators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.LocalDiscriminator.Val32Discriminators, self).__init__()
 
                 self.yang_name = "val32-discriminators"
                 self.yang_parent_name = "local-discriminator"
@@ -705,7 +808,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.LocalDiscriminator.Val32Discriminators, [], name, value)
 
 
-            class Val32Discriminator(Entity):
+            class Val32Discriminator(_Entity_):
                 """
                 Local discriminator value
                 
@@ -724,7 +827,10 @@ class Sbfd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator, self).__init__()
 
                     self.yang_name = "val32-discriminator"
                     self.yang_parent_name = "val32-discriminators"
@@ -743,12 +849,28 @@ class Sbfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator, ['discriminator'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                    return meta._meta_table['Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+                return meta._meta_table['Sbfd.LocalDiscriminator.Val32Discriminators']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+            return meta._meta_table['Sbfd.LocalDiscriminator']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sbfd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_cfg as meta
+        return meta._meta_table['Sbfd']['meta_info']
 
 

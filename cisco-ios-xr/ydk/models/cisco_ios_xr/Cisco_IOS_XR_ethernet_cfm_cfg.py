@@ -14,8 +14,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,6 +51,12 @@ class CfmLmCountersCfg(Enum):
     list = Enum.YLeaf(2, "list")
 
     range = Enum.YLeaf(3, "range")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
+        return meta._meta_table['CfmLmCountersCfg']
 
 
 class CfmMdidFormat(Enum):
@@ -83,6 +92,12 @@ class CfmMdidFormat(Enum):
     string = Enum.YLeaf(4, "string")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
+        return meta._meta_table['CfmMdidFormat']
+
+
 class CfmMipPolicy(Enum):
     """
     CfmMipPolicy (Enum Class)
@@ -106,6 +121,12 @@ class CfmMipPolicy(Enum):
     all = Enum.YLeaf(2, "all")
 
     lower_mep_only = Enum.YLeaf(3, "lower-mep-only")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
+        return meta._meta_table['CfmMipPolicy']
 
 
 class CfmService(Enum):
@@ -163,6 +184,12 @@ class CfmService(Enum):
     down_meps = Enum.YLeaf(6, "down-meps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
+        return meta._meta_table['CfmService']
+
+
 class CfmShortMaNameFormat(Enum):
     """
     CfmShortMaNameFormat (Enum Class)
@@ -200,6 +227,12 @@ class CfmShortMaNameFormat(Enum):
     vpn_id = Enum.YLeaf(4, "vpn-id")
 
     icc_based = Enum.YLeaf(32, "icc-based")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
+        return meta._meta_table['CfmShortMaNameFormat']
 
 
 

@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-wdsysmon-fd-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-07-05 {
+    description
+      "IOS XR 7.0.1 revision.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

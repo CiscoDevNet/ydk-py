@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -181,6 +184,12 @@ class BgpAddressFamily(Enum):
     all_address_family = Enum.YLeaf(25, "all-address-family")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpAddressFamily']
+
+
 class BgpAdvertiseLocalLabeledRouteCfg(Enum):
     """
     BgpAdvertiseLocalLabeledRouteCfg (Enum Class)
@@ -200,6 +209,12 @@ class BgpAdvertiseLocalLabeledRouteCfg(Enum):
     enable = Enum.YLeaf(1, "enable")
 
     disable = Enum.YLeaf(2, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpAdvertiseLocalLabeledRouteCfg']
 
 
 class BgpAfAdditionalPathsCfg(Enum):
@@ -223,6 +238,12 @@ class BgpAfAdditionalPathsCfg(Enum):
     disable = Enum.YLeaf(2, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpAfAdditionalPathsCfg']
+
+
 class BgpNbrCapAdditionalPathsCfg(Enum):
     """
     BgpNbrCapAdditionalPathsCfg (Enum Class)
@@ -242,6 +263,12 @@ class BgpNbrCapAdditionalPathsCfg(Enum):
     enable = Enum.YLeaf(1, "enable")
 
     disable = Enum.YLeaf(2, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpNbrCapAdditionalPathsCfg']
 
 
 class BgpOfficialAddressFamily(Enum):
@@ -281,6 +308,12 @@ class BgpOfficialAddressFamily(Enum):
     ls = Enum.YLeaf(16388, "ls")
 
     all = Enum.YLeaf(65534, "all")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpOfficialAddressFamily']
 
 
 class BgpPrecedenceDscp(Enum):
@@ -460,6 +493,12 @@ class BgpPrecedenceDscp(Enum):
     default_or_routine = Enum.YLeaf(0, "default-or-routine")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpPrecedenceDscp']
+
+
 class BgpSubsequentAddressFamily(Enum):
     """
     BgpSubsequentAddressFamily (Enum Class)
@@ -577,6 +616,12 @@ class BgpSubsequentAddressFamily(Enum):
     all = Enum.YLeaf(254, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpSubsequentAddressFamily']
+
+
 class BgpTos(Enum):
     """
     BgpTos (Enum Class)
@@ -598,6 +643,12 @@ class BgpTos(Enum):
     dscp = Enum.YLeaf(1, "dscp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpTos']
+
+
 class BgpUpdateFilterAction(Enum):
     """
     BgpUpdateFilterAction (Enum Class)
@@ -617,6 +668,12 @@ class BgpUpdateFilterAction(Enum):
     treat_as_withdraw = Enum.YLeaf(1, "treat-as-withdraw")
 
     discard_attibute = Enum.YLeaf(2, "discard-attibute")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpUpdateFilterAction']
 
 
 

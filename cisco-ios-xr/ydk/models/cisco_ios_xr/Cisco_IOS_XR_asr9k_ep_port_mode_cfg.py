@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class HwModuleEpIfPortMode(Enum):
     Y_2xhundredgige_8qam = Enum.YLeaf(2, "2xhundredgige-8qam")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+        return meta._meta_table['HwModuleEpIfPortMode']
 
-class HwModuleEpPortMode(Entity):
+
+
+class HwModuleEpPortMode(_Entity_):
     """
     HW Module EP port\-mode configuration
     
@@ -59,7 +68,10 @@ class HwModuleEpPortMode(Entity):
     _revision = '2019-01-06'
 
     def __init__(self):
-        super(HwModuleEpPortMode, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HwModuleEpPortMode, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hw-module-ep-port-mode"
@@ -78,7 +90,7 @@ class HwModuleEpPortMode(Entity):
         self._perform_setattr(HwModuleEpPortMode, [], name, value)
 
 
-    class EpPortModeConfiguration(Entity):
+    class EpPortModeConfiguration(_Entity_):
         """
         active or pre configuration
         
@@ -102,7 +114,10 @@ class HwModuleEpPortMode(Entity):
         _revision = '2019-01-06'
 
         def __init__(self):
-            super(HwModuleEpPortMode.EpPortModeConfiguration, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HwModuleEpPortMode.EpPortModeConfiguration, self).__init__()
 
             self.yang_name = "ep-port-mode-configuration"
             self.yang_parent_name = "hw-module-ep-port-mode"
@@ -124,7 +139,7 @@ class HwModuleEpPortMode(Entity):
             self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration, ['active'], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             line\-card node location
             
@@ -148,7 +163,10 @@ class HwModuleEpPortMode(Entity):
             _revision = '2019-01-06'
 
             def __init__(self):
-                super(HwModuleEpPortMode.EpPortModeConfiguration.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModuleEpPortMode.EpPortModeConfiguration.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "ep-port-mode-configuration"
@@ -171,7 +189,7 @@ class HwModuleEpPortMode(Entity):
                 self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration.Node, ['location'], name, value)
 
 
-            class Bays(Entity):
+            class Bays(_Entity_):
                 """
                 port\-mode configuration for EP bay number
                 
@@ -188,7 +206,10 @@ class HwModuleEpPortMode(Entity):
                 _revision = '2019-01-06'
 
                 def __init__(self):
-                    super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays, self).__init__()
 
                     self.yang_name = "bays"
                     self.yang_parent_name = "node"
@@ -206,7 +227,7 @@ class HwModuleEpPortMode(Entity):
                     self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays, [], name, value)
 
 
-                class Bay(Entity):
+                class Bay(_Entity_):
                     """
                     EP Bay number
                     
@@ -230,7 +251,10 @@ class HwModuleEpPortMode(Entity):
                     _revision = '2019-01-06'
 
                     def __init__(self):
-                        super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay, self).__init__()
 
                         self.yang_name = "bay"
                         self.yang_parent_name = "bays"
@@ -253,7 +277,7 @@ class HwModuleEpPortMode(Entity):
                         self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay, ['bay_number'], name, value)
 
 
-                    class Ports(Entity):
+                    class Ports(_Entity_):
                         """
                         port\-mode configuration for port number
                         
@@ -270,7 +294,10 @@ class HwModuleEpPortMode(Entity):
                         _revision = '2019-01-06'
 
                         def __init__(self):
-                            super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports, self).__init__()
 
                             self.yang_name = "ports"
                             self.yang_parent_name = "bay"
@@ -288,7 +315,7 @@ class HwModuleEpPortMode(Entity):
                             self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports, [], name, value)
 
 
-                        class Port(Entity):
+                        class Port(_Entity_):
                             """
                             Optics port number
                             
@@ -312,7 +339,10 @@ class HwModuleEpPortMode(Entity):
                             _revision = '2019-01-06'
 
                             def __init__(self):
-                                super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports.Port, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports.Port, self).__init__()
 
                                 self.yang_name = "port"
                                 self.yang_parent_name = "ports"
@@ -332,15 +362,43 @@ class HwModuleEpPortMode(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports.Port, ['port_number', 'if_port_mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+                                return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports.Port']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+                            return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay.Ports']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+                        return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays.Bay']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+                    return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration.Node.Bays']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+                return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+            return meta._meta_table['HwModuleEpPortMode.EpPortModeConfiguration']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HwModuleEpPortMode()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ep_port_mode_cfg as meta
+        return meta._meta_table['HwModuleEpPortMode']['meta_info']
 
 

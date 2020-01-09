@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -143,8 +146,14 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper as meta
+        return meta._meta_table['ImStateEnum']
 
-class Controllers(Entity):
+
+
+class Controllers(_Entity_):
     """
     Controller operational data
     
@@ -163,7 +172,10 @@ class Controllers(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Controllers, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Controllers, self).__init__()
         self._top_entity = None
 
         self.yang_name = "controllers"
@@ -184,7 +196,7 @@ class Controllers(Entity):
         self._perform_setattr(Controllers, [], name, value)
 
 
-    class Controllers_(Entity):
+    class Controllers_(_Entity_):
         """
         Descriptions for controllers
         
@@ -203,7 +215,10 @@ class Controllers(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Controllers.Controllers_, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Controllers.Controllers_, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "controllers"
@@ -222,7 +237,7 @@ class Controllers(Entity):
             self._perform_setattr(Controllers.Controllers_, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             Description for a particular controller
             
@@ -266,7 +281,10 @@ class Controllers(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Controllers.Controllers_.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Controllers.Controllers_.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -291,11 +309,23 @@ class Controllers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', 'controller', 'state', 'description'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper as meta
+                return meta._meta_table['Controllers.Controllers_.Controller']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper as meta
+            return meta._meta_table['Controllers.Controllers_']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Controllers()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper as meta
+        return meta._meta_table['Controllers']['meta_info']
 
 

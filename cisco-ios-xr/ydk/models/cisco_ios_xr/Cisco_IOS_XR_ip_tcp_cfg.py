@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IpTcp(Entity):
+class IpTcp(_Entity_):
     """
     Global IP TCP configuration
     
@@ -124,7 +127,10 @@ class IpTcp(Entity):
     _revision = '2018-02-14'
 
     def __init__(self):
-        super(IpTcp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpTcp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-tcp"
@@ -172,7 +178,7 @@ class IpTcp(Entity):
         self._perform_setattr(IpTcp, ['accept_rate', 'selective_ack', 'window_size', 'receive_q', 'maximum_segment_size', 'syn_wait_time', 'timestamp', 'path_mtu_discovery'], name, value)
 
 
-    class Directory(Entity):
+    class Directory(_Entity_):
         """
         TCP directory details
         
@@ -211,7 +217,10 @@ class IpTcp(Entity):
         _revision = '2018-02-14'
 
         def __init__(self):
-            super(IpTcp.Directory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpTcp.Directory, self).__init__()
 
             self.yang_name = "directory"
             self.yang_parent_name = "ip-tcp"
@@ -235,9 +244,13 @@ class IpTcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpTcp.Directory, ['directoryname', 'max_debug_files', 'max_file_size_files'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.Directory']['meta_info']
 
 
-    class Throttle(Entity):
+    class Throttle(_Entity_):
         """
         Throttle TCP receive buffer (in percentage)
         
@@ -269,7 +282,10 @@ class IpTcp(Entity):
         _revision = '2018-02-14'
 
         def __init__(self):
-            super(IpTcp.Throttle, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpTcp.Throttle, self).__init__()
 
             self.yang_name = "throttle"
             self.yang_parent_name = "ip-tcp"
@@ -291,9 +307,13 @@ class IpTcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpTcp.Throttle, ['tcpmin_throttle', 'tcpmaxthrottle'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.Throttle']['meta_info']
 
 
-    class Ao(Entity):
+    class Ao(_Entity_):
         """
         TCP authentication option configuration mode
         
@@ -315,7 +335,10 @@ class IpTcp(Entity):
         _revision = '2018-02-14'
 
         def __init__(self):
-            super(IpTcp.Ao, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpTcp.Ao, self).__init__()
 
             self.yang_name = "ao"
             self.yang_parent_name = "ip-tcp"
@@ -339,7 +362,7 @@ class IpTcp(Entity):
             self._perform_setattr(IpTcp.Ao, ['enable'], name, value)
 
 
-        class Keychains(Entity):
+        class Keychains(_Entity_):
             """
             Configure a Key Chain
             
@@ -356,7 +379,10 @@ class IpTcp(Entity):
             _revision = '2018-02-14'
 
             def __init__(self):
-                super(IpTcp.Ao.Keychains, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpTcp.Ao.Keychains, self).__init__()
 
                 self.yang_name = "keychains"
                 self.yang_parent_name = "ao"
@@ -375,7 +401,7 @@ class IpTcp(Entity):
                 self._perform_setattr(IpTcp.Ao.Keychains, [], name, value)
 
 
-            class Keychain(Entity):
+            class Keychain(_Entity_):
                 """
                 Name of the key chain
                 
@@ -404,7 +430,10 @@ class IpTcp(Entity):
                 _revision = '2018-02-14'
 
                 def __init__(self):
-                    super(IpTcp.Ao.Keychains.Keychain, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpTcp.Ao.Keychains.Keychain, self).__init__()
 
                     self.yang_name = "keychain"
                     self.yang_parent_name = "keychains"
@@ -430,7 +459,7 @@ class IpTcp(Entity):
                     self._perform_setattr(IpTcp.Ao.Keychains.Keychain, ['name', 'create'], name, value)
 
 
-                class Keys(Entity):
+                class Keys(_Entity_):
                     """
                     Configure a Key
                     
@@ -447,7 +476,10 @@ class IpTcp(Entity):
                     _revision = '2018-02-14'
 
                     def __init__(self):
-                        super(IpTcp.Ao.Keychains.Keychain.Keys, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpTcp.Ao.Keychains.Keychain.Keys, self).__init__()
 
                         self.yang_name = "keys"
                         self.yang_parent_name = "keychain"
@@ -465,7 +497,7 @@ class IpTcp(Entity):
                         self._perform_setattr(IpTcp.Ao.Keychains.Keychain.Keys, [], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         Key identifier
                         
@@ -502,7 +534,10 @@ class IpTcp(Entity):
                         _revision = '2018-02-14'
 
                         def __init__(self):
-                            super(IpTcp.Ao.Keychains.Keychain.Keys.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpTcp.Ao.Keychains.Keychain.Keys.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "keys"
@@ -524,13 +559,33 @@ class IpTcp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpTcp.Ao.Keychains.Keychain.Keys.Key, ['key_id', 'send_id', 'receive_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['IpTcp.Ao.Keychains.Keychain.Keys.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['IpTcp.Ao.Keychains.Keychain.Keys']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['IpTcp.Ao.Keychains.Keychain']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                return meta._meta_table['IpTcp.Ao.Keychains']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.Ao']['meta_info']
 
 
-
-
-
-
-    class NumThread(Entity):
+    class NumThread(_Entity_):
         """
         TCP InQueue and OutQueue threads
         
@@ -562,7 +617,10 @@ class IpTcp(Entity):
         _revision = '2018-02-14'
 
         def __init__(self):
-            super(IpTcp.NumThread, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpTcp.NumThread, self).__init__()
 
             self.yang_name = "num-thread"
             self.yang_parent_name = "ip-tcp"
@@ -584,14 +642,22 @@ class IpTcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpTcp.NumThread, ['tcp_in_q_threads', 'tcp_out_q_threads'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.NumThread']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpTcp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+        return meta._meta_table['IpTcp']['meta_info']
 
 
-class Ip(Entity):
+class Ip(_Entity_):
     """
     ip
     
@@ -613,7 +679,10 @@ class Ip(Entity):
     _revision = '2018-02-14'
 
     def __init__(self):
-        super(Ip, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ip, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip"
@@ -638,7 +707,7 @@ class Ip(Entity):
         self._perform_setattr(Ip, [], name, value)
 
 
-    class Cinetd(Entity):
+    class Cinetd(_Entity_):
         """
         Cinetd configuration data
         
@@ -664,7 +733,10 @@ class Ip(Entity):
         _revision = '2018-02-14'
 
         def __init__(self):
-            super(Ip.Cinetd, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ip.Cinetd, self).__init__()
 
             self.yang_name = "cinetd"
             self.yang_parent_name = "ip"
@@ -688,7 +760,7 @@ class Ip(Entity):
             self._perform_setattr(Ip.Cinetd, ['rate_limit'], name, value)
 
 
-        class Services(Entity):
+        class Services(_Entity_):
             """
             Describing services of cinetd
             
@@ -715,7 +787,10 @@ class Ip(Entity):
             _revision = '2018-02-14'
 
             def __init__(self):
-                super(Ip.Cinetd.Services, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ip.Cinetd.Services, self).__init__()
 
                 self.yang_name = "services"
                 self.yang_parent_name = "cinetd"
@@ -744,7 +819,7 @@ class Ip(Entity):
                 self._perform_setattr(Ip.Cinetd.Services, [], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 IPV4 related services
                 
@@ -761,7 +836,10 @@ class Ip(Entity):
                 _revision = '2018-02-14'
 
                 def __init__(self):
-                    super(Ip.Cinetd.Services.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ip.Cinetd.Services.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "services"
@@ -782,7 +860,7 @@ class Ip(Entity):
                     self._perform_setattr(Ip.Cinetd.Services.Ipv4, [], name, value)
 
 
-                class SmallServers(Entity):
+                class SmallServers(_Entity_):
                     """
                     Describing IPV4 and IPV6 small servers
                     
@@ -808,7 +886,10 @@ class Ip(Entity):
                     _revision = '2018-02-14'
 
                     def __init__(self):
-                        super(Ip.Cinetd.Services.Ipv4.SmallServers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ip.Cinetd.Services.Ipv4.SmallServers, self).__init__()
 
                         self.yang_name = "small-servers"
                         self.yang_parent_name = "ipv4"
@@ -831,7 +912,7 @@ class Ip(Entity):
                         self._perform_setattr(Ip.Cinetd.Services.Ipv4.SmallServers, [], name, value)
 
 
-                    class TcpSmallServers(Entity):
+                    class TcpSmallServers(_Entity_):
                         """
                         Describing TCP related IPV4 and IPV6 small
                         servers
@@ -864,7 +945,10 @@ class Ip(Entity):
                         _revision = '2018-02-14'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, self).__init__()
 
                             self.yang_name = "tcp-small-servers"
                             self.yang_parent_name = "small-servers"
@@ -903,9 +987,19 @@ class Ip(Entity):
                             no_limit = Enum.YLeaf(0, "no-limit")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers.SmallServer']
 
 
-                    class UdpSmallServers(Entity):
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers']['meta_info']
+
+
+                    class UdpSmallServers(_Entity_):
                         """
                         UDP small servers configuration
                         
@@ -937,7 +1031,10 @@ class Ip(Entity):
                         _revision = '2017-09-30'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__init__()
 
                             self.yang_name = "udp-small-servers"
                             self.yang_parent_name = "small-servers"
@@ -976,11 +1073,29 @@ class Ip(Entity):
                             no_limit = Enum.YLeaf(0, "no-limit")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers.SmallServer']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['Ip.Cinetd.Services.Ipv4.SmallServers']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['Ip.Cinetd.Services.Ipv4']['meta_info']
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 VRF table
                 
@@ -997,7 +1112,10 @@ class Ip(Entity):
                 _revision = '2018-02-14'
 
                 def __init__(self):
-                    super(Ip.Cinetd.Services.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ip.Cinetd.Services.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "services"
@@ -1016,7 +1134,7 @@ class Ip(Entity):
                     self._perform_setattr(Ip.Cinetd.Services.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     VRF specific data
                     
@@ -1045,7 +1163,10 @@ class Ip(Entity):
                     _revision = '2018-02-14'
 
                     def __init__(self):
-                        super(Ip.Cinetd.Services.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ip.Cinetd.Services.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -1073,7 +1194,7 @@ class Ip(Entity):
                         self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         IPV6 related services
                         
@@ -1095,7 +1216,10 @@ class Ip(Entity):
                         _revision = '2018-02-14'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "vrf"
@@ -1119,7 +1243,7 @@ class Ip(Entity):
                             self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6, [], name, value)
 
 
-                        class Telnet(Entity):
+                        class Telnet(_Entity_):
                             """
                             TELNET server configuration commands
                             
@@ -1138,7 +1262,10 @@ class Ip(Entity):
                             _revision = '2018-02-14'
 
                             def __init__(self):
-                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet, self).__init__()
 
                                 self.yang_name = "telnet"
                                 self.yang_parent_name = "ipv6"
@@ -1157,7 +1284,7 @@ class Ip(Entity):
                                 self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet, [], name, value)
 
 
-                            class Tcp(Entity):
+                            class Tcp(_Entity_):
                                 """
                                 TCP details
                                 
@@ -1185,7 +1312,10 @@ class Ip(Entity):
                                 _revision = '2018-02-14'
 
                                 def __init__(self):
-                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, self).__init__()
 
                                     self.yang_name = "tcp"
                                     self.yang_parent_name = "telnet"
@@ -1206,10 +1336,18 @@ class Ip(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet']['meta_info']
 
 
-
-                        class Tftp(Entity):
+                        class Tftp(_Entity_):
                             """
                             TFTP server configuration commands
                             
@@ -1228,7 +1366,10 @@ class Ip(Entity):
                             _revision = '2018-02-14'
 
                             def __init__(self):
-                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp, self).__init__()
 
                                 self.yang_name = "tftp"
                                 self.yang_parent_name = "ipv6"
@@ -1247,7 +1388,7 @@ class Ip(Entity):
                                 self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp, [], name, value)
 
 
-                            class Udp(Entity):
+                            class Udp(_Entity_):
                                 """
                                 UDP details
                                 
@@ -1287,7 +1428,10 @@ class Ip(Entity):
                                 _revision = '2018-02-14'
 
                                 def __init__(self):
-                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, self).__init__()
 
                                     self.yang_name = "udp"
                                     self.yang_parent_name = "tftp"
@@ -1312,11 +1456,23 @@ class Ip(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6']['meta_info']
 
 
-
-
-                    class Ipv4(Entity):
+                    class Ipv4(_Entity_):
                         """
                         IPV4 related services
                         
@@ -1338,7 +1494,10 @@ class Ip(Entity):
                         _revision = '2018-02-14'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "vrf"
@@ -1362,7 +1521,7 @@ class Ip(Entity):
                             self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4, [], name, value)
 
 
-                        class Telnet(Entity):
+                        class Telnet(_Entity_):
                             """
                             TELNET server configuration commands
                             
@@ -1381,7 +1540,10 @@ class Ip(Entity):
                             _revision = '2018-02-14'
 
                             def __init__(self):
-                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet, self).__init__()
 
                                 self.yang_name = "telnet"
                                 self.yang_parent_name = "ipv4"
@@ -1400,7 +1562,7 @@ class Ip(Entity):
                                 self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet, [], name, value)
 
 
-                            class Tcp(Entity):
+                            class Tcp(_Entity_):
                                 """
                                 TCP details
                                 
@@ -1428,7 +1590,10 @@ class Ip(Entity):
                                 _revision = '2018-02-14'
 
                                 def __init__(self):
-                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, self).__init__()
 
                                     self.yang_name = "tcp"
                                     self.yang_parent_name = "telnet"
@@ -1449,10 +1614,18 @@ class Ip(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet']['meta_info']
 
 
-
-                        class Tftp(Entity):
+                        class Tftp(_Entity_):
                             """
                             TFTP server configuration commands
                             
@@ -1471,7 +1644,10 @@ class Ip(Entity):
                             _revision = '2018-02-14'
 
                             def __init__(self):
-                                super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp, self).__init__()
 
                                 self.yang_name = "tftp"
                                 self.yang_parent_name = "ipv4"
@@ -1490,7 +1666,7 @@ class Ip(Entity):
                                 self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp, [], name, value)
 
 
-                            class Udp(Entity):
+                            class Udp(_Entity_):
                                 """
                                 UDP details
                                 
@@ -1530,7 +1706,10 @@ class Ip(Entity):
                                 _revision = '2018-02-14'
 
                                 def __init__(self):
-                                    super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, self).__init__()
 
                                     self.yang_name = "udp"
                                     self.yang_parent_name = "tftp"
@@ -1555,13 +1734,33 @@ class Ip(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['Ip.Cinetd.Services.Vrfs']['meta_info']
 
 
-
-
-
-
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 IPV6 related services
                 
@@ -1578,7 +1777,10 @@ class Ip(Entity):
                 _revision = '2018-02-14'
 
                 def __init__(self):
-                    super(Ip.Cinetd.Services.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ip.Cinetd.Services.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "services"
@@ -1599,7 +1801,7 @@ class Ip(Entity):
                     self._perform_setattr(Ip.Cinetd.Services.Ipv6, [], name, value)
 
 
-                class SmallServers(Entity):
+                class SmallServers(_Entity_):
                     """
                     Describing IPV4 and IPV6 small servers
                     
@@ -1625,7 +1827,10 @@ class Ip(Entity):
                     _revision = '2018-02-14'
 
                     def __init__(self):
-                        super(Ip.Cinetd.Services.Ipv6.SmallServers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ip.Cinetd.Services.Ipv6.SmallServers, self).__init__()
 
                         self.yang_name = "small-servers"
                         self.yang_parent_name = "ipv6"
@@ -1648,7 +1853,7 @@ class Ip(Entity):
                         self._perform_setattr(Ip.Cinetd.Services.Ipv6.SmallServers, [], name, value)
 
 
-                    class TcpSmallServers(Entity):
+                    class TcpSmallServers(_Entity_):
                         """
                         Describing TCP related IPV4 and IPV6 small
                         servers
@@ -1681,7 +1886,10 @@ class Ip(Entity):
                         _revision = '2018-02-14'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, self).__init__()
 
                             self.yang_name = "tcp-small-servers"
                             self.yang_parent_name = "small-servers"
@@ -1720,9 +1928,19 @@ class Ip(Entity):
                             no_limit = Enum.YLeaf(0, "no-limit")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers.SmallServer']
 
 
-                    class UdpSmallServers(Entity):
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers']['meta_info']
+
+
+                    class UdpSmallServers(_Entity_):
                         """
                         UDP small servers configuration
                         
@@ -1754,7 +1972,10 @@ class Ip(Entity):
                         _revision = '2017-09-30'
 
                         def __init__(self):
-                            super(Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers, self).__init__()
 
                             self.yang_name = "udp-small-servers"
                             self.yang_parent_name = "small-servers"
@@ -1793,13 +2014,39 @@ class Ip(Entity):
                             no_limit = Enum.YLeaf(0, "no-limit")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers.SmallServer']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['Ip.Cinetd.Services.Ipv6']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                return meta._meta_table['Ip.Cinetd.Services']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['Ip.Cinetd']['meta_info']
 
 
-
-
-    class ForwardProtocol(Entity):
+    class ForwardProtocol(_Entity_):
         """
         Controls forwarding of physical and directed IP
         broadcasts
@@ -1817,7 +2064,10 @@ class Ip(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(Ip.ForwardProtocol, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ip.ForwardProtocol, self).__init__()
 
             self.yang_name = "forward-protocol"
             self.yang_parent_name = "ip"
@@ -1838,7 +2088,7 @@ class Ip(Entity):
             self._perform_setattr(Ip.ForwardProtocol, [], name, value)
 
 
-        class Udp(Entity):
+        class Udp(_Entity_):
             """
             Packets to a specific UDP port
             
@@ -1860,7 +2110,10 @@ class Ip(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(Ip.ForwardProtocol.Udp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ip.ForwardProtocol.Udp, self).__init__()
 
                 self.yang_name = "udp"
                 self.yang_parent_name = "forward-protocol"
@@ -1884,7 +2137,7 @@ class Ip(Entity):
                 self._perform_setattr(Ip.ForwardProtocol.Udp, ['disable'], name, value)
 
 
-            class Ports(Entity):
+            class Ports(_Entity_):
                 """
                 Port configuration
                 
@@ -1901,7 +2154,10 @@ class Ip(Entity):
                 _revision = '2017-09-30'
 
                 def __init__(self):
-                    super(Ip.ForwardProtocol.Udp.Ports, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ip.ForwardProtocol.Udp.Ports, self).__init__()
 
                     self.yang_name = "ports"
                     self.yang_parent_name = "udp"
@@ -1920,7 +2176,7 @@ class Ip(Entity):
                     self._perform_setattr(Ip.ForwardProtocol.Udp.Ports, [], name, value)
 
 
-                class Port(Entity):
+                class Port(_Entity_):
                     """
                     Well\-known ports are enabled by default and
                     non well\-known ports are disabled by default.
@@ -1948,7 +2204,10 @@ class Ip(Entity):
                     _revision = '2017-09-30'
 
                     def __init__(self):
-                        super(Ip.ForwardProtocol.Udp.Ports.Port, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ip.ForwardProtocol.Udp.Ports.Port, self).__init__()
 
                         self.yang_name = "port"
                         self.yang_parent_name = "ports"
@@ -1969,13 +2228,33 @@ class Ip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ip.ForwardProtocol.Udp.Ports.Port, ['port_id', 'enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['Ip.ForwardProtocol.Udp.Ports.Port']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['Ip.ForwardProtocol.Udp.Ports']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                return meta._meta_table['Ip.ForwardProtocol.Udp']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['Ip.ForwardProtocol']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ip()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+        return meta._meta_table['Ip']['meta_info']
 
 

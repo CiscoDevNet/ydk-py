@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -143,6 +146,12 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
+        return meta._meta_table['ImStateEnum']
+
+
 class Ipv4MaOperConfig(Enum):
     """
     Ipv4MaOperConfig (Enum Class)
@@ -168,6 +177,12 @@ class Ipv4MaOperConfig(Enum):
     ipv4_ma_oper_non_oc_client = Enum.YLeaf(1, "ipv4-ma-oper-non-oc-client")
 
     ipv4_ma_oper_oc_client = Enum.YLeaf(2, "ipv4-ma-oper-oc-client")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
+        return meta._meta_table['Ipv4MaOperConfig']
 
 
 class Ipv4MaOperLineState(Enum):
@@ -203,6 +218,12 @@ class Ipv4MaOperLineState(Enum):
     up = Enum.YLeaf(3, "up")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
+        return meta._meta_table['Ipv4MaOperLineState']
+
+
 class RpfMode(Enum):
     """
     RpfMode (Enum Class)
@@ -222,6 +243,12 @@ class RpfMode(Enum):
     strict = Enum.YLeaf(0, "strict")
 
     loose = Enum.YLeaf(1, "loose")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
+        return meta._meta_table['RpfMode']
 
 
 

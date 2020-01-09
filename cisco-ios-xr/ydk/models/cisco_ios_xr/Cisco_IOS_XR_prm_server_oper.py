@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HardwareModule(Entity):
+class HardwareModule(_Entity_):
     """
     PRM data
     
@@ -41,7 +44,10 @@ class HardwareModule(Entity):
     _revision = '2016-02-22'
 
     def __init__(self):
-        super(HardwareModule, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModule, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module"
@@ -62,7 +68,7 @@ class HardwareModule(Entity):
         self._perform_setattr(HardwareModule, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of PRM Nodes
         
@@ -81,7 +87,10 @@ class HardwareModule(Entity):
         _revision = '2016-02-22'
 
         def __init__(self):
-            super(HardwareModule.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModule.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module"
@@ -100,7 +109,7 @@ class HardwareModule(Entity):
             self._perform_setattr(HardwareModule.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node Information
             
@@ -128,7 +137,10 @@ class HardwareModule(Entity):
             _revision = '2016-02-22'
 
             def __init__(self):
-                super(HardwareModule.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModule.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -152,7 +164,7 @@ class HardwareModule(Entity):
                 self._perform_setattr(HardwareModule.Nodes.Node, ['node_name'], name, value)
 
 
-            class Np(Entity):
+            class Np(_Entity_):
                 """
                 Server specific
                 
@@ -178,7 +190,10 @@ class HardwareModule(Entity):
                 _revision = '2016-02-22'
 
                 def __init__(self):
-                    super(HardwareModule.Nodes.Node.Np, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModule.Nodes.Node.Np, self).__init__()
 
                     self.yang_name = "np"
                     self.yang_parent_name = "node"
@@ -202,7 +217,7 @@ class HardwareModule(Entity):
                     self._perform_setattr(HardwareModule.Nodes.Node.Np, [], name, value)
 
 
-                class Cpu(Entity):
+                class Cpu(_Entity_):
                     """
                     Resource specific
                     
@@ -221,7 +236,10 @@ class HardwareModule(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(HardwareModule.Nodes.Node.Np.Cpu, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HardwareModule.Nodes.Node.Np.Cpu, self).__init__()
 
                         self.yang_name = "cpu"
                         self.yang_parent_name = "np"
@@ -241,7 +259,7 @@ class HardwareModule(Entity):
                         self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu, [], name, value)
 
 
-                    class Indexes(Entity):
+                    class Indexes(_Entity_):
                         """
                         Data for software resource
                         
@@ -260,7 +278,10 @@ class HardwareModule(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(HardwareModule.Nodes.Node.Np.Cpu.Indexes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HardwareModule.Nodes.Node.Np.Cpu.Indexes, self).__init__()
 
                             self.yang_name = "indexes"
                             self.yang_parent_name = "cpu"
@@ -278,7 +299,7 @@ class HardwareModule(Entity):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes, [], name, value)
 
 
-                        class Index(Entity):
+                        class Index(_Entity_):
                             """
                             Queue Stats
                             
@@ -362,7 +383,10 @@ class HardwareModule(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, self).__init__()
 
                                 self.yang_name = "index"
                                 self.yang_parent_name = "indexes"
@@ -394,11 +418,23 @@ class HardwareModule(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'cos_q_name', 'cos_q', 'rx_channel', 'flow_rate', 'burst', 'accepted', 'dropped'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                                return meta._meta_table['HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                            return meta._meta_table['HardwareModule.Nodes.Node.Np.Cpu.Indexes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                        return meta._meta_table['HardwareModule.Nodes.Node.Np.Cpu']['meta_info']
 
 
-
-
-                class PlatformDrop(Entity):
+                class PlatformDrop(_Entity_):
                     """
                     Platform drops
                     
@@ -424,7 +460,10 @@ class HardwareModule(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(HardwareModule.Nodes.Node.Np.PlatformDrop, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HardwareModule.Nodes.Node.Np.PlatformDrop, self).__init__()
 
                         self.yang_name = "platform-drop"
                         self.yang_parent_name = "np"
@@ -448,7 +487,7 @@ class HardwareModule(Entity):
                         self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop, [], name, value)
 
 
-                    class Indxes(Entity):
+                    class Indxes(_Entity_):
                         """
                         Captured Packets
                         
@@ -467,7 +506,10 @@ class HardwareModule(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes, self).__init__()
 
                             self.yang_name = "indxes"
                             self.yang_parent_name = "platform-drop"
@@ -485,7 +527,7 @@ class HardwareModule(Entity):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes, [], name, value)
 
 
-                        class Indx(Entity):
+                        class Indx(_Entity_):
                             """
                             Captured packets
                             
@@ -622,7 +664,10 @@ class HardwareModule(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, self).__init__()
 
                                 self.yang_name = "indx"
                                 self.yang_parent_name = "indxes"
@@ -664,10 +709,18 @@ class HardwareModule(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'total_captured', 'captured_pak', 'pkt_index', 'ifhandle', 'buffer_len', 'reason_hi', 'reason', 'years', 'hours', 'days', 'mins', 'secs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                                return meta._meta_table['HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                            return meta._meta_table['HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes']['meta_info']
 
 
-
-                    class Idxes(Entity):
+                    class Idxes(_Entity_):
                         """
                         Stats for Drop packets
                         
@@ -686,7 +739,10 @@ class HardwareModule(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, self).__init__()
 
                             self.yang_name = "idxes"
                             self.yang_parent_name = "platform-drop"
@@ -704,7 +760,7 @@ class HardwareModule(Entity):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, [], name, value)
 
 
-                        class Idx(Entity):
+                        class Idx(_Entity_):
                             """
                             Drop Stats
                             
@@ -743,7 +799,10 @@ class HardwareModule(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, self).__init__()
 
                                 self.yang_name = "idx"
                                 self.yang_parent_name = "idxes"
@@ -765,19 +824,47 @@ class HardwareModule(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'drop_reason', 'counters'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                                return meta._meta_table['HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                            return meta._meta_table['HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                        return meta._meta_table['HardwareModule.Nodes.Node.Np.PlatformDrop']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                    return meta._meta_table['HardwareModule.Nodes.Node.Np']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                return meta._meta_table['HardwareModule.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+            return meta._meta_table['HardwareModule.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+        return meta._meta_table['HardwareModule']['meta_info']
 
 
-class Prm(Entity):
+class Prm(_Entity_):
     """
     prm
     
@@ -796,7 +883,10 @@ class Prm(Entity):
     _revision = '2016-02-22'
 
     def __init__(self):
-        super(Prm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Prm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "prm"
@@ -817,7 +907,7 @@ class Prm(Entity):
         self._perform_setattr(Prm, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of PRM Nodes
         
@@ -836,7 +926,10 @@ class Prm(Entity):
         _revision = '2016-02-22'
 
         def __init__(self):
-            super(Prm.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Prm.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "prm"
@@ -855,7 +948,7 @@ class Prm(Entity):
             self._perform_setattr(Prm.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node Information
             
@@ -883,7 +976,10 @@ class Prm(Entity):
             _revision = '2016-02-22'
 
             def __init__(self):
-                super(Prm.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Prm.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -907,7 +1003,7 @@ class Prm(Entity):
                 self._perform_setattr(Prm.Nodes.Node, ['node_name'], name, value)
 
 
-            class Server(Entity):
+            class Server(_Entity_):
                 """
                 Server specific
                 
@@ -926,7 +1022,10 @@ class Prm(Entity):
                 _revision = '2016-02-22'
 
                 def __init__(self):
-                    super(Prm.Nodes.Node.Server, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Prm.Nodes.Node.Server, self).__init__()
 
                     self.yang_name = "server"
                     self.yang_parent_name = "node"
@@ -946,7 +1045,7 @@ class Prm(Entity):
                     self._perform_setattr(Prm.Nodes.Node.Server, [], name, value)
 
 
-                class Resource(Entity):
+                class Resource(_Entity_):
                     """
                     Resource specific
                     
@@ -965,7 +1064,10 @@ class Prm(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(Prm.Nodes.Node.Server.Resource, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Prm.Nodes.Node.Server.Resource, self).__init__()
 
                         self.yang_name = "resource"
                         self.yang_parent_name = "server"
@@ -985,7 +1087,7 @@ class Prm(Entity):
                         self._perform_setattr(Prm.Nodes.Node.Server.Resource, [], name, value)
 
 
-                    class Indexes(Entity):
+                    class Indexes(_Entity_):
                         """
                         Data for software resource
                         
@@ -1004,7 +1106,10 @@ class Prm(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(Prm.Nodes.Node.Server.Resource.Indexes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Prm.Nodes.Node.Server.Resource.Indexes, self).__init__()
 
                             self.yang_name = "indexes"
                             self.yang_parent_name = "resource"
@@ -1022,7 +1127,7 @@ class Prm(Entity):
                             self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes, [], name, value)
 
 
-                        class Index(Entity):
+                        class Index(_Entity_):
                             """
                             Data for software resource
                             
@@ -1120,7 +1225,10 @@ class Prm(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(Prm.Nodes.Node.Server.Resource.Indexes.Index, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Prm.Nodes.Node.Server.Resource.Indexes.Index, self).__init__()
 
                                 self.yang_name = "index"
                                 self.yang_parent_name = "indexes"
@@ -1156,15 +1264,43 @@ class Prm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'resource_name', 'resource_type', 'total_num', 'free_num', 'first_available_index', 'start_index', 'availability_status', 'flags', 'inconsistent'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                                return meta._meta_table['Prm.Nodes.Node.Server.Resource.Indexes.Index']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                            return meta._meta_table['Prm.Nodes.Node.Server.Resource.Indexes']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                        return meta._meta_table['Prm.Nodes.Node.Server.Resource']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                    return meta._meta_table['Prm.Nodes.Node.Server']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+                return meta._meta_table['Prm.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+            return meta._meta_table['Prm.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Prm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_server_oper as meta
+        return meta._meta_table['Prm']['meta_info']
 
 

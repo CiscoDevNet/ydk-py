@@ -5,15 +5,18 @@ for Cisco IOS\-XR skp\-qos package operational data.
 
 This module contains definitions
 for the following management objects\:
-  platform\-qos\: QoS Skywarp platform operational data 
+  platform\-qos\: QoS Skywarp platform operational data
   platform\-qos\-ea\: platform qos ea
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -52,6 +55,12 @@ class Action(Enum):
     police_drop = Enum.YLeaf(2, "police-drop")
 
     police_unknown = Enum.YLeaf(3, "police-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['Action']
 
 
 class ActionOpcode(Enum):
@@ -159,6 +168,12 @@ class ActionOpcode(Enum):
     no_marking = Enum.YLeaf(15, "no-marking")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['ActionOpcode']
+
+
 class CacState(Enum):
     """
     CacState (Enum Class)
@@ -190,6 +205,12 @@ class CacState(Enum):
     redirect = Enum.YLeaf(2, "redirect")
 
     ubrl = Enum.YLeaf(3, "ubrl")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['CacState']
 
 
 class PolicyParamUnit(Enum):
@@ -345,6 +366,12 @@ class PolicyParamUnit(Enum):
     policy_param_unit_max = Enum.YLeaf(23, "policy-param-unit-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['PolicyParamUnit']
+
+
 class PolicyState(Enum):
     """
     PolicyState (Enum Class)
@@ -364,6 +391,12 @@ class PolicyState(Enum):
     active = Enum.YLeaf(0, "active")
 
     suspended = Enum.YLeaf(1, "suspended")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['PolicyState']
 
 
 class QosUnit(Enum):
@@ -477,6 +510,12 @@ class QosUnit(Enum):
     ratio = Enum.YLeaf(16, "ratio")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['QosUnit']
+
+
 class TbAlgorithm(Enum):
     """
     TbAlgorithm (Enum Class)
@@ -522,6 +561,12 @@ class TbAlgorithm(Enum):
     mef_tcm = Enum.YLeaf(4, "mef-tcm")
 
     dummy = Enum.YLeaf(5, "dummy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['TbAlgorithm']
 
 
 class Wred(Enum):
@@ -593,8 +638,14 @@ class Wred(Enum):
     wred_invalid_cmd = Enum.YLeaf(9, "wred-invalid-cmd")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['Wred']
 
-class PlatformQos(Entity):
+
+
+class PlatformQos(_Entity_):
     """
     QoS Skywarp platform operational data 
     
@@ -613,7 +664,10 @@ class PlatformQos(Entity):
     _revision = '2016-02-18'
 
     def __init__(self):
-        super(PlatformQos, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformQos, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-qos"
@@ -634,7 +688,7 @@ class PlatformQos(Entity):
         self._perform_setattr(PlatformQos, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes with platform specific QoS
         configuration
@@ -654,7 +708,10 @@ class PlatformQos(Entity):
         _revision = '2016-02-18'
 
         def __init__(self):
-            super(PlatformQos.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformQos.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "platform-qos"
@@ -673,7 +730,7 @@ class PlatformQos(Entity):
             self._perform_setattr(PlatformQos.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node with platform specific QoS configuration
             
@@ -715,7 +772,10 @@ class PlatformQos(Entity):
             _revision = '2016-02-18'
 
             def __init__(self):
-                super(PlatformQos.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformQos.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -747,7 +807,7 @@ class PlatformQos(Entity):
                 self._perform_setattr(PlatformQos.Nodes.Node, ['node_name'], name, value)
 
 
-            class BundleInterfaces(Entity):
+            class BundleInterfaces(_Entity_):
                 """
                 QoS list of bundle interfaces
                 
@@ -766,7 +826,10 @@ class PlatformQos(Entity):
                 _revision = '2016-02-18'
 
                 def __init__(self):
-                    super(PlatformQos.Nodes.Node.BundleInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformQos.Nodes.Node.BundleInterfaces, self).__init__()
 
                     self.yang_name = "bundle-interfaces"
                     self.yang_parent_name = "node"
@@ -784,7 +847,7 @@ class PlatformQos(Entity):
                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces, [], name, value)
 
 
-                class BundleInterface(Entity):
+                class BundleInterface(_Entity_):
                     """
                     QoS interface name
                     
@@ -812,7 +875,10 @@ class PlatformQos(Entity):
                     _revision = '2016-02-18'
 
                     def __init__(self):
-                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
 
                         self.yang_name = "bundle-interface"
                         self.yang_parent_name = "bundle-interfaces"
@@ -835,7 +901,7 @@ class PlatformQos(Entity):
                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name'], name, value)
 
 
-                    class MemberInterfaces(Entity):
+                    class MemberInterfaces(_Entity_):
                         """
                         QoS list of member interfaces
                         
@@ -854,7 +920,10 @@ class PlatformQos(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, self).__init__()
 
                             self.yang_name = "member-interfaces"
                             self.yang_parent_name = "bundle-interface"
@@ -872,7 +941,7 @@ class PlatformQos(Entity):
                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, [], name, value)
 
 
-                        class MemberInterface(Entity):
+                        class MemberInterface(_Entity_):
                             """
                             QoS interface name
                             
@@ -907,7 +976,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, self).__init__()
 
                                 self.yang_name = "member-interface"
                                 self.yang_parent_name = "member-interfaces"
@@ -934,7 +1006,7 @@ class PlatformQos(Entity):
                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
 
 
-                            class BundleInput(Entity):
+                            class BundleInput(_Entity_):
                                 """
                                 QoS policy direction input
                                 
@@ -967,7 +1039,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
 
                                     self.yang_name = "bundle-input"
                                     self.yang_parent_name = "member-interface"
@@ -995,7 +1070,7 @@ class PlatformQos(Entity):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, [], name, value)
 
 
-                                class Header(Entity):
+                                class Header(_Entity_):
                                     """
                                     QoS EA policy header
                                     
@@ -1043,7 +1118,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, self).__init__()
 
                                         self.yang_name = "header"
                                         self.yang_parent_name = "bundle-input"
@@ -1067,9 +1145,13 @@ class PlatformQos(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header']['meta_info']
 
 
-                                class InterfaceParameters(Entity):
+                                class InterfaceParameters(_Entity_):
                                     """
                                     QoS Interface Parameters
                                     
@@ -1102,7 +1184,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters, self).__init__()
 
                                         self.yang_name = "interface-parameters"
                                         self.yang_parent_name = "bundle-input"
@@ -1130,7 +1215,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters, [], name, value)
 
 
-                                    class InterfaceConfigRate(Entity):
+                                    class InterfaceConfigRate(_Entity_):
                                         """
                                         Interface Configured Rate
                                         
@@ -1158,7 +1243,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, self).__init__()
 
                                             self.yang_name = "interface-config-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -1178,9 +1266,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate']['meta_info']
 
 
-                                    class InterfaceProgramRate(Entity):
+                                    class InterfaceProgramRate(_Entity_):
                                         """
                                         Interface Programmed Rate
                                         
@@ -1208,7 +1300,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, self).__init__()
 
                                             self.yang_name = "interface-program-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -1228,9 +1323,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate']['meta_info']
 
 
-                                    class PortShaperRate(Entity):
+                                    class PortShaperRate(_Entity_):
                                         """
                                         Port Shaper Rate
                                         
@@ -1258,7 +1357,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, self).__init__()
 
                                             self.yang_name = "port-shaper-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -1278,10 +1380,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters']['meta_info']
 
 
-
-                                class SkywarpQosPolicyClass(Entity):
+                                class SkywarpQosPolicyClass(_Entity_):
                                     """
                                     Skywarp QoS policy class details
                                     
@@ -1300,7 +1410,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass, self).__init__()
 
                                         self.yang_name = "skywarp-qos-policy-class"
                                         self.yang_parent_name = "bundle-input"
@@ -1318,7 +1431,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass, [], name, value)
 
 
-                                    class QosShowPclassSt(Entity):
+                                    class QosShowPclassSt(_Entity_):
                                         """
                                         qos show pclass st
                                         
@@ -1383,7 +1496,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
 
                                             self.yang_name = "qos-show-pclass-st"
                                             self.yang_parent_name = "skywarp-qos-policy-class"
@@ -1424,7 +1540,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
-                                        class Queue(Entity):
+                                        class Queue(_Entity_):
                                             """
                                             QoS Queue parameters
                                             
@@ -1454,7 +1570,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
 
                                                 self.yang_name = "queue"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -1474,9 +1593,13 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue']['meta_info']
 
 
-                                        class Shape(Entity):
+                                        class Shape(_Entity_):
                                             """
                                             QoS EA Shaper parameters
                                             
@@ -1502,7 +1625,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
 
                                                 self.yang_name = "shape"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -1526,7 +1652,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
 
 
-                                            class Pir(Entity):
+                                            class Pir(_Entity_):
                                                 """
                                                 PIR in kbps
                                                 
@@ -1554,7 +1680,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
 
                                                     self.yang_name = "pir"
                                                     self.yang_parent_name = "shape"
@@ -1574,9 +1703,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir']['meta_info']
 
 
-                                            class Pbs(Entity):
+                                            class Pbs(_Entity_):
                                                 """
                                                 PBS in bytes
                                                 
@@ -1604,7 +1737,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
 
                                                     self.yang_name = "pbs"
                                                     self.yang_parent_name = "shape"
@@ -1624,10 +1760,18 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape']['meta_info']
 
 
-
-                                        class Wfq(Entity):
+                                        class Wfq(_Entity_):
                                             """
                                             QoS WFQ parameters
                                             
@@ -1662,7 +1806,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
 
                                                 self.yang_name = "wfq"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -1689,7 +1836,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
-                                            class CommittedWeight(Entity):
+                                            class CommittedWeight(_Entity_):
                                                 """
                                                 Committed Weight
                                                 
@@ -1717,7 +1864,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
 
                                                     self.yang_name = "committed-weight"
                                                     self.yang_parent_name = "wfq"
@@ -1737,9 +1887,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight']['meta_info']
 
 
-                                            class ProgrammedWfq(Entity):
+                                            class ProgrammedWfq(_Entity_):
                                                 """
                                                 QoS Programmed WFQ parameters
                                                 
@@ -1774,7 +1928,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
 
                                                     self.yang_name = "programmed-wfq"
                                                     self.yang_parent_name = "wfq"
@@ -1801,7 +1958,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
-                                                class Bandwidth(Entity):
+                                                class Bandwidth(_Entity_):
                                                     """
                                                     Bandwidth
                                                     
@@ -1829,7 +1986,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
 
                                                         self.yang_name = "bandwidth"
                                                         self.yang_parent_name = "programmed-wfq"
@@ -1849,9 +2009,13 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth']['meta_info']
 
 
-                                                class SumOfBandwidth(Entity):
+                                                class SumOfBandwidth(_Entity_):
                                                     """
                                                     Sum of Bandwidth
                                                     
@@ -1879,7 +2043,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
 
                                                         self.yang_name = "sum-of-bandwidth"
                                                         self.yang_parent_name = "programmed-wfq"
@@ -1899,11 +2066,23 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq']['meta_info']
 
 
-
-
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS Policer parameters
                                             
@@ -1945,7 +2124,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -1974,7 +2156,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
-                                            class Cir(Entity):
+                                            class Cir(_Entity_):
                                                 """
                                                 CIR
                                                 
@@ -2002,7 +2184,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
 
                                                     self.yang_name = "cir"
                                                     self.yang_parent_name = "police"
@@ -2022,9 +2207,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir']['meta_info']
 
 
-                                            class Cbs(Entity):
+                                            class Cbs(_Entity_):
                                                 """
                                                 CBS
                                                 
@@ -2052,7 +2241,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
 
                                                     self.yang_name = "cbs"
                                                     self.yang_parent_name = "police"
@@ -2072,10 +2264,18 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police']['meta_info']
 
 
-
-                                        class Marking(Entity):
+                                        class Marking(_Entity_):
                                             """
                                             QoS Mark parameters
                                             
@@ -2108,7 +2308,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
 
                                                 self.yang_name = "marking"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -2136,7 +2339,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
 
 
-                                            class MarkOnly(Entity):
+                                            class MarkOnly(_Entity_):
                                                 """
                                                 Mark Only
                                                 
@@ -2162,7 +2365,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
 
                                                     self.yang_name = "mark-only"
                                                     self.yang_parent_name = "marking"
@@ -2183,7 +2389,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -2211,7 +2417,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "mark-only"
@@ -2231,10 +2440,18 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly']['meta_info']
 
 
-
-                                            class PoliceConform(Entity):
+                                            class PoliceConform(_Entity_):
                                                 """
                                                 Police conform mark
                                                 
@@ -2260,7 +2477,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
 
                                                     self.yang_name = "police-conform"
                                                     self.yang_parent_name = "marking"
@@ -2281,7 +2501,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -2309,7 +2529,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "police-conform"
@@ -2329,10 +2552,18 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform']['meta_info']
 
 
-
-                                            class PoliceExceed(Entity):
+                                            class PoliceExceed(_Entity_):
                                                 """
                                                 Police exceed mark
                                                 
@@ -2358,7 +2589,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
 
                                                     self.yang_name = "police-exceed"
                                                     self.yang_parent_name = "marking"
@@ -2379,7 +2613,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -2407,7 +2641,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "police-exceed"
@@ -2427,14 +2664,38 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput']['meta_info']
 
 
-
-
-
-
-
-                            class BundleOutput(Entity):
+                            class BundleOutput(_Entity_):
                                 """
                                 QoS policy direction output
                                 
@@ -2467,7 +2728,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, self).__init__()
 
                                     self.yang_name = "bundle-output"
                                     self.yang_parent_name = "member-interface"
@@ -2495,7 +2759,7 @@ class PlatformQos(Entity):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, [], name, value)
 
 
-                                class Header(Entity):
+                                class Header(_Entity_):
                                     """
                                     QoS EA policy header
                                     
@@ -2543,7 +2807,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, self).__init__()
 
                                         self.yang_name = "header"
                                         self.yang_parent_name = "bundle-output"
@@ -2567,9 +2834,13 @@ class PlatformQos(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header']['meta_info']
 
 
-                                class InterfaceParameters(Entity):
+                                class InterfaceParameters(_Entity_):
                                     """
                                     QoS Interface Parameters
                                     
@@ -2602,7 +2873,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters, self).__init__()
 
                                         self.yang_name = "interface-parameters"
                                         self.yang_parent_name = "bundle-output"
@@ -2630,7 +2904,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters, [], name, value)
 
 
-                                    class InterfaceConfigRate(Entity):
+                                    class InterfaceConfigRate(_Entity_):
                                         """
                                         Interface Configured Rate
                                         
@@ -2658,7 +2932,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, self).__init__()
 
                                             self.yang_name = "interface-config-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -2678,9 +2955,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate']['meta_info']
 
 
-                                    class InterfaceProgramRate(Entity):
+                                    class InterfaceProgramRate(_Entity_):
                                         """
                                         Interface Programmed Rate
                                         
@@ -2708,7 +2989,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, self).__init__()
 
                                             self.yang_name = "interface-program-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -2728,9 +3012,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate']['meta_info']
 
 
-                                    class PortShaperRate(Entity):
+                                    class PortShaperRate(_Entity_):
                                         """
                                         Port Shaper Rate
                                         
@@ -2758,7 +3046,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, self).__init__()
 
                                             self.yang_name = "port-shaper-rate"
                                             self.yang_parent_name = "interface-parameters"
@@ -2778,10 +3069,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters']['meta_info']
 
 
-
-                                class SkywarpQosPolicyClass(Entity):
+                                class SkywarpQosPolicyClass(_Entity_):
                                     """
                                     Skywarp QoS policy class details
                                     
@@ -2800,7 +3099,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass, self).__init__()
 
                                         self.yang_name = "skywarp-qos-policy-class"
                                         self.yang_parent_name = "bundle-output"
@@ -2818,7 +3120,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass, [], name, value)
 
 
-                                    class QosShowPclassSt(Entity):
+                                    class QosShowPclassSt(_Entity_):
                                         """
                                         qos show pclass st
                                         
@@ -2883,7 +3185,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
 
                                             self.yang_name = "qos-show-pclass-st"
                                             self.yang_parent_name = "skywarp-qos-policy-class"
@@ -2924,7 +3229,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
-                                        class Queue(Entity):
+                                        class Queue(_Entity_):
                                             """
                                             QoS Queue parameters
                                             
@@ -2954,7 +3259,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
 
                                                 self.yang_name = "queue"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -2974,9 +3282,13 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue']['meta_info']
 
 
-                                        class Shape(Entity):
+                                        class Shape(_Entity_):
                                             """
                                             QoS EA Shaper parameters
                                             
@@ -3002,7 +3314,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
 
                                                 self.yang_name = "shape"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -3026,7 +3341,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
 
 
-                                            class Pir(Entity):
+                                            class Pir(_Entity_):
                                                 """
                                                 PIR in kbps
                                                 
@@ -3054,7 +3369,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
 
                                                     self.yang_name = "pir"
                                                     self.yang_parent_name = "shape"
@@ -3074,9 +3392,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir']['meta_info']
 
 
-                                            class Pbs(Entity):
+                                            class Pbs(_Entity_):
                                                 """
                                                 PBS in bytes
                                                 
@@ -3104,7 +3426,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
 
                                                     self.yang_name = "pbs"
                                                     self.yang_parent_name = "shape"
@@ -3124,10 +3449,18 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape']['meta_info']
 
 
-
-                                        class Wfq(Entity):
+                                        class Wfq(_Entity_):
                                             """
                                             QoS WFQ parameters
                                             
@@ -3162,7 +3495,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
 
                                                 self.yang_name = "wfq"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -3189,7 +3525,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
-                                            class CommittedWeight(Entity):
+                                            class CommittedWeight(_Entity_):
                                                 """
                                                 Committed Weight
                                                 
@@ -3217,7 +3553,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
 
                                                     self.yang_name = "committed-weight"
                                                     self.yang_parent_name = "wfq"
@@ -3237,9 +3576,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight']['meta_info']
 
 
-                                            class ProgrammedWfq(Entity):
+                                            class ProgrammedWfq(_Entity_):
                                                 """
                                                 QoS Programmed WFQ parameters
                                                 
@@ -3274,7 +3617,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
 
                                                     self.yang_name = "programmed-wfq"
                                                     self.yang_parent_name = "wfq"
@@ -3301,7 +3647,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
-                                                class Bandwidth(Entity):
+                                                class Bandwidth(_Entity_):
                                                     """
                                                     Bandwidth
                                                     
@@ -3329,7 +3675,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
 
                                                         self.yang_name = "bandwidth"
                                                         self.yang_parent_name = "programmed-wfq"
@@ -3349,9 +3698,13 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth']['meta_info']
 
 
-                                                class SumOfBandwidth(Entity):
+                                                class SumOfBandwidth(_Entity_):
                                                     """
                                                     Sum of Bandwidth
                                                     
@@ -3379,7 +3732,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
 
                                                         self.yang_name = "sum-of-bandwidth"
                                                         self.yang_parent_name = "programmed-wfq"
@@ -3399,11 +3755,23 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq']['meta_info']
 
 
-
-
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS Policer parameters
                                             
@@ -3445,7 +3813,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -3474,7 +3845,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
-                                            class Cir(Entity):
+                                            class Cir(_Entity_):
                                                 """
                                                 CIR
                                                 
@@ -3502,7 +3873,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
 
                                                     self.yang_name = "cir"
                                                     self.yang_parent_name = "police"
@@ -3522,9 +3896,13 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir']['meta_info']
 
 
-                                            class Cbs(Entity):
+                                            class Cbs(_Entity_):
                                                 """
                                                 CBS
                                                 
@@ -3552,7 +3930,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
 
                                                     self.yang_name = "cbs"
                                                     self.yang_parent_name = "police"
@@ -3572,10 +3953,18 @@ class PlatformQos(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police']['meta_info']
 
 
-
-                                        class Marking(Entity):
+                                        class Marking(_Entity_):
                                             """
                                             QoS Mark parameters
                                             
@@ -3608,7 +3997,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
 
                                                 self.yang_name = "marking"
                                                 self.yang_parent_name = "qos-show-pclass-st"
@@ -3636,7 +4028,7 @@ class PlatformQos(Entity):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
 
 
-                                            class MarkOnly(Entity):
+                                            class MarkOnly(_Entity_):
                                                 """
                                                 Mark Only
                                                 
@@ -3662,7 +4054,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
 
                                                     self.yang_name = "mark-only"
                                                     self.yang_parent_name = "marking"
@@ -3683,7 +4078,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -3711,7 +4106,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "mark-only"
@@ -3731,10 +4129,18 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly']['meta_info']
 
 
-
-                                            class PoliceConform(Entity):
+                                            class PoliceConform(_Entity_):
                                                 """
                                                 Police conform mark
                                                 
@@ -3760,7 +4166,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
 
                                                     self.yang_name = "police-conform"
                                                     self.yang_parent_name = "marking"
@@ -3781,7 +4190,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -3809,7 +4218,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "police-conform"
@@ -3829,10 +4241,18 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform']['meta_info']
 
 
-
-                                            class PoliceExceed(Entity):
+                                            class PoliceExceed(_Entity_):
                                                 """
                                                 Police exceed mark
                                                 
@@ -3858,7 +4278,10 @@ class PlatformQos(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
 
                                                     self.yang_name = "police-exceed"
                                                     self.yang_parent_name = "marking"
@@ -3879,7 +4302,7 @@ class PlatformQos(Entity):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
-                                                class MarkDetail(Entity):
+                                                class MarkDetail(_Entity_):
                                                     """
                                                     Mark value
                                                     
@@ -3907,7 +4330,10 @@ class PlatformQos(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
 
                                                         self.yang_name = "mark-detail"
                                                         self.yang_parent_name = "police-exceed"
@@ -3927,18 +4353,58 @@ class PlatformQos(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-            class Capability(Entity):
+            class Capability(_Entity_):
                 """
                 QoS system capability
                 
@@ -4031,7 +4497,10 @@ class PlatformQos(Entity):
                 _revision = '2016-02-18'
 
                 def __init__(self):
-                    super(PlatformQos.Nodes.Node.Capability, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformQos.Nodes.Node.Capability, self).__init__()
 
                     self.yang_name = "capability"
                     self.yang_parent_name = "node"
@@ -4065,9 +4534,13 @@ class PlatformQos(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_policy_maps', 'max_policy_hierarchy', 'max_policy_name_length', 'max_classes_per_policy', 'max_police_actions_per_class', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_classmap_name_length', 'max_bundle_members'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                    return meta._meta_table['PlatformQos.Nodes.Node.Capability']['meta_info']
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 QoS list of interfaces
                 
@@ -4086,7 +4559,10 @@ class PlatformQos(Entity):
                 _revision = '2016-02-18'
 
                 def __init__(self):
-                    super(PlatformQos.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformQos.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -4104,7 +4580,7 @@ class PlatformQos(Entity):
                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     QoS interface name
                     
@@ -4139,7 +4615,10 @@ class PlatformQos(Entity):
                     _revision = '2016-02-18'
 
                     def __init__(self):
-                        super(PlatformQos.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformQos.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -4166,7 +4645,7 @@ class PlatformQos(Entity):
                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                    class Output(Entity):
+                    class Output(_Entity_):
                         """
                         QoS policy direction egress
                         
@@ -4199,7 +4678,10 @@ class PlatformQos(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output, self).__init__()
 
                             self.yang_name = "output"
                             self.yang_parent_name = "interface"
@@ -4227,7 +4709,7 @@ class PlatformQos(Entity):
                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output, [], name, value)
 
 
-                        class Header(Entity):
+                        class Header(_Entity_):
                             """
                             QoS EA policy header
                             
@@ -4275,7 +4757,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, self).__init__()
 
                                 self.yang_name = "header"
                                 self.yang_parent_name = "output"
@@ -4299,9 +4784,13 @@ class PlatformQos(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header']['meta_info']
 
 
-                        class InterfaceParameters(Entity):
+                        class InterfaceParameters(_Entity_):
                             """
                             QoS Interface Parameters
                             
@@ -4334,7 +4823,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters, self).__init__()
 
                                 self.yang_name = "interface-parameters"
                                 self.yang_parent_name = "output"
@@ -4362,7 +4854,7 @@ class PlatformQos(Entity):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters, [], name, value)
 
 
-                            class InterfaceConfigRate(Entity):
+                            class InterfaceConfigRate(_Entity_):
                                 """
                                 Interface Configured Rate
                                 
@@ -4390,7 +4882,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, self).__init__()
 
                                     self.yang_name = "interface-config-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -4410,9 +4905,13 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate']['meta_info']
 
 
-                            class InterfaceProgramRate(Entity):
+                            class InterfaceProgramRate(_Entity_):
                                 """
                                 Interface Programmed Rate
                                 
@@ -4440,7 +4939,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, self).__init__()
 
                                     self.yang_name = "interface-program-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -4460,9 +4962,13 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate']['meta_info']
 
 
-                            class PortShaperRate(Entity):
+                            class PortShaperRate(_Entity_):
                                 """
                                 Port Shaper Rate
                                 
@@ -4490,7 +4996,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, self).__init__()
 
                                     self.yang_name = "port-shaper-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -4510,10 +5019,18 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters']['meta_info']
 
 
-
-                        class SkywarpQosPolicyClass(Entity):
+                        class SkywarpQosPolicyClass(_Entity_):
                             """
                             Skywarp QoS policy class details
                             
@@ -4532,7 +5049,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass, self).__init__()
 
                                 self.yang_name = "skywarp-qos-policy-class"
                                 self.yang_parent_name = "output"
@@ -4550,7 +5070,7 @@ class PlatformQos(Entity):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass, [], name, value)
 
 
-                            class QosShowPclassSt(Entity):
+                            class QosShowPclassSt(_Entity_):
                                 """
                                 qos show pclass st
                                 
@@ -4615,7 +5135,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
 
                                     self.yang_name = "qos-show-pclass-st"
                                     self.yang_parent_name = "skywarp-qos-policy-class"
@@ -4656,7 +5179,7 @@ class PlatformQos(Entity):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
-                                class Queue(Entity):
+                                class Queue(_Entity_):
                                     """
                                     QoS Queue parameters
                                     
@@ -4686,7 +5209,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
 
                                         self.yang_name = "queue"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -4706,9 +5232,13 @@ class PlatformQos(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue']['meta_info']
 
 
-                                class Shape(Entity):
+                                class Shape(_Entity_):
                                     """
                                     QoS EA Shaper parameters
                                     
@@ -4734,7 +5264,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
 
                                         self.yang_name = "shape"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -4758,7 +5291,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
 
 
-                                    class Pir(Entity):
+                                    class Pir(_Entity_):
                                         """
                                         PIR in kbps
                                         
@@ -4786,7 +5319,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
 
                                             self.yang_name = "pir"
                                             self.yang_parent_name = "shape"
@@ -4806,9 +5342,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir']['meta_info']
 
 
-                                    class Pbs(Entity):
+                                    class Pbs(_Entity_):
                                         """
                                         PBS in bytes
                                         
@@ -4836,7 +5376,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
 
                                             self.yang_name = "pbs"
                                             self.yang_parent_name = "shape"
@@ -4856,10 +5399,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape']['meta_info']
 
 
-
-                                class Wfq(Entity):
+                                class Wfq(_Entity_):
                                     """
                                     QoS WFQ parameters
                                     
@@ -4894,7 +5445,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
 
                                         self.yang_name = "wfq"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -4921,7 +5475,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
-                                    class CommittedWeight(Entity):
+                                    class CommittedWeight(_Entity_):
                                         """
                                         Committed Weight
                                         
@@ -4949,7 +5503,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
 
                                             self.yang_name = "committed-weight"
                                             self.yang_parent_name = "wfq"
@@ -4969,9 +5526,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight']['meta_info']
 
 
-                                    class ProgrammedWfq(Entity):
+                                    class ProgrammedWfq(_Entity_):
                                         """
                                         QoS Programmed WFQ parameters
                                         
@@ -5006,7 +5567,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
 
                                             self.yang_name = "programmed-wfq"
                                             self.yang_parent_name = "wfq"
@@ -5033,7 +5597,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
-                                        class Bandwidth(Entity):
+                                        class Bandwidth(_Entity_):
                                             """
                                             Bandwidth
                                             
@@ -5061,7 +5625,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
 
                                                 self.yang_name = "bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -5081,9 +5648,13 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth']['meta_info']
 
 
-                                        class SumOfBandwidth(Entity):
+                                        class SumOfBandwidth(_Entity_):
                                             """
                                             Sum of Bandwidth
                                             
@@ -5111,7 +5682,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
 
                                                 self.yang_name = "sum-of-bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -5131,11 +5705,23 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq']['meta_info']
 
 
-
-
-                                class Police(Entity):
+                                class Police(_Entity_):
                                     """
                                     QoS Policer parameters
                                     
@@ -5177,7 +5763,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
 
                                         self.yang_name = "police"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -5206,7 +5795,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
-                                    class Cir(Entity):
+                                    class Cir(_Entity_):
                                         """
                                         CIR
                                         
@@ -5234,7 +5823,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
 
                                             self.yang_name = "cir"
                                             self.yang_parent_name = "police"
@@ -5254,9 +5846,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir']['meta_info']
 
 
-                                    class Cbs(Entity):
+                                    class Cbs(_Entity_):
                                         """
                                         CBS
                                         
@@ -5284,7 +5880,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
 
                                             self.yang_name = "cbs"
                                             self.yang_parent_name = "police"
@@ -5304,10 +5903,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police']['meta_info']
 
 
-
-                                class Marking(Entity):
+                                class Marking(_Entity_):
                                     """
                                     QoS Mark parameters
                                     
@@ -5340,7 +5947,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
 
                                         self.yang_name = "marking"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -5368,7 +5978,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
 
 
-                                    class MarkOnly(Entity):
+                                    class MarkOnly(_Entity_):
                                         """
                                         Mark Only
                                         
@@ -5394,7 +6004,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
 
                                             self.yang_name = "mark-only"
                                             self.yang_parent_name = "marking"
@@ -5415,7 +6028,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -5443,7 +6056,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "mark-only"
@@ -5463,10 +6079,18 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly']['meta_info']
 
 
-
-                                    class PoliceConform(Entity):
+                                    class PoliceConform(_Entity_):
                                         """
                                         Police conform mark
                                         
@@ -5492,7 +6116,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
 
                                             self.yang_name = "police-conform"
                                             self.yang_parent_name = "marking"
@@ -5513,7 +6140,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -5541,7 +6168,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "police-conform"
@@ -5561,10 +6191,18 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform']['meta_info']
 
 
-
-                                    class PoliceExceed(Entity):
+                                    class PoliceExceed(_Entity_):
                                         """
                                         Police exceed mark
                                         
@@ -5590,7 +6228,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
 
                                             self.yang_name = "police-exceed"
                                             self.yang_parent_name = "marking"
@@ -5611,7 +6252,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -5639,7 +6280,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "police-exceed"
@@ -5659,14 +6303,38 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Output']['meta_info']
 
 
-
-
-
-
-
-                    class Input(Entity):
+                    class Input(_Entity_):
                         """
                         QoS policy direction ingress
                         
@@ -5699,7 +6367,10 @@ class PlatformQos(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input, self).__init__()
 
                             self.yang_name = "input"
                             self.yang_parent_name = "interface"
@@ -5727,7 +6398,7 @@ class PlatformQos(Entity):
                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input, [], name, value)
 
 
-                        class Header(Entity):
+                        class Header(_Entity_):
                             """
                             QoS EA policy header
                             
@@ -5775,7 +6446,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, self).__init__()
 
                                 self.yang_name = "header"
                                 self.yang_parent_name = "input"
@@ -5799,9 +6473,13 @@ class PlatformQos(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header']['meta_info']
 
 
-                        class InterfaceParameters(Entity):
+                        class InterfaceParameters(_Entity_):
                             """
                             QoS Interface Parameters
                             
@@ -5834,7 +6512,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, self).__init__()
 
                                 self.yang_name = "interface-parameters"
                                 self.yang_parent_name = "input"
@@ -5862,7 +6543,7 @@ class PlatformQos(Entity):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, [], name, value)
 
 
-                            class InterfaceConfigRate(Entity):
+                            class InterfaceConfigRate(_Entity_):
                                 """
                                 Interface Configured Rate
                                 
@@ -5890,7 +6571,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, self).__init__()
 
                                     self.yang_name = "interface-config-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -5910,9 +6594,13 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate']['meta_info']
 
 
-                            class InterfaceProgramRate(Entity):
+                            class InterfaceProgramRate(_Entity_):
                                 """
                                 Interface Programmed Rate
                                 
@@ -5940,7 +6628,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, self).__init__()
 
                                     self.yang_name = "interface-program-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -5960,9 +6651,13 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate']['meta_info']
 
 
-                            class PortShaperRate(Entity):
+                            class PortShaperRate(_Entity_):
                                 """
                                 Port Shaper Rate
                                 
@@ -5990,7 +6685,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, self).__init__()
 
                                     self.yang_name = "port-shaper-rate"
                                     self.yang_parent_name = "interface-parameters"
@@ -6010,10 +6708,18 @@ class PlatformQos(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters']['meta_info']
 
 
-
-                        class SkywarpQosPolicyClass(Entity):
+                        class SkywarpQosPolicyClass(_Entity_):
                             """
                             Skywarp QoS policy class details
                             
@@ -6032,7 +6738,10 @@ class PlatformQos(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, self).__init__()
 
                                 self.yang_name = "skywarp-qos-policy-class"
                                 self.yang_parent_name = "input"
@@ -6050,7 +6759,7 @@ class PlatformQos(Entity):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, [], name, value)
 
 
-                            class QosShowPclassSt(Entity):
+                            class QosShowPclassSt(_Entity_):
                                 """
                                 qos show pclass st
                                 
@@ -6115,7 +6824,10 @@ class PlatformQos(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, self).__init__()
 
                                     self.yang_name = "qos-show-pclass-st"
                                     self.yang_parent_name = "skywarp-qos-policy-class"
@@ -6156,7 +6868,7 @@ class PlatformQos(Entity):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
 
 
-                                class Queue(Entity):
+                                class Queue(_Entity_):
                                     """
                                     QoS Queue parameters
                                     
@@ -6186,7 +6898,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, self).__init__()
 
                                         self.yang_name = "queue"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -6206,9 +6921,13 @@ class PlatformQos(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue']['meta_info']
 
 
-                                class Shape(Entity):
+                                class Shape(_Entity_):
                                     """
                                     QoS EA Shaper parameters
                                     
@@ -6234,7 +6953,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, self).__init__()
 
                                         self.yang_name = "shape"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -6258,7 +6980,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
 
 
-                                    class Pir(Entity):
+                                    class Pir(_Entity_):
                                         """
                                         PIR in kbps
                                         
@@ -6286,7 +7008,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, self).__init__()
 
                                             self.yang_name = "pir"
                                             self.yang_parent_name = "shape"
@@ -6306,9 +7031,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir']['meta_info']
 
 
-                                    class Pbs(Entity):
+                                    class Pbs(_Entity_):
                                         """
                                         PBS in bytes
                                         
@@ -6336,7 +7065,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, self).__init__()
 
                                             self.yang_name = "pbs"
                                             self.yang_parent_name = "shape"
@@ -6356,10 +7088,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape']['meta_info']
 
 
-
-                                class Wfq(Entity):
+                                class Wfq(_Entity_):
                                     """
                                     QoS WFQ parameters
                                     
@@ -6394,7 +7134,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, self).__init__()
 
                                         self.yang_name = "wfq"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -6421,7 +7164,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
 
 
-                                    class CommittedWeight(Entity):
+                                    class CommittedWeight(_Entity_):
                                         """
                                         Committed Weight
                                         
@@ -6449,7 +7192,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, self).__init__()
 
                                             self.yang_name = "committed-weight"
                                             self.yang_parent_name = "wfq"
@@ -6469,9 +7215,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight']['meta_info']
 
 
-                                    class ProgrammedWfq(Entity):
+                                    class ProgrammedWfq(_Entity_):
                                         """
                                         QoS Programmed WFQ parameters
                                         
@@ -6506,7 +7256,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, self).__init__()
 
                                             self.yang_name = "programmed-wfq"
                                             self.yang_parent_name = "wfq"
@@ -6533,7 +7286,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
 
 
-                                        class Bandwidth(Entity):
+                                        class Bandwidth(_Entity_):
                                             """
                                             Bandwidth
                                             
@@ -6561,7 +7314,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, self).__init__()
 
                                                 self.yang_name = "bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -6581,9 +7337,13 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth']['meta_info']
 
 
-                                        class SumOfBandwidth(Entity):
+                                        class SumOfBandwidth(_Entity_):
                                             """
                                             Sum of Bandwidth
                                             
@@ -6611,7 +7371,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, self).__init__()
 
                                                 self.yang_name = "sum-of-bandwidth"
                                                 self.yang_parent_name = "programmed-wfq"
@@ -6631,11 +7394,23 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq']['meta_info']
 
 
-
-
-                                class Police(Entity):
+                                class Police(_Entity_):
                                     """
                                     QoS Policer parameters
                                     
@@ -6677,7 +7452,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, self).__init__()
 
                                         self.yang_name = "police"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -6706,7 +7484,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
 
 
-                                    class Cir(Entity):
+                                    class Cir(_Entity_):
                                         """
                                         CIR
                                         
@@ -6734,7 +7512,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, self).__init__()
 
                                             self.yang_name = "cir"
                                             self.yang_parent_name = "police"
@@ -6754,9 +7535,13 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir']['meta_info']
 
 
-                                    class Cbs(Entity):
+                                    class Cbs(_Entity_):
                                         """
                                         CBS
                                         
@@ -6784,7 +7569,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, self).__init__()
 
                                             self.yang_name = "cbs"
                                             self.yang_parent_name = "police"
@@ -6804,10 +7592,18 @@ class PlatformQos(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police']['meta_info']
 
 
-
-                                class Marking(Entity):
+                                class Marking(_Entity_):
                                     """
                                     QoS Mark parameters
                                     
@@ -6840,7 +7636,10 @@ class PlatformQos(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, self).__init__()
 
                                         self.yang_name = "marking"
                                         self.yang_parent_name = "qos-show-pclass-st"
@@ -6868,7 +7667,7 @@ class PlatformQos(Entity):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
 
 
-                                    class MarkOnly(Entity):
+                                    class MarkOnly(_Entity_):
                                         """
                                         Mark Only
                                         
@@ -6894,7 +7693,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, self).__init__()
 
                                             self.yang_name = "mark-only"
                                             self.yang_parent_name = "marking"
@@ -6915,7 +7717,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -6943,7 +7745,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "mark-only"
@@ -6963,10 +7768,18 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly']['meta_info']
 
 
-
-                                    class PoliceConform(Entity):
+                                    class PoliceConform(_Entity_):
                                         """
                                         Police conform mark
                                         
@@ -6992,7 +7805,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, self).__init__()
 
                                             self.yang_name = "police-conform"
                                             self.yang_parent_name = "marking"
@@ -7013,7 +7829,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -7041,7 +7857,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "police-conform"
@@ -7061,10 +7880,18 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform']['meta_info']
 
 
-
-                                    class PoliceExceed(Entity):
+                                    class PoliceExceed(_Entity_):
                                         """
                                         Police exceed mark
                                         
@@ -7090,7 +7917,10 @@ class PlatformQos(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, self).__init__()
 
                                             self.yang_name = "police-exceed"
                                             self.yang_parent_name = "marking"
@@ -7111,7 +7941,7 @@ class PlatformQos(Entity):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
 
 
-                                        class MarkDetail(Entity):
+                                        class MarkDetail(_Entity_):
                                             """
                                             Mark value
                                             
@@ -7139,7 +7969,10 @@ class PlatformQos(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, self).__init__()
 
                                                 self.yang_name = "mark-detail"
                                                 self.yang_parent_name = "police-exceed"
@@ -7159,23 +7992,67 @@ class PlatformQos(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail']['meta_info']
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Input']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                return meta._meta_table['PlatformQos.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+            return meta._meta_table['PlatformQos.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformQos()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['PlatformQos']['meta_info']
 
 
-class PlatformQosEa(Entity):
+class PlatformQosEa(_Entity_):
     """
     platform qos ea
     
@@ -7194,7 +8071,10 @@ class PlatformQosEa(Entity):
     _revision = '2016-02-18'
 
     def __init__(self):
-        super(PlatformQosEa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformQosEa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-qos-ea"
@@ -7215,7 +8095,7 @@ class PlatformQosEa(Entity):
         self._perform_setattr(PlatformQosEa, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes with platform specific QoS\-EA
         configuration
@@ -7235,7 +8115,10 @@ class PlatformQosEa(Entity):
         _revision = '2016-02-18'
 
         def __init__(self):
-            super(PlatformQosEa.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformQosEa.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "platform-qos-ea"
@@ -7254,7 +8137,7 @@ class PlatformQosEa(Entity):
             self._perform_setattr(PlatformQosEa.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node with platform specific QoS\-EA
             configuration
@@ -7290,7 +8173,10 @@ class PlatformQosEa(Entity):
             _revision = '2016-02-18'
 
             def __init__(self):
-                super(PlatformQosEa.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformQosEa.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -7318,7 +8204,7 @@ class PlatformQosEa(Entity):
                 self._perform_setattr(PlatformQosEa.Nodes.Node, ['node_name'], name, value)
 
 
-            class BundleInterfaces(Entity):
+            class BundleInterfaces(_Entity_):
                 """
                 QoS\-EA list of bundle interfaces
                 
@@ -7337,7 +8223,10 @@ class PlatformQosEa(Entity):
                 _revision = '2016-02-18'
 
                 def __init__(self):
-                    super(PlatformQosEa.Nodes.Node.BundleInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformQosEa.Nodes.Node.BundleInterfaces, self).__init__()
 
                     self.yang_name = "bundle-interfaces"
                     self.yang_parent_name = "node"
@@ -7355,7 +8244,7 @@ class PlatformQosEa(Entity):
                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces, [], name, value)
 
 
-                class BundleInterface(Entity):
+                class BundleInterface(_Entity_):
                     """
                     QoS\-EA interface name
                     
@@ -7383,7 +8272,10 @@ class PlatformQosEa(Entity):
                     _revision = '2016-02-18'
 
                     def __init__(self):
-                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
 
                         self.yang_name = "bundle-interface"
                         self.yang_parent_name = "bundle-interfaces"
@@ -7406,7 +8298,7 @@ class PlatformQosEa(Entity):
                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name'], name, value)
 
 
-                    class MemberInterfaces(Entity):
+                    class MemberInterfaces(_Entity_):
                         """
                         QoS\-EA list of member interfaces
                         
@@ -7425,7 +8317,10 @@ class PlatformQosEa(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, self).__init__()
 
                             self.yang_name = "member-interfaces"
                             self.yang_parent_name = "bundle-interface"
@@ -7443,7 +8338,7 @@ class PlatformQosEa(Entity):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, [], name, value)
 
 
-                        class MemberInterface(Entity):
+                        class MemberInterface(_Entity_):
                             """
                             QoS\-EA interface name
                             
@@ -7478,7 +8373,10 @@ class PlatformQosEa(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, self).__init__()
 
                                 self.yang_name = "member-interface"
                                 self.yang_parent_name = "member-interfaces"
@@ -7505,7 +8403,7 @@ class PlatformQosEa(Entity):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
 
 
-                            class BundleOutput(Entity):
+                            class BundleOutput(_Entity_):
                                 """
                                 QoS\-EA policy direction output
                                 
@@ -7524,7 +8422,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, self).__init__()
 
                                     self.yang_name = "bundle-output"
                                     self.yang_parent_name = "member-interface"
@@ -7544,7 +8445,7 @@ class PlatformQosEa(Entity):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, [], name, value)
 
 
-                                class Details(Entity):
+                                class Details(_Entity_):
                                     """
                                     QoS\-EA policy details
                                     
@@ -7577,7 +8478,10 @@ class PlatformQosEa(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details, self).__init__()
 
                                         self.yang_name = "details"
                                         self.yang_parent_name = "bundle-output"
@@ -7605,7 +8509,7 @@ class PlatformQosEa(Entity):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details, [], name, value)
 
 
-                                    class Header(Entity):
+                                    class Header(_Entity_):
                                         """
                                         QoS EA policy header
                                         
@@ -7653,7 +8557,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, self).__init__()
 
                                             self.yang_name = "header"
                                             self.yang_parent_name = "details"
@@ -7677,9 +8584,13 @@ class PlatformQosEa(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header']['meta_info']
 
 
-                                    class InterfaceParameters(Entity):
+                                    class InterfaceParameters(_Entity_):
                                         """
                                         QoS EA Interface Parameters
                                         
@@ -7799,7 +8710,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, self).__init__()
 
                                             self.yang_name = "interface-parameters"
                                             self.yang_parent_name = "details"
@@ -7839,9 +8753,13 @@ class PlatformQosEa(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters']['meta_info']
 
 
-                                    class SkywarpQosPolicyClass(Entity):
+                                    class SkywarpQosPolicyClass(_Entity_):
                                         """
                                         Skywarp QoS EA policy class details
                                         
@@ -7860,7 +8778,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass, self).__init__()
 
                                             self.yang_name = "skywarp-qos-policy-class"
                                             self.yang_parent_name = "details"
@@ -7878,7 +8799,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass, [], name, value)
 
 
-                                        class QosShowEaPclassSt(Entity):
+                                        class QosShowEaPclassSt(_Entity_):
                                             """
                                             qos show ea pclass st
                                             
@@ -7958,7 +8879,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
 
                                                 self.yang_name = "qos-show-ea-pclass-st"
                                                 self.yang_parent_name = "skywarp-qos-policy-class"
@@ -7995,7 +8919,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
-                                            class Config(Entity):
+                                            class Config(_Entity_):
                                                 """
                                                 QoS EA Class Configuration
                                                 
@@ -8037,7 +8961,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
 
                                                     self.yang_name = "config"
                                                     self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -8068,7 +8995,7 @@ class PlatformQosEa(Entity):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
-                                                class Police(Entity):
+                                                class Police(_Entity_):
                                                     """
                                                     QoS EA Policer parameters
                                                     
@@ -8108,7 +9035,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
 
                                                         self.yang_name = "police"
                                                         self.yang_parent_name = "config"
@@ -8137,7 +9067,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                                    class Cir(Entity):
+                                                    class Cir(_Entity_):
                                                         """
                                                         CIR
                                                         
@@ -8165,7 +9095,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
 
                                                             self.yang_name = "cir"
                                                             self.yang_parent_name = "police"
@@ -8185,9 +9118,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir']['meta_info']
 
 
-                                                    class Cbs(Entity):
+                                                    class Cbs(_Entity_):
                                                         """
                                                         CBS
                                                         
@@ -8215,7 +9152,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
 
                                                             self.yang_name = "cbs"
                                                             self.yang_parent_name = "police"
@@ -8235,10 +9175,18 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police']['meta_info']
 
 
-
-                                                class Shape(Entity):
+                                                class Shape(_Entity_):
                                                     """
                                                     QoS EA Shaper parameters
                                                     
@@ -8264,7 +9212,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
 
                                                         self.yang_name = "shape"
                                                         self.yang_parent_name = "config"
@@ -8288,7 +9239,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
 
 
-                                                    class Pir(Entity):
+                                                    class Pir(_Entity_):
                                                         """
                                                         PIR in kbps
                                                         
@@ -8316,7 +9267,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
 
                                                             self.yang_name = "pir"
                                                             self.yang_parent_name = "shape"
@@ -8336,9 +9290,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir']['meta_info']
 
 
-                                                    class Pbs(Entity):
+                                                    class Pbs(_Entity_):
                                                         """
                                                         PBS in bytes
                                                         
@@ -8366,7 +9324,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
 
                                                             self.yang_name = "pbs"
                                                             self.yang_parent_name = "shape"
@@ -8386,10 +9347,18 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape']['meta_info']
 
 
-
-                                                class Wfq(Entity):
+                                                class Wfq(_Entity_):
                                                     """
                                                     QoS EA WFQ parameters
                                                     
@@ -8424,7 +9393,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
 
                                                         self.yang_name = "wfq"
                                                         self.yang_parent_name = "config"
@@ -8451,7 +9423,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
-                                                    class Bandwidth(Entity):
+                                                    class Bandwidth(_Entity_):
                                                         """
                                                         Bandwidth
                                                         
@@ -8479,7 +9451,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
 
                                                             self.yang_name = "bandwidth"
                                                             self.yang_parent_name = "wfq"
@@ -8499,9 +9474,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth']['meta_info']
 
 
-                                                    class SumOfBandwidth(Entity):
+                                                    class SumOfBandwidth(_Entity_):
                                                         """
                                                         Sum of Bandwidth
                                                         
@@ -8529,7 +9508,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
 
                                                             self.yang_name = "sum-of-bandwidth"
                                                             self.yang_parent_name = "wfq"
@@ -8549,11 +9531,23 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config']['meta_info']
 
 
-
-
-                                            class Result(Entity):
+                                            class Result(_Entity_):
                                                 """
                                                 QoS EA Class Result
                                                 
@@ -8588,7 +9582,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
 
                                                     self.yang_name = "result"
                                                     self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -8615,7 +9612,7 @@ class PlatformQosEa(Entity):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
-                                                class Queue(Entity):
+                                                class Queue(_Entity_):
                                                     """
                                                     QoS EA Queue Result
                                                     
@@ -8663,7 +9660,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                         self.yang_name = "queue"
                                                         self.yang_parent_name = "result"
@@ -8687,9 +9687,13 @@ class PlatformQosEa(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue']['meta_info']
 
 
-                                                class Police(Entity):
+                                                class Police(_Entity_):
                                                     """
                                                     QoS EA Policer Result
                                                     
@@ -8737,7 +9741,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
 
                                                         self.yang_name = "police"
                                                         self.yang_parent_name = "result"
@@ -8761,14 +9768,38 @@ class PlatformQosEa(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput']['meta_info']
 
 
-
-
-
-
-
-                            class BundleInput(Entity):
+                            class BundleInput(_Entity_):
                                 """
                                 QoS\-EA policy direction input
                                 
@@ -8787,7 +9818,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, self).__init__()
 
                                     self.yang_name = "bundle-input"
                                     self.yang_parent_name = "member-interface"
@@ -8807,7 +9841,7 @@ class PlatformQosEa(Entity):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, [], name, value)
 
 
-                                class Details(Entity):
+                                class Details(_Entity_):
                                     """
                                     QoS\-EA policy details
                                     
@@ -8840,7 +9874,10 @@ class PlatformQosEa(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, self).__init__()
 
                                         self.yang_name = "details"
                                         self.yang_parent_name = "bundle-input"
@@ -8868,7 +9905,7 @@ class PlatformQosEa(Entity):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, [], name, value)
 
 
-                                    class Header(Entity):
+                                    class Header(_Entity_):
                                         """
                                         QoS EA policy header
                                         
@@ -8916,7 +9953,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, self).__init__()
 
                                             self.yang_name = "header"
                                             self.yang_parent_name = "details"
@@ -8940,9 +9980,13 @@ class PlatformQosEa(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header']['meta_info']
 
 
-                                    class InterfaceParameters(Entity):
+                                    class InterfaceParameters(_Entity_):
                                         """
                                         QoS EA Interface Parameters
                                         
@@ -9062,7 +10106,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, self).__init__()
 
                                             self.yang_name = "interface-parameters"
                                             self.yang_parent_name = "details"
@@ -9102,9 +10149,13 @@ class PlatformQosEa(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters']['meta_info']
 
 
-                                    class SkywarpQosPolicyClass(Entity):
+                                    class SkywarpQosPolicyClass(_Entity_):
                                         """
                                         Skywarp QoS EA policy class details
                                         
@@ -9123,7 +10174,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, self).__init__()
 
                                             self.yang_name = "skywarp-qos-policy-class"
                                             self.yang_parent_name = "details"
@@ -9141,7 +10195,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, [], name, value)
 
 
-                                        class QosShowEaPclassSt(Entity):
+                                        class QosShowEaPclassSt(_Entity_):
                                             """
                                             qos show ea pclass st
                                             
@@ -9221,7 +10275,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
 
                                                 self.yang_name = "qos-show-ea-pclass-st"
                                                 self.yang_parent_name = "skywarp-qos-policy-class"
@@ -9258,7 +10315,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
-                                            class Config(Entity):
+                                            class Config(_Entity_):
                                                 """
                                                 QoS EA Class Configuration
                                                 
@@ -9300,7 +10357,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
 
                                                     self.yang_name = "config"
                                                     self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -9331,7 +10391,7 @@ class PlatformQosEa(Entity):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
-                                                class Police(Entity):
+                                                class Police(_Entity_):
                                                     """
                                                     QoS EA Policer parameters
                                                     
@@ -9371,7 +10431,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
 
                                                         self.yang_name = "police"
                                                         self.yang_parent_name = "config"
@@ -9400,7 +10463,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                                    class Cir(Entity):
+                                                    class Cir(_Entity_):
                                                         """
                                                         CIR
                                                         
@@ -9428,7 +10491,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
 
                                                             self.yang_name = "cir"
                                                             self.yang_parent_name = "police"
@@ -9448,9 +10514,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir']['meta_info']
 
 
-                                                    class Cbs(Entity):
+                                                    class Cbs(_Entity_):
                                                         """
                                                         CBS
                                                         
@@ -9478,7 +10548,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
 
                                                             self.yang_name = "cbs"
                                                             self.yang_parent_name = "police"
@@ -9498,10 +10571,18 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police']['meta_info']
 
 
-
-                                                class Shape(Entity):
+                                                class Shape(_Entity_):
                                                     """
                                                     QoS EA Shaper parameters
                                                     
@@ -9527,7 +10608,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
 
                                                         self.yang_name = "shape"
                                                         self.yang_parent_name = "config"
@@ -9551,7 +10635,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
 
 
-                                                    class Pir(Entity):
+                                                    class Pir(_Entity_):
                                                         """
                                                         PIR in kbps
                                                         
@@ -9579,7 +10663,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
 
                                                             self.yang_name = "pir"
                                                             self.yang_parent_name = "shape"
@@ -9599,9 +10686,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir']['meta_info']
 
 
-                                                    class Pbs(Entity):
+                                                    class Pbs(_Entity_):
                                                         """
                                                         PBS in bytes
                                                         
@@ -9629,7 +10720,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
 
                                                             self.yang_name = "pbs"
                                                             self.yang_parent_name = "shape"
@@ -9649,10 +10743,18 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape']['meta_info']
 
 
-
-                                                class Wfq(Entity):
+                                                class Wfq(_Entity_):
                                                     """
                                                     QoS EA WFQ parameters
                                                     
@@ -9687,7 +10789,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
 
                                                         self.yang_name = "wfq"
                                                         self.yang_parent_name = "config"
@@ -9714,7 +10819,7 @@ class PlatformQosEa(Entity):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
-                                                    class Bandwidth(Entity):
+                                                    class Bandwidth(_Entity_):
                                                         """
                                                         Bandwidth
                                                         
@@ -9742,7 +10847,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
 
                                                             self.yang_name = "bandwidth"
                                                             self.yang_parent_name = "wfq"
@@ -9762,9 +10870,13 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth']['meta_info']
 
 
-                                                    class SumOfBandwidth(Entity):
+                                                    class SumOfBandwidth(_Entity_):
                                                         """
                                                         Sum of Bandwidth
                                                         
@@ -9792,7 +10904,10 @@ class PlatformQosEa(Entity):
                                                         _revision = '2016-02-18'
 
                                                         def __init__(self):
-                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
 
                                                             self.yang_name = "sum-of-bandwidth"
                                                             self.yang_parent_name = "wfq"
@@ -9812,11 +10927,23 @@ class PlatformQosEa(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config']['meta_info']
 
 
-
-
-                                            class Result(Entity):
+                                            class Result(_Entity_):
                                                 """
                                                 QoS EA Class Result
                                                 
@@ -9851,7 +10978,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
 
                                                     self.yang_name = "result"
                                                     self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -9878,7 +11008,7 @@ class PlatformQosEa(Entity):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
-                                                class Queue(Entity):
+                                                class Queue(_Entity_):
                                                     """
                                                     QoS EA Queue Result
                                                     
@@ -9926,7 +11056,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                         self.yang_name = "queue"
                                                         self.yang_parent_name = "result"
@@ -9950,9 +11083,13 @@ class PlatformQosEa(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue']['meta_info']
 
 
-                                                class Police(Entity):
+                                                class Police(_Entity_):
                                                     """
                                                     QoS EA Policer Result
                                                     
@@ -10000,7 +11137,10 @@ class PlatformQosEa(Entity):
                                                     _revision = '2016-02-18'
 
                                                     def __init__(self):
-                                                        super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
 
                                                         self.yang_name = "police"
                                                         self.yang_parent_name = "result"
@@ -10024,18 +11164,58 @@ class PlatformQosEa(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                        return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                    return meta._meta_table['PlatformQosEa.Nodes.Node.BundleInterfaces']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 QoS\-EA list of interfaces
                 
@@ -10054,7 +11234,10 @@ class PlatformQosEa(Entity):
                 _revision = '2016-02-18'
 
                 def __init__(self):
-                    super(PlatformQosEa.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformQosEa.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -10072,7 +11255,7 @@ class PlatformQosEa(Entity):
                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     QoS\-EA interface name
                     
@@ -10107,7 +11290,10 @@ class PlatformQosEa(Entity):
                     _revision = '2016-02-18'
 
                     def __init__(self):
-                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -10134,7 +11320,7 @@ class PlatformQosEa(Entity):
                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                    class Output(Entity):
+                    class Output(_Entity_):
                         """
                         QoS\-EA policy direction egress
                         
@@ -10153,7 +11339,10 @@ class PlatformQosEa(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output, self).__init__()
 
                             self.yang_name = "output"
                             self.yang_parent_name = "interface"
@@ -10173,7 +11362,7 @@ class PlatformQosEa(Entity):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output, [], name, value)
 
 
-                        class Details(Entity):
+                        class Details(_Entity_):
                             """
                             QoS\-EA policy details
                             
@@ -10206,7 +11395,10 @@ class PlatformQosEa(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details, self).__init__()
 
                                 self.yang_name = "details"
                                 self.yang_parent_name = "output"
@@ -10234,7 +11426,7 @@ class PlatformQosEa(Entity):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details, [], name, value)
 
 
-                            class Header(Entity):
+                            class Header(_Entity_):
                                 """
                                 QoS EA policy header
                                 
@@ -10282,7 +11474,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, self).__init__()
 
                                     self.yang_name = "header"
                                     self.yang_parent_name = "details"
@@ -10306,9 +11501,13 @@ class PlatformQosEa(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header']['meta_info']
 
 
-                            class InterfaceParameters(Entity):
+                            class InterfaceParameters(_Entity_):
                                 """
                                 QoS EA Interface Parameters
                                 
@@ -10428,7 +11627,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, self).__init__()
 
                                     self.yang_name = "interface-parameters"
                                     self.yang_parent_name = "details"
@@ -10468,9 +11670,13 @@ class PlatformQosEa(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters']['meta_info']
 
 
-                            class SkywarpQosPolicyClass(Entity):
+                            class SkywarpQosPolicyClass(_Entity_):
                                 """
                                 Skywarp QoS EA policy class details
                                 
@@ -10489,7 +11695,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass, self).__init__()
 
                                     self.yang_name = "skywarp-qos-policy-class"
                                     self.yang_parent_name = "details"
@@ -10507,7 +11716,7 @@ class PlatformQosEa(Entity):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass, [], name, value)
 
 
-                                class QosShowEaPclassSt(Entity):
+                                class QosShowEaPclassSt(_Entity_):
                                     """
                                     qos show ea pclass st
                                     
@@ -10587,7 +11796,10 @@ class PlatformQosEa(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
 
                                         self.yang_name = "qos-show-ea-pclass-st"
                                         self.yang_parent_name = "skywarp-qos-policy-class"
@@ -10624,7 +11836,7 @@ class PlatformQosEa(Entity):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         QoS EA Class Configuration
                                         
@@ -10666,7 +11878,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -10697,7 +11912,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS EA Policer parameters
                                             
@@ -10737,7 +11952,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "config"
@@ -10766,7 +11984,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                            class Cir(Entity):
+                                            class Cir(_Entity_):
                                                 """
                                                 CIR
                                                 
@@ -10794,7 +12012,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
 
                                                     self.yang_name = "cir"
                                                     self.yang_parent_name = "police"
@@ -10814,9 +12035,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir']['meta_info']
 
 
-                                            class Cbs(Entity):
+                                            class Cbs(_Entity_):
                                                 """
                                                 CBS
                                                 
@@ -10844,7 +12069,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
 
                                                     self.yang_name = "cbs"
                                                     self.yang_parent_name = "police"
@@ -10864,10 +12092,18 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police']['meta_info']
 
 
-
-                                        class Shape(Entity):
+                                        class Shape(_Entity_):
                                             """
                                             QoS EA Shaper parameters
                                             
@@ -10893,7 +12129,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
 
                                                 self.yang_name = "shape"
                                                 self.yang_parent_name = "config"
@@ -10917,7 +12156,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
 
 
-                                            class Pir(Entity):
+                                            class Pir(_Entity_):
                                                 """
                                                 PIR in kbps
                                                 
@@ -10945,7 +12184,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
 
                                                     self.yang_name = "pir"
                                                     self.yang_parent_name = "shape"
@@ -10965,9 +12207,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir']['meta_info']
 
 
-                                            class Pbs(Entity):
+                                            class Pbs(_Entity_):
                                                 """
                                                 PBS in bytes
                                                 
@@ -10995,7 +12241,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
 
                                                     self.yang_name = "pbs"
                                                     self.yang_parent_name = "shape"
@@ -11015,10 +12264,18 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape']['meta_info']
 
 
-
-                                        class Wfq(Entity):
+                                        class Wfq(_Entity_):
                                             """
                                             QoS EA WFQ parameters
                                             
@@ -11053,7 +12310,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
 
                                                 self.yang_name = "wfq"
                                                 self.yang_parent_name = "config"
@@ -11080,7 +12340,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
-                                            class Bandwidth(Entity):
+                                            class Bandwidth(_Entity_):
                                                 """
                                                 Bandwidth
                                                 
@@ -11108,7 +12368,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
 
                                                     self.yang_name = "bandwidth"
                                                     self.yang_parent_name = "wfq"
@@ -11128,9 +12391,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth']['meta_info']
 
 
-                                            class SumOfBandwidth(Entity):
+                                            class SumOfBandwidth(_Entity_):
                                                 """
                                                 Sum of Bandwidth
                                                 
@@ -11158,7 +12425,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
 
                                                     self.yang_name = "sum-of-bandwidth"
                                                     self.yang_parent_name = "wfq"
@@ -11178,11 +12448,23 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config']['meta_info']
 
 
-
-
-                                    class Result(Entity):
+                                    class Result(_Entity_):
                                         """
                                         QoS EA Class Result
                                         
@@ -11217,7 +12499,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
 
                                             self.yang_name = "result"
                                             self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -11244,7 +12529,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
-                                        class Queue(Entity):
+                                        class Queue(_Entity_):
                                             """
                                             QoS EA Queue Result
                                             
@@ -11292,7 +12577,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                 self.yang_name = "queue"
                                                 self.yang_parent_name = "result"
@@ -11316,9 +12604,13 @@ class PlatformQosEa(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue']['meta_info']
 
 
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS EA Policer Result
                                             
@@ -11366,7 +12658,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "result"
@@ -11390,14 +12685,38 @@ class PlatformQosEa(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Output']['meta_info']
 
 
-
-
-
-
-
-                    class Input(Entity):
+                    class Input(_Entity_):
                         """
                         QoS\-EA policy direction ingress
                         
@@ -11416,7 +12735,10 @@ class PlatformQosEa(Entity):
                         _revision = '2016-02-18'
 
                         def __init__(self):
-                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, self).__init__()
 
                             self.yang_name = "input"
                             self.yang_parent_name = "interface"
@@ -11436,7 +12758,7 @@ class PlatformQosEa(Entity):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, [], name, value)
 
 
-                        class Details(Entity):
+                        class Details(_Entity_):
                             """
                             QoS\-EA policy details
                             
@@ -11469,7 +12791,10 @@ class PlatformQosEa(Entity):
                             _revision = '2016-02-18'
 
                             def __init__(self):
-                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, self).__init__()
 
                                 self.yang_name = "details"
                                 self.yang_parent_name = "input"
@@ -11497,7 +12822,7 @@ class PlatformQosEa(Entity):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, [], name, value)
 
 
-                            class Header(Entity):
+                            class Header(_Entity_):
                                 """
                                 QoS EA policy header
                                 
@@ -11545,7 +12870,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, self).__init__()
 
                                     self.yang_name = "header"
                                     self.yang_parent_name = "details"
@@ -11569,9 +12897,13 @@ class PlatformQosEa(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header']['meta_info']
 
 
-                            class InterfaceParameters(Entity):
+                            class InterfaceParameters(_Entity_):
                                 """
                                 QoS EA Interface Parameters
                                 
@@ -11691,7 +13023,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, self).__init__()
 
                                     self.yang_name = "interface-parameters"
                                     self.yang_parent_name = "details"
@@ -11731,9 +13066,13 @@ class PlatformQosEa(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters']['meta_info']
 
 
-                            class SkywarpQosPolicyClass(Entity):
+                            class SkywarpQosPolicyClass(_Entity_):
                                 """
                                 Skywarp QoS EA policy class details
                                 
@@ -11752,7 +13091,10 @@ class PlatformQosEa(Entity):
                                 _revision = '2016-02-18'
 
                                 def __init__(self):
-                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, self).__init__()
 
                                     self.yang_name = "skywarp-qos-policy-class"
                                     self.yang_parent_name = "details"
@@ -11770,7 +13112,7 @@ class PlatformQosEa(Entity):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, [], name, value)
 
 
-                                class QosShowEaPclassSt(Entity):
+                                class QosShowEaPclassSt(_Entity_):
                                     """
                                     qos show ea pclass st
                                     
@@ -11850,7 +13192,10 @@ class PlatformQosEa(Entity):
                                     _revision = '2016-02-18'
 
                                     def __init__(self):
-                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, self).__init__()
 
                                         self.yang_name = "qos-show-ea-pclass-st"
                                         self.yang_parent_name = "skywarp-qos-policy-class"
@@ -11887,7 +13232,7 @@ class PlatformQosEa(Entity):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         QoS EA Class Configuration
                                         
@@ -11929,7 +13274,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -11960,7 +13308,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
 
 
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS EA Policer parameters
                                             
@@ -12000,7 +13348,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "config"
@@ -12029,7 +13380,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
 
 
-                                            class Cir(Entity):
+                                            class Cir(_Entity_):
                                                 """
                                                 CIR
                                                 
@@ -12057,7 +13408,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, self).__init__()
 
                                                     self.yang_name = "cir"
                                                     self.yang_parent_name = "police"
@@ -12077,9 +13431,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir']['meta_info']
 
 
-                                            class Cbs(Entity):
+                                            class Cbs(_Entity_):
                                                 """
                                                 CBS
                                                 
@@ -12107,7 +13465,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, self).__init__()
 
                                                     self.yang_name = "cbs"
                                                     self.yang_parent_name = "police"
@@ -12127,10 +13488,18 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police']['meta_info']
 
 
-
-                                        class Shape(Entity):
+                                        class Shape(_Entity_):
                                             """
                                             QoS EA Shaper parameters
                                             
@@ -12156,7 +13525,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, self).__init__()
 
                                                 self.yang_name = "shape"
                                                 self.yang_parent_name = "config"
@@ -12180,7 +13552,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
 
 
-                                            class Pir(Entity):
+                                            class Pir(_Entity_):
                                                 """
                                                 PIR in kbps
                                                 
@@ -12208,7 +13580,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, self).__init__()
 
                                                     self.yang_name = "pir"
                                                     self.yang_parent_name = "shape"
@@ -12228,9 +13603,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir']['meta_info']
 
 
-                                            class Pbs(Entity):
+                                            class Pbs(_Entity_):
                                                 """
                                                 PBS in bytes
                                                 
@@ -12258,7 +13637,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, self).__init__()
 
                                                     self.yang_name = "pbs"
                                                     self.yang_parent_name = "shape"
@@ -12278,10 +13660,18 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape']['meta_info']
 
 
-
-                                        class Wfq(Entity):
+                                        class Wfq(_Entity_):
                                             """
                                             QoS EA WFQ parameters
                                             
@@ -12316,7 +13706,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, self).__init__()
 
                                                 self.yang_name = "wfq"
                                                 self.yang_parent_name = "config"
@@ -12343,7 +13736,7 @@ class PlatformQosEa(Entity):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
 
 
-                                            class Bandwidth(Entity):
+                                            class Bandwidth(_Entity_):
                                                 """
                                                 Bandwidth
                                                 
@@ -12371,7 +13764,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, self).__init__()
 
                                                     self.yang_name = "bandwidth"
                                                     self.yang_parent_name = "wfq"
@@ -12391,9 +13787,13 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth']['meta_info']
 
 
-                                            class SumOfBandwidth(Entity):
+                                            class SumOfBandwidth(_Entity_):
                                                 """
                                                 Sum of Bandwidth
                                                 
@@ -12421,7 +13821,10 @@ class PlatformQosEa(Entity):
                                                 _revision = '2016-02-18'
 
                                                 def __init__(self):
-                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, self).__init__()
 
                                                     self.yang_name = "sum-of-bandwidth"
                                                     self.yang_parent_name = "wfq"
@@ -12441,11 +13844,23 @@ class PlatformQosEa(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config']['meta_info']
 
 
-
-
-                                    class Result(Entity):
+                                    class Result(_Entity_):
                                         """
                                         QoS EA Class Result
                                         
@@ -12480,7 +13895,10 @@ class PlatformQosEa(Entity):
                                         _revision = '2016-02-18'
 
                                         def __init__(self):
-                                            super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, self).__init__()
 
                                             self.yang_name = "result"
                                             self.yang_parent_name = "qos-show-ea-pclass-st"
@@ -12507,7 +13925,7 @@ class PlatformQosEa(Entity):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
 
 
-                                        class Queue(Entity):
+                                        class Queue(_Entity_):
                                             """
                                             QoS EA Queue Result
                                             
@@ -12555,7 +13973,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, self).__init__()
 
                                                 self.yang_name = "queue"
                                                 self.yang_parent_name = "result"
@@ -12579,9 +14000,13 @@ class PlatformQosEa(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue']['meta_info']
 
 
-                                        class Police(Entity):
+                                        class Police(_Entity_):
                                             """
                                             QoS EA Policer Result
                                             
@@ -12629,7 +14054,10 @@ class PlatformQosEa(Entity):
                                             _revision = '2016-02-18'
 
                                             def __init__(self):
-                                                super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, self).__init__()
 
                                                 self.yang_name = "police"
                                                 self.yang_parent_name = "result"
@@ -12653,19 +14081,63 @@ class PlatformQosEa(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police']['meta_info']
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                        return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                                return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                            return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface.Input']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                        return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                    return meta._meta_table['PlatformQosEa.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+                return meta._meta_table['PlatformQosEa.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+            return meta._meta_table['PlatformQosEa.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformQosEa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_skp_qos_oper as meta
+        return meta._meta_table['PlatformQosEa']['meta_info']
 
 

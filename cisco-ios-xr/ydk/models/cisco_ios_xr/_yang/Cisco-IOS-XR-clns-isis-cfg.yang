@@ -54,6 +54,10 @@ module Cisco-IOS-XR-clns-isis-cfg {
     description
       "Added purge-transmit strict configuration item.";
   }
+  revision 2018-10-30 {
+    description
+      "Change max metric definition.";
+  }
   revision 2018-09-27 {
     description
       " Modify the SRv6 container and add a Locator container.";
@@ -598,6 +602,28 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isis authentication algorithm";
+  }
+
+  typedef Isis-max-metric-mode {
+    type enumeration {
+      enum "permanently-set" {
+        value 1;
+        description
+          "Set always";
+      }
+      enum "startup-period" {
+        value 2;
+        description
+          "Set during the startup period";
+      }
+      enum "wait-for-bgp" {
+        value 3;
+        description
+          "Set until BGP comverges";
+      }
+    }
+    description
+      "Isis max metric mode";
   }
 
   typedef Isisispf-state {
@@ -1560,15 +1586,65 @@ module Cisco-IOS-XR-clns-isis-cfg {
         }
         container max-link-metrics {
           description
-            "Max Link Metric configuration";
+            "Max Metric configuration";
           list max-link-metric {
             key "level";
             description
-              "Max Link Metric";
+              "Max Metric";
             leaf level {
               type dt1:Isis-internal-level;
               description
                 "Level to which configuration applies";
+            }
+            leaf max-metric-mode {
+              type Isis-max-metric-mode;
+              default "permanently-set";
+              description
+                "Circumstances under which the max metric is
+                 advertised in the system LSP";
+            }
+            leaf max-metric-period {
+              when "../max-metric-mode = 'startup-period'" {
+                description
+                  "../MaxMetricMode = StartupPeriod";
+              }
+              type uint32 {
+                range "5..86400";
+              }
+              units "second";
+              description
+                "Time in seconds to advertise max link metric
+                 after process startup";
+            }
+            leaf external {
+              type boolean;
+              default "false";
+              description
+                "If TRUE, overwrite metric of prefixes
+                 learned from another protocol with max
+                 metric";
+            }
+            leaf interlevel {
+              type boolean;
+              default "false";
+              description
+                "If TRUE, overwrite metric of prefixes
+                 learned from another ISIS level with max
+                 metric";
+            }
+            leaf deflt-rt {
+              type boolean;
+              default "false";
+              description
+                "If TRUE, overwrite metric of default route
+                 with max metric";
+            }
+            leaf srv6-loc {
+              type boolean;
+              default "false";
+              description
+                "If TRUE, overwrite metric of segment routing
+                 IPV6 locator with max metric";
             }
           }
         }

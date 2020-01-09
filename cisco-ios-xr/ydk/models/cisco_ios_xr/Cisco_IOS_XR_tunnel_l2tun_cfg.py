@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class L2tpDigestHashMethod(Enum):
     md5 = Enum.YLeaf(1, "md5")
 
     sha1 = Enum.YLeaf(2, "sha1")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+        return meta._meta_table['L2tpDigestHashMethod']
 
 
 class L2tpHashMethod(Enum):
@@ -68,8 +77,14 @@ class L2tpHashMethod(Enum):
     none = Enum.YLeaf(3, "none")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+        return meta._meta_table['L2tpHashMethod']
 
-class L2tp(Entity):
+
+
+class L2tp(_Entity_):
     """
     L2TPv3 class used for L2VPNs
     
@@ -86,7 +101,10 @@ class L2tp(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(L2tp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(L2tp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2tp"
@@ -107,7 +125,7 @@ class L2tp(Entity):
         self._perform_setattr(L2tp, [], name, value)
 
 
-    class Classes(Entity):
+    class Classes(_Entity_):
         """
         List of classes
         
@@ -124,7 +142,10 @@ class L2tp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2tp.Classes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2tp.Classes, self).__init__()
 
             self.yang_name = "classes"
             self.yang_parent_name = "l2tp"
@@ -143,7 +164,7 @@ class L2tp(Entity):
             self._perform_setattr(L2tp.Classes, [], name, value)
 
 
-        class Class(Entity):
+        class Class(_Entity_):
             """
             Configuration for a specific class
             
@@ -257,7 +278,10 @@ class L2tp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2tp.Classes.Class, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2tp.Classes.Class, self).__init__()
 
                 self.yang_name = "class"
                 self.yang_parent_name = "classes"
@@ -317,7 +341,7 @@ class L2tp(Entity):
                 self._perform_setattr(L2tp.Classes.Class, ['class_name', 'host_name', 'hidden', 'hello_interval', 'timeout_setup', 'receive_window', 'congestion_control', 'timeout_no_user', 'authentication', 'enable', 'password'], name, value)
 
 
-            class Security(Entity):
+            class Security(_Entity_):
                 """
                 Security check
                 
@@ -334,7 +358,10 @@ class L2tp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2tp.Classes.Class.Security, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Classes.Class.Security, self).__init__()
 
                     self.yang_name = "security"
                     self.yang_parent_name = "class"
@@ -354,7 +381,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Classes.Class.Security, [], name, value)
 
 
-                class Ip(Entity):
+                class Ip(_Entity_):
                     """
                     Security check for IP
                     
@@ -371,7 +398,10 @@ class L2tp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2tp.Classes.Class.Security.Ip, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Classes.Class.Security.Ip, self).__init__()
 
                         self.yang_name = "ip"
                         self.yang_parent_name = "security"
@@ -389,10 +419,18 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Security.Ip, ['address_check'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                        return meta._meta_table['L2tp.Classes.Class.Security.Ip']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                    return meta._meta_table['L2tp.Classes.Class.Security']['meta_info']
 
 
-
-            class Retransmit(Entity):
+            class Retransmit(_Entity_):
                 """
                 Control message retransmission parameters
                 
@@ -421,7 +459,10 @@ class L2tp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2tp.Classes.Class.Retransmit, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Classes.Class.Retransmit, self).__init__()
 
                     self.yang_name = "retransmit"
                     self.yang_parent_name = "class"
@@ -448,7 +489,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Classes.Class.Retransmit, ['retry'], name, value)
 
 
-                class Initial(Entity):
+                class Initial(_Entity_):
                     """
                     Set retries and timeouts for initial
                     
@@ -472,7 +513,10 @@ class L2tp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2tp.Classes.Class.Retransmit.Initial, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Classes.Class.Retransmit.Initial, self).__init__()
 
                         self.yang_name = "initial"
                         self.yang_parent_name = "retransmit"
@@ -495,7 +539,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Classes.Class.Retransmit.Initial, ['retry'], name, value)
 
 
-                    class Timeout(Entity):
+                    class Timeout(_Entity_):
                         """
                         Set timeout value range
                         
@@ -521,7 +565,10 @@ class L2tp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2tp.Classes.Class.Retransmit.Initial.Timeout, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Classes.Class.Retransmit.Initial.Timeout, self).__init__()
 
                             self.yang_name = "timeout"
                             self.yang_parent_name = "initial"
@@ -541,10 +588,18 @@ class L2tp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Classes.Class.Retransmit.Initial.Timeout, ['minimum', 'maximum'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                            return meta._meta_table['L2tp.Classes.Class.Retransmit.Initial.Timeout']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                        return meta._meta_table['L2tp.Classes.Class.Retransmit.Initial']['meta_info']
 
 
-
-                class Timeout(Entity):
+                class Timeout(_Entity_):
                     """
                     Set timeout value range
                     
@@ -570,7 +625,10 @@ class L2tp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2tp.Classes.Class.Retransmit.Timeout, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Classes.Class.Retransmit.Timeout, self).__init__()
 
                         self.yang_name = "timeout"
                         self.yang_parent_name = "retransmit"
@@ -590,10 +648,18 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Retransmit.Timeout, ['minimum', 'maximum'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                        return meta._meta_table['L2tp.Classes.Class.Retransmit.Timeout']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                    return meta._meta_table['L2tp.Classes.Class.Retransmit']['meta_info']
 
 
-
-            class Tunnel(Entity):
+            class Tunnel(_Entity_):
                 """
                 l2TP tunnel
                 
@@ -610,7 +676,10 @@ class L2tp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2tp.Classes.Class.Tunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Classes.Class.Tunnel, self).__init__()
 
                     self.yang_name = "tunnel"
                     self.yang_parent_name = "class"
@@ -628,9 +697,13 @@ class L2tp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Tunnel, ['accounting'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                    return meta._meta_table['L2tp.Classes.Class.Tunnel']['meta_info']
 
 
-            class Digest(Entity):
+            class Digest(_Entity_):
                 """
                 Message digest authentication for the L2TP
                 control connection
@@ -658,7 +731,10 @@ class L2tp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2tp.Classes.Class.Digest, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Classes.Class.Digest, self).__init__()
 
                     self.yang_name = "digest"
                     self.yang_parent_name = "class"
@@ -683,7 +759,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Classes.Class.Digest, ['hash', 'check_disable'], name, value)
 
 
-                class Secrets(Entity):
+                class Secrets(_Entity_):
                     """
                     Set shared secret for message digest
                     
@@ -700,7 +776,10 @@ class L2tp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2tp.Classes.Class.Digest.Secrets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Classes.Class.Digest.Secrets, self).__init__()
 
                         self.yang_name = "secrets"
                         self.yang_parent_name = "digest"
@@ -718,7 +797,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Classes.Class.Digest.Secrets, [], name, value)
 
 
-                    class Secret(Entity):
+                    class Secret(_Entity_):
                         """
                         The encrypted user secret and hash method
                         
@@ -744,7 +823,10 @@ class L2tp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2tp.Classes.Class.Digest.Secrets.Secret, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Classes.Class.Digest.Secrets.Secret, self).__init__()
 
                             self.yang_name = "secret"
                             self.yang_parent_name = "secrets"
@@ -764,11 +846,23 @@ class L2tp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Classes.Class.Digest.Secrets.Secret, ['secret_name', 'hash'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                            return meta._meta_table['L2tp.Classes.Class.Digest.Secrets.Secret']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                        return meta._meta_table['L2tp.Classes.Class.Digest.Secrets']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                    return meta._meta_table['L2tp.Classes.Class.Digest']['meta_info']
 
 
-
-
-            class Ip(Entity):
+            class Ip(_Entity_):
                 """
                 IP TOS value
                 
@@ -787,7 +881,10 @@ class L2tp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2tp.Classes.Class.Ip, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Classes.Class.Ip, self).__init__()
 
                     self.yang_name = "ip"
                     self.yang_parent_name = "class"
@@ -805,12 +902,28 @@ class L2tp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Ip, ['tos'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                    return meta._meta_table['L2tp.Classes.Class.Ip']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+                return meta._meta_table['L2tp.Classes.Class']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+            return meta._meta_table['L2tp.Classes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = L2tp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_cfg as meta
+        return meta._meta_table['L2tp']['meta_info']
 
 

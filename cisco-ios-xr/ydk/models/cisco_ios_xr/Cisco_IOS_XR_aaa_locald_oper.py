@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Aaa(Entity):
+class Aaa(_Entity_):
     """
     AAA operational data
     
@@ -95,17 +98,17 @@ class Aaa(Entity):
     
     	**config**\: False
     
-    .. attribute:: radius
-    
-    	RADIUS operational data
-    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
-    
-    	**config**\: False
-    
     .. attribute:: tacacs
     
     	TACACS operational data
     	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
+    
+    	**config**\: False
+    
+    .. attribute:: radius
+    
+    	RADIUS operational data
+    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
     
     	**config**\: False
     
@@ -117,7 +120,10 @@ class Aaa(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Aaa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Aaa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aaa"
@@ -125,7 +131,7 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs))])
+        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius))])
         self._leafs = OrderedDict()
 
         self.all_tasks = Aaa.AllTasks()
@@ -168,13 +174,13 @@ class Aaa(Entity):
         self.diameter.parent = self
         self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-oper:diameter"
 
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-
         self.tacacs = Aaa.Tacacs()
         self.tacacs.parent = self
         self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa"
         self._is_frozen = True
 
@@ -182,7 +188,7 @@ class Aaa(Entity):
         self._perform_setattr(Aaa, [], name, value)
 
 
-    class AllTasks(Entity):
+    class AllTasks(_Entity_):
         """
         All tasks supported by system
         
@@ -201,7 +207,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.AllTasks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.AllTasks, self).__init__()
 
             self.yang_name = "all-tasks"
             self.yang_parent_name = "aaa"
@@ -220,9 +229,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.AllTasks, ['task_id'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.AllTasks']['meta_info']
 
 
-    class CurrentuserDetail(Entity):
+    class CurrentuserDetail(_Entity_):
         """
         Current user specific details
         
@@ -278,7 +291,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.CurrentuserDetail, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.CurrentuserDetail, self).__init__()
 
             self.yang_name = "currentuser-detail"
             self.yang_parent_name = "aaa"
@@ -307,9 +323,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.CurrentuserDetail, ['name', 'shelltype', 'directory', 'authenmethod', 'usergroup', 'taskmap'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.CurrentuserDetail']['meta_info']
 
 
-    class TaskMap(Entity):
+    class TaskMap(_Entity_):
         """
         Task map of current user
         
@@ -365,7 +385,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.TaskMap, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.TaskMap, self).__init__()
 
             self.yang_name = "task-map"
             self.yang_parent_name = "aaa"
@@ -394,9 +417,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.TaskMap, ['name', 'shelltype', 'directory', 'authenmethod', 'usergroup', 'taskmap'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.TaskMap']['meta_info']
 
 
-    class Taskgroups(Entity):
+    class Taskgroups(_Entity_):
         """
         Individual taskgroups container
         
@@ -415,7 +442,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.Taskgroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Taskgroups, self).__init__()
 
             self.yang_name = "taskgroups"
             self.yang_parent_name = "aaa"
@@ -434,7 +464,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Taskgroups, [], name, value)
 
 
-        class Taskgroup(Entity):
+        class Taskgroup(_Entity_):
             """
             Specific Taskgroup Information
             
@@ -467,7 +497,10 @@ class Aaa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.Taskgroups.Taskgroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Taskgroups.Taskgroup, self).__init__()
 
                 self.yang_name = "taskgroup"
                 self.yang_parent_name = "taskgroups"
@@ -495,7 +528,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Taskgroups.Taskgroup, ['name'], name, value)
 
 
-            class IncludedTaskIds(Entity):
+            class IncludedTaskIds(_Entity_):
                 """
                 Task\-ids included
                 
@@ -514,7 +547,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Taskgroups.Taskgroup.IncludedTaskIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Taskgroups.Taskgroup.IncludedTaskIds, self).__init__()
 
                     self.yang_name = "included-task-ids"
                     self.yang_parent_name = "taskgroup"
@@ -532,7 +568,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Taskgroups.Taskgroup.IncludedTaskIds, [], name, value)
 
 
-                class Tasks(Entity):
+                class Tasks(_Entity_):
                     """
                     List of permitted tasks
                     
@@ -579,7 +615,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks, self).__init__()
 
                         self.yang_name = "tasks"
                         self.yang_parent_name = "included-task-ids"
@@ -605,10 +644,18 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Taskgroups.Taskgroup.IncludedTaskIds']['meta_info']
 
 
-
-            class TaskMap(Entity):
+            class TaskMap(_Entity_):
                 """
                 Computed task map
                 
@@ -627,7 +674,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Taskgroups.Taskgroup.TaskMap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Taskgroups.Taskgroup.TaskMap, self).__init__()
 
                     self.yang_name = "task-map"
                     self.yang_parent_name = "taskgroup"
@@ -645,7 +695,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Taskgroups.Taskgroup.TaskMap, [], name, value)
 
 
-                class Tasks(Entity):
+                class Tasks(_Entity_):
                     """
                     List of permitted tasks
                     
@@ -692,7 +742,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Taskgroups.Taskgroup.TaskMap.Tasks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Taskgroups.Taskgroup.TaskMap.Tasks, self).__init__()
 
                         self.yang_name = "tasks"
                         self.yang_parent_name = "task-map"
@@ -718,12 +771,28 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Taskgroups.Taskgroup.TaskMap.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Taskgroups.Taskgroup.TaskMap.Tasks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Taskgroups.Taskgroup.TaskMap']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Taskgroups.Taskgroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Taskgroups']['meta_info']
 
 
-
-
-
-    class Users(Entity):
+    class Users(_Entity_):
         """
         Container for individual local user information
         
@@ -742,7 +811,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.Users, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Users, self).__init__()
 
             self.yang_name = "users"
             self.yang_parent_name = "aaa"
@@ -761,7 +833,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Users, [], name, value)
 
 
-        class User(Entity):
+        class User(_Entity_):
             """
             Specific local user information
             
@@ -808,7 +880,10 @@ class Aaa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.Users.User, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Users.User, self).__init__()
 
                 self.yang_name = "user"
                 self.yang_parent_name = "users"
@@ -838,7 +913,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Users.User, ['name', 'admin_user', 'first_user', 'usergroup'], name, value)
 
 
-            class TaskMap(Entity):
+            class TaskMap(_Entity_):
                 """
                 Computed taskmap
                 
@@ -857,7 +932,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Users.User.TaskMap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Users.User.TaskMap, self).__init__()
 
                     self.yang_name = "task-map"
                     self.yang_parent_name = "user"
@@ -875,7 +953,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Users.User.TaskMap, [], name, value)
 
 
-                class Tasks(Entity):
+                class Tasks(_Entity_):
                     """
                     List of permitted tasks
                     
@@ -922,7 +1000,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Users.User.TaskMap.Tasks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Users.User.TaskMap.Tasks, self).__init__()
 
                         self.yang_name = "tasks"
                         self.yang_parent_name = "task-map"
@@ -948,12 +1029,28 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Users.User.TaskMap.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Users.User.TaskMap.Tasks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Users.User.TaskMap']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Users.User']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Users']['meta_info']
 
 
-
-
-
-    class PasswordPolicies(Entity):
+    class PasswordPolicies(_Entity_):
         """
         Container for individual password policy
         Information
@@ -973,7 +1070,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.PasswordPolicies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.PasswordPolicies, self).__init__()
 
             self.yang_name = "password-policies"
             self.yang_parent_name = "aaa"
@@ -992,7 +1092,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.PasswordPolicies, [], name, value)
 
 
-        class PasswordPolicy(Entity):
+        class PasswordPolicy(_Entity_):
             """
             Password policy details
             
@@ -1133,7 +1233,10 @@ class Aaa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.PasswordPolicies.PasswordPolicy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.PasswordPolicies.PasswordPolicy, self).__init__()
 
                 self.yang_name = "password-policy"
                 self.yang_parent_name = "password-policies"
@@ -1185,7 +1288,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, ['name', 'min_len', 'max_len', 'spl_char', 'upper_case', 'lower_case', 'numeric', 'min_char_change', 'num_of_users', 'max_fail_attempts', 'usr_count', 'err_count', 'lock_out_count'], name, value)
 
 
-            class LifeTime(Entity):
+            class LifeTime(_Entity_):
                 """
                 Lifetime of the policy
                 
@@ -1251,7 +1354,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, self).__init__()
 
                     self.yang_name = "life-time"
                     self.yang_parent_name = "password-policy"
@@ -1279,9 +1385,13 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, ['years', 'months', 'days', 'hours', 'mins', 'secs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.PasswordPolicies.PasswordPolicy.LifeTime']['meta_info']
 
 
-            class LockOutTime(Entity):
+            class LockOutTime(_Entity_):
                 """
                 Lockout time of the policy
                 
@@ -1347,7 +1457,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, self).__init__()
 
                     self.yang_name = "lock-out-time"
                     self.yang_parent_name = "password-policy"
@@ -1375,11 +1488,23 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, ['years', 'months', 'days', 'hours', 'mins', 'secs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.PasswordPolicies.PasswordPolicy.LockOutTime']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.PasswordPolicies.PasswordPolicy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.PasswordPolicies']['meta_info']
 
 
-
-
-    class Usergroups(Entity):
+    class Usergroups(_Entity_):
         """
         Container for individual usergroup Information
         
@@ -1398,7 +1523,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.Usergroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Usergroups, self).__init__()
 
             self.yang_name = "usergroups"
             self.yang_parent_name = "aaa"
@@ -1417,7 +1545,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Usergroups, [], name, value)
 
 
-        class Usergroup(Entity):
+        class Usergroup(_Entity_):
             """
             Specific Usergroup Information
             
@@ -1450,7 +1578,10 @@ class Aaa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.Usergroups.Usergroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Usergroups.Usergroup, self).__init__()
 
                 self.yang_name = "usergroup"
                 self.yang_parent_name = "usergroups"
@@ -1476,7 +1607,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Usergroups.Usergroup, ['name'], name, value)
 
 
-            class TaskMap(Entity):
+            class TaskMap(_Entity_):
                 """
                 Computed task map
                 
@@ -1495,7 +1626,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Usergroups.Usergroup.TaskMap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Usergroups.Usergroup.TaskMap, self).__init__()
 
                     self.yang_name = "task-map"
                     self.yang_parent_name = "usergroup"
@@ -1513,7 +1647,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Usergroups.Usergroup.TaskMap, [], name, value)
 
 
-                class Tasks(Entity):
+                class Tasks(_Entity_):
                     """
                     List of permitted tasks
                     
@@ -1560,7 +1694,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Usergroups.Usergroup.TaskMap.Tasks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Usergroups.Usergroup.TaskMap.Tasks, self).__init__()
 
                         self.yang_name = "tasks"
                         self.yang_parent_name = "task-map"
@@ -1586,10 +1723,18 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Usergroups.Usergroup.TaskMap.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Usergroups.Usergroup.TaskMap.Tasks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Usergroups.Usergroup.TaskMap']['meta_info']
 
 
-
-            class Taskgroup(Entity):
+            class Taskgroup(_Entity_):
                 """
                 Component taskgroups
                 
@@ -1615,7 +1760,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Usergroups.Usergroup.Taskgroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Usergroups.Usergroup.Taskgroup, self).__init__()
 
                     self.yang_name = "taskgroup"
                     self.yang_parent_name = "usergroup"
@@ -1639,7 +1787,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup, [], name, value)
 
 
-                class IncludedTaskIds(Entity):
+                class IncludedTaskIds(_Entity_):
                     """
                     Task\-ids included
                     
@@ -1658,7 +1806,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds, self).__init__()
 
                         self.yang_name = "included-task-ids"
                         self.yang_parent_name = "taskgroup"
@@ -1676,7 +1827,7 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds, [], name, value)
 
 
-                    class Tasks(Entity):
+                    class Tasks(_Entity_):
                         """
                         List of permitted tasks
                         
@@ -1723,7 +1874,10 @@ class Aaa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks, self).__init__()
 
                             self.yang_name = "tasks"
                             self.yang_parent_name = "included-task-ids"
@@ -1749,10 +1903,18 @@ class Aaa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                            return meta._meta_table['Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds']['meta_info']
 
 
-
-                class TaskMap(Entity):
+                class TaskMap(_Entity_):
                     """
                     Computed task map
                     
@@ -1771,7 +1933,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap, self).__init__()
 
                         self.yang_name = "task-map"
                         self.yang_parent_name = "taskgroup"
@@ -1789,7 +1954,7 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap, [], name, value)
 
 
-                    class Tasks(Entity):
+                    class Tasks(_Entity_):
                         """
                         List of permitted tasks
                         
@@ -1836,7 +2001,10 @@ class Aaa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks, self).__init__()
 
                             self.yang_name = "tasks"
                             self.yang_parent_name = "task-map"
@@ -1862,13 +2030,33 @@ class Aaa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                            return meta._meta_table['Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Usergroups.Usergroup.Taskgroup.TaskMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Usergroups.Usergroup.Taskgroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Usergroups.Usergroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Usergroups']['meta_info']
 
 
-
-
-
-
-    class AuthenMethod(Entity):
+    class AuthenMethod(_Entity_):
         """
         Current users authentication method
         
@@ -1924,7 +2112,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.AuthenMethod, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.AuthenMethod, self).__init__()
 
             self.yang_name = "authen-method"
             self.yang_parent_name = "aaa"
@@ -1953,9 +2144,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.AuthenMethod, ['name', 'shelltype', 'directory', 'authenmethod', 'usergroup', 'taskmap'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.AuthenMethod']['meta_info']
 
 
-    class CurrentUsergroup(Entity):
+    class CurrentUsergroup(_Entity_):
         """
         Specific Usergroup Information
         
@@ -2011,7 +2206,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.CurrentUsergroup, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.CurrentUsergroup, self).__init__()
 
             self.yang_name = "current-usergroup"
             self.yang_parent_name = "aaa"
@@ -2040,9 +2238,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.CurrentUsergroup, ['name', 'shelltype', 'directory', 'authenmethod', 'usergroup', 'taskmap'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.CurrentUsergroup']['meta_info']
 
 
-    class Diameter(Entity):
+    class Diameter(_Entity_):
         """
         Diameter operational data
         
@@ -2121,10 +2323,13 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-diameter-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-09-26'
 
         def __init__(self):
-            super(Aaa.Diameter, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Diameter, self).__init__()
 
             self.yang_name = "diameter"
             self.yang_parent_name = "aaa"
@@ -2181,7 +2386,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Diameter, [], name, value)
 
 
-        class Gy(Entity):
+        class Gy(_Entity_):
             """
             Diameter global gy data
             
@@ -2217,10 +2422,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.Gy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.Gy, self).__init__()
 
                 self.yang_name = "gy"
                 self.yang_parent_name = "diameter"
@@ -2243,9 +2451,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Diameter.Gy, ['is_enabled', 'tx_timer', 'retransmits'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Gy']['meta_info']
 
 
-        class GxStatistics(Entity):
+        class GxStatistics(_Entity_):
             """
             Diameter Gx Statistics data
             
@@ -2542,10 +2754,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.GxStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.GxStatistics, self).__init__()
 
                 self.yang_name = "gx-statistics"
                 self.yang_parent_name = "diameter"
@@ -2626,9 +2841,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Diameter.GxStatistics, ['ccr_init_messages', 'ccr_init_failed_messages', 'ccr_init_timed_out_messages', 'ccr_init_retry_messages', 'ccr_update_messages', 'ccr_update_failed_messages', 'ccr_update_timed_out_messages', 'ccr_update_retry_messages', 'ccr_final_messages', 'ccr_final_failed_messages', 'ccr_final_timed_out_messages', 'ccr_final_retry_messages', 'cca_init_messages', 'cca_init_error_messages', 'cca_update_messages', 'cca_update_error_messages', 'cca_final_messages', 'cca_final_error_messages', 'rar_received_messages', 'rar_received_error_messages', 'raa_sent_messages', 'raa_sent_error_messages', 'asr_received_messages', 'asr_received_error_messages', 'asa_sent_messsages', 'asa_sent_error_messages', 'session_termination_messages', 'unknown_request_messages', 'restore_sessions', 'open_sessions', 'close_sessions', 'active_sessions'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GxStatistics']['meta_info']
 
 
-        class Gx(Entity):
+        class Gx(_Entity_):
             """
             Diameter global gx data
             
@@ -2664,10 +2883,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.Gx, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.Gx, self).__init__()
 
                 self.yang_name = "gx"
                 self.yang_parent_name = "diameter"
@@ -2690,9 +2912,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Diameter.Gx, ['is_enabled', 'tx_timer', 'retransmits'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Gx']['meta_info']
 
 
-        class Peers(Entity):
+        class Peers(_Entity_):
             """
             Diameter peer global data
             
@@ -2796,10 +3022,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.Peers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.Peers, self).__init__()
 
                 self.yang_name = "peers"
                 self.yang_parent_name = "diameter"
@@ -2839,7 +3068,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.Peers, ['origin_host', 'origin_realm', 'source_interface', 'tls_trustpoint', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'peer_num', 'trans_total', 'trans_max'], name, value)
 
 
-            class Peer(Entity):
+            class Peer(_Entity_):
                 """
                 Peer List
                 
@@ -3378,10 +3607,64 @@ class Aaa(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: transaction_timeout_cnt
+                
+                	Transcation Timeout Counter
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: transaction_remove_cnt
+                
+                	Transaction Remove Counter
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: transaction_retry_cnt
+                
+                	Transaction Retry Counter
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: transaction_normal_cnt
+                
+                	Transaction Normal Counter
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: transaction_sent_cnt
+                
+                	Transaction transport Counter
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Peer Connection Status
                 	**type**\:  :py:class:`PeerStateValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerStateValue>`
+                
+                	**config**\: False
+                
+                .. attribute:: peer_closed_reason
+                
+                	Peer Closed Reason
+                	**type**\: str
+                
+                	**length:** 0..255
                 
                 	**config**\: False
                 
@@ -3390,10 +3673,13 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Aaa.Diameter.Peers.Peer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Diameter.Peers.Peer, self).__init__()
 
                     self.yang_name = "peer"
                     self.yang_parent_name = "peers"
@@ -3463,7 +3749,13 @@ class Aaa(Entity):
                         ('received_permanent_fails', (YLeaf(YType.uint32, 'received-permanent-fails'), ['int'])),
                         ('sent_permanent_fails', (YLeaf(YType.uint32, 'sent-permanent-fails'), ['int'])),
                         ('transport_down', (YLeaf(YType.uint32, 'transport-down'), ['int'])),
+                        ('transaction_timeout_cnt', (YLeaf(YType.uint32, 'transaction-timeout-cnt'), ['int'])),
+                        ('transaction_remove_cnt', (YLeaf(YType.uint32, 'transaction-remove-cnt'), ['int'])),
+                        ('transaction_retry_cnt', (YLeaf(YType.uint32, 'transaction-retry-cnt'), ['int'])),
+                        ('transaction_normal_cnt', (YLeaf(YType.uint32, 'transaction-normal-cnt'), ['int'])),
+                        ('transaction_sent_cnt', (YLeaf(YType.uint32, 'transaction-sent-cnt'), ['int'])),
                         ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper', 'PeerStateValue', '')])),
+                        ('peer_closed_reason', (YLeaf(YType.str, 'peer-closed-reason'), ['str'])),
                     ])
                     self.peer_name = None
                     self.peer_index = None
@@ -3526,18 +3818,32 @@ class Aaa(Entity):
                     self.received_permanent_fails = None
                     self.sent_permanent_fails = None
                     self.transport_down = None
+                    self.transaction_timeout_cnt = None
+                    self.transaction_remove_cnt = None
+                    self.transaction_retry_cnt = None
+                    self.transaction_normal_cnt = None
+                    self.transaction_sent_cnt = None
                     self.state = None
+                    self.peer_closed_reason = None
                     self._segment_path = lambda: "peer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/peers/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Diameter.Peers.Peer, ['peer_name', 'peer_index', 'address', 'port', 'port_connect', 'protocol_type', 'security_type', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'vrf_name', 'source_interface', 'destination_host', 'destination_realm', 'peer_type', 'firmware_revision', 'state_duration', 'last_disconnect_cause', 'who_init_disconnect', 'in_as_rs', 'out_as_rs', 'in_as_as', 'out_as_as', 'in_ac_rs', 'out_ac_rs', 'in_ac_as', 'out_ac_as', 'in_ce_rs', 'out_ce_rs', 'in_ce_as', 'out_ce_as', 'in_dw_rs', 'out_dw_rs', 'in_dw_as', 'out_dw_as', 'in_dp_rs', 'out_dp_rs', 'in_dp_as', 'out_dp_as', 'in_ra_rs', 'out_ra_rs', 'in_ra_as', 'out_ra_as', 'in_st_rs', 'out_st_rs', 'in_st_as', 'out_st_as', 'in_cc_rs', 'out_cc_rs', 'in_cc_as', 'out_cc_as', 'out_aa_rs', 'in_aa_as', 'malformed_requests', 'received_proto_errors', 'sent_proto_errors', 'received_transient_fails', 'sent_transient_fails', 'received_permanent_fails', 'sent_permanent_fails', 'transport_down', 'state'], name, value)
+                    self._perform_setattr(Aaa.Diameter.Peers.Peer, ['peer_name', 'peer_index', 'address', 'port', 'port_connect', 'protocol_type', 'security_type', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'vrf_name', 'source_interface', 'destination_host', 'destination_realm', 'peer_type', 'firmware_revision', 'state_duration', 'last_disconnect_cause', 'who_init_disconnect', 'in_as_rs', 'out_as_rs', 'in_as_as', 'out_as_as', 'in_ac_rs', 'out_ac_rs', 'in_ac_as', 'out_ac_as', 'in_ce_rs', 'out_ce_rs', 'in_ce_as', 'out_ce_as', 'in_dw_rs', 'out_dw_rs', 'in_dw_as', 'out_dw_as', 'in_dp_rs', 'out_dp_rs', 'in_dp_as', 'out_dp_as', 'in_ra_rs', 'out_ra_rs', 'in_ra_as', 'out_ra_as', 'in_st_rs', 'out_st_rs', 'in_st_as', 'out_st_as', 'in_cc_rs', 'out_cc_rs', 'in_cc_as', 'out_cc_as', 'out_aa_rs', 'in_aa_as', 'malformed_requests', 'received_proto_errors', 'sent_proto_errors', 'received_transient_fails', 'sent_transient_fails', 'received_permanent_fails', 'sent_permanent_fails', 'transport_down', 'transaction_timeout_cnt', 'transaction_remove_cnt', 'transaction_retry_cnt', 'transaction_normal_cnt', 'transaction_sent_cnt', 'state', 'peer_closed_reason'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.Peers.Peer']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Peers']['meta_info']
 
 
-
-
-        class Nas(Entity):
+        class Nas(_Entity_):
             """
             Diameter NAS data
             
@@ -3560,10 +3866,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.Nas, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.Nas, self).__init__()
 
                 self.yang_name = "nas"
                 self.yang_parent_name = "diameter"
@@ -3585,7 +3894,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.Nas, ['aaanas_id'], name, value)
 
 
-            class ListOfNas(Entity):
+            class ListOfNas(_Entity_):
                 """
                 List of NAS Entries
                 
@@ -3685,10 +3994,13 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Aaa.Diameter.Nas.ListOfNas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Diameter.Nas.ListOfNas, self).__init__()
 
                     self.yang_name = "list-of-nas"
                     self.yang_parent_name = "nas"
@@ -3727,10 +4039,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.Nas.ListOfNas, ['aaa_session_id', 'diameter_session_id', 'authentication_status', 'authorization_status', 'accounting_status', 'accounting_status_stop', 'disconnect_status', 'accounting_intrim_in_packets', 'accounting_intrim_out_packets', 'method_list', 'server_used_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.Nas.ListOfNas']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Nas']['meta_info']
 
 
-
-        class NasSummary(Entity):
+        class NasSummary(_Entity_):
             """
             Diameter NAS summary
             
@@ -4171,10 +4491,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.NasSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.NasSummary, self).__init__()
 
                 self.yang_name = "nas-summary"
                 self.yang_parent_name = "diameter"
@@ -4287,9 +4610,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Diameter.NasSummary, ['authen_response_in_packets', 'authen_request_out_packets', 'authen_request_in_packets', 'authen_response_out_packets', 'authen_success_packets', 'authen_response_fail_packets', 'authorization_in_packets', 'authorization_out_packets', 'authorization_request_in_packets', 'authorization_response_out_packets', 'authorization_response_success_packets', 'authorization_response_fail_packets', 'accounting_response_in_packets', 'accounting_request_out_packets', 'accounting_start_request_packets', 'accounting_start_response_packets', 'accounting_start_success_packets', 'accounting_start_failed_packets', 'accounting_stop_response_in_packets', 'accounting_stop_request_out_packets', 'accounting_stop_request_in_packets', 'accounting_stop_response_out_packets', 'accounting_stop_success_response_packets', 'accounting_stop_failed_packets', 'accounting_intrim_response_in_packets', 'accounting_interim_request_out_packets', 'accounting_interim_request_in_packets', 'accounting_interim_response_out_packets', 'accounting_interim_success_packets', 'accounting_interim_failed_packets', 'disconnect_response_in_packets', 'disconnect_request_out_packets', 'disconnect_request_in_packets', 'disconnect_response_out_packets', 'disconnect_success_response_packets', 'disconnect_failed_response_packets', 'coa_request_in_packets', 'coa_response_out_packets', 'coa_request_packets', 'coa_response_packets', 'coa_success_packets', 'coa_failed_packets', 'pod_in_packets', 'pod_out_packets', 'pod_request_in_packets', 'pod_response_out_packets', 'pod_success_packets', 'pod_failed_packets'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.NasSummary']['meta_info']
 
 
-        class GySessionIds(Entity):
+        class GySessionIds(_Entity_):
             """
             Diameter Gy Session data list
             
@@ -4305,10 +4632,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.GySessionIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.GySessionIds, self).__init__()
 
                 self.yang_name = "gy-session-ids"
                 self.yang_parent_name = "diameter"
@@ -4327,7 +4657,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.GySessionIds, [], name, value)
 
 
-            class GySessionId(Entity):
+            class GySessionId(_Entity_):
                 """
                 Diameter Gy Session data
                 
@@ -4402,10 +4732,13 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Aaa.Diameter.GySessionIds.GySessionId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Diameter.GySessionIds.GySessionId, self).__init__()
 
                     self.yang_name = "gy-session-id"
                     self.yang_parent_name = "gy-session-ids"
@@ -4438,10 +4771,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.GySessionIds.GySessionId, ['session_id', 'aaa_session_id', 'parent_aaa_session_id', 'diameter_session_id', 'request_number', 'session_state', 'request_type', 'retry_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.GySessionIds.GySessionId']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GySessionIds']['meta_info']
 
 
-
-        class GyStatistics(Entity):
+        class GyStatistics(_Entity_):
             """
             Diameter Gy Statistics data
             
@@ -4729,10 +5070,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.GyStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.GyStatistics, self).__init__()
 
                 self.yang_name = "gy-statistics"
                 self.yang_parent_name = "diameter"
@@ -4811,9 +5155,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Diameter.GyStatistics, ['ccr_init_messages', 'ccr_init_failed_messages', 'ccr_init_timed_out_messages', 'ccr_init_retry_messages', 'ccr_update_messages', 'ccr_update_failed_messages', 'ccr_update_timed_out_messages', 'ccr_update_retry_messages', 'ccr_final_messages', 'ccr_final_failed_messages', 'ccr_final_timed_out_messages', 'ccr_final_retry_messages', 'cca_init_messages', 'cca_init_error_messages', 'cca_update_messages', 'cca_update_error_messages', 'cca_final_messages', 'cca_final_error_messages', 'rar_received_messages', 'rar_received_error_messages', 'raa_sent_messages', 'raa_sent_error_messages', 'asr_received_messages', 'asr_received_error_messages', 'asa_sent_messages', 'asa_sent_error_messages', 'unknown_request_messages', 'restore_sessions', 'open_sessions', 'close_sessions', 'active_sessions'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GyStatistics']['meta_info']
 
 
-        class GxSessionIds(Entity):
+        class GxSessionIds(_Entity_):
             """
             Diameter Gx Session data list
             
@@ -4829,10 +5177,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.GxSessionIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.GxSessionIds, self).__init__()
 
                 self.yang_name = "gx-session-ids"
                 self.yang_parent_name = "diameter"
@@ -4851,7 +5202,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.GxSessionIds, [], name, value)
 
 
-            class GxSessionId(Entity):
+            class GxSessionId(_Entity_):
                 """
                 Diameter Gx Session data
                 
@@ -4935,15 +5286,27 @@ class Aaa(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: mac_address
+                
+                	Mac address of the subscriber session
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                
+                	**config**\: False
+                
                 
 
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Aaa.Diameter.GxSessionIds.GxSessionId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Diameter.GxSessionIds.GxSessionId, self).__init__()
 
                     self.yang_name = "gx-session-id"
                     self.yang_parent_name = "gx-session-ids"
@@ -4962,6 +5325,7 @@ class Aaa(Entity):
                         ('service_count', (YLeaf(YType.uint32, 'service-count'), ['int'])),
                         ('gx_plus_services', (YLeaf(YType.str, 'gx-plus-services'), ['str'])),
                         ('reavalidation_time', (YLeaf(YType.str, 'reavalidation-time'), ['str'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                     ])
                     self.session_id = None
                     self.aaa_session_id = None
@@ -4973,17 +5337,26 @@ class Aaa(Entity):
                     self.service_count = None
                     self.gx_plus_services = None
                     self.reavalidation_time = None
+                    self.mac_address = None
                     self._segment_path = lambda: "gx-session-id" + "[session-id='" + str(self.session_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/gx-session-ids/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Diameter.GxSessionIds.GxSessionId, ['session_id', 'aaa_session_id', 'diameter_session_id', 'request_number', 'session_state', 'request_type', 'retry_count', 'service_count', 'gx_plus_services', 'reavalidation_time'], name, value)
+                    self._perform_setattr(Aaa.Diameter.GxSessionIds.GxSessionId, ['session_id', 'aaa_session_id', 'diameter_session_id', 'request_number', 'session_state', 'request_type', 'retry_count', 'service_count', 'gx_plus_services', 'reavalidation_time', 'mac_address'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.GxSessionIds.GxSessionId']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GxSessionIds']['meta_info']
 
 
-
-
-        class NasSession(Entity):
+        class NasSession(_Entity_):
             """
             Diameter Nas Session data
             
@@ -5006,10 +5379,13 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Aaa.Diameter.NasSession, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Diameter.NasSession, self).__init__()
 
                 self.yang_name = "nas-session"
                 self.yang_parent_name = "diameter"
@@ -5031,7 +5407,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.NasSession, ['aaanas_id'], name, value)
 
 
-            class ListOfNas(Entity):
+            class ListOfNas(_Entity_):
                 """
                 List of NAS Entries
                 
@@ -5131,10 +5507,13 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Aaa.Diameter.NasSession.ListOfNas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Diameter.NasSession.ListOfNas, self).__init__()
 
                     self.yang_name = "list-of-nas"
                     self.yang_parent_name = "nas-session"
@@ -5173,11 +5552,991 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.NasSession.ListOfNas, ['aaa_session_id', 'diameter_session_id', 'authentication_status', 'authorization_status', 'accounting_status', 'accounting_status_stop', 'disconnect_status', 'accounting_intrim_in_packets', 'accounting_intrim_out_packets', 'method_list', 'server_used_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.NasSession.ListOfNas']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.NasSession']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Diameter']['meta_info']
 
 
+    class Tacacs(_Entity_):
+        """
+        TACACS operational data
+        
+        .. attribute:: requests
+        
+        	TACACS Active Request List
+        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        
+        	**config**\: False
+        
+        .. attribute:: servers
+        
+        	TACACS server Information
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        
+        	**config**\: False
+        
+        .. attribute:: server_groups
+        
+        	TACACS sg Information
+        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Tacacs, self).__init__()
+
+            self.yang_name = "tacacs"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
+            self._leafs = OrderedDict()
+
+            self.requests = Aaa.Tacacs.Requests()
+            self.requests.parent = self
+            self._children_name_map["requests"] = "requests"
+
+            self.servers = Aaa.Tacacs.Servers()
+            self.servers.parent = self
+            self._children_name_map["servers"] = "servers"
+
+            self.server_groups = Aaa.Tacacs.ServerGroups()
+            self.server_groups.parent = self
+            self._children_name_map["server_groups"] = "server-groups"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Tacacs, [], name, value)
 
 
-    class Radius(Entity):
+        class Requests(_Entity_):
+            """
+            TACACS Active Request List
+            
+            .. attribute:: request
+            
+            	request
+            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Tacacs.Requests, self).__init__()
+
+                self.yang_name = "requests"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
+                self._leafs = OrderedDict()
+
+                self.request = YList(self)
+                self._segment_path = lambda: "requests"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
+
+
+            class Request(_Entity_):
+                """
+                request
+                
+                .. attribute:: tacacs_requestbag
+                
+                	address in tacascd proc space of this req
+                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Tacacs.Requests.Request, self).__init__()
+
+                    self.yang_name = "request"
+                    self.yang_parent_name = "requests"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
+                    self._leafs = OrderedDict()
+
+                    self.tacacs_requestbag = YList(self)
+                    self._segment_path = lambda: "request"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
+
+
+                class TacacsRequestbag(_Entity_):
+                    """
+                    address in tacascd proc space of this req
+                    
+                    .. attribute:: time_remaining
+                    
+                    	time remaining for this request
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_out
+                    
+                    	bytes written
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: out_pak_size
+                    
+                    	size of the packet to be sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_in
+                    
+                    	bytes read from socket
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: in_pak_size
+                    
+                    	size of the packet to be received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pak_type
+                    
+                    	the type of packet
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: session_id
+                    
+                    	same as in pkt hdr
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: sock
+                    
+                    	socket number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
+
+                        self.yang_name = "tacacs-requestbag"
+                        self.yang_parent_name = "request"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                            ('out_pak_size', (YLeaf(YType.uint32, 'out-pak-size'), ['int'])),
+                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                            ('in_pak_size', (YLeaf(YType.uint32, 'in-pak-size'), ['int'])),
+                            ('pak_type', (YLeaf(YType.str, 'pak-type'), ['str'])),
+                            ('session_id', (YLeaf(YType.int32, 'session-id'), ['int'])),
+                            ('sock', (YLeaf(YType.int32, 'sock'), ['int'])),
+                        ])
+                        self.time_remaining = None
+                        self.bytes_out = None
+                        self.out_pak_size = None
+                        self.bytes_in = None
+                        self.in_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
+                        self._segment_path = lambda: "tacacs-requestbag"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Requests']['meta_info']
+
+
+        class Servers(_Entity_):
+            """
+            TACACS server Information
+            
+            .. attribute:: server
+            
+            	server
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Tacacs.Servers, self).__init__()
+
+                self.yang_name = "servers"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
+                self._leafs = OrderedDict()
+
+                self.server = YList(self)
+                self._segment_path = lambda: "servers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
+
+
+            class Server(_Entity_):
+                """
+                server
+                
+                .. attribute:: addr
+                
+                	internet address of T+ server
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: timeout
+                
+                	per\-server timeout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: port
+                
+                	per server port to use
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bytes_in
+                
+                	# of bytes read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: bytes_out
+                
+                	# of bytes out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: closes
+                
+                	socket closes
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: opens
+                
+                	socket opens
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: errors
+                
+                	error count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: aborts
+                
+                	abort count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: paks_in
+                
+                	# of incoming packets read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: paks_out
+                
+                	# of outgoing packets sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: replies_expected
+                
+                	# of replies expected to arrive
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: up
+                
+                	is the server UP or down ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: conn_up
+                
+                	is the server connected ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: single_connect
+                
+                	is this a single connect server ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: is_private
+                
+                	is this a private server ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: vrf_name
+                
+                	VRF in which server is reachable
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                	**config**\: False
+                
+                .. attribute:: addr_buf
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**length:** 0..46
+                
+                	**config**\: False
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\: str
+                
+                	**length:** 0..5
+                
+                	**config**\: False
+                
+                .. attribute:: single_connect_idle_timeout
+                
+                	Single connection idle timeout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Tacacs.Servers.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "servers"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                        ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                        ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                        ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
+                        ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
+                        ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
+                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
+                        ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
+                        ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
+                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
+                        ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
+                        ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
+                        ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
+                        ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                        ('single_connect_idle_timeout', (YLeaf(YType.uint32, 'single-connect-idle-timeout'), ['int'])),
+                    ])
+                    self.addr = None
+                    self.timeout = None
+                    self.port = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.opens = None
+                    self.errors = None
+                    self.aborts = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.replies_expected = None
+                    self.up = None
+                    self.conn_up = None
+                    self.single_connect = None
+                    self.is_private = None
+                    self.vrf_name = None
+                    self.addr_buf = None
+                    self.family = None
+                    self.single_connect_idle_timeout = None
+                    self._segment_path = lambda: "server"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family', 'single_connect_idle_timeout'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Servers.Server']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Servers']['meta_info']
+
+
+        class ServerGroups(_Entity_):
+            """
+            TACACS sg Information
+            
+            .. attribute:: server_group
+            
+            	server group
+            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Tacacs.ServerGroups, self).__init__()
+
+                self.yang_name = "server-groups"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
+                self._leafs = OrderedDict()
+
+                self.server_group = YList(self)
+                self._segment_path = lambda: "server-groups"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
+
+
+            class ServerGroup(_Entity_):
+                """
+                server group
+                
+                .. attribute:: group_name
+                
+                	name of the server group
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: sg_map_num
+                
+                	server group mapped number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: vrf_name
+                
+                	vrf of the group
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                	**config**\: False
+                
+                .. attribute:: server
+                
+                	list of servers in this group
+                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
+
+                    self.yang_name = "server-group"
+                    self.yang_parent_name = "server-groups"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
+                    self._leafs = OrderedDict([
+                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                        ('sg_map_num', (YLeaf(YType.uint32, 'sg-map-num'), ['int'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ])
+                    self.group_name = None
+                    self.sg_map_num = None
+                    self.vrf_name = None
+
+                    self.server = YList(self)
+                    self._segment_path = lambda: "server-group"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
+
+
+                class Server(_Entity_):
+                    """
+                    list of servers in this group
+                    
+                    .. attribute:: addr
+                    
+                    	internet address of T+ server
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: timeout
+                    
+                    	per\-server timeout
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: port
+                    
+                    	per server port to use
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_in
+                    
+                    	# of bytes read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: bytes_out
+                    
+                    	# of bytes out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: closes
+                    
+                    	socket closes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: opens
+                    
+                    	socket opens
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: errors
+                    
+                    	error count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: aborts
+                    
+                    	abort count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: paks_in
+                    
+                    	# of incoming packets read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: paks_out
+                    
+                    	# of outgoing packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: replies_expected
+                    
+                    	# of replies expected to arrive
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: up
+                    
+                    	is the server UP or down ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: conn_up
+                    
+                    	is the server connected ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: single_connect
+                    
+                    	is this a single connect server ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_private
+                    
+                    	is this a private server ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF in which server is reachable
+                    	**type**\: str
+                    
+                    	**length:** 0..33
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: addr_buf
+                    
+                    	IP address buffer
+                    	**type**\: str
+                    
+                    	**length:** 0..46
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\: str
+                    
+                    	**length:** 0..5
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: single_connect_idle_timeout
+                    
+                    	Single connection idle timeout
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
+
+                        self.yang_name = "server"
+                        self.yang_parent_name = "server-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
+                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                            ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
+                            ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
+                            ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
+                            ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
+                            ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
+                            ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
+                            ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
+                            ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
+                            ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
+                            ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
+                            ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                            ('single_connect_idle_timeout', (YLeaf(YType.uint32, 'single-connect-idle-timeout'), ['int'])),
+                        ])
+                        self.addr = None
+                        self.timeout = None
+                        self.port = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.opens = None
+                        self.errors = None
+                        self.aborts = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.replies_expected = None
+                        self.up = None
+                        self.conn_up = None
+                        self.single_connect = None
+                        self.is_private = None
+                        self.vrf_name = None
+                        self.addr_buf = None
+                        self.family = None
+                        self.single_connect_idle_timeout = None
+                        self._segment_path = lambda: "server"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family', 'single_connect_idle_timeout'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Tacacs']['meta_info']
+
+
+    class Radius(_Entity_):
         """
         RADIUS operational data
         
@@ -5210,7 +6569,10 @@ class Aaa(Entity):
         _revision = '2017-11-13'
 
         def __init__(self):
-            super(Aaa.Radius, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Radius, self).__init__()
 
             self.yang_name = "radius"
             self.yang_parent_name = "aaa"
@@ -5239,7 +6601,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Radius, [], name, value)
 
 
-        class Servers(Entity):
+        class Servers(_Entity_):
             """
             List of RADIUS servers configured
             
@@ -5258,7 +6620,10 @@ class Aaa(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Aaa.Radius.Servers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Radius.Servers, self).__init__()
 
                 self.yang_name = "servers"
                 self.yang_parent_name = "radius"
@@ -5277,7 +6642,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Radius.Servers, [], name, value)
 
 
-            class Server(Entity):
+            class Server(_Entity_):
                 """
                 RADIUS Server
                 
@@ -5325,7 +6690,7 @@ class Aaa(Entity):
                 
                 .. attribute:: priority
                 
-                	A number that indicates the priority             of the server
+                	A number that indicates the priority of the server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5410,7 +6775,7 @@ class Aaa(Entity):
                 
                 .. attribute:: current_state_duration
                 
-                	Elapsed time the server has been in              current state
+                	Elapsed time the server has been in current state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5419,7 +6784,7 @@ class Aaa(Entity):
                 
                 .. attribute:: previous_state_duration
                 
-                	Elapsed time the server was been in              previous state
+                	Elapsed time the server was been in previous state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5482,7 +6847,7 @@ class Aaa(Entity):
                 
                 .. attribute:: authentication_rtt
                 
-                	Round\-trip time for authentication               in milliseconds
+                	Round\-trip time for authentication in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5502,7 +6867,7 @@ class Aaa(Entity):
                 
                 .. attribute:: access_request_retransmits
                 
-                	Number of retransmitted                          access requests
+                	Number of retransmitted access requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5574,7 +6939,7 @@ class Aaa(Entity):
                 
                 .. attribute:: unknown_access_types
                 
-                	Number of packets received with unknown          type from authentication server
+                	Number of packets received with unknown type from authentication server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5763,7 +7128,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_rtt
                 
-                	Round\-trip time for accounting                   in milliseconds
+                	Round\-trip time for accounting in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5783,7 +7148,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_retransmits
                 
-                	Number of retransmitted                          accounting requests
+                	Number of retransmitted accounting requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5810,7 +7175,7 @@ class Aaa(Entity):
                 
                 .. attribute:: bad_accounting_authenticators
                 
-                	Number of bad accounting                         authenticators
+                	Number of bad accounting authenticators
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5828,7 +7193,7 @@ class Aaa(Entity):
                 
                 .. attribute:: accounting_timeouts
                 
-                	Number of accounting packets                     timed\-out
+                	Number of accounting packets timed\-out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5837,7 +7202,7 @@ class Aaa(Entity):
                 
                 .. attribute:: unknown_accounting_types
                 
-                	Number of packets received with unknown          type from accounting server
+                	Number of packets received with unknown type from accounting server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5846,7 +7211,7 @@ class Aaa(Entity):
                 
                 .. attribute:: dropped_accounting_responses
                 
-                	Number of accounting responses                   dropped
+                	Number of accounting responses dropped
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -6033,7 +7398,7 @@ class Aaa(Entity):
                 
                 .. attribute:: total_deadtime
                 
-                	Total time of Server being in DEAD               state
+                	Total time of Server being in DEAD state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -6042,7 +7407,7 @@ class Aaa(Entity):
                 
                 .. attribute:: last_deadtime
                 
-                	Time of Server being in DEAD state,              after last UP
+                	Time of Server being in DEAD state, after last UP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -6051,7 +7416,7 @@ class Aaa(Entity):
                 
                 .. attribute:: is_quarantined
                 
-                	flag to indicate Server is quarantined           or not (Automated TEST in progress)
+                	flag to indicate Server is quarantined or not (Automated TEST in progress)
                 	**type**\: bool
                 
                 	**config**\: False
@@ -6085,7 +7450,10 @@ class Aaa(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Aaa.Radius.Servers.Server, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Radius.Servers.Server, self).__init__()
 
                     self.yang_name = "server"
                     self.yang_parent_name = "servers"
@@ -6278,10 +7646,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Radius.Servers.Server, ['ip_address', 'auth_port_number', 'acct_port_number', 'ipv4_address', 'priority', 'timeout_xr', 'retransmit', 'dead_time', 'dead_detect_time', 'dead_detect_tries', 'authentication_port', 'accounting_port', 'state', 'current_state_duration', 'previous_state_duration', 'packets_in', 'packets_out', 'timeouts', 'aborts', 'replies_expected', 'redirected_requests', 'authentication_rtt', 'access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'bad_access_responses', 'bad_access_authenticators', 'pending_access_requests', 'access_timeouts', 'unknown_access_types', 'dropped_access_responses', 'throttled_access_reqs', 'throttled_timed_out_reqs', 'throttled_dropped_reqs', 'max_throttled_access_reqs', 'currently_throttled_access_reqs', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses', 'author_requests', 'author_request_timeouts', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'accounting_rtt', 'accounting_requests', 'accounting_retransmits', 'accounting_responses', 'bad_accounting_responses', 'bad_accounting_authenticators', 'pending_accounting_requets', 'accounting_timeouts', 'unknown_accounting_types', 'dropped_accounting_responses', 'is_a_private_server', 'total_test_auth_reqs', 'total_test_auth_timeouts', 'total_test_auth_response', 'total_test_auth_pending', 'total_test_acct_reqs', 'total_test_acct_timeouts', 'total_test_acct_response', 'total_test_acct_pending', 'throttled_acct_transactions', 'throttled_acct_timed_out_stats', 'throttled_acct_failures_stats', 'max_acct_throttled', 'throttleda_acct_transactions', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure', 'total_deadtime', 'last_deadtime', 'is_quarantined', 'group_name', 'ip_address_xr', 'family'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Radius.Servers.Server']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Radius.Servers']['meta_info']
 
 
-
-        class RadiusSourceInterface(Entity):
+        class RadiusSourceInterface(_Entity_):
             """
             RADIUS source interfaces
             
@@ -6300,7 +7676,10 @@ class Aaa(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Aaa.Radius.RadiusSourceInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Radius.RadiusSourceInterface, self).__init__()
 
                 self.yang_name = "radius-source-interface"
                 self.yang_parent_name = "radius"
@@ -6319,7 +7698,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Radius.RadiusSourceInterface, [], name, value)
 
 
-            class ListOfSourceInterface(Entity):
+            class ListOfSourceInterface(_Entity_):
                 """
                 List of source interfaces
                 
@@ -6361,7 +7740,10 @@ class Aaa(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, self).__init__()
 
                     self.yang_name = "list-of-source-interface"
                     self.yang_parent_name = "radius-source-interface"
@@ -6386,10 +7768,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, ['interface_name', 'ipaddrv4', 'ipaddrv6', 'vrfid'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Radius.RadiusSourceInterface']['meta_info']
 
 
-
-        class Global(Entity):
+        class Global(_Entity_):
             """
             RADIUS Client Information
             
@@ -6433,7 +7823,10 @@ class Aaa(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Aaa.Radius.Global, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Radius.Global, self).__init__()
 
                 self.yang_name = "global"
                 self.yang_parent_name = "radius"
@@ -6458,894 +7851,23 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Radius.Global, ['unknown_authentication_response', 'authentication_nas_id', 'unknown_accounting_response', 'accounting_nas_id'], name, value)
 
-
-
-
-    class Tacacs(Entity):
-        """
-        TACACS operational data
-        
-        .. attribute:: requests
-        
-        	TACACS Active Request List
-        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
-        
-        	**config**\: False
-        
-        .. attribute:: servers
-        
-        	TACACS server Information
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
-        
-        	**config**\: False
-        
-        .. attribute:: server_groups
-        
-        	TACACS sg Information
-        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'aaa-tacacs-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.Tacacs, self).__init__()
-
-            self.yang_name = "tacacs"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
-            self._leafs = OrderedDict()
-
-            self.requests = Aaa.Tacacs.Requests()
-            self.requests.parent = self
-            self._children_name_map["requests"] = "requests"
-
-            self.servers = Aaa.Tacacs.Servers()
-            self.servers.parent = self
-            self._children_name_map["servers"] = "servers"
-
-            self.server_groups = Aaa.Tacacs.ServerGroups()
-            self.server_groups.parent = self
-            self._children_name_map["server_groups"] = "server-groups"
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.Tacacs, [], name, value)
-
-
-        class Requests(Entity):
-            """
-            TACACS Active Request List
-            
-            .. attribute:: request
-            
-            	request
-            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Requests, self).__init__()
-
-                self.yang_name = "requests"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
-                self._leafs = OrderedDict()
-
-                self.request = YList(self)
-                self._segment_path = lambda: "requests"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
-
-
-            class Request(Entity):
-                """
-                request
-                
-                .. attribute:: tacacs_requestbag
-                
-                	address in tacascd proc space of this req
-                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Requests.Request, self).__init__()
-
-                    self.yang_name = "request"
-                    self.yang_parent_name = "requests"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
-                    self._leafs = OrderedDict()
-
-                    self.tacacs_requestbag = YList(self)
-                    self._segment_path = lambda: "request"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
-
-
-                class TacacsRequestbag(Entity):
-                    """
-                    address in tacascd proc space of this req
-                    
-                    .. attribute:: time_remaining
-                    
-                    	time remaining for this request
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: bytes_out
-                    
-                    	bytes written
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: out_pak_size
-                    
-                    	size of the packet to be sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: bytes_in
-                    
-                    	bytes read from socket
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: in_pak_size
-                    
-                    	size of the packet to be received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: pak_type
-                    
-                    	the type of packet
-                    	**type**\: str
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: session_id
-                    
-                    	same as in pkt hdr
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: sock
-                    
-                    	socket number
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
-
-                        self.yang_name = "tacacs-requestbag"
-                        self.yang_parent_name = "request"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
-                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                            ('out_pak_size', (YLeaf(YType.uint32, 'out-pak-size'), ['int'])),
-                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                            ('in_pak_size', (YLeaf(YType.uint32, 'in-pak-size'), ['int'])),
-                            ('pak_type', (YLeaf(YType.str, 'pak-type'), ['str'])),
-                            ('session_id', (YLeaf(YType.int32, 'session-id'), ['int'])),
-                            ('sock', (YLeaf(YType.int32, 'sock'), ['int'])),
-                        ])
-                        self.time_remaining = None
-                        self.bytes_out = None
-                        self.out_pak_size = None
-                        self.bytes_in = None
-                        self.in_pak_size = None
-                        self.pak_type = None
-                        self.session_id = None
-                        self.sock = None
-                        self._segment_path = lambda: "tacacs-requestbag"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
-
-
-
-
-
-        class Servers(Entity):
-            """
-            TACACS server Information
-            
-            .. attribute:: server
-            
-            	server
-            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Servers, self).__init__()
-
-                self.yang_name = "servers"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
-                self._leafs = OrderedDict()
-
-                self.server = YList(self)
-                self._segment_path = lambda: "servers"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
-
-
-            class Server(Entity):
-                """
-                server
-                
-                .. attribute:: addr
-                
-                	internet address of T+ server
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                	**config**\: False
-                
-                .. attribute:: timeout
-                
-                	per\-server timeout
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: port
-                
-                	per server port to use
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: bytes_in
-                
-                	# of bytes read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: byte
-                
-                .. attribute:: bytes_out
-                
-                	# of bytes out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                	**units**\: byte
-                
-                .. attribute:: closes
-                
-                	socket closes
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: opens
-                
-                	socket opens
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: errors
-                
-                	error count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: aborts
-                
-                	abort count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: paks_in
-                
-                	# of incoming packets read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: paks_out
-                
-                	# of outgoing packets sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: replies_expected
-                
-                	# of replies expected to arrive
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: up
-                
-                	is the server UP or down ?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: conn_up
-                
-                	is the server connected ?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: single_connect
-                
-                	is this a single connect server ?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: is_private
-                
-                	is this a private server ?
-                	**type**\: bool
-                
-                	**config**\: False
-                
-                .. attribute:: vrf_name
-                
-                	VRF in which server is reachable
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                	**config**\: False
-                
-                .. attribute:: addr_buf
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**length:** 0..46
-                
-                	**config**\: False
-                
-                .. attribute:: family
-                
-                	IP address Family
-                	**type**\: str
-                
-                	**length:** 0..5
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Servers.Server, self).__init__()
-
-                    self.yang_name = "server"
-                    self.yang_parent_name = "servers"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
-                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
-                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
-                        ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                        ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                        ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
-                        ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
-                        ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
-                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
-                        ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
-                        ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
-                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
-                        ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
-                        ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
-                        ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
-                        ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
-                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                        ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
-                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
-                    ])
-                    self.addr = None
-                    self.timeout = None
-                    self.port = None
-                    self.bytes_in = None
-                    self.bytes_out = None
-                    self.closes = None
-                    self.opens = None
-                    self.errors = None
-                    self.aborts = None
-                    self.paks_in = None
-                    self.paks_out = None
-                    self.replies_expected = None
-                    self.up = None
-                    self.conn_up = None
-                    self.single_connect = None
-                    self.is_private = None
-                    self.vrf_name = None
-                    self.addr_buf = None
-                    self.family = None
-                    self._segment_path = lambda: "server"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
-
-
-
-
-        class ServerGroups(Entity):
-            """
-            TACACS sg Information
-            
-            .. attribute:: server_group
-            
-            	server group
-            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.ServerGroups, self).__init__()
-
-                self.yang_name = "server-groups"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
-                self._leafs = OrderedDict()
-
-                self.server_group = YList(self)
-                self._segment_path = lambda: "server-groups"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
-
-
-            class ServerGroup(Entity):
-                """
-                server group
-                
-                .. attribute:: group_name
-                
-                	name of the server group
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: sg_map_num
-                
-                	server group mapped number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: vrf_name
-                
-                	vrf of the group
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                	**config**\: False
-                
-                .. attribute:: server
-                
-                	list of servers in this group
-                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
-
-                    self.yang_name = "server-group"
-                    self.yang_parent_name = "server-groups"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
-                    self._leafs = OrderedDict([
-                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
-                        ('sg_map_num', (YLeaf(YType.uint32, 'sg-map-num'), ['int'])),
-                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                    ])
-                    self.group_name = None
-                    self.sg_map_num = None
-                    self.vrf_name = None
-
-                    self.server = YList(self)
-                    self._segment_path = lambda: "server-group"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
-
-
-                class Server(Entity):
-                    """
-                    list of servers in this group
-                    
-                    .. attribute:: addr
-                    
-                    	internet address of T+ server
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: timeout
-                    
-                    	per\-server timeout
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: port
-                    
-                    	per server port to use
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: bytes_in
-                    
-                    	# of bytes read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_out
-                    
-                    	# of bytes out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: closes
-                    
-                    	socket closes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: opens
-                    
-                    	socket opens
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: errors
-                    
-                    	error count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: aborts
-                    
-                    	abort count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: paks_in
-                    
-                    	# of incoming packets read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: paks_out
-                    
-                    	# of outgoing packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: replies_expected
-                    
-                    	# of replies expected to arrive
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: up
-                    
-                    	is the server UP or down ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: conn_up
-                    
-                    	is the server connected ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: single_connect
-                    
-                    	is this a single connect server ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: is_private
-                    
-                    	is this a private server ?
-                    	**type**\: bool
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF in which server is reachable
-                    	**type**\: str
-                    
-                    	**length:** 0..33
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: addr_buf
-                    
-                    	IP address buffer
-                    	**type**\: str
-                    
-                    	**length:** 0..46
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\: str
-                    
-                    	**length:** 0..5
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
-
-                        self.yang_name = "server"
-                        self.yang_parent_name = "server-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
-                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
-                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
-                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                            ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
-                            ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
-                            ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
-                            ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
-                            ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
-                            ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
-                            ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
-                            ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
-                            ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
-                            ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
-                            ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
-                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
-                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
-                        ])
-                        self.addr = None
-                        self.timeout = None
-                        self.port = None
-                        self.bytes_in = None
-                        self.bytes_out = None
-                        self.closes = None
-                        self.opens = None
-                        self.errors = None
-                        self.aborts = None
-                        self.paks_in = None
-                        self.paks_out = None
-                        self.replies_expected = None
-                        self.up = None
-                        self.conn_up = None
-                        self.single_connect = None
-                        self.is_private = None
-                        self.vrf_name = None
-                        self.addr_buf = None
-                        self.family = None
-                        self._segment_path = lambda: "server"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
-
-
-
-
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Radius.Global']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Radius']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+        return meta._meta_table['Aaa']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Nsr(Entity):
+class Nsr(_Entity_):
     """
     NSR global configuration
     
@@ -38,7 +41,10 @@ class Nsr(Entity):
     _revision = '2017-06-27'
 
     def __init__(self):
-        super(Nsr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Nsr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nsr"
@@ -59,7 +65,7 @@ class Nsr(Entity):
         self._perform_setattr(Nsr, [], name, value)
 
 
-    class ProcessFailure(Entity):
+    class ProcessFailure(_Entity_):
         """
         Recovery action for process failures on active
         RP/DRP
@@ -77,7 +83,10 @@ class Nsr(Entity):
         _revision = '2017-06-27'
 
         def __init__(self):
-            super(Nsr.ProcessFailure, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nsr.ProcessFailure, self).__init__()
 
             self.yang_name = "process-failure"
             self.yang_parent_name = "nsr"
@@ -96,10 +105,18 @@ class Nsr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Nsr.ProcessFailure, ['switchover'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_nsr_cfg as meta
+            return meta._meta_table['Nsr.ProcessFailure']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Nsr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_nsr_cfg as meta
+        return meta._meta_table['Nsr']['meta_info']
 
 

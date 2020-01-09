@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
 
   organization
@@ -35,6 +35,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-30 {
+    description
+      "- Rename l2fib-mac-learning-mac* interface-handle to interface-name - Rename l2fib-pw-group tunnel-if-handle to tunnel-interface-name - Convert several array from leaf-list to list syntax. - Implement range datatypes for all L2FIB integers.";
+  }
   revision 2018-08-01 {
     description
       "Removed empty groupings.";
@@ -2298,7 +2302,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     list up-count {
       max-elements "4";
       description
-        "Number of active cross-connections array - 
+        "Number of active cross-connections array -
          
          Index 0 is LikeToLike, 1 is IPInterworking, 2 is
          
@@ -2306,7 +2310,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       leaf entry {
         type uint32;
         description
-          "Number of active cross-connections array - 
+          "Number of active cross-connections array -
            
            Index 0 is LikeToLike, 1 is IPInterworking, 2 is
            

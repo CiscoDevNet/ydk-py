@@ -2198,10 +2198,74 @@ module Cisco-IOS-XR-mpls-te-oper {
       container nni {
         description
           "GMPLS NNI data";
+        container otn {
+          description
+            "GMPLS OTN-NNI data";
+          container advertisements {
+            description
+              "GMPLS OTN-NNI advertisement information";
+            uses MPLS-LM-ADVERTISEMENT-INFO;
+          }
+          container summary {
+            description
+              "GMPLS NNI OTN summary information";
+            uses MPLS-TE-NNI-OTN-SUMMARY-INFO;
+          }
+          container controllers {
+            description
+              "GMPLS OTN-NNI controllers";
+            list controller {
+              key "controller-name";
+              description
+                "A GMPLS OTN-NNI link";
+              leaf controller-name {
+                type xr:Interface-name;
+                description
+                  "Controller name";
+              }
+              uses MPLS-TE-NNI-OTN-LINK-INFO;
+            }
+          }
+          container admission-controls {
+            description
+              "GMPLS OTN-NNI admission control table";
+            list admission-control {
+              key "controller-name";
+              description
+                "GMPLS OTN-NNI admitted tunnels for a given
+                 controller";
+              leaf controller-name {
+                type xr:Interface-name;
+                description
+                  "Controller name";
+              }
+              uses MPLS-TE-NNI-OTN-ADMISSION-CONTROL-LINK-INFO;
+            }
+          }
+        }
       }
       container uni {
         description
           "GMPLS UNI data";
+        container wdm {
+          description
+            "GMPLS WDM-UNI data";
+          container controllers {
+            description
+              "GMPLS WDM-UNI controllers";
+            list controller {
+              key "controller-name";
+              description
+                "A TE GMPLS-UNI WDM controller";
+              leaf controller-name {
+                type xr:Interface-name;
+                description
+                  "Controller name";
+              }
+              uses MPLS-TE-MGMT-WDM-UNI-CONTROLLER;
+            }
+          }
+        }
       }
     }
   }

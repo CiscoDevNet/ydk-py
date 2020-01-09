@@ -335,8 +335,8 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-sdr {
 
   grouping switch-sdr-group {
     container sdr {
-      uses sdr-summary-group;
       uses sdr-detail-group;
+      uses sdr-summary-group;
     }
   }
 }

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -143,6 +146,12 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+        return meta._meta_table['ImStateEnum']
+
+
 class Ipv4MaOperConfig(Enum):
     """
     Ipv4MaOperConfig (Enum Class)
@@ -168,6 +177,12 @@ class Ipv4MaOperConfig(Enum):
     ipv4_ma_oper_non_oc_client = Enum.YLeaf(1, "ipv4-ma-oper-non-oc-client")
 
     ipv4_ma_oper_oc_client = Enum.YLeaf(2, "ipv4-ma-oper-oc-client")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+        return meta._meta_table['Ipv4MaOperConfig']
 
 
 class Ipv4MaOperLineState(Enum):
@@ -203,6 +218,12 @@ class Ipv4MaOperLineState(Enum):
     up = Enum.YLeaf(3, "up")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+        return meta._meta_table['Ipv4MaOperLineState']
+
+
 class RpfMode(Enum):
     """
     RpfMode (Enum Class)
@@ -224,8 +245,14 @@ class RpfMode(Enum):
     loose = Enum.YLeaf(1, "loose")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+        return meta._meta_table['RpfMode']
 
-class Ipv4Network(Entity):
+
+
+class Ipv4Network(_Entity_):
     """
     IPv4 network operational data
     
@@ -251,7 +278,10 @@ class Ipv4Network(Entity):
     _revision = '2018-08-01'
 
     def __init__(self):
-        super(Ipv4Network, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4Network, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-network"
@@ -276,7 +306,7 @@ class Ipv4Network(Entity):
         self._perform_setattr(Ipv4Network, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific IPv4 network operational data
         
@@ -295,7 +325,10 @@ class Ipv4Network(Entity):
         _revision = '2018-08-01'
 
         def __init__(self):
-            super(Ipv4Network.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Network.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv4-network"
@@ -314,7 +347,7 @@ class Ipv4Network(Entity):
             self._perform_setattr(Ipv4Network.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IPv4 network operational data for a particular
             node
@@ -350,7 +383,10 @@ class Ipv4Network(Entity):
             _revision = '2018-08-01'
 
             def __init__(self):
-                super(Ipv4Network.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Network.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -378,7 +414,7 @@ class Ipv4Network(Entity):
                 self._perform_setattr(Ipv4Network.Nodes.Node, ['node_name'], name, value)
 
 
-            class InterfaceData(Entity):
+            class InterfaceData(_Entity_):
                 """
                 IPv4 network operational interface data
                 
@@ -404,7 +440,10 @@ class Ipv4Network(Entity):
                 _revision = '2018-08-01'
 
                 def __init__(self):
-                    super(Ipv4Network.Nodes.Node.InterfaceData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Network.Nodes.Node.InterfaceData, self).__init__()
 
                     self.yang_name = "interface-data"
                     self.yang_parent_name = "node"
@@ -428,7 +467,7 @@ class Ipv4Network(Entity):
                     self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData, [], name, value)
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     VRF specific IPv4 network operational
                     interface data
@@ -448,7 +487,10 @@ class Ipv4Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "interface-data"
@@ -466,7 +508,7 @@ class Ipv4Network(Entity):
                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         VRF name of an interface belong to
                         
@@ -501,7 +543,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -528,7 +573,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Briefs(Entity):
+                        class Briefs(_Entity_):
                             """
                             Brief interface IPv4 network operational
                             data for a node
@@ -548,7 +593,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
 
                                 self.yang_name = "briefs"
                                 self.yang_parent_name = "vrf"
@@ -566,7 +614,7 @@ class Ipv4Network(Entity):
                                 self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, [], name, value)
 
 
-                            class Brief(Entity):
+                            class Brief(_Entity_):
                                 """
                                 Brief interface IPv4 network operational
                                 data for an interface
@@ -620,7 +668,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
 
                                     self.yang_name = "brief"
                                     self.yang_parent_name = "briefs"
@@ -646,10 +697,18 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs']['meta_info']
 
 
-
-                        class Details(Entity):
+                        class Details(_Entity_):
                             """
                             Detail interface IPv4 network operational
                             data for a node
@@ -669,7 +728,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
 
                                 self.yang_name = "details"
                                 self.yang_parent_name = "vrf"
@@ -687,7 +749,7 @@ class Ipv4Network(Entity):
                                 self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detail interface IPv4 network operational
                                 data for an interface
@@ -839,7 +901,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: next_unnumbered_interface_name
                                 
-                                	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                                	Name of interface which is also unnum to same interface where this intf is unnumbered
                                 	**type**\: str
                                 
                                 	**config**\: False
@@ -894,7 +956,7 @@ class Ipv4Network(Entity):
                                 
                                 .. attribute:: state_recvd_frm_im
                                 
-                                	state as recieved                                from IM
+                                	state as recieved from IM
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
                                 
                                 	**config**\: False
@@ -960,7 +1022,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "details"
@@ -1054,7 +1119,7 @@ class Ipv4Network(Entity):
                                     self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
 
 
-                                class Acl(Entity):
+                                class Acl(_Entity_):
                                     """
                                     ACLs configured on the interface
                                     
@@ -1094,7 +1159,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, self).__init__()
 
                                         self.yang_name = "acl"
                                         self.yang_parent_name = "detail"
@@ -1118,9 +1186,13 @@ class Ipv4Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl']['meta_info']
 
 
-                                class MultiAcl(Entity):
+                                class MultiAcl(_Entity_):
                                     """
                                     Multi ACLs configured on the interface
                                     
@@ -1153,7 +1225,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl, self).__init__()
 
                                         self.yang_name = "multi-acl"
                                         self.yang_parent_name = "detail"
@@ -1173,7 +1248,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl, [], name, value)
 
 
-                                    class Inbound(Entity):
+                                    class Inbound(_Entity_):
                                         """
                                         Inbound ACLs
                                         
@@ -1192,7 +1267,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, self).__init__()
 
                                             self.yang_name = "inbound"
                                             self.yang_parent_name = "multi-acl"
@@ -1210,9 +1288,13 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound']['meta_info']
 
 
-                                    class Outbound(Entity):
+                                    class Outbound(_Entity_):
                                         """
                                         Outbound ACLs
                                         
@@ -1231,7 +1313,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, self).__init__()
 
                                             self.yang_name = "outbound"
                                             self.yang_parent_name = "multi-acl"
@@ -1249,9 +1334,13 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound']['meta_info']
 
 
-                                    class Common(Entity):
+                                    class Common(_Entity_):
                                         """
                                         Common ACLs
                                         
@@ -1270,7 +1359,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, self).__init__()
 
                                             self.yang_name = "common"
                                             self.yang_parent_name = "multi-acl"
@@ -1288,10 +1380,18 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl']['meta_info']
 
 
-
-                                class HelperAddress(Entity):
+                                class HelperAddress(_Entity_):
                                     """
                                     Helper Addresses configured on the interface
                                     
@@ -1310,7 +1410,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress, self).__init__()
 
                                         self.yang_name = "helper-address"
                                         self.yang_parent_name = "detail"
@@ -1328,7 +1431,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress, [], name, value)
 
 
-                                    class AddressArray(Entity):
+                                    class AddressArray(_Entity_):
                                         """
                                         Helper address
                                         
@@ -1349,7 +1452,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, self).__init__()
 
                                             self.yang_name = "address-array"
                                             self.yang_parent_name = "helper-address"
@@ -1367,10 +1473,18 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress']['meta_info']
 
 
-
-                                class Rpf(Entity):
+                                class Rpf(_Entity_):
                                     """
                                     RPF config on the interface
                                     
@@ -1410,7 +1524,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
 
                                         self.yang_name = "rpf"
                                         self.yang_parent_name = "detail"
@@ -1434,9 +1551,13 @@ class Ipv4Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf']['meta_info']
 
 
-                                class BgpPa(Entity):
+                                class BgpPa(_Entity_):
                                     """
                                     BGP PA config on the interface
                                     
@@ -1462,7 +1583,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
 
                                         self.yang_name = "bgp-pa"
                                         self.yang_parent_name = "detail"
@@ -1486,7 +1610,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
 
 
-                                    class Input(Entity):
+                                    class Input(_Entity_):
                                         """
                                         BGP PA input config
                                         
@@ -1519,7 +1643,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
 
                                             self.yang_name = "input"
                                             self.yang_parent_name = "bgp-pa"
@@ -1541,9 +1668,13 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input']['meta_info']
 
 
-                                    class Output(Entity):
+                                    class Output(_Entity_):
                                         """
                                         BGP PA output config
                                         
@@ -1576,7 +1707,10 @@ class Ipv4Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
 
                                             self.yang_name = "output"
                                             self.yang_parent_name = "bgp-pa"
@@ -1598,10 +1732,18 @@ class Ipv4Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa']['meta_info']
 
 
-
-                                class MulticastGroup(Entity):
+                                class MulticastGroup(_Entity_):
                                     """
                                     Multicast groups joined on the interface
                                     
@@ -1622,7 +1764,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
 
                                         self.yang_name = "multicast-group"
                                         self.yang_parent_name = "detail"
@@ -1640,9 +1785,13 @@ class Ipv4Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['group_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup']['meta_info']
 
 
-                                class SecondaryAddress(Entity):
+                                class SecondaryAddress(_Entity_):
                                     """
                                     Secondary addresses on the interface
                                     
@@ -1681,7 +1830,10 @@ class Ipv4Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, self).__init__()
 
                                         self.yang_name = "secondary-address"
                                         self.yang_parent_name = "detail"
@@ -1703,13 +1855,33 @@ class Ipv4Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Vrfs']['meta_info']
 
 
-
-
-
-
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Summary of IPv4 network operational interface
                     data on a node
@@ -1759,7 +1931,10 @@ class Ipv4Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv4Network.Nodes.Node.InterfaceData.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Network.Nodes.Node.InterfaceData.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "interface-data"
@@ -1794,7 +1969,7 @@ class Ipv4Network(Entity):
                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
 
 
-                    class IfUpUp(Entity):
+                    class IfUpUp(_Entity_):
                         """
                         Number of interfaces (up,up)
                         
@@ -1833,7 +2008,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
 
                             self.yang_name = "if-up-up"
                             self.yang_parent_name = "summary"
@@ -1855,9 +2033,13 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp']['meta_info']
 
 
-                    class IfUpDown(Entity):
+                    class IfUpDown(_Entity_):
                         """
                         Number of interfaces (up,down)
                         
@@ -1896,7 +2078,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
 
                             self.yang_name = "if-up-down"
                             self.yang_parent_name = "summary"
@@ -1918,9 +2103,13 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown']['meta_info']
 
 
-                    class IfDownDown(Entity):
+                    class IfDownDown(_Entity_):
                         """
                         Number of interfaces (down,down)
                         
@@ -1959,7 +2148,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
 
                             self.yang_name = "if-down-down"
                             self.yang_parent_name = "summary"
@@ -1981,9 +2173,13 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown']['meta_info']
 
 
-                    class IfShutdownDown(Entity):
+                    class IfShutdownDown(_Entity_):
                         """
                         Number of interfaces (shutdown,down)
                         
@@ -2022,7 +2218,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
 
                             self.yang_name = "if-shutdown-down"
                             self.yang_parent_name = "summary"
@@ -2044,11 +2243,23 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                        return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData.Summary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                    return meta._meta_table['Ipv4Network.Nodes.Node.InterfaceData']['meta_info']
 
 
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistical IPv4 network operational data for
                 a node
@@ -2068,7 +2279,10 @@ class Ipv4Network(Entity):
                 _revision = '2018-08-01'
 
                 def __init__(self):
-                    super(Ipv4Network.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Network.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -2088,7 +2302,7 @@ class Ipv4Network(Entity):
                     self._perform_setattr(Ipv4Network.Nodes.Node.Statistics, [], name, value)
 
 
-                class Traffic(Entity):
+                class Traffic(_Entity_):
                     """
                     Traffic statistics for a node
                     
@@ -2114,7 +2328,10 @@ class Ipv4Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv4Network.Nodes.Node.Statistics.Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Network.Nodes.Node.Statistics.Traffic, self).__init__()
 
                         self.yang_name = "traffic"
                         self.yang_parent_name = "statistics"
@@ -2138,7 +2355,7 @@ class Ipv4Network(Entity):
                         self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic, [], name, value)
 
 
-                    class Ipv4Stats(Entity):
+                    class Ipv4Stats(_Entity_):
                         """
                         IPv4 Network Stats
                         
@@ -2555,7 +2772,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, self).__init__()
 
                             self.yang_name = "ipv4-stats"
                             self.yang_parent_name = "traffic"
@@ -2661,9 +2881,13 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, ['input_packets', 'received_packets', 'format_errors', 'bad_hop_count', 'bad_source_address', 'bad_header', 'no_protocol', 'no_gateway', 'reassemble_input', 'reassembled', 'reassemble_timeout', 'reassemble_max_drop', 'reassemble_failed', 'options_present', 'bad_option', 'unknown_option', 'bad_security_option', 'basic_security_option', 'extended_security_option', 'cipso_option', 'strict_source_route_option', 'loose_source_route_option', 'record_route_option', 'sid_option', 'timestamp_option', 'router_alert_option', 'noop_option', 'end_option', 'packets_output', 'packets_forwarded', 'packets_fragmented', 'fragment_count', 'encapsulation_failed', 'no_router', 'packet_too_big', 'multicast_in', 'multicast_out', 'broadcast_in', 'broadcast_out', 'lisp_v4_encap', 'lisp_v4_decap', 'lisp_v6_encap', 'lisp_v6_decap', 'lisp_encap_error', 'lisp_decap_error'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats']['meta_info']
 
 
-                    class IcmpStats(Entity):
+                    class IcmpStats(_Entity_):
                         """
                         ICMP Stats
                         
@@ -3008,7 +3232,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, self).__init__()
 
                             self.yang_name = "icmp-stats"
                             self.yang_parent_name = "traffic"
@@ -3098,13 +3325,33 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, ['received', 'checksum_error', 'unknown', 'output', 'admin_unreachable_sent', 'network_unreachable_sent', 'host_unreachable_sent', 'protocol_unreachable_sent', 'port_unreachable_sent', 'fragment_unreachable_sent', 'admin_unreachable_received', 'network_unreachable_received', 'host_unreachable_received', 'protocol_unreachable_received', 'port_unreachable_received', 'fragment_unreachable_received', 'hopcount_sent', 'reassembly_sent', 'hopcount_received', 'reassebly_received', 'param_error_received', 'param_error_send', 'echo_request_sent', 'echo_request_received', 'echo_reply_sent', 'echo_reply_received', 'mask_request_sent', 'mask_request_received', 'mask_reply_sent', 'mask_reply_received', 'source_quench_received', 'redirect_received', 'redirect_send', 'timestamp_received', 'timestamp_reply_received', 'router_advert_received', 'router_solicit_received'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                        return meta._meta_table['Ipv4Network.Nodes.Node.Statistics.Traffic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                    return meta._meta_table['Ipv4Network.Nodes.Node.Statistics']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                return meta._meta_table['Ipv4Network.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+            return meta._meta_table['Ipv4Network.Nodes']['meta_info']
 
 
-
-
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         IPv4 network operational interface data
         
@@ -3123,7 +3370,10 @@ class Ipv4Network(Entity):
         _revision = '2018-08-01'
 
         def __init__(self):
-            super(Ipv4Network.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Network.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "ipv4-network"
@@ -3142,7 +3392,7 @@ class Ipv4Network(Entity):
             self._perform_setattr(Ipv4Network.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Interface names with VRF
             
@@ -3170,7 +3420,10 @@ class Ipv4Network(Entity):
             _revision = '2018-08-01'
 
             def __init__(self):
-                super(Ipv4Network.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Network.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -3194,7 +3447,7 @@ class Ipv4Network(Entity):
                 self._perform_setattr(Ipv4Network.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 List of VRF on the interface
                 
@@ -3213,7 +3466,10 @@ class Ipv4Network(Entity):
                 _revision = '2018-08-01'
 
                 def __init__(self):
-                    super(Ipv4Network.Interfaces.Interface.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Network.Interfaces.Interface.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "interface"
@@ -3231,7 +3487,7 @@ class Ipv4Network(Entity):
                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     VRF information on the interface
                     
@@ -3266,7 +3522,10 @@ class Ipv4Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -3293,7 +3552,7 @@ class Ipv4Network(Entity):
                         self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Detail IPv4 network operational data for an
                         interface
@@ -3436,7 +3695,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: next_unnumbered_interface_name
                         
-                        	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                        	Name of interface which is also unnum to same interface where this intf is unnumbered
                         	**type**\: str
                         
                         	**config**\: False
@@ -3491,7 +3750,7 @@ class Ipv4Network(Entity):
                         
                         .. attribute:: state_recvd_frm_im
                         
-                        	state as recieved                                from IM
+                        	state as recieved from IM
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
                         
                         	**config**\: False
@@ -3557,7 +3816,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "vrf"
@@ -3649,7 +3911,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, ['primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
 
 
-                        class Acl(Entity):
+                        class Acl(_Entity_):
                             """
                             ACLs configured on the interface
                             
@@ -3689,7 +3951,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, self).__init__()
 
                                 self.yang_name = "acl"
                                 self.yang_parent_name = "detail"
@@ -3713,9 +3978,13 @@ class Ipv4Network(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl']['meta_info']
 
 
-                        class MultiAcl(Entity):
+                        class MultiAcl(_Entity_):
                             """
                             Multi ACLs configured on the interface
                             
@@ -3748,7 +4017,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl, self).__init__()
 
                                 self.yang_name = "multi-acl"
                                 self.yang_parent_name = "detail"
@@ -3768,7 +4040,7 @@ class Ipv4Network(Entity):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl, [], name, value)
 
 
-                            class Inbound(Entity):
+                            class Inbound(_Entity_):
                                 """
                                 Inbound ACLs
                                 
@@ -3787,7 +4059,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, self).__init__()
 
                                     self.yang_name = "inbound"
                                     self.yang_parent_name = "multi-acl"
@@ -3805,9 +4080,13 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound']['meta_info']
 
 
-                            class Outbound(Entity):
+                            class Outbound(_Entity_):
                                 """
                                 Outbound ACLs
                                 
@@ -3826,7 +4105,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, self).__init__()
 
                                     self.yang_name = "outbound"
                                     self.yang_parent_name = "multi-acl"
@@ -3844,9 +4126,13 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound']['meta_info']
 
 
-                            class Common(Entity):
+                            class Common(_Entity_):
                                 """
                                 Common ACLs
                                 
@@ -3865,7 +4151,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, self).__init__()
 
                                     self.yang_name = "common"
                                     self.yang_parent_name = "multi-acl"
@@ -3883,10 +4172,18 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl']['meta_info']
 
 
-
-                        class HelperAddress(Entity):
+                        class HelperAddress(_Entity_):
                             """
                             Helper Addresses configured on the interface
                             
@@ -3905,7 +4202,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress, self).__init__()
 
                                 self.yang_name = "helper-address"
                                 self.yang_parent_name = "detail"
@@ -3923,7 +4223,7 @@ class Ipv4Network(Entity):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress, [], name, value)
 
 
-                            class AddressArray(Entity):
+                            class AddressArray(_Entity_):
                                 """
                                 Helper address
                                 
@@ -3944,7 +4244,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, self).__init__()
 
                                     self.yang_name = "address-array"
                                     self.yang_parent_name = "helper-address"
@@ -3962,10 +4265,18 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress']['meta_info']
 
 
-
-                        class Rpf(Entity):
+                        class Rpf(_Entity_):
                             """
                             RPF config on the interface
                             
@@ -4005,7 +4316,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, self).__init__()
 
                                 self.yang_name = "rpf"
                                 self.yang_parent_name = "detail"
@@ -4029,9 +4343,13 @@ class Ipv4Network(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf']['meta_info']
 
 
-                        class BgpPa(Entity):
+                        class BgpPa(_Entity_):
                             """
                             BGP PA config on the interface
                             
@@ -4057,7 +4375,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, self).__init__()
 
                                 self.yang_name = "bgp-pa"
                                 self.yang_parent_name = "detail"
@@ -4081,7 +4402,7 @@ class Ipv4Network(Entity):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, [], name, value)
 
 
-                            class Input(Entity):
+                            class Input(_Entity_):
                                 """
                                 BGP PA input config
                                 
@@ -4114,7 +4435,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, self).__init__()
 
                                     self.yang_name = "input"
                                     self.yang_parent_name = "bgp-pa"
@@ -4136,9 +4460,13 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input']['meta_info']
 
 
-                            class Output(Entity):
+                            class Output(_Entity_):
                                 """
                                 BGP PA output config
                                 
@@ -4171,7 +4499,10 @@ class Ipv4Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, self).__init__()
 
                                     self.yang_name = "output"
                                     self.yang_parent_name = "bgp-pa"
@@ -4193,10 +4524,18 @@ class Ipv4Network(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa']['meta_info']
 
 
-
-                        class MulticastGroup(Entity):
+                        class MulticastGroup(_Entity_):
                             """
                             Multicast groups joined on the interface
                             
@@ -4217,7 +4556,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, self).__init__()
 
                                 self.yang_name = "multicast-group"
                                 self.yang_parent_name = "detail"
@@ -4235,9 +4577,13 @@ class Ipv4Network(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, ['group_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup']['meta_info']
 
 
-                        class SecondaryAddress(Entity):
+                        class SecondaryAddress(_Entity_):
                             """
                             Secondary addresses on the interface
                             
@@ -4276,7 +4622,10 @@ class Ipv4Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, self).__init__()
 
                                 self.yang_name = "secondary-address"
                                 self.yang_parent_name = "detail"
@@ -4298,10 +4647,18 @@ class Ipv4Network(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                                return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail']['meta_info']
 
 
-
-                    class Brief(Entity):
+                    class Brief(_Entity_):
                         """
                         Brief IPv4 network operational data for an
                         interface
@@ -4346,7 +4703,10 @@ class Ipv4Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, self).__init__()
 
                             self.yang_name = "brief"
                             self.yang_parent_name = "vrf"
@@ -4370,14 +4730,38 @@ class Ipv4Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, ['primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                            return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                        return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs.Vrf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                    return meta._meta_table['Ipv4Network.Interfaces.Interface.Vrfs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+                return meta._meta_table['Ipv4Network.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+            return meta._meta_table['Ipv4Network.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4Network()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
+        return meta._meta_table['Ipv4Network']['meta_info']
 
 

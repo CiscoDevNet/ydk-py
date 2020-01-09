@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class EtherCtrlTransportMode(Enum):
     otnopu2e = Enum.YLeaf(3, "otnopu2e")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
+        return meta._meta_table['EtherCtrlTransportMode']
+
+
 class PermitPluggable(Enum):
     """
     PermitPluggable (Enum Class)
@@ -62,6 +71,12 @@ class PermitPluggable(Enum):
     all = Enum.YLeaf(1, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
+        return meta._meta_table['PermitPluggable']
+
+
 class PermitPluggablePid(Enum):
     """
     PermitPluggablePid (Enum Class)
@@ -75,6 +90,12 @@ class PermitPluggablePid(Enum):
     """
 
     all = Enum.YLeaf(1, "all")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_cfg as meta
+        return meta._meta_table['PermitPluggablePid']
 
 
 

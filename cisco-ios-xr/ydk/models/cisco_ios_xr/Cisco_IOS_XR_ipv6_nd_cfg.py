@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -50,6 +53,12 @@ class Ipv6NdRouterPref(Enum):
     medium = Enum.YLeaf(2, "medium")
 
     low = Enum.YLeaf(3, "low")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+        return meta._meta_table['Ipv6NdRouterPref']
 
 
 class Ipv6ndMonth(Enum):
@@ -133,6 +142,12 @@ class Ipv6ndMonth(Enum):
     december = Enum.YLeaf(11, "december")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+        return meta._meta_table['Ipv6ndMonth']
+
+
 class Ipv6srpEncapsulation(Enum):
     """
     Ipv6srpEncapsulation (Enum Class)
@@ -154,8 +169,14 @@ class Ipv6srpEncapsulation(Enum):
     srpb = Enum.YLeaf(6, "srpb")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+        return meta._meta_table['Ipv6srpEncapsulation']
 
-class Ipv6Neighbor(Entity):
+
+
+class Ipv6Neighbor(_Entity_):
     """
     IPv6 neighbor or neighbor discovery configuration
     
@@ -188,7 +209,10 @@ class Ipv6Neighbor(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Ipv6Neighbor, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6Neighbor, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6-neighbor"
@@ -214,7 +238,7 @@ class Ipv6Neighbor(Entity):
         self._perform_setattr(Ipv6Neighbor, ['scavenge_timeout', 'cos'], name, value)
 
 
-    class Neighbors(Entity):
+    class Neighbors(_Entity_):
         """
         IPv6 neighbors
         
@@ -231,7 +255,10 @@ class Ipv6Neighbor(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Ipv6Neighbor.Neighbors, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6Neighbor.Neighbors, self).__init__()
 
             self.yang_name = "neighbors"
             self.yang_parent_name = "ipv6-neighbor"
@@ -250,7 +277,7 @@ class Ipv6Neighbor(Entity):
             self._perform_setattr(Ipv6Neighbor.Neighbors, [], name, value)
 
 
-        class Neighbor(Entity):
+        class Neighbor(_Entity_):
             """
             IPv6 neighbor configuration
             
@@ -297,7 +324,10 @@ class Ipv6Neighbor(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Ipv6Neighbor.Neighbors.Neighbor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6Neighbor.Neighbors.Neighbor, self).__init__()
 
                 self.yang_name = "neighbor"
                 self.yang_parent_name = "neighbors"
@@ -324,11 +354,23 @@ class Ipv6Neighbor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6Neighbor.Neighbors.Neighbor, ['neighbor_address', 'interface_name', 'zone', 'mac_address', 'encapsulation'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+                return meta._meta_table['Ipv6Neighbor.Neighbors.Neighbor']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+            return meta._meta_table['Ipv6Neighbor.Neighbors']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6Neighbor()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+        return meta._meta_table['Ipv6Neighbor']['meta_info']
 
 

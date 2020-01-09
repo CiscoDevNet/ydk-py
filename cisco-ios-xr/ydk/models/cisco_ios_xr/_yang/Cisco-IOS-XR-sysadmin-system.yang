@@ -28,9 +28,9 @@ module Cisco-IOS-XR-sysadmin-system {
      This module contains a collection of YANG
      definitions for Cisco IOS-XR SysAdmin configuration.
      
-     This module defines the system users authentication 
+     This module defines the system users authentication
      credentials and virtual IP that can be modified in
-     runtime. 
+     runtime.
      
      Copyright(c) 2011-2017 by Cisco Systems, Inc.
      All rights reserved.
@@ -139,7 +139,7 @@ module Cisco-IOS-XR-sysadmin-system {
         type ipv6-prefix;
         must "false() = contains(../address, '/')" {
           error-message
-            "you already provided prefix earlier it must be of 
+            "you already provided prefix earlier it must be of
              form X:X::X/prefix or X:X::X prefix";
         }
       }

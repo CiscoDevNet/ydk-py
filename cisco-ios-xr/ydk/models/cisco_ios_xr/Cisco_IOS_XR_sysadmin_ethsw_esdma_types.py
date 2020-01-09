@@ -14,8 +14,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -36,6 +39,12 @@ class EsdCirEirType(Enum):
     CIR = Enum.YLeaf(0, "CIR")
 
     PIR = Enum.YLeaf(1, "PIR")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdCirEirType']
 
 
 class EsdmaCpu(Enum):
@@ -175,6 +184,12 @@ class EsdmaCpu(Enum):
     CB0 = Enum.YLeaf(31, "CB0")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaCpu']
+
+
 class EsdmaQsfpTransceiverEnum(Enum):
     """
     EsdmaQsfpTransceiverEnum (Enum Class)
@@ -200,6 +215,12 @@ class EsdmaQsfpTransceiverEnum(Enum):
     QSFP_40G_CR4_Passive = Enum.YLeaf(3, "QSFP-40G-CR4-Passive")
 
     Unknown = Enum.YLeaf(4, "Unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaQsfpTransceiverEnum']
 
 
 class EsdmaRackNumEnum(Enum):
@@ -299,6 +320,12 @@ class EsdmaRackNumEnum(Enum):
     B1 = Enum.YLeaf(21, "B1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaRackNumEnum']
+
+
 class EsdmaRackTypeEnum(Enum):
     """
     EsdmaRackTypeEnum (Enum Class)
@@ -328,6 +355,12 @@ class EsdmaRackTypeEnum(Enum):
     COMPUTE = Enum.YLeaf(4, "COMPUTE")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaRackTypeEnum']
+
+
 class EsdmaSdrTrafficType(Enum):
     """
     EsdmaSdrTrafficType (Enum Class)
@@ -353,6 +386,12 @@ class EsdmaSdrTrafficType(Enum):
     All = Enum.YLeaf(3, "All")
 
     Invalid = Enum.YLeaf(4, "Invalid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSdrTrafficType']
 
 
 class EsdmaSfpEncodingEnum(Enum):
@@ -394,6 +433,12 @@ class EsdmaSfpEncodingEnum(Enum):
     Unknown = Enum.YLeaf(7, "Unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSfpEncodingEnum']
+
+
 class EsdmaSwitchPortState(Enum):
     """
     EsdmaSwitchPortState (Enum Class)
@@ -419,6 +464,12 @@ class EsdmaSwitchPortState(Enum):
     Up = Enum.YLeaf(3, "Up")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchPortState']
+
+
 class EsdmaSwitchSfpControllerEnum(Enum):
     """
     EsdmaSwitchSfpControllerEnum (Enum Class)
@@ -436,6 +487,12 @@ class EsdmaSwitchSfpControllerEnum(Enum):
     Switch = Enum.YLeaf(1, "Switch")
 
     PHY = Enum.YLeaf(2, "PHY")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchSfpControllerEnum']
 
 
 class EsdmaSwitchSfpInsertedEnum(Enum):
@@ -461,6 +518,12 @@ class EsdmaSwitchSfpInsertedEnum(Enum):
     Failed = Enum.YLeaf(3, "Failed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchSfpInsertedEnum']
+
+
 class EsdmaSwitchSfpTranceiverTypeEnum(Enum):
     """
     EsdmaSwitchSfpTranceiverTypeEnum (Enum Class)
@@ -482,6 +545,12 @@ class EsdmaSwitchSfpTranceiverTypeEnum(Enum):
     QSFP = Enum.YLeaf(2, "QSFP")
 
     Unknown = Enum.YLeaf(3, "Unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchSfpTranceiverTypeEnum']
 
 
 class EsdmaSwitchSfpTypeEnum(Enum):
@@ -529,6 +598,12 @@ class EsdmaSwitchSfpTypeEnum(Enum):
     SFP_40G_LR4 = Enum.YLeaf(8, "SFP-40G-LR4")
 
     Unsupported = Enum.YLeaf(9, "Unsupported")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchSfpTypeEnum']
 
 
 class EsdmaSwitchTypeEnum(Enum):
@@ -584,6 +659,12 @@ class EsdmaSwitchTypeEnum(Enum):
     RP_SW1 = Enum.YLeaf(10, "RP-SW1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchTypeEnum']
+
+
 class EsdmaSwitchYesNoEnum(Enum):
     """
     EsdmaSwitchYesNoEnum (Enum Class)
@@ -597,6 +678,12 @@ class EsdmaSwitchYesNoEnum(Enum):
     Yes = Enum.YLeaf(0, "Yes")
 
     No = Enum.YLeaf(1, "No")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaSwitchYesNoEnum']
 
 
 class EsdmaTrunkMemberStatus(Enum):
@@ -616,6 +703,12 @@ class EsdmaTrunkMemberStatus(Enum):
     Enabled = Enum.YLeaf(1, "Enabled")
 
     Y_ = Enum.YLeaf(2, "-")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['EsdmaTrunkMemberStatus']
 
 
 class MlapEpType(Enum):
@@ -653,6 +746,12 @@ class MlapEpType(Enum):
     CB = Enum.YLeaf(6, "CB")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['MlapEpType']
+
+
 class MlapProtocolEnum(Enum):
     """
     MlapProtocolEnum (Enum Class)
@@ -668,6 +767,12 @@ class MlapProtocolEnum(Enum):
     Internal = Enum.YLeaf(0, "Internal")
 
     External = Enum.YLeaf(1, "External")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['MlapProtocolEnum']
 
 
 class MlapStateEnum(Enum):
@@ -715,6 +820,12 @@ class MlapStateEnum(Enum):
     Rem_Managed = Enum.YLeaf(8, "Rem Managed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['MlapStateEnum']
+
+
 class MlapTraceVerbosity(Enum):
     """
     MlapTraceVerbosity (Enum Class)
@@ -736,6 +847,12 @@ class MlapTraceVerbosity(Enum):
     Medium = Enum.YLeaf(2, "Medium")
 
     High = Enum.YLeaf(3, "High")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['MlapTraceVerbosity']
 
 
 class SwitchActionTypeEnum(Enum):
@@ -773,6 +890,12 @@ class SwitchActionTypeEnum(Enum):
     Unknown = Enum.YLeaf(6, "Unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['SwitchActionTypeEnum']
+
+
 class SwitchDataDirectionEnum(Enum):
     """
     SwitchDataDirectionEnum (Enum Class)
@@ -804,6 +927,12 @@ class SwitchDataDirectionEnum(Enum):
     Unknown = Enum.YLeaf(4, "Unknown")
 
     Invalid = Enum.YLeaf(5, "Invalid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['SwitchDataDirectionEnum']
 
 
 class SwitchForwardingState(Enum):
@@ -839,6 +968,12 @@ class SwitchForwardingState(Enum):
     Forwarding = Enum.YLeaf(5, "Forwarding")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['SwitchForwardingState']
+
+
 class SwitchMatchTypeEnum(Enum):
     """
     SwitchMatchTypeEnum (Enum Class)
@@ -866,6 +1001,12 @@ class SwitchMatchTypeEnum(Enum):
     Unknown = Enum.YLeaf(4, "Unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['SwitchMatchTypeEnum']
+
+
 class SwitchTableTypeEnum(Enum):
     """
     SwitchTableTypeEnum (Enum Class)
@@ -891,6 +1032,12 @@ class SwitchTableTypeEnum(Enum):
     TCAM = Enum.YLeaf(3, "TCAM")
 
     Unknown = Enum.YLeaf(4, "Unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ethsw_esdma_types as meta
+        return meta._meta_table['SwitchTableTypeEnum']
 
 
 

@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-infra-tc-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-17 {
+    description
+      "Change type of tunnel interface name to string";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

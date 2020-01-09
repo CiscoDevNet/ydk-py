@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class AaaNacm(Entity):
+class AaaNacm(_Entity_):
     """
     AAA Nacm Information
     
@@ -68,7 +71,10 @@ class AaaNacm(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(AaaNacm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AaaNacm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aaa-nacm"
@@ -105,7 +111,7 @@ class AaaNacm(Entity):
         self._perform_setattr(AaaNacm, [], name, value)
 
 
-    class Counters(Entity):
+    class Counters(_Entity_):
         """
         AAA NACM summary
         
@@ -144,7 +150,10 @@ class AaaNacm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AaaNacm.Counters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AaaNacm.Counters, self).__init__()
 
             self.yang_name = "counters"
             self.yang_parent_name = "aaa-nacm"
@@ -167,9 +176,13 @@ class AaaNacm(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Counters, ['denied_operations', 'denied_data_writes', 'denied_notifications'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+            return meta._meta_table['AaaNacm.Counters']['meta_info']
 
 
-    class Users(Entity):
+    class Users(_Entity_):
         """
         AAA NACM User summary
         
@@ -188,7 +201,10 @@ class AaaNacm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AaaNacm.Users, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AaaNacm.Users, self).__init__()
 
             self.yang_name = "users"
             self.yang_parent_name = "aaa-nacm"
@@ -207,7 +223,7 @@ class AaaNacm(Entity):
             self._perform_setattr(AaaNacm.Users, [], name, value)
 
 
-        class User(Entity):
+        class User(_Entity_):
             """
             AAA NACM User detail
             
@@ -244,7 +260,10 @@ class AaaNacm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AaaNacm.Users.User, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AaaNacm.Users.User, self).__init__()
 
                 self.yang_name = "user"
                 self.yang_parent_name = "users"
@@ -268,7 +287,7 @@ class AaaNacm(Entity):
                 self._perform_setattr(AaaNacm.Users.User, ['user', 'user_name'], name, value)
 
 
-            class GroupName(Entity):
+            class GroupName(_Entity_):
                 """
                 Group Name List
                 
@@ -289,7 +308,10 @@ class AaaNacm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AaaNacm.Users.User.GroupName, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AaaNacm.Users.User.GroupName, self).__init__()
 
                     self.yang_name = "group-name"
                     self.yang_parent_name = "user"
@@ -307,11 +329,23 @@ class AaaNacm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Users.User.GroupName, ['name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                    return meta._meta_table['AaaNacm.Users.User.GroupName']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                return meta._meta_table['AaaNacm.Users.User']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+            return meta._meta_table['AaaNacm.Users']['meta_info']
 
 
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         AAA NACM summary
         
@@ -404,7 +438,10 @@ class AaaNacm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AaaNacm.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AaaNacm.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "aaa-nacm"
@@ -439,9 +476,13 @@ class AaaNacm(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Summary, ['groups', 'users', 'rulelist', 'rules', 'read_default', 'write_default', 'exec_default', 'enable_nacm', 'enable_external_groups'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+            return meta._meta_table['AaaNacm.Summary']['meta_info']
 
 
-    class Rules(Entity):
+    class Rules(_Entity_):
         """
         AAA NACM Rulelist summary
         
@@ -460,7 +501,10 @@ class AaaNacm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AaaNacm.Rules, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AaaNacm.Rules, self).__init__()
 
             self.yang_name = "rules"
             self.yang_parent_name = "aaa-nacm"
@@ -479,7 +523,7 @@ class AaaNacm(Entity):
             self._perform_setattr(AaaNacm.Rules, [], name, value)
 
 
-        class Rule(Entity):
+        class Rule(_Entity_):
             """
             AAA NACM Rulelist detail
             
@@ -516,7 +560,10 @@ class AaaNacm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AaaNacm.Rules.Rule, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AaaNacm.Rules.Rule, self).__init__()
 
                 self.yang_name = "rule"
                 self.yang_parent_name = "rules"
@@ -542,7 +589,7 @@ class AaaNacm(Entity):
                 self._perform_setattr(AaaNacm.Rules.Rule, ['ordering_index', 'rulelist_name'], name, value)
 
 
-            class RulelistRules(Entity):
+            class RulelistRules(_Entity_):
                 """
                 AAA NACM Rulelist detail
                 
@@ -561,7 +608,10 @@ class AaaNacm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AaaNacm.Rules.Rule.RulelistRules, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AaaNacm.Rules.Rule.RulelistRules, self).__init__()
 
                     self.yang_name = "rulelist-rules"
                     self.yang_parent_name = "rule"
@@ -580,7 +630,7 @@ class AaaNacm(Entity):
                     self._perform_setattr(AaaNacm.Rules.Rule.RulelistRules, [], name, value)
 
 
-                class RulelistRule(Entity):
+                class RulelistRule(_Entity_):
                     """
                     AAA NACM Rulelist detail
                     
@@ -691,7 +741,10 @@ class AaaNacm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AaaNacm.Rules.Rule.RulelistRules.RulelistRule, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AaaNacm.Rules.Rule.RulelistRules.RulelistRule, self).__init__()
 
                         self.yang_name = "rulelist-rule"
                         self.yang_parent_name = "rulelist-rules"
@@ -730,12 +783,28 @@ class AaaNacm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AaaNacm.Rules.Rule.RulelistRules.RulelistRule, ['rule', 'rule_name', 'rule_index', 'rulelist_index', 'module_name', 'action', 'rule_type', 'comment', 'access_operations', 'rule_value', 'hit_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                        return meta._meta_table['AaaNacm.Rules.Rule.RulelistRules.RulelistRule']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                    return meta._meta_table['AaaNacm.Rules.Rule.RulelistRules']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                return meta._meta_table['AaaNacm.Rules.Rule']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+            return meta._meta_table['AaaNacm.Rules']['meta_info']
 
 
-
-
-
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         AAA NACM Group summary
         
@@ -754,7 +823,10 @@ class AaaNacm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AaaNacm.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AaaNacm.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "aaa-nacm"
@@ -773,7 +845,7 @@ class AaaNacm(Entity):
             self._perform_setattr(AaaNacm.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             AAA NACM Group detail
             
@@ -817,7 +889,10 @@ class AaaNacm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AaaNacm.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AaaNacm.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -842,7 +917,7 @@ class AaaNacm(Entity):
                 self._perform_setattr(AaaNacm.Groups.Group, ['group', 'group_name'], name, value)
 
 
-            class UserName(Entity):
+            class UserName(_Entity_):
                 """
                 Users Name List
                 
@@ -863,7 +938,10 @@ class AaaNacm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AaaNacm.Groups.Group.UserName, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AaaNacm.Groups.Group.UserName, self).__init__()
 
                     self.yang_name = "user-name"
                     self.yang_parent_name = "group"
@@ -881,9 +959,13 @@ class AaaNacm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Groups.Group.UserName, ['name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                    return meta._meta_table['AaaNacm.Groups.Group.UserName']['meta_info']
 
 
-            class RuleName(Entity):
+            class RuleName(_Entity_):
                 """
                 Rules Name List
                 
@@ -904,7 +986,10 @@ class AaaNacm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AaaNacm.Groups.Group.RuleName, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AaaNacm.Groups.Group.RuleName, self).__init__()
 
                     self.yang_name = "rule-name"
                     self.yang_parent_name = "group"
@@ -922,12 +1007,28 @@ class AaaNacm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Groups.Group.RuleName, ['name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                    return meta._meta_table['AaaNacm.Groups.Group.RuleName']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+                return meta._meta_table['AaaNacm.Groups.Group']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+            return meta._meta_table['AaaNacm.Groups']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AaaNacm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_oper as meta
+        return meta._meta_table['AaaNacm']['meta_info']
 
 

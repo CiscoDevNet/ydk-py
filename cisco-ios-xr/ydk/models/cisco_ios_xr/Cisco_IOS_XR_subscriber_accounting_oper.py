@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SubscriberAccounting(Entity):
+class SubscriberAccounting(_Entity_):
     """
     Subscriber accounting operational data
     
@@ -40,7 +43,10 @@ class SubscriberAccounting(Entity):
     _revision = '2018-10-30'
 
     def __init__(self):
-        super(SubscriberAccounting, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberAccounting, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-accounting"
@@ -61,7 +67,7 @@ class SubscriberAccounting(Entity):
         self._perform_setattr(SubscriberAccounting, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Subscriber accounting operational data for a
         particular location
@@ -81,7 +87,10 @@ class SubscriberAccounting(Entity):
         _revision = '2018-10-30'
 
         def __init__(self):
-            super(SubscriberAccounting.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberAccounting.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "subscriber-accounting"
@@ -100,7 +109,7 @@ class SubscriberAccounting(Entity):
             self._perform_setattr(SubscriberAccounting.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Location. For example, 0/1/CPU0
             
@@ -149,7 +158,10 @@ class SubscriberAccounting(Entity):
             _revision = '2018-10-30'
 
             def __init__(self):
-                super(SubscriberAccounting.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberAccounting.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -185,7 +197,7 @@ class SubscriberAccounting(Entity):
                 self._perform_setattr(SubscriberAccounting.Nodes.Node, ['node_id'], name, value)
 
 
-            class SubscriberAccountingSessionFeatures(Entity):
+            class SubscriberAccountingSessionFeatures(_Entity_):
                 """
                 Subscriber accounting session feature data
                 
@@ -204,7 +216,10 @@ class SubscriberAccounting(Entity):
                 _revision = '2018-10-30'
 
                 def __init__(self):
-                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures, self).__init__()
 
                     self.yang_name = "subscriber-accounting-session-features"
                     self.yang_parent_name = "node"
@@ -222,7 +237,7 @@ class SubscriberAccounting(Entity):
                     self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures, [], name, value)
 
 
-                class SubscriberAccountingSessionFeature(Entity):
+                class SubscriberAccountingSessionFeature(_Entity_):
                     """
                     Display accounting session features by unique
                     subscriber label
@@ -251,7 +266,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature, self).__init__()
 
                         self.yang_name = "subscriber-accounting-session-feature"
                         self.yang_parent_name = "subscriber-accounting-session-features"
@@ -274,7 +292,7 @@ class SubscriberAccounting(Entity):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature, ['sub_label'], name, value)
 
 
-                    class SessionFeatureData(Entity):
+                    class SessionFeatureData(_Entity_):
                         """
                         Accounting session feature display data
                         
@@ -350,6 +368,24 @@ class SubscriberAccounting(Entity):
                         
                         	True if session accounting started
                         	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_start_sent_timestamp
+                        
+                        	Session Start sent time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: session_acct_start_ac_kd_timestamp
+                        
+                        	Session Accounting Start Response time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30 \:47 2011
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         	**config**\: False
                         
@@ -496,7 +532,10 @@ class SubscriberAccounting(Entity):
                         _revision = '2018-10-30'
 
                         def __init__(self):
-                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, self).__init__()
 
                             self.yang_name = "session-feature-data"
                             self.yang_parent_name = "subscriber-accounting-session-feature"
@@ -514,6 +553,8 @@ class SubscriberAccounting(Entity):
                                 ('session_accounting_aaa_trans_pending', (YLeaf(YType.uint32, 'session-accounting-aaa-trans-pending'), ['int'])),
                                 ('session_accounting_aaa_request_failed', (YLeaf(YType.uint32, 'session-accounting-aaa-request-failed'), ['int'])),
                                 ('session_accounting_started', (YLeaf(YType.boolean, 'session-accounting-started'), ['bool'])),
+                                ('session_start_sent_timestamp', (YLeaf(YType.uint32, 'session-start-sent-timestamp'), ['int'])),
+                                ('session_acct_start_ac_kd_timestamp', (YLeaf(YType.uint32, 'session-acct-start-ac-kd-timestamp'), ['int'])),
                                 ('session_idle_timeout_enabled_flag', (YLeaf(YType.boolean, 'session-idle-timeout-enabled-flag'), ['bool'])),
                                 ('idle_timeout_value', (YLeaf(YType.uint32, 'idle-timeout-value'), ['int'])),
                                 ('idle_timeout_threshold', (YLeaf(YType.uint32, 'idle-timeout-threshold'), ['int'])),
@@ -538,6 +579,8 @@ class SubscriberAccounting(Entity):
                             self.session_accounting_aaa_trans_pending = None
                             self.session_accounting_aaa_request_failed = None
                             self.session_accounting_started = None
+                            self.session_start_sent_timestamp = None
+                            self.session_acct_start_ac_kd_timestamp = None
                             self.session_idle_timeout_enabled_flag = None
                             self.idle_timeout_value = None
                             self.idle_timeout_threshold = None
@@ -558,10 +601,10 @@ class SubscriberAccounting(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, ['unique_subscriber_label', 'interface_handle', 'session_disconnected', 'session_accounting_enabled_flag', 'session_accounting_method_list', 'session_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started', 'session_idle_timeout_enabled_flag', 'idle_timeout_value', 'idle_timeout_threshold', 'idle_timeout_direction', 'session_is_idle', 'session_stats_changed_time', 'session_total_idle_time', 'session_to_idle_count', 'session_to_awake_count', 'session_idle_to_aaa_trans_pending', 'session_idle_to_aaa_request_failed', 'session_timeout_enabled_flag', 'session_timeout_value', 'session_timeout_time_remaining'], name, value)
+                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData, ['unique_subscriber_label', 'interface_handle', 'session_disconnected', 'session_accounting_enabled_flag', 'session_accounting_method_list', 'session_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started', 'session_start_sent_timestamp', 'session_acct_start_ac_kd_timestamp', 'session_idle_timeout_enabled_flag', 'idle_timeout_value', 'idle_timeout_threshold', 'idle_timeout_direction', 'session_is_idle', 'session_stats_changed_time', 'session_total_idle_time', 'session_to_idle_count', 'session_to_awake_count', 'session_idle_to_aaa_trans_pending', 'session_idle_to_aaa_request_failed', 'session_timeout_enabled_flag', 'session_timeout_value', 'session_timeout_time_remaining'], name, value)
 
 
-                        class ServiceAccountingFeature(Entity):
+                        class ServiceAccountingFeature(_Entity_):
                             """
                             List of service accounting features
                             
@@ -624,6 +667,24 @@ class SubscriberAccounting(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: service_accounting_start_sent_timestamp
+                            
+                            	Service Accounting Start Sent time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: service_acct_start_ac_kd_timestamp
+                            
+                            	Service Accounting Start Response time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30 \:47 2011
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
                             
 
                             """
@@ -632,7 +693,10 @@ class SubscriberAccounting(Entity):
                             _revision = '2018-10-30'
 
                             def __init__(self):
-                                super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, self).__init__()
 
                                 self.yang_name = "service-accounting-feature"
                                 self.yang_parent_name = "session-feature-data"
@@ -648,6 +712,8 @@ class SubscriberAccounting(Entity):
                                     ('session_accounting_aaa_trans_pending', (YLeaf(YType.uint32, 'session-accounting-aaa-trans-pending'), ['int'])),
                                     ('session_accounting_aaa_request_failed', (YLeaf(YType.uint32, 'session-accounting-aaa-request-failed'), ['int'])),
                                     ('session_accounting_started', (YLeaf(YType.boolean, 'session-accounting-started'), ['bool'])),
+                                    ('service_accounting_start_sent_timestamp', (YLeaf(YType.uint32, 'service-accounting-start-sent-timestamp'), ['int'])),
+                                    ('service_acct_start_ac_kd_timestamp', (YLeaf(YType.uint32, 'service-acct-start-ac-kd-timestamp'), ['int'])),
                                 ])
                                 self.service_accounting_enabled_flag = None
                                 self.service_accounting_service_id = None
@@ -656,18 +722,36 @@ class SubscriberAccounting(Entity):
                                 self.session_accounting_aaa_trans_pending = None
                                 self.session_accounting_aaa_request_failed = None
                                 self.session_accounting_started = None
+                                self.service_accounting_start_sent_timestamp = None
+                                self.service_acct_start_ac_kd_timestamp = None
                                 self._segment_path = lambda: "service-accounting-feature"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, ['service_accounting_enabled_flag', 'service_accounting_service_id', 'service_accounting_method_list', 'service_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started'], name, value)
+                                self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature, ['service_accounting_enabled_flag', 'service_accounting_service_id', 'service_accounting_method_list', 'service_accounting_periodic_interval', 'session_accounting_aaa_trans_pending', 'session_accounting_aaa_request_failed', 'session_accounting_started', 'service_accounting_start_sent_timestamp', 'service_acct_start_ac_kd_timestamp'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                                return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                            return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                    return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures']['meta_info']
 
 
-
-
-
-
-            class SubscriberAccountingSummary(Entity):
+            class SubscriberAccountingSummary(_Entity_):
                 """
                 Display subscriber accounting summary data
                 
@@ -707,7 +791,10 @@ class SubscriberAccounting(Entity):
                 _revision = '2018-10-30'
 
                 def __init__(self):
-                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary, self).__init__()
 
                     self.yang_name = "subscriber-accounting-summary"
                     self.yang_parent_name = "node"
@@ -739,7 +826,7 @@ class SubscriberAccounting(Entity):
                     self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary, [], name, value)
 
 
-                class AaaCounters(Entity):
+                class AaaCounters(_Entity_):
                     """
                     Accounting feature AAA summary counters
                     
@@ -1066,7 +1153,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, self).__init__()
 
                         self.yang_name = "aaa-counters"
                         self.yang_parent_name = "subscriber-accounting-summary"
@@ -1152,9 +1242,13 @@ class SubscriberAccounting(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters, ['flow_start', 'flow_disconnect', 'session_accounting_start', 'session_accounting_stop', 'session_accounting_update', 'service_accounting_start', 'service_accounting_stop', 'service_accounting_update', 'flow_accounting_start', 'flow_accounting_stop', 'flow_accounting_update', 'accounting_callback', 'session_acct_trans_pending', 'session_acct_reqs_failed', 'session_acct_out_of_sync', 'session_idle_to_trans_pending', 'session_idle_to_reqs_failed', 'session_idle_to_out_of_sync', 'service_acct_trans_pending', 'service_acct_reqs_failed', 'service_acct_out_of_sync', 'service_idle_to_trans_pending', 'service_idle_to_reqs_failed', 'service_idle_to_out_of_sync', 'prepaid_start', 'prepaid_stop', 'prepaid_accounting_start', 'prepaid_accounting_stop', 'prepaid_volume_threshold_reached', 'prepaid_time_threshold_reached', 'prepaid_quota_depleted', 'prepaid_reauthorization', 'idle_timeout', 'idle_timeout_response_callback', 'owned_resource_start'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters']['meta_info']
 
 
-                class IdleTimeoutCounters(Entity):
+                class IdleTimeoutCounters(_Entity_):
                     """
                     Accounting feature idle timeout summary counters
                     
@@ -1238,7 +1332,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, self).__init__()
 
                         self.yang_name = "idle-timeout-counters"
                         self.yang_parent_name = "subscriber-accounting-summary"
@@ -1270,9 +1367,13 @@ class SubscriberAccounting(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters, ['active_session_idle_timers', 'idle_sessions', 'transitions_to_idle', 'transitions_to_awake', 'active_flow_idle_timers', 'expired_flow_idle_timers', 'active_prepaid_idle_timers', 'expired_prepaid_idle_timers'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters']['meta_info']
 
 
-                class SessionTimeoutCounters(Entity):
+                class SessionTimeoutCounters(_Entity_):
                     """
                     Accounting feature session timeout summary
                     counters
@@ -1303,7 +1404,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, self).__init__()
 
                         self.yang_name = "session-timeout-counters"
                         self.yang_parent_name = "subscriber-accounting-summary"
@@ -1323,9 +1427,13 @@ class SubscriberAccounting(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters, ['active_session_timers', 'expired_session_timers'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters']['meta_info']
 
 
-                class SessionFlowCounters(Entity):
+                class SessionFlowCounters(_Entity_):
                     """
                     Accounting feature session context summary
                     counters
@@ -1383,7 +1491,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, self).__init__()
 
                         self.yang_name = "session-flow-counters"
                         self.yang_parent_name = "subscriber-accounting-summary"
@@ -1409,10 +1520,18 @@ class SubscriberAccounting(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters, ['active_sessions', 'disconnected_sessions', 'active_session_accounting_sessions', 'active_flows', 'quota_received'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                    return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary']['meta_info']
 
 
-
-            class SubscriberAccountingFlowFeatures(Entity):
+            class SubscriberAccountingFlowFeatures(_Entity_):
                 """
                 Subscriber accounting flow feature data
                 
@@ -1431,7 +1550,10 @@ class SubscriberAccounting(Entity):
                 _revision = '2018-10-30'
 
                 def __init__(self):
-                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures, self).__init__()
 
                     self.yang_name = "subscriber-accounting-flow-features"
                     self.yang_parent_name = "node"
@@ -1449,7 +1571,7 @@ class SubscriberAccounting(Entity):
                     self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures, [], name, value)
 
 
-                class SubscriberAccountingFlowFeature(Entity):
+                class SubscriberAccountingFlowFeature(_Entity_):
                     """
                     Display accounting flow features by unique
                     subscriber label
@@ -1478,7 +1600,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature, self).__init__()
 
                         self.yang_name = "subscriber-accounting-flow-feature"
                         self.yang_parent_name = "subscriber-accounting-flow-features"
@@ -1501,7 +1626,7 @@ class SubscriberAccounting(Entity):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature, ['class_label'], name, value)
 
 
-                    class FlowFeatureData(Entity):
+                    class FlowFeatureData(_Entity_):
                         """
                         Accouting flow feature display data
                         
@@ -1992,7 +2117,10 @@ class SubscriberAccounting(Entity):
                         _revision = '2018-10-30'
 
                         def __init__(self):
-                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, self).__init__()
 
                             self.yang_name = "flow-feature-data"
                             self.yang_parent_name = "subscriber-accounting-flow-feature"
@@ -2106,11 +2234,23 @@ class SubscriberAccounting(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData, ['flow_accounting_enabled_flag', 'flow_idle_timeout_enabled_flag', 'prepaid_enabled_flag', 'prepaid_reauth_timer_enabled', 'prepaid_idle_timeout_enabled', 'prepaid_final_unit', 'unique_class_label', 'flow_direction', 'flow_accounting_periodic_interval', 'flow_idle_timeout_value', 'prepaid_time_quota', 'prepaid_time_threshold', 'prepaid_total_time_quota', 'prepaid_volume_threshold', 'prepaid_remaining_qt', 'prepaid_remaining_qat', 'prepaid_remaining_qit', 'prepaid_remaining_qtt', 'prepaid_remaining_wheel', 'prepaid_tariff_time', 'prepaid_idle_timeout_value', 'prepaid_reauth_timeout_value', 'prepaid_ccfh', 'prepaid_result_code', 'prepaid_volumei_quota', 'prepaid_volumeo_quota', 'prepaid_volumeb_quota', 'prepaid_total_volumei_quota', 'prepaid_total_volumeo_quota', 'prepaid_total_volumeb_quota', 'prepaid_volume_usedi_quota', 'prepaid_volume_usedo_quota', 'prepaid_volume_refi_quota', 'prepaid_volume_refo_quota', 'prepaid_volume_refb_quota', 'prepaid_volume_agg_refi_quota', 'prepaid_volume_agg_refo_quota', 'prepaid_volume_agg_refb_quota', 'prepaid_volume_newi_quota', 'prepaid_volume_newo_quota', 'prepaid_volume_newb_quota', 'prepaid_tariff_volumei_quota', 'prepaid_tariff_volumeo_quota', 'prepaid_tariff_volumeb_quota', 'flow_accounting_method_list_name', 'prepaid_cfg', 'prepaid_time_state', 'prepaid_volume_state', 'prepaid_charging_rule'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                            return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                    return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures']['meta_info']
 
 
-
-
-            class SubscriberAccountingSrgFeatures(Entity):
+            class SubscriberAccountingSrgFeatures(_Entity_):
                 """
                 Subscriber accounting SRG feature data
                 
@@ -2129,7 +2269,10 @@ class SubscriberAccounting(Entity):
                 _revision = '2018-10-30'
 
                 def __init__(self):
-                    super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures, self).__init__()
 
                     self.yang_name = "subscriber-accounting-srg-features"
                     self.yang_parent_name = "node"
@@ -2147,7 +2290,7 @@ class SubscriberAccounting(Entity):
                     self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures, [], name, value)
 
 
-                class SubscriberAccountingSrgFeature(Entity):
+                class SubscriberAccountingSrgFeature(_Entity_):
                     """
                     Display accounting SRG features by unique
                     access interface\-name
@@ -2176,7 +2319,10 @@ class SubscriberAccounting(Entity):
                     _revision = '2018-10-30'
 
                     def __init__(self):
-                        super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature, self).__init__()
 
                         self.yang_name = "subscriber-accounting-srg-feature"
                         self.yang_parent_name = "subscriber-accounting-srg-features"
@@ -2199,7 +2345,7 @@ class SubscriberAccounting(Entity):
                         self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature, ['interface_name'], name, value)
 
 
-                    class SrgStatusCounters(Entity):
+                    class SrgStatusCounters(_Entity_):
                         """
                         Accounting's SRG Statistics Info Bag
                         
@@ -2253,8 +2399,10 @@ class SubscriberAccounting(Entity):
                         
                         .. attribute:: srg_role_upd_time
                         
-                        	SRG Role Notification time in DDD MMM DD HH\:MM \:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                        	**type**\: str
+                        	SRG Role Update Notif time in DDD MMM DD HH\:MM \:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         	**config**\: False
                         
@@ -2266,7 +2414,10 @@ class SubscriberAccounting(Entity):
                         _revision = '2018-10-30'
 
                         def __init__(self):
-                            super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, self).__init__()
 
                             self.yang_name = "srg-status-counters"
                             self.yang_parent_name = "subscriber-accounting-srg-feature"
@@ -2281,7 +2432,7 @@ class SubscriberAccounting(Entity):
                                 ('srg_node_role', (YLeaf(YType.uint32, 'srg-node-role'), ['int'])),
                                 ('srg_master_eoms_pending_flag', (YLeaf(YType.boolean, 'srg-master-eoms-pending-flag'), ['bool'])),
                                 ('srg_diameter_up_flag', (YLeaf(YType.boolean, 'srg-diameter-up-flag'), ['bool'])),
-                                ('srg_role_upd_time', (YLeaf(YType.str, 'srg-role-upd-time'), ['str'])),
+                                ('srg_role_upd_time', (YLeaf(YType.uint32, 'srg-role-upd-time'), ['int'])),
                             ])
                             self.interface_name = None
                             self.access_interface_handle = None
@@ -2296,14 +2447,38 @@ class SubscriberAccounting(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, ['interface_name', 'access_interface_handle', 'accounting_mode', 'srg_node_role', 'srg_master_eoms_pending_flag', 'srg_diameter_up_flag', 'srg_role_upd_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                            return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                        return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                    return meta._meta_table['SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+                return meta._meta_table['SubscriberAccounting.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+            return meta._meta_table['SubscriberAccounting.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberAccounting()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_oper as meta
+        return meta._meta_table['SubscriberAccounting']['meta_info']
 
 

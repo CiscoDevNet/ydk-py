@@ -7,8 +7,11 @@ Copyright (c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ClearIsisProcess(Entity):
+class ClearIsisProcess(_Entity_):
     """
     Clear all IS\-IS data structures
     
@@ -34,7 +37,10 @@ class ClearIsisProcess(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsisProcess, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsisProcess, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis-process"
@@ -52,7 +58,7 @@ class ClearIsisProcess(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -74,7 +80,10 @@ class ClearIsisProcess(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsisProcess.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsisProcess.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis-process"
@@ -98,7 +107,7 @@ class ClearIsisProcess(Entity):
             self._perform_setattr(ClearIsisProcess.Input, ['process'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from single IS\-IS instance
             
@@ -115,7 +124,10 @@ class ClearIsisProcess(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisProcess.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisProcess.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -134,15 +146,27 @@ class ClearIsisProcess(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisProcess.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisProcess.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsisProcess.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsisProcess()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsisProcess']['meta_info']
 
 
-class ClearIsisRoute(Entity):
+class ClearIsisRoute(_Entity_):
     """
     Clear IS\-IS routes
     
@@ -159,7 +183,10 @@ class ClearIsisRoute(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsisRoute, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsisRoute, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis-route"
@@ -177,7 +204,7 @@ class ClearIsisRoute(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -199,7 +226,10 @@ class ClearIsisRoute(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsisRoute.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsisRoute.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis-route"
@@ -223,7 +253,7 @@ class ClearIsisRoute(Entity):
             self._perform_setattr(ClearIsisRoute.Input, ['route'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from single IS\-IS instance
             
@@ -240,7 +270,10 @@ class ClearIsisRoute(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisRoute.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisRoute.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -259,15 +292,27 @@ class ClearIsisRoute(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisRoute.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisRoute.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsisRoute.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsisRoute()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsisRoute']['meta_info']
 
 
-class ClearIsisStat(Entity):
+class ClearIsisStat(_Entity_):
     """
     Clear IS\-IS protocol statistics
     
@@ -284,7 +329,10 @@ class ClearIsisStat(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsisStat, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsisStat, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis-stat"
@@ -302,7 +350,7 @@ class ClearIsisStat(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -324,7 +372,10 @@ class ClearIsisStat(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsisStat.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsisStat.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis-stat"
@@ -349,7 +400,7 @@ class ClearIsisStat(Entity):
             self._perform_setattr(ClearIsisStat.Input, [], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from single IS\-IS instance
             
@@ -366,7 +417,10 @@ class ClearIsisStat(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisStat.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisStat.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -385,9 +439,13 @@ class ClearIsisStat(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisStat.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisStat.Input.Instance']['meta_info']
 
 
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             Clear IS\-IS protocol statistics
             
@@ -408,7 +466,10 @@ class ClearIsisStat(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisStat.Input.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisStat.Input.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "input"
@@ -427,15 +488,27 @@ class ClearIsisStat(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisStat.Input.Statistics, ['interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisStat.Input.Statistics']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsisStat.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsisStat()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsisStat']['meta_info']
 
 
-class ClearIsisDist(Entity):
+class ClearIsisDist(_Entity_):
     """
     Reset BGP\-LS topology distribution
     
@@ -452,7 +525,10 @@ class ClearIsisDist(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsisDist, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsisDist, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis-dist"
@@ -470,7 +546,7 @@ class ClearIsisDist(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -492,7 +568,10 @@ class ClearIsisDist(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsisDist.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsisDist.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis-dist"
@@ -516,7 +595,7 @@ class ClearIsisDist(Entity):
             self._perform_setattr(ClearIsisDist.Input, ['distribution'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Reset BGP\-LS topology from single IS\-IS instance
             
@@ -533,7 +612,10 @@ class ClearIsisDist(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisDist.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisDist.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -552,15 +634,27 @@ class ClearIsisDist(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisDist.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisDist.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsisDist.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsisDist()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsisDist']['meta_info']
 
 
-class ClearIsisLocalLsp(Entity):
+class ClearIsisLocalLsp(_Entity_):
     """
     Clean and regenerate local LSPs
     
@@ -577,7 +671,10 @@ class ClearIsisLocalLsp(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsisLocalLsp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsisLocalLsp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis-local-lsp"
@@ -595,7 +692,7 @@ class ClearIsisLocalLsp(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -617,7 +714,10 @@ class ClearIsisLocalLsp(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsisLocalLsp.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsisLocalLsp.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis-local-lsp"
@@ -641,7 +741,7 @@ class ClearIsisLocalLsp(Entity):
             self._perform_setattr(ClearIsisLocalLsp.Input, ['local_lsp'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clean and regenerate local LSPs from single IS\-IS instance
             
@@ -658,7 +758,10 @@ class ClearIsisLocalLsp(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsisLocalLsp.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsisLocalLsp.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -677,15 +780,27 @@ class ClearIsisLocalLsp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisLocalLsp.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsisLocalLsp.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsisLocalLsp.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsisLocalLsp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsisLocalLsp']['meta_info']
 
 
-class ClearIsis(Entity):
+class ClearIsis(_Entity_):
     """
     Clear IS\-IS data structures
     
@@ -702,7 +817,10 @@ class ClearIsis(Entity):
     _revision = '2016-06-30'
 
     def __init__(self):
-        super(ClearIsis, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearIsis, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-isis"
@@ -720,7 +838,7 @@ class ClearIsis(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -752,7 +870,10 @@ class ClearIsis(Entity):
         _revision = '2016-06-30'
 
         def __init__(self):
-            super(ClearIsis.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearIsis.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-isis"
@@ -824,8 +945,14 @@ class ClearIsis(Entity):
             IPv6_UNICAST = Enum.YLeaf(8, "IPv6-UNICAST")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsis.Input.RtType']
 
-        class Instance(Entity):
+
+
+        class Instance(_Entity_):
             """
             Clear data from single IS\-IS instance
             
@@ -842,7 +969,10 @@ class ClearIsis(Entity):
             _revision = '2016-06-30'
 
             def __init__(self):
-                super(ClearIsis.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearIsis.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -861,11 +991,23 @@ class ClearIsis(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsis.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+                return meta._meta_table['ClearIsis.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+            return meta._meta_table['ClearIsis.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearIsis()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_isis_act as meta
+        return meta._meta_table['ClearIsis']['meta_info']
 
 

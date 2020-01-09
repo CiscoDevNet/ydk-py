@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class PolicyState(Enum):
     suspended = Enum.YLeaf(1, "suspended")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+        return meta._meta_table['PolicyState']
 
-class Pbr(Entity):
+
+
+class Pbr(_Entity_):
     """
     PBR operational data
     
@@ -61,7 +70,10 @@ class Pbr(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Pbr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pbr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pbr"
@@ -82,7 +94,7 @@ class Pbr(Entity):
         self._perform_setattr(Pbr, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific PBR operational data
         
@@ -101,7 +113,10 @@ class Pbr(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Pbr.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pbr.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "pbr"
@@ -120,7 +135,7 @@ class Pbr(Entity):
             self._perform_setattr(Pbr.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             PBR operational data for a particular node
             
@@ -148,7 +163,10 @@ class Pbr(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Pbr.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pbr.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -172,7 +190,7 @@ class Pbr(Entity):
                 self._perform_setattr(Pbr.Nodes.Node, ['node_name'], name, value)
 
 
-            class PolicyMap(Entity):
+            class PolicyMap(_Entity_):
                 """
                 Operational data for policymaps
                 
@@ -191,7 +209,10 @@ class Pbr(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Pbr.Nodes.Node.PolicyMap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pbr.Nodes.Node.PolicyMap, self).__init__()
 
                     self.yang_name = "policy-map"
                     self.yang_parent_name = "node"
@@ -211,7 +232,7 @@ class Pbr(Entity):
                     self._perform_setattr(Pbr.Nodes.Node.PolicyMap, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Operational data for all interfaces
                     
@@ -230,7 +251,10 @@ class Pbr(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Pbr.Nodes.Node.PolicyMap.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pbr.Nodes.Node.PolicyMap.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "policy-map"
@@ -248,7 +272,7 @@ class Pbr(Entity):
                         self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         PBR action data for a particular interface
                         
@@ -276,7 +300,10 @@ class Pbr(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -299,7 +326,7 @@ class Pbr(Entity):
                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                        class Direction(Entity):
+                        class Direction(_Entity_):
                             """
                             PBR direction
                             
@@ -318,7 +345,10 @@ class Pbr(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction, self).__init__()
 
                                 self.yang_name = "direction"
                                 self.yang_parent_name = "interface"
@@ -338,7 +368,7 @@ class Pbr(Entity):
                                 self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction, [], name, value)
 
 
-                            class Input(Entity):
+                            class Input(_Entity_):
                                 """
                                 PBR policy statistics
                                 
@@ -391,7 +421,10 @@ class Pbr(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, self).__init__()
 
                                     self.yang_name = "input"
                                     self.yang_parent_name = "direction"
@@ -418,7 +451,7 @@ class Pbr(Entity):
                                     self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, ['node_name', 'policy_name', 'state', 'state_description'], name, value)
 
 
-                                class ClassStat(Entity):
+                                class ClassStat(_Entity_):
                                     """
                                     Array of classes contained in policy
                                     
@@ -480,7 +513,10 @@ class Pbr(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, self).__init__()
 
                                         self.yang_name = "class-stat"
                                         self.yang_parent_name = "input"
@@ -515,7 +551,7 @@ class Pbr(Entity):
                                         self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['counter_validity_bitmask', 'class_name', 'class_id'], name, value)
 
 
-                                    class GeneralStats(Entity):
+                                    class GeneralStats(_Entity_):
                                         """
                                         general stats
                                         
@@ -624,7 +660,10 @@ class Pbr(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, self).__init__()
 
                                             self.yang_name = "general-stats"
                                             self.yang_parent_name = "class-stat"
@@ -658,9 +697,13 @@ class Pbr(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['transmit_packets', 'transmit_bytes', 'total_drop_packets', 'total_drop_bytes', 'total_drop_rate', 'match_data_rate', 'total_transmit_rate', 'pre_policy_matched_packets', 'pre_policy_matched_bytes'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                            return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats']['meta_info']
 
 
-                                    class HttprStats(Entity):
+                                    class HttprStats(_Entity_):
                                         """
                                         HTTPR stats
                                         
@@ -732,7 +775,10 @@ class Pbr(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, self).__init__()
 
                                             self.yang_name = "httpr-stats"
                                             self.yang_parent_name = "class-stat"
@@ -760,9 +806,13 @@ class Pbr(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                            return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats']['meta_info']
 
 
-                                    class HttpEnrichStats(Entity):
+                                    class HttpEnrichStats(_Entity_):
                                         """
                                         HTTP Enrichment stats
                                         
@@ -852,7 +902,10 @@ class Pbr(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, self).__init__()
 
                                             self.yang_name = "http-enrich-stats"
                                             self.yang_parent_name = "class-stat"
@@ -884,18 +937,58 @@ class Pbr(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes', 'req_sent_packets', 'tcp_sent_packets'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                            return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                        return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                    return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                                return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                            return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces.Interface']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                        return meta._meta_table['Pbr.Nodes.Node.PolicyMap.Interfaces']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                    return meta._meta_table['Pbr.Nodes.Node.PolicyMap']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+                return meta._meta_table['Pbr.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+            return meta._meta_table['Pbr.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pbr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_oper as meta
+        return meta._meta_table['Pbr']['meta_info']
 
 

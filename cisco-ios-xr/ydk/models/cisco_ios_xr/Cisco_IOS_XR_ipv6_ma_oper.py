@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -71,6 +74,12 @@ class Ipv6MaIfAddrState(Enum):
     tentative = Enum.YLeaf(5, "tentative")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+        return meta._meta_table['Ipv6MaIfAddrState']
+
+
 class Ipv6MaIfLineState(Enum):
     """
     Ipv6MaIfLineState (Enum Class)
@@ -104,6 +113,12 @@ class Ipv6MaIfLineState(Enum):
     error = Enum.YLeaf(4, "error")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+        return meta._meta_table['Ipv6MaIfLineState']
+
+
 class Ipv6MaOperState(Enum):
     """
     Ipv6MaOperState (Enum Class)
@@ -125,8 +140,14 @@ class Ipv6MaOperState(Enum):
     oper_down = Enum.YLeaf(2, "oper-down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+        return meta._meta_table['Ipv6MaOperState']
 
-class Ipv6Network(Entity):
+
+
+class Ipv6Network(_Entity_):
     """
     IPv6 network operational data
     
@@ -145,7 +166,10 @@ class Ipv6Network(Entity):
     _revision = '2018-08-01'
 
     def __init__(self):
-        super(Ipv6Network, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6Network, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6-network"
@@ -166,7 +190,7 @@ class Ipv6Network(Entity):
         self._perform_setattr(Ipv6Network, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific IPv6 network operational data
         
@@ -185,7 +209,10 @@ class Ipv6Network(Entity):
         _revision = '2018-08-01'
 
         def __init__(self):
-            super(Ipv6Network.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6Network.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv6-network"
@@ -204,7 +231,7 @@ class Ipv6Network(Entity):
             self._perform_setattr(Ipv6Network.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IPv6 network operational data for a particular
             node
@@ -233,7 +260,10 @@ class Ipv6Network(Entity):
             _revision = '2018-08-01'
 
             def __init__(self):
-                super(Ipv6Network.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6Network.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -257,7 +287,7 @@ class Ipv6Network(Entity):
                 self._perform_setattr(Ipv6Network.Nodes.Node, ['node_name'], name, value)
 
 
-            class InterfaceData(Entity):
+            class InterfaceData(_Entity_):
                 """
                 IPv6 network operational interface data
                 
@@ -283,7 +313,10 @@ class Ipv6Network(Entity):
                 _revision = '2018-08-01'
 
                 def __init__(self):
-                    super(Ipv6Network.Nodes.Node.InterfaceData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6Network.Nodes.Node.InterfaceData, self).__init__()
 
                     self.yang_name = "interface-data"
                     self.yang_parent_name = "node"
@@ -307,7 +340,7 @@ class Ipv6Network(Entity):
                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData, [], name, value)
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     VRF specific IPv6 network operational
                     interface data
@@ -327,7 +360,10 @@ class Ipv6Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "interface-data"
@@ -345,7 +381,7 @@ class Ipv6Network(Entity):
                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         VRF ID of an interface belong to
                         
@@ -394,7 +430,10 @@ class Ipv6Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -429,7 +468,7 @@ class Ipv6Network(Entity):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Briefs(Entity):
+                        class Briefs(_Entity_):
                             """
                             Brief interface IPv6 network operational
                             data for a node
@@ -449,7 +488,10 @@ class Ipv6Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, self).__init__()
 
                                 self.yang_name = "briefs"
                                 self.yang_parent_name = "vrf"
@@ -467,7 +509,7 @@ class Ipv6Network(Entity):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, [], name, value)
 
 
-                            class Brief(Entity):
+                            class Brief(_Entity_):
                                 """
                                 Brief interface IPv6 network operational
                                 data for an interface
@@ -519,7 +561,10 @@ class Ipv6Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, self).__init__()
 
                                     self.yang_name = "brief"
                                     self.yang_parent_name = "briefs"
@@ -548,7 +593,7 @@ class Ipv6Network(Entity):
                                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'line_state', 'vrf_name'], name, value)
 
 
-                                class LinkLocalAddress(Entity):
+                                class LinkLocalAddress(_Entity_):
                                     """
                                     Link Local Address
                                     
@@ -610,7 +655,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, self).__init__()
 
                                         self.yang_name = "link-local-address"
                                         self.yang_parent_name = "brief"
@@ -638,9 +686,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress']['meta_info']
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address List
                                     
@@ -702,7 +754,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "brief"
@@ -730,11 +785,23 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                    return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs']['meta_info']
 
 
-
-
-                        class GlobalDetails(Entity):
+                        class GlobalDetails(_Entity_):
                             """
                             Detail interface IPv4 network operational
                             data for global data
@@ -754,7 +821,10 @@ class Ipv6Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails, self).__init__()
 
                                 self.yang_name = "global-details"
                                 self.yang_parent_name = "vrf"
@@ -772,7 +842,7 @@ class Ipv6Network(Entity):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails, [], name, value)
 
 
-                            class GlobalDetail(Entity):
+                            class GlobalDetail(_Entity_):
                                 """
                                 Detail interface IPv6 network operational
                                 data for an interface
@@ -944,7 +1014,10 @@ class Ipv6Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, self).__init__()
 
                                     self.yang_name = "global-detail"
                                     self.yang_parent_name = "global-details"
@@ -1011,7 +1084,7 @@ class Ipv6Network(Entity):
                                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'ipv6_config_flag', 'ipv6_oper_flag', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'idb_pointer'], name, value)
 
 
-                                class LinkLocalAddress(Entity):
+                                class LinkLocalAddress(_Entity_):
                                     """
                                     Link Local Address
                                     
@@ -1073,7 +1146,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, self).__init__()
 
                                         self.yang_name = "link-local-address"
                                         self.yang_parent_name = "global-detail"
@@ -1101,9 +1177,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress']['meta_info']
 
 
-                                class AccessControlList(Entity):
+                                class AccessControlList(_Entity_):
                                     """
                                     IPv6 Access Control List
                                     
@@ -1143,7 +1223,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, self).__init__()
 
                                         self.yang_name = "access-control-list"
                                         self.yang_parent_name = "global-detail"
@@ -1167,9 +1250,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList']['meta_info']
 
 
-                                class MultiAccessControlList(Entity):
+                                class MultiAccessControlList(_Entity_):
                                     """
                                     Multi IPv6 Access Control List
                                     
@@ -1202,7 +1289,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, self).__init__()
 
                                         self.yang_name = "multi-access-control-list"
                                         self.yang_parent_name = "global-detail"
@@ -1222,7 +1312,7 @@ class Ipv6Network(Entity):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, [], name, value)
 
 
-                                    class Inbound(Entity):
+                                    class Inbound(_Entity_):
                                         """
                                         Inbound ACLs
                                         
@@ -1241,7 +1331,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, self).__init__()
 
                                             self.yang_name = "inbound"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -1259,9 +1352,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound']['meta_info']
 
 
-                                    class Outbound(Entity):
+                                    class Outbound(_Entity_):
                                         """
                                         Outbound ACLs
                                         
@@ -1280,7 +1377,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, self).__init__()
 
                                             self.yang_name = "outbound"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -1298,9 +1398,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound']['meta_info']
 
 
-                                    class Common(Entity):
+                                    class Common(_Entity_):
                                         """
                                         Common ACLs
                                         
@@ -1319,7 +1423,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, self).__init__()
 
                                             self.yang_name = "common"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -1337,10 +1444,18 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList']['meta_info']
 
 
-
-                                class Rpf(Entity):
+                                class Rpf(_Entity_):
                                     """
                                     RPF config on the interface
                                     
@@ -1382,7 +1497,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, self).__init__()
 
                                         self.yang_name = "rpf"
                                         self.yang_parent_name = "global-detail"
@@ -1406,9 +1524,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf']['meta_info']
 
 
-                                class BgpPa(Entity):
+                                class BgpPa(_Entity_):
                                     """
                                     BGP PA config on the interface
                                     
@@ -1434,7 +1556,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, self).__init__()
 
                                         self.yang_name = "bgp-pa"
                                         self.yang_parent_name = "global-detail"
@@ -1458,7 +1583,7 @@ class Ipv6Network(Entity):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, [], name, value)
 
 
-                                    class Input(Entity):
+                                    class Input(_Entity_):
                                         """
                                         BGP PA input config
                                         
@@ -1493,7 +1618,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, self).__init__()
 
                                             self.yang_name = "input"
                                             self.yang_parent_name = "bgp-pa"
@@ -1515,9 +1643,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input']['meta_info']
 
 
-                                    class Output(Entity):
+                                    class Output(_Entity_):
                                         """
                                         BGP PA output config
                                         
@@ -1552,7 +1684,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, self).__init__()
 
                                             self.yang_name = "output"
                                             self.yang_parent_name = "bgp-pa"
@@ -1574,10 +1709,18 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa']['meta_info']
 
 
-
-                                class MulticastGroup(Entity):
+                                class MulticastGroup(_Entity_):
                                     """
                                     IPv6 Multicast Group
                                     
@@ -1598,7 +1741,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, self).__init__()
 
                                         self.yang_name = "multicast-group"
                                         self.yang_parent_name = "global-detail"
@@ -1616,9 +1762,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, ['address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup']['meta_info']
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address List
                                     
@@ -1680,7 +1830,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "global-detail"
@@ -1708,9 +1861,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address']['meta_info']
 
 
-                                class ClientMulticastGroup(Entity):
+                                class ClientMulticastGroup(_Entity_):
                                     """
                                     IPv6 Client Multicast Group
                                     
@@ -1731,7 +1888,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, self).__init__()
 
                                         self.yang_name = "client-multicast-group"
                                         self.yang_parent_name = "global-detail"
@@ -1749,11 +1909,23 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                    return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails']['meta_info']
 
 
-
-
-                        class GlobalBriefs(Entity):
+                        class GlobalBriefs(_Entity_):
                             """
                             Brief interface IPv6 network operational
                             data from global data
@@ -1773,7 +1945,10 @@ class Ipv6Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, self).__init__()
 
                                 self.yang_name = "global-briefs"
                                 self.yang_parent_name = "vrf"
@@ -1791,7 +1966,7 @@ class Ipv6Network(Entity):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, [], name, value)
 
 
-                            class GlobalBrief(Entity):
+                            class GlobalBrief(_Entity_):
                                 """
                                 Brief interface IPv6 network operational
                                 data for an interface
@@ -1843,7 +2018,10 @@ class Ipv6Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, self).__init__()
 
                                     self.yang_name = "global-brief"
                                     self.yang_parent_name = "global-briefs"
@@ -1872,7 +2050,7 @@ class Ipv6Network(Entity):
                                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
 
 
-                                class LinkLocalAddress(Entity):
+                                class LinkLocalAddress(_Entity_):
                                     """
                                     Link Local Address
                                     
@@ -1934,7 +2112,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, self).__init__()
 
                                         self.yang_name = "link-local-address"
                                         self.yang_parent_name = "global-brief"
@@ -1962,9 +2143,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress']['meta_info']
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address List
                                     
@@ -2026,7 +2211,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "global-brief"
@@ -2054,11 +2242,23 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                    return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs']['meta_info']
 
 
-
-
-                        class Details(Entity):
+                        class Details(_Entity_):
                             """
                             Detail interface IPv4 network operational
                             data for a node
@@ -2078,7 +2278,10 @@ class Ipv6Network(Entity):
                             _revision = '2018-08-01'
 
                             def __init__(self):
-                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, self).__init__()
 
                                 self.yang_name = "details"
                                 self.yang_parent_name = "vrf"
@@ -2096,7 +2299,7 @@ class Ipv6Network(Entity):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detail interface IPv6 network operational
                                 data for an interface
@@ -2268,7 +2471,10 @@ class Ipv6Network(Entity):
                                 _revision = '2018-08-01'
 
                                 def __init__(self):
-                                    super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "details"
@@ -2335,7 +2541,7 @@ class Ipv6Network(Entity):
                                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'ipv6_config_flag', 'ipv6_oper_flag', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst', 'idb_pointer'], name, value)
 
 
-                                class LinkLocalAddress(Entity):
+                                class LinkLocalAddress(_Entity_):
                                     """
                                     Link Local Address
                                     
@@ -2397,7 +2603,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, self).__init__()
 
                                         self.yang_name = "link-local-address"
                                         self.yang_parent_name = "detail"
@@ -2425,9 +2634,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress']['meta_info']
 
 
-                                class AccessControlList(Entity):
+                                class AccessControlList(_Entity_):
                                     """
                                     IPv6 Access Control List
                                     
@@ -2467,7 +2680,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, self).__init__()
 
                                         self.yang_name = "access-control-list"
                                         self.yang_parent_name = "detail"
@@ -2491,9 +2707,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList']['meta_info']
 
 
-                                class MultiAccessControlList(Entity):
+                                class MultiAccessControlList(_Entity_):
                                     """
                                     Multi IPv6 Access Control List
                                     
@@ -2526,7 +2746,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, self).__init__()
 
                                         self.yang_name = "multi-access-control-list"
                                         self.yang_parent_name = "detail"
@@ -2546,7 +2769,7 @@ class Ipv6Network(Entity):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, [], name, value)
 
 
-                                    class Inbound(Entity):
+                                    class Inbound(_Entity_):
                                         """
                                         Inbound ACLs
                                         
@@ -2565,7 +2788,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, self).__init__()
 
                                             self.yang_name = "inbound"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -2583,9 +2809,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound']['meta_info']
 
 
-                                    class Outbound(Entity):
+                                    class Outbound(_Entity_):
                                         """
                                         Outbound ACLs
                                         
@@ -2604,7 +2834,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, self).__init__()
 
                                             self.yang_name = "outbound"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -2622,9 +2855,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound']['meta_info']
 
 
-                                    class Common(Entity):
+                                    class Common(_Entity_):
                                         """
                                         Common ACLs
                                         
@@ -2643,7 +2880,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, self).__init__()
 
                                             self.yang_name = "common"
                                             self.yang_parent_name = "multi-access-control-list"
@@ -2661,10 +2901,18 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, ['entry'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList']['meta_info']
 
 
-
-                                class Rpf(Entity):
+                                class Rpf(_Entity_):
                                     """
                                     RPF config on the interface
                                     
@@ -2706,7 +2954,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, self).__init__()
 
                                         self.yang_name = "rpf"
                                         self.yang_parent_name = "detail"
@@ -2730,9 +2981,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf']['meta_info']
 
 
-                                class BgpPa(Entity):
+                                class BgpPa(_Entity_):
                                     """
                                     BGP PA config on the interface
                                     
@@ -2758,7 +3013,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, self).__init__()
 
                                         self.yang_name = "bgp-pa"
                                         self.yang_parent_name = "detail"
@@ -2782,7 +3040,7 @@ class Ipv6Network(Entity):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
 
 
-                                    class Input(Entity):
+                                    class Input(_Entity_):
                                         """
                                         BGP PA input config
                                         
@@ -2817,7 +3075,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, self).__init__()
 
                                             self.yang_name = "input"
                                             self.yang_parent_name = "bgp-pa"
@@ -2839,9 +3100,13 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input']['meta_info']
 
 
-                                    class Output(Entity):
+                                    class Output(_Entity_):
                                         """
                                         BGP PA output config
                                         
@@ -2876,7 +3141,10 @@ class Ipv6Network(Entity):
                                         _revision = '2018-08-01'
 
                                         def __init__(self):
-                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, self).__init__()
 
                                             self.yang_name = "output"
                                             self.yang_parent_name = "bgp-pa"
@@ -2898,10 +3166,18 @@ class Ipv6Network(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa']['meta_info']
 
 
-
-                                class MulticastGroup(Entity):
+                                class MulticastGroup(_Entity_):
                                     """
                                     IPv6 Multicast Group
                                     
@@ -2922,7 +3198,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, self).__init__()
 
                                         self.yang_name = "multicast-group"
                                         self.yang_parent_name = "detail"
@@ -2940,9 +3219,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup']['meta_info']
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address List
                                     
@@ -3004,7 +3287,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "detail"
@@ -3032,9 +3318,13 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag', 'arm_flags'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address']['meta_info']
 
 
-                                class ClientMulticastGroup(Entity):
+                                class ClientMulticastGroup(_Entity_):
                                     """
                                     IPv6 Client Multicast Group
                                     
@@ -3055,7 +3345,10 @@ class Ipv6Network(Entity):
                                     _revision = '2018-08-01'
 
                                     def __init__(self):
-                                        super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, self).__init__()
 
                                         self.yang_name = "client-multicast-group"
                                         self.yang_parent_name = "detail"
@@ -3073,13 +3366,33 @@ class Ipv6Network(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                    return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs']['meta_info']
 
 
-
-
-
-
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Summary of IPv6 network operational interface
                     data on a node
@@ -3129,7 +3442,10 @@ class Ipv6Network(Entity):
                     _revision = '2018-08-01'
 
                     def __init__(self):
-                        super(Ipv6Network.Nodes.Node.InterfaceData.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "interface-data"
@@ -3164,7 +3480,7 @@ class Ipv6Network(Entity):
                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
 
 
-                    class IfUpUp(Entity):
+                    class IfUpUp(_Entity_):
                         """
                         Number of interfaces (up,up)
                         
@@ -3203,7 +3519,10 @@ class Ipv6Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, self).__init__()
 
                             self.yang_name = "if-up-up"
                             self.yang_parent_name = "summary"
@@ -3225,9 +3544,13 @@ class Ipv6Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp']['meta_info']
 
 
-                    class IfUpDown(Entity):
+                    class IfUpDown(_Entity_):
                         """
                         Number of interfaces (up,down)
                         
@@ -3266,7 +3589,10 @@ class Ipv6Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, self).__init__()
 
                             self.yang_name = "if-up-down"
                             self.yang_parent_name = "summary"
@@ -3288,9 +3614,13 @@ class Ipv6Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown']['meta_info']
 
 
-                    class IfDownDown(Entity):
+                    class IfDownDown(_Entity_):
                         """
                         Number of interfaces (down,down)
                         
@@ -3329,7 +3659,10 @@ class Ipv6Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, self).__init__()
 
                             self.yang_name = "if-down-down"
                             self.yang_parent_name = "summary"
@@ -3351,9 +3684,13 @@ class Ipv6Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown']['meta_info']
 
 
-                    class IfShutdownDown(Entity):
+                    class IfShutdownDown(_Entity_):
                         """
                         Number of interfaces (shutdown,down)
                         
@@ -3392,7 +3729,10 @@ class Ipv6Network(Entity):
                         _revision = '2018-08-01'
 
                         def __init__(self):
-                            super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, self).__init__()
 
                             self.yang_name = "if-shutdown-down"
                             self.yang_parent_name = "summary"
@@ -3414,14 +3754,38 @@ class Ipv6Network(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                            return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                    return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                return meta._meta_table['Ipv6Network.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+            return meta._meta_table['Ipv6Network.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6Network()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+        return meta._meta_table['Ipv6Network']['meta_info']
 
 

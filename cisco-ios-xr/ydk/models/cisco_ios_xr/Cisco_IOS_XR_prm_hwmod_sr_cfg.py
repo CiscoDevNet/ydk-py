@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HardwareModule(Entity):
+class HardwareModule(_Entity_):
     """
     HardwareModule
     
@@ -38,7 +41,10 @@ class HardwareModule(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(HardwareModule, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModule, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module"
@@ -59,7 +65,7 @@ class HardwareModule(Entity):
         self._perform_setattr(HardwareModule, [], name, value)
 
 
-    class SegmentRouting(Entity):
+    class SegmentRouting(_Entity_):
         """
         Segment Routing
         
@@ -76,7 +82,10 @@ class HardwareModule(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(HardwareModule.SegmentRouting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModule.SegmentRouting, self).__init__()
 
             self.yang_name = "segment-routing"
             self.yang_parent_name = "hardware-module"
@@ -97,7 +106,7 @@ class HardwareModule(Entity):
             self._perform_setattr(HardwareModule.SegmentRouting, [], name, value)
 
 
-        class Reserve(Entity):
+        class Reserve(_Entity_):
             """
             Reserve
             
@@ -114,7 +123,10 @@ class HardwareModule(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(HardwareModule.SegmentRouting.Reserve, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModule.SegmentRouting.Reserve, self).__init__()
 
                 self.yang_name = "reserve"
                 self.yang_parent_name = "segment-routing"
@@ -135,7 +147,7 @@ class HardwareModule(Entity):
                 self._perform_setattr(HardwareModule.SegmentRouting.Reserve, [], name, value)
 
 
-            class ServiceLabel(Entity):
+            class ServiceLabel(_Entity_):
                 """
                 Service Label
                 
@@ -152,7 +164,10 @@ class HardwareModule(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(HardwareModule.SegmentRouting.Reserve.ServiceLabel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModule.SegmentRouting.Reserve.ServiceLabel, self).__init__()
 
                     self.yang_name = "service-label"
                     self.yang_parent_name = "reserve"
@@ -171,12 +186,28 @@ class HardwareModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModule.SegmentRouting.Reserve.ServiceLabel, ['enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_sr_cfg as meta
+                    return meta._meta_table['HardwareModule.SegmentRouting.Reserve.ServiceLabel']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_sr_cfg as meta
+                return meta._meta_table['HardwareModule.SegmentRouting.Reserve']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_sr_cfg as meta
+            return meta._meta_table['HardwareModule.SegmentRouting']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_sr_cfg as meta
+        return meta._meta_table['HardwareModule']['meta_info']
 
 

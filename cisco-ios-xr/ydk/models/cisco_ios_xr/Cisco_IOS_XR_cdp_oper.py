@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class CdpDuplex(Enum):
     cdp_dplx_full = Enum.YLeaf(2, "cdp-dplx-full")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+        return meta._meta_table['CdpDuplex']
+
+
 class CdpL3AddrProtocol(Enum):
     """
     CdpL3AddrProtocol (Enum Class)
@@ -68,8 +77,14 @@ class CdpL3AddrProtocol(Enum):
     ipv6 = Enum.YLeaf(1, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+        return meta._meta_table['CdpL3AddrProtocol']
 
-class Cdp(Entity):
+
+
+class Cdp(_Entity_):
     """
     CDP operational data
     
@@ -88,7 +103,10 @@ class Cdp(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(Cdp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Cdp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "cdp"
@@ -109,7 +127,7 @@ class Cdp(Entity):
         self._perform_setattr(Cdp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node CDP operational data
         
@@ -128,7 +146,10 @@ class Cdp(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(Cdp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Cdp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "cdp"
@@ -147,7 +168,7 @@ class Cdp(Entity):
             self._perform_setattr(Cdp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The CDP operational data for a particular node
             
@@ -189,7 +210,10 @@ class Cdp(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(Cdp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cdp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -221,7 +245,7 @@ class Cdp(Entity):
                 self._perform_setattr(Cdp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Neighbors(Entity):
+            class Neighbors(_Entity_):
                 """
                 The CDP neighbor tables on this node
                 
@@ -254,7 +278,10 @@ class Cdp(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(Cdp.Nodes.Node.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cdp.Nodes.Node.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "node"
@@ -282,7 +309,7 @@ class Cdp(Entity):
                     self._perform_setattr(Cdp.Nodes.Node.Neighbors, [], name, value)
 
 
-                class Details(Entity):
+                class Details(_Entity_):
                     """
                     The detailed CDP neighbor table
                     
@@ -301,7 +328,10 @@ class Cdp(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(Cdp.Nodes.Node.Neighbors.Details, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cdp.Nodes.Node.Neighbors.Details, self).__init__()
 
                         self.yang_name = "details"
                         self.yang_parent_name = "neighbors"
@@ -319,7 +349,7 @@ class Cdp(Entity):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details, [], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Detailed information about a CDP neighbor
                         entry
@@ -355,7 +385,10 @@ class Cdp(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(Cdp.Nodes.Node.Neighbors.Details.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cdp.Nodes.Node.Neighbors.Details.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "details"
@@ -378,7 +411,7 @@ class Cdp(Entity):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail, ['interface_name', 'device_id'], name, value)
 
 
-                        class CdpNeighbor(Entity):
+                        class CdpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -452,7 +485,10 @@ class Cdp(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, self).__init__()
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "detail"
@@ -487,7 +523,7 @@ class Cdp(Entity):
                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
-                            class Detail_(Entity):
+                            class Detail_(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -550,7 +586,10 @@ class Cdp(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
@@ -585,7 +624,7 @@ class Cdp(Entity):
                                     self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     List of network addresses 
                                     
@@ -604,7 +643,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -622,7 +664,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses, [], name, value)
 
 
-                                    class CdpAddrEntry(Entity):
+                                    class CdpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -641,7 +683,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry, self).__init__()
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -661,7 +706,7 @@ class Cdp(Entity):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry, [], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -698,7 +743,10 @@ class Cdp(Entity):
                                             _revision = '2015-07-30'
 
                                             def __init__(self):
-                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
@@ -720,11 +768,23 @@ class Cdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses']['meta_info']
 
 
-
-
-                                class ProtocolHelloList(Entity):
+                                class ProtocolHelloList(_Entity_):
                                     """
                                     List of protocol hello entries
                                     
@@ -743,7 +803,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList, self).__init__()
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
@@ -761,7 +824,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList, [], name, value)
 
 
-                                    class CdpProtHelloEntry(Entity):
+                                    class CdpProtHelloEntry(_Entity_):
                                         """
                                         Next protocol hello entry in list
                                         
@@ -782,7 +845,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
@@ -800,14 +866,38 @@ class Cdp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                    return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Details']['meta_info']
 
 
-
-
-
-
-
-                class Devices(Entity):
+                class Devices(_Entity_):
                     """
                     The detailed CDP neighbor table
                     
@@ -826,7 +916,10 @@ class Cdp(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(Cdp.Nodes.Node.Neighbors.Devices, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cdp.Nodes.Node.Neighbors.Devices, self).__init__()
 
                         self.yang_name = "devices"
                         self.yang_parent_name = "neighbors"
@@ -844,7 +937,7 @@ class Cdp(Entity):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices, [], name, value)
 
 
-                    class Device(Entity):
+                    class Device(_Entity_):
                         """
                         Detailed information about a CDP neighbor
                         entry
@@ -871,7 +964,10 @@ class Cdp(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(Cdp.Nodes.Node.Neighbors.Devices.Device, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cdp.Nodes.Node.Neighbors.Devices.Device, self).__init__()
 
                             self.yang_name = "device"
                             self.yang_parent_name = "devices"
@@ -892,7 +988,7 @@ class Cdp(Entity):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device, ['device_id'], name, value)
 
 
-                        class CdpNeighbor(Entity):
+                        class CdpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -966,7 +1062,10 @@ class Cdp(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, self).__init__()
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "device"
@@ -1001,7 +1100,7 @@ class Cdp(Entity):
                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -1064,7 +1163,10 @@ class Cdp(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
@@ -1099,7 +1201,7 @@ class Cdp(Entity):
                                     self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     List of network addresses 
                                     
@@ -1118,7 +1220,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -1136,7 +1241,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
-                                    class CdpAddrEntry(Entity):
+                                    class CdpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -1155,7 +1260,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, self).__init__()
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -1175,7 +1283,7 @@ class Cdp(Entity):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, [], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -1212,7 +1320,10 @@ class Cdp(Entity):
                                             _revision = '2015-07-30'
 
                                             def __init__(self):
-                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
@@ -1234,11 +1345,23 @@ class Cdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses']['meta_info']
 
 
-
-
-                                class ProtocolHelloList(Entity):
+                                class ProtocolHelloList(_Entity_):
                                     """
                                     List of protocol hello entries
                                     
@@ -1257,7 +1380,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, self).__init__()
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
@@ -1275,7 +1401,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
 
 
-                                    class CdpProtHelloEntry(Entity):
+                                    class CdpProtHelloEntry(_Entity_):
                                         """
                                         Next protocol hello entry in list
                                         
@@ -1296,7 +1422,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
@@ -1314,14 +1443,38 @@ class Cdp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                    return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Devices']['meta_info']
 
 
-
-
-
-
-
-                class Summaries(Entity):
+                class Summaries(_Entity_):
                     """
                     The CDP neighbor summary table
                     
@@ -1340,7 +1493,10 @@ class Cdp(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(Cdp.Nodes.Node.Neighbors.Summaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cdp.Nodes.Node.Neighbors.Summaries, self).__init__()
 
                         self.yang_name = "summaries"
                         self.yang_parent_name = "neighbors"
@@ -1358,7 +1514,7 @@ class Cdp(Entity):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         Brief information about a CDP neighbor entry
                         
@@ -1393,7 +1549,10 @@ class Cdp(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "summaries"
@@ -1416,7 +1575,7 @@ class Cdp(Entity):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary, ['interface_name', 'device_id'], name, value)
 
 
-                        class CdpNeighbor(Entity):
+                        class CdpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -1490,7 +1649,10 @@ class Cdp(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, self).__init__()
 
                                 self.yang_name = "cdp-neighbor"
                                 self.yang_parent_name = "summary"
@@ -1525,7 +1687,7 @@ class Cdp(Entity):
                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -1588,7 +1750,10 @@ class Cdp(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "cdp-neighbor"
@@ -1623,7 +1788,7 @@ class Cdp(Entity):
                                     self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     List of network addresses 
                                     
@@ -1642,7 +1807,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -1660,7 +1828,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
-                                    class CdpAddrEntry(Entity):
+                                    class CdpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -1679,7 +1847,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, self).__init__()
 
                                             self.yang_name = "cdp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -1699,7 +1870,7 @@ class Cdp(Entity):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, [], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -1736,7 +1907,10 @@ class Cdp(Entity):
                                             _revision = '2015-07-30'
 
                                             def __init__(self):
-                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "cdp-addr-entry"
@@ -1758,11 +1932,23 @@ class Cdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses']['meta_info']
 
 
-
-
-                                class ProtocolHelloList(Entity):
+                                class ProtocolHelloList(_Entity_):
                                     """
                                     List of protocol hello entries
                                     
@@ -1781,7 +1967,10 @@ class Cdp(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, self).__init__()
 
                                         self.yang_name = "protocol-hello-list"
                                         self.yang_parent_name = "detail"
@@ -1799,7 +1988,7 @@ class Cdp(Entity):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
 
 
-                                    class CdpProtHelloEntry(Entity):
+                                    class CdpProtHelloEntry(_Entity_):
                                         """
                                         Next protocol hello entry in list
                                         
@@ -1820,7 +2009,10 @@ class Cdp(Entity):
                                         _revision = '2015-07-30'
 
                                         def __init__(self):
-                                            super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, self).__init__()
 
                                             self.yang_name = "cdp-prot-hello-entry"
                                             self.yang_parent_name = "protocol-hello-list"
@@ -1838,15 +2030,43 @@ class Cdp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                    return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                                return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                            return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                        return meta._meta_table['Cdp.Nodes.Node.Neighbors.Summaries']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                    return meta._meta_table['Cdp.Nodes.Node.Neighbors']['meta_info']
 
 
-
-
-
-
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 The CDP traffic statistics for this node
                 
@@ -1984,7 +2204,10 @@ class Cdp(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(Cdp.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cdp.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -2028,9 +2251,13 @@ class Cdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cdp.Nodes.Node.Statistics, ['received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'header_errors', 'checksum_errors', 'encapsulation_errors', 'bad_packet_errors', 'out_of_memory_errors', 'truncated_packet_errors', 'header_version_errors', 'open_file_errors'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                    return meta._meta_table['Cdp.Nodes.Node.Statistics']['meta_info']
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 The table of interfaces on which CDP is
                 running on this node
@@ -2050,7 +2277,10 @@ class Cdp(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(Cdp.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cdp.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -2068,7 +2298,7 @@ class Cdp(Entity):
                     self._perform_setattr(Cdp.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Operational data for an interface on which
                     CDP is running
@@ -2124,7 +2354,10 @@ class Cdp(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cdp.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2150,13 +2383,33 @@ class Cdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_handle', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                        return meta._meta_table['Cdp.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                    return meta._meta_table['Cdp.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+                return meta._meta_table['Cdp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+            return meta._meta_table['Cdp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Cdp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cdp_oper as meta
+        return meta._meta_table['Cdp']['meta_info']
 
 

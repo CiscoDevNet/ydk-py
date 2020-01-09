@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CrossBarStats(Entity):
+class CrossBarStats(_Entity_):
     """
     Crossbar stats operational data
     
@@ -40,7 +43,10 @@ class CrossBarStats(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(CrossBarStats, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CrossBarStats, self).__init__()
         self._top_entity = None
 
         self.yang_name = "cross-bar-stats"
@@ -61,7 +67,7 @@ class CrossBarStats(Entity):
         self._perform_setattr(CrossBarStats, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of Nodes
         
@@ -80,7 +86,10 @@ class CrossBarStats(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(CrossBarStats.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CrossBarStats.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "cross-bar-stats"
@@ -99,7 +108,7 @@ class CrossBarStats(Entity):
             self._perform_setattr(CrossBarStats.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a particular node
             
@@ -127,7 +136,10 @@ class CrossBarStats(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(CrossBarStats.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CrossBarStats.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -151,7 +163,7 @@ class CrossBarStats(Entity):
                 self._perform_setattr(CrossBarStats.Nodes.Node, ['node_name'], name, value)
 
 
-            class CrossBarTable(Entity):
+            class CrossBarTable(_Entity_):
                 """
                 Table of stats information
                 
@@ -184,7 +196,10 @@ class CrossBarStats(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(CrossBarStats.Nodes.Node.CrossBarTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CrossBarStats.Nodes.Node.CrossBarTable, self).__init__()
 
                     self.yang_name = "cross-bar-table"
                     self.yang_parent_name = "node"
@@ -212,7 +227,7 @@ class CrossBarStats(Entity):
                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable, [], name, value)
 
 
-                class SkbStats(Entity):
+                class SkbStats(_Entity_):
                     """
                     Table of packet stats for SKB
                     
@@ -231,7 +246,10 @@ class CrossBarStats(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats, self).__init__()
 
                         self.yang_name = "skb-stats"
                         self.yang_parent_name = "cross-bar-table"
@@ -249,7 +267,7 @@ class CrossBarStats(Entity):
                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats, [], name, value)
 
 
-                    class SkbStat(Entity):
+                    class SkbStat(_Entity_):
                         """
                         Stats information for a particular asic type
                         and port
@@ -310,7 +328,10 @@ class CrossBarStats(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat, self).__init__()
 
                             self.yang_name = "skb-stat"
                             self.yang_parent_name = "skb-stats"
@@ -345,7 +366,7 @@ class CrossBarStats(Entity):
                             self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat, ['asic_id', 'port', 'internal_err_cnt'], name, value)
 
 
-                        class InStats(Entity):
+                        class InStats(_Entity_):
                             """
                             Ingress Stats
                             
@@ -406,7 +427,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats, self).__init__()
 
                                 self.yang_name = "in-stats"
                                 self.yang_parent_name = "skb-stat"
@@ -450,7 +474,7 @@ class CrossBarStats(Entity):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats, [], name, value)
 
 
-                            class IbbStats(Entity):
+                            class IbbStats(_Entity_):
                                 """
                                 Input Buffer Block Stats
                                 
@@ -516,7 +540,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats, self).__init__()
 
                                     self.yang_name = "ibb-stats"
                                     self.yang_parent_name = "in-stats"
@@ -544,9 +571,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats, ['ipcicmtail_drop', 'dhe_diag_pkt', 'ibmdnouttot', 'icmdnenq', 'icmdndeq', 'ibmcsrccouttot'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbStats']['meta_info']
 
 
-                            class IbfStats(Entity):
+                            class IbfStats(_Entity_):
                                 """
                                 Input Forwarding Block Stats
                                 
@@ -567,7 +598,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats, self).__init__()
 
                                     self.yang_name = "ibf-stats"
                                     self.yang_parent_name = "in-stats"
@@ -585,9 +619,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats, ['unused'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfStats']['meta_info']
 
 
-                            class IbbUcStats(Entity):
+                            class IbbUcStats(_Entity_):
                                 """
                                 Input Buffer Block UC Stats
                                 
@@ -752,7 +790,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats, self).__init__()
 
                                     self.yang_name = "ibb-uc-stats"
                                     self.yang_parent_name = "in-stats"
@@ -802,9 +843,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats, ['ipc_data_tot', 'ipc_data_totsz', 'ipcrunt', 'ipcgiant', 'ipc_data_err', 'ipclinkerr', 'ipcptcerr', 'ipcpkt_drop', 'ipcdes_drop', 'dhetail_drop', 'ibmoutsop', 'ibmouteop', 'ibmoutbyte', 'icmenq', 'icmdeq', 'icmfcxoff', 'icmfcxon'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbUcStats']['meta_info']
 
 
-                            class IbfUcStats(Entity):
+                            class IbfUcStats(_Entity_):
                                 """
                                 Input Forwarding Block UC Stats
                                 
@@ -879,7 +924,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats, self).__init__()
 
                                     self.yang_name = "ibf-uc-stats"
                                     self.yang_parent_name = "in-stats"
@@ -909,9 +957,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats, ['pktcnt', 'pktoutp0cnt', 'pktoutp1cnt', 'pkt_input_err_drop', 'pkthwerr_drop', 'pkt_null_poe_drop', 'pkt_disp_oe_drop'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfUcStats']['meta_info']
 
 
-                            class IbbMcStats(Entity):
+                            class IbbMcStats(_Entity_):
                                 """
                                 Input Buffer Block MC Stats
                                 
@@ -1085,7 +1137,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats, self).__init__()
 
                                     self.yang_name = "ibb-mc-stats"
                                     self.yang_parent_name = "in-stats"
@@ -1137,9 +1192,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats, ['ipc_data_tot', 'ipc_data_totsz', 'ipcrunt', 'ipcgiant', 'ipc_data_err', 'ipclinkerr', 'ipcptcerr', 'ipcpkt_drop', 'ipcdes_drop', 'dhehitail_drop', 'dhelotail_drop', 'ibmoutsop', 'ibmouteop', 'ibmoutbyte', 'icmenq', 'icmdeq', 'icmfcxoff', 'icmfcxon'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbbMcStats']['meta_info']
 
 
-                            class IbfMcStats(Entity):
+                            class IbfMcStats(_Entity_):
                                 """
                                 Input Forwarding Block MC Stats
                                 
@@ -1250,7 +1309,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats, self).__init__()
 
                                     self.yang_name = "ibf-mc-stats"
                                     self.yang_parent_name = "in-stats"
@@ -1288,9 +1350,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats, ['pktcnt', 'pktoutcnt', 'pkthi_copy_sup_event', 'pktlo_copy_sup_event', 'pkt_input_err_drop', 'pktfgid_addr_err_drop', 'pktfgidlkuperr_drop', 'pkt_null_poe_drop', 'pkt_copy_sup_drop', 'pkt_disp_oe_drop', 'pktto_drop_cnt'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.IbfMcStats']['meta_info']
 
 
-                            class CflStats(Entity):
+                            class CflStats(_Entity_):
                                 """
                                 Ingress Common Fabric Link Stats
                                 
@@ -1323,7 +1389,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats, self).__init__()
 
                                     self.yang_name = "cfl-stats"
                                     self.yang_parent_name = "in-stats"
@@ -1351,7 +1420,7 @@ class CrossBarStats(Entity):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats, [], name, value)
 
 
-                                class CflUcStats(Entity):
+                                class CflUcStats(_Entity_):
                                     """
                                     Ingress CFL Unicast Stats
                                     
@@ -1435,7 +1504,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats, self).__init__()
 
                                         self.yang_name = "cfl-uc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -1467,9 +1539,13 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats, ['crc_match_pattern', 'pkts_rcvd', 'packed_pkts_rcvd', 'pkts_flushed', 'runt_pkts_drop_ped', 'small_pkts_drop_ped', 'pkts_to_ib_from_port', 'in_uc_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflUcStats']['meta_info']
 
 
-                                class CflMcStats(Entity):
+                                class CflMcStats(_Entity_):
                                     """
                                     Ingress CFL Multicast Stats
                                     
@@ -1553,7 +1629,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats, self).__init__()
 
                                         self.yang_name = "cfl-mc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -1585,9 +1664,13 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats, ['crc_match_pattern', 'pkts_rcvd', 'packed_pkts_rcvd', 'pkts_flushed', 'runt_pkts_drop_ped', 'small_pkts_drop_ped', 'pkts_to_ib_from_port', 'in_mc_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMcStats']['meta_info']
 
 
-                                class CflMiscStats(Entity):
+                                class CflMiscStats(_Entity_):
                                     """
                                     Ingress CFL Miscellaneous Stats
                                     
@@ -1626,7 +1709,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats, self).__init__()
 
                                         self.yang_name = "cfl-misc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -1648,11 +1734,23 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats, ['crc_stomp', 'crc_new_err', 'in_total_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats.CflMiscStats']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats.CflStats']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.InStats']['meta_info']
 
 
-
-
-                        class EgStats(Entity):
+                        class EgStats(_Entity_):
                             """
                             Egress Stats
                             
@@ -1692,7 +1790,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats, self).__init__()
 
                                 self.yang_name = "eg-stats"
                                 self.yang_parent_name = "skb-stat"
@@ -1724,7 +1825,7 @@ class CrossBarStats(Entity):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats, [], name, value)
 
 
-                            class ObuStats(Entity):
+                            class ObuStats(_Entity_):
                                 """
                                 Output Buffer Stats
                                 
@@ -1743,7 +1844,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats, self).__init__()
 
                                     self.yang_name = "obu-stats"
                                     self.yang_parent_name = "eg-stats"
@@ -1761,7 +1865,7 @@ class CrossBarStats(Entity):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats, [], name, value)
 
 
-                                class DataQueque(Entity):
+                                class DataQueque(_Entity_):
                                     """
                                     Output Buffer Data Queue Queue Count
                                     
@@ -1782,7 +1886,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque, self).__init__()
 
                                         self.yang_name = "data-queque"
                                         self.yang_parent_name = "obu-stats"
@@ -1800,10 +1907,18 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque, ['entry'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats.DataQueque']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuStats']['meta_info']
 
 
-
-                            class ObuUcStats(Entity):
+                            class ObuUcStats(_Entity_):
                                 """
                                 Output Buffer UC Stats
                                 
@@ -1860,7 +1975,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats, self).__init__()
 
                                     self.yang_name = "obu-uc-stats"
                                     self.yang_parent_name = "eg-stats"
@@ -1886,9 +2004,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats, ['pktin', 'pktout', 'bytein', 'byteout', 'pkttrunc'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuUcStats']['meta_info']
 
 
-                            class ObuMcStats(Entity):
+                            class ObuMcStats(_Entity_):
                                 """
                                 Output Buffer MC Stats
                                 
@@ -1945,7 +2067,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats, self).__init__()
 
                                     self.yang_name = "obu-mc-stats"
                                     self.yang_parent_name = "eg-stats"
@@ -1971,9 +2096,13 @@ class CrossBarStats(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats, ['pktin', 'pktout', 'bytein', 'byteout', 'pkttrunc'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.ObuMcStats']['meta_info']
 
 
-                            class CflStats(Entity):
+                            class CflStats(_Entity_):
                                 """
                                 Egress Common Fabric Link Stats
                                 
@@ -2006,7 +2135,10 @@ class CrossBarStats(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats, self).__init__()
 
                                     self.yang_name = "cfl-stats"
                                     self.yang_parent_name = "eg-stats"
@@ -2034,7 +2166,7 @@ class CrossBarStats(Entity):
                                     self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats, [], name, value)
 
 
-                                class CflUcStats(Entity):
+                                class CflUcStats(_Entity_):
                                     """
                                     Egress CFL Unicast Stats
                                     
@@ -2073,7 +2205,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats, self).__init__()
 
                                         self.yang_name = "cfl-uc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -2095,9 +2230,13 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats, ['pkts_truncated', 'pkts_from_ob_to_port', 'eg_uc_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflUcStats']['meta_info']
 
 
-                                class CflMcStats(Entity):
+                                class CflMcStats(_Entity_):
                                     """
                                     Egress CFL Multicast Stats
                                     
@@ -2136,7 +2275,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats, self).__init__()
 
                                         self.yang_name = "cfl-mc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -2158,9 +2300,13 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats, ['pkts_truncated', 'pkts_from_ob_to_port', 'eg_mc_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMcStats']['meta_info']
 
 
-                                class CflMiscStats(Entity):
+                                class CflMiscStats(_Entity_):
                                     """
                                     Egress CFL Miscellaneous Stats
                                     
@@ -2217,7 +2363,10 @@ class CrossBarStats(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats, self).__init__()
 
                                         self.yang_name = "cfl-misc-stats"
                                         self.yang_parent_name = "cfl-stats"
@@ -2243,11 +2392,23 @@ class CrossBarStats(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats, ['ecc_corr_err', 'ecc_uncorr_err', 'ecc_raw_corr_err', 'ecc_raw_uncorr_err', 'eg_total_rate'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats.CflMiscStats']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats.CflStats']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.EgStats']['meta_info']
 
 
-
-
-                        class XpsStats(Entity):
+                        class XpsStats(_Entity_):
                             """
                             Crosspoint Scheduler Stats
                             
@@ -2295,7 +2456,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats, self).__init__()
 
                                 self.yang_name = "xps-stats"
                                 self.yang_parent_name = "skb-stat"
@@ -2319,11 +2483,23 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats, ['uc_timer_drop', 'uc_timer_truncate', 'mc_timer_drop', 'mc_timer_truncate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat.XpsStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                            return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats.SkbStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.SkbStats']['meta_info']
 
 
-
-
-                class PktStats(Entity):
+                class PktStats(_Entity_):
                     """
                     Table of packet stats
                     
@@ -2342,7 +2518,10 @@ class CrossBarStats(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(CrossBarStats.Nodes.Node.CrossBarTable.PktStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CrossBarStats.Nodes.Node.CrossBarTable.PktStats, self).__init__()
 
                         self.yang_name = "pkt-stats"
                         self.yang_parent_name = "cross-bar-table"
@@ -2360,7 +2539,7 @@ class CrossBarStats(Entity):
                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats, [], name, value)
 
 
-                    class PktStat(Entity):
+                    class PktStat(_Entity_):
                         """
                         Stats information for a particular asic type
                         and port
@@ -2796,7 +2975,10 @@ class CrossBarStats(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, self).__init__()
 
                             self.yang_name = "pkt-stat"
                             self.yang_parent_name = "pkt-stats"
@@ -2906,10 +3088,18 @@ class CrossBarStats(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, ['asic_id', 'port', 'internal_error_count', 'input_buffer_queued_packet_count_high', 'ingress_packet_count_since_last_read_high', 'ingress_channel_utilization_count_high', 'input_buffer_back_pressure_count_high', 'xbar_timeout_drop_count_high', 'holdrop_count_high', 'null_fpoe_drop_count_high', 'diagnostic_packet_count_high', 'input_buffer_correctable_ecc_error_count_high', 'input_buffer_uncorrectable_ecc_error_count_high', 'header_crc_error_count_high', 'short_input_header_error_count_high', 'packet_crc_error_count_high', 'short_packet_error_count_high', 'output_buffer_queued_packet_count_high', 'egress_packet_count_since_last_read_high', 'egress_channel_utilization_count_high', 'output_buffer_back_pressure_count_high', 'output_buffer_correctable_ecc_error_count_high', 'output_buffer_uncorrectable_ecc_error_count_high', 'fpoedb_correctable_ecc_error_count_high', 'fpoedb_uncorrectable_ecc_error_count_high', 'input_buffer_queued_packet_count_low', 'ingress_packet_count_since_last_read_low', 'ingress_channel_utilization_count_low', 'input_buffer_back_pressure_count_low', 'xbar_timeout_drop_count_low', 'holdrop_count_low', 'null_fpoe_drop_count_low', 'diagnostic_packet_count_low', 'input_buffer_correctable_ecc_error_count_low', 'input_buffer_uncorrectable_ecc_error_count_low', 'header_crc_error_count_low', 'short_input_header_error_count_low', 'packet_crc_error_count_low', 'short_packet_error_count_low', 'output_buffer_queued_packet_count_low', 'egress_packet_count_since_last_read_low', 'egress_channel_utilization_count_low', 'output_buffer_back_pressure_count_low', 'output_buffer_correctable_ecc_error_count_low', 'output_buffer_uncorrectable_ecc_error_count_low', 'fpoedb_correctable_ecc_error_count_low', 'fpoedb_uncorrectable_ecc_error_count_low'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                            return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.PktStats']['meta_info']
 
 
-
-                class Sm15Stats(Entity):
+                class Sm15Stats(_Entity_):
                     """
                     Table of packet stats for SM15
                     
@@ -2928,7 +3118,10 @@ class CrossBarStats(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats, self).__init__()
 
                         self.yang_name = "sm15-stats"
                         self.yang_parent_name = "cross-bar-table"
@@ -2946,7 +3139,7 @@ class CrossBarStats(Entity):
                         self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats, [], name, value)
 
 
-                    class Sm15Stat(Entity):
+                    class Sm15Stat(_Entity_):
                         """
                         Stats information for a particular asic type
                         and port
@@ -3077,7 +3270,10 @@ class CrossBarStats(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, self).__init__()
 
                             self.yang_name = "sm15-stat"
                             self.yang_parent_name = "sm15-stats"
@@ -3152,7 +3348,7 @@ class CrossBarStats(Entity):
                             self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, ['asic_id', 'port', 'internal_err_cnt'], name, value)
 
 
-                        class Ua0Stats(Entity):
+                        class Ua0Stats(_Entity_):
                             """
                             Unicast Arbiter0 stats
                             
@@ -3236,7 +3432,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, self).__init__()
 
                                 self.yang_name = "ua0-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3268,9 +3467,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats']['meta_info']
 
 
-                        class Ua1Stats(Entity):
+                        class Ua1Stats(_Entity_):
                             """
                             Unicast Arbiter1 stats
                             
@@ -3354,7 +3557,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, self).__init__()
 
                                 self.yang_name = "ua1-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3386,9 +3592,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats']['meta_info']
 
 
-                        class Ua2Stats(Entity):
+                        class Ua2Stats(_Entity_):
                             """
                             Unicast Arbiter2 stats
                             
@@ -3472,7 +3682,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, self).__init__()
 
                                 self.yang_name = "ua2-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3504,9 +3717,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats']['meta_info']
 
 
-                        class MaStats(Entity):
+                        class MaStats(_Entity_):
                             """
                             Multicast Arbiter stats
                             
@@ -3599,7 +3816,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, self).__init__()
 
                                 self.yang_name = "ma-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3633,9 +3853,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_re_transmit_cnt', 'rx_fabric_to_cnt', 'rx_hol_to_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats']['meta_info']
 
 
-                        class CaStats(Entity):
+                        class CaStats(_Entity_):
                             """
                             Control Cast stats
                             
@@ -3701,7 +3925,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, self).__init__()
 
                                 self.yang_name = "ca-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3729,9 +3956,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats']['meta_info']
 
 
-                        class PiStats(Entity):
+                        class PiStats(_Entity_):
                             """
                             Port Ingress stats
                             
@@ -3779,7 +4010,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, self).__init__()
 
                                 self.yang_name = "pi-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3803,9 +4037,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats']['meta_info']
 
 
-                        class PeStats(Entity):
+                        class PeStats(_Entity_):
                             """
                             Port Egress stats
                             
@@ -3862,7 +4100,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, self).__init__()
 
                                 self.yang_name = "pe-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -3888,9 +4129,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate', 'mc2uc_preempt_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats']['meta_info']
 
 
-                        class PiUcStats(Entity):
+                        class PiUcStats(_Entity_):
                             """
                             Ingress Unicast stats
                             
@@ -4226,7 +4471,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, self).__init__()
 
                                 self.yang_name = "pi-uc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -4314,9 +4562,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem0', 'line_s_written_in_mem1', 'line_s_written_in_mem2', 'tail_drp_pkt_cnt', 'uc0_data_mem_ecc_1bit_err_cnt', 'uc1_data_mem_ecc_1bit_err_cnt', 'uc2_data_mem_ecc_1bit_err_cnt', 'uc0_data_mem_ecc_2bit_err_cnt', 'uc1_data_mem_ecc_2bit_err_cnt', 'uc2_data_mem_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port_cnt', 'pkt_null_poe_sent_ua0_cnt', 'pkt_null_poe_sent_ua1_cnt', 'pkt_null_poe_sent_ua2_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_ux0_cnt', 'pkts_sent_to_ux1_cnt', 'pkts_sent_to_ux2_cnt', 'cpp_head_drop_pkt_cnt', 'tr_head_drop_pkt_cnt', 'tr_pkt_sent_to_ux', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats']['meta_info']
 
 
-                        class PiMcStats(Entity):
+                        class PiMcStats(_Entity_):
                             """
                             Ingress Multicast stats
                             
@@ -4625,7 +4877,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, self).__init__()
 
                                 self.yang_name = "pi-mc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -4707,9 +4962,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem', 'tail_drp_pkt_cnt', 'data_mem0_ecc_1bit_err_cnt', 'data_mem1_ecc_1bit_err_cnt', 'data_mem2_ecc_1bit_err_cnt', 'data_mem0_ecc_2bit_err_cnt', 'data_mem1_ecc_2bit_err_cnt', 'data_mem2_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port', 'pkt_fpoe_match_hit_cnt', 'pkt_null_poe_sent_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'di_hdr_len_err_pkt_cnt', 'di_err_pkt_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_mx_cnt', 'cpp_head_drop_pkt_from_ma_cnt', 'tr_head_drop_pkt_from_ma_cnt', 'tr_pkt_sent_to_mx', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats']['meta_info']
 
 
-                        class PiCcStats(Entity):
+                        class PiCcStats(_Entity_):
                             """
                             Ingress Control Cast stats
                             
@@ -4991,7 +5250,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, self).__init__()
 
                                 self.yang_name = "pi-cc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -5067,9 +5329,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, ['in0_ecc_serr_cnt', 'in0_ecc_derr_cnt', 'in1_ecc_serr_cnt', 'in1_ecc_derr_cnt', 'data_mem_ecc_serr_cnt', 'data_mem_ecc_derr_cnt', 'data_mem_ovf0_cnt', 'data_mem_ovf1_cnt', 'fpoe_mem_ecc_serr_cnt', 'fpoe_mem_ecc_derr_cnt', 'null_poe_cnt', 'shut_ack_cnt', 'in0_fnc_err_cnt', 'in1_fnc_err_cnt', 'in0_drop_cnt', 'in1_drop_cnt', 'in0_cong_cnt', 'in1_cong_cnt', 'in0_shut_cnt', 'in1_shut_cnt', 'tail_drop_msg_cnt', 'in0_pkt_cnt', 'in1_pkt_cnt', 'dmem_rd_cnt', 'in_dmem0_cnt', 'in_dmem1_cnt', 'out_pkt_cnt', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats']['meta_info']
 
 
-                        class PeUcStats(Entity):
+                        class PeUcStats(_Entity_):
                             """
                             Egress Unicast stats
                             
@@ -5360,7 +5626,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, self).__init__()
 
                                 self.yang_name = "pe-uc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -5438,9 +5707,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, ['in_pkt_uc0_cnt', 'in_pkt_uc1_cnt', 'in_pkt_uc2_cnt', 'in_full_line_uc0_cnt', 'in_full_line_uc1_cnt', 'in_full_line_uc2_cnt', 'pkt_trunc_eop_uc0_cnt', 'pkt_trunc_eop_uc1_cnt', 'pkt_trunc_eop_uc2_cnt', 'pkt_sop_drop_uc0_cnt', 'pkt_sop_drop_uc1_cnt', 'pkt_sop_drop_uc2_cnt', 'pkt_ecc_err_drop_uc_cnt', 'pkt_ecc_trunc_cnt_uc_cnt', 'ecc_1bit_err_uc0_0_cnt', 'ecc_1bit_err_uc0_1_cnt', 'ecc_1bit_err_uc1_0_cnt', 'ecc_1bit_err_uc1_1_cnt', 'ecc_1bit_err_uc2_0_cnt', 'ecc_1bit_err_uc2_1_cnt', 'ecc_2bit_err_uc0_0_cnt', 'ecc_2bit_err_uc0_1_cnt', 'ecc_2bit_err_uc1_0_cnt', 'ecc_2bit_err_uc1_1_cnt', 'ecc_2bit_err_uc2_0_cnt', 'ecc_2bit_err_uc2_1_cnt', 'out_pkt_uc_cnt', 'fe_uc_sop_eop_pack_cnt', 'fc_uc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats']['meta_info']
 
 
-                        class PeMcStats(Entity):
+                        class PeMcStats(_Entity_):
                             """
                             Egress Multicast stats
                             
@@ -5605,7 +5878,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, self).__init__()
 
                                 self.yang_name = "pe-mc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -5655,9 +5931,13 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, ['in_pkt_mc_cnt', 'in_full_line_mc_cnt', 'pkt_trunc_eop_mc_cnt', 'pkt_sop_drop_mc_cnt', 'pkt_ecc_err_drop_mc_cnt', 'pkt_ecc_err_trunc_cnt_mc_cnt', 'ecc_1bit_err_mc0_cnt', 'ecc_1bit_err_mc1_cnt', 'ecc_1bit_err_mc2_cnt', 'ecc_2bit_err_mc0_cnt', 'ecc_2bit_err_mc1_cnt', 'ecc_2bit_err_mc2_cnt', 'out_pkt_mc_cnt', 'fe_mc_sop_eop_pack_cnt', 'fc_mc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats']['meta_info']
 
 
-                        class PeCcStats(Entity):
+                        class PeCcStats(_Entity_):
                             """
                             Egress Control Cast stats
                             
@@ -5813,7 +6093,10 @@ class CrossBarStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, self).__init__()
 
                                 self.yang_name = "pe-cc-stats"
                                 self.yang_parent_name = "sm15-stat"
@@ -5861,15 +6144,43 @@ class CrossBarStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, ['in_pkt_cnt', 'out_path0_pkt_cnt', 'out_path1_pkt_cnt', 'xbar_ecc_drop_pkt_cnt', 'mem0_drop_pkt_cnt', 'mem1_drop_pkt_cnt', 'congn_pkt_cnt', 'xbar_ecc_single_err_cnt', 'xbar_ecc_double_err_cnt', 'mem0_ecc_single_err_cnt', 'mem0_ecc_double_err_cnt', 'mem1_ecc_single_err_cnt', 'mem1_ecc_double_err_cnt', 'fc_cc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                                return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                            return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                        return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                    return meta._meta_table['CrossBarStats.Nodes.Node.CrossBarTable']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+                return meta._meta_table['CrossBarStats.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+            return meta._meta_table['CrossBarStats.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CrossBarStats()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_xbar_oper as meta
+        return meta._meta_table['CrossBarStats']['meta_info']
 
 

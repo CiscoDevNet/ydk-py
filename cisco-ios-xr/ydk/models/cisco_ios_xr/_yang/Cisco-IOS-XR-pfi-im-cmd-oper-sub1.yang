@@ -3766,6 +3766,41 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "im attr media 1000base 2bx u i";
       }
+      enum "im-attr-media-100gbase-fr" {
+        value 387;
+        description
+          "im attr media 100gbase fr";
+      }
+      enum "im-attr-media-25gbase-aoc1m" {
+        value 388;
+        description
+          "im attr media 25gbase aoc1m";
+      }
+      enum "im-attr-media-25gbase-aoc2m" {
+        value 389;
+        description
+          "im attr media 25gbase aoc2m";
+      }
+      enum "im-attr-media-25gbase-aoc3m" {
+        value 390;
+        description
+          "im attr media 25gbase aoc3m";
+      }
+      enum "im-attr-media-25gbase-aoc5m" {
+        value 391;
+        description
+          "im attr media 25gbase aoc5m";
+      }
+      enum "im-attr-media-25gbase-aoc7m" {
+        value 392;
+        description
+          "im attr media 25gbase aoc7m";
+      }
+      enum "im-attr-media-25gbase-aoc10m" {
+        value 393;
+        description
+          "im attr media 25gbase aoc10m";
+      }
     }
     description
       "Im attr media";

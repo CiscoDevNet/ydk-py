@@ -2163,6 +2163,10 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
           "Bi-directional fiber over 2 lane optics (short
            reach)";
       }
+      enum "ethernet-100gbase-fr" {
+        description
+          "duplex single mode fiber (Far Reach/2 km)";
+      }
       enum "ethernet-1000base-2bx-d" {
         description
           "2 channel X fibre (D)";
@@ -2178,6 +2182,30 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       enum "ethernet-1000base-2bx-u-i" {
         description
           "2 channel X fibre (U/I)";
+      }
+      enum "ethernet-25gbase-aoc1m" {
+        description
+          "Active optical cable 1m";
+      }
+      enum "ethernet-25gbase-aoc2m" {
+        description
+          "Active optical cable 2m";
+      }
+      enum "ethernet-25gbase-aoc3m" {
+        description
+          "Active optical cable 3m";
+      }
+      enum "ethernet-25gbase-aoc5m" {
+        description
+          "Active optical cable 5m";
+      }
+      enum "ethernet-25gbase-aoc7m" {
+        description
+          "Active optical cable 7m";
+      }
+      enum "ethernet-25gbase-aoc10m" {
+        description
+          "Active optical cable 10m";
       }
       enum "ethernet-base-max" {
         description

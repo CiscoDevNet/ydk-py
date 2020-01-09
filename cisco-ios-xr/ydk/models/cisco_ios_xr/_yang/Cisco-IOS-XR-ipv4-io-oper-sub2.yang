@@ -504,7 +504,7 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
     leaf next-unnumbered-interface-name {
       type string;
       description
-        "Name of interface which is also unnum to        
+        "Name of interface which is also unnum to
          same interface where this intf is unnumbered";
     }
     leaf proxy-arp-disabled {
@@ -540,7 +540,7 @@ submodule Cisco-IOS-XR-ipv4-io-oper-sub2 {
     leaf state-recvd-frm-im {
       type Ipv4-ma-oper-line-state;
       description
-        "state as recieved                               
+        "state as recieved
          from IM";
     }
     leaf cflct-address {

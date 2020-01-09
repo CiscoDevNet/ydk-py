@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -51,6 +54,12 @@ class InterfaceState(Enum):
     interface_up = Enum.YLeaf(2, "interface-up")
 
     interface_unknown = Enum.YLeaf(3, "interface-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+        return meta._meta_table['InterfaceState']
 
 
 class RipRouteOrigin(Enum):
@@ -98,8 +107,14 @@ class RipRouteOrigin(Enum):
     rip_rt_org_unused = Enum.YLeaf(5, "rip-rt-org-unused")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+        return meta._meta_table['RipRouteOrigin']
 
-class Rip(Entity):
+
+
+class Rip(_Entity_):
     """
     RIP operational data
     
@@ -132,7 +147,10 @@ class Rip(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Rip, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rip, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rip"
@@ -161,7 +179,7 @@ class Rip(Entity):
         self._perform_setattr(Rip, [], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF related operational data
         
@@ -180,7 +198,10 @@ class Rip(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rip.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rip.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "rip"
@@ -199,7 +220,7 @@ class Rip(Entity):
             self._perform_setattr(Rip.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             Operational data for a particular VRF
             
@@ -255,7 +276,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -295,7 +319,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Routes(Entity):
+            class Routes(_Entity_):
                 """
                 RIP route database
                 
@@ -314,7 +338,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Routes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Routes, self).__init__()
 
                     self.yang_name = "routes"
                     self.yang_parent_name = "vrf"
@@ -332,7 +359,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Routes, [], name, value)
 
 
-                class Route(Entity):
+                class Route(_Entity_):
                     """
                     A route in the RIP database
                     
@@ -469,7 +496,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Routes.Route, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Routes.Route, self).__init__()
 
                         self.yang_name = "route"
                         self.yang_parent_name = "routes"
@@ -516,7 +546,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Routes.Route, ['prefix', 'prefix_length', 'destination_address', 'prefix_length_xr', 'distance', 'bgp_count', 'route_type', 'route_summary', 'route_tag', 'version', 'attributes', 'active', 'path_origin', 'hold_down'], name, value)
 
 
-                    class Paths(Entity):
+                    class Paths(_Entity_):
                         """
                         The paths for this route
                         
@@ -589,7 +619,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Routes.Route.Paths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Routes.Route.Paths, self).__init__()
 
                             self.yang_name = "paths"
                             self.yang_parent_name = "route"
@@ -619,11 +652,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Routes.Route.Paths']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Routes.Route']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Routes']['meta_info']
 
 
-
-
-            class Configuration(Entity):
+            class Configuration(_Entity_):
                 """
                 RIP global configuration
                 
@@ -792,7 +837,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Configuration, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Configuration, self).__init__()
 
                     self.yang_name = "configuration"
                     self.yang_parent_name = "vrf"
@@ -846,9 +894,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Configuration']['meta_info']
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 RIP statistics information
                 
@@ -977,7 +1029,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "vrf"
@@ -1019,9 +1074,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Statistics']['meta_info']
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 RIP interfaces
                 
@@ -1040,7 +1099,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "vrf"
@@ -1058,7 +1120,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Information about a particular RIP interface
                     
@@ -1326,7 +1388,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -1406,7 +1471,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'interface', 'if_handle', 'rip_enabled', 'is_passive_interface', 'multicast_address', 'accept_metric', 'send_version', 'receive_version', 'state', 'destination_address', 'prefix_length', 'metric_cost', 'split_horizon', 'poison_horizon', 'triggered_rip', 'neighbor_address', 'oom_flags', 'join_status', 'lpts_state', 'auth_mode', 'auth_keychain', 'send_auth_key_exists', 'auth_key_md5', 'auth_key_send_id', 'total_pkt_recvd', 'pkt_drop_wrong_kc', 'pkt_drop_no_auth', 'pkt_drop_invalid_auth', 'pkt_accepted_valid_auth'], name, value)
 
 
-                    class RipSummary(Entity):
+                    class RipSummary(_Entity_):
                         """
                         User defined summary addresses
                         
@@ -1454,7 +1519,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, self).__init__()
 
                             self.yang_name = "rip-summary"
                             self.yang_parent_name = "interface"
@@ -1478,9 +1546,13 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary']['meta_info']
 
 
-                    class RipPeer(Entity):
+                    class RipPeer(_Entity_):
                         """
                         Neighbors on this interface
                         
@@ -1537,7 +1609,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, self).__init__()
 
                             self.yang_name = "rip-peer"
                             self.yang_parent_name = "interface"
@@ -1563,11 +1638,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Interfaces']['meta_info']
 
 
-
-
-            class Global(Entity):
+            class Global(_Entity_):
                 """
                 Global Information 
                 
@@ -1593,7 +1680,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "vrf"
@@ -1615,7 +1705,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Global, [], name, value)
 
 
-                class VrfSummary(Entity):
+                class VrfSummary(_Entity_):
                     """
                     VRF summary data
                     
@@ -1731,7 +1821,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Global.VrfSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Global.VrfSummary, self).__init__()
 
                         self.yang_name = "vrf-summary"
                         self.yang_parent_name = "global"
@@ -1771,9 +1864,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Global.VrfSummary']['meta_info']
 
 
-                class InterfaceSummary(Entity):
+                class InterfaceSummary(_Entity_):
                     """
                     List of Interfaces configured
                     
@@ -1860,7 +1957,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Global.InterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Global.InterfaceSummary, self).__init__()
 
                         self.yang_name = "interface-summary"
                         self.yang_parent_name = "global"
@@ -1894,12 +1994,28 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Global.InterfaceSummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Global']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+            return meta._meta_table['Rip.Vrfs']['meta_info']
 
 
-
-
-
-    class Protocol(Entity):
+    class Protocol(_Entity_):
         """
         Protocol operational data
         
@@ -1925,7 +2041,10 @@ class Rip(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rip.Protocol, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rip.Protocol, self).__init__()
 
             self.yang_name = "protocol"
             self.yang_parent_name = "rip"
@@ -1950,7 +2069,7 @@ class Rip(Entity):
             self._perform_setattr(Rip.Protocol, [], name, value)
 
 
-        class Process(Entity):
+        class Process(_Entity_):
             """
             RIP global process 
             
@@ -2023,7 +2142,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.Protocol.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.Protocol.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "protocol"
@@ -2055,7 +2177,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.Protocol.Process, ['vrf_config_count', 'vrf_active_count', 'socket_descriptor', 'current_oom_state', 'route_count', 'path_count'], name, value)
 
 
-            class VrfSummary(Entity):
+            class VrfSummary(_Entity_):
                 """
                 List of VRFs configured
                 
@@ -2171,7 +2293,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.Process.VrfSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.Process.VrfSummary, self).__init__()
 
                     self.yang_name = "vrf-summary"
                     self.yang_parent_name = "process"
@@ -2212,10 +2337,18 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Protocol.Process.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.Process.VrfSummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.Protocol.Process']['meta_info']
 
 
-
-        class DefaultVrf(Entity):
+        class DefaultVrf(_Entity_):
             """
             RIP operational data for Default VRF
             
@@ -2262,7 +2395,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.Protocol.DefaultVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.Protocol.DefaultVrf, self).__init__()
 
                 self.yang_name = "default-vrf"
                 self.yang_parent_name = "protocol"
@@ -2299,7 +2435,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.Protocol.DefaultVrf, [], name, value)
 
 
-            class Routes(Entity):
+            class Routes(_Entity_):
                 """
                 RIP route database
                 
@@ -2318,7 +2454,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Routes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.DefaultVrf.Routes, self).__init__()
 
                     self.yang_name = "routes"
                     self.yang_parent_name = "default-vrf"
@@ -2337,7 +2476,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Routes, [], name, value)
 
 
-                class Route(Entity):
+                class Route(_Entity_):
                     """
                     A route in the RIP database
                     
@@ -2474,7 +2613,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Routes.Route, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Protocol.DefaultVrf.Routes.Route, self).__init__()
 
                         self.yang_name = "route"
                         self.yang_parent_name = "routes"
@@ -2522,7 +2664,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Routes.Route, ['prefix', 'prefix_length', 'destination_address', 'prefix_length_xr', 'distance', 'bgp_count', 'route_type', 'route_summary', 'route_tag', 'version', 'attributes', 'active', 'path_origin', 'hold_down'], name, value)
 
 
-                    class Paths(Entity):
+                    class Paths(_Entity_):
                         """
                         The paths for this route
                         
@@ -2595,7 +2737,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Protocol.DefaultVrf.Routes.Route.Paths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Protocol.DefaultVrf.Routes.Route.Paths, self).__init__()
 
                             self.yang_name = "paths"
                             self.yang_parent_name = "route"
@@ -2626,11 +2771,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Protocol.DefaultVrf.Routes.Route.Paths']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Protocol.DefaultVrf.Routes.Route']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.DefaultVrf.Routes']['meta_info']
 
 
-
-
-            class Configuration(Entity):
+            class Configuration(_Entity_):
                 """
                 RIP global configuration
                 
@@ -2799,7 +2956,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Configuration, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.DefaultVrf.Configuration, self).__init__()
 
                     self.yang_name = "configuration"
                     self.yang_parent_name = "default-vrf"
@@ -2854,9 +3014,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.DefaultVrf.Configuration']['meta_info']
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 RIP statistics information
                 
@@ -2985,7 +3149,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.DefaultVrf.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "default-vrf"
@@ -3028,9 +3195,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.DefaultVrf.Statistics']['meta_info']
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 RIP interfaces
                 
@@ -3049,7 +3220,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.DefaultVrf.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "default-vrf"
@@ -3068,7 +3242,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Information about a particular RIP interface
                     
@@ -3336,7 +3510,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Protocol.DefaultVrf.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -3417,7 +3594,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface, ['interface_name', 'interface', 'if_handle', 'rip_enabled', 'is_passive_interface', 'multicast_address', 'accept_metric', 'send_version', 'receive_version', 'state', 'destination_address', 'prefix_length', 'metric_cost', 'split_horizon', 'poison_horizon', 'triggered_rip', 'neighbor_address', 'oom_flags', 'join_status', 'lpts_state', 'auth_mode', 'auth_keychain', 'send_auth_key_exists', 'auth_key_md5', 'auth_key_send_id', 'total_pkt_recvd', 'pkt_drop_wrong_kc', 'pkt_drop_no_auth', 'pkt_drop_invalid_auth', 'pkt_accepted_valid_auth'], name, value)
 
 
-                    class RipSummary(Entity):
+                    class RipSummary(_Entity_):
                         """
                         User defined summary addresses
                         
@@ -3465,7 +3642,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
 
                             self.yang_name = "rip-summary"
                             self.yang_parent_name = "interface"
@@ -3489,9 +3669,13 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary']['meta_info']
 
 
-                    class RipPeer(Entity):
+                    class RipPeer(_Entity_):
                         """
                         Neighbors on this interface
                         
@@ -3548,7 +3732,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
 
                             self.yang_name = "rip-peer"
                             self.yang_parent_name = "interface"
@@ -3574,11 +3761,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                            return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces']['meta_info']
 
 
-
-
-            class Global(Entity):
+            class Global(_Entity_):
                 """
                 Global Information 
                 
@@ -3604,7 +3803,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Protocol.DefaultVrf.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "default-vrf"
@@ -3627,7 +3829,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Global, [], name, value)
 
 
-                class VrfSummary(Entity):
+                class VrfSummary(_Entity_):
                     """
                     VRF summary data
                     
@@ -3743,7 +3945,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Global.VrfSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Protocol.DefaultVrf.Global.VrfSummary, self).__init__()
 
                         self.yang_name = "vrf-summary"
                         self.yang_parent_name = "global"
@@ -3784,9 +3989,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Protocol.DefaultVrf.Global.VrfSummary']['meta_info']
 
 
-                class InterfaceSummary(Entity):
+                class InterfaceSummary(_Entity_):
                     """
                     List of Interfaces configured
                     
@@ -3873,7 +4082,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, self).__init__()
 
                         self.yang_name = "interface-summary"
                         self.yang_parent_name = "global"
@@ -3908,12 +4120,28 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.Protocol.DefaultVrf.Global.InterfaceSummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.Protocol.DefaultVrf.Global']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.Protocol.DefaultVrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+            return meta._meta_table['Rip.Protocol']['meta_info']
 
 
-
-
-
-    class DefaultVrf(Entity):
+    class DefaultVrf(_Entity_):
         """
         RIP operational data for Default VRF
         
@@ -3960,7 +4188,10 @@ class Rip(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rip.DefaultVrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rip.DefaultVrf, self).__init__()
 
             self.yang_name = "default-vrf"
             self.yang_parent_name = "rip"
@@ -3997,7 +4228,7 @@ class Rip(Entity):
             self._perform_setattr(Rip.DefaultVrf, [], name, value)
 
 
-        class Routes(Entity):
+        class Routes(_Entity_):
             """
             RIP route database
             
@@ -4016,7 +4247,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Routes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Routes, self).__init__()
 
                 self.yang_name = "routes"
                 self.yang_parent_name = "default-vrf"
@@ -4035,7 +4269,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Routes, [], name, value)
 
 
-            class Route(Entity):
+            class Route(_Entity_):
                 """
                 A route in the RIP database
                 
@@ -4172,7 +4406,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Routes.Route, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Routes.Route, self).__init__()
 
                     self.yang_name = "route"
                     self.yang_parent_name = "routes"
@@ -4220,7 +4457,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Routes.Route, ['prefix', 'prefix_length', 'destination_address', 'prefix_length_xr', 'distance', 'bgp_count', 'route_type', 'route_summary', 'route_tag', 'version', 'attributes', 'active', 'path_origin', 'hold_down'], name, value)
 
 
-                class Paths(Entity):
+                class Paths(_Entity_):
                     """
                     The paths for this route
                     
@@ -4293,7 +4530,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Routes.Route.Paths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Routes.Route.Paths, self).__init__()
 
                         self.yang_name = "paths"
                         self.yang_parent_name = "route"
@@ -4324,11 +4564,23 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.DefaultVrf.Routes.Route.Paths']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.DefaultVrf.Routes.Route']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.DefaultVrf.Routes']['meta_info']
 
 
-
-
-        class Configuration(Entity):
+        class Configuration(_Entity_):
             """
             RIP global configuration
             
@@ -4497,7 +4749,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Configuration, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Configuration, self).__init__()
 
                 self.yang_name = "configuration"
                 self.yang_parent_name = "default-vrf"
@@ -4552,9 +4807,13 @@ class Rip(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.DefaultVrf.Configuration']['meta_info']
 
 
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             RIP statistics information
             
@@ -4683,7 +4942,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "default-vrf"
@@ -4726,9 +4988,13 @@ class Rip(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.DefaultVrf.Statistics']['meta_info']
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             RIP interfaces
             
@@ -4747,7 +5013,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "default-vrf"
@@ -4766,7 +5035,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Information about a particular RIP interface
                 
@@ -5034,7 +5303,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -5115,7 +5387,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface, ['interface_name', 'interface', 'if_handle', 'rip_enabled', 'is_passive_interface', 'multicast_address', 'accept_metric', 'send_version', 'receive_version', 'state', 'destination_address', 'prefix_length', 'metric_cost', 'split_horizon', 'poison_horizon', 'triggered_rip', 'neighbor_address', 'oom_flags', 'join_status', 'lpts_state', 'auth_mode', 'auth_keychain', 'send_auth_key_exists', 'auth_key_md5', 'auth_key_send_id', 'total_pkt_recvd', 'pkt_drop_wrong_kc', 'pkt_drop_no_auth', 'pkt_drop_invalid_auth', 'pkt_accepted_valid_auth'], name, value)
 
 
-                class RipSummary(Entity):
+                class RipSummary(_Entity_):
                     """
                     User defined summary addresses
                     
@@ -5163,7 +5435,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
 
                         self.yang_name = "rip-summary"
                         self.yang_parent_name = "interface"
@@ -5187,9 +5462,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.RipSummary']['meta_info']
 
 
-                class RipPeer(Entity):
+                class RipPeer(_Entity_):
                     """
                     Neighbors on this interface
                     
@@ -5246,7 +5525,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
 
                         self.yang_name = "rip-peer"
                         self.yang_parent_name = "interface"
@@ -5272,11 +5554,23 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.RipPeer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.DefaultVrf.Interfaces']['meta_info']
 
 
-
-
-        class Global(Entity):
+        class Global(_Entity_):
             """
             Global Information 
             
@@ -5302,7 +5596,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Global, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Global, self).__init__()
 
                 self.yang_name = "global"
                 self.yang_parent_name = "default-vrf"
@@ -5325,7 +5622,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Global, [], name, value)
 
 
-            class VrfSummary(Entity):
+            class VrfSummary(_Entity_):
                 """
                 VRF summary data
                 
@@ -5441,7 +5738,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Global.VrfSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Global.VrfSummary, self).__init__()
 
                     self.yang_name = "vrf-summary"
                     self.yang_parent_name = "global"
@@ -5482,9 +5782,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.DefaultVrf.Global.VrfSummary']['meta_info']
 
 
-            class InterfaceSummary(Entity):
+            class InterfaceSummary(_Entity_):
                 """
                 List of Interfaces configured
                 
@@ -5571,7 +5875,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Global.InterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Global.InterfaceSummary, self).__init__()
 
                     self.yang_name = "interface-summary"
                     self.yang_parent_name = "global"
@@ -5606,12 +5913,28 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                    return meta._meta_table['Rip.DefaultVrf.Global.InterfaceSummary']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+                return meta._meta_table['Rip.DefaultVrf.Global']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+            return meta._meta_table['Rip.DefaultVrf']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rip()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
+        return meta._meta_table['Rip']['meta_info']
 
 

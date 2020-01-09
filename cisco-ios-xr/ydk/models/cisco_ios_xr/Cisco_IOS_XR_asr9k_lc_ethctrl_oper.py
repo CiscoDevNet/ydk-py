@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Mlan(Entity):
+class Mlan(_Entity_):
     """
     Management LAN Operational data space
     
@@ -40,7 +43,10 @@ class Mlan(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Mlan, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mlan, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mlan"
@@ -61,7 +67,7 @@ class Mlan(Entity):
         self._perform_setattr(Mlan, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of nodes
         
@@ -80,7 +86,10 @@ class Mlan(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Mlan.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mlan.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "mlan"
@@ -99,7 +108,7 @@ class Mlan(Entity):
             self._perform_setattr(Mlan.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Number
             
@@ -148,7 +157,10 @@ class Mlan(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Mlan.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mlan.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -184,7 +196,7 @@ class Mlan(Entity):
                 self._perform_setattr(Mlan.Nodes.Node, ['node'], name, value)
 
 
-            class PortStatusNumbers(Entity):
+            class PortStatusNumbers(_Entity_):
                 """
                 Table of port status
                 
@@ -203,7 +215,10 @@ class Mlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mlan.Nodes.Node.PortStatusNumbers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mlan.Nodes.Node.PortStatusNumbers, self).__init__()
 
                     self.yang_name = "port-status-numbers"
                     self.yang_parent_name = "node"
@@ -221,7 +236,7 @@ class Mlan(Entity):
                     self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers, [], name, value)
 
 
-                class PortStatusNumber(Entity):
+                class PortStatusNumber(_Entity_):
                     """
                     Number
                     
@@ -249,7 +264,10 @@ class Mlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber, self).__init__()
 
                         self.yang_name = "port-status-number"
                         self.yang_parent_name = "port-status-numbers"
@@ -272,7 +290,7 @@ class Mlan(Entity):
                         self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber, ['number'], name, value)
 
 
-                    class PortStatus(Entity):
+                    class PortStatus(_Entity_):
                         """
                         mlan port status info
                         
@@ -348,7 +366,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus, self).__init__()
 
                             self.yang_name = "port-status"
                             self.yang_parent_name = "port-status-number"
@@ -389,7 +410,7 @@ class Mlan(Entity):
                             self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus, ['port_num', 'phy_valid', 'serdes_valid', 'mac_valid'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration Data
                             
@@ -446,7 +467,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "port-status"
@@ -472,9 +496,13 @@ class Mlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config, ['speed', 'duplex', 'pause', 'my_pause', 'loopback'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config']['meta_info']
 
 
-                        class Phy(Entity):
+                        class Phy(_Entity_):
                             """
                             PHY Registers
                             
@@ -493,7 +521,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy, self).__init__()
 
                                 self.yang_name = "phy"
                                 self.yang_parent_name = "port-status"
@@ -511,7 +542,7 @@ class Mlan(Entity):
                                 self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy, [], name, value)
 
 
-                            class Reg(Entity):
+                            class Reg(_Entity_):
                                 """
                                 reg
                                 
@@ -532,7 +563,10 @@ class Mlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg, self).__init__()
 
                                     self.yang_name = "reg"
                                     self.yang_parent_name = "phy"
@@ -550,10 +584,18 @@ class Mlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                    return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy.Reg']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy']['meta_info']
 
 
-
-                        class Serdes(Entity):
+                        class Serdes(_Entity_):
                             """
                             SERDES Registers
                             
@@ -572,7 +614,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes, self).__init__()
 
                                 self.yang_name = "serdes"
                                 self.yang_parent_name = "port-status"
@@ -590,7 +635,7 @@ class Mlan(Entity):
                                 self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes, [], name, value)
 
 
-                            class Reg(Entity):
+                            class Reg(_Entity_):
                                 """
                                 reg
                                 
@@ -611,7 +656,10 @@ class Mlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg, self).__init__()
 
                                     self.yang_name = "reg"
                                     self.yang_parent_name = "serdes"
@@ -629,10 +677,18 @@ class Mlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                    return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes.Reg']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes']['meta_info']
 
 
-
-                        class Mac(Entity):
+                        class Mac(_Entity_):
                             """
                             MAC Registers
                             
@@ -651,7 +707,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac, self).__init__()
 
                                 self.yang_name = "mac"
                                 self.yang_parent_name = "port-status"
@@ -669,7 +728,7 @@ class Mlan(Entity):
                                 self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac, [], name, value)
 
 
-                            class Reg(Entity):
+                            class Reg(_Entity_):
                                 """
                                 reg
                                 
@@ -690,7 +749,10 @@ class Mlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg, self).__init__()
 
                                     self.yang_name = "reg"
                                     self.yang_parent_name = "mac"
@@ -708,13 +770,33 @@ class Mlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                    return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac.Reg']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                        return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                    return meta._meta_table['Mlan.Nodes.Node.PortStatusNumbers']['meta_info']
 
 
-
-
-
-
-            class SwitchStatusTable(Entity):
+            class SwitchStatusTable(_Entity_):
                 """
                 Table of switch status
                 
@@ -733,7 +815,10 @@ class Mlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mlan.Nodes.Node.SwitchStatusTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mlan.Nodes.Node.SwitchStatusTable, self).__init__()
 
                     self.yang_name = "switch-status-table"
                     self.yang_parent_name = "node"
@@ -753,7 +838,7 @@ class Mlan(Entity):
                     self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable, [], name, value)
 
 
-                class SwitchStatus(Entity):
+                class SwitchStatus(_Entity_):
                     """
                     mlan switch status info
                     
@@ -795,7 +880,10 @@ class Mlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus, self).__init__()
 
                         self.yang_name = "switch-status"
                         self.yang_parent_name = "switch-status-table"
@@ -826,7 +914,7 @@ class Mlan(Entity):
                         self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus, ['rate_limit'], name, value)
 
 
-                    class SwReg1(Entity):
+                    class SwReg1(_Entity_):
                         """
                         Switch Global Registers
                         
@@ -845,7 +933,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1, self).__init__()
 
                             self.yang_name = "sw-reg-1"
                             self.yang_parent_name = "switch-status"
@@ -863,7 +954,7 @@ class Mlan(Entity):
                             self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1, [], name, value)
 
 
-                        class Reg(Entity):
+                        class Reg(_Entity_):
                             """
                             reg
                             
@@ -884,7 +975,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg, self).__init__()
 
                                 self.yang_name = "reg"
                                 self.yang_parent_name = "sw-reg-1"
@@ -902,10 +996,18 @@ class Mlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1.Reg']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1']['meta_info']
 
 
-
-                    class SwReg2(Entity):
+                    class SwReg2(_Entity_):
                         """
                         Switch Global Registers
                         
@@ -924,7 +1026,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2, self).__init__()
 
                             self.yang_name = "sw-reg-2"
                             self.yang_parent_name = "switch-status"
@@ -942,7 +1047,7 @@ class Mlan(Entity):
                             self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2, [], name, value)
 
 
-                        class Reg(Entity):
+                        class Reg(_Entity_):
                             """
                             reg
                             
@@ -963,7 +1068,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg, self).__init__()
 
                                 self.yang_name = "reg"
                                 self.yang_parent_name = "sw-reg-2"
@@ -981,10 +1089,18 @@ class Mlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2.Reg']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2']['meta_info']
 
 
-
-                    class SwStatus(Entity):
+                    class SwStatus(_Entity_):
                         """
                         Switch Status Data
                         
@@ -1059,7 +1175,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus, self).__init__()
 
                             self.yang_name = "sw-status"
                             self.yang_parent_name = "switch-status"
@@ -1089,11 +1208,23 @@ class Mlan(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus, ['ppu', 'mtu', 'mac', 'cpu_port', 'cpu_mac', 'initialized', 'restarted'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                        return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                    return meta._meta_table['Mlan.Nodes.Node.SwitchStatusTable']['meta_info']
 
 
-
-
-            class PortCountersNumbers(Entity):
+            class PortCountersNumbers(_Entity_):
                 """
                 Table of port counters
                 
@@ -1112,7 +1243,10 @@ class Mlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mlan.Nodes.Node.PortCountersNumbers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mlan.Nodes.Node.PortCountersNumbers, self).__init__()
 
                     self.yang_name = "port-counters-numbers"
                     self.yang_parent_name = "node"
@@ -1130,7 +1264,7 @@ class Mlan(Entity):
                     self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers, [], name, value)
 
 
-                class PortCountersNumber(Entity):
+                class PortCountersNumber(_Entity_):
                     """
                     Number
                     
@@ -1158,7 +1292,10 @@ class Mlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber, self).__init__()
 
                         self.yang_name = "port-counters-number"
                         self.yang_parent_name = "port-counters-numbers"
@@ -1181,7 +1318,7 @@ class Mlan(Entity):
                         self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber, ['number'], name, value)
 
 
-                    class PortCounters(Entity):
+                    class PortCounters(_Entity_):
                         """
                         mlan port counters info
                         
@@ -1209,7 +1346,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters, self).__init__()
 
                             self.yang_name = "port-counters"
                             self.yang_parent_name = "port-counters-number"
@@ -1232,7 +1372,7 @@ class Mlan(Entity):
                             self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters, ['port_num'], name, value)
 
 
-                        class MlanStats(Entity):
+                        class MlanStats(_Entity_):
                             """
                             Switch Port Statistics
                             
@@ -1559,7 +1699,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats, self).__init__()
 
                                 self.yang_name = "mlan-stats"
                                 self.yang_parent_name = "port-counters"
@@ -1645,12 +1788,28 @@ class Mlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats, ['in_good_octets_hi', 'in_good_octets', 'in_bad_octets', 'in_unicast_pkt', 'in_bcast_pkt', 'in_mcast_pkt', 'in_pause_pkt', 'in_undersize_pkt', 'in_fragments', 'in_oversize', 'in_jabber', 'in_rx_err', 'in_fcs_err', 'out_octets_hi', 'out_octets', 'out_unicast_pkt', 'out_bcast_pkt', 'out_mcast_pkt', 'out_pause_pkt', 'excessive', 'collisions', 'deferred', 'single', 'multiple', 'out_fcs_err', 'late', 'rx_tx_64_octets', 'rx_tx_65_127_octets', 'rx_tx_128_255_octets', 'rx_tx_256_511_octets', 'rx_tx_512_1023_octets', 'rx_tx_1024_max_octets', 'in_discards', 'in_filtered', 'out_filtered'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                        return meta._meta_table['Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                    return meta._meta_table['Mlan.Nodes.Node.PortCountersNumbers']['meta_info']
 
 
-
-
-
-            class AtuEntryNumbers(Entity):
+            class AtuEntryNumbers(_Entity_):
                 """
                 Table of switch ATU
                 
@@ -1669,7 +1828,10 @@ class Mlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mlan.Nodes.Node.AtuEntryNumbers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mlan.Nodes.Node.AtuEntryNumbers, self).__init__()
 
                     self.yang_name = "atu-entry-numbers"
                     self.yang_parent_name = "node"
@@ -1687,7 +1849,7 @@ class Mlan(Entity):
                     self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers, [], name, value)
 
 
-                class AtuEntryNumber(Entity):
+                class AtuEntryNumber(_Entity_):
                     """
                     Entry number
                     
@@ -1715,7 +1877,10 @@ class Mlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber, self).__init__()
 
                         self.yang_name = "atu-entry-number"
                         self.yang_parent_name = "atu-entry-numbers"
@@ -1738,7 +1903,7 @@ class Mlan(Entity):
                         self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber, ['entry'], name, value)
 
 
-                    class SwitchCounters(Entity):
+                    class SwitchCounters(_Entity_):
                         """
                         mlan switch counters info
                         
@@ -1766,7 +1931,10 @@ class Mlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters, self).__init__()
 
                             self.yang_name = "switch-counters"
                             self.yang_parent_name = "atu-entry-number"
@@ -1789,7 +1957,7 @@ class Mlan(Entity):
                             self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters, ['entry_num'], name, value)
 
 
-                        class Atu(Entity):
+                        class Atu(_Entity_):
                             """
                             Switch ATU Data
                             
@@ -1851,7 +2019,10 @@ class Mlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu, self).__init__()
 
                                 self.yang_name = "atu"
                                 self.yang_parent_name = "switch-counters"
@@ -1880,7 +2051,7 @@ class Mlan(Entity):
                                 self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu, ['db_num', 'priority', 'trunk', 'dpv', 'es'], name, value)
 
 
-                            class Macaddr(Entity):
+                            class Macaddr(_Entity_):
                                 """
                                 macaddr
                                 
@@ -1901,7 +2072,10 @@ class Mlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr, self).__init__()
 
                                     self.yang_name = "macaddr"
                                     self.yang_parent_name = "atu"
@@ -1919,16 +2093,48 @@ class Mlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                    return meta._meta_table['Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu.Macaddr']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                                return meta._meta_table['Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                            return meta._meta_table['Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                        return meta._meta_table['Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                    return meta._meta_table['Mlan.Nodes.Node.AtuEntryNumbers']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+                return meta._meta_table['Mlan.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+            return meta._meta_table['Mlan.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mlan()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_ethctrl_oper as meta
+        return meta._meta_table['Mlan']['meta_info']
 
 

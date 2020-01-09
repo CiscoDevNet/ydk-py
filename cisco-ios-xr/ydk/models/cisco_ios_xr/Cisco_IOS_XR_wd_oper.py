@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class MemoryState(Enum):
     critical = Enum.YLeaf(4, "critical")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+        return meta._meta_table['MemoryState']
+
+
 class OverloadCtrlNotif(Enum):
     """
     OverloadCtrlNotif (Enum Class)
@@ -80,8 +89,14 @@ class OverloadCtrlNotif(Enum):
     enabled = Enum.YLeaf(1, "enabled")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+        return meta._meta_table['OverloadCtrlNotif']
 
-class Watchdog(Entity):
+
+
+class Watchdog(_Entity_):
     """
     Watchdog information
     
@@ -100,7 +115,10 @@ class Watchdog(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Watchdog, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Watchdog, self).__init__()
         self._top_entity = None
 
         self.yang_name = "watchdog"
@@ -121,7 +139,7 @@ class Watchdog(Entity):
         self._perform_setattr(Watchdog, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes
         
@@ -140,7 +158,10 @@ class Watchdog(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Watchdog.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Watchdog.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "watchdog"
@@ -159,7 +180,7 @@ class Watchdog(Entity):
             self._perform_setattr(Watchdog.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node ID
             
@@ -201,7 +222,10 @@ class Watchdog(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Watchdog.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Watchdog.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -233,7 +257,7 @@ class Watchdog(Entity):
                 self._perform_setattr(Watchdog.Nodes.Node, ['node_name'], name, value)
 
 
-            class ThresholdMemory(Entity):
+            class ThresholdMemory(_Entity_):
                 """
                 Threshold memory
                 
@@ -259,7 +283,10 @@ class Watchdog(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Watchdog.Nodes.Node.ThresholdMemory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Watchdog.Nodes.Node.ThresholdMemory, self).__init__()
 
                     self.yang_name = "threshold-memory"
                     self.yang_parent_name = "node"
@@ -283,7 +310,7 @@ class Watchdog(Entity):
                     self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory, [], name, value)
 
 
-                class Default(Entity):
+                class Default(_Entity_):
                     """
                     System default memory
                     
@@ -309,7 +336,10 @@ class Watchdog(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Watchdog.Nodes.Node.ThresholdMemory.Default, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Watchdog.Nodes.Node.ThresholdMemory.Default, self).__init__()
 
                         self.yang_name = "default"
                         self.yang_parent_name = "threshold-memory"
@@ -333,7 +363,7 @@ class Watchdog(Entity):
                         self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default, [], name, value)
 
 
-                    class ConfiguredMemory(Entity):
+                    class ConfiguredMemory(_Entity_):
                         """
                         Configured memory
                         
@@ -378,7 +408,10 @@ class Watchdog(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, self).__init__()
 
                             self.yang_name = "configured-memory"
                             self.yang_parent_name = "default"
@@ -400,9 +433,13 @@ class Watchdog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, ['minor', 'severe', 'critical'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                            return meta._meta_table['Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory']['meta_info']
 
 
-                    class Memory(Entity):
+                    class Memory(_Entity_):
                         """
                         Memory Information
                         
@@ -443,7 +480,10 @@ class Watchdog(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, self).__init__()
 
                             self.yang_name = "memory"
                             self.yang_parent_name = "default"
@@ -465,10 +505,18 @@ class Watchdog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, ['physical_memory', 'free_memory', 'memory_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                            return meta._meta_table['Watchdog.Nodes.Node.ThresholdMemory.Default.Memory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                        return meta._meta_table['Watchdog.Nodes.Node.ThresholdMemory.Default']['meta_info']
 
 
-
-                class Configured(Entity):
+                class Configured(_Entity_):
                     """
                     Memory configured by user
                     
@@ -513,7 +561,10 @@ class Watchdog(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Watchdog.Nodes.Node.ThresholdMemory.Configured, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Watchdog.Nodes.Node.ThresholdMemory.Configured, self).__init__()
 
                         self.yang_name = "configured"
                         self.yang_parent_name = "threshold-memory"
@@ -535,10 +586,18 @@ class Watchdog(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, ['minor', 'severe', 'critical'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                        return meta._meta_table['Watchdog.Nodes.Node.ThresholdMemory.Configured']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                    return meta._meta_table['Watchdog.Nodes.Node.ThresholdMemory']['meta_info']
 
 
-
-            class MemoryState(Entity):
+            class MemoryState(_Entity_):
                 """
                 Memory state
                 
@@ -579,7 +638,10 @@ class Watchdog(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Watchdog.Nodes.Node.MemoryState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Watchdog.Nodes.Node.MemoryState, self).__init__()
 
                     self.yang_name = "memory-state"
                     self.yang_parent_name = "node"
@@ -601,9 +663,13 @@ class Watchdog(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Watchdog.Nodes.Node.MemoryState, ['physical_memory', 'free_memory', 'memory_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                    return meta._meta_table['Watchdog.Nodes.Node.MemoryState']['meta_info']
 
 
-            class OverloadState(Entity):
+            class OverloadState(_Entity_):
                 """
                 Display overload control state
                 
@@ -654,7 +720,10 @@ class Watchdog(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Watchdog.Nodes.Node.OverloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Watchdog.Nodes.Node.OverloadState, self).__init__()
 
                     self.yang_name = "overload-state"
                     self.yang_parent_name = "node"
@@ -683,7 +752,7 @@ class Watchdog(Entity):
                     self._perform_setattr(Watchdog.Nodes.Node.OverloadState, ['overload_control_notification', 'default_wdsysmon_throttle', 'configured_wdsysmon_throttle'], name, value)
 
 
-                class CurrentThrottle(Entity):
+                class CurrentThrottle(_Entity_):
                     """
                     Current throttle information
                     
@@ -700,7 +769,7 @@ class Watchdog(Entity):
                     
                     .. attribute:: start_time
                     
-                    	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	Current throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\: str
                     
                     	**length:** 0..25
@@ -715,7 +784,10 @@ class Watchdog(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, self).__init__()
 
                         self.yang_name = "current-throttle"
                         self.yang_parent_name = "overload-state"
@@ -735,9 +807,13 @@ class Watchdog(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, ['throttle_duration', 'start_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                        return meta._meta_table['Watchdog.Nodes.Node.OverloadState.CurrentThrottle']['meta_info']
 
 
-                class LastThrottle(Entity):
+                class LastThrottle(_Entity_):
                     """
                     Last throttle information
                     
@@ -778,7 +854,10 @@ class Watchdog(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Watchdog.Nodes.Node.OverloadState.LastThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Watchdog.Nodes.Node.OverloadState.LastThrottle, self).__init__()
 
                         self.yang_name = "last-throttle"
                         self.yang_parent_name = "overload-state"
@@ -800,13 +879,33 @@ class Watchdog(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, ['throttle_duration', 'start_time', 'stop_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                        return meta._meta_table['Watchdog.Nodes.Node.OverloadState.LastThrottle']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                    return meta._meta_table['Watchdog.Nodes.Node.OverloadState']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+                return meta._meta_table['Watchdog.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+            return meta._meta_table['Watchdog.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Watchdog()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_oper as meta
+        return meta._meta_table['Watchdog']['meta_info']
 
 

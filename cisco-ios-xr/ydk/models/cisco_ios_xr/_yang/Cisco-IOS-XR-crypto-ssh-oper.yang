@@ -5,6 +5,9 @@ module Cisco-IOS-XR-crypto-ssh-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
+  include Cisco-IOS-XR-crypto-ssh-oper-sub2 {
+    revision-date 2017-08-25;
+  }
   include Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     revision-date 2017-08-25;
   }
@@ -106,6 +109,11 @@ module Cisco-IOS-XR-crypto-ssh-oper {
           "SSH session detail information";
         uses SSH-SESSION-DETAIL;
       }
+    }
+    container server {
+      description
+        "SSH server parameters";
+      uses SSH-SERVER-PARAMS;
     }
   }
 }

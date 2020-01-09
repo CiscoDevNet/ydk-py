@@ -30,7 +30,7 @@ module Cisco-IOS-XR-asr9k-qos-oper {
      
      This module contains definitions
      for the following management objects:
-       platform-qos: QoS ASR9K platform operational data 
+       platform-qos: QoS ASR9K platform operational data
      
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
@@ -54,7 +54,8 @@ module Cisco-IOS-XR-asr9k-qos-oper {
 
   grouping DETAILS {
     description
-      "Common node of output, input, member-interface";
+      "Common node of output, input, member-interface,
+       pin-interface";
     container details {
       description
         "QoS policy direction egress";
@@ -234,6 +235,26 @@ module Cisco-IOS-XR-asr9k-qos-oper {
     }
   }
 
+  grouping PIN-INTERFACE-TABLE {
+    description
+      "Common node of pwhe-output, pwhe-input";
+    container pin-interfaces {
+      description
+        "QoS list of member interfaces";
+      list pin-interface {
+        key "interface-name";
+        description
+          "QoS interface name";
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Memeber interface";
+        }
+        uses DETAILS;
+      }
+    }
+  }
+
   container platform-qos {
     config false;
     description
@@ -250,6 +271,30 @@ module Cisco-IOS-XR-asr9k-qos-oper {
           description
             "QoS system capability";
           uses QOS-EA-CAPABILITY;
+        }
+        container pwhe-interfaces {
+          description
+            "QoS list of Pwhe interfaces";
+          list pwhe-interface {
+            key "interface-name";
+            description
+              "QoS interface name";
+            container pwhe-output {
+              description
+                "QoS policy direction output";
+              uses PIN-INTERFACE-TABLE;
+            }
+            container pwhe-input {
+              description
+                "QoS policy direction output";
+              uses PIN-INTERFACE-TABLE;
+            }
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "Pwhe interface name";
+            }
+          }
         }
         container interfaces {
           description

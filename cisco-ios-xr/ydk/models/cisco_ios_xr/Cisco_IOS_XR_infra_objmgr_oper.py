@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -233,6 +236,12 @@ class EndPort(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+        return meta._meta_table['EndPort']
+
+
 class Port(Enum):
     """
     Port (Enum Class)
@@ -446,6 +455,12 @@ class Port(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+        return meta._meta_table['Port']
+
+
 class PortOperator(Enum):
     """
     PortOperator (Enum Class)
@@ -485,6 +500,12 @@ class PortOperator(Enum):
     greater_than = Enum.YLeaf(2, "greater-than")
 
     less_than = Enum.YLeaf(3, "less-than")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+        return meta._meta_table['PortOperator']
 
 
 class StartPort(Enum):
@@ -700,8 +721,14 @@ class StartPort(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+        return meta._meta_table['StartPort']
 
-class ObjectGroup(Entity):
+
+
+class ObjectGroup(_Entity_):
     """
     Object\-group operational data
     
@@ -727,7 +754,10 @@ class ObjectGroup(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ObjectGroup, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ObjectGroup, self).__init__()
         self._top_entity = None
 
         self.yang_name = "object-group"
@@ -752,7 +782,7 @@ class ObjectGroup(Entity):
         self._perform_setattr(ObjectGroup, [], name, value)
 
 
-    class Port(Entity):
+    class Port(_Entity_):
         """
         Port object group
         
@@ -771,7 +801,10 @@ class ObjectGroup(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ObjectGroup.Port, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectGroup.Port, self).__init__()
 
             self.yang_name = "port"
             self.yang_parent_name = "object-group"
@@ -792,7 +825,7 @@ class ObjectGroup(Entity):
             self._perform_setattr(ObjectGroup.Port, [], name, value)
 
 
-        class Objects(Entity):
+        class Objects(_Entity_):
             """
             Table of Object
             
@@ -811,7 +844,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Port.Objects, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Port.Objects, self).__init__()
 
                 self.yang_name = "objects"
                 self.yang_parent_name = "port"
@@ -830,7 +866,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Port.Objects, [], name, value)
 
 
-            class Object(Entity):
+            class Object(_Entity_):
                 """
                 Port object group
                 
@@ -879,7 +915,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Port.Objects.Object, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Port.Objects.Object, self).__init__()
 
                     self.yang_name = "object"
                     self.yang_parent_name = "objects"
@@ -915,7 +954,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Port.Objects.Object, ['object_name'], name, value)
 
 
-                class NestedGroups(Entity):
+                class NestedGroups(_Entity_):
                     """
                     Table of NestedGroup
                     
@@ -934,7 +973,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.Objects.Object.NestedGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.Objects.Object.NestedGroups, self).__init__()
 
                         self.yang_name = "nested-groups"
                         self.yang_parent_name = "object"
@@ -952,7 +994,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups, [], name, value)
 
 
-                    class NestedGroup(Entity):
+                    class NestedGroup(_Entity_):
                         """
                         nested object group
                         
@@ -980,7 +1022,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, self).__init__()
 
                             self.yang_name = "nested-group"
                             self.yang_parent_name = "nested-groups"
@@ -1000,10 +1045,18 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Port.Objects.Object.NestedGroups']['meta_info']
 
 
-
-                class Operators(Entity):
+                class Operators(_Entity_):
                     """
                     Table of Operator
                     
@@ -1022,7 +1075,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.Objects.Object.Operators, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.Objects.Object.Operators, self).__init__()
 
                         self.yang_name = "operators"
                         self.yang_parent_name = "object"
@@ -1040,7 +1096,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators, [], name, value)
 
 
-                    class Operator(Entity):
+                    class Operator(_Entity_):
                         """
                         op class
                         
@@ -1090,7 +1146,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.Objects.Object.Operators.Operator, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.Objects.Object.Operators.Operator, self).__init__()
 
                             self.yang_name = "operator"
                             self.yang_parent_name = "operators"
@@ -1114,10 +1173,18 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', 'operator_type_xr', 'port_xr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Port.Objects.Object.Operators.Operator']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Port.Objects.Object.Operators']['meta_info']
 
 
-
-                class PortRanges(Entity):
+                class PortRanges(_Entity_):
                     """
                     Table of PortRange
                     
@@ -1136,7 +1203,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.Objects.Object.PortRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.Objects.Object.PortRanges, self).__init__()
 
                         self.yang_name = "port-ranges"
                         self.yang_parent_name = "object"
@@ -1154,7 +1224,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges, [], name, value)
 
 
-                    class PortRange(Entity):
+                    class PortRange(_Entity_):
                         """
                         Match only packets on a given port range
                         
@@ -1210,7 +1280,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, self).__init__()
 
                             self.yang_name = "port-range"
                             self.yang_parent_name = "port-ranges"
@@ -1234,10 +1307,18 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', 'start_port_xr', 'end_port_xr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Port.Objects.Object.PortRanges.PortRange']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Port.Objects.Object.PortRanges']['meta_info']
 
 
-
-                class ParentGroups(Entity):
+                class ParentGroups(_Entity_):
                     """
                     Table of ParentGroup
                     
@@ -1256,7 +1337,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.Objects.Object.ParentGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.Objects.Object.ParentGroups, self).__init__()
 
                         self.yang_name = "parent-groups"
                         self.yang_parent_name = "object"
@@ -1274,7 +1358,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups, [], name, value)
 
 
-                    class ParentGroup(Entity):
+                    class ParentGroup(_Entity_):
                         """
                         Parent object group
                         
@@ -1302,7 +1386,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, self).__init__()
 
                             self.yang_name = "parent-group"
                             self.yang_parent_name = "parent-groups"
@@ -1322,13 +1409,33 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Port.Objects.Object.ParentGroups']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                    return meta._meta_table['ObjectGroup.Port.Objects.Object']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                return meta._meta_table['ObjectGroup.Port.Objects']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+            return meta._meta_table['ObjectGroup.Port']['meta_info']
 
 
-
-
-
-
-    class Network(Entity):
+    class Network(_Entity_):
         """
         Network object group
         
@@ -1354,7 +1461,10 @@ class ObjectGroup(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ObjectGroup.Network, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectGroup.Network, self).__init__()
 
             self.yang_name = "network"
             self.yang_parent_name = "object-group"
@@ -1379,7 +1489,7 @@ class ObjectGroup(Entity):
             self._perform_setattr(ObjectGroup.Network, [], name, value)
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             IPv6 object group
             
@@ -1398,7 +1508,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Network.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Network.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "network"
@@ -1419,7 +1532,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Network.Ipv6, [], name, value)
 
 
-            class Objects(Entity):
+            class Objects(_Entity_):
                 """
                 Table of Object
                 
@@ -1438,7 +1551,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Network.Ipv6.Objects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Network.Ipv6.Objects, self).__init__()
 
                     self.yang_name = "objects"
                     self.yang_parent_name = "ipv6"
@@ -1457,7 +1573,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Network.Ipv6.Objects, [], name, value)
 
 
-                class Object(Entity):
+                class Object(_Entity_):
                     """
                     IPv6 object group
                     
@@ -1513,7 +1629,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Network.Ipv6.Objects.Object, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Network.Ipv6.Objects.Object, self).__init__()
 
                         self.yang_name = "object"
                         self.yang_parent_name = "objects"
@@ -1553,7 +1672,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object, ['object_name'], name, value)
 
 
-                    class NestedGroups(Entity):
+                    class NestedGroups(_Entity_):
                         """
                         Table of NestedGroup
                         
@@ -1572,7 +1691,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups, self).__init__()
 
                             self.yang_name = "nested-groups"
                             self.yang_parent_name = "object"
@@ -1590,7 +1712,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups, [], name, value)
 
 
-                        class NestedGroup(Entity):
+                        class NestedGroup(_Entity_):
                             """
                             nested object group
                             
@@ -1618,7 +1740,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, self).__init__()
 
                                 self.yang_name = "nested-group"
                                 self.yang_parent_name = "nested-groups"
@@ -1638,10 +1763,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups']['meta_info']
 
 
-
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Table of Address
                         
@@ -1660,7 +1793,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.Objects.Object.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.Objects.Object.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "object"
@@ -1678,7 +1814,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IPv6 address
                             
@@ -1726,7 +1862,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -1750,10 +1889,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses']['meta_info']
 
 
-
-                    class AddressRanges(Entity):
+                    class AddressRanges(_Entity_):
                         """
                         Table of AddressRange
                         
@@ -1772,7 +1919,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges, self).__init__()
 
                             self.yang_name = "address-ranges"
                             self.yang_parent_name = "object"
@@ -1790,7 +1940,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Range of host addresses
                             
@@ -1838,7 +1988,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "address-ranges"
@@ -1862,10 +2015,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges']['meta_info']
 
 
-
-                    class ParentGroups(Entity):
+                    class ParentGroups(_Entity_):
                         """
                         Table of parent object group
                         
@@ -1884,7 +2045,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups, self).__init__()
 
                             self.yang_name = "parent-groups"
                             self.yang_parent_name = "object"
@@ -1902,7 +2066,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups, [], name, value)
 
 
-                        class ParentGroup(Entity):
+                        class ParentGroup(_Entity_):
                             """
                             Parent object group
                             
@@ -1930,7 +2094,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, self).__init__()
 
                                 self.yang_name = "parent-group"
                                 self.yang_parent_name = "parent-groups"
@@ -1950,10 +2117,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups']['meta_info']
 
 
-
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of Host
                         
@@ -1972,7 +2147,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.Objects.Object.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.Objects.Object.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "object"
@@ -1990,7 +2168,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A single host address
                             
@@ -2020,7 +2198,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -2040,13 +2221,33 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                    return meta._meta_table['ObjectGroup.Network.Ipv6.Objects']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                return meta._meta_table['ObjectGroup.Network.Ipv6']['meta_info']
 
 
-
-
-
-
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             IPv4 object group
             
@@ -2065,7 +2266,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Network.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Network.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "network"
@@ -2086,7 +2290,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Network.Ipv4, [], name, value)
 
 
-            class Objects(Entity):
+            class Objects(_Entity_):
                 """
                 Table of Object
                 
@@ -2105,7 +2309,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Network.Ipv4.Objects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Network.Ipv4.Objects, self).__init__()
 
                     self.yang_name = "objects"
                     self.yang_parent_name = "ipv4"
@@ -2124,7 +2331,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Network.Ipv4.Objects, [], name, value)
 
 
-                class Object(Entity):
+                class Object(_Entity_):
                     """
                     IPv4 object group
                     
@@ -2180,7 +2387,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Network.Ipv4.Objects.Object, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Network.Ipv4.Objects.Object, self).__init__()
 
                         self.yang_name = "object"
                         self.yang_parent_name = "objects"
@@ -2220,7 +2430,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object, ['object_name'], name, value)
 
 
-                    class NestedGroups(Entity):
+                    class NestedGroups(_Entity_):
                         """
                         Table of NestedGroup
                         
@@ -2239,7 +2449,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups, self).__init__()
 
                             self.yang_name = "nested-groups"
                             self.yang_parent_name = "object"
@@ -2257,7 +2470,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups, [], name, value)
 
 
-                        class NestedGroup(Entity):
+                        class NestedGroup(_Entity_):
                             """
                             Nested object group
                             
@@ -2285,7 +2498,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, self).__init__()
 
                                 self.yang_name = "nested-group"
                                 self.yang_parent_name = "nested-groups"
@@ -2305,10 +2521,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups']['meta_info']
 
 
-
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Table of Address
                         
@@ -2327,7 +2551,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.Objects.Object.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.Objects.Object.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "object"
@@ -2345,7 +2572,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IPv4 address
                             
@@ -2393,7 +2620,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -2417,10 +2647,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses']['meta_info']
 
 
-
-                    class AddressRanges(Entity):
+                    class AddressRanges(_Entity_):
                         """
                         Table of AddressRange
                         
@@ -2439,7 +2677,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges, self).__init__()
 
                             self.yang_name = "address-ranges"
                             self.yang_parent_name = "object"
@@ -2457,7 +2698,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Range of host addresses
                             
@@ -2505,7 +2746,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "address-ranges"
@@ -2529,10 +2773,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges']['meta_info']
 
 
-
-                    class ParentGroups(Entity):
+                    class ParentGroups(_Entity_):
                         """
                         Table of parent object group
                         
@@ -2551,7 +2803,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups, self).__init__()
 
                             self.yang_name = "parent-groups"
                             self.yang_parent_name = "object"
@@ -2569,7 +2824,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups, [], name, value)
 
 
-                        class ParentGroup(Entity):
+                        class ParentGroup(_Entity_):
                             """
                             Parent object group
                             
@@ -2597,7 +2852,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, self).__init__()
 
                                 self.yang_name = "parent-group"
                                 self.yang_parent_name = "parent-groups"
@@ -2617,10 +2875,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups']['meta_info']
 
 
-
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of Host
                         
@@ -2639,7 +2905,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.Objects.Object.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.Objects.Object.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "object"
@@ -2657,7 +2926,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A single host address
                             
@@ -2687,7 +2956,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -2707,15 +2979,43 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                        return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                    return meta._meta_table['ObjectGroup.Network.Ipv4.Objects']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+                return meta._meta_table['ObjectGroup.Network.Ipv4']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+            return meta._meta_table['ObjectGroup.Network']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ObjectGroup()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_oper as meta
+        return meta._meta_table['ObjectGroup']['meta_info']
 
 

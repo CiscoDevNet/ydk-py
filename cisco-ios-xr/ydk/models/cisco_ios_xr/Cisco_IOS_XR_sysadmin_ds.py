@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class ProcessIssuRole(Enum):
     Unknown = Enum.YLeaf(254, "Unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+        return meta._meta_table['ProcessIssuRole']
+
+
 class ProcessRole(Enum):
     """
     ProcessRole (Enum Class)
@@ -74,6 +83,12 @@ class ProcessRole(Enum):
     Unknown = Enum.YLeaf(254, "Unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+        return meta._meta_table['ProcessRole']
+
+
 class ServiceScope(Enum):
     """
     ServiceScope (Enum Class)
@@ -97,8 +112,14 @@ class ServiceScope(Enum):
     Node = Enum.YLeaf(3, "Node")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+        return meta._meta_table['ServiceScope']
 
-class Services(Entity):
+
+
+class Services(_Entity_):
     """
     Directory Services Entries
     
@@ -117,7 +138,10 @@ class Services(Entity):
     _revision = '2018-05-21'
 
     def __init__(self):
-        super(Services, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Services, self).__init__()
         self._top_entity = None
 
         self.yang_name = "services"
@@ -136,7 +160,7 @@ class Services(Entity):
         self._perform_setattr(Services, [], name, value)
 
 
-    class AllLocations(Entity):
+    class AllLocations(_Entity_):
         """
         
         
@@ -162,7 +186,10 @@ class Services(Entity):
         _revision = '2018-05-21'
 
         def __init__(self):
-            super(Services.AllLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Services.AllLocations, self).__init__()
 
             self.yang_name = "all-locations"
             self.yang_parent_name = "services"
@@ -184,7 +211,7 @@ class Services(Entity):
             self._perform_setattr(Services.AllLocations, ['location'], name, value)
 
 
-        class Services_(Entity):
+        class Services_(_Entity_):
             """
             
             
@@ -217,7 +244,10 @@ class Services(Entity):
             _revision = '2018-05-21'
 
             def __init__(self):
-                super(Services.AllLocations.Services_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Services.AllLocations.Services_, self).__init__()
 
                 self.yang_name = "services"
                 self.yang_parent_name = "all-locations"
@@ -239,7 +269,7 @@ class Services(Entity):
                 self._perform_setattr(Services.AllLocations.Services_, ['name'], name, value)
 
 
-            class Endpoint(Entity):
+            class Endpoint(_Entity_):
                 """
                 endpoint info for a service in DS
                 
@@ -297,7 +327,10 @@ class Services(Entity):
                 _revision = '2018-05-21'
 
                 def __init__(self):
-                    super(Services.AllLocations.Services_.Endpoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Services.AllLocations.Services_.Endpoint, self).__init__()
 
                     self.yang_name = "endpoint"
                     self.yang_parent_name = "services"
@@ -325,9 +358,13 @@ class Services(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Services.AllLocations.Services_.Endpoint, ['scope', 'ip', 'port', 'role', 'issu_role', 'node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                    return meta._meta_table['Services.AllLocations.Services_.Endpoint']['meta_info']
 
 
-            class Registrations(Entity):
+            class Registrations(_Entity_):
                 """
                 clients registered for a service in DS
                 
@@ -355,7 +392,10 @@ class Services(Entity):
                 _revision = '2018-05-21'
 
                 def __init__(self):
-                    super(Services.AllLocations.Services_.Registrations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Services.AllLocations.Services_.Registrations, self).__init__()
 
                     self.yang_name = "registrations"
                     self.yang_parent_name = "services"
@@ -375,16 +415,32 @@ class Services(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Services.AllLocations.Services_.Registrations, ['client', 'pid'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                    return meta._meta_table['Services.AllLocations.Services_.Registrations']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                return meta._meta_table['Services.AllLocations.Services_']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+            return meta._meta_table['Services.AllLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Services()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+        return meta._meta_table['Services']['meta_info']
 
 
-class ServicesStats(Entity):
+class ServicesStats(_Entity_):
     """
     Directory Services Stats
     
@@ -410,7 +466,10 @@ class ServicesStats(Entity):
     _revision = '2018-05-21'
 
     def __init__(self):
-        super(ServicesStats, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ServicesStats, self).__init__()
         self._top_entity = None
 
         self.yang_name = "services-stats"
@@ -433,7 +492,7 @@ class ServicesStats(Entity):
         self._perform_setattr(ServicesStats, [], name, value)
 
 
-    class Ds(Entity):
+    class Ds(_Entity_):
         """
         
         
@@ -452,7 +511,10 @@ class ServicesStats(Entity):
         _revision = '2018-05-21'
 
         def __init__(self):
-            super(ServicesStats.Ds, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ServicesStats.Ds, self).__init__()
 
             self.yang_name = "ds"
             self.yang_parent_name = "services-stats"
@@ -471,7 +533,7 @@ class ServicesStats(Entity):
             self._perform_setattr(ServicesStats.Ds, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -497,7 +559,10 @@ class ServicesStats(Entity):
             _revision = '2018-05-21'
 
             def __init__(self):
-                super(ServicesStats.Ds.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ServicesStats.Ds.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "ds"
@@ -519,7 +584,7 @@ class ServicesStats(Entity):
                 self._perform_setattr(ServicesStats.Ds.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -545,7 +610,10 @@ class ServicesStats(Entity):
                 _revision = '2018-05-21'
 
                 def __init__(self):
-                    super(ServicesStats.Ds.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ServicesStats.Ds.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -566,7 +634,7 @@ class ServicesStats(Entity):
                     self._perform_setattr(ServicesStats.Ds.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -592,7 +660,10 @@ class ServicesStats(Entity):
                     _revision = '2018-05-21'
 
                     def __init__(self):
-                        super(ServicesStats.Ds.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ServicesStats.Ds.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -613,7 +684,7 @@ class ServicesStats(Entity):
                         self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -632,7 +703,10 @@ class ServicesStats(Entity):
                         _revision = '2018-05-21'
 
                         def __init__(self):
-                            super(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -650,13 +724,33 @@ class ServicesStats(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                            return meta._meta_table['ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                        return meta._meta_table['ServicesStats.Ds.Trace.Location.AllOptions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                    return meta._meta_table['ServicesStats.Ds.Trace.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                return meta._meta_table['ServicesStats.Ds.Trace']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+            return meta._meta_table['ServicesStats.Ds']['meta_info']
 
 
-
-
-
-
-    class AllLocations(Entity):
+    class AllLocations(_Entity_):
         """
         
         
@@ -682,7 +776,10 @@ class ServicesStats(Entity):
         _revision = '2018-05-21'
 
         def __init__(self):
-            super(ServicesStats.AllLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ServicesStats.AllLocations, self).__init__()
 
             self.yang_name = "all-locations"
             self.yang_parent_name = "services-stats"
@@ -704,7 +801,7 @@ class ServicesStats(Entity):
             self._perform_setattr(ServicesStats.AllLocations, ['location'], name, value)
 
 
-        class Stats(Entity):
+        class Stats(_Entity_):
             """
             
             
@@ -795,7 +892,10 @@ class ServicesStats(Entity):
             _revision = '2018-05-21'
 
             def __init__(self):
-                super(ServicesStats.AllLocations.Stats, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ServicesStats.AllLocations.Stats, self).__init__()
 
                 self.yang_name = "stats"
                 self.yang_parent_name = "all-locations"
@@ -829,11 +929,23 @@ class ServicesStats(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ServicesStats.AllLocations.Stats, ['name', 'published', 'deleted', 'modified', 'registered', 'unregistered', 'notifications', 'remote_sent', 'remote_recv'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+                return meta._meta_table['ServicesStats.AllLocations.Stats']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+            return meta._meta_table['ServicesStats.AllLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ServicesStats()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ds as meta
+        return meta._meta_table['ServicesStats']['meta_info']
 
 

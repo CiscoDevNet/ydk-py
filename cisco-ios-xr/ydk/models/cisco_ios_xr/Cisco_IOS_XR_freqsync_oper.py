@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -90,6 +93,12 @@ class FsyncBagClockIntfClass(Enum):
     clock_class_unknown = Enum.YLeaf(255, "clock-class-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagClockIntfClass']
+
+
 class FsyncBagDampingState(Enum):
     """
     FsyncBagDampingState (Enum Class)
@@ -121,6 +130,12 @@ class FsyncBagDampingState(Enum):
     damping_state_up = Enum.YLeaf(2, "damping-state-up")
 
     damping_state_going_down = Enum.YLeaf(3, "damping-state-going-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagDampingState']
 
 
 class FsyncBagEsmcPeerState(Enum):
@@ -156,6 +171,12 @@ class FsyncBagEsmcPeerState(Enum):
     peer_unknown = Enum.YLeaf(1808240401, "peer-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagEsmcPeerState']
+
+
 class FsyncBagForwardtraceNode(Enum):
     """
     FsyncBagForwardtraceNode (Enum Class)
@@ -175,6 +196,12 @@ class FsyncBagForwardtraceNode(Enum):
     forward_trace_node_selection_point = Enum.YLeaf(0, "forward-trace-node-selection-point")
 
     forward_trace_node_source = Enum.YLeaf(1, "forward-trace-node-source")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagForwardtraceNode']
 
 
 class FsyncBagQlO1Value(Enum):
@@ -234,6 +261,12 @@ class FsyncBagQlO1Value(Enum):
     option1ssu_b = Enum.YLeaf(12, "option1ssu-b")
 
     option1sec = Enum.YLeaf(13, "option1sec")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagQlO1Value']
 
 
 class FsyncBagQlO2G1Value(Enum):
@@ -305,6 +338,12 @@ class FsyncBagQlO2G1Value(Enum):
     option2_generation1smc = Enum.YLeaf(24, "option2-generation1smc")
 
     option2_generation1_stratum4 = Enum.YLeaf(25, "option2-generation1-stratum4")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagQlO2G1Value']
 
 
 class FsyncBagQlO2G2Value(Enum):
@@ -390,6 +429,12 @@ class FsyncBagQlO2G2Value(Enum):
     option2_generation2_stratum4 = Enum.YLeaf(37, "option2-generation2-stratum4")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagQlO2G2Value']
+
+
 class FsyncBagQlOption(Enum):
     """
     FsyncBagQlOption (Enum Class)
@@ -429,6 +474,12 @@ class FsyncBagQlOption(Enum):
     option2_generation2 = Enum.YLeaf(3, "option2-generation2")
 
     invalid_quality_level_option = Enum.YLeaf(4, "invalid-quality-level-option")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagQlOption']
 
 
 class FsyncBagSourceClass(Enum):
@@ -494,6 +545,12 @@ class FsyncBagSourceClass(Enum):
     gnss_receiver = Enum.YLeaf(8, "gnss-receiver")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagSourceClass']
+
+
 class FsyncBagSourceState(Enum):
     """
     FsyncBagSourceState (Enum Class)
@@ -527,6 +584,12 @@ class FsyncBagSourceState(Enum):
     source_state_unavailable = Enum.YLeaf(3, "source-state-unavailable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagSourceState']
+
+
 class FsyncBagStreamInput(Enum):
     """
     FsyncBagStreamInput (Enum Class)
@@ -552,6 +615,12 @@ class FsyncBagStreamInput(Enum):
     source_input = Enum.YLeaf(1, "source-input")
 
     selection_point_input = Enum.YLeaf(2, "selection-point-input")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagStreamInput']
 
 
 class FsyncBagStreamState(Enum):
@@ -623,6 +692,12 @@ class FsyncBagStreamState(Enum):
     stream_error = Enum.YLeaf(9, "stream-error")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncBagStreamState']
+
+
 class FsyncSource(Enum):
     """
     FsyncSource (Enum Class)
@@ -680,6 +755,12 @@ class FsyncSource(Enum):
     gnss = Enum.YLeaf(8, "gnss")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncSource']
+
+
 class FsyncStream(Enum):
     """
     FsyncStream (Enum Class)
@@ -701,6 +782,12 @@ class FsyncStream(Enum):
     local = Enum.YLeaf(1, "local")
 
     selection_point = Enum.YLeaf(2, "selection-point")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FsyncStream']
 
 
 class ImStateEnum(Enum):
@@ -826,8 +913,14 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['ImStateEnum']
 
-class FrequencySynchronization(Entity):
+
+
+class FrequencySynchronization(_Entity_):
     """
     Frequency Synchronization operational data
     
@@ -874,7 +967,10 @@ class FrequencySynchronization(Entity):
     _revision = '2017-10-20'
 
     def __init__(self):
-        super(FrequencySynchronization, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FrequencySynchronization, self).__init__()
         self._top_entity = None
 
         self.yang_name = "frequency-synchronization"
@@ -911,7 +1007,7 @@ class FrequencySynchronization(Entity):
         self._perform_setattr(FrequencySynchronization, [], name, value)
 
 
-    class GlobalNodes(Entity):
+    class GlobalNodes(_Entity_):
         """
         Table for global node\-specific operational data
         
@@ -930,7 +1026,10 @@ class FrequencySynchronization(Entity):
         _revision = '2017-10-20'
 
         def __init__(self):
-            super(FrequencySynchronization.GlobalNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FrequencySynchronization.GlobalNodes, self).__init__()
 
             self.yang_name = "global-nodes"
             self.yang_parent_name = "frequency-synchronization"
@@ -949,7 +1048,7 @@ class FrequencySynchronization(Entity):
             self._perform_setattr(FrequencySynchronization.GlobalNodes, [], name, value)
 
 
-        class GlobalNode(Entity):
+        class GlobalNode(_Entity_):
             """
             Global node\-specific data for a particular node
             
@@ -1005,7 +1104,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.GlobalNodes.GlobalNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.GlobalNodes.GlobalNode, self).__init__()
 
                 self.yang_name = "global-node"
                 self.yang_parent_name = "global-nodes"
@@ -1045,7 +1147,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode, ['node'], name, value)
 
 
-            class ClockInterfaceSelectionBackTraces(Entity):
+            class ClockInterfaceSelectionBackTraces(_Entity_):
                 """
                 Selection backtrace operational data for
                 clock\-interfaces
@@ -1065,7 +1167,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces, self).__init__()
 
                     self.yang_name = "clock-interface-selection-back-traces"
                     self.yang_parent_name = "global-node"
@@ -1083,7 +1188,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces, [], name, value)
 
 
-                class ClockInterfaceSelectionBackTrace(Entity):
+                class ClockInterfaceSelectionBackTrace(_Entity_):
                     """
                     Selection backtrace operational data for a
                     particular clock\-interface or GNSS receiver
@@ -1126,7 +1231,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, self).__init__()
 
                         self.yang_name = "clock-interface-selection-back-trace"
                         self.yang_parent_name = "clock-interface-selection-back-traces"
@@ -1153,7 +1261,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, ['clock_type', 'id'], name, value)
 
 
-                    class SelectedSource(Entity):
+                    class SelectedSource(_Entity_):
                         """
                         Source which has been selected for output
                         
@@ -1238,7 +1346,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, self).__init__()
 
                             self.yang_name = "selected-source"
                             self.yang_parent_name = "clock-interface-selection-back-trace"
@@ -1279,7 +1390,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -1318,7 +1429,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -1340,9 +1454,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -1381,7 +1499,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -1403,9 +1524,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -1444,7 +1569,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "selected-source"
@@ -1466,10 +1594,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource']['meta_info']
 
 
-
-                    class SelectionPoint(Entity):
+                    class SelectionPoint(_Entity_):
                         """
                         List of selection points in the backtrace
                         
@@ -1506,7 +1642,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, self).__init__()
 
                             self.yang_name = "selection-point"
                             self.yang_parent_name = "clock-interface-selection-back-trace"
@@ -1528,11 +1667,23 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces']['meta_info']
 
 
-
-
-            class ClockInterfaceSelectionForwardTraces(Entity):
+            class ClockInterfaceSelectionForwardTraces(_Entity_):
                 """
                 Selection forwardtrace operational data for
                 clock\-interfaces
@@ -1552,7 +1703,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces, self).__init__()
 
                     self.yang_name = "clock-interface-selection-forward-traces"
                     self.yang_parent_name = "global-node"
@@ -1570,7 +1724,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces, [], name, value)
 
 
-                class ClockInterfaceSelectionForwardTrace(Entity):
+                class ClockInterfaceSelectionForwardTrace(_Entity_):
                     """
                     Selection forwardtrace operational data for a
                     particular clock\-interface
@@ -1606,7 +1760,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, self).__init__()
 
                         self.yang_name = "clock-interface-selection-forward-trace"
                         self.yang_parent_name = "clock-interface-selection-forward-traces"
@@ -1629,7 +1786,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, ['clock_type', 'port'], name, value)
 
 
-                    class ForwardTrace(Entity):
+                    class ForwardTrace(_Entity_):
                         """
                         Selection ForwardTrace
                         
@@ -1648,7 +1805,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
 
                             self.yang_name = "forward-trace"
                             self.yang_parent_name = "clock-interface-selection-forward-trace"
@@ -1668,7 +1828,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace, [], name, value)
 
 
-                        class ForwardTraceNode(Entity):
+                        class ForwardTraceNode(_Entity_):
                             """
                             The source or selection point at this point in
                             the forwardtrace
@@ -1702,7 +1862,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
                                 self.yang_name = "forward-trace-node"
                                 self.yang_parent_name = "forward-trace"
@@ -1729,7 +1892,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                            class SelectionPoint(Entity):
+                            class SelectionPoint(_Entity_):
                                 """
                                 Selection Point
                                 
@@ -1766,7 +1929,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
                                     self.yang_name = "selection-point"
                                     self.yang_parent_name = "forward-trace-node"
@@ -1788,9 +1954,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint']['meta_info']
 
 
-                            class Source(Entity):
+                            class Source(_Entity_):
                                 """
                                 Timing Source
                                 
@@ -1875,7 +2045,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
                                     self.yang_name = "source"
                                     self.yang_parent_name = "forward-trace-node"
@@ -1916,7 +2089,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                                class ClockId(Entity):
+                                class ClockId(_Entity_):
                                     """
                                     Clock ID
                                     
@@ -1955,7 +2128,10 @@ class FrequencySynchronization(Entity):
                                     _revision = '2017-10-20'
 
                                     def __init__(self):
-                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                         self.yang_name = "clock-id"
                                         self.yang_parent_name = "source"
@@ -1977,9 +2153,13 @@ class FrequencySynchronization(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId']['meta_info']
 
 
-                                class InternalClockId(Entity):
+                                class InternalClockId(_Entity_):
                                     """
                                     Internal Clock ID
                                     
@@ -2018,7 +2198,10 @@ class FrequencySynchronization(Entity):
                                     _revision = '2017-10-20'
 
                                     def __init__(self):
-                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
 
                                         self.yang_name = "internal-clock-id"
                                         self.yang_parent_name = "source"
@@ -2040,9 +2223,13 @@ class FrequencySynchronization(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId']['meta_info']
 
 
-                                class GnssReceiverId(Entity):
+                                class GnssReceiverId(_Entity_):
                                     """
                                     GNSS Receiver ID
                                     
@@ -2081,7 +2268,10 @@ class FrequencySynchronization(Entity):
                                     _revision = '2017-10-20'
 
                                     def __init__(self):
-                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
 
                                         self.yang_name = "gnss-receiver-id"
                                         self.yang_parent_name = "source"
@@ -2103,14 +2293,38 @@ class FrequencySynchronization(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces']['meta_info']
 
 
-
-
-
-
-
-            class TimeOfDayBackTrace(Entity):
+            class TimeOfDayBackTrace(_Entity_):
                 """
                 Selection backtrace operational data for
                 time\-of\-day on a particular node
@@ -2137,7 +2351,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, self).__init__()
 
                     self.yang_name = "time-of-day-back-trace"
                     self.yang_parent_name = "global-node"
@@ -2159,7 +2376,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, [], name, value)
 
 
-                class SelectedSource(Entity):
+                class SelectedSource(_Entity_):
                     """
                     Source which has been selected for output
                     
@@ -2244,7 +2461,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, self).__init__()
 
                         self.yang_name = "selected-source"
                         self.yang_parent_name = "time-of-day-back-trace"
@@ -2285,7 +2505,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                    class ClockId(Entity):
+                    class ClockId(_Entity_):
                         """
                         Clock ID
                         
@@ -2324,7 +2544,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, self).__init__()
 
                             self.yang_name = "clock-id"
                             self.yang_parent_name = "selected-source"
@@ -2346,9 +2569,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId']['meta_info']
 
 
-                    class InternalClockId(Entity):
+                    class InternalClockId(_Entity_):
                         """
                         Internal Clock ID
                         
@@ -2387,7 +2614,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, self).__init__()
 
                             self.yang_name = "internal-clock-id"
                             self.yang_parent_name = "selected-source"
@@ -2409,9 +2639,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.InternalClockId']['meta_info']
 
 
-                    class GnssReceiverId(Entity):
+                    class GnssReceiverId(_Entity_):
                         """
                         GNSS Receiver ID
                         
@@ -2450,7 +2684,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, self).__init__()
 
                             self.yang_name = "gnss-receiver-id"
                             self.yang_parent_name = "selected-source"
@@ -2472,10 +2709,18 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource']['meta_info']
 
 
-
-                class SelectionPoint(Entity):
+                class SelectionPoint(_Entity_):
                     """
                     List of selection points in the backtrace
                     
@@ -2512,7 +2757,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, self).__init__()
 
                         self.yang_name = "selection-point"
                         self.yang_parent_name = "time-of-day-back-trace"
@@ -2534,10 +2782,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace']['meta_info']
 
 
-
-            class NtpSelectionForwardTrace(Entity):
+            class NtpSelectionForwardTrace(_Entity_):
                 """
                 Selection forwardtrace operational data for a
                 NTP clock
@@ -2557,7 +2813,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace, self).__init__()
 
                     self.yang_name = "ntp-selection-forward-trace"
                     self.yang_parent_name = "global-node"
@@ -2575,7 +2834,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace, [], name, value)
 
 
-                class ForwardTrace(Entity):
+                class ForwardTrace(_Entity_):
                     """
                     Selection ForwardTrace
                     
@@ -2594,7 +2853,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace, self).__init__()
 
                         self.yang_name = "forward-trace"
                         self.yang_parent_name = "ntp-selection-forward-trace"
@@ -2614,7 +2876,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace, [], name, value)
 
 
-                    class ForwardTraceNode(Entity):
+                    class ForwardTraceNode(_Entity_):
                         """
                         The source or selection point at this point in
                         the forwardtrace
@@ -2648,7 +2910,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
                             self.yang_name = "forward-trace-node"
                             self.yang_parent_name = "forward-trace"
@@ -2675,7 +2940,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                        class SelectionPoint(Entity):
+                        class SelectionPoint(_Entity_):
                             """
                             Selection Point
                             
@@ -2712,7 +2977,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
                                 self.yang_name = "selection-point"
                                 self.yang_parent_name = "forward-trace-node"
@@ -2734,9 +3002,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint']['meta_info']
 
 
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             Timing Source
                             
@@ -2821,7 +3093,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "forward-trace-node"
@@ -2862,7 +3137,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                            class ClockId(Entity):
+                            class ClockId(_Entity_):
                                 """
                                 Clock ID
                                 
@@ -2901,7 +3176,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
                                     self.yang_parent_name = "source"
@@ -2923,9 +3201,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId']['meta_info']
 
 
-                            class InternalClockId(Entity):
+                            class InternalClockId(_Entity_):
                                 """
                                 Internal Clock ID
                                 
@@ -2964,7 +3246,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
 
                                     self.yang_name = "internal-clock-id"
                                     self.yang_parent_name = "source"
@@ -2986,9 +3271,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId']['meta_info']
 
 
-                            class GnssReceiverId(Entity):
+                            class GnssReceiverId(_Entity_):
                                 """
                                 GNSS Receiver ID
                                 
@@ -3027,7 +3316,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
 
                                     self.yang_name = "gnss-receiver-id"
                                     self.yang_parent_name = "source"
@@ -3049,13 +3341,33 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace']['meta_info']
 
 
-
-
-
-
-            class PtpSelectionForwardTrace(Entity):
+            class PtpSelectionForwardTrace(_Entity_):
                 """
                 Selection forwardtrace operational data for a
                 PTP clock
@@ -3075,7 +3387,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace, self).__init__()
 
                     self.yang_name = "ptp-selection-forward-trace"
                     self.yang_parent_name = "global-node"
@@ -3093,7 +3408,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace, [], name, value)
 
 
-                class ForwardTrace(Entity):
+                class ForwardTrace(_Entity_):
                     """
                     Selection ForwardTrace
                     
@@ -3112,7 +3427,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace, self).__init__()
 
                         self.yang_name = "forward-trace"
                         self.yang_parent_name = "ptp-selection-forward-trace"
@@ -3132,7 +3450,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace, [], name, value)
 
 
-                    class ForwardTraceNode(Entity):
+                    class ForwardTraceNode(_Entity_):
                         """
                         The source or selection point at this point in
                         the forwardtrace
@@ -3166,7 +3484,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
                             self.yang_name = "forward-trace-node"
                             self.yang_parent_name = "forward-trace"
@@ -3193,7 +3514,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                        class SelectionPoint(Entity):
+                        class SelectionPoint(_Entity_):
                             """
                             Selection Point
                             
@@ -3230,7 +3551,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
                                 self.yang_name = "selection-point"
                                 self.yang_parent_name = "forward-trace-node"
@@ -3252,9 +3576,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint']['meta_info']
 
 
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             Timing Source
                             
@@ -3339,7 +3667,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "forward-trace-node"
@@ -3380,7 +3711,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                            class ClockId(Entity):
+                            class ClockId(_Entity_):
                                 """
                                 Clock ID
                                 
@@ -3419,7 +3750,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
                                     self.yang_parent_name = "source"
@@ -3441,9 +3775,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId']['meta_info']
 
 
-                            class InternalClockId(Entity):
+                            class InternalClockId(_Entity_):
                                 """
                                 Internal Clock ID
                                 
@@ -3482,7 +3820,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
 
                                     self.yang_name = "internal-clock-id"
                                     self.yang_parent_name = "source"
@@ -3504,9 +3845,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId']['meta_info']
 
 
-                            class GnssReceiverId(Entity):
+                            class GnssReceiverId(_Entity_):
                                 """
                                 GNSS Receiver ID
                                 
@@ -3545,7 +3890,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
 
                                     self.yang_name = "gnss-receiver-id"
                                     self.yang_parent_name = "source"
@@ -3567,15 +3915,43 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.GlobalNodes.GlobalNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+            return meta._meta_table['FrequencySynchronization.GlobalNodes']['meta_info']
 
 
-
-
-
-
-
-
-    class GlobalInterfaces(Entity):
+    class GlobalInterfaces(_Entity_):
         """
         Table for global interface operational data
         
@@ -3594,7 +3970,10 @@ class FrequencySynchronization(Entity):
         _revision = '2017-10-20'
 
         def __init__(self):
-            super(FrequencySynchronization.GlobalInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FrequencySynchronization.GlobalInterfaces, self).__init__()
 
             self.yang_name = "global-interfaces"
             self.yang_parent_name = "frequency-synchronization"
@@ -3613,7 +3992,7 @@ class FrequencySynchronization(Entity):
             self._perform_setattr(FrequencySynchronization.GlobalInterfaces, [], name, value)
 
 
-        class GlobalInterface(Entity):
+        class GlobalInterface(_Entity_):
             """
             Global interface information for a particular
             interface
@@ -3649,7 +4028,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface, self).__init__()
 
                 self.yang_name = "global-interface"
                 self.yang_parent_name = "global-interfaces"
@@ -3677,7 +4059,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface, ['interface_name'], name, value)
 
 
-            class InterfaceSelectionForwardTrace(Entity):
+            class InterfaceSelectionForwardTrace(_Entity_):
                 """
                 Selection forwardtrace operational data for a
                 particular interface
@@ -3697,7 +4079,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, self).__init__()
 
                     self.yang_name = "interface-selection-forward-trace"
                     self.yang_parent_name = "global-interface"
@@ -3715,7 +4100,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, [], name, value)
 
 
-                class ForwardTrace(Entity):
+                class ForwardTrace(_Entity_):
                     """
                     Selection ForwardTrace
                     
@@ -3734,7 +4119,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
 
                         self.yang_name = "forward-trace"
                         self.yang_parent_name = "interface-selection-forward-trace"
@@ -3754,7 +4142,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace, [], name, value)
 
 
-                    class ForwardTraceNode(Entity):
+                    class ForwardTraceNode(_Entity_):
                         """
                         The source or selection point at this point in
                         the forwardtrace
@@ -3788,7 +4176,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
                             self.yang_name = "forward-trace-node"
                             self.yang_parent_name = "forward-trace"
@@ -3815,7 +4206,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                        class SelectionPoint(Entity):
+                        class SelectionPoint(_Entity_):
                             """
                             Selection Point
                             
@@ -3852,7 +4243,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
                                 self.yang_name = "selection-point"
                                 self.yang_parent_name = "forward-trace-node"
@@ -3874,9 +4268,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint']['meta_info']
 
 
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             Timing Source
                             
@@ -3961,7 +4359,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "forward-trace-node"
@@ -4002,7 +4403,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                            class ClockId(Entity):
+                            class ClockId(_Entity_):
                                 """
                                 Clock ID
                                 
@@ -4041,7 +4442,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
                                     self.yang_parent_name = "source"
@@ -4063,9 +4467,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId']['meta_info']
 
 
-                            class InternalClockId(Entity):
+                            class InternalClockId(_Entity_):
                                 """
                                 Internal Clock ID
                                 
@@ -4104,7 +4512,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, self).__init__()
 
                                     self.yang_name = "internal-clock-id"
                                     self.yang_parent_name = "source"
@@ -4126,9 +4537,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.InternalClockId']['meta_info']
 
 
-                            class GnssReceiverId(Entity):
+                            class GnssReceiverId(_Entity_):
                                 """
                                 GNSS Receiver ID
                                 
@@ -4167,7 +4582,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, self).__init__()
 
                                     self.yang_name = "gnss-receiver-id"
                                     self.yang_parent_name = "source"
@@ -4189,13 +4607,33 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace']['meta_info']
 
 
-
-
-
-
-            class InterfaceSelectionBackTrace(Entity):
+            class InterfaceSelectionBackTrace(_Entity_):
                 """
                 Selection backtrace operational data for a
                 particular interface
@@ -4222,7 +4660,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, self).__init__()
 
                     self.yang_name = "interface-selection-back-trace"
                     self.yang_parent_name = "global-interface"
@@ -4244,7 +4685,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, [], name, value)
 
 
-                class SelectedSource(Entity):
+                class SelectedSource(_Entity_):
                     """
                     Source which has been selected for output
                     
@@ -4329,7 +4770,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, self).__init__()
 
                         self.yang_name = "selected-source"
                         self.yang_parent_name = "interface-selection-back-trace"
@@ -4370,7 +4814,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                    class ClockId(Entity):
+                    class ClockId(_Entity_):
                         """
                         Clock ID
                         
@@ -4409,7 +4853,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
 
                             self.yang_name = "clock-id"
                             self.yang_parent_name = "selected-source"
@@ -4431,9 +4878,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId']['meta_info']
 
 
-                    class InternalClockId(Entity):
+                    class InternalClockId(_Entity_):
                         """
                         Internal Clock ID
                         
@@ -4472,7 +4923,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, self).__init__()
 
                             self.yang_name = "internal-clock-id"
                             self.yang_parent_name = "selected-source"
@@ -4494,9 +4948,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.InternalClockId']['meta_info']
 
 
-                    class GnssReceiverId(Entity):
+                    class GnssReceiverId(_Entity_):
                         """
                         GNSS Receiver ID
                         
@@ -4535,7 +4993,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, self).__init__()
 
                             self.yang_name = "gnss-receiver-id"
                             self.yang_parent_name = "selected-source"
@@ -4557,10 +5018,18 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource']['meta_info']
 
 
-
-                class SelectionPoint(Entity):
+                class SelectionPoint(_Entity_):
                     """
                     List of selection points in the backtrace
                     
@@ -4597,7 +5066,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, self).__init__()
 
                         self.yang_name = "selection-point"
                         self.yang_parent_name = "interface-selection-back-trace"
@@ -4619,12 +5091,28 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.GlobalInterfaces.GlobalInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+            return meta._meta_table['FrequencySynchronization.GlobalInterfaces']['meta_info']
 
 
-
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Summary operational data
         
@@ -4650,7 +5138,10 @@ class FrequencySynchronization(Entity):
         _revision = '2017-10-20'
 
         def __init__(self):
-            super(FrequencySynchronization.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FrequencySynchronization.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "frequency-synchronization"
@@ -4670,7 +5161,7 @@ class FrequencySynchronization(Entity):
             self._perform_setattr(FrequencySynchronization.Summary, [], name, value)
 
 
-        class FrequencySummary(Entity):
+        class FrequencySummary(_Entity_):
             """
             Summary of sources selected for frequency
             
@@ -4716,7 +5207,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.Summary.FrequencySummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.Summary.FrequencySummary, self).__init__()
 
                 self.yang_name = "frequency-summary"
                 self.yang_parent_name = "summary"
@@ -4744,7 +5238,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary, ['clock_count', 'ethernet_count', 'sonet_count'], name, value)
 
 
-            class Source(Entity):
+            class Source(_Entity_):
                 """
                 The source associated with this summary
                 information
@@ -4830,7 +5324,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Summary.FrequencySummary.Source, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Summary.FrequencySummary.Source, self).__init__()
 
                     self.yang_name = "source"
                     self.yang_parent_name = "frequency-summary"
@@ -4872,7 +5369,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                class ClockId(Entity):
+                class ClockId(_Entity_):
                     """
                     Clock ID
                     
@@ -4911,7 +5408,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
                         self.yang_parent_name = "source"
@@ -4934,9 +5434,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.FrequencySummary.Source.ClockId']['meta_info']
 
 
-                class InternalClockId(Entity):
+                class InternalClockId(_Entity_):
                     """
                     Internal Clock ID
                     
@@ -4975,7 +5479,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, self).__init__()
 
                         self.yang_name = "internal-clock-id"
                         self.yang_parent_name = "source"
@@ -4998,9 +5505,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.FrequencySummary.Source.InternalClockId']['meta_info']
 
 
-                class GnssReceiverId(Entity):
+                class GnssReceiverId(_Entity_):
                     """
                     GNSS Receiver ID
                     
@@ -5039,7 +5550,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, self).__init__()
 
                         self.yang_name = "gnss-receiver-id"
                         self.yang_parent_name = "source"
@@ -5062,11 +5576,23 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Summary.FrequencySummary.Source']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.Summary.FrequencySummary']['meta_info']
 
 
-
-
-        class TimeOfDaySummary(Entity):
+        class TimeOfDaySummary(_Entity_):
             """
             Summary of sources selected for time\-of\-day
             
@@ -5094,7 +5620,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.Summary.TimeOfDaySummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.Summary.TimeOfDaySummary, self).__init__()
 
                 self.yang_name = "time-of-day-summary"
                 self.yang_parent_name = "summary"
@@ -5118,7 +5647,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary, ['node_count'], name, value)
 
 
-            class Source(Entity):
+            class Source(_Entity_):
                 """
                 The source associated with this summary
                 information
@@ -5204,7 +5733,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Summary.TimeOfDaySummary.Source, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source, self).__init__()
 
                     self.yang_name = "source"
                     self.yang_parent_name = "time-of-day-summary"
@@ -5246,7 +5778,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                class ClockId(Entity):
+                class ClockId(_Entity_):
                     """
                     Clock ID
                     
@@ -5285,7 +5817,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
                         self.yang_parent_name = "source"
@@ -5308,9 +5843,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId']['meta_info']
 
 
-                class InternalClockId(Entity):
+                class InternalClockId(_Entity_):
                     """
                     Internal Clock ID
                     
@@ -5349,7 +5888,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, self).__init__()
 
                         self.yang_name = "internal-clock-id"
                         self.yang_parent_name = "source"
@@ -5372,9 +5914,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.TimeOfDaySummary.Source.InternalClockId']['meta_info']
 
 
-                class GnssReceiverId(Entity):
+                class GnssReceiverId(_Entity_):
                     """
                     GNSS Receiver ID
                     
@@ -5413,7 +5959,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, self).__init__()
 
                         self.yang_name = "gnss-receiver-id"
                         self.yang_parent_name = "source"
@@ -5436,12 +5985,28 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Summary.TimeOfDaySummary.Source']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.Summary.TimeOfDaySummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+            return meta._meta_table['FrequencySynchronization.Summary']['meta_info']
 
 
-
-
-
-    class InterfaceDatas(Entity):
+    class InterfaceDatas(_Entity_):
         """
         Table for interface operational data
         
@@ -5460,7 +6025,10 @@ class FrequencySynchronization(Entity):
         _revision = '2017-10-20'
 
         def __init__(self):
-            super(FrequencySynchronization.InterfaceDatas, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FrequencySynchronization.InterfaceDatas, self).__init__()
 
             self.yang_name = "interface-datas"
             self.yang_parent_name = "frequency-synchronization"
@@ -5479,7 +6047,7 @@ class FrequencySynchronization(Entity):
             self._perform_setattr(FrequencySynchronization.InterfaceDatas, [], name, value)
 
 
-        class InterfaceData(Entity):
+        class InterfaceData(_Entity_):
             """
             Operational data for a particular interface
             
@@ -5669,7 +6237,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.InterfaceDatas.InterfaceData, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.InterfaceDatas.InterfaceData, self).__init__()
 
                 self.yang_name = "interface-data"
                 self.yang_parent_name = "interface-datas"
@@ -5752,7 +6323,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData, ['interface_name', 'name', 'state', 'ssm_enabled', 'squelched', 'selection_input', 'priority', 'time_of_day_priority', 'damping_state', 'damping_time', 'wait_to_restore_time', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
-            class Source(Entity):
+            class Source(_Entity_):
                 """
                 The source ID for the interface
                 
@@ -5837,7 +6408,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, self).__init__()
 
                     self.yang_name = "source"
                     self.yang_parent_name = "interface-data"
@@ -5878,7 +6452,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                class ClockId(Entity):
+                class ClockId(_Entity_):
                     """
                     Clock ID
                     
@@ -5917,7 +6491,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
                         self.yang_parent_name = "source"
@@ -5939,9 +6516,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId']['meta_info']
 
 
-                class InternalClockId(Entity):
+                class InternalClockId(_Entity_):
                     """
                     Internal Clock ID
                     
@@ -5980,7 +6561,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, self).__init__()
 
                         self.yang_name = "internal-clock-id"
                         self.yang_parent_name = "source"
@@ -6002,9 +6586,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.Source.InternalClockId']['meta_info']
 
 
-                class GnssReceiverId(Entity):
+                class GnssReceiverId(_Entity_):
                     """
                     GNSS Receiver ID
                     
@@ -6043,7 +6631,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, self).__init__()
 
                         self.yang_name = "gnss-receiver-id"
                         self.yang_parent_name = "source"
@@ -6065,10 +6656,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.Source']['meta_info']
 
 
-
-            class SelectedSource(Entity):
+            class SelectedSource(_Entity_):
                 """
                 Timing source selected for interface output
                 
@@ -6153,7 +6752,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, self).__init__()
 
                     self.yang_name = "selected-source"
                     self.yang_parent_name = "interface-data"
@@ -6194,7 +6796,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                class ClockId(Entity):
+                class ClockId(_Entity_):
                     """
                     Clock ID
                     
@@ -6233,7 +6835,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
                         self.yang_parent_name = "selected-source"
@@ -6255,9 +6860,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId']['meta_info']
 
 
-                class InternalClockId(Entity):
+                class InternalClockId(_Entity_):
                     """
                     Internal Clock ID
                     
@@ -6296,7 +6905,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, self).__init__()
 
                         self.yang_name = "internal-clock-id"
                         self.yang_parent_name = "selected-source"
@@ -6318,9 +6930,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.InternalClockId']['meta_info']
 
 
-                class GnssReceiverId(Entity):
+                class GnssReceiverId(_Entity_):
                     """
                     GNSS Receiver ID
                     
@@ -6359,7 +6975,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, self).__init__()
 
                         self.yang_name = "gnss-receiver-id"
                         self.yang_parent_name = "selected-source"
@@ -6381,10 +7000,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource']['meta_info']
 
 
-
-            class QualityLevelReceived(Entity):
+            class QualityLevelReceived(_Entity_):
                 """
                 Received quality level
                 
@@ -6424,7 +7051,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, self).__init__()
 
                     self.yang_name = "quality-level-received"
                     self.yang_parent_name = "interface-data"
@@ -6448,9 +7078,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived']['meta_info']
 
 
-            class QualityLevelDamped(Entity):
+            class QualityLevelDamped(_Entity_):
                 """
                 Quality level after damping has been applied
                 
@@ -6490,7 +7124,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, self).__init__()
 
                     self.yang_name = "quality-level-damped"
                     self.yang_parent_name = "interface-data"
@@ -6514,9 +7151,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped']['meta_info']
 
 
-            class QualityLevelEffectiveInput(Entity):
+            class QualityLevelEffectiveInput(_Entity_):
                 """
                 The effective input quality level
                 
@@ -6556,7 +7197,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, self).__init__()
 
                     self.yang_name = "quality-level-effective-input"
                     self.yang_parent_name = "interface-data"
@@ -6580,9 +7224,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput']['meta_info']
 
 
-            class QualityLevelEffectiveOutput(Entity):
+            class QualityLevelEffectiveOutput(_Entity_):
                 """
                 The effective output quality level
                 
@@ -6622,7 +7270,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, self).__init__()
 
                     self.yang_name = "quality-level-effective-output"
                     self.yang_parent_name = "interface-data"
@@ -6646,9 +7297,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput']['meta_info']
 
 
-            class QualityLevelSelectedSource(Entity):
+            class QualityLevelSelectedSource(_Entity_):
                 """
                 The quality level of the source driving this
                 interface
@@ -6689,7 +7344,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, self).__init__()
 
                     self.yang_name = "quality-level-selected-source"
                     self.yang_parent_name = "interface-data"
@@ -6713,9 +7371,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource']['meta_info']
 
 
-            class EthernetPeerInformation(Entity):
+            class EthernetPeerInformation(_Entity_):
                 """
                 Ethernet peer information
                 
@@ -6766,7 +7428,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation, self).__init__()
 
                     self.yang_name = "ethernet-peer-information"
                     self.yang_parent_name = "interface-data"
@@ -6797,7 +7462,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation, ['peer_state', 'peer_up_count', 'peer_timeout_count'], name, value)
 
 
-                class PeerStateTime(Entity):
+                class PeerStateTime(_Entity_):
                     """
                     Time of last peer state transition
                     
@@ -6831,7 +7496,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, self).__init__()
 
                         self.yang_name = "peer-state-time"
                         self.yang_parent_name = "ethernet-peer-information"
@@ -6851,9 +7519,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime']['meta_info']
 
 
-                class LastSsm(Entity):
+                class LastSsm(_Entity_):
                     """
                     Time of last SSM received
                     
@@ -6887,7 +7559,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, self).__init__()
 
                         self.yang_name = "last-ssm"
                         self.yang_parent_name = "ethernet-peer-information"
@@ -6907,10 +7582,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation']['meta_info']
 
 
-
-            class EsmcStatistics(Entity):
+            class EsmcStatistics(_Entity_):
                 """
                 ESMC Statistics
                 
@@ -6994,7 +7677,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, self).__init__()
 
                     self.yang_name = "esmc-statistics"
                     self.yang_parent_name = "interface-data"
@@ -7026,9 +7712,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, ['esmc_events_sent', 'esmc_events_received', 'esmc_infos_sent', 'esmc_infos_received', 'esmc_dn_us_sent', 'esmc_dn_us_received', 'esmc_malformed_received', 'esmc_received_error'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics']['meta_info']
 
 
-            class SpaSelectionPoint(Entity):
+            class SpaSelectionPoint(_Entity_):
                 """
                 Spa selection points
                 
@@ -7056,7 +7746,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, self).__init__()
 
                     self.yang_name = "spa-selection-point"
                     self.yang_parent_name = "interface-data"
@@ -7076,9 +7769,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint']['meta_info']
 
 
-            class NodeSelectionPoint(Entity):
+            class NodeSelectionPoint(_Entity_):
                 """
                 Node selection points
                 
@@ -7106,7 +7803,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, self).__init__()
 
                     self.yang_name = "node-selection-point"
                     self.yang_parent_name = "interface-data"
@@ -7126,11 +7826,23 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.InterfaceDatas.InterfaceData']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+            return meta._meta_table['FrequencySynchronization.InterfaceDatas']['meta_info']
 
 
-
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table for node\-specific operational data
         
@@ -7149,7 +7861,10 @@ class FrequencySynchronization(Entity):
         _revision = '2017-10-20'
 
         def __init__(self):
-            super(FrequencySynchronization.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FrequencySynchronization.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "frequency-synchronization"
@@ -7168,7 +7883,7 @@ class FrequencySynchronization(Entity):
             self._perform_setattr(FrequencySynchronization.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -7245,7 +7960,10 @@ class FrequencySynchronization(Entity):
             _revision = '2017-10-20'
 
             def __init__(self):
-                super(FrequencySynchronization.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FrequencySynchronization.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -7297,7 +8015,7 @@ class FrequencySynchronization(Entity):
                 self._perform_setattr(FrequencySynchronization.Nodes.Node, ['node'], name, value)
 
 
-            class NtpData(Entity):
+            class NtpData(_Entity_):
                 """
                 NTP operational data
                 
@@ -7369,7 +8087,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.NtpData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.NtpData, self).__init__()
 
                     self.yang_name = "ntp-data"
                     self.yang_parent_name = "node"
@@ -7403,7 +8124,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority'], name, value)
 
 
-                class QualityLevelEffectiveInput(Entity):
+                class QualityLevelEffectiveInput(_Entity_):
                     """
                     The effective input quality level
                     
@@ -7443,7 +8164,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, self).__init__()
 
                         self.yang_name = "quality-level-effective-input"
                         self.yang_parent_name = "ntp-data"
@@ -7467,9 +8191,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput']['meta_info']
 
 
-                class SpaSelectionPoint(Entity):
+                class SpaSelectionPoint(_Entity_):
                     """
                     Spa selection points
                     
@@ -7497,7 +8225,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, self).__init__()
 
                         self.yang_name = "spa-selection-point"
                         self.yang_parent_name = "ntp-data"
@@ -7517,9 +8248,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint']['meta_info']
 
 
-                class NodeSelectionPoint(Entity):
+                class NodeSelectionPoint(_Entity_):
                     """
                     Node selection points
                     
@@ -7547,7 +8282,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, self).__init__()
 
                         self.yang_name = "node-selection-point"
                         self.yang_parent_name = "ntp-data"
@@ -7567,10 +8305,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.NtpData']['meta_info']
 
 
-
-            class SelectionPointDatas(Entity):
+            class SelectionPointDatas(_Entity_):
                 """
                 Selection point data table
                 
@@ -7589,7 +8335,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SelectionPointDatas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.SelectionPointDatas, self).__init__()
 
                     self.yang_name = "selection-point-datas"
                     self.yang_parent_name = "node"
@@ -7607,7 +8356,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas, [], name, value)
 
 
-                class SelectionPointData(Entity):
+                class SelectionPointData(_Entity_):
                     """
                     Operational data for a given selection point
                     
@@ -7690,7 +8439,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData, self).__init__()
 
                         self.yang_name = "selection-point-data"
                         self.yang_parent_name = "selection-point-datas"
@@ -7731,7 +8483,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData, ['selection_point', 'selection_point_type', 'description', 'inputs', 'inputs_selected', 'time_of_day_selection'], name, value)
 
 
-                    class Output(Entity):
+                    class Output(_Entity_):
                         """
                         Information about the output of the selection
                         point
@@ -7793,7 +8545,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output, self).__init__()
 
                             self.yang_name = "output"
                             self.yang_parent_name = "selection-point-data"
@@ -7821,7 +8576,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output, ['local_clock_ouput', 'local_line_output', 'local_time_of_day_output'], name, value)
 
 
-                        class SpaSelectionPoint(Entity):
+                        class SpaSelectionPoint(_Entity_):
                             """
                             SPA selection points
                             
@@ -7849,7 +8604,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, self).__init__()
 
                                 self.yang_name = "spa-selection-point"
                                 self.yang_parent_name = "output"
@@ -7869,9 +8627,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint']['meta_info']
 
 
-                        class NodeSelectionPoint(Entity):
+                        class NodeSelectionPoint(_Entity_):
                             """
                             Node selection points
                             
@@ -7899,7 +8661,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, self).__init__()
 
                                 self.yang_name = "node-selection-point"
                                 self.yang_parent_name = "output"
@@ -7919,9 +8684,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint']['meta_info']
 
 
-                        class ChassisSelectionPoint(Entity):
+                        class ChassisSelectionPoint(_Entity_):
                             """
                             Chassis selection points
                             
@@ -7949,7 +8718,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, self).__init__()
 
                                 self.yang_name = "chassis-selection-point"
                                 self.yang_parent_name = "output"
@@ -7969,9 +8741,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint']['meta_info']
 
 
-                        class RouterSelectionPoint(Entity):
+                        class RouterSelectionPoint(_Entity_):
                             """
                             Router selection points
                             
@@ -7999,7 +8775,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, self).__init__()
 
                                 self.yang_name = "router-selection-point"
                                 self.yang_parent_name = "output"
@@ -8019,10 +8798,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output']['meta_info']
 
 
-
-                    class LastProgrammed(Entity):
+                    class LastProgrammed(_Entity_):
                         """
                         Time the SP was last programmed
                         
@@ -8056,7 +8843,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, self).__init__()
 
                             self.yang_name = "last-programmed"
                             self.yang_parent_name = "selection-point-data"
@@ -8076,9 +8866,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed']['meta_info']
 
 
-                    class LastSelection(Entity):
+                    class LastSelection(_Entity_):
                         """
                         Time the last selection was made
                         
@@ -8112,7 +8906,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, self).__init__()
 
                             self.yang_name = "last-selection"
                             self.yang_parent_name = "selection-point-data"
@@ -8132,11 +8929,23 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointDatas']['meta_info']
 
 
-
-
-            class ConfigurationErrors(Entity):
+            class ConfigurationErrors(_Entity_):
                 """
                 Configuration error operational data
                 
@@ -8155,7 +8964,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.ConfigurationErrors, self).__init__()
 
                     self.yang_name = "configuration-errors"
                     self.yang_parent_name = "node"
@@ -8173,7 +8985,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors, [], name, value)
 
 
-                class ErrorSource(Entity):
+                class ErrorSource(_Entity_):
                     """
                     Configuration errors
                     
@@ -8290,7 +9102,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, self).__init__()
 
                         self.yang_name = "error-source"
                         self.yang_parent_name = "configuration-errors"
@@ -8351,7 +9166,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, ['enable_error', 'input_min_error', 'input_exact_error', 'input_max_error', 'ouput_min_error', 'output_exact_error', 'output_max_error', 'input_output_mismatch'], name, value)
 
 
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         Source
                         
@@ -8436,7 +9251,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "error-source"
@@ -8477,7 +9295,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -8516,7 +9334,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "source"
@@ -8538,9 +9359,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -8579,7 +9404,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "source"
@@ -8601,9 +9429,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -8642,7 +9474,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "source"
@@ -8664,10 +9499,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source']['meta_info']
 
 
-
-                    class InputMinQl(Entity):
+                    class InputMinQl(_Entity_):
                         """
                         Configured minimum input QL
                         
@@ -8707,7 +9550,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, self).__init__()
 
                             self.yang_name = "input-min-ql"
                             self.yang_parent_name = "error-source"
@@ -8731,9 +9577,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl']['meta_info']
 
 
-                    class InputExactQl(Entity):
+                    class InputExactQl(_Entity_):
                         """
                         Configured exact input QL
                         
@@ -8773,7 +9623,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, self).__init__()
 
                             self.yang_name = "input-exact-ql"
                             self.yang_parent_name = "error-source"
@@ -8797,9 +9650,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl']['meta_info']
 
 
-                    class InputMaxQl(Entity):
+                    class InputMaxQl(_Entity_):
                         """
                         Configured maximum input QL
                         
@@ -8839,7 +9696,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, self).__init__()
 
                             self.yang_name = "input-max-ql"
                             self.yang_parent_name = "error-source"
@@ -8863,9 +9723,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl']['meta_info']
 
 
-                    class OutputMinQl(Entity):
+                    class OutputMinQl(_Entity_):
                         """
                         Configured mininum output QL
                         
@@ -8905,7 +9769,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, self).__init__()
 
                             self.yang_name = "output-min-ql"
                             self.yang_parent_name = "error-source"
@@ -8929,9 +9796,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl']['meta_info']
 
 
-                    class OutputExactQl(Entity):
+                    class OutputExactQl(_Entity_):
                         """
                         Configured exact output QL
                         
@@ -8971,7 +9842,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, self).__init__()
 
                             self.yang_name = "output-exact-ql"
                             self.yang_parent_name = "error-source"
@@ -8995,9 +9869,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl']['meta_info']
 
 
-                    class OutputMaxQl(Entity):
+                    class OutputMaxQl(_Entity_):
                         """
                         Configured exact maximum QL
                         
@@ -9037,7 +9915,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, self).__init__()
 
                             self.yang_name = "output-max-ql"
                             self.yang_parent_name = "error-source"
@@ -9061,11 +9942,23 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.ConfigurationErrors']['meta_info']
 
 
-
-
-            class PtpData(Entity):
+            class PtpData(_Entity_):
                 """
                 PTP operational data
                 
@@ -9137,7 +10030,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.PtpData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.PtpData, self).__init__()
 
                     self.yang_name = "ptp-data"
                     self.yang_parent_name = "node"
@@ -9171,7 +10067,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority'], name, value)
 
 
-                class QualityLevelEffectiveInput(Entity):
+                class QualityLevelEffectiveInput(_Entity_):
                     """
                     The effective input quality level
                     
@@ -9211,7 +10107,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, self).__init__()
 
                         self.yang_name = "quality-level-effective-input"
                         self.yang_parent_name = "ptp-data"
@@ -9235,9 +10134,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput']['meta_info']
 
 
-                class SpaSelectionPoint(Entity):
+                class SpaSelectionPoint(_Entity_):
                     """
                     Spa selection points
                     
@@ -9265,7 +10168,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, self).__init__()
 
                         self.yang_name = "spa-selection-point"
                         self.yang_parent_name = "ptp-data"
@@ -9285,9 +10191,13 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint']['meta_info']
 
 
-                class NodeSelectionPoint(Entity):
+                class NodeSelectionPoint(_Entity_):
                     """
                     Node selection points
                     
@@ -9315,7 +10225,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, self).__init__()
 
                         self.yang_name = "node-selection-point"
                         self.yang_parent_name = "ptp-data"
@@ -9335,10 +10248,18 @@ class FrequencySynchronization(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.PtpData']['meta_info']
 
 
-
-            class SsmSummary(Entity):
+            class SsmSummary(_Entity_):
                 """
                 SSM operational data
                 
@@ -9458,7 +10379,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SsmSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.SsmSummary, self).__init__()
 
                     self.yang_name = "ssm-summary"
                     self.yang_parent_name = "node"
@@ -9498,9 +10422,13 @@ class FrequencySynchronization(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, ['ethernet_sources', 'ethernet_sources_select', 'ethernet_sources_enabled', 'sonet_sources', 'sonet_sources_select', 'sonet_sources_enabled', 'events_sent', 'events_received', 'infos_sent', 'infos_received', 'dn_us_sent', 'dn_us_received'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SsmSummary']['meta_info']
 
 
-            class DetailedClockDatas(Entity):
+            class DetailedClockDatas(_Entity_):
                 """
                 Table for detailed clock operational data
                 
@@ -9519,7 +10447,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.DetailedClockDatas, self).__init__()
 
                     self.yang_name = "detailed-clock-datas"
                     self.yang_parent_name = "node"
@@ -9537,7 +10468,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas, [], name, value)
 
 
-                class DetailedClockData(Entity):
+                class DetailedClockData(_Entity_):
                     """
                     Detailed operational data for a particular
                     clock
@@ -9763,7 +10694,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData, self).__init__()
 
                         self.yang_name = "detailed-clock-data"
                         self.yang_parent_name = "detailed-clock-datas"
@@ -9851,7 +10785,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData, ['clock_type', 'id', 'state', 'down_reason', 'description', 'priority', 'time_of_day_priority', 'ssm_support', 'ssm_enabled', 'loopback', 'selection_input', 'squelched', 'damping_state', 'damping_time', 'input_disabled', 'output_disabled', 'wait_to_restore_time', 'clock_type_xr', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         The source ID for the clock
                         
@@ -9936,7 +10870,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "detailed-clock-data"
@@ -9977,7 +10914,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -10016,7 +10953,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "source"
@@ -10038,9 +10978,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -10079,7 +11023,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "source"
@@ -10101,9 +11048,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -10142,7 +11093,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "source"
@@ -10164,10 +11118,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source']['meta_info']
 
 
-
-                    class SelectedSource(Entity):
+                    class SelectedSource(_Entity_):
                         """
                         Timing source selected for clock output
                         
@@ -10252,7 +11214,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, self).__init__()
 
                             self.yang_name = "selected-source"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10293,7 +11258,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -10332,7 +11297,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -10354,9 +11322,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -10395,7 +11367,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -10417,9 +11392,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -10458,7 +11437,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "selected-source"
@@ -10480,10 +11462,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource']['meta_info']
 
 
-
-                    class QualityLevelReceived(Entity):
+                    class QualityLevelReceived(_Entity_):
                         """
                         Received quality level
                         
@@ -10523,7 +11513,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, self).__init__()
 
                             self.yang_name = "quality-level-received"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10547,9 +11540,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived']['meta_info']
 
 
-                    class QualityLevelDamped(Entity):
+                    class QualityLevelDamped(_Entity_):
                         """
                         Quality level after damping has been applied
                         
@@ -10589,7 +11586,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, self).__init__()
 
                             self.yang_name = "quality-level-damped"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10613,9 +11613,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped']['meta_info']
 
 
-                    class QualityLevelEffectiveInput(Entity):
+                    class QualityLevelEffectiveInput(_Entity_):
                         """
                         The effective input quality level
                         
@@ -10655,7 +11659,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, self).__init__()
 
                             self.yang_name = "quality-level-effective-input"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10679,9 +11686,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput']['meta_info']
 
 
-                    class QualityLevelEffectiveOutput(Entity):
+                    class QualityLevelEffectiveOutput(_Entity_):
                         """
                         The effective output quality level
                         
@@ -10721,7 +11732,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, self).__init__()
 
                             self.yang_name = "quality-level-effective-output"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10745,9 +11759,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput']['meta_info']
 
 
-                    class QualityLevelSelectedSource(Entity):
+                    class QualityLevelSelectedSource(_Entity_):
                         """
                         The quality level of the source driving this
                         interface
@@ -10788,7 +11806,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, self).__init__()
 
                             self.yang_name = "quality-level-selected-source"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10812,9 +11833,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource']['meta_info']
 
 
-                    class SpaSelectionPoint(Entity):
+                    class SpaSelectionPoint(_Entity_):
                         """
                         Spa selection points
                         
@@ -10842,7 +11867,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, self).__init__()
 
                             self.yang_name = "spa-selection-point"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10862,9 +11890,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint']['meta_info']
 
 
-                    class NodeSelectionPoint(Entity):
+                    class NodeSelectionPoint(_Entity_):
                         """
                         Node selection points
                         
@@ -10892,7 +11924,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, self).__init__()
 
                             self.yang_name = "node-selection-point"
                             self.yang_parent_name = "detailed-clock-data"
@@ -10912,11 +11947,23 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.DetailedClockDatas']['meta_info']
 
 
-
-
-            class ClockDatas(Entity):
+            class ClockDatas(_Entity_):
                 """
                 Table for clock operational data
                 
@@ -10935,7 +11982,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.ClockDatas, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.ClockDatas, self).__init__()
 
                     self.yang_name = "clock-datas"
                     self.yang_parent_name = "node"
@@ -10953,7 +12003,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas, [], name, value)
 
 
-                class ClockData(Entity):
+                class ClockData(_Entity_):
                     """
                     Operational data for a particular clock
                     
@@ -11178,7 +12228,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData, self).__init__()
 
                         self.yang_name = "clock-data"
                         self.yang_parent_name = "clock-datas"
@@ -11266,7 +12319,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData, ['clock_type', 'id', 'state', 'down_reason', 'description', 'priority', 'time_of_day_priority', 'ssm_support', 'ssm_enabled', 'loopback', 'selection_input', 'squelched', 'damping_state', 'damping_time', 'input_disabled', 'output_disabled', 'wait_to_restore_time', 'clock_type_xr', 'supports_frequency', 'supports_time_of_day'], name, value)
 
 
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         The source ID for the clock
                         
@@ -11351,7 +12404,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "clock-data"
@@ -11392,7 +12448,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -11431,7 +12487,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "source"
@@ -11453,9 +12512,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -11494,7 +12557,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "source"
@@ -11516,9 +12582,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -11557,7 +12627,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "source"
@@ -11579,10 +12652,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source']['meta_info']
 
 
-
-                    class SelectedSource(Entity):
+                    class SelectedSource(_Entity_):
                         """
                         Timing source selected for clock output
                         
@@ -11667,7 +12748,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, self).__init__()
 
                             self.yang_name = "selected-source"
                             self.yang_parent_name = "clock-data"
@@ -11708,7 +12792,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -11747,7 +12831,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -11769,9 +12856,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -11810,7 +12901,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "selected-source"
@@ -11832,9 +12926,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -11873,7 +12971,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "selected-source"
@@ -11895,10 +12996,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource']['meta_info']
 
 
-
-                    class QualityLevelReceived(Entity):
+                    class QualityLevelReceived(_Entity_):
                         """
                         Received quality level
                         
@@ -11938,7 +13047,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, self).__init__()
 
                             self.yang_name = "quality-level-received"
                             self.yang_parent_name = "clock-data"
@@ -11962,9 +13074,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived']['meta_info']
 
 
-                    class QualityLevelDamped(Entity):
+                    class QualityLevelDamped(_Entity_):
                         """
                         Quality level after damping has been applied
                         
@@ -12004,7 +13120,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, self).__init__()
 
                             self.yang_name = "quality-level-damped"
                             self.yang_parent_name = "clock-data"
@@ -12028,9 +13147,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped']['meta_info']
 
 
-                    class QualityLevelEffectiveInput(Entity):
+                    class QualityLevelEffectiveInput(_Entity_):
                         """
                         The effective input quality level
                         
@@ -12070,7 +13193,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, self).__init__()
 
                             self.yang_name = "quality-level-effective-input"
                             self.yang_parent_name = "clock-data"
@@ -12094,9 +13220,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput']['meta_info']
 
 
-                    class QualityLevelEffectiveOutput(Entity):
+                    class QualityLevelEffectiveOutput(_Entity_):
                         """
                         The effective output quality level
                         
@@ -12136,7 +13266,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, self).__init__()
 
                             self.yang_name = "quality-level-effective-output"
                             self.yang_parent_name = "clock-data"
@@ -12160,9 +13293,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput']['meta_info']
 
 
-                    class QualityLevelSelectedSource(Entity):
+                    class QualityLevelSelectedSource(_Entity_):
                         """
                         The quality level of the source driving this
                         interface
@@ -12203,7 +13340,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, self).__init__()
 
                             self.yang_name = "quality-level-selected-source"
                             self.yang_parent_name = "clock-data"
@@ -12227,9 +13367,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource']['meta_info']
 
 
-                    class SpaSelectionPoint(Entity):
+                    class SpaSelectionPoint(_Entity_):
                         """
                         Spa selection points
                         
@@ -12257,7 +13401,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, self).__init__()
 
                             self.yang_name = "spa-selection-point"
                             self.yang_parent_name = "clock-data"
@@ -12277,9 +13424,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint']['meta_info']
 
 
-                    class NodeSelectionPoint(Entity):
+                    class NodeSelectionPoint(_Entity_):
                         """
                         Node selection points
                         
@@ -12307,7 +13458,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, self).__init__()
 
                             self.yang_name = "node-selection-point"
                             self.yang_parent_name = "clock-data"
@@ -12327,11 +13481,23 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, ['selection_point', 'selection_point_description'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas.ClockData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.ClockDatas']['meta_info']
 
 
-
-
-            class SelectionPointInputs(Entity):
+            class SelectionPointInputs(_Entity_):
                 """
                 Table for selection point input operational
                 data
@@ -12351,7 +13517,10 @@ class FrequencySynchronization(Entity):
                 _revision = '2017-10-20'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs, self).__init__()
 
                     self.yang_name = "selection-point-inputs"
                     self.yang_parent_name = "node"
@@ -12369,7 +13538,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs, [], name, value)
 
 
-                class SelectionPointInput(Entity):
+                class SelectionPointInput(_Entity_):
                     """
                     Operational data for a particular selection
                     point input
@@ -12540,7 +13709,10 @@ class FrequencySynchronization(Entity):
                     _revision = '2017-10-20'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, self).__init__()
 
                         self.yang_name = "selection-point-input"
                         self.yang_parent_name = "selection-point-inputs"
@@ -12605,7 +13777,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, ['selection_point', 'stream_type', 'source_type', 'interface', 'clock_port', 'last_node', 'last_selection_point', 'output_id', 'supports_frequency', 'supports_time_of_day', 'priority', 'time_of_day_priority', 'selected', 'output_id_xr', 'platform_status', 'platform_failed_reason'], name, value)
 
 
-                    class InputSelectionPoint(Entity):
+                    class InputSelectionPoint(_Entity_):
                         """
                         The selection point the input is for
                         
@@ -12642,7 +13814,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, self).__init__()
 
                             self.yang_name = "input-selection-point"
                             self.yang_parent_name = "selection-point-input"
@@ -12664,9 +13839,13 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint']['meta_info']
 
 
-                    class Stream(Entity):
+                    class Stream(_Entity_):
                         """
                         Stream
                         
@@ -12699,7 +13878,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, self).__init__()
 
                             self.yang_name = "stream"
                             self.yang_parent_name = "selection-point-input"
@@ -12726,7 +13908,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, ['stream_input'], name, value)
 
 
-                        class SourceId(Entity):
+                        class SourceId(_Entity_):
                             """
                             Source ID
                             
@@ -12811,7 +13993,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, self).__init__()
 
                                 self.yang_name = "source-id"
                                 self.yang_parent_name = "stream"
@@ -12852,7 +14037,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                            class ClockId(Entity):
+                            class ClockId(_Entity_):
                                 """
                                 Clock ID
                                 
@@ -12891,7 +14076,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
                                     self.yang_parent_name = "source-id"
@@ -12913,9 +14101,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId']['meta_info']
 
 
-                            class InternalClockId(Entity):
+                            class InternalClockId(_Entity_):
                                 """
                                 Internal Clock ID
                                 
@@ -12954,7 +14146,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, self).__init__()
 
                                     self.yang_name = "internal-clock-id"
                                     self.yang_parent_name = "source-id"
@@ -12976,9 +14171,13 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.InternalClockId']['meta_info']
 
 
-                            class GnssReceiverId(Entity):
+                            class GnssReceiverId(_Entity_):
                                 """
                                 GNSS Receiver ID
                                 
@@ -13017,7 +14216,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, self).__init__()
 
                                     self.yang_name = "gnss-receiver-id"
                                     self.yang_parent_name = "source-id"
@@ -13039,10 +14241,18 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId']['meta_info']
 
 
-
-                        class SelectionPointId(Entity):
+                        class SelectionPointId(_Entity_):
                             """
                             Selection point ID
                             
@@ -13070,7 +14280,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, self).__init__()
 
                                 self.yang_name = "selection-point-id"
                                 self.yang_parent_name = "stream"
@@ -13093,7 +14306,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, ['output_id'], name, value)
 
 
-                            class SelectionPoint(Entity):
+                            class SelectionPoint(_Entity_):
                                 """
                                 Last selection point
                                 
@@ -13130,7 +14343,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2017-10-20'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, self).__init__()
 
                                     self.yang_name = "selection-point"
                                     self.yang_parent_name = "selection-point-id"
@@ -13152,11 +14368,23 @@ class FrequencySynchronization(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream']['meta_info']
 
 
-
-
-                    class OriginalSource(Entity):
+                    class OriginalSource(_Entity_):
                         """
                         Original source
                         
@@ -13241,7 +14469,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, self).__init__()
 
                             self.yang_name = "original-source"
                             self.yang_parent_name = "selection-point-input"
@@ -13282,7 +14513,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                        class ClockId(Entity):
+                        class ClockId(_Entity_):
                             """
                             Clock ID
                             
@@ -13321,7 +14552,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "original-source"
@@ -13343,9 +14577,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId']['meta_info']
 
 
-                        class InternalClockId(Entity):
+                        class InternalClockId(_Entity_):
                             """
                             Internal Clock ID
                             
@@ -13384,7 +14622,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, self).__init__()
 
                                 self.yang_name = "internal-clock-id"
                                 self.yang_parent_name = "original-source"
@@ -13406,9 +14647,13 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.InternalClockId']['meta_info']
 
 
-                        class GnssReceiverId(Entity):
+                        class GnssReceiverId(_Entity_):
                             """
                             GNSS Receiver ID
                             
@@ -13447,7 +14692,10 @@ class FrequencySynchronization(Entity):
                             _revision = '2017-10-20'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, self).__init__()
 
                                 self.yang_name = "gnss-receiver-id"
                                 self.yang_parent_name = "original-source"
@@ -13469,10 +14717,18 @@ class FrequencySynchronization(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, ['node', 'id', 'clock_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                                return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource']['meta_info']
 
 
-
-                    class QualityLevel(Entity):
+                    class QualityLevel(_Entity_):
                         """
                         Quality Level
                         
@@ -13512,7 +14768,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2017-10-20'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, self).__init__()
 
                             self.yang_name = "quality-level"
                             self.yang_parent_name = "selection-point-input"
@@ -13536,14 +14795,38 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                            return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                        return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                    return meta._meta_table['FrequencySynchronization.Nodes.Node.SelectionPointInputs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+                return meta._meta_table['FrequencySynchronization.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+            return meta._meta_table['FrequencySynchronization.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_freqsync_oper as meta
+        return meta._meta_table['FrequencySynchronization']['meta_info']
 
 

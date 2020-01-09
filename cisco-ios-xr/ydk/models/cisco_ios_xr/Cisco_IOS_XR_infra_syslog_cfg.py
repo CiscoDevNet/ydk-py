@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -186,6 +189,12 @@ class Facility(Enum):
     sys14 = Enum.YLeaf(232, "sys14")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['Facility']
+
+
 class LogCollectFrequency(Enum):
     """
     LogCollectFrequency (Enum Class)
@@ -205,6 +214,12 @@ class LogCollectFrequency(Enum):
     weekly = Enum.YLeaf(1, "weekly")
 
     daily = Enum.YLeaf(2, "daily")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LogCollectFrequency']
 
 
 class LogMessageSeverity(Enum):
@@ -264,6 +279,12 @@ class LogMessageSeverity(Enum):
     debug = Enum.YLeaf(7, "debug")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LogMessageSeverity']
+
+
 class LogSeverity(Enum):
     """
     LogSeverity (Enum Class)
@@ -321,6 +342,12 @@ class LogSeverity(Enum):
     debug = Enum.YLeaf(7, "debug")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LogSeverity']
+
+
 class LoggingDscp(Enum):
     """
     LoggingDscp (Enum Class)
@@ -334,6 +361,12 @@ class LoggingDscp(Enum):
     """
 
     dscp = Enum.YLeaf(1, "dscp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingDscp']
 
 
 class LoggingDscpValue(Enum):
@@ -471,6 +504,12 @@ class LoggingDscpValue(Enum):
     cs7 = Enum.YLeaf(56, "cs7")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingDscpValue']
+
+
 class LoggingLevels(Enum):
     """
     LoggingLevels (Enum Class)
@@ -534,6 +573,12 @@ class LoggingLevels(Enum):
     disable = Enum.YLeaf(15, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingLevels']
+
+
 class LoggingPrecedence(Enum):
     """
     LoggingPrecedence (Enum Class)
@@ -547,6 +592,12 @@ class LoggingPrecedence(Enum):
     """
 
     precedence = Enum.YLeaf(0, "precedence")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingPrecedence']
 
 
 class LoggingPrecedenceValue(Enum):
@@ -606,6 +657,12 @@ class LoggingPrecedenceValue(Enum):
     network = Enum.YLeaf(7, "network")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingPrecedenceValue']
+
+
 class LoggingTos(Enum):
     """
     LoggingTos (Enum Class)
@@ -625,6 +682,12 @@ class LoggingTos(Enum):
     precedence = Enum.YLeaf(0, "precedence")
 
     dscp = Enum.YLeaf(1, "dscp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingTos']
 
 
 class TimeInfo(Enum):
@@ -648,8 +711,14 @@ class TimeInfo(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['TimeInfo']
 
-class SyslogService(Entity):
+
+
+class SyslogService(_Entity_):
     """
     Syslog Timestamp Services
     
@@ -666,7 +735,10 @@ class SyslogService(Entity):
     _revision = '2017-10-31'
 
     def __init__(self):
-        super(SyslogService, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SyslogService, self).__init__()
         self._top_entity = None
 
         self.yang_name = "syslog-service"
@@ -687,7 +759,7 @@ class SyslogService(Entity):
         self._perform_setattr(SyslogService, [], name, value)
 
 
-    class Timestamps(Entity):
+    class Timestamps(_Entity_):
         """
         Timestamp debug/log messages configuration
         
@@ -714,7 +786,10 @@ class SyslogService(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(SyslogService.Timestamps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SyslogService.Timestamps, self).__init__()
 
             self.yang_name = "timestamps"
             self.yang_parent_name = "syslog-service"
@@ -742,7 +817,7 @@ class SyslogService(Entity):
             self._perform_setattr(SyslogService.Timestamps, ['enable'], name, value)
 
 
-        class Log(Entity):
+        class Log(_Entity_):
             """
             Timestamp log messages
             
@@ -769,7 +844,10 @@ class SyslogService(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(SyslogService.Timestamps.Log, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SyslogService.Timestamps.Log, self).__init__()
 
                 self.yang_name = "log"
                 self.yang_parent_name = "timestamps"
@@ -795,7 +873,7 @@ class SyslogService(Entity):
                 self._perform_setattr(SyslogService.Timestamps.Log, ['log_uptime', 'log_timestamp_disable'], name, value)
 
 
-            class LogDatetime(Entity):
+            class LogDatetime(_Entity_):
                 """
                 Timestamp with date and time
                 
@@ -812,7 +890,10 @@ class SyslogService(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(SyslogService.Timestamps.Log.LogDatetime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SyslogService.Timestamps.Log.LogDatetime, self).__init__()
 
                     self.yang_name = "log-datetime"
                     self.yang_parent_name = "log"
@@ -833,7 +914,7 @@ class SyslogService(Entity):
                     self._perform_setattr(SyslogService.Timestamps.Log.LogDatetime, [], name, value)
 
 
-                class LogDatetimeValue(Entity):
+                class LogDatetimeValue(_Entity_):
                     """
                     Set timestamp for log message
                     
@@ -875,7 +956,10 @@ class SyslogService(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, self).__init__()
 
                         self.yang_name = "log-datetime-value"
                         self.yang_parent_name = "log-datetime"
@@ -900,11 +984,23 @@ class SyslogService(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, ['time_stamp_value', 'msec', 'time_zone', 'year'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['SyslogService.Timestamps.Log.LogDatetime']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['SyslogService.Timestamps.Log']['meta_info']
 
 
-
-
-        class Debug(Entity):
+        class Debug(_Entity_):
             """
             Timestamp debug messages
             
@@ -931,7 +1027,10 @@ class SyslogService(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(SyslogService.Timestamps.Debug, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SyslogService.Timestamps.Debug, self).__init__()
 
                 self.yang_name = "debug"
                 self.yang_parent_name = "timestamps"
@@ -957,7 +1056,7 @@ class SyslogService(Entity):
                 self._perform_setattr(SyslogService.Timestamps.Debug, ['debug_timestamp_disable', 'debug_uptime'], name, value)
 
 
-            class DebugDatetime(Entity):
+            class DebugDatetime(_Entity_):
                 """
                 Timestamp with date and time
                 
@@ -974,7 +1073,10 @@ class SyslogService(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(SyslogService.Timestamps.Debug.DebugDatetime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SyslogService.Timestamps.Debug.DebugDatetime, self).__init__()
 
                     self.yang_name = "debug-datetime"
                     self.yang_parent_name = "debug"
@@ -995,7 +1097,7 @@ class SyslogService(Entity):
                     self._perform_setattr(SyslogService.Timestamps.Debug.DebugDatetime, [], name, value)
 
 
-                class DatetimeValue(Entity):
+                class DatetimeValue(_Entity_):
                     """
                     Set time format for debug msg
                     
@@ -1037,7 +1139,10 @@ class SyslogService(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, self).__init__()
 
                         self.yang_name = "datetime-value"
                         self.yang_parent_name = "debug-datetime"
@@ -1062,17 +1167,37 @@ class SyslogService(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, ['time_stamp_value', 'msec', 'time_zone', 'year'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['SyslogService.Timestamps.Debug.DebugDatetime']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['SyslogService.Timestamps.Debug']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['SyslogService.Timestamps']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SyslogService()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['SyslogService']['meta_info']
 
 
-class Syslog(Entity):
+class Syslog(_Entity_):
     """
     syslog
     
@@ -1183,7 +1308,10 @@ class Syslog(Entity):
     _revision = '2017-10-31'
 
     def __init__(self):
-        super(Syslog, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Syslog, self).__init__()
         self._top_entity = None
 
         self.yang_name = "syslog"
@@ -1269,7 +1397,7 @@ class Syslog(Entity):
         self._perform_setattr(Syslog, ['host_name_prefix', 'local_log_file_size', 'enable_console_logging', 'suppress_duplicates'], name, value)
 
 
-    class MonitorLogging(Entity):
+    class MonitorLogging(_Entity_):
         """
         Set monitor logging
         
@@ -1293,7 +1421,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.MonitorLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.MonitorLogging, self).__init__()
 
             self.yang_name = "monitor-logging"
             self.yang_parent_name = "syslog"
@@ -1317,7 +1448,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.MonitorLogging, ['logging_level'], name, value)
 
 
-        class MonitorDiscriminator(Entity):
+        class MonitorDiscriminator(_Entity_):
             """
             Set monitor logging discriminators
             
@@ -1359,7 +1490,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.MonitorLogging.MonitorDiscriminator, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.MonitorLogging.MonitorDiscriminator, self).__init__()
 
                 self.yang_name = "monitor-discriminator"
                 self.yang_parent_name = "monitor-logging"
@@ -1388,10 +1522,18 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.MonitorLogging.MonitorDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.MonitorLogging.MonitorDiscriminator']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.MonitorLogging']['meta_info']
 
 
-
-    class HistoryLogging(Entity):
+    class HistoryLogging(_Entity_):
         """
         Set history logging
         
@@ -1419,7 +1561,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.HistoryLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.HistoryLogging, self).__init__()
 
             self.yang_name = "history-logging"
             self.yang_parent_name = "syslog"
@@ -1440,9 +1585,13 @@ class Syslog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.HistoryLogging, ['history_size', 'logging_level'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.HistoryLogging']['meta_info']
 
 
-    class LoggingFacilities(Entity):
+    class LoggingFacilities(_Entity_):
         """
         Modify message logging facilities
         
@@ -1461,7 +1610,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.LoggingFacilities, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.LoggingFacilities, self).__init__()
 
             self.yang_name = "logging-facilities"
             self.yang_parent_name = "syslog"
@@ -1480,9 +1632,13 @@ class Syslog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.LoggingFacilities, ['facility_level'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.LoggingFacilities']['meta_info']
 
 
-    class TrapLogging(Entity):
+    class TrapLogging(_Entity_):
         """
         Set trap logging
         
@@ -1501,7 +1657,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.TrapLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.TrapLogging, self).__init__()
 
             self.yang_name = "trap-logging"
             self.yang_parent_name = "syslog"
@@ -1520,9 +1679,13 @@ class Syslog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.TrapLogging, ['logging_level'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.TrapLogging']['meta_info']
 
 
-    class BufferedLogging(Entity):
+    class BufferedLogging(_Entity_):
         """
         Set buffered logging parameters
         
@@ -1555,7 +1718,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.BufferedLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.BufferedLogging, self).__init__()
 
             self.yang_name = "buffered-logging"
             self.yang_parent_name = "syslog"
@@ -1581,7 +1747,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.BufferedLogging, ['logging_level', 'buffer_size'], name, value)
 
 
-        class BufferedDiscriminator(Entity):
+        class BufferedDiscriminator(_Entity_):
             """
             Set buffered logging discriminators
             
@@ -1623,7 +1789,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.BufferedLogging.BufferedDiscriminator, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.BufferedLogging.BufferedDiscriminator, self).__init__()
 
                 self.yang_name = "buffered-discriminator"
                 self.yang_parent_name = "buffered-logging"
@@ -1652,10 +1821,18 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.BufferedLogging.BufferedDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.BufferedLogging.BufferedDiscriminator']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.BufferedLogging']['meta_info']
 
 
-
-    class HostServer(Entity):
+    class HostServer(_Entity_):
         """
         Configure logging host
         
@@ -1672,7 +1849,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.HostServer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.HostServer, self).__init__()
 
             self.yang_name = "host-server"
             self.yang_parent_name = "syslog"
@@ -1693,7 +1873,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.HostServer, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF table
             
@@ -1710,7 +1890,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.HostServer.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.HostServer.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "host-server"
@@ -1729,7 +1912,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.HostServer.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF specific data
                 
@@ -1763,7 +1946,10 @@ class Syslog(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(Syslog.HostServer.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.HostServer.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -1795,7 +1981,7 @@ class Syslog(Entity):
                     self._perform_setattr(Syslog.HostServer.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Ipv6s(Entity):
+                class Ipv6s(_Entity_):
                     """
                     List of the IPv6 logging host
                     
@@ -1812,7 +1998,10 @@ class Syslog(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6s, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6s, self).__init__()
 
                         self.yang_name = "ipv6s"
                         self.yang_parent_name = "vrf"
@@ -1830,7 +2019,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s, [], name, value)
 
 
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         IPv6 address of the logging host
                         
@@ -1863,7 +2052,10 @@ class Syslog(Entity):
                         _revision = '2017-10-31'
 
                         def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "ipv6s"
@@ -1889,7 +2081,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6, ['address'], name, value)
 
 
-                        class Ipv6SeverityPort(Entity):
+                        class Ipv6SeverityPort(_Entity_):
                             """
                             Severity/Port for the logging host
                             
@@ -1921,7 +2113,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort, self).__init__()
 
                                 self.yang_name = "ipv6-severity-port"
                                 self.yang_parent_name = "ipv6"
@@ -1942,9 +2137,13 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort, ['severity', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort']['meta_info']
 
 
-                        class Ipv6SeverityLevels(Entity):
+                        class Ipv6SeverityLevels(_Entity_):
                             """
                             Severity container of the logging host
                             
@@ -1963,7 +2162,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels, self).__init__()
 
                                 self.yang_name = "ipv6-severity-levels"
                                 self.yang_parent_name = "ipv6"
@@ -1981,7 +2183,7 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels, [], name, value)
 
 
-                            class Ipv6SeverityLevel(Entity):
+                            class Ipv6SeverityLevel(_Entity_):
                                 """
                                 Severity for the logging host
                                 
@@ -1998,7 +2200,10 @@ class Syslog(Entity):
                                 _revision = '2017-10-31'
 
                                 def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, self).__init__()
 
                                     self.yang_name = "ipv6-severity-level"
                                     self.yang_parent_name = "ipv6-severity-levels"
@@ -2016,12 +2221,28 @@ class Syslog(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, ['severity'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s']['meta_info']
 
 
-
-
-
-                class Hosts(Entity):
+                class Hosts(_Entity_):
                     """
                     List of the logging host
                     
@@ -2038,7 +2259,10 @@ class Syslog(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.HostServer.Vrfs.Vrf.Hosts, self).__init__()
 
                         self.yang_name = "hosts"
                         self.yang_parent_name = "vrf"
@@ -2056,7 +2280,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts, [], name, value)
 
 
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         Name of the logging host
                         
@@ -2087,7 +2311,10 @@ class Syslog(Entity):
                         _revision = '2017-10-31'
 
                         def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "hosts"
@@ -2113,7 +2340,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, ['host_name'], name, value)
 
 
-                        class HostNameSeverities(Entity):
+                        class HostNameSeverities(_Entity_):
                             """
                             Severity container of the logging host
                             
@@ -2132,7 +2359,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, self).__init__()
 
                                 self.yang_name = "host-name-severities"
                                 self.yang_parent_name = "host"
@@ -2150,7 +2380,7 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities, [], name, value)
 
 
-                            class HostNameSeverity(Entity):
+                            class HostNameSeverity(_Entity_):
                                 """
                                 Severity for the logging host
                                 
@@ -2167,7 +2397,10 @@ class Syslog(Entity):
                                 _revision = '2017-10-31'
 
                                 def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, self).__init__()
 
                                     self.yang_name = "host-name-severity"
                                     self.yang_parent_name = "host-name-severities"
@@ -2185,10 +2418,18 @@ class Syslog(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, ['severity'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities']['meta_info']
 
 
-
-                        class HostSeverityPort(Entity):
+                        class HostSeverityPort(_Entity_):
                             """
                             Severity/Port for the logging host
                             
@@ -2220,7 +2461,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, self).__init__()
 
                                 self.yang_name = "host-severity-port"
                                 self.yang_parent_name = "host"
@@ -2241,11 +2485,23 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, ['severity', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts']['meta_info']
 
 
-
-
-                class Ipv4s(Entity):
+                class Ipv4s(_Entity_):
                     """
                     List of the IPv4 logging host
                     
@@ -2262,7 +2518,10 @@ class Syslog(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4s, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4s, self).__init__()
 
                         self.yang_name = "ipv4s"
                         self.yang_parent_name = "vrf"
@@ -2280,7 +2539,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s, [], name, value)
 
 
-                    class Ipv4(Entity):
+                    class Ipv4(_Entity_):
                         """
                         IPv4 address of the logging host
                         
@@ -2313,7 +2572,10 @@ class Syslog(Entity):
                         _revision = '2017-10-31'
 
                         def __init__(self):
-                            super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "ipv4s"
@@ -2339,7 +2601,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4, ['address'], name, value)
 
 
-                        class Ipv4SeverityLevels(Entity):
+                        class Ipv4SeverityLevels(_Entity_):
                             """
                             Severity container of the logging host
                             
@@ -2358,7 +2620,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels, self).__init__()
 
                                 self.yang_name = "ipv4-severity-levels"
                                 self.yang_parent_name = "ipv4"
@@ -2376,7 +2641,7 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels, [], name, value)
 
 
-                            class Ipv4SeverityLevel(Entity):
+                            class Ipv4SeverityLevel(_Entity_):
                                 """
                                 Severity for the logging host
                                 
@@ -2393,7 +2658,10 @@ class Syslog(Entity):
                                 _revision = '2017-10-31'
 
                                 def __init__(self):
-                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, self).__init__()
 
                                     self.yang_name = "ipv4-severity-level"
                                     self.yang_parent_name = "ipv4-severity-levels"
@@ -2411,10 +2679,18 @@ class Syslog(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, ['severity'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels']['meta_info']
 
 
-
-                        class Ipv4SeverityPort(Entity):
+                        class Ipv4SeverityPort(_Entity_):
                             """
                             Severity/Port for the logging host
                             
@@ -2446,7 +2722,10 @@ class Syslog(Entity):
                             _revision = '2017-10-31'
 
                             def __init__(self):
-                                super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort, self).__init__()
 
                                 self.yang_name = "ipv4-severity-port"
                                 self.yang_parent_name = "ipv4"
@@ -2467,14 +2746,38 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort, ['severity', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.HostServer.Vrfs']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.HostServer']['meta_info']
 
 
-
-
-
-
-
-    class ConsoleLogging(Entity):
+    class ConsoleLogging(_Entity_):
         """
         Set console logging
         
@@ -2498,7 +2801,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.ConsoleLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.ConsoleLogging, self).__init__()
 
             self.yang_name = "console-logging"
             self.yang_parent_name = "syslog"
@@ -2522,7 +2828,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.ConsoleLogging, ['logging_level'], name, value)
 
 
-        class ConsoleDiscriminator(Entity):
+        class ConsoleDiscriminator(_Entity_):
             """
             Set console logging discriminators
             
@@ -2564,7 +2870,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.ConsoleLogging.ConsoleDiscriminator, self).__init__()
 
                 self.yang_name = "console-discriminator"
                 self.yang_parent_name = "console-logging"
@@ -2593,10 +2902,18 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.ConsoleLogging.ConsoleDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.ConsoleLogging.ConsoleDiscriminator']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.ConsoleLogging']['meta_info']
 
 
-
-    class Files(Entity):
+    class Files(_Entity_):
         """
         Configure logging file destination
         
@@ -2613,7 +2930,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.Files, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Files, self).__init__()
 
             self.yang_name = "files"
             self.yang_parent_name = "syslog"
@@ -2632,7 +2952,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.Files, [], name, value)
 
 
-        class File(Entity):
+        class File(_Entity_):
             """
             Specify File Name
             
@@ -2661,7 +2981,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Files.File, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Files.File, self).__init__()
 
                 self.yang_name = "file"
                 self.yang_parent_name = "files"
@@ -2689,7 +3012,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.Files.File, ['file_name'], name, value)
 
 
-            class FileSpecification(Entity):
+            class FileSpecification(_Entity_):
                 """
                 Specifications of the logging file destination
                 
@@ -2724,7 +3047,10 @@ class Syslog(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(Syslog.Files.File.FileSpecification, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.Files.File.FileSpecification, self).__init__()
 
                     self.yang_name = "file-specification"
                     self.yang_parent_name = "file"
@@ -2746,9 +3072,13 @@ class Syslog(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Syslog.Files.File.FileSpecification, ['path', 'max_file_size', 'severity'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Files.File.FileSpecification']['meta_info']
 
 
-            class FileLogDiscriminator(Entity):
+            class FileLogDiscriminator(_Entity_):
                 """
                 Set File logging discriminators
                 
@@ -2790,7 +3120,10 @@ class Syslog(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(Syslog.Files.File.FileLogDiscriminator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.Files.File.FileLogDiscriminator, self).__init__()
 
                     self.yang_name = "file-log-discriminator"
                     self.yang_parent_name = "file"
@@ -2818,11 +3151,23 @@ class Syslog(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Syslog.Files.File.FileLogDiscriminator, ['nomatch2', 'match3', 'nomatch3', 'match1', 'nomatch1', 'match2'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Files.File.FileLogDiscriminator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Files.File']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Files']['meta_info']
 
 
-
-
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         Syslog TOS bit for outgoing messages
         
@@ -2857,7 +3202,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "syslog"
@@ -2884,7 +3232,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.Ipv4, [], name, value)
 
 
-        class Dscp(Entity):
+        class Dscp(_Entity_):
             """
             DSCP value
             
@@ -2929,7 +3277,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv4.Dscp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv4.Dscp, self).__init__()
 
                 self.yang_name = "dscp"
                 self.yang_parent_name = "ipv4"
@@ -2953,9 +3304,13 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv4.Dscp, ['type', 'unused', 'value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv4.Dscp']['meta_info']
 
 
-        class Tos(Entity):
+        class Tos(_Entity_):
             """
             Type of service
             
@@ -2994,7 +3349,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv4.Tos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv4.Tos, self).__init__()
 
                 self.yang_name = "tos"
                 self.yang_parent_name = "ipv4"
@@ -3017,9 +3375,13 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv4.Tos, ['type', 'precedence', 'dscp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv4.Tos']['meta_info']
 
 
-        class Precedence(Entity):
+        class Precedence(_Entity_):
             """
             Precedence value
             
@@ -3064,7 +3426,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv4.Precedence, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv4.Precedence, self).__init__()
 
                 self.yang_name = "precedence"
                 self.yang_parent_name = "ipv4"
@@ -3088,10 +3453,18 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv4.Precedence, ['type', 'value', 'unused'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv4.Precedence']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Ipv4']['meta_info']
 
 
-
-    class Archive(Entity):
+    class Archive(_Entity_):
         """
         Archive attributes configuration
         
@@ -3148,7 +3521,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.Archive, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Archive, self).__init__()
 
             self.yang_name = "archive"
             self.yang_parent_name = "syslog"
@@ -3179,9 +3555,13 @@ class Syslog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.Archive, ['size', 'file_size', 'device', 'threshold', 'frequency', 'severity', 'length'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Archive']['meta_info']
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         Syslog traffic class bit for outgoing messages
         
@@ -3216,7 +3596,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "syslog"
@@ -3243,7 +3626,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.Ipv6, [], name, value)
 
 
-        class Dscp(Entity):
+        class Dscp(_Entity_):
             """
             DSCP value
             
@@ -3288,7 +3671,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv6.Dscp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv6.Dscp, self).__init__()
 
                 self.yang_name = "dscp"
                 self.yang_parent_name = "ipv6"
@@ -3312,9 +3698,13 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv6.Dscp, ['type', 'unused', 'value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv6.Dscp']['meta_info']
 
 
-        class TrafficClass(Entity):
+        class TrafficClass(_Entity_):
             """
             Type of traffic class
             
@@ -3353,7 +3743,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv6.TrafficClass, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv6.TrafficClass, self).__init__()
 
                 self.yang_name = "traffic-class"
                 self.yang_parent_name = "ipv6"
@@ -3376,9 +3769,13 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv6.TrafficClass, ['type', 'precedence', 'dscp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv6.TrafficClass']['meta_info']
 
 
-        class Precedence(Entity):
+        class Precedence(_Entity_):
             """
             Precedence value
             
@@ -3423,7 +3820,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.Ipv6.Precedence, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Ipv6.Precedence, self).__init__()
 
                 self.yang_name = "precedence"
                 self.yang_parent_name = "ipv6"
@@ -3447,10 +3847,18 @@ class Syslog(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Syslog.Ipv6.Precedence, ['type', 'value', 'unused'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Ipv6.Precedence']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Ipv6']['meta_info']
 
 
-
-    class SourceInterfaceTable(Entity):
+    class SourceInterfaceTable(_Entity_):
         """
         Configure source interface
         
@@ -3467,7 +3875,10 @@ class Syslog(Entity):
         _revision = '2017-10-31'
 
         def __init__(self):
-            super(Syslog.SourceInterfaceTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.SourceInterfaceTable, self).__init__()
 
             self.yang_name = "source-interface-table"
             self.yang_parent_name = "syslog"
@@ -3488,7 +3899,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.SourceInterfaceTable, [], name, value)
 
 
-        class SourceInterfaceValues(Entity):
+        class SourceInterfaceValues(_Entity_):
             """
             Specify interface for source address in logging
             transactions
@@ -3506,7 +3917,10 @@ class Syslog(Entity):
             _revision = '2017-10-31'
 
             def __init__(self):
-                super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues, self).__init__()
 
                 self.yang_name = "source-interface-values"
                 self.yang_parent_name = "source-interface-table"
@@ -3525,7 +3939,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues, [], name, value)
 
 
-            class SourceInterfaceValue(Entity):
+            class SourceInterfaceValue(_Entity_):
                 """
                 Source interface
                 
@@ -3549,7 +3963,10 @@ class Syslog(Entity):
                 _revision = '2017-10-31'
 
                 def __init__(self):
-                    super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, self).__init__()
 
                     self.yang_name = "source-interface-value"
                     self.yang_parent_name = "source-interface-values"
@@ -3573,7 +3990,7 @@ class Syslog(Entity):
                     self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, ['src_interface_name_value'], name, value)
 
 
-                class SourceInterfaceVrfs(Entity):
+                class SourceInterfaceVrfs(_Entity_):
                     """
                     Configure source interface VRF
                     
@@ -3590,7 +4007,10 @@ class Syslog(Entity):
                     _revision = '2017-10-31'
 
                     def __init__(self):
-                        super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, self).__init__()
 
                         self.yang_name = "source-interface-vrfs"
                         self.yang_parent_name = "source-interface-value"
@@ -3608,7 +4028,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs, [], name, value)
 
 
-                    class SourceInterfaceVrf(Entity):
+                    class SourceInterfaceVrf(_Entity_):
                         """
                         Specify VRF for source interface
                         
@@ -3627,7 +4047,10 @@ class Syslog(Entity):
                         _revision = '2017-10-31'
 
                         def __init__(self):
-                            super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, self).__init__()
 
                             self.yang_name = "source-interface-vrf"
                             self.yang_parent_name = "source-interface-vrfs"
@@ -3645,13 +4068,33 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, ['vrf_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.SourceInterfaceTable']['meta_info']
 
 
-
-
-
-
-    class AlarmLogger(Entity):
+    class AlarmLogger(_Entity_):
         """
         Alarm Logger Properties
         
@@ -3710,7 +4153,10 @@ class Syslog(Entity):
         _revision = '2017-02-23'
 
         def __init__(self):
-            super(Syslog.AlarmLogger, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.AlarmLogger, self).__init__()
 
             self.yang_name = "alarm-logger"
             self.yang_parent_name = "syslog"
@@ -3744,7 +4190,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.AlarmLogger, ['pre_config_suppression', 'severity_level', 'pre_config_suppression_timeout', 'buffer_size', 'source_location', 'threshold'], name, value)
 
 
-        class AlarmFilterStrings(Entity):
+        class AlarmFilterStrings(_Entity_):
             """
             List of filter strings
             
@@ -3761,7 +4207,10 @@ class Syslog(Entity):
             _revision = '2017-02-23'
 
             def __init__(self):
-                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
 
                 self.yang_name = "alarm-filter-strings"
                 self.yang_parent_name = "alarm-logger"
@@ -3780,7 +4229,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
 
 
-            class AlarmFilterString(Entity):
+            class AlarmFilterString(_Entity_):
                 """
                 Match string to filter alarms
                 
@@ -3799,7 +4248,10 @@ class Syslog(Entity):
                 _revision = '2017-02-23'
 
                 def __init__(self):
-                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
 
                     self.yang_name = "alarm-filter-string"
                     self.yang_parent_name = "alarm-filter-strings"
@@ -3818,11 +4270,23 @@ class Syslog(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.AlarmLogger.AlarmFilterStrings']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.AlarmLogger']['meta_info']
 
 
-
-
-    class Correlator(Entity):
+    class Correlator(_Entity_):
         """
         Configure properties of the event correlator
         
@@ -3851,7 +4315,10 @@ class Syslog(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Syslog.Correlator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Correlator, self).__init__()
 
             self.yang_name = "correlator"
             self.yang_parent_name = "syslog"
@@ -3879,7 +4346,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.Correlator, ['buffer_size'], name, value)
 
 
-        class Rules(Entity):
+        class Rules(_Entity_):
             """
             Table of configured rules
             
@@ -3896,7 +4363,10 @@ class Syslog(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Syslog.Correlator.Rules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Correlator.Rules, self).__init__()
 
                 self.yang_name = "rules"
                 self.yang_parent_name = "correlator"
@@ -3915,7 +4385,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.Correlator.Rules, [], name, value)
 
 
-            class Rule(Entity):
+            class Rule(_Entity_):
                 """
                 Rule name
                 
@@ -3959,7 +4429,10 @@ class Syslog(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Syslog.Correlator.Rules.Rule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.Correlator.Rules.Rule, self).__init__()
 
                     self.yang_name = "rule"
                     self.yang_parent_name = "rules"
@@ -3999,7 +4472,7 @@ class Syslog(Entity):
                     self._perform_setattr(Syslog.Correlator.Rules.Rule, ['name'], name, value)
 
 
-                class Definition(Entity):
+                class Definition(_Entity_):
                     """
                     Configure a specified correlation rule
                     
@@ -4168,7 +4641,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.Definition, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.Rules.Rule.Definition, self).__init__()
 
                         self.yang_name = "definition"
                         self.yang_parent_name = "rule"
@@ -4246,9 +4722,13 @@ class Syslog(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.Definition, ['timeout', 'category_name_entry1', 'group_name_entry1', 'message_code_entry1', 'category_name_entry2', 'group_name_entry2', 'message_code_entry2', 'category_name_entry3', 'group_name_entry3', 'message_code_entry3', 'category_name_entry4', 'group_name_entry4', 'message_code_entry4', 'category_name_entry5', 'group_name_entry5', 'message_code_entry5', 'category_name_entry6', 'group_name_entry6', 'message_code_entry6', 'category_name_entry7', 'group_name_entry7', 'message_code_entry7', 'category_name_entry8', 'group_name_entry8', 'message_code_entry8', 'category_name_entry9', 'group_name_entry9', 'message_code_entry9', 'category_name_entry10', 'group_name_entry10', 'message_code_entry10'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.Definition']['meta_info']
 
 
-                class NonStateful(Entity):
+                class NonStateful(_Entity_):
                     """
                     The Non\-Stateful Rule Type
                     
@@ -4293,7 +4773,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.NonStateful, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.Rules.Rule.NonStateful, self).__init__()
 
                         self.yang_name = "non-stateful"
                         self.yang_parent_name = "rule"
@@ -4324,7 +4807,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful, ['context_correlation', 'timeout_root_cause', 'timeout'], name, value)
 
 
-                    class NonRootCauses(Entity):
+                    class NonRootCauses(_Entity_):
                         """
                         Table of configured non\-rootcause
                         
@@ -4341,7 +4824,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, self).__init__()
 
                             self.yang_name = "non-root-causes"
                             self.yang_parent_name = "non-stateful"
@@ -4359,7 +4845,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses, [], name, value)
 
 
-                        class NonRootCause(Entity):
+                        class NonRootCause(_Entity_):
                             """
                             A non\-rootcause
                             
@@ -4386,7 +4872,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, self).__init__()
 
                                 self.yang_name = "non-root-cause"
                                 self.yang_parent_name = "non-root-causes"
@@ -4408,10 +4897,18 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses']['meta_info']
 
 
-
-                    class RootCause(Entity):
+                    class RootCause(_Entity_):
                         """
                         The root cause
                         
@@ -4438,7 +4935,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, self).__init__()
 
                             self.yang_name = "root-cause"
                             self.yang_parent_name = "non-stateful"
@@ -4460,10 +4960,18 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, ['category', 'group', 'message_code'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.RootCause']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful']['meta_info']
 
 
-
-                class Stateful(Entity):
+                class Stateful(_Entity_):
                     """
                     The Stateful Rule Type
                     
@@ -4518,7 +5026,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.Stateful, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.Rules.Rule.Stateful, self).__init__()
 
                         self.yang_name = "stateful"
                         self.yang_parent_name = "rule"
@@ -4553,7 +5064,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful, ['reparent', 'reissue', 'context_correlation', 'timeout_root_cause', 'timeout'], name, value)
 
 
-                    class NonRootCauses(Entity):
+                    class NonRootCauses(_Entity_):
                         """
                         Table of configured non\-rootcause
                         
@@ -4570,7 +5081,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, self).__init__()
 
                             self.yang_name = "non-root-causes"
                             self.yang_parent_name = "stateful"
@@ -4588,7 +5102,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses, [], name, value)
 
 
-                        class NonRootCause(Entity):
+                        class NonRootCause(_Entity_):
                             """
                             A non\-rootcause
                             
@@ -4615,7 +5129,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, self).__init__()
 
                                 self.yang_name = "non-root-cause"
                                 self.yang_parent_name = "non-root-causes"
@@ -4637,10 +5154,18 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses']['meta_info']
 
 
-
-                    class RootCause(Entity):
+                    class RootCause(_Entity_):
                         """
                         The root cause
                         
@@ -4667,7 +5192,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.Stateful.RootCause, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.Stateful.RootCause, self).__init__()
 
                             self.yang_name = "root-cause"
                             self.yang_parent_name = "stateful"
@@ -4689,10 +5217,18 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.RootCause, ['category', 'group', 'message_code'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.RootCause']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful']['meta_info']
 
 
-
-                class ApplyTo(Entity):
+                class ApplyTo(_Entity_):
                     """
                     Apply the Rules
                     
@@ -4719,7 +5255,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.Rules.Rule.ApplyTo, self).__init__()
 
                         self.yang_name = "apply-to"
                         self.yang_parent_name = "rule"
@@ -4746,7 +5285,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo, ['all_of_router'], name, value)
 
 
-                    class Contexts(Entity):
+                    class Contexts(_Entity_):
                         """
                         Apply rule to a specified list of contexts,
                         e.g. interfaces
@@ -4764,7 +5303,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, self).__init__()
 
                             self.yang_name = "contexts"
                             self.yang_parent_name = "apply-to"
@@ -4782,9 +5324,13 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, ['context'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo.Contexts']['meta_info']
 
 
-                    class Locations(Entity):
+                    class Locations(_Entity_):
                         """
                         Apply rule to a specified list of Locations
                         
@@ -4803,7 +5349,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, self).__init__()
 
                             self.yang_name = "locations"
                             self.yang_parent_name = "apply-to"
@@ -4821,10 +5370,18 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, ['location'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo.Locations']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo']['meta_info']
 
 
-
-                class AppliedTo(Entity):
+                class AppliedTo(_Entity_):
                     """
                     Applied to the Rule or Ruleset
                     
@@ -4851,7 +5408,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.Rules.Rule.AppliedTo, self).__init__()
 
                         self.yang_name = "applied-to"
                         self.yang_parent_name = "rule"
@@ -4878,7 +5438,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo, ['all'], name, value)
 
 
-                    class Contexts(Entity):
+                    class Contexts(_Entity_):
                         """
                         Table of configured contexts to apply
                         
@@ -4895,7 +5455,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, self).__init__()
 
                             self.yang_name = "contexts"
                             self.yang_parent_name = "applied-to"
@@ -4913,7 +5476,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts, [], name, value)
 
 
-                        class Context(Entity):
+                        class Context(_Entity_):
                             """
                             A context
                             
@@ -4932,7 +5495,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, self).__init__()
 
                                 self.yang_name = "context"
                                 self.yang_parent_name = "contexts"
@@ -4950,10 +5516,18 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, ['context'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Contexts']['meta_info']
 
 
-
-                    class Locations(Entity):
+                    class Locations(_Entity_):
                         """
                         Table of configured locations to apply
                         
@@ -4970,7 +5544,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, self).__init__()
 
                             self.yang_name = "locations"
                             self.yang_parent_name = "applied-to"
@@ -4988,7 +5565,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Locations, [], name, value)
 
 
-                        class Location(Entity):
+                        class Location(_Entity_):
                             """
                             A location
                             
@@ -5007,7 +5584,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, self).__init__()
 
                                 self.yang_name = "location"
                                 self.yang_parent_name = "locations"
@@ -5025,13 +5605,33 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, ['location'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Locations']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Correlator.Rules.Rule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Correlator.Rules']['meta_info']
 
 
-
-
-
-
-        class RuleSets(Entity):
+        class RuleSets(_Entity_):
             """
             Table of configured rulesets
             
@@ -5048,7 +5648,10 @@ class Syslog(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Syslog.Correlator.RuleSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Correlator.RuleSets, self).__init__()
 
                 self.yang_name = "rule-sets"
                 self.yang_parent_name = "correlator"
@@ -5067,7 +5670,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.Correlator.RuleSets, [], name, value)
 
 
-            class RuleSet(Entity):
+            class RuleSet(_Entity_):
                 """
                 Ruleset name
                 
@@ -5096,7 +5699,10 @@ class Syslog(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Syslog.Correlator.RuleSets.RuleSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.Correlator.RuleSets.RuleSet, self).__init__()
 
                     self.yang_name = "rule-set"
                     self.yang_parent_name = "rule-sets"
@@ -5124,7 +5730,7 @@ class Syslog(Entity):
                     self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet, ['name'], name, value)
 
 
-                class Rulenames(Entity):
+                class Rulenames(_Entity_):
                     """
                     Table of configured rulenames
                     
@@ -5141,7 +5747,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
 
                         self.yang_name = "rulenames"
                         self.yang_parent_name = "rule-set"
@@ -5159,7 +5768,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.Rulenames, [], name, value)
 
 
-                    class Rulename(Entity):
+                    class Rulename(_Entity_):
                         """
                         A rulename
                         
@@ -5178,7 +5787,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
 
                             self.yang_name = "rulename"
                             self.yang_parent_name = "rulenames"
@@ -5196,10 +5808,18 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, ['rulename'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.Rulenames']['meta_info']
 
 
-
-                class AppliedTo(Entity):
+                class AppliedTo(_Entity_):
                     """
                     Applied to the Rule or Ruleset
                     
@@ -5226,7 +5846,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
 
                         self.yang_name = "applied-to"
                         self.yang_parent_name = "rule-set"
@@ -5253,7 +5876,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo, ['all'], name, value)
 
 
-                    class Contexts(Entity):
+                    class Contexts(_Entity_):
                         """
                         Table of configured contexts to apply
                         
@@ -5270,7 +5893,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, self).__init__()
 
                             self.yang_name = "contexts"
                             self.yang_parent_name = "applied-to"
@@ -5288,7 +5914,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts, [], name, value)
 
 
-                        class Context(Entity):
+                        class Context(_Entity_):
                             """
                             A context
                             
@@ -5307,7 +5933,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, self).__init__()
 
                                 self.yang_name = "context"
                                 self.yang_parent_name = "contexts"
@@ -5325,10 +5954,18 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, ['context'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts']['meta_info']
 
 
-
-                    class Locations(Entity):
+                    class Locations(_Entity_):
                         """
                         Table of configured locations to apply
                         
@@ -5345,7 +5982,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, self).__init__()
 
                             self.yang_name = "locations"
                             self.yang_parent_name = "applied-to"
@@ -5363,7 +6003,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations, [], name, value)
 
 
-                        class Location(Entity):
+                        class Location(_Entity_):
                             """
                             A location
                             
@@ -5382,7 +6022,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, self).__init__()
 
                                 self.yang_name = "location"
                                 self.yang_parent_name = "locations"
@@ -5400,14 +6043,38 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, ['location'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Correlator.RuleSets']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Correlator']['meta_info']
 
 
-
-
-
-
-
-    class Suppression(Entity):
+    class Suppression(_Entity_):
         """
         Configure properties of the syslog/alarm
         suppression
@@ -5425,7 +6092,10 @@ class Syslog(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Syslog.Suppression, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Syslog.Suppression, self).__init__()
 
             self.yang_name = "suppression"
             self.yang_parent_name = "syslog"
@@ -5446,7 +6116,7 @@ class Syslog(Entity):
             self._perform_setattr(Syslog.Suppression, [], name, value)
 
 
-        class Rules(Entity):
+        class Rules(_Entity_):
             """
             Table of configured rules
             
@@ -5463,7 +6133,10 @@ class Syslog(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Syslog.Suppression.Rules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Syslog.Suppression.Rules, self).__init__()
 
                 self.yang_name = "rules"
                 self.yang_parent_name = "suppression"
@@ -5482,7 +6155,7 @@ class Syslog(Entity):
                 self._perform_setattr(Syslog.Suppression.Rules, [], name, value)
 
 
-            class Rule(Entity):
+            class Rule(_Entity_):
                 """
                 Rule name
                 
@@ -5516,7 +6189,10 @@ class Syslog(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Syslog.Suppression.Rules.Rule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Syslog.Suppression.Rules.Rule, self).__init__()
 
                     self.yang_name = "rule"
                     self.yang_parent_name = "rules"
@@ -5546,7 +6222,7 @@ class Syslog(Entity):
                     self._perform_setattr(Syslog.Suppression.Rules.Rule, ['name', 'all_alarms'], name, value)
 
 
-                class AppliedTo(Entity):
+                class AppliedTo(_Entity_):
                     """
                     Applied to the Rule
                     
@@ -5568,7 +6244,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Suppression.Rules.Rule.AppliedTo, self).__init__()
 
                         self.yang_name = "applied-to"
                         self.yang_parent_name = "rule"
@@ -5591,7 +6270,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo, ['all'], name, value)
 
 
-                    class Sources(Entity):
+                    class Sources(_Entity_):
                         """
                         Table of configured sources to apply
                         
@@ -5608,7 +6287,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, self).__init__()
 
                             self.yang_name = "sources"
                             self.yang_parent_name = "applied-to"
@@ -5626,7 +6308,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo.Sources, [], name, value)
 
 
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             An alarm source
                             
@@ -5645,7 +6327,10 @@ class Syslog(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "sources"
@@ -5663,11 +6348,23 @@ class Syslog(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, ['source'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo.Sources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo']['meta_info']
 
 
-
-
-                class AlarmCauses(Entity):
+                class AlarmCauses(_Entity_):
                     """
                     Causes of alarms to be suppressed
                     
@@ -5684,7 +6381,10 @@ class Syslog(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Syslog.Suppression.Rules.Rule.AlarmCauses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Syslog.Suppression.Rules.Rule.AlarmCauses, self).__init__()
 
                         self.yang_name = "alarm-causes"
                         self.yang_parent_name = "rule"
@@ -5702,7 +6402,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses, [], name, value)
 
 
-                    class AlarmCause(Entity):
+                    class AlarmCause(_Entity_):
                         """
                         Category, Group and Code of alarm/syslog to
                         be suppressed
@@ -5736,7 +6436,10 @@ class Syslog(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, self).__init__()
 
                             self.yang_name = "alarm-cause"
                             self.yang_parent_name = "alarm-causes"
@@ -5758,14 +6461,38 @@ class Syslog(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, ['category', 'group', 'code'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Suppression.Rules.Rule.AlarmCauses']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Suppression.Rules.Rule']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Suppression.Rules']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Suppression']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Syslog()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['Syslog']['meta_info']
 
 

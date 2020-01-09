@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -85,6 +88,12 @@ class SrgPeerStatus(Enum):
     established = Enum.YLeaf(8, "established")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgPeerStatus']
+
+
 class SrgShowComp(Enum):
     """
     SrgShowComp (Enum Class)
@@ -136,6 +145,12 @@ class SrgShowComp(Enum):
     iedge = Enum.YLeaf(6, "iedge")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowComp']
+
+
 class SrgShowImRole(Enum):
     """
     SrgShowImRole (Enum Class)
@@ -161,6 +176,12 @@ class SrgShowImRole(Enum):
     master = Enum.YLeaf(1, "master")
 
     slave = Enum.YLeaf(2, "slave")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowImRole']
 
 
 class SrgShowRole(Enum):
@@ -190,6 +211,12 @@ class SrgShowRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowRole']
+
+
 class SrgShowSessionError(Enum):
     """
     SrgShowSessionError (Enum Class)
@@ -215,6 +242,12 @@ class SrgShowSessionError(Enum):
     hard = Enum.YLeaf(1, "hard")
 
     soft = Enum.YLeaf(2, "soft")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowSessionError']
 
 
 class SrgShowSessionOperation(Enum):
@@ -250,6 +283,12 @@ class SrgShowSessionOperation(Enum):
     in_sync = Enum.YLeaf(3, "in-sync")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowSessionOperation']
+
+
 class SrgShowSlaveMode(Enum):
     """
     SrgShowSlaveMode (Enum Class)
@@ -275,6 +314,12 @@ class SrgShowSlaveMode(Enum):
     warm = Enum.YLeaf(1, "warm")
 
     hot = Enum.YLeaf(2, "hot")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowSlaveMode']
 
 
 class SrgShowSoReason(Enum):
@@ -322,8 +367,14 @@ class SrgShowSoReason(Enum):
     srg_show_so_reason_max = Enum.YLeaf(5, "srg-show-so-reason-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SrgShowSoReason']
 
-class SubscriberRedundancyManager(Entity):
+
+
+class SubscriberRedundancyManager(_Entity_):
     """
     Subscriber Redundancy Manager information
     
@@ -353,10 +404,13 @@ class SubscriberRedundancyManager(Entity):
     """
 
     _prefix = 'subscriber-srg-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-10-03'
 
     def __init__(self):
-        super(SubscriberRedundancyManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberRedundancyManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-redundancy-manager"
@@ -385,7 +439,7 @@ class SubscriberRedundancyManager(Entity):
         self._perform_setattr(SubscriberRedundancyManager, [], name, value)
 
 
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Subscriber Redundancy Manager group table
         
@@ -401,10 +455,13 @@ class SubscriberRedundancyManager(Entity):
         """
 
         _prefix = 'subscriber-srg-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-03'
 
         def __init__(self):
-            super(SubscriberRedundancyManager.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancyManager.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "subscriber-redundancy-manager"
@@ -423,7 +480,7 @@ class SubscriberRedundancyManager(Entity):
             self._perform_setattr(SubscriberRedundancyManager.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Subscriber redundancy manager group
             
@@ -540,10 +597,13 @@ class SubscriberRedundancyManager(Entity):
             """
 
             _prefix = 'subscriber-srg-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-10-03'
 
             def __init__(self):
-                super(SubscriberRedundancyManager.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberRedundancyManager.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -588,10 +648,18 @@ class SubscriberRedundancyManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'virtual_mac_address', 'virtual_mac_address_disable', 'node_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                return meta._meta_table['SubscriberRedundancyManager.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+            return meta._meta_table['SubscriberRedundancyManager.Groups']['meta_info']
 
 
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Subscriber redundancy manager summary
         
@@ -741,10 +809,13 @@ class SubscriberRedundancyManager(Entity):
         """
 
         _prefix = 'subscriber-srg-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-03'
 
         def __init__(self):
-            super(SubscriberRedundancyManager.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancyManager.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "subscriber-redundancy-manager"
@@ -795,9 +866,13 @@ class SubscriberRedundancyManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'sync_time', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+            return meta._meta_table['SubscriberRedundancyManager.Summary']['meta_info']
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Subscriber Redundancy Manager interface table
         
@@ -813,10 +888,13 @@ class SubscriberRedundancyManager(Entity):
         """
 
         _prefix = 'subscriber-srg-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-03'
 
         def __init__(self):
-            super(SubscriberRedundancyManager.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancyManager.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "subscriber-redundancy-manager"
@@ -835,7 +913,7 @@ class SubscriberRedundancyManager(Entity):
             self._perform_setattr(SubscriberRedundancyManager.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Subscriber redundancy manager interface
             
@@ -892,10 +970,13 @@ class SubscriberRedundancyManager(Entity):
             """
 
             _prefix = 'subscriber-srg-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-10-03'
 
             def __init__(self):
-                super(SubscriberRedundancyManager.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberRedundancyManager.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -924,15 +1005,27 @@ class SubscriberRedundancyManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                return meta._meta_table['SubscriberRedundancyManager.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+            return meta._meta_table['SubscriberRedundancyManager.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SubscriberRedundancyManager']['meta_info']
 
 
-class SubscriberRedundancyAgent(Entity):
+class SubscriberRedundancyAgent(_Entity_):
     """
     subscriber redundancy agent
     
@@ -948,10 +1041,13 @@ class SubscriberRedundancyAgent(Entity):
     """
 
     _prefix = 'subscriber-srg-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-10-03'
 
     def __init__(self):
-        super(SubscriberRedundancyAgent, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberRedundancyAgent, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-redundancy-agent"
@@ -972,7 +1068,7 @@ class SubscriberRedundancyAgent(Entity):
         self._perform_setattr(SubscriberRedundancyAgent, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which subscriber data is
         collected
@@ -989,10 +1085,13 @@ class SubscriberRedundancyAgent(Entity):
         """
 
         _prefix = 'subscriber-srg-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-10-03'
 
         def __init__(self):
-            super(SubscriberRedundancyAgent.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancyAgent.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "subscriber-redundancy-agent"
@@ -1011,7 +1110,7 @@ class SubscriberRedundancyAgent(Entity):
             self._perform_setattr(SubscriberRedundancyAgent.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber data for a particular node
             
@@ -1057,10 +1156,13 @@ class SubscriberRedundancyAgent(Entity):
             """
 
             _prefix = 'subscriber-srg-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-10-03'
 
             def __init__(self):
-                super(SubscriberRedundancyAgent.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberRedundancyAgent.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1096,7 +1198,7 @@ class SubscriberRedundancyAgent(Entity):
                 self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node, ['node_name'], name, value)
 
 
-            class GroupIdXr(Entity):
+            class GroupIdXr(_Entity_):
                 """
                 Data for particular subscriber group session
                 
@@ -1112,10 +1214,13 @@ class SubscriberRedundancyAgent(Entity):
                 """
 
                 _prefix = 'subscriber-srg-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-03'
 
                 def __init__(self):
-                    super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
 
                     self.yang_name = "group-id-xr"
                     self.yang_parent_name = "node"
@@ -1133,7 +1238,7 @@ class SubscriberRedundancyAgent(Entity):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr, [], name, value)
 
 
-                class GroupId(Entity):
+                class GroupId(_Entity_):
                     """
                     Group id for subscriber group session
                     
@@ -1245,10 +1350,13 @@ class SubscriberRedundancyAgent(Entity):
                     """
 
                     _prefix = 'subscriber-srg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-03'
 
                     def __init__(self):
-                        super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
 
                         self.yang_name = "group-id"
                         self.yang_parent_name = "group-id-xr"
@@ -1290,7 +1398,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'outer_vlan', 'inner_vlan', 'session_mac_address', 'pppoe_session_id', 'l2tp_tunnel_id', 'role_master', 'valid_mac_address', 'negative_acknowledgement_update_all'], name, value)
 
 
-                    class SessionDetailedInformation(Entity):
+                    class SessionDetailedInformation(_Entity_):
                         """
                         More Session Information
                         
@@ -1334,10 +1442,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
 
                             self.yang_name = "session-detailed-information"
                             self.yang_parent_name = "group-id"
@@ -1363,9 +1474,13 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation']['meta_info']
 
 
-                    class SessionSyncErrorInformation(Entity):
+                    class SessionSyncErrorInformation(_Entity_):
                         """
                         Session Synchroniation Error Information
                         
@@ -1399,10 +1514,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
 
                             self.yang_name = "session-sync-error-information"
                             self.yang_parent_name = "group-id"
@@ -1424,11 +1542,23 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                        return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                    return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIdXr']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 List of interfaces
                 
@@ -1444,10 +1574,13 @@ class SubscriberRedundancyAgent(Entity):
                 """
 
                 _prefix = 'subscriber-srg-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-03'
 
                 def __init__(self):
-                    super(SubscriberRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -1465,7 +1598,7 @@ class SubscriberRedundancyAgent(Entity):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Specify interface name
                     
@@ -1489,6 +1622,13 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	Interface Status
                     	**type**\:  :py:class:`InterfaceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: event_history
+                    
+                    	Event history of interface
+                    	**type**\:  :py:class:`EventHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory>`
                     
                     	**config**\: False
                     
@@ -1592,22 +1732,32 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: history
+                    
+                    	IDB statistics history
+                    	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History>`
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'subscriber-srg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-03'
 
                     def __init__(self):
-                        super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("client-status", ("client_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
+                        self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("event-history", ("event_history", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory)), ("client-status", ("client_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus)), ("history", ("history", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History))])
                         self._leafs = OrderedDict([
                             ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
@@ -1643,7 +1793,12 @@ class SubscriberRedundancyAgent(Entity):
                         self.interface_status.parent = self
                         self._children_name_map["interface_status"] = "interface-status"
 
+                        self.event_history = SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory()
+                        self.event_history.parent = self
+                        self._children_name_map["event_history"] = "event-history"
+
                         self.client_status = YList(self)
+                        self.history = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
                         self._is_frozen = True
 
@@ -1651,7 +1806,7 @@ class SubscriberRedundancyAgent(Entity):
                         self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
 
 
-                    class InterfaceOper(Entity):
+                    class InterfaceOper(_Entity_):
                         """
                         Interface Batch Operation
                         
@@ -1695,10 +1850,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
 
                             self.yang_name = "interface-oper"
                             self.yang_parent_name = "interface"
@@ -1724,9 +1882,13 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper']['meta_info']
 
 
-                    class InterfaceStatus(Entity):
+                    class InterfaceStatus(_Entity_):
                         """
                         Interface Status
                         
@@ -1791,10 +1953,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
 
                             self.yang_name = "interface-status"
                             self.yang_parent_name = "interface"
@@ -1826,9 +1991,163 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus']['meta_info']
 
 
-                    class ClientStatus(Entity):
+                    class EventHistory(_Entity_):
+                        """
+                        Event history of interface
+                        
+                        .. attribute:: evt_class_name
+                        
+                        	Class name string
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: evt_entry
+                        
+                        	Array of event entries
+                        	**type**\: list of  		 :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory.EvtEntry>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory, self).__init__()
+
+                            self.yang_name = "event-history"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("evt-entry", ("evt_entry", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory.EvtEntry))])
+                            self._leafs = OrderedDict([
+                                ('evt_class_name', (YLeaf(YType.str, 'evt-class-name'), ['str'])),
+                            ])
+                            self.evt_class_name = None
+
+                            self.evt_entry = YList(self)
+                            self._segment_path = lambda: "event-history"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory, ['evt_class_name'], name, value)
+
+
+                        class EvtEntry(_Entity_):
+                            """
+                            Array of event entries
+                            
+                            .. attribute:: evt_timestamp
+                            
+                            	The timestamp of the event
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_name
+                            
+                            	Event name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_type
+                            
+                            	Event type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_many
+                            
+                            	Multiple instance flag
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_sticky
+                            
+                            	Sticky flag
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_data
+                            
+                            	Optional data
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-srg-oper'
+                            _revision = '2019-10-03'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory.EvtEntry, self).__init__()
+
+                                self.yang_name = "evt-entry"
+                                self.yang_parent_name = "event-history"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('evt_timestamp', (YLeaf(YType.str, 'evt-timestamp'), ['str'])),
+                                    ('evt_name', (YLeaf(YType.str, 'evt-name'), ['str'])),
+                                    ('evt_type', (YLeaf(YType.uint8, 'evt-type'), ['int'])),
+                                    ('evt_many', (YLeaf(YType.boolean, 'evt-many'), ['bool'])),
+                                    ('evt_sticky', (YLeaf(YType.boolean, 'evt-sticky'), ['bool'])),
+                                    ('evt_data', (YLeafList(YType.uint32, 'evt-data'), ['int'])),
+                                ])
+                                self.evt_timestamp = None
+                                self.evt_name = None
+                                self.evt_type = None
+                                self.evt_many = None
+                                self.evt_sticky = None
+                                self.evt_data = []
+                                self._segment_path = lambda: "evt-entry"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory.EvtEntry, ['evt_timestamp', 'evt_name', 'evt_type', 'evt_many', 'evt_sticky', 'evt_data'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                                return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory.EvtEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.EventHistory']['meta_info']
+
+
+                    class ClientStatus(_Entity_):
                         """
                         Interface status for each client
                         
@@ -1867,10 +2186,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
 
                             self.yang_name = "client-status"
                             self.yang_parent_name = "interface"
@@ -1894,11 +2216,198 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'srg_show_idb_client_eoms_pending', 'srg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus']['meta_info']
 
 
+                    class History(_Entity_):
+                        """
+                        IDB statistics history
+                        
+                        .. attribute:: time_updated
+                        
+                        	Time stamp when the stats was updated
+                        	**type**\:  :py:class:`TimeUpdated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_enable_error_count_hist
+                        
+                        	Interface Enable Error Count History
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_disable_error_count_hist
+                        
+                        	Interface Disable Error Count History
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_caps_add_error_count_hist
+                        
+                        	Interface Caps Add Error Count History
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_caps_remove_error_count_hist
+                        
+                        	Interface Caps Remove Error Count History
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_attribute_update_error_count_hist
+                        
+                        	Interface Attribute Update Error Count History
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: client_status_hist
+                        
+                        	Interface status history for each client
+                        	**type**\: list of int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: client_count_hist
+                        
+                        	Session count history per client
+                        	**type**\: list of int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History, self).__init__()
+
+                            self.yang_name = "history"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("time-updated", ("time_updated", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated))])
+                            self._leafs = OrderedDict([
+                                ('interface_enable_error_count_hist', (YLeaf(YType.uint32, 'interface-enable-error-count-hist'), ['int'])),
+                                ('interface_disable_error_count_hist', (YLeaf(YType.uint32, 'interface-disable-error-count-hist'), ['int'])),
+                                ('interface_caps_add_error_count_hist', (YLeaf(YType.uint32, 'interface-caps-add-error-count-hist'), ['int'])),
+                                ('interface_caps_remove_error_count_hist', (YLeaf(YType.uint32, 'interface-caps-remove-error-count-hist'), ['int'])),
+                                ('interface_attribute_update_error_count_hist', (YLeaf(YType.uint32, 'interface-attribute-update-error-count-hist'), ['int'])),
+                                ('client_status_hist', (YLeafList(YType.uint8, 'client-status-hist'), ['int'])),
+                                ('client_count_hist', (YLeafList(YType.uint32, 'client-count-hist'), ['int'])),
+                            ])
+                            self.interface_enable_error_count_hist = None
+                            self.interface_disable_error_count_hist = None
+                            self.interface_caps_add_error_count_hist = None
+                            self.interface_caps_remove_error_count_hist = None
+                            self.interface_attribute_update_error_count_hist = None
+                            self.client_status_hist = []
+                            self.client_count_hist = []
+
+                            self.time_updated = SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated()
+                            self.time_updated.parent = self
+                            self._children_name_map["time_updated"] = "time-updated"
+                            self._segment_path = lambda: "history"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History, ['interface_enable_error_count_hist', 'interface_disable_error_count_hist', 'interface_caps_add_error_count_hist', 'interface_caps_remove_error_count_hist', 'interface_attribute_update_error_count_hist', 'client_status_hist', 'client_count_hist'], name, value)
 
 
-            class GroupSummaries(Entity):
+                        class TimeUpdated(_Entity_):
+                            """
+                            Time stamp when the stats was updated
+                            
+                            .. attribute:: seconds
+                            
+                            	Number of seconds
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            	**units**\: second
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-srg-oper'
+                            _revision = '2019-10-03'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated, self).__init__()
+
+                                self.yang_name = "time-updated"
+                                self.yang_parent_name = "history"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ])
+                                self.seconds = None
+                                self._segment_path = lambda: "time-updated"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated, ['seconds'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                                return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History.TimeUpdated']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.History']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                        return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                    return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.Interfaces']['meta_info']
+
+
+            class GroupSummaries(_Entity_):
                 """
                 Subscriber data for a particular node
                 
@@ -1914,10 +2423,13 @@ class SubscriberRedundancyAgent(Entity):
                 """
 
                 _prefix = 'subscriber-srg-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-03'
 
                 def __init__(self):
-                    super(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
 
                     self.yang_name = "group-summaries"
                     self.yang_parent_name = "node"
@@ -1935,7 +2447,7 @@ class SubscriberRedundancyAgent(Entity):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries, [], name, value)
 
 
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     Subscriber redundancy agent group summary
                     
@@ -2049,10 +2561,13 @@ class SubscriberRedundancyAgent(Entity):
                     """
 
                     _prefix = 'subscriber-srg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-03'
 
                     def __init__(self):
-                        super(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "group-summaries"
@@ -2094,10 +2609,18 @@ class SubscriberRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                        return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                    return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupSummaries']['meta_info']
 
 
-
-            class GroupIds(Entity):
+            class GroupIds(_Entity_):
                 """
                 Data for particular subscriber group 
                 
@@ -2113,10 +2636,13 @@ class SubscriberRedundancyAgent(Entity):
                 """
 
                 _prefix = 'subscriber-srg-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-10-03'
 
                 def __init__(self):
-                    super(SubscriberRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
 
                     self.yang_name = "group-ids"
                     self.yang_parent_name = "node"
@@ -2134,7 +2660,7 @@ class SubscriberRedundancyAgent(Entity):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds, [], name, value)
 
 
-                class GroupId(Entity):
+                class GroupId(_Entity_):
                     """
                     Group id for subscriber group
                     
@@ -2144,6 +2670,13 @@ class SubscriberRedundancyAgent(Entity):
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: event_history
+                    
+                    	Event history of group
+                    	**type**\:  :py:class:`EventHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory>`
                     
                     	**config**\: False
                     
@@ -2463,10 +2996,40 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: last_hitory_index
+                    
+                    	Index of last switchover timestamp
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
                     .. attribute:: interface
                     
                     	Interface List
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: history_array
+                    
+                    	Array of switchover history 
+                    	**type**\: list of  		 :py:class:`HistoryArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.HistoryArray>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: route_ipv4_array
+                    
+                    	Array of ipv4 static route
+                    	**type**\: list of  		 :py:class:`RouteIpv4Array <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv4Array>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: route_ipv6_array
+                    
+                    	Array of ipv6 static route
+                    	**type**\: list of  		 :py:class:`RouteIpv6Array <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv6Array>`
                     
                     	**config**\: False
                     
@@ -2475,17 +3038,20 @@ class SubscriberRedundancyAgent(Entity):
                     """
 
                     _prefix = 'subscriber-srg-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-10-03'
 
                     def __init__(self):
-                        super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
 
                         self.yang_name = "group-id"
                         self.yang_parent_name = "group-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
+                        self._child_classes = OrderedDict([("event-history", ("event_history", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory)), ("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface)), ("history-array", ("history_array", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.HistoryArray)), ("route-ipv4-array", ("route_ipv4_array", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv4Array)), ("route-ipv6-array", ("route_ipv6_array", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv6Array))])
                         self._leafs = OrderedDict([
                             ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                             ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
@@ -2526,6 +3092,7 @@ class SubscriberRedundancyAgent(Entity):
                             ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
                             ('revertive_timer', (YLeaf(YType.uint32, 'revertive-timer'), ['int'])),
                             ('switchover_revert_time', (YLeaf(YType.uint32, 'switchover-revert-time'), ['int'])),
+                            ('last_hitory_index', (YLeaf(YType.uint8, 'last-hitory-index'), ['int'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -2566,16 +3133,174 @@ class SubscriberRedundancyAgent(Entity):
                         self.interface_count = None
                         self.revertive_timer = None
                         self.switchover_revert_time = None
+                        self.last_hitory_index = None
+
+                        self.event_history = SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory()
+                        self.event_history.parent = self
+                        self._children_name_map["event_history"] = "event-history"
 
                         self.interface = YList(self)
+                        self.history_array = YList(self)
+                        self.route_ipv4_array = YList(self)
+                        self.route_ipv6_array = YList(self)
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time_epoch', 'peer_last_up_time_epoch', 'peer_last_down_time_epoch', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time_epoch', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time_epoch', 'peer_last_up_time_epoch', 'peer_last_down_time_epoch', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time_epoch', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time', 'last_hitory_index'], name, value)
 
 
-                    class Interface(Entity):
+                    class EventHistory(_Entity_):
+                        """
+                        Event history of group
+                        
+                        .. attribute:: evt_class_name
+                        
+                        	Class name string
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: evt_entry
+                        
+                        	Array of event entries
+                        	**type**\: list of  		 :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory.EvtEntry>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory, self).__init__()
+
+                            self.yang_name = "event-history"
+                            self.yang_parent_name = "group-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("evt-entry", ("evt_entry", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory.EvtEntry))])
+                            self._leafs = OrderedDict([
+                                ('evt_class_name', (YLeaf(YType.str, 'evt-class-name'), ['str'])),
+                            ])
+                            self.evt_class_name = None
+
+                            self.evt_entry = YList(self)
+                            self._segment_path = lambda: "event-history"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory, ['evt_class_name'], name, value)
+
+
+                        class EvtEntry(_Entity_):
+                            """
+                            Array of event entries
+                            
+                            .. attribute:: evt_timestamp
+                            
+                            	The timestamp of the event
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_name
+                            
+                            	Event name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_type
+                            
+                            	Event type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_many
+                            
+                            	Multiple instance flag
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_sticky
+                            
+                            	Sticky flag
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: evt_data
+                            
+                            	Optional data
+                            	**type**\: list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-srg-oper'
+                            _revision = '2019-10-03'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory.EvtEntry, self).__init__()
+
+                                self.yang_name = "evt-entry"
+                                self.yang_parent_name = "event-history"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('evt_timestamp', (YLeaf(YType.str, 'evt-timestamp'), ['str'])),
+                                    ('evt_name', (YLeaf(YType.str, 'evt-name'), ['str'])),
+                                    ('evt_type', (YLeaf(YType.uint8, 'evt-type'), ['int'])),
+                                    ('evt_many', (YLeaf(YType.boolean, 'evt-many'), ['bool'])),
+                                    ('evt_sticky', (YLeaf(YType.boolean, 'evt-sticky'), ['bool'])),
+                                    ('evt_data', (YLeafList(YType.uint32, 'evt-data'), ['int'])),
+                                ])
+                                self.evt_timestamp = None
+                                self.evt_name = None
+                                self.evt_type = None
+                                self.evt_many = None
+                                self.evt_sticky = None
+                                self.evt_data = []
+                                self._segment_path = lambda: "evt-entry"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory.EvtEntry, ['evt_timestamp', 'evt_name', 'evt_type', 'evt_many', 'evt_sticky', 'evt_data'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                                return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory.EvtEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.EventHistory']['meta_info']
+
+
+                    class Interface(_Entity_):
                         """
                         Interface List
                         
@@ -2616,10 +3341,13 @@ class SubscriberRedundancyAgent(Entity):
                         """
 
                         _prefix = 'subscriber-srg-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-10-03'
 
                         def __init__(self):
-                            super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "group-id"
@@ -2643,14 +3371,277 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface']['meta_info']
 
 
+                    class HistoryArray(_Entity_):
+                        """
+                        Array of switchover history 
+                        
+                        .. attribute:: group_switchover_time
+                        
+                        	Group Switchover Time
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: role
+                        
+                        	SRG Role
+                        	**type**\:  :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: reason
+                        
+                        	Switchover reason
+                        	**type**\:  :py:class:`SrgShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSoReason>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.HistoryArray, self).__init__()
+
+                            self.yang_name = "history-array"
+                            self.yang_parent_name = "group-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_switchover_time', (YLeaf(YType.uint64, 'group-switchover-time'), ['int'])),
+                                ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowImRole', '')])),
+                                ('reason', (YLeaf(YType.enumeration, 'reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSoReason', '')])),
+                            ])
+                            self.group_switchover_time = None
+                            self.role = None
+                            self.reason = None
+                            self._segment_path = lambda: "history-array"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.HistoryArray, ['group_switchover_time', 'role', 'reason'], name, value)
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.HistoryArray']['meta_info']
 
 
+                    class RouteIpv4Array(_Entity_):
+                        """
+                        Array of ipv4 static route
+                        
+                        .. attribute:: vrf_name
+                        
+                        	vrf name
+                        	**type**\: str
+                        
+                        	**length:** 0..33
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: prefix_len
+                        
+                        	prefix len
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: ipv4
+                        
+                        	ipv4
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: tag
+                        
+                        	tag
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv4Array, self).__init__()
+
+                            self.yang_name = "route-ipv4-array"
+                            self.yang_parent_name = "group-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('prefix_len', (YLeaf(YType.uint8, 'prefix-len'), ['int'])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('tag', (YLeaf(YType.uint32, 'tag'), ['int'])),
+                            ])
+                            self.vrf_name = None
+                            self.prefix_len = None
+                            self.ipv4 = None
+                            self.tag = None
+                            self._segment_path = lambda: "route-ipv4-array"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv4Array, ['vrf_name', 'prefix_len', 'ipv4', 'tag'], name, value)
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv4Array']['meta_info']
+
+
+                    class RouteIpv6Array(_Entity_):
+                        """
+                        Array of ipv6 static route
+                        
+                        .. attribute:: ipv6
+                        
+                        	ipv6
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: vrf_name
+                        
+                        	vrf name
+                        	**type**\: str
+                        
+                        	**length:** 0..33
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: prefix_len
+                        
+                        	prefix len
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: type
+                        
+                        	type
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: tag
+                        
+                        	tag
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-srg-oper'
+                        _revision = '2019-10-03'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv6Array, self).__init__()
+
+                            self.yang_name = "route-ipv6-array"
+                            self.yang_parent_name = "group-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('prefix_len', (YLeaf(YType.uint8, 'prefix-len'), ['int'])),
+                                ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
+                                ('tag', (YLeaf(YType.uint32, 'tag'), ['int'])),
+                            ])
+                            self.ipv6 = None
+                            self.vrf_name = None
+                            self.prefix_len = None
+                            self.type = None
+                            self.tag = None
+                            self._segment_path = lambda: "route-ipv6-array"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv6Array, ['ipv6', 'vrf_name', 'prefix_len', 'type', 'tag'], name, value)
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                            return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.RouteIpv6Array']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                        return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                    return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node.GroupIds']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+                return meta._meta_table['SubscriberRedundancyAgent.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+            return meta._meta_table['SubscriberRedundancyAgent.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyAgent()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_oper as meta
+        return meta._meta_table['SubscriberRedundancyAgent']['meta_info']
 
 

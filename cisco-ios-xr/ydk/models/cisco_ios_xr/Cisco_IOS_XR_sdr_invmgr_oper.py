@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SdrInventory(Entity):
+class SdrInventory(_Entity_):
     """
     SDR information
     
@@ -47,7 +50,10 @@ class SdrInventory(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SdrInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-inventory"
@@ -72,7 +78,7 @@ class SdrInventory(Entity):
         self._perform_setattr(SdrInventory, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         RackTable
         
@@ -91,7 +97,10 @@ class SdrInventory(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SdrInventory.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrInventory.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "sdr-inventory"
@@ -110,7 +119,7 @@ class SdrInventory(Entity):
             self._perform_setattr(SdrInventory.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Rack name
             
@@ -138,7 +147,10 @@ class SdrInventory(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SdrInventory.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrInventory.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -160,7 +172,7 @@ class SdrInventory(Entity):
                 self._perform_setattr(SdrInventory.Racks.Rack, ['name'], name, value)
 
 
-            class Slot(Entity):
+            class Slot(_Entity_):
                 """
                 Slot name
                 
@@ -188,7 +200,10 @@ class SdrInventory(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SdrInventory.Racks.Rack.Slot, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrInventory.Racks.Rack.Slot, self).__init__()
 
                     self.yang_name = "slot"
                     self.yang_parent_name = "rack"
@@ -209,7 +224,7 @@ class SdrInventory(Entity):
                     self._perform_setattr(SdrInventory.Racks.Rack.Slot, ['name'], name, value)
 
 
-                class Card(Entity):
+                class Card(_Entity_):
                     """
                     Card
                     
@@ -237,7 +252,10 @@ class SdrInventory(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SdrInventory.Racks.Rack.Slot.Card, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrInventory.Racks.Rack.Slot.Card, self).__init__()
 
                         self.yang_name = "card"
                         self.yang_parent_name = "slot"
@@ -260,7 +278,7 @@ class SdrInventory(Entity):
                         self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card, ['name'], name, value)
 
 
-                    class Attributes(Entity):
+                    class Attributes(_Entity_):
                         """
                         Attributes
                         
@@ -421,7 +439,10 @@ class SdrInventory(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SdrInventory.Racks.Rack.Slot.Card.Attributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SdrInventory.Racks.Rack.Slot.Card.Attributes, self).__init__()
 
                             self.yang_name = "attributes"
                             self.yang_parent_name = "card"
@@ -467,13 +488,33 @@ class SdrInventory(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'card_valid', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                            return meta._meta_table['SdrInventory.Racks.Rack.Slot.Card.Attributes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                        return meta._meta_table['SdrInventory.Racks.Rack.Slot.Card']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                    return meta._meta_table['SdrInventory.Racks.Rack.Slot']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                return meta._meta_table['SdrInventory.Racks.Rack']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+            return meta._meta_table['SdrInventory.Racks']['meta_info']
 
 
-
-
-
-
-    class Memory(Entity):
+    class Memory(_Entity_):
         """
         Memory
         
@@ -492,7 +533,10 @@ class SdrInventory(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SdrInventory.Memory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrInventory.Memory, self).__init__()
 
             self.yang_name = "memory"
             self.yang_parent_name = "sdr-inventory"
@@ -513,7 +557,7 @@ class SdrInventory(Entity):
             self._perform_setattr(SdrInventory.Memory, [], name, value)
 
 
-        class Racks(Entity):
+        class Racks(_Entity_):
             """
             RackTable
             
@@ -532,7 +576,10 @@ class SdrInventory(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SdrInventory.Memory.Racks, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrInventory.Memory.Racks, self).__init__()
 
                 self.yang_name = "racks"
                 self.yang_parent_name = "memory"
@@ -551,7 +598,7 @@ class SdrInventory(Entity):
                 self._perform_setattr(SdrInventory.Memory.Racks, [], name, value)
 
 
-            class Rack(Entity):
+            class Rack(_Entity_):
                 """
                 Rack name
                 
@@ -579,7 +626,10 @@ class SdrInventory(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SdrInventory.Memory.Racks.Rack, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrInventory.Memory.Racks.Rack, self).__init__()
 
                     self.yang_name = "rack"
                     self.yang_parent_name = "racks"
@@ -603,7 +653,7 @@ class SdrInventory(Entity):
                     self._perform_setattr(SdrInventory.Memory.Racks.Rack, ['name'], name, value)
 
 
-                class NodeIds(Entity):
+                class NodeIds(_Entity_):
                     """
                     NodeIDTable
                     
@@ -622,7 +672,10 @@ class SdrInventory(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SdrInventory.Memory.Racks.Rack.NodeIds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrInventory.Memory.Racks.Rack.NodeIds, self).__init__()
 
                         self.yang_name = "node-ids"
                         self.yang_parent_name = "rack"
@@ -640,7 +693,7 @@ class SdrInventory(Entity):
                         self._perform_setattr(SdrInventory.Memory.Racks.Rack.NodeIds, [], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Inventory Admin Mempool Data  Bag
                         
@@ -679,7 +732,10 @@ class SdrInventory(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SdrInventory.Memory.Racks.Rack.NodeIds.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SdrInventory.Memory.Racks.Rack.NodeIds.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "node-ids"
@@ -701,14 +757,38 @@ class SdrInventory(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrInventory.Memory.Racks.Rack.NodeIds.NodeId, ['name', 'total_memory', 'available_memory'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                            return meta._meta_table['SdrInventory.Memory.Racks.Rack.NodeIds.NodeId']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                        return meta._meta_table['SdrInventory.Memory.Racks.Rack.NodeIds']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                    return meta._meta_table['SdrInventory.Memory.Racks.Rack']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+                return meta._meta_table['SdrInventory.Memory.Racks']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+            return meta._meta_table['SdrInventory.Memory']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
+        return meta._meta_table['SdrInventory']['meta_info']
 
 

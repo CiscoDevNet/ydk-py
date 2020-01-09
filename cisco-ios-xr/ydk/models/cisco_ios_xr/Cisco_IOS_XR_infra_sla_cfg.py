@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Sla(Entity):
+class Sla(_Entity_):
     """
     SLA prtocol and profile Configuration
     
@@ -38,7 +41,10 @@ class Sla(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Sla, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sla, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sla"
@@ -59,7 +65,7 @@ class Sla(Entity):
         self._perform_setattr(Sla, [], name, value)
 
 
-    class Protocols(Entity):
+    class Protocols(_Entity_):
         """
         Table of all SLA protocols
         
@@ -76,7 +82,10 @@ class Sla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Sla.Protocols, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sla.Protocols, self).__init__()
 
             self.yang_name = "protocols"
             self.yang_parent_name = "sla"
@@ -97,7 +106,7 @@ class Sla(Entity):
             self._perform_setattr(Sla.Protocols, [], name, value)
 
 
-        class Ethernet(Entity):
+        class Ethernet(_Entity_):
             """
             The Ethernet SLA protocol
             
@@ -114,7 +123,10 @@ class Sla(Entity):
             _revision = '2018-07-27'
 
             def __init__(self):
-                super(Sla.Protocols.Ethernet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sla.Protocols.Ethernet, self).__init__()
 
                 self.yang_name = "ethernet"
                 self.yang_parent_name = "protocols"
@@ -135,7 +147,7 @@ class Sla(Entity):
                 self._perform_setattr(Sla.Protocols.Ethernet, [], name, value)
 
 
-            class Profiles(Entity):
+            class Profiles(_Entity_):
                 """
                 Table of SLA profiles on the protocol
                 
@@ -152,7 +164,10 @@ class Sla(Entity):
                 _revision = '2018-07-27'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.Profiles, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.Profiles, self).__init__()
 
                     self.yang_name = "profiles"
                     self.yang_parent_name = "ethernet"
@@ -171,7 +186,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles, [], name, value)
 
 
-                class Profile(Entity):
+                class Profile(_Entity_):
                     """
                     Name of the profile
                     
@@ -214,7 +229,10 @@ class Sla(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.Profiles.Profile, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.Profiles.Profile, self).__init__()
 
                         self.yang_name = "profile"
                         self.yang_parent_name = "profiles"
@@ -247,7 +265,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile, ['profile_name', 'packet_type'], name, value)
 
 
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         Statistics configuration for the SLA profile
                         
@@ -264,7 +282,10 @@ class Sla(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "profile"
@@ -282,7 +303,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, [], name, value)
 
 
-                        class Statistic(Entity):
+                        class Statistic(_Entity_):
                             """
                             Type of statistic
                             
@@ -330,7 +351,10 @@ class Sla(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, self).__init__()
 
                                 self.yang_name = "statistic"
                                 self.yang_parent_name = "statistics"
@@ -363,7 +387,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, ['statistic_name', 'enable', 'buckets_archive'], name, value)
 
 
-                            class BucketsSize(Entity):
+                            class BucketsSize(_Entity_):
                                 """
                                 Size of the buckets into which statistics
                                 are collected
@@ -394,7 +418,10 @@ class Sla(Entity):
                                 _revision = '2018-07-27'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, self).__init__()
 
                                     self.yang_name = "buckets-size"
                                     self.yang_parent_name = "statistic"
@@ -415,9 +442,13 @@ class Sla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, ['buckets_size', 'buckets_size_unit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize']['meta_info']
 
 
-                            class Actions(Entity):
+                            class Actions(_Entity_):
                                 """
                                 Thresholds and associated actions for the
                                 given statistics type
@@ -435,7 +466,10 @@ class Sla(Entity):
                                 _revision = '2018-07-27'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, self).__init__()
 
                                     self.yang_name = "actions"
                                     self.yang_parent_name = "statistic"
@@ -453,7 +487,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, [], name, value)
 
 
-                                class Action(Entity):
+                                class Action(_Entity_):
                                     """
                                     Action to perform when the threshold is
                                     crossed
@@ -497,7 +531,10 @@ class Sla(Entity):
                                     _revision = '2018-07-27'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, self).__init__()
 
                                         self.yang_name = "action"
                                         self.yang_parent_name = "actions"
@@ -523,10 +560,18 @@ class Sla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, ['threshold_type', 'action_type', 'condition', 'threshold_value', 'bin_number'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions']['meta_info']
 
 
-
-                            class Aggregation(Entity):
+                            class Aggregation(_Entity_):
                                 """
                                 Aggregation to apply to results for the
                                 statistic
@@ -566,7 +611,10 @@ class Sla(Entity):
                                 _revision = '2018-07-27'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, self).__init__()
 
                                     self.yang_name = "aggregation"
                                     self.yang_parent_name = "statistic"
@@ -589,11 +637,23 @@ class Sla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, ['bins_count', 'bins_width', 'bins_width_tenths'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Statistics']['meta_info']
 
 
-
-
-                    class Schedule(Entity):
+                    class Schedule(_Entity_):
                         """
                         Schedule to use for probes within an
                         operation
@@ -607,7 +667,7 @@ class Sla(Entity):
                         
                         .. attribute:: probe_interval_day
                         
-                        	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
+                        	Day of week on which to schedule probes. This must be specified if, and only if, ProbeIntervalUnit is 'Week'
                         	**type**\:  :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
                         
                         .. attribute:: probe_interval_unit
@@ -660,7 +720,10 @@ class Sla(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, self).__init__()
 
                             self.yang_name = "schedule"
                             self.yang_parent_name = "profile"
@@ -693,15 +756,19 @@ class Sla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, ['probe_interval', 'probe_interval_day', 'probe_interval_unit', 'start_time_hour', 'start_time_minute', 'start_time_second', 'probe_duration', 'probe_duration_unit'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Schedule']['meta_info']
 
 
-                    class Probe(Entity):
+                    class Probe(_Entity_):
                         """
                         Probe configuration for the SLA profile
                         
                         .. attribute:: send
                         
-                        	Schedule to use for packets within a burst.  The default value is to send a single packet once
+                        	Schedule to use for packets within a burst. The default value is to send a single packet once
                         	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
                         
                         	**presence node**\: True
@@ -735,7 +802,10 @@ class Sla(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.Profiles.Profile.Probe, self).__init__()
 
                             self.yang_name = "probe"
                             self.yang_parent_name = "profile"
@@ -762,9 +832,9 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe, ['priority', 'synthetic_loss_calculation_packets'], name, value)
 
 
-                        class Send(Entity):
+                        class Send(_Entity_):
                             """
-                            Schedule to use for packets within a burst. 
+                            Schedule to use for packets within a burst.
                             The default value is to send a single packet
                             once.
                             
@@ -818,7 +888,10 @@ class Sla(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, self).__init__()
 
                                 self.yang_name = "send"
                                 self.yang_parent_name = "probe"
@@ -847,9 +920,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, ['burst_interval', 'burst_interval_unit', 'packet_interval', 'packet_interval_unit', 'packet_count', 'send_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send']['meta_info']
 
 
-                        class PacketSizeAndPadding(Entity):
+                        class PacketSizeAndPadding(_Entity_):
                             """
                             Minimum size to pad outgoing packet to
                             
@@ -884,7 +961,10 @@ class Sla(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, self).__init__()
 
                                 self.yang_name = "packet-size-and-padding"
                                 self.yang_parent_name = "probe"
@@ -907,15 +987,43 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, ['size', 'padding_type', 'padding_value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile.Probe']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.Profiles.Profile']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.Profiles']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+                return meta._meta_table['Sla.Protocols.Ethernet']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+            return meta._meta_table['Sla.Protocols']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sla()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
+        return meta._meta_table['Sla']['meta_info']
 
 

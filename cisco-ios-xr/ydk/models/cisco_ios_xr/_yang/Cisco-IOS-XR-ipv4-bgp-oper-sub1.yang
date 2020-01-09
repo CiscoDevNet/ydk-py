@@ -652,7 +652,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "scoped-sync-retry" {
         value 31;
         description
-          "Scoped sync is repeated due to strict          
+          "Scoped sync is repeated due to strict
            prefix check failure";
       }
       enum "cluster-id-changed" {
@@ -663,13 +663,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       enum "rr-disable-changed" {
         value 33;
         description
-          "Client-to-client reflection disabled/enabled   
+          "Client-to-client reflection disabled/enabled
            for cluster to which neighbor belongs";
       }
       enum "aigp-changed" {
         value 34;
         description
-          "AIGP configuration has changed                 
+          "AIGP configuration has changed
            for cluster to which neighbor belongs";
       }
       enum "signalling-changed" {
@@ -718,6 +718,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         value 43;
         description
           "Next hop configuration changed";
+      }
+      enum "cap-suppress-enhe-changed" {
+        value 44;
+        description
+          "Extended-nexthop-encoding capability
+           suppression changed";
       }
     }
     description
@@ -1620,12 +1626,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       "LINKSTATE LINKSTATE Address type";
   }
 
-  typedef L2vpn-evpn-address {
-    type xr:Bgp-l2vpn-evpn-addrs;
-    description
-      "L2VPN EVPN Address type";
-  }
-
   typedef Ipv4mvpn-address {
     type xr:Bgp-ipv4-mvpn-addr;
     description
@@ -2314,6 +2314,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Protocol Error Reason";
     }
+    leaf bindsrc {
+      type string;
+      description
+        "Server transport bind source ";
+    }
   }
 
   grouping BGP-RPKI-CACHES-BAG {
@@ -2447,7 +2452,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf route-target {
       type string;
       description
-        "route target";
+        "VRF Route Target value";
     }
   }
 
@@ -3318,7 +3323,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment                    
+        "Neighbor TCP Maximum Segment
          size";
     }
     leaf msg-log-in {
@@ -3797,6 +3802,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Nbr has postits pending";
     }
+    leaf connection-established-time {
+      type uint32;
+      units "second";
+      description
+        "Time (in secs) that the connection has been
+         established";
+    }
   }
 
   grouping BGP-PERF-PROCESS-VRF {
@@ -3986,6 +3998,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Expected sequence number";
+    }
+    leaf last-sent-sequence-num {
+      type uint32;
+      description
+        "Last sent Sequence Num";
+    }
+    leaf npl-initial-sequence-num {
+      type uint32;
+      description
+        "NPL Initial Sequence Num";
     }
     list endpoint {
       description
@@ -6317,6 +6339,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Maximum limit user has configure using
          max-buffer-size command under bmp-server";
     }
+    leaf gbl-srv6-locator {
+      type string;
+      description
+        "Global Srv6 Locator Name";
+    }
     list cluster-id-entry {
       description
         "All configured Cluster IDs";
@@ -7054,6 +7081,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint8;
       description
         "Graceful Maintenance number of AS prepends";
+    }
+    leaf gshut-interface-active {
+      type boolean;
+      description
+        "Graceful Maintenance activated at Interface";
+    }
+    leaf gshut-location-active {
+      type boolean;
+      description
+        "Graceful Maintenance activated at Location";
     }
   }
 
@@ -8005,7 +8042,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       units "millisecond";
       description
-        "Time spent processing sub-group message list 
+        "Time spent processing sub-group message list
          (milliseconds)";
     }
     leaf write-queue-calls-count {
@@ -8426,7 +8463,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf tcpmss {
       type uint32;
       description
-        "Neighbor TCP Maximum Segment                    
+        "Neighbor TCP Maximum Segment
          size";
     }
     leaf msg-log-in {
@@ -8998,6 +9035,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Merge SAFI-1 and SAFI-4 updates from neighbor";
     }
+    leaf is-capability-enhe-suppressed {
+      type boolean;
+      description
+        "Flag to indicate if Capability
+         extended-nexthop-encoding is disabled for this
+         BGP neighbor";
+    }
     list af-data {
       max-elements "25";
       description
@@ -9259,7 +9303,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised                         
+        "Net could be advertised
          to PE peers";
     }
     leaf has-local-label {
@@ -9301,7 +9345,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf net-flags {
       type uint32;
       description
-        "Flags associated with                           
+        "Flags associated with
          net";
     }
     leaf net-extended-flags {
@@ -11208,6 +11252,31 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Table version acked by RIB";
     }
+    leaf vrf-srv6-sid-alloc-mode {
+      type uint32;
+      description
+        "Sid alloc mode of SRv6 under Vrf";
+    }
+    leaf isvrf-s-rv6-enabled {
+      type boolean;
+      description
+        "SRv6 info under a Vrf";
+    }
+    leaf vrf-all-srv6-locator {
+      type string;
+      description
+        "Srv6 Locator Name under Vrf All";
+    }
+    leaf vrf-all-srv6-sid-alloc-mode {
+      type uint32;
+      description
+        "Srv6 Sid alloc mode under Vrf All";
+    }
+    leaf isvrfall-s-rv6-enabled {
+      type boolean;
+      description
+        "SRv6 info under a Vrf All";
+    }
   }
 
   grouping BGP-GLOBAL-PROCESS-INFO-AF-GBL {
@@ -11391,6 +11460,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint16;
       description
         "Count of bumped perm pelems";
+    }
+    leaf af-srv6-sid-alloc-mode {
+      type uint32;
+      description
+        "Sid alloc mode of SRv6 under AF";
+    }
+    leaf af-srv6-locator {
+      type string;
+      description
+        "Srv6 Locator Name under AF";
     }
     list syncgrp-version {
       max-elements "2";
@@ -12202,6 +12281,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint16;
       description
         "Chunk Bitfield size on table";
+    }
+    leaf tbl-filter-group-bitf-resize-pending {
+      type boolean;
+      description
+        "Filter Group bitfield resize is pending for this
+         table";
     }
     leaf is-route-reflector {
       type boolean;
@@ -14102,13 +14187,13 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     leaf advertisedto-pe {
       type boolean;
       description
-        "Net could be advertised                         
+        "Net could be advertised
          to PE peers";
     }
     leaf rib-failed {
       type boolean;
       description
-        "Is net failed installed                         
+        "Is net failed installed
          in RIB";
     }
     leaf sn-rpki-origin-as-validity {
@@ -14992,6 +15077,15 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Enforce multiple labels";
       uses BGP-CONFIG-INFO;
     }
+    container cluster-id-allow-equal-info {
+      description
+        "Cluster ID check disabled info. This is the
+         check that allows BGP to accept routes that
+         contain a cluster list in which the first
+         cluster ID is not equal to therouter's own
+         cluster ID.";
+      uses BGP-CONFIG-INFO;
+    }
     leaf has-orf-capability {
       type uint32;
       description
@@ -15306,6 +15400,15 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Enforce multiple labels";
+    }
+    leaf cluster-id-check-disabled {
+      type boolean;
+      description
+        "Flag to indicate cluster ID check is disabled.
+         This allows BGP to accept routes that may
+         contain a cluster list in which the first
+         cluster ID is not equal to the router's own
+         cluster ID.";
     }
   }
 
@@ -15663,6 +15766,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     container ao-keychain-info {
       description
         "Neighbor AO keychain item info";
+      uses BGP-CONFIG-INFO;
+    }
+    container extended-nh-encoding-capability-suppressed-info {
+      description
+        "Information for the extended nexthop encoding
+         capability";
       uses BGP-CONFIG-INFO;
     }
     leaf remote-as-number-xx {
@@ -16052,6 +16161,12 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Local AS Dual-AS option";
     }
+    leaf extended-nh-encoding-capability-suppressed {
+      type uint32;
+      description
+        "Disabling the extendednexthop encoding
+         capability";
+    }
   }
 
   grouping BGP-IPV6-SRPOLICY-ADDR {
@@ -16102,6 +16217,22 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     uses BGP-L2VPN-MSPW-ADDR;
   }
 
+  grouping BGP-L2VPN-EVPN-ADDR {
+    description
+      "BGP L2VPN EVPN ADDR";
+    leaf l2vpn-evpn-address {
+      type yang:hex-string;
+      description
+        "l2vpn evpn address";
+    }
+  }
+
+  grouping L2VPN-EVPN-ADDRESS-TYPE {
+    description
+      "L2VPN EVPN Address type";
+    uses BGP-L2VPN-EVPN-ADDR;
+  }
+
   grouping BGP-L2VPN-ADDR {
     description
       "BGP L2VPN ADDR";
@@ -16123,6 +16254,15 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "L2VPN VPLS Addr";
       uses BGP-L2VPN-ADDR;
+    }
+    container l2vpn-evpn-address {
+      when "../afi = 'l2vpn-evpn'" {
+        description
+          "../AFI = 'L2VPN_EVPN'";
+      }
+      description
+        "L2VPN EVPN Addr";
+      uses L2VPN-EVPN-ADDRESS-TYPE;
     }
     container l2vpn-mspw-address {
       when "../afi = 'l2vpn-mspw'" {
@@ -16290,15 +16430,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type Ipv4mvpn-address;
       description
         "MVPN4 addr";
-    }
-    leaf l2vpn-evpn-address {
-      when "../afi = 'l2vpn-evpn'" {
-        description
-          "../AFI = 'L2VPN_EVPN'";
-      }
-      type L2vpn-evpn-address;
-      description
-        "L2VPN EVPN Addr";
     }
     leaf ls-ls-address {
       when "../afi = 'ls-ls'" {

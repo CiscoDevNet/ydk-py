@@ -6,7 +6,7 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-lpts-pre-ifib-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2019-11-06;
   }
 
   organization
@@ -32,11 +32,23 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-11-06 {
+    description
+      "LPTS Punt Policer Support.";
+  }
+  revision 2019-10-23 {
+    description
+      "LPTS Punt Policer Support.";
+  }
+  revision 2018-11-26 {
+    description
+      "LPTS Domains Support.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-  revision 2016-02-22 {
+  revision 2016-11-22 {
     description
       "Initial revision for pre-ifib oper yang.";
   }
@@ -102,6 +114,22 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
       "Lpts pifib";
   }
 
+  grouping ENTRY {
+    description
+      "Common node of type-value, shadow-entries";
+    list entry {
+      key "entry";
+      description
+        "Data for single pre-ifib entry";
+      leaf entry {
+        type xr:Cisco-ios-xr-string;
+        description
+          "Single Pre-ifib entry";
+      }
+      uses PIFIB-SHOW-ENTRY;
+    }
+  }
+
   container lpts-pifib {
     config false;
     description
@@ -113,6 +141,11 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
         key "node-name";
         description
           "Pre-ifib data for particular node";
+        container shadow-entries {
+          description
+            "Pre-IFIB Shadow Entries (PI)";
+          uses ENTRY;
+        }
         container type-values {
           description
             "Type specific";
@@ -125,23 +158,23 @@ module Cisco-IOS-XR-lpts-pre-ifib-oper {
               description
                 "Type value";
             }
-            list entry {
-              key "entry";
-              description
-                "Data for single pre-ifib entry";
-              leaf entry {
-                type xr:Cisco-ios-xr-string;
-                description
-                  "Single Pre-ifib entry";
-              }
-              uses PIFIB-SHOW-ENTRY;
-            }
+            uses ENTRY;
           }
+        }
+        container domains {
+          description
+            "data for pre-ifib domains";
+          uses PIFIB-DOMAINS-DATA;
         }
         container dynamic-flows-stats {
           description
             "Dynamic Flows Statistics";
           uses PIFIB-DYNFLOWS-DATA;
+        }
+        container punt-policer-stats {
+          description
+            "Punt Policer Statistics";
+          uses PIFIB-PUNT-POLICER-DATA;
         }
         leaf node-name {
           type xr:Node-id;

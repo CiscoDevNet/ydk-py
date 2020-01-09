@@ -17,8 +17,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -27,7 +30,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ntp(Entity):
+class Ntp(_Entity_):
     """
     
     
@@ -73,7 +76,10 @@ class Ntp(Entity):
     _revision = '2016-07-04'
 
     def __init__(self):
-        super(Ntp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ntp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ntp"
@@ -103,7 +109,7 @@ class Ntp(Entity):
         self._perform_setattr(Ntp, ['trusted_key', 'authenticate'], name, value)
 
 
-    class Peer(Entity):
+    class Peer(_Entity_):
         """
         
         
@@ -139,7 +145,10 @@ class Ntp(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Ntp.Peer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Peer, self).__init__()
 
             self.yang_name = "peer"
             self.yang_parent_name = "ntp"
@@ -164,9 +173,13 @@ class Ntp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Peer, ['name', 'version', 'key_id', 'prefer'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+            return meta._meta_table['Ntp.Peer']['meta_info']
 
 
-    class Server(Entity):
+    class Server(_Entity_):
         """
         
         
@@ -202,7 +215,10 @@ class Ntp(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Ntp.Server, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Server, self).__init__()
 
             self.yang_name = "server"
             self.yang_parent_name = "ntp"
@@ -227,9 +243,13 @@ class Ntp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Server, ['name', 'version', 'key_id', 'prefer'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+            return meta._meta_table['Ntp.Server']['meta_info']
 
 
-    class AuthenticationKey(Entity):
+    class AuthenticationKey(_Entity_):
         """
         
         
@@ -269,7 +289,10 @@ class Ntp(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Ntp.AuthenticationKey, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.AuthenticationKey, self).__init__()
 
             self.yang_name = "authentication-key"
             self.yang_parent_name = "ntp"
@@ -309,6 +332,12 @@ class Ntp(Entity):
             encrypted = Enum.YLeaf(1, "encrypted")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                return meta._meta_table['Ntp.AuthenticationKey.Encryption']
+
+
         class Md5Keyword(Enum):
             """
             Md5Keyword (Enum Class)
@@ -320,9 +349,19 @@ class Ntp(Entity):
             md5 = Enum.YLeaf(0, "md5")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                return meta._meta_table['Ntp.AuthenticationKey.Md5Keyword']
 
 
-    class Trace(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+            return meta._meta_table['Ntp.AuthenticationKey']['meta_info']
+
+
+    class Trace(_Entity_):
         """
         
         
@@ -341,7 +380,10 @@ class Ntp(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Ntp.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "ntp"
@@ -362,7 +404,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Trace, [], name, value)
 
 
-        class NtpHelper(Entity):
+        class NtpHelper(_Entity_):
             """
             
             
@@ -381,7 +423,10 @@ class Ntp(Entity):
             _revision = '2016-07-04'
 
             def __init__(self):
-                super(Ntp.Trace.NtpHelper, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Trace.NtpHelper, self).__init__()
 
                 self.yang_name = "ntp_helper"
                 self.yang_parent_name = "trace"
@@ -400,7 +445,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.Trace.NtpHelper, [], name, value)
 
 
-            class Trace_(Entity):
+            class Trace_(_Entity_):
                 """
                 show traceable processes
                 
@@ -426,7 +471,10 @@ class Ntp(Entity):
                 _revision = '2016-07-04'
 
                 def __init__(self):
-                    super(Ntp.Trace.NtpHelper.Trace_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Trace.NtpHelper.Trace_, self).__init__()
 
                     self.yang_name = "trace"
                     self.yang_parent_name = "ntp_helper"
@@ -448,7 +496,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Trace.NtpHelper.Trace_, ['buffer'], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -474,7 +522,10 @@ class Ntp(Entity):
                     _revision = '2016-07-04'
 
                     def __init__(self):
-                        super(Ntp.Trace.NtpHelper.Trace_.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Trace.NtpHelper.Trace_.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "trace"
@@ -495,7 +546,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Trace.NtpHelper.Trace_.Location, ['location_name'], name, value)
 
 
-                    class AllOptions(Entity):
+                    class AllOptions(_Entity_):
                         """
                         
                         
@@ -521,7 +572,10 @@ class Ntp(Entity):
                         _revision = '2016-07-04'
 
                         def __init__(self):
-                            super(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions, self).__init__()
 
                             self.yang_name = "all-options"
                             self.yang_parent_name = "location"
@@ -542,7 +596,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions, ['option'], name, value)
 
 
-                        class TraceBlocks(Entity):
+                        class TraceBlocks(_Entity_):
                             """
                             
                             
@@ -561,7 +615,10 @@ class Ntp(Entity):
                             _revision = '2016-07-04'
 
                             def __init__(self):
-                                super(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
 
                                 self.yang_name = "trace-blocks"
                                 self.yang_parent_name = "all-options"
@@ -579,19 +636,47 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Trace.NtpHelper.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                                return meta._meta_table['Ntp.Trace.NtpHelper.Trace_.Location.AllOptions.TraceBlocks']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                            return meta._meta_table['Ntp.Trace.NtpHelper.Trace_.Location.AllOptions']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                        return meta._meta_table['Ntp.Trace.NtpHelper.Trace_.Location']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                    return meta._meta_table['Ntp.Trace.NtpHelper.Trace_']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                return meta._meta_table['Ntp.Trace.NtpHelper']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+            return meta._meta_table['Ntp.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _ntp as meta
+        return meta._meta_table['Ntp']['meta_info']
 
 
-class ClockAction(Entity):
+class ClockAction(_Entity_):
     """
     
     
@@ -610,7 +695,10 @@ class ClockAction(Entity):
     _revision = '2016-07-04'
 
     def __init__(self):
-        super(ClockAction, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClockAction, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clock-action"
@@ -631,7 +719,7 @@ class ClockAction(Entity):
         self._perform_setattr(ClockAction, [], name, value)
 
 
-    class Clock(Entity):
+    class Clock(_Entity_):
         """
         
         
@@ -650,7 +738,10 @@ class ClockAction(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(ClockAction.Clock, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClockAction.Clock, self).__init__()
 
             self.yang_name = "clock"
             self.yang_parent_name = "clock-action"
@@ -671,7 +762,7 @@ class ClockAction(Entity):
             self._perform_setattr(ClockAction.Clock, [], name, value)
 
 
-        class Action(Entity):
+        class Action(_Entity_):
             """
             
             
@@ -683,7 +774,10 @@ class ClockAction(Entity):
             _revision = '2016-07-04'
 
             def __init__(self):
-                super(ClockAction.Clock.Action, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClockAction.Clock.Action, self).__init__()
 
                 self.yang_name = "Action"
                 self.yang_parent_name = "clock"
@@ -696,11 +790,23 @@ class ClockAction(Entity):
                 self._absolute_path = lambda: "ntp:clock-action/clock/%s" % self._segment_path()
                 self._is_frozen = True
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _ntp as meta
+                return meta._meta_table['ClockAction.Clock.Action']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _ntp as meta
+            return meta._meta_table['ClockAction.Clock']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClockAction()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _ntp as meta
+        return meta._meta_table['ClockAction']['meta_info']
 
 

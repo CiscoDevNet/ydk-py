@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IpDomain(Entity):
+class IpDomain(_Entity_):
     """
     IP domain configuration
     
@@ -43,7 +46,10 @@ class IpDomain(Entity):
     _revision = '2019-02-19'
 
     def __init__(self):
-        super(IpDomain, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpDomain, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-domain"
@@ -67,7 +73,7 @@ class IpDomain(Entity):
         self._perform_setattr(IpDomain, ['default_flows_disable'], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF table
         
@@ -84,7 +90,10 @@ class IpDomain(Entity):
         _revision = '2019-02-19'
 
         def __init__(self):
-            super(IpDomain.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpDomain.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "ip-domain"
@@ -103,7 +112,7 @@ class IpDomain(Entity):
             self._perform_setattr(IpDomain.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF specific data
             
@@ -164,7 +173,10 @@ class IpDomain(Entity):
             _revision = '2019-02-19'
 
             def __init__(self):
-                super(IpDomain.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpDomain.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -208,7 +220,7 @@ class IpDomain(Entity):
                 self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name', 'lookup', 'multicast_domain', 'source_interface', 'name'], name, value)
 
 
-            class Ipv6Hosts(Entity):
+            class Ipv6Hosts(_Entity_):
                 """
                 IPv6 host
                 
@@ -225,7 +237,10 @@ class IpDomain(Entity):
                 _revision = '2019-02-19'
 
                 def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Ipv6Hosts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpDomain.Vrfs.Vrf.Ipv6Hosts, self).__init__()
 
                     self.yang_name = "ipv6-hosts"
                     self.yang_parent_name = "vrf"
@@ -243,7 +258,7 @@ class IpDomain(Entity):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts, [], name, value)
 
 
-                class Ipv6Host(Entity):
+                class Ipv6Host(_Entity_):
                     """
                     Host name and up to 4 host IPv6 addresses
                     
@@ -267,7 +282,10 @@ class IpDomain(Entity):
                     _revision = '2019-02-19'
 
                     def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, self).__init__()
 
                         self.yang_name = "ipv6-host"
                         self.yang_parent_name = "ipv6-hosts"
@@ -287,10 +305,18 @@ class IpDomain(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, ['host_name', 'address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                        return meta._meta_table['IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                    return meta._meta_table['IpDomain.Vrfs.Vrf.Ipv6Hosts']['meta_info']
 
 
-
-            class Servers(Entity):
+            class Servers(_Entity_):
                 """
                 Name server addresses
                 
@@ -307,7 +333,10 @@ class IpDomain(Entity):
                 _revision = '2019-02-19'
 
                 def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Servers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpDomain.Vrfs.Vrf.Servers, self).__init__()
 
                     self.yang_name = "servers"
                     self.yang_parent_name = "vrf"
@@ -325,7 +354,7 @@ class IpDomain(Entity):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Servers, [], name, value)
 
 
-                class Server(Entity):
+                class Server(_Entity_):
                     """
                     Name server address
                     
@@ -357,7 +386,10 @@ class IpDomain(Entity):
                     _revision = '2019-02-19'
 
                     def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Servers.Server, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpDomain.Vrfs.Vrf.Servers.Server, self).__init__()
 
                         self.yang_name = "server"
                         self.yang_parent_name = "servers"
@@ -377,10 +409,18 @@ class IpDomain(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Servers.Server, ['order', 'server_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                        return meta._meta_table['IpDomain.Vrfs.Vrf.Servers.Server']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                    return meta._meta_table['IpDomain.Vrfs.Vrf.Servers']['meta_info']
 
 
-
-            class Lists(Entity):
+            class Lists(_Entity_):
                 """
                 Domain names to complete unqualified host
                 names
@@ -398,7 +438,10 @@ class IpDomain(Entity):
                 _revision = '2019-02-19'
 
                 def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpDomain.Vrfs.Vrf.Lists, self).__init__()
 
                     self.yang_name = "lists"
                     self.yang_parent_name = "vrf"
@@ -416,7 +459,7 @@ class IpDomain(Entity):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Lists, [], name, value)
 
 
-                class List(Entity):
+                class List(_Entity_):
                     """
                     Domain name to complete unqualified host
                     names
@@ -443,7 +486,10 @@ class IpDomain(Entity):
                     _revision = '2019-02-19'
 
                     def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpDomain.Vrfs.Vrf.Lists.List, self).__init__()
 
                         self.yang_name = "list"
                         self.yang_parent_name = "lists"
@@ -463,10 +509,18 @@ class IpDomain(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Lists.List, ['order', 'list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                        return meta._meta_table['IpDomain.Vrfs.Vrf.Lists.List']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                    return meta._meta_table['IpDomain.Vrfs.Vrf.Lists']['meta_info']
 
 
-
-            class Ipv4Hosts(Entity):
+            class Ipv4Hosts(_Entity_):
                 """
                 IPv4 host
                 
@@ -483,7 +537,10 @@ class IpDomain(Entity):
                 _revision = '2019-02-19'
 
                 def __init__(self):
-                    super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpDomain.Vrfs.Vrf.Ipv4Hosts, self).__init__()
 
                     self.yang_name = "ipv4-hosts"
                     self.yang_parent_name = "vrf"
@@ -501,7 +558,7 @@ class IpDomain(Entity):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts, [], name, value)
 
 
-                class Ipv4Host(Entity):
+                class Ipv4Host(_Entity_):
                     """
                     Host name and up to 8 host IPv4 addresses
                     
@@ -525,7 +582,10 @@ class IpDomain(Entity):
                     _revision = '2019-02-19'
 
                     def __init__(self):
-                        super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, self).__init__()
 
                         self.yang_name = "ipv4-host"
                         self.yang_parent_name = "ipv4-hosts"
@@ -545,13 +605,33 @@ class IpDomain(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, ['host_name', 'address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                        return meta._meta_table['IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                    return meta._meta_table['IpDomain.Vrfs.Vrf.Ipv4Hosts']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+                return meta._meta_table['IpDomain.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+            return meta._meta_table['IpDomain.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpDomain()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
+        return meta._meta_table['IpDomain']['meta_info']
 
 

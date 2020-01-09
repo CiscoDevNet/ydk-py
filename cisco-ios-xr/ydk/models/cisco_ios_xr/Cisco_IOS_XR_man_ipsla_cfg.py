@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class IpslaHistoryFilter(Enum):
     all = Enum.YLeaf(255, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaHistoryFilter']
+
+
 class IpslaLife(Enum):
     """
     IpslaLife (Enum Class)
@@ -58,6 +67,12 @@ class IpslaLife(Enum):
     """
 
     forever = Enum.YLeaf(0, "forever")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLife']
 
 
 class IpslaLspMonitorReplyMode(Enum):
@@ -75,6 +90,12 @@ class IpslaLspMonitorReplyMode(Enum):
     """
 
     ipv4_udp_router_alert = Enum.YLeaf(3, "ipv4-udp-router-alert")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLspMonitorReplyMode']
 
 
 class IpslaLspMonitorThresholdTypes(Enum):
@@ -102,6 +123,12 @@ class IpslaLspMonitorThresholdTypes(Enum):
     consecutive = Enum.YLeaf(3, "consecutive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLspMonitorThresholdTypes']
+
+
 class IpslaLspPingReplyMode(Enum):
     """
     IpslaLspPingReplyMode (Enum Class)
@@ -123,6 +150,12 @@ class IpslaLspPingReplyMode(Enum):
     ipv4_udp_router_alert = Enum.YLeaf(3, "ipv4-udp-router-alert")
 
     control_channel = Enum.YLeaf(4, "control-channel")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLspPingReplyMode']
 
 
 class IpslaLspReplyDscp(Enum):
@@ -274,6 +307,12 @@ class IpslaLspReplyDscp(Enum):
     ef = Enum.YLeaf(46, "ef")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLspReplyDscp']
+
+
 class IpslaLspTraceReplyMode(Enum):
     """
     IpslaLspTraceReplyMode (Enum Class)
@@ -289,6 +328,12 @@ class IpslaLspTraceReplyMode(Enum):
     """
 
     ipv4_udp_router_alert = Enum.YLeaf(3, "ipv4-udp-router-alert")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaLspTraceReplyMode']
 
 
 class IpslaMonth(Enum):
@@ -372,6 +417,12 @@ class IpslaMonth(Enum):
     december = Enum.YLeaf(11, "december")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaMonth']
+
+
 class IpslaSched(Enum):
     """
     IpslaSched (Enum Class)
@@ -405,6 +456,12 @@ class IpslaSched(Enum):
     at = Enum.YLeaf(4, "at")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaSched']
+
+
 class IpslaSecondaryFrequency(Enum):
     """
     IpslaSecondaryFrequency (Enum Class)
@@ -432,6 +489,12 @@ class IpslaSecondaryFrequency(Enum):
     timeout = Enum.YLeaf(2, "timeout")
 
     both = Enum.YLeaf(3, "both")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaSecondaryFrequency']
 
 
 class IpslaThresholdTypes(Enum):
@@ -473,8 +536,14 @@ class IpslaThresholdTypes(Enum):
     average = Enum.YLeaf(5, "average")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['IpslaThresholdTypes']
 
-class Ipsla(Entity):
+
+
+class Ipsla(_Entity_):
     """
     IPSLA configuration
     
@@ -520,7 +589,10 @@ class Ipsla(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ipsla, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipsla, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipsla"
@@ -559,7 +631,7 @@ class Ipsla(Entity):
         self._perform_setattr(Ipsla, [], name, value)
 
 
-    class Common(Entity):
+    class Common(_Entity_):
         """
         IPSLA application common configuration
         
@@ -590,7 +662,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.Common, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.Common, self).__init__()
 
             self.yang_name = "common"
             self.yang_parent_name = "ipsla"
@@ -618,7 +693,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.Common, ['low_memory'], name, value)
 
 
-        class HardwareTimestamp(Entity):
+        class HardwareTimestamp(_Entity_):
             """
             Hardware Timestamp configuration
             
@@ -635,7 +710,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Common.HardwareTimestamp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Common.HardwareTimestamp, self).__init__()
 
                 self.yang_name = "hardware-timestamp"
                 self.yang_parent_name = "common"
@@ -654,9 +732,13 @@ class Ipsla(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Common.HardwareTimestamp, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Common.HardwareTimestamp']['meta_info']
 
 
-        class Authentication(Entity):
+        class Authentication(_Entity_):
             """
             Authenticaion configuration
             
@@ -675,7 +757,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Common.Authentication, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Common.Authentication, self).__init__()
 
                 self.yang_name = "authentication"
                 self.yang_parent_name = "common"
@@ -694,10 +779,18 @@ class Ipsla(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Common.Authentication, ['key_chain'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Common.Authentication']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.Common']['meta_info']
 
 
-
-    class MplsLspMonitor(Entity):
+    class MplsLspMonitor(_Entity_):
         """
         MPLS LSP Monitor(MPLSLM) configuration
         
@@ -724,7 +817,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.MplsLspMonitor, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.MplsLspMonitor, self).__init__()
 
             self.yang_name = "mpls-lsp-monitor"
             self.yang_parent_name = "ipsla"
@@ -753,7 +849,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.MplsLspMonitor, [], name, value)
 
 
-        class Reactions(Entity):
+        class Reactions(_Entity_):
             """
             MPLSLM Reaction configuration
             
@@ -770,7 +866,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsLspMonitor.Reactions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsLspMonitor.Reactions, self).__init__()
 
                 self.yang_name = "reactions"
                 self.yang_parent_name = "mpls-lsp-monitor"
@@ -789,7 +888,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions, [], name, value)
 
 
-            class Reaction(Entity):
+            class Reaction(_Entity_):
                 """
                 Reaction configuration for an MPLSLM instance
                 
@@ -813,7 +912,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.MplsLspMonitor.Reactions.Reaction, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.MplsLspMonitor.Reactions.Reaction, self).__init__()
 
                     self.yang_name = "reaction"
                     self.yang_parent_name = "reactions"
@@ -837,7 +939,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction, ['monitor_id'], name, value)
 
 
-                class Condition(Entity):
+                class Condition(_Entity_):
                     """
                     Reaction condition specification
                     
@@ -877,7 +979,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition, self).__init__()
 
                         self.yang_name = "condition"
                         self.yang_parent_name = "reaction"
@@ -905,7 +1010,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition, [], name, value)
 
 
-                    class LpdTreeTrace(Entity):
+                    class LpdTreeTrace(_Entity_):
                         """
                         React on LPD Tree Trace violation for a
                         monitored MPLSLM
@@ -925,7 +1030,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, self).__init__()
 
                             self.yang_name = "lpd-tree-trace"
                             self.yang_parent_name = "condition"
@@ -946,7 +1054,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -964,7 +1072,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "lpd-tree-trace"
@@ -982,10 +1093,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType, ['logging'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace']['meta_info']
 
 
-
-                    class Timeout(Entity):
+                    class Timeout(_Entity_):
                         """
                         React on probe timeout
                         
@@ -1009,7 +1128,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, self).__init__()
 
                             self.yang_name = "timeout"
                             self.yang_parent_name = "condition"
@@ -1034,7 +1156,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -1052,7 +1174,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "timeout"
@@ -1070,9 +1195,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType, ['logging'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -1104,7 +1233,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "timeout"
@@ -1126,10 +1258,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout']['meta_info']
 
 
-
-                    class LpdGroup(Entity):
+                    class LpdGroup(_Entity_):
                         """
                         React on LPD Group violation for a monitored
                         MPLSLM
@@ -1149,7 +1289,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, self).__init__()
 
                             self.yang_name = "lpd-group"
                             self.yang_parent_name = "condition"
@@ -1170,7 +1313,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -1188,7 +1331,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "lpd-group"
@@ -1206,10 +1352,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType, ['logging'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup']['meta_info']
 
 
-
-                    class ConnectionLoss(Entity):
+                    class ConnectionLoss(_Entity_):
                         """
                         React on connection loss for a monitored
                         MPLSLM
@@ -1234,7 +1388,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, self).__init__()
 
                             self.yang_name = "connection-loss"
                             self.yang_parent_name = "condition"
@@ -1259,7 +1416,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -1277,7 +1434,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "connection-loss"
@@ -1295,9 +1455,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -1329,7 +1493,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "connection-loss"
@@ -1351,13 +1518,33 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction.Condition']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.MplsLspMonitor.Reactions.Reaction']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.MplsLspMonitor.Reactions']['meta_info']
 
 
-
-
-
-
-        class Schedules(Entity):
+        class Schedules(_Entity_):
             """
             MPLSLM schedule configuration
             
@@ -1374,7 +1561,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsLspMonitor.Schedules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsLspMonitor.Schedules, self).__init__()
 
                 self.yang_name = "schedules"
                 self.yang_parent_name = "mpls-lsp-monitor"
@@ -1393,7 +1583,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Schedules, [], name, value)
 
 
-            class Schedule(Entity):
+            class Schedule(_Entity_):
                 """
                 Schedule an MPLSLM instance
                 
@@ -1435,7 +1625,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.MplsLspMonitor.Schedules.Schedule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.MplsLspMonitor.Schedules.Schedule, self).__init__()
 
                     self.yang_name = "schedule"
                     self.yang_parent_name = "schedules"
@@ -1463,7 +1656,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Schedules.Schedule, ['monitor_id', 'frequency', 'period'], name, value)
 
 
-                class StartTime(Entity):
+                class StartTime(_Entity_):
                     """
                     Start time of MPLSLM instance
                     
@@ -1520,7 +1713,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime, self).__init__()
 
                         self.yang_name = "start-time"
                         self.yang_parent_name = "schedule"
@@ -1550,11 +1746,23 @@ class Ipsla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.MplsLspMonitor.Schedules.Schedule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.MplsLspMonitor.Schedules']['meta_info']
 
 
-
-
-        class Definitions(Entity):
+        class Definitions(_Entity_):
             """
             MPLS LSP Monitor definition table
             
@@ -1571,7 +1779,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsLspMonitor.Definitions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsLspMonitor.Definitions, self).__init__()
 
                 self.yang_name = "definitions"
                 self.yang_parent_name = "mpls-lsp-monitor"
@@ -1590,7 +1801,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions, [], name, value)
 
 
-            class Definition(Entity):
+            class Definition(_Entity_):
                 """
                 MPLS LSP Monitor definition
                 
@@ -1614,7 +1825,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.MplsLspMonitor.Definitions.Definition, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.MplsLspMonitor.Definitions.Definition, self).__init__()
 
                     self.yang_name = "definition"
                     self.yang_parent_name = "definitions"
@@ -1638,7 +1852,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition, ['monitor_id'], name, value)
 
 
-                class OperationType(Entity):
+                class OperationType(_Entity_):
                     """
                     Operation type specification
                     
@@ -1664,7 +1878,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType, self).__init__()
 
                         self.yang_name = "operation-type"
                         self.yang_parent_name = "definition"
@@ -1686,7 +1903,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType, [], name, value)
 
 
-                    class MplsLspTrace(Entity):
+                    class MplsLspTrace(_Entity_):
                         """
                         Perform MPLS LSP Trace operation
                         
@@ -1793,7 +2010,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, self).__init__()
 
                             self.yang_name = "mpls-lsp-trace"
                             self.yang_parent_name = "operation-type"
@@ -1843,7 +2063,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
 
 
-                        class Reply(Entity):
+                        class Reply(_Entity_):
                             """
                             Echo reply options for the MPLS LSP operation
                             
@@ -1871,7 +2091,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply, self).__init__()
 
                                 self.yang_name = "reply"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -1891,9 +2114,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['dscp_bits', 'mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -1916,7 +2143,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -1934,9 +2164,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics']['meta_info']
 
 
-                        class Scan(Entity):
+                        class Scan(_Entity_):
                             """
                             Scanning parameters configuration
                             
@@ -1968,7 +2202,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan, self).__init__()
 
                                 self.yang_name = "scan"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -1988,10 +2225,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan, ['interval', 'delete_factor'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace']['meta_info']
 
 
-
-                    class MplsLspPing(Entity):
+                    class MplsLspPing(_Entity_):
                         """
                         Perform MPLS LSP Ping operation
                         
@@ -2110,7 +2355,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, self).__init__()
 
                             self.yang_name = "mpls-lsp-ping"
                             self.yang_parent_name = "operation-type"
@@ -2167,7 +2415,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -2191,7 +2439,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -2209,9 +2460,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize']['meta_info']
 
 
-                        class PathDiscover(Entity):
+                        class PathDiscover(_Entity_):
                             """
                             Path discover configuration
                             
@@ -2251,7 +2506,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, self).__init__()
 
                                 self.yang_name = "path-discover"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -2283,7 +2541,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, ['scan_period'], name, value)
 
 
-                            class Session(Entity):
+                            class Session(_Entity_):
                                 """
                                 Session parameters configuration
                                 
@@ -2315,7 +2573,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session, self).__init__()
 
                                     self.yang_name = "session"
                                     self.yang_parent_name = "path-discover"
@@ -2335,9 +2596,13 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session, ['timeout', 'limit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session']['meta_info']
 
 
-                            class Path(Entity):
+                            class Path(_Entity_):
                                 """
                                 Path parameters configuration
                                 
@@ -2365,7 +2630,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path, self).__init__()
 
                                     self.yang_name = "path"
                                     self.yang_parent_name = "path-discover"
@@ -2387,7 +2655,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path, ['retry'], name, value)
 
 
-                                class SecondaryFrequency(Entity):
+                                class SecondaryFrequency(_Entity_):
                                     """
                                     Frequency to be used if path failure
                                     condition is detected
@@ -2420,7 +2688,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency, self).__init__()
 
                                         self.yang_name = "secondary-frequency"
                                         self.yang_parent_name = "path"
@@ -2441,10 +2712,18 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency, ['type', 'frequency'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path']['meta_info']
 
 
-
-                            class Echo(Entity):
+                            class Echo(_Entity_):
                                 """
                                 Echo parameters configuration
                                 
@@ -2501,7 +2780,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo, self).__init__()
 
                                     self.yang_name = "echo"
                                     self.yang_parent_name = "path-discover"
@@ -2530,7 +2812,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo, ['interval', 'timeout', 'retry', 'maximum_lsp_selector'], name, value)
 
 
-                                class Multipath(Entity):
+                                class Multipath(_Entity_):
                                     """
                                     Downstream map multipath settings
                                     
@@ -2551,7 +2833,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath, self).__init__()
 
                                         self.yang_name = "multipath"
                                         self.yang_parent_name = "echo"
@@ -2569,11 +2854,23 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath, ['bitmap_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover']['meta_info']
 
 
-
-
-                        class Reply(Entity):
+                        class Reply(_Entity_):
                             """
                             Echo reply options for the MPLS LSP operation
                             
@@ -2601,7 +2898,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply, self).__init__()
 
                                 self.yang_name = "reply"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -2621,9 +2921,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply, ['dscp_bits', 'mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -2646,7 +2950,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -2664,9 +2971,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics']['meta_info']
 
 
-                        class Scan(Entity):
+                        class Scan(_Entity_):
                             """
                             Scanning parameters configuration
                             
@@ -2698,7 +3009,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan, self).__init__()
 
                                 self.yang_name = "scan"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -2718,14 +3032,38 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan, ['interval', 'delete_factor'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition.OperationType']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.MplsLspMonitor.Definitions.Definition']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.MplsLspMonitor.Definitions']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.MplsLspMonitor']['meta_info']
 
 
-
-
-
-
-
-    class Operation(Entity):
+    class Operation(_Entity_):
         """
         IPSLA Operation configuration
         
@@ -2757,7 +3095,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.Operation, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.Operation, self).__init__()
 
             self.yang_name = "operation"
             self.yang_parent_name = "ipsla"
@@ -2790,7 +3131,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.Operation, [], name, value)
 
 
-        class Schedules(Entity):
+        class Schedules(_Entity_):
             """
             Schedule an operation
             
@@ -2807,7 +3148,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Operation.Schedules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Operation.Schedules, self).__init__()
 
                 self.yang_name = "schedules"
                 self.yang_parent_name = "operation"
@@ -2826,7 +3170,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Operation.Schedules, [], name, value)
 
 
-            class Schedule(Entity):
+            class Schedule(_Entity_):
                 """
                 Operation schedule configuration
                 
@@ -2877,7 +3221,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Operation.Schedules.Schedule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Operation.Schedules.Schedule, self).__init__()
 
                     self.yang_name = "schedule"
                     self.yang_parent_name = "schedules"
@@ -2907,7 +3254,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Operation.Schedules.Schedule, ['operation_id', 'life', 'ageout', 'recurring'], name, value)
 
 
-                class StartTime(Entity):
+                class StartTime(_Entity_):
                     """
                     Start time of the operation
                     
@@ -2964,7 +3311,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Operation.Schedules.Schedule.StartTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Operation.Schedules.Schedule.StartTime, self).__init__()
 
                         self.yang_name = "start-time"
                         self.yang_parent_name = "schedule"
@@ -2994,11 +3344,23 @@ class Ipsla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Operation.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.Operation.Schedules.Schedule.StartTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Operation.Schedules.Schedule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Operation.Schedules']['meta_info']
 
 
-
-
-        class Reactions(Entity):
+        class Reactions(_Entity_):
             """
             Reaction configuration
             
@@ -3015,7 +3377,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Operation.Reactions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Operation.Reactions, self).__init__()
 
                 self.yang_name = "reactions"
                 self.yang_parent_name = "operation"
@@ -3034,7 +3399,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Operation.Reactions, [], name, value)
 
 
-            class Reaction(Entity):
+            class Reaction(_Entity_):
                 """
                 Reaction configuration for an operation
                 
@@ -3058,7 +3423,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Operation.Reactions.Reaction, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Operation.Reactions.Reaction, self).__init__()
 
                     self.yang_name = "reaction"
                     self.yang_parent_name = "reactions"
@@ -3082,7 +3450,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Operation.Reactions.Reaction, ['operation_id'], name, value)
 
 
-                class Condition(Entity):
+                class Condition(_Entity_):
                     """
                     Reaction condition specification
                     
@@ -3157,7 +3525,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Operation.Reactions.Reaction.Condition, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Operation.Reactions.Reaction.Condition, self).__init__()
 
                         self.yang_name = "condition"
                         self.yang_parent_name = "reaction"
@@ -3200,7 +3571,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition, [], name, value)
 
 
-                    class JitterAverageDs(Entity):
+                    class JitterAverageDs(_Entity_):
                         """
                         React on destination to source jitter
                         threshold violation
@@ -3232,7 +3603,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, self).__init__()
 
                             self.yang_name = "jitter-average-ds"
                             self.yang_parent_name = "condition"
@@ -3260,7 +3634,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -3293,7 +3667,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "jitter-average-ds"
@@ -3314,9 +3691,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -3339,7 +3720,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "jitter-average-ds"
@@ -3359,9 +3743,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -3393,7 +3781,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "jitter-average-ds"
@@ -3415,10 +3806,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs']['meta_info']
 
 
-
-                    class Timeout(Entity):
+                    class Timeout(_Entity_):
                         """
                         React on probe timeout
                         
@@ -3442,7 +3841,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, self).__init__()
 
                             self.yang_name = "timeout"
                             self.yang_parent_name = "condition"
@@ -3467,7 +3869,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -3490,7 +3892,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "timeout"
@@ -3510,9 +3915,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -3544,7 +3953,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "timeout"
@@ -3566,10 +3978,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Timeout']['meta_info']
 
 
-
-                    class JitterAverage(Entity):
+                    class JitterAverage(_Entity_):
                         """
                         React on average round trip jitter threshold
                         violation
@@ -3601,7 +4021,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, self).__init__()
 
                             self.yang_name = "jitter-average"
                             self.yang_parent_name = "condition"
@@ -3629,7 +4052,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -3662,7 +4085,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "jitter-average"
@@ -3683,9 +4109,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -3708,7 +4138,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "jitter-average"
@@ -3728,9 +4161,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -3762,7 +4199,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "jitter-average"
@@ -3784,10 +4224,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage']['meta_info']
 
 
-
-                    class VerifyError(Entity):
+                    class VerifyError(_Entity_):
                         """
                         React on error verfication violation
                         
@@ -3811,7 +4259,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, self).__init__()
 
                             self.yang_name = "verify-error"
                             self.yang_parent_name = "condition"
@@ -3836,7 +4287,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -3859,7 +4310,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "verify-error"
@@ -3879,9 +4333,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -3913,7 +4371,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "verify-error"
@@ -3935,10 +4396,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.VerifyError']['meta_info']
 
 
-
-                    class Rtt(Entity):
+                    class Rtt(_Entity_):
                         """
                         React on round trip time threshold violation
                         
@@ -3969,7 +4438,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, self).__init__()
 
                             self.yang_name = "rtt"
                             self.yang_parent_name = "condition"
@@ -3997,7 +4469,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -4030,7 +4502,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "rtt"
@@ -4051,9 +4526,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -4076,7 +4555,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "rtt"
@@ -4096,9 +4578,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -4130,7 +4616,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "rtt"
@@ -4152,10 +4641,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.Rtt']['meta_info']
 
 
-
-                    class PacketLossSd(Entity):
+                    class PacketLossSd(_Entity_):
                         """
                         React on destination to source packet loss
                         threshold violation
@@ -4187,7 +4684,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, self).__init__()
 
                             self.yang_name = "packet-loss-sd"
                             self.yang_parent_name = "condition"
@@ -4215,7 +4715,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -4248,7 +4748,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "packet-loss-sd"
@@ -4269,9 +4772,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -4294,7 +4801,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "packet-loss-sd"
@@ -4314,9 +4824,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -4348,7 +4862,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "packet-loss-sd"
@@ -4370,10 +4887,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd']['meta_info']
 
 
-
-                    class JitterAverageSd(Entity):
+                    class JitterAverageSd(_Entity_):
                         """
                         React on average source to destination
                         jitter threshold violation
@@ -4405,7 +4930,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, self).__init__()
 
                             self.yang_name = "jitter-average-sd"
                             self.yang_parent_name = "condition"
@@ -4433,7 +4961,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -4466,7 +4994,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "jitter-average-sd"
@@ -4487,9 +5018,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -4512,7 +5047,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "jitter-average-sd"
@@ -4532,9 +5070,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -4566,7 +5108,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "jitter-average-sd"
@@ -4588,10 +5133,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd']['meta_info']
 
 
-
-                    class ConnectionLoss(Entity):
+                    class ConnectionLoss(_Entity_):
                         """
                         React on connection loss for a monitored
                         operation
@@ -4616,7 +5169,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, self).__init__()
 
                             self.yang_name = "connection-loss"
                             self.yang_parent_name = "condition"
@@ -4641,7 +5197,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, [], name, value)
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -4664,7 +5220,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "connection-loss"
@@ -4684,9 +5243,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -4718,7 +5281,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "connection-loss"
@@ -4740,10 +5306,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss']['meta_info']
 
 
-
-                    class PacketLossDs(Entity):
+                    class PacketLossDs(_Entity_):
                         """
                         React on source to destination packet loss
                         threshold violation
@@ -4775,7 +5349,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, self).__init__()
 
                             self.yang_name = "packet-loss-ds"
                             self.yang_parent_name = "condition"
@@ -4803,7 +5380,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, [], name, value)
 
 
-                        class ThresholdLimits(Entity):
+                        class ThresholdLimits(_Entity_):
                             """
                             Specify threshold limits for the monitored
                             element
@@ -4836,7 +5413,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits, self).__init__()
 
                                 self.yang_name = "threshold-limits"
                                 self.yang_parent_name = "packet-loss-ds"
@@ -4857,9 +5437,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits']['meta_info']
 
 
-                        class ActionType(Entity):
+                        class ActionType(_Entity_):
                             """
                             Type of action to be taken on threshold
                             violation(s)
@@ -4882,7 +5466,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType, self).__init__()
 
                                 self.yang_name = "action-type"
                                 self.yang_parent_name = "packet-loss-ds"
@@ -4902,9 +5489,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType, ['logging', 'trigger'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType']['meta_info']
 
 
-                        class ThresholdType(Entity):
+                        class ThresholdType(_Entity_):
                             """
                             Type of thresholding to perform on the monitored
                             element
@@ -4936,7 +5527,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType, self).__init__()
 
                                 self.yang_name = "threshold-type"
                                 self.yang_parent_name = "packet-loss-ds"
@@ -4958,13 +5552,33 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.Operation.Reactions.Reaction.Condition']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Operation.Reactions.Reaction']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Operation.Reactions']['meta_info']
 
 
-
-
-
-
-        class ReactionTriggers(Entity):
+        class ReactionTriggers(_Entity_):
             """
             Reaction trigger configuration
             
@@ -4981,7 +5595,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Operation.ReactionTriggers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Operation.ReactionTriggers, self).__init__()
 
                 self.yang_name = "reaction-triggers"
                 self.yang_parent_name = "operation"
@@ -5000,7 +5617,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Operation.ReactionTriggers, [], name, value)
 
 
-            class ReactionTrigger(Entity):
+            class ReactionTrigger(_Entity_):
                 """
                 Reaction trigger for an operation
                 
@@ -5026,7 +5643,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Operation.ReactionTriggers.ReactionTrigger, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Operation.ReactionTriggers.ReactionTrigger, self).__init__()
 
                     self.yang_name = "reaction-trigger"
                     self.yang_parent_name = "reaction-triggers"
@@ -5047,10 +5667,18 @@ class Ipsla(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.ReactionTriggers.ReactionTrigger, ['operation_id', 'triggered_op_id'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Operation.ReactionTriggers.ReactionTrigger']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Operation.ReactionTriggers']['meta_info']
 
 
-
-        class Definitions(Entity):
+        class Definitions(_Entity_):
             """
             Operation definition table
             
@@ -5067,7 +5695,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Operation.Definitions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Operation.Definitions, self).__init__()
 
                 self.yang_name = "definitions"
                 self.yang_parent_name = "operation"
@@ -5086,7 +5717,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Operation.Definitions, [], name, value)
 
 
-            class Definition(Entity):
+            class Definition(_Entity_):
                 """
                 Operation definition
                 
@@ -5110,7 +5741,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Operation.Definitions.Definition, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Operation.Definitions.Definition, self).__init__()
 
                     self.yang_name = "definition"
                     self.yang_parent_name = "definitions"
@@ -5134,7 +5768,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Operation.Definitions.Definition, ['operation_id'], name, value)
 
 
-                class OperationType(Entity):
+                class OperationType(_Entity_):
                     """
                     Operation type specification
                     
@@ -5195,7 +5829,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Operation.Definitions.Definition.OperationType, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Operation.Definitions.Definition.OperationType, self).__init__()
 
                         self.yang_name = "operation-type"
                         self.yang_parent_name = "definition"
@@ -5232,7 +5869,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType, [], name, value)
 
 
-                    class IcmpEcho(Entity):
+                    class IcmpEcho(_Entity_):
                         """
                         ICMPEcho Operation type
                         
@@ -5331,7 +5968,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, self).__init__()
 
                             self.yang_name = "icmp-echo"
                             self.yang_parent_name = "operation-type"
@@ -5383,7 +6023,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, ['source_address_v6', 'dest_address_v6', 'source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -5407,7 +6047,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "icmp-echo"
@@ -5425,9 +6068,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -5470,7 +6117,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "icmp-echo"
@@ -5492,9 +6142,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics']['meta_info']
 
 
-                        class History(Entity):
+                        class History(_Entity_):
                             """
                             Configure the history parameters for this
                             operation
@@ -5530,7 +6184,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History, self).__init__()
 
                                 self.yang_name = "history"
                                 self.yang_parent_name = "icmp-echo"
@@ -5552,9 +6209,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History']['meta_info']
 
 
-                        class EnhancedStats(Entity):
+                        class EnhancedStats(_Entity_):
                             """
                             Table of statistics collection intervals
                             
@@ -5571,7 +6232,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats, self).__init__()
 
                                 self.yang_name = "enhanced-stats"
                                 self.yang_parent_name = "icmp-echo"
@@ -5589,7 +6253,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats, [], name, value)
 
 
-                            class EnhancedStat(Entity):
+                            class EnhancedStat(_Entity_):
                                 """
                                 Statistics for a specified time interval
                                 
@@ -5619,7 +6283,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat, self).__init__()
 
                                     self.yang_name = "enhanced-stat"
                                     self.yang_parent_name = "enhanced-stats"
@@ -5639,11 +6306,23 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho']['meta_info']
 
 
-
-
-                    class MplsLspPing(Entity):
+                    class MplsLspPing(_Entity_):
                         """
                         MPLS LSP Ping Operation type
                         
@@ -5767,7 +6446,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, self).__init__()
 
                             self.yang_name = "mpls-lsp-ping"
                             self.yang_parent_name = "operation-type"
@@ -5829,7 +6511,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'source_address', 'output_nexthop', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -5851,7 +6533,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -5869,9 +6554,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize']['meta_info']
 
 
-                        class Reply(Entity):
+                        class Reply(_Entity_):
                             """
                             Echo reply options for the MPLS LSP
                             operation
@@ -5900,7 +6589,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply, self).__init__()
 
                                 self.yang_name = "reply"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -5920,9 +6612,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply, ['mode', 'dscp_bits'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply']['meta_info']
 
 
-                        class Target(Entity):
+                        class Target(_Entity_):
                             """
                             Target for the MPLS LSP operation
                             
@@ -5949,7 +6645,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target, self).__init__()
 
                                 self.yang_name = "target"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -5977,7 +6676,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target, [], name, value)
 
 
-                            class TrafficEngineering(Entity):
+                            class TrafficEngineering(_Entity_):
                                 """
                                 Traffic engineering target
                                 
@@ -5996,7 +6695,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering, self).__init__()
 
                                     self.yang_name = "traffic-engineering"
                                     self.yang_parent_name = "target"
@@ -6014,9 +6716,13 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering, ['tunnel'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering']['meta_info']
 
 
-                            class Ipv4(Entity):
+                            class Ipv4(_Entity_):
                                 """
                                 Target specified as an IPv4 address
                                 
@@ -6035,7 +6741,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4, self).__init__()
 
                                     self.yang_name = "ipv4"
                                     self.yang_parent_name = "target"
@@ -6054,7 +6763,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4, [], name, value)
 
 
-                                class FecAddress(Entity):
+                                class FecAddress(_Entity_):
                                     """
                                     Target FEC address with mask
                                     
@@ -6086,7 +6795,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress, self).__init__()
 
                                         self.yang_name = "fec-address"
                                         self.yang_parent_name = "ipv4"
@@ -6107,10 +6819,18 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4']['meta_info']
 
 
-
-                            class Pseudowire(Entity):
+                            class Pseudowire(_Entity_):
                                 """
                                 Pseudowire target
                                 
@@ -6129,7 +6849,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire, self).__init__()
 
                                     self.yang_name = "pseudowire"
                                     self.yang_parent_name = "target"
@@ -6148,7 +6871,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire, [], name, value)
 
 
-                                class TargetAddress(Entity):
+                                class TargetAddress(_Entity_):
                                     """
                                     Target address
                                     
@@ -6180,7 +6903,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress, self).__init__()
 
                                         self.yang_name = "target-address"
                                         self.yang_parent_name = "pseudowire"
@@ -6201,11 +6927,23 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress, ['address', 'vc_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target']['meta_info']
 
 
-
-
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -6248,7 +6986,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -6270,9 +7011,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics']['meta_info']
 
 
-                        class History(Entity):
+                        class History(_Entity_):
                             """
                             Configure the history parameters for this
                             operation
@@ -6308,7 +7053,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History, self).__init__()
 
                                 self.yang_name = "history"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -6330,9 +7078,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History, ['lives', 'history_filter', 'buckets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History']['meta_info']
 
 
-                        class EnhancedStats(Entity):
+                        class EnhancedStats(_Entity_):
                             """
                             Table of statistics collection intervals
                             
@@ -6349,7 +7101,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats, self).__init__()
 
                                 self.yang_name = "enhanced-stats"
                                 self.yang_parent_name = "mpls-lsp-ping"
@@ -6367,7 +7122,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats, [], name, value)
 
 
-                            class EnhancedStat(Entity):
+                            class EnhancedStat(_Entity_):
                                 """
                                 Statistics for a specified time interval
                                 
@@ -6397,7 +7152,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat, self).__init__()
 
                                     self.yang_name = "enhanced-stat"
                                     self.yang_parent_name = "enhanced-stats"
@@ -6417,11 +7175,23 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing']['meta_info']
 
 
-
-
-                    class UdpEcho(Entity):
+                    class UdpEcho(_Entity_):
                         """
                         UDPEcho Operation type
                         
@@ -6534,7 +7304,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, self).__init__()
 
                             self.yang_name = "udp-echo"
                             self.yang_parent_name = "operation-type"
@@ -6590,7 +7363,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, ['source_address', 'tos', 'control_disable', 'source_port', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -6614,7 +7387,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "udp-echo"
@@ -6632,9 +7408,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -6677,7 +7457,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "udp-echo"
@@ -6699,9 +7482,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics']['meta_info']
 
 
-                        class History(Entity):
+                        class History(_Entity_):
                             """
                             Configure the history parameters for this
                             operation
@@ -6737,7 +7524,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History, self).__init__()
 
                                 self.yang_name = "history"
                                 self.yang_parent_name = "udp-echo"
@@ -6759,9 +7549,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History']['meta_info']
 
 
-                        class EnhancedStats(Entity):
+                        class EnhancedStats(_Entity_):
                             """
                             Table of statistics collection intervals
                             
@@ -6778,7 +7572,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats, self).__init__()
 
                                 self.yang_name = "enhanced-stats"
                                 self.yang_parent_name = "udp-echo"
@@ -6796,7 +7593,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats, [], name, value)
 
 
-                            class EnhancedStat(Entity):
+                            class EnhancedStat(_Entity_):
                                 """
                                 Statistics for a specified time interval
                                 
@@ -6826,7 +7623,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat, self).__init__()
 
                                     self.yang_name = "enhanced-stat"
                                     self.yang_parent_name = "enhanced-stats"
@@ -6846,11 +7646,23 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho']['meta_info']
 
 
-
-
-                    class MplsLspTrace(Entity):
+                    class MplsLspTrace(_Entity_):
                         """
                         MPLS LSP Trace Operation type
                         
@@ -6964,7 +7776,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, self).__init__()
 
                             self.yang_name = "mpls-lsp-trace"
                             self.yang_parent_name = "operation-type"
@@ -7018,7 +7833,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'source_address', 'output_nexthop', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
 
 
-                        class Target(Entity):
+                        class Target(_Entity_):
                             """
                             Target for the MPLS LSP operation
                             
@@ -7040,7 +7855,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target, self).__init__()
 
                                 self.yang_name = "target"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -7064,7 +7882,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target, [], name, value)
 
 
-                            class TrafficEngineering(Entity):
+                            class TrafficEngineering(_Entity_):
                                 """
                                 Traffic engineering target
                                 
@@ -7083,7 +7901,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering, self).__init__()
 
                                     self.yang_name = "traffic-engineering"
                                     self.yang_parent_name = "target"
@@ -7101,9 +7922,13 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering, ['tunnel'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering']['meta_info']
 
 
-                            class Ipv4(Entity):
+                            class Ipv4(_Entity_):
                                 """
                                 Target specified as an IPv4 address
                                 
@@ -7122,7 +7947,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4, self).__init__()
 
                                     self.yang_name = "ipv4"
                                     self.yang_parent_name = "target"
@@ -7141,7 +7969,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4, [], name, value)
 
 
-                                class FecAddress(Entity):
+                                class FecAddress(_Entity_):
                                     """
                                     Target FEC address with mask
                                     
@@ -7173,7 +8001,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress, self).__init__()
 
                                         self.yang_name = "fec-address"
                                         self.yang_parent_name = "ipv4"
@@ -7194,11 +8025,23 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target']['meta_info']
 
 
-
-
-                        class Reply(Entity):
+                        class Reply(_Entity_):
                             """
                             Echo reply options for the MPLS LSP
                             operation
@@ -7227,7 +8070,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply, self).__init__()
 
                                 self.yang_name = "reply"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -7247,9 +8093,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['mode', 'dscp_bits'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -7292,7 +8142,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -7314,9 +8167,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics']['meta_info']
 
 
-                        class History(Entity):
+                        class History(_Entity_):
                             """
                             Configure the history parameters for this
                             operation
@@ -7352,7 +8209,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History, self).__init__()
 
                                 self.yang_name = "history"
                                 self.yang_parent_name = "mpls-lsp-trace"
@@ -7374,10 +8234,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History, ['lives', 'history_filter', 'buckets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace']['meta_info']
 
 
-
-                    class UdpJitter(Entity):
+                    class UdpJitter(_Entity_):
                         """
                         UDPJitter Operation type
                         
@@ -7490,7 +8358,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, self).__init__()
 
                             self.yang_name = "udp-jitter"
                             self.yang_parent_name = "operation-type"
@@ -7546,7 +8417,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, ['source_address', 'tos', 'control_disable', 'source_port', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -7570,7 +8441,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "udp-jitter"
@@ -7588,9 +8462,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize']['meta_info']
 
 
-                        class Packet(Entity):
+                        class Packet(_Entity_):
                             """
                             Probe packet stream configuration
                             parameters
@@ -7623,7 +8501,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet, self).__init__()
 
                                 self.yang_name = "packet"
                                 self.yang_parent_name = "udp-jitter"
@@ -7643,9 +8524,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet, ['count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an hour
                             
@@ -7688,7 +8573,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "udp-jitter"
@@ -7710,9 +8598,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics']['meta_info']
 
 
-                        class EnhancedStats(Entity):
+                        class EnhancedStats(_Entity_):
                             """
                             Table of statistics collection intervals
                             
@@ -7729,7 +8621,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats, self).__init__()
 
                                 self.yang_name = "enhanced-stats"
                                 self.yang_parent_name = "udp-jitter"
@@ -7747,7 +8642,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats, [], name, value)
 
 
-                            class EnhancedStat(Entity):
+                            class EnhancedStat(_Entity_):
                                 """
                                 Statistics for a specified time interval
                                 
@@ -7777,7 +8672,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat, self).__init__()
 
                                     self.yang_name = "enhanced-stat"
                                     self.yang_parent_name = "enhanced-stats"
@@ -7797,11 +8695,23 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter']['meta_info']
 
 
-
-
-                    class IcmpPathEcho(Entity):
+                    class IcmpPathEcho(_Entity_):
                         """
                         ICMPPathEcho Operation type
                         
@@ -7892,7 +8802,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, self).__init__()
 
                             self.yang_name = "icmp-path-echo"
                             self.yang_parent_name = "operation-type"
@@ -7939,7 +8852,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, ['source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
-                        class History(Entity):
+                        class History(_Entity_):
                             """
                             Configure the history parameters for this
                             operation
@@ -7984,7 +8897,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History, self).__init__()
 
                                 self.yang_name = "history"
                                 self.yang_parent_name = "icmp-path-echo"
@@ -8008,9 +8924,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History, ['samples', 'buckets', 'history_filter', 'lives'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History']['meta_info']
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -8034,7 +8954,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "icmp-path-echo"
@@ -8052,9 +8975,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize']['meta_info']
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             Statistics collection aggregated over an
                             hour
@@ -8116,7 +9043,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "icmp-path-echo"
@@ -8142,9 +9072,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics, ['paths', 'dist_interval', 'dist_count', 'hours', 'hops'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics']['meta_info']
 
 
-                        class LsrPath(Entity):
+                        class LsrPath(_Entity_):
                             """
                             Loose source routing path (up to 8 intermediate
                             nodes)
@@ -8217,7 +9151,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath, self).__init__()
 
                                 self.yang_name = "lsr-path"
                                 self.yang_parent_name = "icmp-path-echo"
@@ -8250,10 +9187,18 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho']['meta_info']
 
 
-
-                    class IcmpPathJitter(Entity):
+                    class IcmpPathJitter(_Entity_):
                         """
                         ICMPPathJitter Operation type
                         
@@ -8339,7 +9284,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, self).__init__()
 
                             self.yang_name = "icmp-path-jitter"
                             self.yang_parent_name = "operation-type"
@@ -8382,7 +9330,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, ['source_address', 'tos', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
 
 
-                        class DataSize(Entity):
+                        class DataSize(_Entity_):
                             """
                             Protocol data size in payload of probe
                             packets
@@ -8406,7 +9354,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize, self).__init__()
 
                                 self.yang_name = "data-size"
                                 self.yang_parent_name = "icmp-path-jitter"
@@ -8424,9 +9375,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize, ['request'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize']['meta_info']
 
 
-                        class Packet(Entity):
+                        class Packet(_Entity_):
                             """
                             Probe packet stream configuration
                             parameters
@@ -8459,7 +9414,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet, self).__init__()
 
                                 self.yang_name = "packet"
                                 self.yang_parent_name = "icmp-path-jitter"
@@ -8479,9 +9437,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet, ['count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet']['meta_info']
 
 
-                        class LsrPath(Entity):
+                        class LsrPath(_Entity_):
                             """
                             Loose source routing path (up to 8 intermediate
                             nodes)
@@ -8554,7 +9516,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath, self).__init__()
 
                                 self.yang_name = "lsr-path"
                                 self.yang_parent_name = "icmp-path-jitter"
@@ -8587,14 +9552,38 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.Operation.Definitions.Definition.OperationType']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Operation.Definitions.Definition']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Operation.Definitions']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.Operation']['meta_info']
 
 
-
-
-
-
-
-    class Responder(Entity):
+    class Responder(_Entity_):
         """
         Responder configuration
         
@@ -8625,7 +9614,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.Responder, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.Responder, self).__init__()
 
             self.yang_name = "responder"
             self.yang_parent_name = "ipsla"
@@ -8654,7 +9646,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.Responder, [], name, value)
 
 
-        class Twamp(Entity):
+        class Twamp(_Entity_):
             """
             Responder TWAMP configuration
             
@@ -8679,7 +9671,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Responder.Twamp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Responder.Twamp, self).__init__()
 
                 self.yang_name = "twamp"
                 self.yang_parent_name = "responder"
@@ -8699,9 +9694,13 @@ class Ipsla(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Responder.Twamp, ['timeout'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Responder.Twamp']['meta_info']
 
 
-        class Type(Entity):
+        class Type(_Entity_):
             """
             Configure IPSLA Responder port type
             
@@ -8718,7 +9717,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Responder.Type, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Responder.Type, self).__init__()
 
                 self.yang_name = "type"
                 self.yang_parent_name = "responder"
@@ -8739,7 +9741,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Responder.Type, [], name, value)
 
 
-            class Udp(Entity):
+            class Udp(_Entity_):
                 """
                 Configure IPSLA Responder UDP address and port
                 
@@ -8756,7 +9758,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Responder.Type.Udp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Responder.Type.Udp, self).__init__()
 
                     self.yang_name = "udp"
                     self.yang_parent_name = "type"
@@ -8777,7 +9782,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Responder.Type.Udp, [], name, value)
 
 
-                class Addresses(Entity):
+                class Addresses(_Entity_):
                     """
                     Configure IP address
                     
@@ -8794,7 +9799,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Responder.Type.Udp.Addresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Responder.Type.Udp.Addresses, self).__init__()
 
                         self.yang_name = "addresses"
                         self.yang_parent_name = "udp"
@@ -8813,7 +9821,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         Configure IP address for the permanent port
                         
@@ -8837,7 +9845,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Responder.Type.Udp.Addresses.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Responder.Type.Udp.Addresses.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "addresses"
@@ -8861,7 +9872,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address, ['local_address'], name, value)
 
 
-                        class Ports(Entity):
+                        class Ports(_Entity_):
                             """
                             Configure port
                             
@@ -8878,7 +9889,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Responder.Type.Udp.Addresses.Address.Ports, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Responder.Type.Udp.Addresses.Address.Ports, self).__init__()
 
                                 self.yang_name = "ports"
                                 self.yang_parent_name = "address"
@@ -8896,7 +9910,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports, [], name, value)
 
 
-                            class Port(Entity):
+                            class Port(_Entity_):
                                 """
                                 Configure port number for the permanent
                                 port
@@ -8916,7 +9930,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, self).__init__()
 
                                     self.yang_name = "port"
                                     self.yang_parent_name = "ports"
@@ -8934,14 +9951,38 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, ['port'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Responder.Type.Udp.Addresses.Address.Ports']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Responder.Type.Udp.Addresses.Address']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.Responder.Type.Udp.Addresses']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Responder.Type.Udp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Responder.Type']['meta_info']
 
 
-
-
-
-
-
-        class TwampLight(Entity):
+        class TwampLight(_Entity_):
             """
             Enter twamp\-light session details
             
@@ -8958,7 +9999,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Responder.TwampLight, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Responder.TwampLight, self).__init__()
 
                 self.yang_name = "twamp-light"
                 self.yang_parent_name = "responder"
@@ -8979,7 +10023,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Responder.TwampLight, [], name, value)
 
 
-            class SessionIds(Entity):
+            class SessionIds(_Entity_):
                 """
                 Create twamp\-light session
                 
@@ -8996,7 +10040,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Responder.TwampLight.SessionIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Responder.TwampLight.SessionIds, self).__init__()
 
                     self.yang_name = "session-ids"
                     self.yang_parent_name = "twamp-light"
@@ -9015,7 +10062,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds, [], name, value)
 
 
-                class SessionId(Entity):
+                class SessionId(_Entity_):
                     """
                     Configure session ID
                     
@@ -9048,7 +10095,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId, self).__init__()
 
                         self.yang_name = "session-id"
                         self.yang_parent_name = "session-ids"
@@ -9074,7 +10124,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId, ['session_id', 'twamp_light_timeout'], name, value)
 
 
-                    class LocalIp(Entity):
+                    class LocalIp(_Entity_):
                         """
                         Configure local ip address
                         
@@ -9096,7 +10146,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp, self).__init__()
 
                             self.yang_name = "local-ip"
                             self.yang_parent_name = "session-id"
@@ -9120,7 +10173,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp, [], name, value)
 
 
-                        class LocalIpv6Addresses(Entity):
+                        class LocalIpv6Addresses(_Entity_):
                             """
                             Configure IPV6 address
                             
@@ -9137,7 +10190,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses, self).__init__()
 
                                 self.yang_name = "local-ipv6-addresses"
                                 self.yang_parent_name = "local-ip"
@@ -9155,7 +10211,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses, [], name, value)
 
 
-                            class LocalIpv6Address(Entity):
+                            class LocalIpv6Address(_Entity_):
                                 """
                                 Enter value of local ip address
                                 
@@ -9179,7 +10235,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address, self).__init__()
 
                                     self.yang_name = "local-ipv6-address"
                                     self.yang_parent_name = "local-ipv6-addresses"
@@ -9202,7 +10261,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address, ['localv6_address'], name, value)
 
 
-                                class LocalPortNumbers(Entity):
+                                class LocalPortNumbers(_Entity_):
                                     """
                                     Configuration of local port
                                     
@@ -9219,7 +10278,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers, self).__init__()
 
                                         self.yang_name = "local-port-numbers"
                                         self.yang_parent_name = "local-ipv6-address"
@@ -9237,7 +10299,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers, [], name, value)
 
 
-                                    class LocalPortNumber(Entity):
+                                    class LocalPortNumber(_Entity_):
                                         """
                                         Enter value of local port
                                         
@@ -9261,7 +10323,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber, self).__init__()
 
                                             self.yang_name = "local-port-number"
                                             self.yang_parent_name = "local-port-numbers"
@@ -9284,7 +10349,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber, ['local_port'], name, value)
 
 
-                                        class RemoteIp(Entity):
+                                        class RemoteIp(_Entity_):
                                             """
                                             Configure remote ip address
                                             
@@ -9306,7 +10371,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
 
                                                 self.yang_name = "remote-ip"
                                                 self.yang_parent_name = "local-port-number"
@@ -9330,7 +10398,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp, [], name, value)
 
 
-                                            class RemoteIpv4Addresses(Entity):
+                                            class RemoteIpv4Addresses(_Entity_):
                                                 """
                                                 Configure IPV4 address
                                                 
@@ -9347,7 +10415,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
 
                                                     self.yang_name = "remote-ipv4-addresses"
                                                     self.yang_parent_name = "remote-ip"
@@ -9365,7 +10436,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, [], name, value)
 
 
-                                                class RemoteIpv4Address(Entity):
+                                                class RemoteIpv4Address(_Entity_):
                                                     """
                                                     Enter value of remote ipv4 address
                                                     
@@ -9389,7 +10460,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
 
                                                         self.yang_name = "remote-ipv4-address"
                                                         self.yang_parent_name = "remote-ipv4-addresses"
@@ -9412,7 +10486,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, ['remotev4_address'], name, value)
 
 
-                                                    class RemotePortNumbers(Entity):
+                                                    class RemotePortNumbers(_Entity_):
                                                         """
                                                         Configuration of remote port
                                                         
@@ -9429,7 +10503,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
 
                                                             self.yang_name = "remote-port-numbers"
                                                             self.yang_parent_name = "remote-ipv4-address"
@@ -9447,7 +10524,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, [], name, value)
 
 
-                                                        class RemotePortNumber(Entity):
+                                                        class RemotePortNumber(_Entity_):
                                                             """
                                                             Enter value of remote port
                                                             
@@ -9471,7 +10548,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
 
                                                                 self.yang_name = "remote-port-number"
                                                                 self.yang_parent_name = "remote-port-numbers"
@@ -9494,7 +10574,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
 
 
-                                                            class VrfNames(Entity):
+                                                            class VrfNames(_Entity_):
                                                                 """
                                                                 Configuration of vrf
                                                                 
@@ -9511,7 +10591,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
 
                                                                     self.yang_name = "vrf-names"
                                                                     self.yang_parent_name = "remote-port-number"
@@ -9529,7 +10612,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
 
 
-                                                                class VrfName(Entity):
+                                                                class VrfName(_Entity_):
                                                                     """
                                                                     Configure vrf name value
                                                                     
@@ -9548,7 +10631,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
 
                                                                         self.yang_name = "vrf-name"
                                                                         self.yang_parent_name = "vrf-names"
@@ -9566,14 +10652,38 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName']['meta_info']
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses']['meta_info']
 
 
-
-
-
-
-
-                                            class RemoteIpv6Addresses(Entity):
+                                            class RemoteIpv6Addresses(_Entity_):
                                                 """
                                                 Configure IPV6 address
                                                 
@@ -9590,7 +10700,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
 
                                                     self.yang_name = "remote-ipv6-addresses"
                                                     self.yang_parent_name = "remote-ip"
@@ -9608,7 +10721,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, [], name, value)
 
 
-                                                class RemoteIpv6Address(Entity):
+                                                class RemoteIpv6Address(_Entity_):
                                                     """
                                                     Enter value of remote ipv6 address
                                                     
@@ -9632,7 +10745,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
 
                                                         self.yang_name = "remote-ipv6-address"
                                                         self.yang_parent_name = "remote-ipv6-addresses"
@@ -9655,7 +10771,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, ['remotev6_address'], name, value)
 
 
-                                                    class RemotePortNumbers(Entity):
+                                                    class RemotePortNumbers(_Entity_):
                                                         """
                                                         Configuration of remote port
                                                         
@@ -9672,7 +10788,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
 
                                                             self.yang_name = "remote-port-numbers"
                                                             self.yang_parent_name = "remote-ipv6-address"
@@ -9690,7 +10809,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, [], name, value)
 
 
-                                                        class RemotePortNumber(Entity):
+                                                        class RemotePortNumber(_Entity_):
                                                             """
                                                             Enter value of remote port
                                                             
@@ -9714,7 +10833,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
 
                                                                 self.yang_name = "remote-port-number"
                                                                 self.yang_parent_name = "remote-port-numbers"
@@ -9737,7 +10859,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
 
 
-                                                            class VrfNames(Entity):
+                                                            class VrfNames(_Entity_):
                                                                 """
                                                                 Configuration of vrf
                                                                 
@@ -9754,7 +10876,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
 
                                                                     self.yang_name = "vrf-names"
                                                                     self.yang_parent_name = "remote-port-number"
@@ -9772,7 +10897,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
 
 
-                                                                class VrfName(Entity):
+                                                                class VrfName(_Entity_):
                                                                     """
                                                                     Configure vrf name value
                                                                     
@@ -9791,7 +10916,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
 
                                                                         self.yang_name = "vrf-name"
                                                                         self.yang_parent_name = "vrf-names"
@@ -9809,19 +10937,63 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName']['meta_info']
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber.RemoteIp']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers.LocalPortNumber']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address.LocalPortNumbers']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses.LocalIpv6Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv6Addresses']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-
-                        class LocalIpv4Addresses(Entity):
+                        class LocalIpv4Addresses(_Entity_):
                             """
                             Configure IPV4 address
                             
@@ -9838,7 +11010,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses, self).__init__()
 
                                 self.yang_name = "local-ipv4-addresses"
                                 self.yang_parent_name = "local-ip"
@@ -9856,7 +11031,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses, [], name, value)
 
 
-                            class LocalIpv4Address(Entity):
+                            class LocalIpv4Address(_Entity_):
                                 """
                                 Enter value of local ipv4 address
                                 
@@ -9880,7 +11055,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address, self).__init__()
 
                                     self.yang_name = "local-ipv4-address"
                                     self.yang_parent_name = "local-ipv4-addresses"
@@ -9903,7 +11081,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address, ['localv4_address'], name, value)
 
 
-                                class LocalPortNumbers(Entity):
+                                class LocalPortNumbers(_Entity_):
                                     """
                                     Configuration of local port
                                     
@@ -9920,7 +11098,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers, self).__init__()
 
                                         self.yang_name = "local-port-numbers"
                                         self.yang_parent_name = "local-ipv4-address"
@@ -9938,7 +11119,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers, [], name, value)
 
 
-                                    class LocalPortNumber(Entity):
+                                    class LocalPortNumber(_Entity_):
                                         """
                                         Enter value of local port
                                         
@@ -9962,7 +11143,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber, self).__init__()
 
                                             self.yang_name = "local-port-number"
                                             self.yang_parent_name = "local-port-numbers"
@@ -9985,7 +11169,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber, ['local_port'], name, value)
 
 
-                                        class RemoteIp(Entity):
+                                        class RemoteIp(_Entity_):
                                             """
                                             Configure remote ip address
                                             
@@ -10007,7 +11191,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp, self).__init__()
 
                                                 self.yang_name = "remote-ip"
                                                 self.yang_parent_name = "local-port-number"
@@ -10031,7 +11218,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp, [], name, value)
 
 
-                                            class RemoteIpv4Addresses(Entity):
+                                            class RemoteIpv4Addresses(_Entity_):
                                                 """
                                                 Configure IPV4 address
                                                 
@@ -10048,7 +11235,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, self).__init__()
 
                                                     self.yang_name = "remote-ipv4-addresses"
                                                     self.yang_parent_name = "remote-ip"
@@ -10066,7 +11256,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses, [], name, value)
 
 
-                                                class RemoteIpv4Address(Entity):
+                                                class RemoteIpv4Address(_Entity_):
                                                     """
                                                     Enter value of remote ipv4 address
                                                     
@@ -10090,7 +11280,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, self).__init__()
 
                                                         self.yang_name = "remote-ipv4-address"
                                                         self.yang_parent_name = "remote-ipv4-addresses"
@@ -10113,7 +11306,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address, ['remotev4_address'], name, value)
 
 
-                                                    class RemotePortNumbers(Entity):
+                                                    class RemotePortNumbers(_Entity_):
                                                         """
                                                         Configuration of remote port
                                                         
@@ -10130,7 +11323,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, self).__init__()
 
                                                             self.yang_name = "remote-port-numbers"
                                                             self.yang_parent_name = "remote-ipv4-address"
@@ -10148,7 +11344,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers, [], name, value)
 
 
-                                                        class RemotePortNumber(Entity):
+                                                        class RemotePortNumber(_Entity_):
                                                             """
                                                             Enter value of remote port
                                                             
@@ -10172,7 +11368,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, self).__init__()
 
                                                                 self.yang_name = "remote-port-number"
                                                                 self.yang_parent_name = "remote-port-numbers"
@@ -10195,7 +11394,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
 
 
-                                                            class VrfNames(Entity):
+                                                            class VrfNames(_Entity_):
                                                                 """
                                                                 Configuration of vrf
                                                                 
@@ -10212,7 +11411,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
 
                                                                     self.yang_name = "vrf-names"
                                                                     self.yang_parent_name = "remote-port-number"
@@ -10230,7 +11432,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
 
 
-                                                                class VrfName(Entity):
+                                                                class VrfName(_Entity_):
                                                                     """
                                                                     Configure vrf name value
                                                                     
@@ -10249,7 +11451,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
 
                                                                         self.yang_name = "vrf-name"
                                                                         self.yang_parent_name = "vrf-names"
@@ -10267,14 +11472,38 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName']['meta_info']
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber.VrfNames']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers.RemotePortNumber']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address.RemotePortNumbers']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses.RemoteIpv4Address']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv4Addresses']['meta_info']
 
 
-
-
-
-
-
-                                            class RemoteIpv6Addresses(Entity):
+                                            class RemoteIpv6Addresses(_Entity_):
                                                 """
                                                 Configure IPV6 address
                                                 
@@ -10291,7 +11520,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, self).__init__()
 
                                                     self.yang_name = "remote-ipv6-addresses"
                                                     self.yang_parent_name = "remote-ip"
@@ -10309,7 +11541,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses, [], name, value)
 
 
-                                                class RemoteIpv6Address(Entity):
+                                                class RemoteIpv6Address(_Entity_):
                                                     """
                                                     Enter value of remote ipv6 address
                                                     
@@ -10333,7 +11565,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, self).__init__()
 
                                                         self.yang_name = "remote-ipv6-address"
                                                         self.yang_parent_name = "remote-ipv6-addresses"
@@ -10356,7 +11591,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address, ['remotev6_address'], name, value)
 
 
-                                                    class RemotePortNumbers(Entity):
+                                                    class RemotePortNumbers(_Entity_):
                                                         """
                                                         Configuration of remote port
                                                         
@@ -10373,7 +11608,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, self).__init__()
 
                                                             self.yang_name = "remote-port-numbers"
                                                             self.yang_parent_name = "remote-ipv6-address"
@@ -10391,7 +11629,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers, [], name, value)
 
 
-                                                        class RemotePortNumber(Entity):
+                                                        class RemotePortNumber(_Entity_):
                                                             """
                                                             Enter value of remote port
                                                             
@@ -10415,7 +11653,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, self).__init__()
 
                                                                 self.yang_name = "remote-port-number"
                                                                 self.yang_parent_name = "remote-port-numbers"
@@ -10438,7 +11679,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber, ['remote_port'], name, value)
 
 
-                                                            class VrfNames(Entity):
+                                                            class VrfNames(_Entity_):
                                                                 """
                                                                 Configuration of vrf
                                                                 
@@ -10455,7 +11696,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, self).__init__()
 
                                                                     self.yang_name = "vrf-names"
                                                                     self.yang_parent_name = "remote-port-number"
@@ -10473,7 +11717,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames, [], name, value)
 
 
-                                                                class VrfName(Entity):
+                                                                class VrfName(_Entity_):
                                                                     """
                                                                     Configure vrf name value
                                                                     
@@ -10492,7 +11736,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, self).__init__()
 
                                                                         self.yang_name = "vrf-name"
                                                                         self.yang_parent_name = "vrf-names"
@@ -10510,24 +11757,88 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName, ['vrf_name'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames.VrfName']['meta_info']
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber.VrfNames']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers.RemotePortNumber']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address.RemotePortNumbers']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses.RemoteIpv6Address']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp.RemoteIpv6Addresses']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber.RemoteIp']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers.LocalPortNumber']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address.LocalPortNumbers']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses.LocalIpv4Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                                return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp.LocalIpv4Addresses']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                            return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId.LocalIp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                        return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds.SessionId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                    return meta._meta_table['Ipsla.Responder.TwampLight.SessionIds']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.Responder.TwampLight']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.Responder']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    class MplsDiscovery(Entity):
+    class MplsDiscovery(_Entity_):
         """
         Provider Edge(PE) discovery configuration
         
@@ -10544,7 +11855,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.MplsDiscovery, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.MplsDiscovery, self).__init__()
 
             self.yang_name = "mpls-discovery"
             self.yang_parent_name = "ipsla"
@@ -10565,7 +11879,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.MplsDiscovery, [], name, value)
 
 
-        class Vpn(Entity):
+        class Vpn(_Entity_):
             """
             Layer 3 VPN PE discovery configuration
             
@@ -10588,7 +11902,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsDiscovery.Vpn, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsDiscovery.Vpn, self).__init__()
 
                 self.yang_name = "vpn"
                 self.yang_parent_name = "mpls-discovery"
@@ -10607,10 +11924,18 @@ class Ipsla(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsDiscovery.Vpn, ['interval'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+                return meta._meta_table['Ipsla.MplsDiscovery.Vpn']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.MplsDiscovery']['meta_info']
 
 
-
-    class ServerTwamp(Entity):
+    class ServerTwamp(_Entity_):
         """
         IPPM Server configuration
         
@@ -10644,7 +11969,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.ServerTwamp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.ServerTwamp, self).__init__()
 
             self.yang_name = "server-twamp"
             self.yang_parent_name = "ipsla"
@@ -10666,10 +11994,18 @@ class Ipsla(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.ServerTwamp, ['inactivity_timer', 'port'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+            return meta._meta_table['Ipsla.ServerTwamp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipsla()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_cfg as meta
+        return meta._meta_table['Ipsla']['meta_info']
 
 

@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class FastShutdown(Entity):
+class FastShutdown(_Entity_):
     """
     Fast Shutdown configuration
     
@@ -42,7 +45,10 @@ class FastShutdown(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FastShutdown, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FastShutdown, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fast-shutdown"
@@ -65,5 +71,9 @@ class FastShutdown(Entity):
         self._top_entity = FastShutdown()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mdrv_lib_cfg as meta
+        return meta._meta_table['FastShutdown']['meta_info']
 
 

@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -12,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SNMPTARGETMIB(Entity):
+class SNMPTARGETMIB(_Entity_):
     """
     
     
@@ -41,7 +44,10 @@ class SNMPTARGETMIB(Entity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        super(SNMPTARGETMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPTARGETMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-TARGET-MIB"
@@ -70,7 +76,7 @@ class SNMPTARGETMIB(Entity):
         self._perform_setattr(SNMPTARGETMIB, [], name, value)
 
 
-    class SnmpTargetObjects(Entity):
+    class SnmpTargetObjects(_Entity_):
         """
         
         
@@ -100,7 +106,10 @@ class SNMPTARGETMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPTARGETMIB.SnmpTargetObjects, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPTARGETMIB.SnmpTargetObjects, self).__init__()
 
             self.yang_name = "snmpTargetObjects"
             self.yang_parent_name = "SNMP-TARGET-MIB"
@@ -121,9 +130,13 @@ class SNMPTARGETMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, ['snmpunavailablecontexts', 'snmpunknowncontexts'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+            return meta._meta_table['SNMPTARGETMIB.SnmpTargetObjects']['meta_info']
 
 
-    class SnmpTargetAddrTable(Entity):
+    class SnmpTargetAddrTable(_Entity_):
         """
         
         
@@ -140,7 +153,10 @@ class SNMPTARGETMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPTARGETMIB.SnmpTargetAddrTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPTARGETMIB.SnmpTargetAddrTable, self).__init__()
 
             self.yang_name = "snmpTargetAddrTable"
             self.yang_parent_name = "SNMP-TARGET-MIB"
@@ -159,7 +175,7 @@ class SNMPTARGETMIB(Entity):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable, [], name, value)
 
 
-        class SnmpTargetAddrEntry(Entity):
+        class SnmpTargetAddrEntry(_Entity_):
             """
             
             
@@ -283,7 +299,10 @@ class SNMPTARGETMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, self).__init__()
 
                 self.yang_name = "snmpTargetAddrEntry"
                 self.yang_parent_name = "snmpTargetAddrTable"
@@ -324,10 +343,18 @@ class SNMPTARGETMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, ['snmptargetaddrname', 'snmptargetaddrtdomain', 'snmptargetaddrtaddress', 'snmptargetaddrtimeout', 'snmptargetaddrretrycount', 'snmptargetaddrtaglist', 'snmptargetaddrparams', 'snmptargetaddrstoragetype', 'snmptargetaddrengineid', 'snmptargetaddrtmask', 'snmptargetaddrmms', 'enabled'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+                return meta._meta_table['SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+            return meta._meta_table['SNMPTARGETMIB.SnmpTargetAddrTable']['meta_info']
 
 
-
-    class SnmpTargetParamsTable(Entity):
+    class SnmpTargetParamsTable(_Entity_):
         """
         
         
@@ -344,7 +371,10 @@ class SNMPTARGETMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPTARGETMIB.SnmpTargetParamsTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPTARGETMIB.SnmpTargetParamsTable, self).__init__()
 
             self.yang_name = "snmpTargetParamsTable"
             self.yang_parent_name = "SNMP-TARGET-MIB"
@@ -363,7 +393,7 @@ class SNMPTARGETMIB(Entity):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable, [], name, value)
 
 
-        class SnmpTargetParamsEntry(Entity):
+        class SnmpTargetParamsEntry(_Entity_):
             """
             
             
@@ -423,7 +453,10 @@ class SNMPTARGETMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, self).__init__()
 
                 self.yang_name = "snmpTargetParamsEntry"
                 self.yang_parent_name = "snmpTargetParamsTable"
@@ -452,11 +485,23 @@ class SNMPTARGETMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, ['snmptargetparamsname', 'snmptargetparamsmpmodel', 'snmptargetparamssecuritymodel', 'snmptargetparamssecurityname', 'snmptargetparamssecuritylevel', 'snmptargetparamsstoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+                return meta._meta_table['SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+            return meta._meta_table['SNMPTARGETMIB.SnmpTargetParamsTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPTARGETMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_TARGET_MIB as meta
+        return meta._meta_table['SNMPTARGETMIB']['meta_info']
 
 

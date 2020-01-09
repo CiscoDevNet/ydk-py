@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,8 +45,14 @@ class DigestHash(Enum):
     sha1 = Enum.YLeaf(1, "sha1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+        return meta._meta_table['DigestHash']
 
-class L2tp(Entity):
+
+
+class L2tp(_Entity_):
     """
     L2TP operational data
     
@@ -62,7 +71,10 @@ class L2tp(Entity):
     _revision = '2018-11-01'
 
     def __init__(self):
-        super(L2tp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(L2tp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2tp"
@@ -83,7 +95,7 @@ class L2tp(Entity):
         self._perform_setattr(L2tp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which subscriber data is
         collected
@@ -103,7 +115,10 @@ class L2tp(Entity):
         _revision = '2018-11-01'
 
         def __init__(self):
-            super(L2tp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2tp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "l2tp"
@@ -122,7 +137,7 @@ class L2tp(Entity):
             self._perform_setattr(L2tp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber data for a particular node
             
@@ -199,7 +214,10 @@ class L2tp(Entity):
             _revision = '2018-11-01'
 
             def __init__(self):
-                super(L2tp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2tp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -251,7 +269,7 @@ class L2tp(Entity):
                 self._perform_setattr(L2tp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Counters(Entity):
+            class Counters(_Entity_):
                 """
                 L2TP control messages counters
                 
@@ -270,7 +288,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Counters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Counters, self).__init__()
 
                     self.yang_name = "counters"
                     self.yang_parent_name = "node"
@@ -290,7 +311,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Counters, [], name, value)
 
 
-                class Control(Entity):
+                class Control(_Entity_):
                     """
                     L2TP control messages counters
                     
@@ -316,7 +337,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Counters.Control, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Counters.Control, self).__init__()
 
                         self.yang_name = "control"
                         self.yang_parent_name = "counters"
@@ -340,7 +364,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Nodes.Node.Counters.Control, [], name, value)
 
 
-                    class TunnelXr(Entity):
+                    class TunnelXr(_Entity_):
                         """
                         L2TP control tunnel messages counters
                         
@@ -366,7 +390,10 @@ class L2tp(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tp.Nodes.Node.Counters.Control.TunnelXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Nodes.Node.Counters.Control.TunnelXr, self).__init__()
 
                             self.yang_name = "tunnel-xr"
                             self.yang_parent_name = "control"
@@ -390,7 +417,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr, [], name, value)
 
 
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Tunnel authentication counters
                             
@@ -465,7 +492,10 @@ class L2tp(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "tunnel-xr"
@@ -517,7 +547,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication, [], name, value)
 
 
-                            class NonceAvp(Entity):
+                            class NonceAvp(_Entity_):
                                 """
                                 Nonce AVP statistics
                                 
@@ -628,7 +658,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
 
                                     self.yang_name = "nonce-avp"
                                     self.yang_parent_name = "authentication"
@@ -666,9 +699,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp']['meta_info']
 
 
-                            class CommonDigest(Entity):
+                            class CommonDigest(_Entity_):
                                 """
                                 Common digest statistics
                                 
@@ -779,7 +816,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
 
                                     self.yang_name = "common-digest"
                                     self.yang_parent_name = "authentication"
@@ -817,9 +857,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest']['meta_info']
 
 
-                            class PrimaryDigest(Entity):
+                            class PrimaryDigest(_Entity_):
                                 """
                                 Primary digest statistics
                                 
@@ -930,7 +974,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
 
                                     self.yang_name = "primary-digest"
                                     self.yang_parent_name = "authentication"
@@ -968,9 +1015,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest']['meta_info']
 
 
-                            class SecondaryDigest(Entity):
+                            class SecondaryDigest(_Entity_):
                                 """
                                 Secondary digest statistics
                                 
@@ -1081,7 +1132,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
 
                                     self.yang_name = "secondary-digest"
                                     self.yang_parent_name = "authentication"
@@ -1119,9 +1173,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest']['meta_info']
 
 
-                            class IntegrityCheck(Entity):
+                            class IntegrityCheck(_Entity_):
                                 """
                                 Integrity check statistics
                                 
@@ -1232,7 +1290,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
 
                                     self.yang_name = "integrity-check"
                                     self.yang_parent_name = "authentication"
@@ -1270,9 +1331,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck']['meta_info']
 
 
-                            class LocalSecret(Entity):
+                            class LocalSecret(_Entity_):
                                 """
                                 Local secret statistics
                                 
@@ -1383,7 +1448,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
 
                                     self.yang_name = "local-secret"
                                     self.yang_parent_name = "authentication"
@@ -1421,9 +1489,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret']['meta_info']
 
 
-                            class ChallengeAvp(Entity):
+                            class ChallengeAvp(_Entity_):
                                 """
                                 Challenge AVP statistics
                                 
@@ -1534,7 +1606,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
 
                                     self.yang_name = "challenge-avp"
                                     self.yang_parent_name = "authentication"
@@ -1572,9 +1647,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp']['meta_info']
 
 
-                            class ChallengeReponse(Entity):
+                            class ChallengeReponse(_Entity_):
                                 """
                                 Challenge response statistics
                                 
@@ -1685,7 +1764,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
 
                                     self.yang_name = "challenge-reponse"
                                     self.yang_parent_name = "authentication"
@@ -1723,9 +1805,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse']['meta_info']
 
 
-                            class OverallStatistics(Entity):
+                            class OverallStatistics(_Entity_):
                                 """
                                 Overall statistics
                                 
@@ -1836,7 +1922,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
 
                                     self.yang_name = "overall-statistics"
                                     self.yang_parent_name = "authentication"
@@ -1874,10 +1963,18 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Authentication']['meta_info']
 
 
-
-                        class Global(Entity):
+                        class Global(_Entity_):
                             """
                             Tunnel counters
                             
@@ -1953,7 +2050,10 @@ class L2tp(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global, self).__init__()
 
                                 self.yang_name = "global"
                                 self.yang_parent_name = "tunnel-xr"
@@ -1994,7 +2094,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
 
 
-                            class Transmit(Entity):
+                            class Transmit(_Entity_):
                                 """
                                 Transmit data
                                 
@@ -2177,7 +2277,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
 
                                     self.yang_name = "transmit"
                                     self.yang_parent_name = "global"
@@ -2231,9 +2334,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit']['meta_info']
 
 
-                            class Retransmit(Entity):
+                            class Retransmit(_Entity_):
                                 """
                                 Re transmit data
                                 
@@ -2416,7 +2523,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
 
                                     self.yang_name = "retransmit"
                                     self.yang_parent_name = "global"
@@ -2470,9 +2580,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit']['meta_info']
 
 
-                            class Received(Entity):
+                            class Received(_Entity_):
                                 """
                                 Received data
                                 
@@ -2655,7 +2769,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Received, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Received, self).__init__()
 
                                     self.yang_name = "received"
                                     self.yang_parent_name = "global"
@@ -2709,9 +2826,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Received']['meta_info']
 
 
-                            class Drop(Entity):
+                            class Drop(_Entity_):
                                 """
                                 Drop data
                                 
@@ -2894,7 +3015,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, self).__init__()
 
                                     self.yang_name = "drop"
                                     self.yang_parent_name = "global"
@@ -2948,11 +3072,23 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Global.Drop']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr.Global']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tp.Nodes.Node.Counters.Control.TunnelXr']['meta_info']
 
 
-
-
-                    class Tunnels(Entity):
+                    class Tunnels(_Entity_):
                         """
                         Table of tunnel IDs of control message counters
                         
@@ -2971,7 +3107,10 @@ class L2tp(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tp.Nodes.Node.Counters.Control.Tunnels, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Nodes.Node.Counters.Control.Tunnels, self).__init__()
 
                             self.yang_name = "tunnels"
                             self.yang_parent_name = "control"
@@ -2989,7 +3128,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels, [], name, value)
 
 
-                        class Tunnel(Entity):
+                        class Tunnel(_Entity_):
                             """
                             L2TP tunnel control message counters
                             
@@ -3024,7 +3163,10 @@ class L2tp(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel, self).__init__()
 
                                 self.yang_name = "tunnel"
                                 self.yang_parent_name = "tunnels"
@@ -3051,7 +3193,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
 
 
-                            class Brief(Entity):
+                            class Brief(_Entity_):
                                 """
                                 L2TP control message local and remote addresses
                                 
@@ -3090,7 +3232,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
 
                                     self.yang_name = "brief"
                                     self.yang_parent_name = "tunnel"
@@ -3112,9 +3257,13 @@ class L2tp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, ['remote_tunnel_id', 'local_address', 'remote_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief']['meta_info']
 
 
-                            class Global(Entity):
+                            class Global(_Entity_):
                                 """
                                 Global data
                                 
@@ -3190,7 +3339,10 @@ class L2tp(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
 
                                     self.yang_name = "global"
                                     self.yang_parent_name = "tunnel"
@@ -3231,7 +3383,7 @@ class L2tp(Entity):
                                     self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
 
 
-                                class Transmit(Entity):
+                                class Transmit(_Entity_):
                                     """
                                     Transmit data
                                     
@@ -3414,7 +3566,10 @@ class L2tp(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
 
                                         self.yang_name = "transmit"
                                         self.yang_parent_name = "global"
@@ -3468,9 +3623,13 @@ class L2tp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit']['meta_info']
 
 
-                                class Retransmit(Entity):
+                                class Retransmit(_Entity_):
                                     """
                                     Re transmit data
                                     
@@ -3653,7 +3812,10 @@ class L2tp(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
 
                                         self.yang_name = "retransmit"
                                         self.yang_parent_name = "global"
@@ -3707,9 +3869,13 @@ class L2tp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit']['meta_info']
 
 
-                                class Received(Entity):
+                                class Received(_Entity_):
                                     """
                                     Received data
                                     
@@ -3892,7 +4058,10 @@ class L2tp(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
 
                                         self.yang_name = "received"
                                         self.yang_parent_name = "global"
@@ -3946,9 +4115,13 @@ class L2tp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received']['meta_info']
 
 
-                                class Drop(Entity):
+                                class Drop(_Entity_):
                                     """
                                     Drop data
                                     
@@ -4131,7 +4304,10 @@ class L2tp(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
 
                                         self.yang_name = "drop"
                                         self.yang_parent_name = "global"
@@ -4185,14 +4361,38 @@ class L2tp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels.Tunnel']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tp.Nodes.Node.Counters.Control.Tunnels']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Counters.Control']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Counters']['meta_info']
 
 
-
-
-
-
-
-            class TunnelConfigurations(Entity):
+            class TunnelConfigurations(_Entity_):
                 """
                 List of tunnel IDs
                 
@@ -4211,7 +4411,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.TunnelConfigurations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.TunnelConfigurations, self).__init__()
 
                     self.yang_name = "tunnel-configurations"
                     self.yang_parent_name = "node"
@@ -4229,7 +4432,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.TunnelConfigurations, [], name, value)
 
 
-                class TunnelConfiguration(Entity):
+                class TunnelConfiguration(_Entity_):
                     """
                     L2TP tunnel information
                     
@@ -4266,7 +4469,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration, self).__init__()
 
                         self.yang_name = "tunnel-configuration"
                         self.yang_parent_name = "tunnel-configurations"
@@ -4291,7 +4497,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', 'remote_tunnel_id'], name, value)
 
 
-                    class L2tpClass(Entity):
+                    class L2tpClass(_Entity_):
                         """
                         L2Tp class data
                         
@@ -4517,7 +4723,10 @@ class L2tp(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
 
                             self.yang_name = "l2tp-class"
                             self.yang_parent_name = "tunnel-configuration"
@@ -4581,11 +4790,23 @@ class L2tp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, ['ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.TunnelConfigurations.TunnelConfiguration']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.TunnelConfigurations']['meta_info']
 
 
-
-
-            class CounterHistFail(Entity):
+            class CounterHistFail(_Entity_):
                 """
                 Failure events leading to disconnection
                 
@@ -4631,7 +4852,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.CounterHistFail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.CounterHistFail, self).__init__()
 
                     self.yang_name = "counter-hist-fail"
                     self.yang_parent_name = "node"
@@ -4656,7 +4880,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.CounterHistFail, ['sess_down_tmout', 'tx_counters', 'rx_counters'], name, value)
 
 
-                class PktTimeout(Entity):
+                class PktTimeout(_Entity_):
                     """
                     timeout events by packet
                     
@@ -4677,7 +4901,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.CounterHistFail.PktTimeout, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.CounterHistFail.PktTimeout, self).__init__()
 
                         self.yang_name = "pkt-timeout"
                         self.yang_parent_name = "counter-hist-fail"
@@ -4695,10 +4922,18 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Nodes.Node.CounterHistFail.PktTimeout, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.CounterHistFail.PktTimeout']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.CounterHistFail']['meta_info']
 
 
-
-            class Classes(Entity):
+            class Classes(_Entity_):
                 """
                 List of L2TP class names
                 
@@ -4717,7 +4952,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Classes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Classes, self).__init__()
 
                     self.yang_name = "classes"
                     self.yang_parent_name = "node"
@@ -4735,7 +4973,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Classes, [], name, value)
 
 
-                class Class(Entity):
+                class Class(_Entity_):
                     """
                     L2TP class name
                     
@@ -4970,7 +5208,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Classes.Class, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Classes.Class, self).__init__()
 
                         self.yang_name = "class"
                         self.yang_parent_name = "classes"
@@ -5036,10 +5277,18 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Nodes.Node.Classes.Class, ['class_name', 'ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Classes.Class']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Classes']['meta_info']
 
 
-
-            class Tunnels(Entity):
+            class Tunnels(_Entity_):
                 """
                 List of tunnel IDs
                 
@@ -5058,7 +5307,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Tunnels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "node"
@@ -5076,7 +5328,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Tunnels, [], name, value)
 
 
-                class Tunnel(Entity):
+                class Tunnel(_Entity_):
                     """
                     L2TP tunnel  information
                     
@@ -5381,7 +5633,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Tunnels.Tunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
@@ -5464,7 +5719,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Nodes.Node.Tunnels.Tunnel, ['local_tunnel_id', 'local_address', 'remote_address', 'local_port', 'remote_port', 'protocol', 'is_pmtu_enabled', 'remote_tunnel_id', 'local_tunnel_name', 'remote_tunnel_name', 'class_name', 'active_sessions', 'sequence_ns', 'sequence_nr', 'local_window_size', 'remote_window_size', 'retransmission_time', 'maximum_retransmission_time', 'unsent_queue_size', 'unsent_maximum_queue_size', 'resend_queue_size', 'resend_maximum_queue_size', 'order_queue_size', 'packet_queue_check', 'digest_secrets', 'resends', 'zero_length_body_acknowledgement_sent', 'total_out_of_order_drop_packets', 'total_out_of_order_reorder_packets', 'total_peer_authentication_failures', 'is_tunnel_up', 'is_congestion_control_enabled'], name, value)
 
 
-                    class RetransmitTime(Entity):
+                    class RetransmitTime(_Entity_):
                         """
                         Retransmit time distribution in seconds
                         
@@ -5487,7 +5742,10 @@ class L2tp(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tp.Nodes.Node.Tunnels.Tunnel.RetransmitTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Nodes.Node.Tunnels.Tunnel.RetransmitTime, self).__init__()
 
                             self.yang_name = "retransmit-time"
                             self.yang_parent_name = "tunnel"
@@ -5505,11 +5763,23 @@ class L2tp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Nodes.Node.Tunnels.Tunnel.RetransmitTime, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tp.Nodes.Node.Tunnels.Tunnel.RetransmitTime']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Tunnels.Tunnel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Tunnels']['meta_info']
 
 
-
-
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 List of session IDs
                 
@@ -5528,7 +5798,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "node"
@@ -5546,7 +5819,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     L2TP information for a particular session
                     
@@ -5758,7 +6031,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -5825,7 +6101,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Nodes.Node.Sessions.Session, ['local_tunnel_id', 'local_session_id', 'local_ip_address', 'remote_ip_address', 'l2tp_sh_sess_udp_lport', 'l2tp_sh_sess_udp_rport', 'protocol', 'remote_tunnel_id', 'call_serial_number', 'local_tunnel_name', 'remote_tunnel_name', 'remote_session_id', 'l2tp_sh_sess_tie_breaker_enabled', 'l2tp_sh_sess_tie_breaker', 'is_session_manual', 'is_session_up', 'is_udp_checksum_enabled', 'is_sequencing_on', 'is_session_state_established', 'is_session_locally_initiated', 'is_conditional_debug_enabled', 'unique_id', 'interface_name'], name, value)
 
 
-                    class SessionApplicationData(Entity):
+                    class SessionApplicationData(_Entity_):
                         """
                         Session application data
                         
@@ -5860,7 +6136,10 @@ class L2tp(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData, self).__init__()
 
                             self.yang_name = "session-application-data"
                             self.yang_parent_name = "session"
@@ -5887,7 +6166,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData, ['l2tp_sh_sess_app_type'], name, value)
 
 
-                        class Xconnect(Entity):
+                        class Xconnect(_Entity_):
                             """
                             Xconnect data
                             
@@ -5943,7 +6222,10 @@ class L2tp(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
 
                                 self.yang_name = "xconnect"
                                 self.yang_parent_name = "session-application-data"
@@ -5971,9 +6253,13 @@ class L2tp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, ['circuit_name', 'sessionvc_id', 'is_circuit_state_up', 'is_local_circuit_state_up', 'is_remote_circuit_state_up', 'ipv6_protocol_tunneling'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect']['meta_info']
 
 
-                        class Vpdn(Entity):
+                        class Vpdn(_Entity_):
                             """
                             VPDN data
                             
@@ -6001,7 +6287,10 @@ class L2tp(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
 
                                 self.yang_name = "vpdn"
                                 self.yang_parent_name = "session-application-data"
@@ -6021,12 +6310,28 @@ class L2tp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, ['username', 'interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tp.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tp.Nodes.Node.Sessions.Session.SessionApplicationData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Sessions.Session']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Sessions']['meta_info']
 
 
-
-
-
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 L2TP control messages counters
                 
@@ -6045,7 +6350,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "node"
@@ -6065,7 +6373,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Session, [], name, value)
 
 
-                class Unavailable(Entity):
+                class Unavailable(_Entity_):
                     """
                     L2TP session unavailable  information
                     
@@ -6086,7 +6394,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Session.Unavailable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Session.Unavailable, self).__init__()
 
                         self.yang_name = "unavailable"
                         self.yang_parent_name = "session"
@@ -6104,10 +6415,18 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Nodes.Node.Session.Unavailable, ['sessions_on_hold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Session.Unavailable']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Session']['meta_info']
 
 
-
-            class Internal(Entity):
+            class Internal(_Entity_):
                 """
                 L2TP v2/v3 internal information
                 
@@ -6142,7 +6461,10 @@ class L2tp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tp.Nodes.Node.Internal, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tp.Nodes.Node.Internal, self).__init__()
 
                     self.yang_name = "internal"
                     self.yang_parent_name = "node"
@@ -6169,7 +6491,7 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Nodes.Node.Internal, ['time_last_clear'], name, value)
 
 
-                class InternalStats(Entity):
+                class InternalStats(_Entity_):
                     """
                     internal stats
                     
@@ -6712,7 +7034,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Internal.InternalStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Internal.InternalStats, self).__init__()
 
                         self.yang_name = "internal-stats"
                         self.yang_parent_name = "internal"
@@ -6846,9 +7171,13 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Nodes.Node.Internal.InternalStats, ['l2tp_sh_l2x_num_tunnels', 'l2tp_sh_l2x_num_sessions', 'l2tp_sh_l2x_rx_high_water_mark', 'l2tp_sh_l2x_ave_msg_process_usecs', 'l2tp_sh_l2x_num_rx_msgs', 'l2tp_sh_l2x_num_tx_msgs', 'l2tp_sh_l2x_num_tx_err_drops', 'l2tp_sh_l2x_num_tx_conn_drops', 'l2tp_sh_l2x_num_reordered_msgs', 'l2tp_sh_l2x_max_reorder_deviation', 'l2tp_sh_l2x_num_ooo_msgs', 'l2tp_sh_l2x_num_rx_path_drops', 'l2tp_sh_l2x_num_rx_path_data_pkt_drops', 'l2tp_sh_l2x_num_rx_queue_drops', 'l2tp_sh_l2x_num_rx_ooo_drops', 'l2tp_sh_l2x_num_buffered_msgs', 'l2tp_sh_l2x_num_mutex_block', 'l2tp_sh_l2x_num_bad_len_drops', 'l2tp_sh_l2x_num_bad_avp_drops', 'l2tp_sh_l2x_num_missing_cc_id_drops', 'l2tp_sh_l2x_num_missing_sess_id_drops', 'l2tp_sh_l2x_num_mismatch_cc_id_drops', 'l2tp_sh_l2x_num_unknown_cc_drops', 'l2tp_sh_l2x_num_unknown_sess_drops', 'l2tp_sh_l2x_num_linear_id_search', 'l2tp_sh_l2x_num_linear_id_search_fail', 'l2tp_sh_l2x_num_netio_pkt_rx', 'l2tp_sh_l2tun_ave_msg_process_usecs', 'l2tp_sh_l2tun_num_rx_msgs', 'l2tp_sh_l2tun_num_tx_msgs', 'l2tp_l2tun_socket_ens_send_error_cnt', 'l2tp_l2tun_socket_session_accept', 'l2tp_l2tun_socket_session_destroy', 'l2tp_l2tun_socket_session_connect', 'l2tp_l2tun_socket_session_connect_continue', 'l2tp_l2tun_session_connecting', 'l2tp_l2tun_session_connected', 'l2tp_l2tun_session_disconnected', 'l2tp_l2tun_session_incoming', 'l2tp_l2tun_session_updated', 'l2tp_l2tun_session_circuit_status', 'l2x_lpts_pa_stats_setup_cnt', 'l2x_lpts_pa_stats_destroy_cnt', 'l2x_lpts_pa_stats_alloc_cnt', 'l2x_lpts_pa_stats_alloc_fail_cnt', 'l2x_lpts_pa_stats_init_cnt', 'l2x_lpts_pa_stats_init_fail_cnt', 'l2x_lpts_pa_stats_free_cnt', 'l2x_lpts_pa_stats_pulse_cnt', 'l2x_lpts_pa_stats_pulse_fail_cnt', 'l2x_lpts_pa_stats_bind_cnt', 'l2x_lpts_pa_stats_bind_fail_cnt', 'l2x_lpts_pa_stats_bind_batch_cnt', 'l2x_lpts_pa_stats_bind_batch_fail_cnt', 'l2x_lpts_pa_stats_bind_time', 'l2x_lpts_pa_stats_expire_cnt', 'l2x_lpts_pa_stats_replay_cnt', 'l2x_lpts_pa_stats_replay_batch_cnt', 'l2x_lpts_pa_stats_replay_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Internal.InternalStats']['meta_info']
 
 
-                class InternalStatsLastClear(Entity):
+                class InternalStatsLastClear(_Entity_):
                     """
                     internal stats last clear
                     
@@ -7391,7 +7720,10 @@ class L2tp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tp.Nodes.Node.Internal.InternalStatsLastClear, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tp.Nodes.Node.Internal.InternalStatsLastClear, self).__init__()
 
                         self.yang_name = "internal-stats-last-clear"
                         self.yang_parent_name = "internal"
@@ -7525,17 +7857,37 @@ class L2tp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Nodes.Node.Internal.InternalStatsLastClear, ['l2tp_sh_l2x_num_tunnels', 'l2tp_sh_l2x_num_sessions', 'l2tp_sh_l2x_rx_high_water_mark', 'l2tp_sh_l2x_ave_msg_process_usecs', 'l2tp_sh_l2x_num_rx_msgs', 'l2tp_sh_l2x_num_tx_msgs', 'l2tp_sh_l2x_num_tx_err_drops', 'l2tp_sh_l2x_num_tx_conn_drops', 'l2tp_sh_l2x_num_reordered_msgs', 'l2tp_sh_l2x_max_reorder_deviation', 'l2tp_sh_l2x_num_ooo_msgs', 'l2tp_sh_l2x_num_rx_path_drops', 'l2tp_sh_l2x_num_rx_path_data_pkt_drops', 'l2tp_sh_l2x_num_rx_queue_drops', 'l2tp_sh_l2x_num_rx_ooo_drops', 'l2tp_sh_l2x_num_buffered_msgs', 'l2tp_sh_l2x_num_mutex_block', 'l2tp_sh_l2x_num_bad_len_drops', 'l2tp_sh_l2x_num_bad_avp_drops', 'l2tp_sh_l2x_num_missing_cc_id_drops', 'l2tp_sh_l2x_num_missing_sess_id_drops', 'l2tp_sh_l2x_num_mismatch_cc_id_drops', 'l2tp_sh_l2x_num_unknown_cc_drops', 'l2tp_sh_l2x_num_unknown_sess_drops', 'l2tp_sh_l2x_num_linear_id_search', 'l2tp_sh_l2x_num_linear_id_search_fail', 'l2tp_sh_l2x_num_netio_pkt_rx', 'l2tp_sh_l2tun_ave_msg_process_usecs', 'l2tp_sh_l2tun_num_rx_msgs', 'l2tp_sh_l2tun_num_tx_msgs', 'l2tp_l2tun_socket_ens_send_error_cnt', 'l2tp_l2tun_socket_session_accept', 'l2tp_l2tun_socket_session_destroy', 'l2tp_l2tun_socket_session_connect', 'l2tp_l2tun_socket_session_connect_continue', 'l2tp_l2tun_session_connecting', 'l2tp_l2tun_session_connected', 'l2tp_l2tun_session_disconnected', 'l2tp_l2tun_session_incoming', 'l2tp_l2tun_session_updated', 'l2tp_l2tun_session_circuit_status', 'l2x_lpts_pa_stats_setup_cnt', 'l2x_lpts_pa_stats_destroy_cnt', 'l2x_lpts_pa_stats_alloc_cnt', 'l2x_lpts_pa_stats_alloc_fail_cnt', 'l2x_lpts_pa_stats_init_cnt', 'l2x_lpts_pa_stats_init_fail_cnt', 'l2x_lpts_pa_stats_free_cnt', 'l2x_lpts_pa_stats_pulse_cnt', 'l2x_lpts_pa_stats_pulse_fail_cnt', 'l2x_lpts_pa_stats_bind_cnt', 'l2x_lpts_pa_stats_bind_fail_cnt', 'l2x_lpts_pa_stats_bind_batch_cnt', 'l2x_lpts_pa_stats_bind_batch_fail_cnt', 'l2x_lpts_pa_stats_bind_time', 'l2x_lpts_pa_stats_expire_cnt', 'l2x_lpts_pa_stats_replay_cnt', 'l2x_lpts_pa_stats_replay_batch_cnt', 'l2x_lpts_pa_stats_replay_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tp.Nodes.Node.Internal.InternalStatsLastClear']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tp.Nodes.Node.Internal']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                return meta._meta_table['L2tp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+            return meta._meta_table['L2tp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = L2tp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+        return meta._meta_table['L2tp']['meta_info']
 
 
-class L2tpv2(Entity):
+class L2tpv2(_Entity_):
     """
     l2tpv2
     
@@ -7554,7 +7906,10 @@ class L2tpv2(Entity):
     _revision = '2018-11-01'
 
     def __init__(self):
-        super(L2tpv2, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(L2tpv2, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2tpv2"
@@ -7575,7 +7930,7 @@ class L2tpv2(Entity):
         self._perform_setattr(L2tpv2, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which subscriber data is
         collected
@@ -7595,7 +7950,10 @@ class L2tpv2(Entity):
         _revision = '2018-11-01'
 
         def __init__(self):
-            super(L2tpv2.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2tpv2.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "l2tpv2"
@@ -7614,7 +7972,7 @@ class L2tpv2(Entity):
             self._perform_setattr(L2tpv2.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber data for a particular node
             
@@ -7705,7 +8063,10 @@ class L2tpv2(Entity):
             _revision = '2018-11-01'
 
             def __init__(self):
-                super(L2tpv2.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2tpv2.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -7765,7 +8126,7 @@ class L2tpv2(Entity):
                 self._perform_setattr(L2tpv2.Nodes.Node, ['node_name'], name, value)
 
 
-            class Counters(Entity):
+            class Counters(_Entity_):
                 """
                 L2TP control messages counters
                 
@@ -7791,7 +8152,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Counters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Counters, self).__init__()
 
                     self.yang_name = "counters"
                     self.yang_parent_name = "node"
@@ -7815,7 +8179,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Counters, [], name, value)
 
 
-                class Forwarding(Entity):
+                class Forwarding(_Entity_):
                     """
                     L2TP forwarding messages counters
                     
@@ -7834,7 +8198,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Counters.Forwarding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Counters.Forwarding, self).__init__()
 
                         self.yang_name = "forwarding"
                         self.yang_parent_name = "counters"
@@ -7854,7 +8221,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Forwarding, [], name, value)
 
 
-                    class Sessions(Entity):
+                    class Sessions(_Entity_):
                         """
                         List of class and session IDs
                         
@@ -7873,7 +8240,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions, self).__init__()
 
                             self.yang_name = "sessions"
                             self.yang_parent_name = "forwarding"
@@ -7891,7 +8261,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions, [], name, value)
 
 
-                        class Session(Entity):
+                        class Session(_Entity_):
                             """
                             L2TP information for a particular session
                             
@@ -7970,7 +8340,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions.Session, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions.Session, self).__init__()
 
                                 self.yang_name = "session"
                                 self.yang_parent_name = "sessions"
@@ -8000,11 +8373,23 @@ class L2tpv2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Counters.Forwarding.Sessions.Session, ['tunnel_id', 'session_id', 'remote_session_id', 'in_packets', 'out_packets', 'in_bytes', 'out_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Counters.Forwarding.Sessions.Session']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Counters.Forwarding.Sessions']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Forwarding']['meta_info']
 
 
-
-
-                class Control(Entity):
+                class Control(_Entity_):
                     """
                     L2TP control messages counters
                     
@@ -8030,7 +8415,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Counters.Control, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Counters.Control, self).__init__()
 
                         self.yang_name = "control"
                         self.yang_parent_name = "counters"
@@ -8054,7 +8442,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control, [], name, value)
 
 
-                    class TunnelXr(Entity):
+                    class TunnelXr(_Entity_):
                         """
                         L2TP control tunnel messages counters
                         
@@ -8080,7 +8468,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr, self).__init__()
 
                             self.yang_name = "tunnel-xr"
                             self.yang_parent_name = "control"
@@ -8104,7 +8495,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr, [], name, value)
 
 
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Tunnel authentication counters
                             
@@ -8179,7 +8570,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "tunnel-xr"
@@ -8231,7 +8625,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication, [], name, value)
 
 
-                            class NonceAvp(Entity):
+                            class NonceAvp(_Entity_):
                                 """
                                 Nonce AVP statistics
                                 
@@ -8342,7 +8736,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
 
                                     self.yang_name = "nonce-avp"
                                     self.yang_parent_name = "authentication"
@@ -8380,9 +8777,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.NonceAvp']['meta_info']
 
 
-                            class CommonDigest(Entity):
+                            class CommonDigest(_Entity_):
                                 """
                                 Common digest statistics
                                 
@@ -8493,7 +8894,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
 
                                     self.yang_name = "common-digest"
                                     self.yang_parent_name = "authentication"
@@ -8531,9 +8935,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.CommonDigest']['meta_info']
 
 
-                            class PrimaryDigest(Entity):
+                            class PrimaryDigest(_Entity_):
                                 """
                                 Primary digest statistics
                                 
@@ -8644,7 +9052,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
 
                                     self.yang_name = "primary-digest"
                                     self.yang_parent_name = "authentication"
@@ -8682,9 +9093,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.PrimaryDigest']['meta_info']
 
 
-                            class SecondaryDigest(Entity):
+                            class SecondaryDigest(_Entity_):
                                 """
                                 Secondary digest statistics
                                 
@@ -8795,7 +9210,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
 
                                     self.yang_name = "secondary-digest"
                                     self.yang_parent_name = "authentication"
@@ -8833,9 +9251,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.SecondaryDigest']['meta_info']
 
 
-                            class IntegrityCheck(Entity):
+                            class IntegrityCheck(_Entity_):
                                 """
                                 Integrity check statistics
                                 
@@ -8946,7 +9368,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
 
                                     self.yang_name = "integrity-check"
                                     self.yang_parent_name = "authentication"
@@ -8984,9 +9409,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.IntegrityCheck']['meta_info']
 
 
-                            class LocalSecret(Entity):
+                            class LocalSecret(_Entity_):
                                 """
                                 Local secret statistics
                                 
@@ -9097,7 +9526,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
 
                                     self.yang_name = "local-secret"
                                     self.yang_parent_name = "authentication"
@@ -9135,9 +9567,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.LocalSecret']['meta_info']
 
 
-                            class ChallengeAvp(Entity):
+                            class ChallengeAvp(_Entity_):
                                 """
                                 Challenge AVP statistics
                                 
@@ -9248,7 +9684,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
 
                                     self.yang_name = "challenge-avp"
                                     self.yang_parent_name = "authentication"
@@ -9286,9 +9725,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeAvp']['meta_info']
 
 
-                            class ChallengeReponse(Entity):
+                            class ChallengeReponse(_Entity_):
                                 """
                                 Challenge response statistics
                                 
@@ -9399,7 +9842,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
 
                                     self.yang_name = "challenge-reponse"
                                     self.yang_parent_name = "authentication"
@@ -9437,9 +9883,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.ChallengeReponse']['meta_info']
 
 
-                            class OverallStatistics(Entity):
+                            class OverallStatistics(_Entity_):
                                 """
                                 Overall statistics
                                 
@@ -9550,7 +10000,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
 
                                     self.yang_name = "overall-statistics"
                                     self.yang_parent_name = "authentication"
@@ -9588,10 +10041,18 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication.OverallStatistics']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Authentication']['meta_info']
 
 
-
-                        class Global(Entity):
+                        class Global(_Entity_):
                             """
                             Tunnel counters
                             
@@ -9667,7 +10128,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global, self).__init__()
 
                                 self.yang_name = "global"
                                 self.yang_parent_name = "tunnel-xr"
@@ -9708,7 +10172,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
 
 
-                            class Transmit(Entity):
+                            class Transmit(_Entity_):
                                 """
                                 Transmit data
                                 
@@ -9891,7 +10355,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
 
                                     self.yang_name = "transmit"
                                     self.yang_parent_name = "global"
@@ -9945,9 +10412,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Transmit']['meta_info']
 
 
-                            class Retransmit(Entity):
+                            class Retransmit(_Entity_):
                                 """
                                 Re transmit data
                                 
@@ -10130,7 +10601,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
 
                                     self.yang_name = "retransmit"
                                     self.yang_parent_name = "global"
@@ -10184,9 +10658,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Retransmit']['meta_info']
 
 
-                            class Received(Entity):
+                            class Received(_Entity_):
                                 """
                                 Received data
                                 
@@ -10369,7 +10847,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Received, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Received, self).__init__()
 
                                     self.yang_name = "received"
                                     self.yang_parent_name = "global"
@@ -10423,9 +10904,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Received']['meta_info']
 
 
-                            class Drop(Entity):
+                            class Drop(_Entity_):
                                 """
                                 Drop data
                                 
@@ -10608,7 +11093,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, self).__init__()
 
                                     self.yang_name = "drop"
                                     self.yang_parent_name = "global"
@@ -10662,11 +11150,23 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global.Drop']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr.Global']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.TunnelXr']['meta_info']
 
 
-
-
-                    class Tunnels(Entity):
+                    class Tunnels(_Entity_):
                         """
                         Table of tunnel IDs of control message counters
                         
@@ -10685,7 +11185,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Counters.Control.Tunnels, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Counters.Control.Tunnels, self).__init__()
 
                             self.yang_name = "tunnels"
                             self.yang_parent_name = "control"
@@ -10703,7 +11206,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels, [], name, value)
 
 
-                        class Tunnel(Entity):
+                        class Tunnel(_Entity_):
                             """
                             L2TP tunnel control message counters
                             
@@ -10738,7 +11241,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel, self).__init__()
 
                                 self.yang_name = "tunnel"
                                 self.yang_parent_name = "tunnels"
@@ -10765,7 +11271,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
 
 
-                            class Brief(Entity):
+                            class Brief(_Entity_):
                                 """
                                 L2TP control message local and remote addresses
                                 
@@ -10804,7 +11310,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
 
                                     self.yang_name = "brief"
                                     self.yang_parent_name = "tunnel"
@@ -10826,9 +11335,13 @@ class L2tpv2(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief, ['remote_tunnel_id', 'local_address', 'remote_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Brief']['meta_info']
 
 
-                            class Global(Entity):
+                            class Global(_Entity_):
                                 """
                                 Global data
                                 
@@ -10904,7 +11417,10 @@ class L2tpv2(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
 
                                     self.yang_name = "global"
                                     self.yang_parent_name = "tunnel"
@@ -10945,7 +11461,7 @@ class L2tpv2(Entity):
                                     self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
 
 
-                                class Transmit(Entity):
+                                class Transmit(_Entity_):
                                     """
                                     Transmit data
                                     
@@ -11128,7 +11644,10 @@ class L2tpv2(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
 
                                         self.yang_name = "transmit"
                                         self.yang_parent_name = "global"
@@ -11182,9 +11701,13 @@ class L2tpv2(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Transmit']['meta_info']
 
 
-                                class Retransmit(Entity):
+                                class Retransmit(_Entity_):
                                     """
                                     Re transmit data
                                     
@@ -11367,7 +11890,10 @@ class L2tpv2(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
 
                                         self.yang_name = "retransmit"
                                         self.yang_parent_name = "global"
@@ -11421,9 +11947,13 @@ class L2tpv2(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Retransmit']['meta_info']
 
 
-                                class Received(Entity):
+                                class Received(_Entity_):
                                     """
                                     Received data
                                     
@@ -11606,7 +12136,10 @@ class L2tpv2(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
 
                                         self.yang_name = "received"
                                         self.yang_parent_name = "global"
@@ -11660,9 +12193,13 @@ class L2tpv2(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Received']['meta_info']
 
 
-                                class Drop(Entity):
+                                class Drop(_Entity_):
                                     """
                                     Drop data
                                     
@@ -11845,7 +12382,10 @@ class L2tpv2(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
 
                                         self.yang_name = "drop"
                                         self.yang_parent_name = "global"
@@ -11899,14 +12439,38 @@ class L2tpv2(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global.Drop']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                    return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel.Global']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels.Tunnel']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control.Tunnels']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Counters.Control']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Counters']['meta_info']
 
 
-
-
-
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 L2TP v2 statistics information
                 
@@ -11948,7 +12512,7 @@ class L2tpv2(Entity):
                 
                 .. attribute:: average_packet_processing_time
                 
-                	Average processing time for received packets  (in micro seconds)
+                	Average processing time for received packets (in micro seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -12019,7 +12583,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -12057,9 +12624,13 @@ class L2tpv2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Nodes.Node.Statistics, ['tunnels', 'sessions', 'sent_packets', 'received_packets', 'average_packet_processing_time', 'received_out_of_order_packets', 'reorder_packets', 'reorder_deviation_packets', 'incoming_dropped_packets', 'buffered_packets', 'netio_packets'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Statistics']['meta_info']
 
 
-            class Tunnel(Entity):
+            class Tunnel(_Entity_):
                 """
                 L2TPv2 tunnel 
                 
@@ -12078,7 +12649,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Tunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Tunnel, self).__init__()
 
                     self.yang_name = "tunnel"
                     self.yang_parent_name = "node"
@@ -12098,7 +12672,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Tunnel, [], name, value)
 
 
-                class Accounting(Entity):
+                class Accounting(_Entity_):
                     """
                     Tunnel accounting counters
                     
@@ -12117,7 +12691,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Tunnel.Accounting, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Tunnel.Accounting, self).__init__()
 
                         self.yang_name = "accounting"
                         self.yang_parent_name = "tunnel"
@@ -12137,7 +12714,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.Tunnel.Accounting, [], name, value)
 
 
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         Tunnel accounting statistics
                         
@@ -12284,7 +12861,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Tunnel.Accounting.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Tunnel.Accounting.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "accounting"
@@ -12330,11 +12910,23 @@ class L2tpv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Nodes.Node.Tunnel.Accounting.Statistics, ['records_sent_successfully', 'start', 'stop', 'reject', 'transport_failures', 'positive_acknowledgement', 'negative_acknowledgement', 'records_checkpointed', 'records_failed_to_checkpoint', 'records_sent_from_queue', 'memory_failures', 'current_size', 'records_recovered_from_checkpoint', 'records_fail_to_recover', 'queue_statistics_size'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Tunnel.Accounting.Statistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Tunnel.Accounting']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Tunnel']['meta_info']
 
 
-
-
-            class TunnelConfigurations(Entity):
+            class TunnelConfigurations(_Entity_):
                 """
                 List of tunnel IDs
                 
@@ -12353,7 +12945,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.TunnelConfigurations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.TunnelConfigurations, self).__init__()
 
                     self.yang_name = "tunnel-configurations"
                     self.yang_parent_name = "node"
@@ -12371,7 +12966,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.TunnelConfigurations, [], name, value)
 
 
-                class TunnelConfiguration(Entity):
+                class TunnelConfiguration(_Entity_):
                     """
                     L2TP tunnel information
                     
@@ -12408,7 +13003,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration, self).__init__()
 
                         self.yang_name = "tunnel-configuration"
                         self.yang_parent_name = "tunnel-configurations"
@@ -12433,7 +13031,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', 'remote_tunnel_id'], name, value)
 
 
-                    class L2tpClass(Entity):
+                    class L2tpClass(_Entity_):
                         """
                         L2Tp class data
                         
@@ -12659,7 +13257,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
 
                             self.yang_name = "l2tp-class"
                             self.yang_parent_name = "tunnel-configuration"
@@ -12723,11 +13324,23 @@ class L2tpv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass, ['ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration.L2tpClass']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.TunnelConfigurations.TunnelConfiguration']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.TunnelConfigurations']['meta_info']
 
 
-
-
-            class CounterHistFail(Entity):
+            class CounterHistFail(_Entity_):
                 """
                 Failure events leading to disconnection
                 
@@ -12773,7 +13386,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.CounterHistFail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.CounterHistFail, self).__init__()
 
                     self.yang_name = "counter-hist-fail"
                     self.yang_parent_name = "node"
@@ -12798,7 +13414,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.CounterHistFail, ['sess_down_tmout', 'tx_counters', 'rx_counters'], name, value)
 
 
-                class PktTimeout(Entity):
+                class PktTimeout(_Entity_):
                     """
                     timeout events by packet
                     
@@ -12819,7 +13435,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.CounterHistFail.PktTimeout, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.CounterHistFail.PktTimeout, self).__init__()
 
                         self.yang_name = "pkt-timeout"
                         self.yang_parent_name = "counter-hist-fail"
@@ -12837,10 +13456,18 @@ class L2tpv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Nodes.Node.CounterHistFail.PktTimeout, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.CounterHistFail.PktTimeout']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.CounterHistFail']['meta_info']
 
 
-
-            class Classes(Entity):
+            class Classes(_Entity_):
                 """
                 List of L2TP class names
                 
@@ -12859,7 +13486,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Classes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Classes, self).__init__()
 
                     self.yang_name = "classes"
                     self.yang_parent_name = "node"
@@ -12877,7 +13507,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Classes, [], name, value)
 
 
-                class Class(Entity):
+                class Class(_Entity_):
                     """
                     L2TP class name
                     
@@ -13112,7 +13742,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Classes.Class, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Classes.Class, self).__init__()
 
                         self.yang_name = "class"
                         self.yang_parent_name = "classes"
@@ -13178,10 +13811,18 @@ class L2tpv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Nodes.Node.Classes.Class, ['class_name', 'ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Classes.Class']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Classes']['meta_info']
 
 
-
-            class Tunnels(Entity):
+            class Tunnels(_Entity_):
                 """
                 List of tunnel IDs
                 
@@ -13200,7 +13841,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Tunnels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "node"
@@ -13218,7 +13862,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Tunnels, [], name, value)
 
 
-                class Tunnel(Entity):
+                class Tunnel(_Entity_):
                     """
                     L2TP tunnel  information
                     
@@ -13523,7 +14167,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Tunnels.Tunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
@@ -13606,7 +14253,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.Tunnels.Tunnel, ['local_tunnel_id', 'local_address', 'remote_address', 'local_port', 'remote_port', 'protocol', 'is_pmtu_enabled', 'remote_tunnel_id', 'local_tunnel_name', 'remote_tunnel_name', 'class_name', 'active_sessions', 'sequence_ns', 'sequence_nr', 'local_window_size', 'remote_window_size', 'retransmission_time', 'maximum_retransmission_time', 'unsent_queue_size', 'unsent_maximum_queue_size', 'resend_queue_size', 'resend_maximum_queue_size', 'order_queue_size', 'packet_queue_check', 'digest_secrets', 'resends', 'zero_length_body_acknowledgement_sent', 'total_out_of_order_drop_packets', 'total_out_of_order_reorder_packets', 'total_peer_authentication_failures', 'is_tunnel_up', 'is_congestion_control_enabled'], name, value)
 
 
-                    class RetransmitTime(Entity):
+                    class RetransmitTime(_Entity_):
                         """
                         Retransmit time distribution in seconds
                         
@@ -13629,7 +14276,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Tunnels.Tunnel.RetransmitTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Tunnels.Tunnel.RetransmitTime, self).__init__()
 
                             self.yang_name = "retransmit-time"
                             self.yang_parent_name = "tunnel"
@@ -13647,11 +14297,23 @@ class L2tpv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Nodes.Node.Tunnels.Tunnel.RetransmitTime, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Tunnels.Tunnel.RetransmitTime']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Tunnels.Tunnel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Tunnels']['meta_info']
 
 
-
-
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 List of session IDs
                 
@@ -13670,7 +14332,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "node"
@@ -13688,7 +14353,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     L2TP information for a particular session
                     
@@ -13900,7 +14565,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -13967,7 +14635,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Nodes.Node.Sessions.Session, ['local_tunnel_id', 'local_session_id', 'local_ip_address', 'remote_ip_address', 'l2tp_sh_sess_udp_lport', 'l2tp_sh_sess_udp_rport', 'protocol', 'remote_tunnel_id', 'call_serial_number', 'local_tunnel_name', 'remote_tunnel_name', 'remote_session_id', 'l2tp_sh_sess_tie_breaker_enabled', 'l2tp_sh_sess_tie_breaker', 'is_session_manual', 'is_session_up', 'is_udp_checksum_enabled', 'is_sequencing_on', 'is_session_state_established', 'is_session_locally_initiated', 'is_conditional_debug_enabled', 'unique_id', 'interface_name'], name, value)
 
 
-                    class SessionApplicationData(Entity):
+                    class SessionApplicationData(_Entity_):
                         """
                         Session application data
                         
@@ -14002,7 +14670,10 @@ class L2tpv2(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData, self).__init__()
 
                             self.yang_name = "session-application-data"
                             self.yang_parent_name = "session"
@@ -14029,7 +14700,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData, ['l2tp_sh_sess_app_type'], name, value)
 
 
-                        class Xconnect(Entity):
+                        class Xconnect(_Entity_):
                             """
                             Xconnect data
                             
@@ -14085,7 +14756,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
 
                                 self.yang_name = "xconnect"
                                 self.yang_parent_name = "session-application-data"
@@ -14113,9 +14787,13 @@ class L2tpv2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect, ['circuit_name', 'sessionvc_id', 'is_circuit_state_up', 'is_local_circuit_state_up', 'is_remote_circuit_state_up', 'ipv6_protocol_tunneling'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Xconnect']['meta_info']
 
 
-                        class Vpdn(Entity):
+                        class Vpdn(_Entity_):
                             """
                             VPDN data
                             
@@ -14143,7 +14821,10 @@ class L2tpv2(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
 
                                 self.yang_name = "vpdn"
                                 self.yang_parent_name = "session-application-data"
@@ -14163,12 +14844,28 @@ class L2tpv2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn, ['username', 'interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                                return meta._meta_table['L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData.Vpdn']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                            return meta._meta_table['L2tpv2.Nodes.Node.Sessions.Session.SessionApplicationData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Sessions.Session']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Sessions']['meta_info']
 
 
-
-
-
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 L2TP control messages counters
                 
@@ -14187,7 +14884,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "node"
@@ -14207,7 +14907,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Session, [], name, value)
 
 
-                class Unavailable(Entity):
+                class Unavailable(_Entity_):
                     """
                     L2TP session unavailable  information
                     
@@ -14228,7 +14928,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Session.Unavailable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Session.Unavailable, self).__init__()
 
                         self.yang_name = "unavailable"
                         self.yang_parent_name = "session"
@@ -14246,10 +14949,18 @@ class L2tpv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Nodes.Node.Session.Unavailable, ['sessions_on_hold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Session.Unavailable']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Session']['meta_info']
 
 
-
-            class Internal(Entity):
+            class Internal(_Entity_):
                 """
                 L2TP v2/v3 internal information
                 
@@ -14284,7 +14995,10 @@ class L2tpv2(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(L2tpv2.Nodes.Node.Internal, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2tpv2.Nodes.Node.Internal, self).__init__()
 
                     self.yang_name = "internal"
                     self.yang_parent_name = "node"
@@ -14311,7 +15025,7 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Nodes.Node.Internal, ['time_last_clear'], name, value)
 
 
-                class InternalStats(Entity):
+                class InternalStats(_Entity_):
                     """
                     internal stats
                     
@@ -14854,7 +15568,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Internal.InternalStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Internal.InternalStats, self).__init__()
 
                         self.yang_name = "internal-stats"
                         self.yang_parent_name = "internal"
@@ -14988,9 +15705,13 @@ class L2tpv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Nodes.Node.Internal.InternalStats, ['l2tp_sh_l2x_num_tunnels', 'l2tp_sh_l2x_num_sessions', 'l2tp_sh_l2x_rx_high_water_mark', 'l2tp_sh_l2x_ave_msg_process_usecs', 'l2tp_sh_l2x_num_rx_msgs', 'l2tp_sh_l2x_num_tx_msgs', 'l2tp_sh_l2x_num_tx_err_drops', 'l2tp_sh_l2x_num_tx_conn_drops', 'l2tp_sh_l2x_num_reordered_msgs', 'l2tp_sh_l2x_max_reorder_deviation', 'l2tp_sh_l2x_num_ooo_msgs', 'l2tp_sh_l2x_num_rx_path_drops', 'l2tp_sh_l2x_num_rx_path_data_pkt_drops', 'l2tp_sh_l2x_num_rx_queue_drops', 'l2tp_sh_l2x_num_rx_ooo_drops', 'l2tp_sh_l2x_num_buffered_msgs', 'l2tp_sh_l2x_num_mutex_block', 'l2tp_sh_l2x_num_bad_len_drops', 'l2tp_sh_l2x_num_bad_avp_drops', 'l2tp_sh_l2x_num_missing_cc_id_drops', 'l2tp_sh_l2x_num_missing_sess_id_drops', 'l2tp_sh_l2x_num_mismatch_cc_id_drops', 'l2tp_sh_l2x_num_unknown_cc_drops', 'l2tp_sh_l2x_num_unknown_sess_drops', 'l2tp_sh_l2x_num_linear_id_search', 'l2tp_sh_l2x_num_linear_id_search_fail', 'l2tp_sh_l2x_num_netio_pkt_rx', 'l2tp_sh_l2tun_ave_msg_process_usecs', 'l2tp_sh_l2tun_num_rx_msgs', 'l2tp_sh_l2tun_num_tx_msgs', 'l2tp_l2tun_socket_ens_send_error_cnt', 'l2tp_l2tun_socket_session_accept', 'l2tp_l2tun_socket_session_destroy', 'l2tp_l2tun_socket_session_connect', 'l2tp_l2tun_socket_session_connect_continue', 'l2tp_l2tun_session_connecting', 'l2tp_l2tun_session_connected', 'l2tp_l2tun_session_disconnected', 'l2tp_l2tun_session_incoming', 'l2tp_l2tun_session_updated', 'l2tp_l2tun_session_circuit_status', 'l2x_lpts_pa_stats_setup_cnt', 'l2x_lpts_pa_stats_destroy_cnt', 'l2x_lpts_pa_stats_alloc_cnt', 'l2x_lpts_pa_stats_alloc_fail_cnt', 'l2x_lpts_pa_stats_init_cnt', 'l2x_lpts_pa_stats_init_fail_cnt', 'l2x_lpts_pa_stats_free_cnt', 'l2x_lpts_pa_stats_pulse_cnt', 'l2x_lpts_pa_stats_pulse_fail_cnt', 'l2x_lpts_pa_stats_bind_cnt', 'l2x_lpts_pa_stats_bind_fail_cnt', 'l2x_lpts_pa_stats_bind_batch_cnt', 'l2x_lpts_pa_stats_bind_batch_fail_cnt', 'l2x_lpts_pa_stats_bind_time', 'l2x_lpts_pa_stats_expire_cnt', 'l2x_lpts_pa_stats_replay_cnt', 'l2x_lpts_pa_stats_replay_batch_cnt', 'l2x_lpts_pa_stats_replay_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Internal.InternalStats']['meta_info']
 
 
-                class InternalStatsLastClear(Entity):
+                class InternalStatsLastClear(_Entity_):
                     """
                     internal stats last clear
                     
@@ -15533,7 +16254,10 @@ class L2tpv2(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(L2tpv2.Nodes.Node.Internal.InternalStatsLastClear, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2tpv2.Nodes.Node.Internal.InternalStatsLastClear, self).__init__()
 
                         self.yang_name = "internal-stats-last-clear"
                         self.yang_parent_name = "internal"
@@ -15667,13 +16391,33 @@ class L2tpv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Nodes.Node.Internal.InternalStatsLastClear, ['l2tp_sh_l2x_num_tunnels', 'l2tp_sh_l2x_num_sessions', 'l2tp_sh_l2x_rx_high_water_mark', 'l2tp_sh_l2x_ave_msg_process_usecs', 'l2tp_sh_l2x_num_rx_msgs', 'l2tp_sh_l2x_num_tx_msgs', 'l2tp_sh_l2x_num_tx_err_drops', 'l2tp_sh_l2x_num_tx_conn_drops', 'l2tp_sh_l2x_num_reordered_msgs', 'l2tp_sh_l2x_max_reorder_deviation', 'l2tp_sh_l2x_num_ooo_msgs', 'l2tp_sh_l2x_num_rx_path_drops', 'l2tp_sh_l2x_num_rx_path_data_pkt_drops', 'l2tp_sh_l2x_num_rx_queue_drops', 'l2tp_sh_l2x_num_rx_ooo_drops', 'l2tp_sh_l2x_num_buffered_msgs', 'l2tp_sh_l2x_num_mutex_block', 'l2tp_sh_l2x_num_bad_len_drops', 'l2tp_sh_l2x_num_bad_avp_drops', 'l2tp_sh_l2x_num_missing_cc_id_drops', 'l2tp_sh_l2x_num_missing_sess_id_drops', 'l2tp_sh_l2x_num_mismatch_cc_id_drops', 'l2tp_sh_l2x_num_unknown_cc_drops', 'l2tp_sh_l2x_num_unknown_sess_drops', 'l2tp_sh_l2x_num_linear_id_search', 'l2tp_sh_l2x_num_linear_id_search_fail', 'l2tp_sh_l2x_num_netio_pkt_rx', 'l2tp_sh_l2tun_ave_msg_process_usecs', 'l2tp_sh_l2tun_num_rx_msgs', 'l2tp_sh_l2tun_num_tx_msgs', 'l2tp_l2tun_socket_ens_send_error_cnt', 'l2tp_l2tun_socket_session_accept', 'l2tp_l2tun_socket_session_destroy', 'l2tp_l2tun_socket_session_connect', 'l2tp_l2tun_socket_session_connect_continue', 'l2tp_l2tun_session_connecting', 'l2tp_l2tun_session_connected', 'l2tp_l2tun_session_disconnected', 'l2tp_l2tun_session_incoming', 'l2tp_l2tun_session_updated', 'l2tp_l2tun_session_circuit_status', 'l2x_lpts_pa_stats_setup_cnt', 'l2x_lpts_pa_stats_destroy_cnt', 'l2x_lpts_pa_stats_alloc_cnt', 'l2x_lpts_pa_stats_alloc_fail_cnt', 'l2x_lpts_pa_stats_init_cnt', 'l2x_lpts_pa_stats_init_fail_cnt', 'l2x_lpts_pa_stats_free_cnt', 'l2x_lpts_pa_stats_pulse_cnt', 'l2x_lpts_pa_stats_pulse_fail_cnt', 'l2x_lpts_pa_stats_bind_cnt', 'l2x_lpts_pa_stats_bind_fail_cnt', 'l2x_lpts_pa_stats_bind_batch_cnt', 'l2x_lpts_pa_stats_bind_batch_fail_cnt', 'l2x_lpts_pa_stats_bind_time', 'l2x_lpts_pa_stats_expire_cnt', 'l2x_lpts_pa_stats_replay_cnt', 'l2x_lpts_pa_stats_replay_batch_cnt', 'l2x_lpts_pa_stats_replay_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                        return meta._meta_table['L2tpv2.Nodes.Node.Internal.InternalStatsLastClear']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                    return meta._meta_table['L2tpv2.Nodes.Node.Internal']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+                return meta._meta_table['L2tpv2.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+            return meta._meta_table['L2tpv2.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = L2tpv2()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_l2tun_oper as meta
+        return meta._meta_table['L2tpv2']['meta_info']
 
 

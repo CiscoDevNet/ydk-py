@@ -3,6 +3,10 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
     prefix Cisco-IOS-XR-iedge4710-oper;
   }
 
+  import ietf-yang-types {
+    prefix yang;
+  }
+
   organization
     "Cisco Systems, Inc.";
   contact
@@ -29,6 +33,12 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Mac-address {
+    type yang:mac-address;
+    description
+      "MAC address type";
   }
 
   grouping IEDGE-STATS-SRG-DATA {
@@ -269,6 +279,11 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
       type uint32;
       description
         "Total No of times Dont send to Txlist";
+    }
+    leaf total-srg-txlist-no-add-restore-flag-set {
+      type uint32;
+      description
+        "Total No of times restore flag found set";
     }
     leaf total-srg-not-master {
       type uint32;

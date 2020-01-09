@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class Opt61Sub(Enum):
     sn_chassis = Enum.YLeaf(3, "sn-chassis")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dc_cfg as meta
+        return meta._meta_table['Opt61Sub']
+
+
 class Option60(Enum):
     """
     Option60 (Enum Class)
@@ -54,6 +63,12 @@ class Option60(Enum):
     """
 
     option60 = Enum.YLeaf(60, "option60")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dc_cfg as meta
+        return meta._meta_table['Option60']
 
 
 class Option61(Enum):
@@ -71,6 +86,12 @@ class Option61(Enum):
     option61 = Enum.YLeaf(61, "option61")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dc_cfg as meta
+        return meta._meta_table['Option61']
+
+
 class Option77(Enum):
     """
     Option77 (Enum Class)
@@ -84,6 +105,12 @@ class Option77(Enum):
     """
 
     option77 = Enum.YLeaf(77, "option77")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dc_cfg as meta
+        return meta._meta_table['Option77']
 
 
 

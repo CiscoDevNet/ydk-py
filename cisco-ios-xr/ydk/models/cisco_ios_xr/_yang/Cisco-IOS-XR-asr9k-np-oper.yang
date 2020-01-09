@@ -69,6 +69,11 @@ module Cisco-IOS-XR-asr9k-np-oper {
                 "Hardware np uidb";
               uses PRM-NP-UIDB;
             }
+            container tcam-region-summary {
+              description
+                "tcam region summary info";
+              uses TCAM-INFO-SHOW-SUM-REGION;
+            }
             container chn-load {
               description
                 "prm channel load info";

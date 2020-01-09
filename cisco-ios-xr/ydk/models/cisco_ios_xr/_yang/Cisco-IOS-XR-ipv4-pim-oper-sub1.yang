@@ -1438,6 +1438,16 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       description
         "MDT Immediate Switch";
     }
+    leaf remote-mdt-idb-name {
+      type string;
+      description
+        "Remote MDT Interface Handle Name";
+    }
+    leaf remote-mdt-address {
+      type inet:ipv4-address;
+      description
+        "Remote MDT interface address";
+    }
     leaf-list mldp-root-address {
       type uint32;
       description

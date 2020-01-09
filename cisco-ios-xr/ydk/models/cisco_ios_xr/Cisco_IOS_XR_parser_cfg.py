@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Parser(Entity):
+class Parser(_Entity_):
     """
     Parser configuration
     
@@ -88,7 +91,10 @@ class Parser(Entity):
     _revision = '2017-05-09'
 
     def __init__(self):
-        super(Parser, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Parser, self).__init__()
         self._top_entity = None
 
         self.yang_name = "parser"
@@ -149,7 +155,7 @@ class Parser(Entity):
         self._perform_setattr(Parser, [], name, value)
 
 
-    class Indentation(Entity):
+    class Indentation(_Entity_):
         """
         indentation tracking
         
@@ -166,7 +172,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.Indentation, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.Indentation, self).__init__()
 
             self.yang_name = "indentation"
             self.yang_parent_name = "parser"
@@ -185,9 +194,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Indentation, ['indentation_disable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.Indentation']['meta_info']
 
 
-    class Alias(Entity):
+    class Alias(_Entity_):
         """
         Alias for command mapping
         
@@ -214,7 +227,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.Alias, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.Alias, self).__init__()
 
             self.yang_name = "alias"
             self.yang_parent_name = "parser"
@@ -243,7 +259,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.Alias, [], name, value)
 
 
-        class Execs(Entity):
+        class Execs(_Entity_):
             """
             Exec command alias
             
@@ -260,7 +276,10 @@ class Parser(Entity):
             _revision = '2017-05-09'
 
             def __init__(self):
-                super(Parser.Alias.Execs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Parser.Alias.Execs, self).__init__()
 
                 self.yang_name = "execs"
                 self.yang_parent_name = "alias"
@@ -279,7 +298,7 @@ class Parser(Entity):
                 self._perform_setattr(Parser.Alias.Execs, [], name, value)
 
 
-            class Exec(Entity):
+            class Exec(_Entity_):
                 """
                 Exec alias name
                 
@@ -305,7 +324,10 @@ class Parser(Entity):
                 _revision = '2017-05-09'
 
                 def __init__(self):
-                    super(Parser.Alias.Execs.Exec, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Parser.Alias.Execs.Exec, self).__init__()
 
                     self.yang_name = "exec"
                     self.yang_parent_name = "execs"
@@ -326,10 +348,18 @@ class Parser(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Execs.Exec, ['identifier', 'identifier_xr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                    return meta._meta_table['Parser.Alias.Execs.Exec']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                return meta._meta_table['Parser.Alias.Execs']['meta_info']
 
 
-
-        class Configurations(Entity):
+        class Configurations(_Entity_):
             """
             Configuration command alias
             
@@ -346,7 +376,10 @@ class Parser(Entity):
             _revision = '2017-05-09'
 
             def __init__(self):
-                super(Parser.Alias.Configurations, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Parser.Alias.Configurations, self).__init__()
 
                 self.yang_name = "configurations"
                 self.yang_parent_name = "alias"
@@ -365,7 +398,7 @@ class Parser(Entity):
                 self._perform_setattr(Parser.Alias.Configurations, [], name, value)
 
 
-            class Configuration(Entity):
+            class Configuration(_Entity_):
                 """
                 Configuration Alias name
                 
@@ -391,7 +424,10 @@ class Parser(Entity):
                 _revision = '2017-05-09'
 
                 def __init__(self):
-                    super(Parser.Alias.Configurations.Configuration, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Parser.Alias.Configurations.Configuration, self).__init__()
 
                     self.yang_name = "configuration"
                     self.yang_parent_name = "configurations"
@@ -412,10 +448,18 @@ class Parser(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Configurations.Configuration, ['identifier', 'identifier_xr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                    return meta._meta_table['Parser.Alias.Configurations.Configuration']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                return meta._meta_table['Parser.Alias.Configurations']['meta_info']
 
 
-
-        class Alls(Entity):
+        class Alls(_Entity_):
             """
             Table of all aliases configured
             
@@ -432,7 +476,10 @@ class Parser(Entity):
             _revision = '2017-05-09'
 
             def __init__(self):
-                super(Parser.Alias.Alls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Parser.Alias.Alls, self).__init__()
 
                 self.yang_name = "alls"
                 self.yang_parent_name = "alias"
@@ -451,7 +498,7 @@ class Parser(Entity):
                 self._perform_setattr(Parser.Alias.Alls, [], name, value)
 
 
-            class All(Entity):
+            class All(_Entity_):
                 """
                 Alias name to command mapping
                 
@@ -477,7 +524,10 @@ class Parser(Entity):
                 _revision = '2017-05-09'
 
                 def __init__(self):
-                    super(Parser.Alias.Alls.All, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Parser.Alias.Alls.All, self).__init__()
 
                     self.yang_name = "all"
                     self.yang_parent_name = "alls"
@@ -498,11 +548,23 @@ class Parser(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Alls.All, ['identifier', 'identifier_xr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                    return meta._meta_table['Parser.Alias.Alls.All']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                return meta._meta_table['Parser.Alias.Alls']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.Alias']['meta_info']
 
 
-
-
-    class LoggingSuppress(Entity):
+    class LoggingSuppress(_Entity_):
         """
         logging suppress deprecated
         
@@ -519,7 +581,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.LoggingSuppress, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.LoggingSuppress, self).__init__()
 
             self.yang_name = "logging-suppress"
             self.yang_parent_name = "parser"
@@ -538,9 +603,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.LoggingSuppress, ['deprecated'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.LoggingSuppress']['meta_info']
 
 
-    class History(Entity):
+    class History(_Entity_):
         """
         cli commands history
         
@@ -559,7 +628,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.History, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.History, self).__init__()
 
             self.yang_name = "history"
             self.yang_parent_name = "parser"
@@ -578,9 +650,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.History, ['size'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.History']['meta_info']
 
 
-    class Interactive(Entity):
+    class Interactive(_Entity_):
         """
         interactive mode
         
@@ -597,7 +673,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.Interactive, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.Interactive, self).__init__()
 
             self.yang_name = "interactive"
             self.yang_parent_name = "parser"
@@ -616,9 +695,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Interactive, ['interactive_disable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.Interactive']['meta_info']
 
 
-    class CommitOptimized(Entity):
+    class CommitOptimized(_Entity_):
         """
         Enable optimization for regular commit
         
@@ -635,7 +718,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.CommitOptimized, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.CommitOptimized, self).__init__()
 
             self.yang_name = "commit-optimized"
             self.yang_parent_name = "parser"
@@ -654,9 +740,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.CommitOptimized, ['commit_optimized_enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.CommitOptimized']['meta_info']
 
 
-    class SysadminLoginBanner(Entity):
+    class SysadminLoginBanner(_Entity_):
         """
         Configuration to disable sysadmin login banner
         
@@ -673,7 +763,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.SysadminLoginBanner, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.SysadminLoginBanner, self).__init__()
 
             self.yang_name = "sysadmin-login-banner"
             self.yang_parent_name = "parser"
@@ -692,9 +785,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SysadminLoginBanner, ['sysadmin_login_banner_disable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.SysadminLoginBanner']['meta_info']
 
 
-    class InterfaceDisplay(Entity):
+    class InterfaceDisplay(_Entity_):
         """
         Configure the Interface display order
         
@@ -711,7 +808,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.InterfaceDisplay, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.InterfaceDisplay, self).__init__()
 
             self.yang_name = "interface-display"
             self.yang_parent_name = "parser"
@@ -730,9 +830,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.InterfaceDisplay, ['slot_order'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.InterfaceDisplay']['meta_info']
 
 
-    class NetmaskFormat(Entity):
+    class NetmaskFormat(_Entity_):
         """
         Ipv4 netmask\-format to be configured
         
@@ -749,7 +853,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.NetmaskFormat, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.NetmaskFormat, self).__init__()
 
             self.yang_name = "netmask-format"
             self.yang_parent_name = "parser"
@@ -768,9 +875,13 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.NetmaskFormat, ['bit_count'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.NetmaskFormat']['meta_info']
 
 
-    class Configuration(Entity):
+    class Configuration(_Entity_):
         """
         cli configuration services
         
@@ -787,7 +898,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.Configuration, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.Configuration, self).__init__()
 
             self.yang_name = "configuration"
             self.yang_parent_name = "parser"
@@ -808,7 +922,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.Configuration, [], name, value)
 
 
-        class Disable(Entity):
+        class Disable(_Entity_):
             """
             disable for read\-only access users
             
@@ -825,7 +939,10 @@ class Parser(Entity):
             _revision = '2017-05-09'
 
             def __init__(self):
-                super(Parser.Configuration.Disable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Parser.Configuration.Disable, self).__init__()
 
                 self.yang_name = "disable"
                 self.yang_parent_name = "configuration"
@@ -844,10 +961,18 @@ class Parser(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Parser.Configuration.Disable, ['usergroup'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+                return meta._meta_table['Parser.Configuration.Disable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.Configuration']['meta_info']
 
 
-
-    class SubmodeExit(Entity):
+    class SubmodeExit(_Entity_):
         """
         Exit submode when only '!' seen in interactive
         mode
@@ -865,7 +990,10 @@ class Parser(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Parser.SubmodeExit, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Parser.SubmodeExit, self).__init__()
 
             self.yang_name = "submode-exit"
             self.yang_parent_name = "parser"
@@ -884,10 +1012,18 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SubmodeExit, ['enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.SubmodeExit']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Parser()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+        return meta._meta_table['Parser']['meta_info']
 
 

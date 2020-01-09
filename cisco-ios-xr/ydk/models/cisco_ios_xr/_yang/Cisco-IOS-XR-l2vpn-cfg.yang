@@ -375,6 +375,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
         description
           "Port Active";
       }
+      enum "single-flow-active" {
+        value 3;
+        description
+          "Single Flow Active";
+      }
     }
     description
       "Ethernet segment load balance";
@@ -5476,15 +5481,23 @@ module Cisco-IOS-XR-l2vpn-cfg {
           "Enter EVPN timers configuration submode";
         leaf evpn-carving {
           type uint32 {
-            range "0..10";
+            range "0..300";
           }
           default "0";
           description
             "Global Carving timer";
         }
+        leaf evpn-mac-postpone {
+          type uint32 {
+            range "0..300";
+          }
+          default "300";
+          description
+            "Global MAC postpone timer";
+        }
         leaf evpn-recovery {
           type uint32 {
-            range "20..3600";
+            range "0..3600";
           }
           default "30";
           description
@@ -5581,7 +5594,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
                configuration submode";
             leaf evpn-virtual-access-vfi-recovery {
               type uint32 {
-                range "20..3600";
+                range "0..3600";
               }
               default "30";
               description
@@ -5599,7 +5612,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             leaf evpn-virtual-access-vfi-carving {
               type uint32 {
-                range "0..10";
+                range "0..300";
               }
               default "0";
               description
@@ -5797,7 +5810,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             leaf evpnac-carving {
               type uint32 {
-                range "0..10";
+                range "0..300";
               }
               default "0";
               description
@@ -5810,7 +5823,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             leaf evpnac-recovery {
               type uint32 {
-                range "20..3600";
+                range "0..3600";
               }
               default "30";
               description
@@ -5877,7 +5890,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
                timers configuration submode";
             leaf evpn-virtual-access-pw-recovery {
               type uint32 {
-                range "20..3600";
+                range "0..3600";
               }
               default "30";
               description
@@ -5901,7 +5914,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             leaf evpn-virtual-access-pw-carving {
               type uint32 {
-                range "0..10";
+                range "0..300";
               }
               default "0";
               description

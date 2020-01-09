@@ -29,6 +29,10 @@ submodule Cisco-IOS-XR-subscriber-pppoe-ma-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-07 {
+    description
+      "Introduced an new cli pppoe bba-group padi host-uniq-disconnect";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -192,8 +196,13 @@ submodule Cisco-IOS-XR-subscriber-pppoe-ma-oper-sub1 {
         description
           "pppoe ma session trig srg sweep";
       }
-      enum "pppoe-ma-session-trig-count" {
+      enum "pppoe-ma-session-trig-renegotiation" {
         value 20;
+        description
+          "pppoe ma session trig renegotiation";
+      }
+      enum "pppoe-ma-session-trig-count" {
+        value 21;
         description
           "pppoe ma session trig count";
       }
@@ -1039,12 +1048,12 @@ submodule Cisco-IOS-XR-subscriber-pppoe-ma-oper-sub1 {
       "Wrapping history of disconnected subscribers";
     leaf-list disconnect-count {
       type uint32;
-      max-elements "20";
+      max-elements "21";
       description
         "The total number of disconnects";
     }
     list entry {
-      max-elements "20";
+      max-elements "21";
       description
         "Array of disconnected subscribers";
       uses PPPOE-MA-DISC-ENTRY;

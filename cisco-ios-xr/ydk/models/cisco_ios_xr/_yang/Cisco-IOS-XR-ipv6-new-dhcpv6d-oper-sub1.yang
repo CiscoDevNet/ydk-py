@@ -415,11 +415,6 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       description
         "DHCPV6 SERG Intf Role";
     }
-    leaf relay-binding-chaddr {
-      type yang:hex-string;
-      description
-        "Client MAC address";
-    }
   }
 
   grouping IPV6-DHCPV6D-RELAY-BINDINGS-SUMMARY {
@@ -899,6 +894,11 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       }
       description
         "DHCPV6 SRG VRF NAME";
+    }
+    leaf srg-group-id {
+      type uint16;
+      description
+        "srg group id";
     }
     leaf sesrg-state {
       type uint32;
@@ -1523,6 +1523,11 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       }
       description
         "DHCPV6 SRG VRF NAME";
+    }
+    leaf srg-group-id {
+      type uint16;
+      description
+        "srg group id";
     }
     leaf serg-state {
       type uint32;

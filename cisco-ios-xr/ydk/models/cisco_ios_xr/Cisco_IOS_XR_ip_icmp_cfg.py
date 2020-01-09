@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class SourcePolicy(Enum):
     rfc = Enum.YLeaf(2, "rfc")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+        return meta._meta_table['SourcePolicy']
 
-class Icmp(Entity):
+
+
+class Icmp(_Entity_):
     """
     IP ICMP configuration data
     
@@ -64,7 +73,10 @@ class Icmp(Entity):
     _revision = '2017-06-08'
 
     def __init__(self):
-        super(Icmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Icmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "icmp"
@@ -89,7 +101,7 @@ class Icmp(Entity):
         self._perform_setattr(Icmp, [], name, value)
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         IP Protocol Type
         
@@ -111,7 +123,10 @@ class Icmp(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(Icmp.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Icmp.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "icmp"
@@ -136,7 +151,7 @@ class Icmp(Entity):
             self._perform_setattr(Icmp.Ipv6, [], name, value)
 
 
-        class RateLimit(Entity):
+        class RateLimit(_Entity_):
             """
             Set ratelimit of ICMP packets
             
@@ -153,7 +168,10 @@ class Icmp(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(Icmp.Ipv6.RateLimit, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Icmp.Ipv6.RateLimit, self).__init__()
 
                 self.yang_name = "rate-limit"
                 self.yang_parent_name = "ipv6"
@@ -174,7 +192,7 @@ class Icmp(Entity):
                 self._perform_setattr(Icmp.Ipv6.RateLimit, [], name, value)
 
 
-            class Unreachable(Entity):
+            class Unreachable(_Entity_):
                 """
                 Set unreachable ICMP packets ratelimit
                 
@@ -200,7 +218,10 @@ class Icmp(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(Icmp.Ipv6.RateLimit.Unreachable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Icmp.Ipv6.RateLimit.Unreachable, self).__init__()
 
                     self.yang_name = "unreachable"
                     self.yang_parent_name = "rate-limit"
@@ -221,10 +242,18 @@ class Icmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Icmp.Ipv6.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                    return meta._meta_table['Icmp.Ipv6.RateLimit.Unreachable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                return meta._meta_table['Icmp.Ipv6.RateLimit']['meta_info']
 
 
-
-        class Source(Entity):
+        class Source(_Entity_):
             """
             IP ICMP Source Address Selection Policy
             
@@ -241,7 +270,10 @@ class Icmp(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(Icmp.Ipv6.Source, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Icmp.Ipv6.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "ipv6"
@@ -260,10 +292,18 @@ class Icmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv6.Source, ['source_address_policy'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                return meta._meta_table['Icmp.Ipv6.Source']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+            return meta._meta_table['Icmp.Ipv6']['meta_info']
 
 
-
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         IP Protocol Type
         
@@ -285,7 +325,10 @@ class Icmp(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(Icmp.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Icmp.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "icmp"
@@ -310,7 +353,7 @@ class Icmp(Entity):
             self._perform_setattr(Icmp.Ipv4, [], name, value)
 
 
-        class RateLimit(Entity):
+        class RateLimit(_Entity_):
             """
             Set ratelimit of ICMP packets
             
@@ -327,7 +370,10 @@ class Icmp(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(Icmp.Ipv4.RateLimit, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Icmp.Ipv4.RateLimit, self).__init__()
 
                 self.yang_name = "rate-limit"
                 self.yang_parent_name = "ipv4"
@@ -348,7 +394,7 @@ class Icmp(Entity):
                 self._perform_setattr(Icmp.Ipv4.RateLimit, [], name, value)
 
 
-            class Unreachable(Entity):
+            class Unreachable(_Entity_):
                 """
                 Set unreachable ICMP packets ratelimit
                 
@@ -374,7 +420,10 @@ class Icmp(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(Icmp.Ipv4.RateLimit.Unreachable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Icmp.Ipv4.RateLimit.Unreachable, self).__init__()
 
                     self.yang_name = "unreachable"
                     self.yang_parent_name = "rate-limit"
@@ -395,10 +444,18 @@ class Icmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Icmp.Ipv4.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                    return meta._meta_table['Icmp.Ipv4.RateLimit.Unreachable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                return meta._meta_table['Icmp.Ipv4.RateLimit']['meta_info']
 
 
-
-        class Source(Entity):
+        class Source(_Entity_):
             """
             IP ICMP Source Address Selection Policy
             
@@ -415,7 +472,10 @@ class Icmp(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(Icmp.Ipv4.Source, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Icmp.Ipv4.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "ipv4"
@@ -434,11 +494,23 @@ class Icmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv4.Source, ['source_address_policy'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+                return meta._meta_table['Icmp.Ipv4.Source']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+            return meta._meta_table['Icmp.Ipv4']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Icmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
+        return meta._meta_table['Icmp']['meta_info']
 
 

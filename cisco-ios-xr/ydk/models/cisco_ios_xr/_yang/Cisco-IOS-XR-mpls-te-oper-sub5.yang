@@ -130,6 +130,117 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       "Types of bandwidth accounting collection";
   }
 
+  typedef Mpls-te-reason-not-flooded {
+    type enumeration {
+      enum "not-flooded-reason-not-set" {
+        description
+          "reason not set";
+      }
+      enum "controller-not-configured" {
+        description
+          "Controller not configured";
+      }
+      enum "controller-not-up" {
+        description
+          "Controller not up";
+      }
+      enum "no-local-link-id" {
+        description
+          "Valid local link id is not populated";
+      }
+      enum "no-remote-link-id" {
+        description
+          "Valid remote link id is not populated";
+      }
+      enum "odu-capabilities-not-set" {
+        description
+          "ODU capabilities of link not set";
+      }
+      enum "tti-not-enabled" {
+        description
+          "TTI info for link is enabled";
+      }
+      enum "link-not-supported" {
+        description
+          "This type of link is not suported";
+      }
+      enum "te-proc-fsm-disabled" {
+        description
+          "Flooding disabled by TE process fsm";
+      }
+      enum "graceful-shutdown" {
+        description
+          "Flooding diabled due to graceful shutdown";
+      }
+      enum "flooding-disabled" {
+        description
+          "Flooding is disabled";
+      }
+      enum "label-switch-fabric-disabled" {
+        description
+          "Label switching fabric is disabled";
+      }
+      enum "no-igp-area-config" {
+        description
+          "No IGP area is configured";
+      }
+      enum "area-not-configured" {
+        description
+          "Area is not configured";
+      }
+      enum "area-not-ready" {
+        description
+          "Area is not ready for flood";
+      }
+      enum "lsa-error" {
+        description
+          "Failure occured while building LSA";
+      }
+      enum "igp-failed" {
+        description
+          "IGP failed";
+      }
+      enum "flooding-requested" {
+        description
+          "Link is ready to flood and requested for
+           flooding";
+      }
+      enum "link-flooded" {
+        description
+          "Link is flooded";
+      }
+    }
+    description
+      "Reason why TE link is not flooded";
+  }
+
+  typedef Tti-mode {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "otu-secion-monitoring" {
+        value 1;
+        description
+          "Section Monitoring";
+      }
+      enum "odu-path-monitoring" {
+        value 2;
+        description
+          "Path Monitoring";
+      }
+      enum "odu-tandem-connection-monitoring" {
+        value 3;
+        description
+          "Tandem Connection";
+      }
+    }
+    description
+      "GMPLS TTI Mode for controller";
+  }
+
   typedef Bandwidth-type-enum {
     type enumeration {
       enum "pool0" {
@@ -3780,6 +3891,428 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       type string;
       description
         "The link's ID";
+    }
+  }
+
+  grouping MPLS-TE-MGMT-WDM-CAPABILITIES {
+    description
+      "GMPLS WDM Capabilities";
+    leaf grid {
+      type Gmpls-uni-mgmt-wdm-grid;
+      description
+        "Grid";
+    }
+    leaf channel-spacing {
+      type Gmpls-uni-mgmt-dwdm-cs;
+      description
+        "Channel spacing";
+    }
+    leaf default-channel {
+      type int16;
+      description
+        "Default channel number";
+    }
+    list usable-channel {
+      description
+        "List of usable channels";
+      leaf entry {
+        type int16;
+        description
+          "List of usable channels";
+      }
+    }
+  }
+
+  grouping MPLS-TE-MGMT-WDM-UNI-LINK {
+    description
+      "GMPLS WDM-UNI link";
+    container wdm-capabilities {
+      description
+        "WDM capabilities";
+      uses MPLS-TE-MGMT-WDM-CAPABILITIES;
+    }
+    leaf link-exists {
+      type boolean;
+      description
+        "Flag to indicate whether the link exists in the
+         system";
+    }
+    leaf admin-state-up {
+      type boolean;
+      description
+        "Is the interface administratively UP";
+    }
+    leaf oper-state-up {
+      type boolean;
+      description
+        "Is the interface operationally UP";
+    }
+    leaf bw-locked-upstream {
+      type boolean;
+      description
+        "Is the interface bandwidth locked in the
+         upstream direction";
+    }
+    leaf bw-locked-downstream {
+      type boolean;
+      description
+        "Is the interface bandwidth locked in the
+         downstream direction";
+    }
+    leaf admitted-lsp-id {
+      type uint16;
+      description
+        "LSP-ID admitted on this optical link. Not valid
+         if neither the upstream nor downstream bandwidth
+         is locked";
+    }
+    leaf lmp-router-id {
+      type inet:ipv4-address;
+      description
+        "LMP GMPLS Optical-UNI router-id";
+    }
+    leaf lmp-adj-state-up {
+      type boolean;
+      description
+        "Is the LMP optical adjacency UP";
+    }
+    leaf lmpipcc-state-up {
+      type boolean;
+      description
+        "If the LMP IP control channel up ?";
+    }
+    leaf lmp-neighbor-name {
+      type string;
+      description
+        "LMP neighbor Name";
+    }
+    leaf lmp-neighbor-router-id {
+      type inet:ipv4-address;
+      description
+        "LMP neighbor router ID addres";
+    }
+    leaf lmp-neighbor-ipcc-address {
+      type inet:ipv4-address;
+      description
+        "The LMP neighbor's IPCC address";
+    }
+    leaf lmp-local-ipcc-address {
+      type inet:ipv4-address;
+      description
+        "The LMP local IPCC address";
+    }
+    leaf lmp-local-interface-id {
+      type uint32;
+      description
+        "The LMP local interface ID";
+    }
+    leaf lmp-neighbor-interface-id {
+      type uint32;
+      description
+        "The LMP neighbor interface ID";
+    }
+    leaf lmp-local-link-id {
+      type inet:ipv4-address;
+      description
+        "The LMP local Link ID";
+    }
+    leaf lmp-neighbor-link-id {
+      type inet:ipv4-address;
+      description
+        "The LMP neighbor Link ID";
+    }
+    leaf lmp-local-switching-capability {
+      type Igpte-link-switch-capability;
+      description
+        "The LMP local link switching capability";
+    }
+    leaf lmp-neighbor-switching-capability {
+      type Igpte-link-switch-capability;
+      description
+        "The LMP neighbor link switching capability";
+    }
+    leaf lmp-local-encoding {
+      type Igpte-link-encoding-protocol;
+      description
+        "The LMP local link encoding type";
+    }
+    leaf local-link-gpid {
+      type uint16;
+      description
+        "The GPID of the local link";
+    }
+    leaf srl-gs-announced {
+      type boolean;
+      description
+        "TRUE if discovered SRLGs are announced to L3
+         interface";
+    }
+    leaf srlg-announced-interface {
+      type string;
+      description
+        "The L3 interface that discovered SRLGs are
+         announced to";
+    }
+    list local-srlg {
+      description
+        "Locally-configured SRLGs on this link";
+      leaf entry {
+        type uint32;
+        description
+          "Locally-configured SRLGs on this link";
+      }
+    }
+  }
+
+  grouping MPLS-TE-MGMT-WDM-UNI-CONTROLLER {
+    description
+      "A GMPLS WDM-UNI controller";
+    container link {
+      description
+        "Link properties";
+      uses MPLS-TE-MGMT-WDM-UNI-LINK;
+    }
+    container labels {
+      description
+        "Labels";
+      uses MPLS-TE-MGMT-GMPLS-LABELS;
+    }
+    container tunnel {
+      description
+        "Tunnel info";
+      uses MPLS-TE-MGMT-WDM-UNI-TUNNEL-INFO;
+    }
+    leaf controller-name-xr {
+      type string;
+      description
+        "Interface Name";
+    }
+    leaf controller-name-brief {
+      type string;
+      description
+        "Brief Interface Name";
+    }
+    leaf child-interface-name {
+      type string;
+      description
+        "Child interface name";
+    }
+    leaf child-interface-state {
+      type Im-state-enum;
+      description
+        "Child Interface State";
+    }
+  }
+
+  grouping MPLS-TE-NNI-OTN-LINK-ADMITTED-S2L-INFO {
+    description
+      "Info of S2Ls Admitted to NNI OTN link";
+    container s2l-fec {
+      description
+        "S2L FEC";
+      uses TE-S2L-FEC;
+    }
+  }
+
+  grouping MPLS-TE-NNI-OTN-ADMISSION-CONTROL-LINK-INFO {
+    description
+      "Information about a given admitted tunnel";
+    leaf link-name {
+      type string;
+      description
+        "The link's name";
+    }
+    list admitted-s2l {
+      description
+        "Admitted S2Ls";
+      uses MPLS-TE-NNI-OTN-LINK-ADMITTED-S2L-INFO;
+    }
+  }
+
+  grouping MPLS-TE-NNI-LINK-AREA-INFO {
+    description
+      "Information about an area to which the link
+       belongs";
+    container remote-te-link-id {
+      description
+        "Remote link id in this topology instance";
+      uses TE-ADDR;
+    }
+    leaf igp-type {
+      type Igp-protocol;
+      description
+        "IGP type";
+    }
+    leaf igp-instance-id {
+      type string;
+      description
+        "Igp instance ID";
+    }
+    leaf igp-area-id-format {
+      type Igp-ospf-area-format;
+      description
+        "Igp area id format";
+    }
+    leaf igp-area-id {
+      type uint32;
+      description
+        "Igp area id";
+    }
+    leaf te-metric {
+      type uint32;
+      description
+        "The link's TE metric";
+    }
+    leaf uni-link-delay-configured {
+      type uint32;
+      description
+        "Unidirectional Link Delay configured in
+         micro-sec";
+    }
+    leaf uni-link-delay-computed {
+      type uint32;
+      description
+        "Unidirectional Link Delay computed in micro-sec";
+    }
+    leaf uni-link-delay-to-flood {
+      type uint32;
+      description
+        "Unidirectional Link Delay to flood in micro-sec";
+    }
+    leaf reason-not-flooded {
+      type Mpls-te-reason-not-flooded;
+      description
+        "Reason why link is not flooded";
+    }
+    leaf igp-area-address {
+      type inet:ipv4-address;
+      description
+        "IGP's area IP address";
+    }
+  }
+
+  grouping MPLS-TE-NNI-OTN-LINK-INFO {
+    description
+      "IGP and area information of a TE NNI OTN link";
+    container local-link-id {
+      description
+        "Local TE link ID";
+      uses TE-ADDR;
+    }
+    container odu-link-capabilities {
+      description
+        "ODU capabilities of Link";
+      uses ODU-LINK-CAPABILITIES;
+    }
+    leaf link-name {
+      type string;
+      description
+        "The link's name";
+    }
+    leaf interface-handle {
+      type xr:Interface-name;
+      description
+        "Link interface handle";
+    }
+    leaf link-state {
+      type Te-controller-state;
+      description
+        "Link state";
+    }
+    leaf resource-provider {
+      type Resource-provider;
+      description
+        "The link's resource provider";
+    }
+    leaf physical-bandwidth {
+      type Otu;
+      description
+        "The link's physical bandwidth";
+    }
+    leaf tti-mode {
+      type Tti-mode;
+      description
+        "SM,PM or TCM mode for controller";
+    }
+    leaf tandem-connection-monitoring {
+      type uint8;
+      description
+        "Tandem connection monitoring to carry link id, 0
+         if PM";
+    }
+    leaf igp-neighbors-count {
+      type uint16;
+      description
+        "The link's neighbor count";
+    }
+    leaf link-attributes {
+      type uint32;
+      description
+        "Deprecated";
+    }
+    leaf is-attribute-incomplete {
+      type boolean;
+      description
+        "TRUE if one or more affinity definition(s)
+         is/are         unknown";
+    }
+    leaf is-name-based-attribute {
+      type boolean;
+      description
+        "TRUE, if name based attribute style is in effect";
+    }
+    list link-extended-attribute {
+      description
+        "The link's extended attribute bit map";
+      leaf entry {
+        type uint32;
+        description
+          "The link's extended attribute bit map";
+      }
+    }
+    list link-forwad-ref-value {
+      description
+        "Reference bits for undefined affinity names";
+      leaf entry {
+        type uint32;
+        description
+          "Reference bits for undefined affinity names";
+      }
+    }
+    list srl-gs {
+      description
+        "The link's shared risk link groups";
+      uses MPLS-SRLG-INFO;
+    }
+    list igp-areas {
+      description
+        "Per-IGP area data";
+      uses MPLS-TE-NNI-LINK-AREA-INFO;
+    }
+    list affinity-map {
+      description
+        "Affinity map array";
+      uses MPLS-TE-AFFINITY-MAP-INFO;
+    }
+  }
+
+  grouping MPLS-TE-NNI-OTN-SUMMARY-INFO {
+    description
+      "Global info about links";
+    leaf is-role-standby {
+      type boolean;
+      description
+        "TRUE if Role is Standby, False if Active";
+    }
+    leaf nni-otn-links {
+      type uint16;
+      description
+        "The number of NNI OTN links";
+    }
+    leaf nni-otn-links-max {
+      type uint16;
+      description
+        "Maximum number of NNI links supported";
     }
   }
 
@@ -13038,7 +13571,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     leaf s2l-association-type {
       type uint16;
       description
-        "S2L Association Type                         
+        "S2L Association Type
          (draft-ietf-ccamp-mpls-tp-rsvpte-ext-associated-lsp)";
     }
     leaf s2l-association-tie-role {

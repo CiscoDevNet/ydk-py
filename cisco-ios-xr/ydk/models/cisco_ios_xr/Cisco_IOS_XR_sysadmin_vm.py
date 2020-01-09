@@ -14,8 +14,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -24,7 +27,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Vm(Entity):
+class Vm(_Entity_):
     """
     
     
@@ -41,7 +44,10 @@ class Vm(Entity):
     _revision = '2018-11-20'
 
     def __init__(self):
-        super(Vm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vm"
@@ -62,7 +68,7 @@ class Vm(Entity):
         self._perform_setattr(Vm, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         
         
@@ -89,7 +95,10 @@ class Vm(Entity):
         _revision = '2018-11-20'
 
         def __init__(self):
-            super(Vm.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vm.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "vm"
@@ -118,7 +127,7 @@ class Vm(Entity):
             self._perform_setattr(Vm.Config, [], name, value)
 
 
-        class HwProfile(Entity):
+        class HwProfile(_Entity_):
             """
             
             
@@ -135,7 +144,10 @@ class Vm(Entity):
             _revision = '2018-11-20'
 
             def __init__(self):
-                super(Vm.Config.HwProfile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vm.Config.HwProfile, self).__init__()
 
                 self.yang_name = "hw-profile"
                 self.yang_parent_name = "config"
@@ -167,9 +179,19 @@ class Vm(Entity):
                 vrr = Enum.YLeaf(0, "vrr")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+                    return meta._meta_table['Vm.Config.HwProfile.Profile']
 
 
-        class Memory(Entity):
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+                return meta._meta_table['Vm.Config.HwProfile']['meta_info']
+
+
+        class Memory(_Entity_):
             """
             
             
@@ -202,7 +224,10 @@ class Vm(Entity):
             _revision = '2018-11-20'
 
             def __init__(self):
-                super(Vm.Config.Memory, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vm.Config.Memory, self).__init__()
 
                 self.yang_name = "memory"
                 self.yang_parent_name = "config"
@@ -225,9 +250,13 @@ class Vm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vm.Config.Memory, ['admin', 'rp', 'lc'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+                return meta._meta_table['Vm.Config.Memory']['meta_info']
 
 
-        class Cpu(Entity):
+        class Cpu(_Entity_):
             """
             
             
@@ -246,7 +275,10 @@ class Vm(Entity):
             _revision = '2018-11-20'
 
             def __init__(self):
-                super(Vm.Config.Cpu, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vm.Config.Cpu, self).__init__()
 
                 self.yang_name = "cpu"
                 self.yang_parent_name = "config"
@@ -265,11 +297,23 @@ class Vm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vm.Config.Cpu, ['assign'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+                return meta._meta_table['Vm.Config.Cpu']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+            return meta._meta_table['Vm.Config']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_vm as meta
+        return meta._meta_table['Vm']['meta_info']
 
 

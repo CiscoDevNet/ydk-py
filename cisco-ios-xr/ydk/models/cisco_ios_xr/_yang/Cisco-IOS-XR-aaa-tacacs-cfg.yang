@@ -224,6 +224,20 @@ module Cisco-IOS-XR-aaa-tacacs-cfg {
     }
   }
 
+  grouping SINGLE-CONNECT-IDLE-TIMEOUT {
+    description
+      "Common node of tacacs, host";
+    leaf single-connect-idle-timeout {
+      type uint32 {
+        range "500..7200";
+      }
+      units "second";
+      description
+        "Idle timeout for single connection to the
+         TACACS+ server";
+    }
+  }
+
   augment "/a1:aaa" {
     description
       "This augment extends the configuration data of
@@ -262,6 +276,7 @@ module Cisco-IOS-XR-aaa-tacacs-cfg {
           uses KEY;
           uses TIMEOUT;
           uses SINGLE-CONNECT;
+          uses SINGLE-CONNECT-IDLE-TIMEOUT;
         }
       }
       container ipv4 {
@@ -292,6 +307,7 @@ module Cisco-IOS-XR-aaa-tacacs-cfg {
       uses KEY;
       uses TIMEOUT;
       uses SINGLE-CONNECT;
+      uses SINGLE-CONNECT-IDLE-TIMEOUT;
     }
   }
   augment "/a1:aaa/a2:server-groups" {

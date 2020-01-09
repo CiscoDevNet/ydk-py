@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class FibPbtsFallback(Enum):
     drop = Enum.YLeaf(3, "drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+        return meta._meta_table['FibPbtsFallback']
+
+
 class FibPbtsForwardClass(Enum):
     """
     FibPbtsForwardClass (Enum Class)
@@ -62,8 +71,14 @@ class FibPbtsForwardClass(Enum):
     any = Enum.YLeaf(8, "any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+        return meta._meta_table['FibPbtsForwardClass']
 
-class Fib(Entity):
+
+
+class Fib(_Entity_):
     """
     CEF configuration
     
@@ -105,7 +120,10 @@ class Fib(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Fib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Fib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fib"
@@ -139,7 +157,7 @@ class Fib(Entity):
         self._perform_setattr(Fib, ['auto_hash_recover', 'prefer_aib_routes', 'encap_sharing_disable', 'frr_follow_bgp_pic'], name, value)
 
 
-    class PbtsForwardClassFallbacks(Entity):
+    class PbtsForwardClassFallbacks(_Entity_):
         """
         PBTS class configuration
         
@@ -156,7 +174,10 @@ class Fib(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Fib.PbtsForwardClassFallbacks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fib.PbtsForwardClassFallbacks, self).__init__()
 
             self.yang_name = "pbts-forward-class-fallbacks"
             self.yang_parent_name = "fib"
@@ -175,7 +196,7 @@ class Fib(Entity):
             self._perform_setattr(Fib.PbtsForwardClassFallbacks, [], name, value)
 
 
-        class PbtsForwardClassFallback(Entity):
+        class PbtsForwardClassFallback(_Entity_):
             """
             Set PBTS class for fallback
             
@@ -212,7 +233,10 @@ class Fib(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, self).__init__()
 
                 self.yang_name = "pbts-forward-class-fallback"
                 self.yang_parent_name = "pbts-forward-class-fallbacks"
@@ -235,10 +259,18 @@ class Fib(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, ['forward_class_number', 'fallback_type', 'fallback_class_number_array'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+                return meta._meta_table['Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+            return meta._meta_table['Fib.PbtsForwardClassFallbacks']['meta_info']
 
 
-
-    class Platform(Entity):
+    class Platform(_Entity_):
         """
         FIB platform parameters
         
@@ -255,7 +287,10 @@ class Fib(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Fib.Platform, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fib.Platform, self).__init__()
 
             self.yang_name = "platform"
             self.yang_parent_name = "fib"
@@ -276,7 +311,7 @@ class Fib(Entity):
             self._perform_setattr(Fib.Platform, [], name, value)
 
 
-        class LabelSwitchedMulticast(Entity):
+        class LabelSwitchedMulticast(_Entity_):
             """
             Options for label\-switched\-multicast parameters
             
@@ -297,7 +332,10 @@ class Fib(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Fib.Platform.LabelSwitchedMulticast, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fib.Platform.LabelSwitchedMulticast, self).__init__()
 
                 self.yang_name = "label-switched-multicast"
                 self.yang_parent_name = "platform"
@@ -316,11 +354,23 @@ class Fib(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Fib.Platform.LabelSwitchedMulticast, ['frr_holdtime'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+                return meta._meta_table['Fib.Platform.LabelSwitchedMulticast']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+            return meta._meta_table['Fib.Platform']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Fib()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+        return meta._meta_table['Fib']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class LsgStatus(Enum):
     testing = Enum.YLeaf(4, "testing")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['LsgStatus']
+
+
 class SessionState(Enum):
     """
     SessionState (Enum Class)
@@ -86,6 +95,12 @@ class SessionState(Enum):
     established = Enum.YLeaf(2, "established")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['SessionState']
+
+
 class TosMode(Enum):
     """
     TosMode (Enum Class)
@@ -111,6 +126,12 @@ class TosMode(Enum):
     set = Enum.YLeaf(1, "set")
 
     reflect = Enum.YLeaf(2, "reflect")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['TosMode']
 
 
 class VpdnFailcode(Enum):
@@ -236,6 +257,12 @@ class VpdnFailcode(Enum):
     call_prarmeters = Enum.YLeaf(18, "call-prarmeters")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['VpdnFailcode']
+
+
 class VpdnState(Enum):
     """
     VpdnState (Enum Class)
@@ -263,8 +290,14 @@ class VpdnState(Enum):
     steady_state = Enum.YLeaf(2, "steady-state")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['VpdnState']
 
-class Vpdn(Entity):
+
+
+class Vpdn(_Entity_):
     """
     VPDN operational data
     
@@ -283,7 +316,10 @@ class Vpdn(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Vpdn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vpdn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vpdn"
@@ -304,7 +340,7 @@ class Vpdn(Entity):
         self._perform_setattr(Vpdn, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which subscriber data is
         collected
@@ -324,7 +360,10 @@ class Vpdn(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Vpdn.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "vpdn"
@@ -343,7 +382,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber data for a particular node
             
@@ -399,7 +438,10 @@ class Vpdn(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vpdn.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -439,7 +481,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.Nodes.Node, ['node_name'], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 VPDN session list
                 
@@ -458,7 +500,10 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Nodes.Node.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Nodes.Node.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "node"
@@ -476,7 +521,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Nodes.Node.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                      VPDN session information
                     
@@ -543,7 +588,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -582,7 +630,7 @@ class Vpdn(Entity):
                         self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session, ['session_label', 'setup_time', 'parent_interface_name'], name, value)
 
 
-                    class Session_(Entity):
+                    class Session_(_Entity_):
                         """
                         Session data
                         
@@ -656,7 +704,10 @@ class Vpdn(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vpdn.Nodes.Node.Sessions.Session.Session_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vpdn.Nodes.Node.Sessions.Session.Session_, self).__init__()
 
                             self.yang_name = "session"
                             self.yang_parent_name = "session"
@@ -688,9 +739,13 @@ class Vpdn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Session_, ['last_change', 'interface_name', 'username', 'domain_name', 'state', 'l2tp_session_id', 'l2tp_tunnel_id', 'srg_slave'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                            return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session.Session_']['meta_info']
 
 
-                    class L2tp(Entity):
+                    class L2tp(_Entity_):
                         """
                         L2TP data
                         
@@ -809,7 +864,10 @@ class Vpdn(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vpdn.Nodes.Node.Sessions.Session.L2tp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vpdn.Nodes.Node.Sessions.Session.L2tp, self).__init__()
 
                             self.yang_name = "l2tp"
                             self.yang_parent_name = "session"
@@ -851,9 +909,13 @@ class Vpdn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.L2tp, ['local_endpoint', 'remote_endpoint', 'call_serial_number', 'is_l2tp_class_attribute_mask_set', 'local_tunnel_id', 'remote_tunnel_id', 'local_session_id', 'remote_session_id', 'remote_port', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'tunnel_assignment_id', 'is_tunnel_authentication_enabled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                            return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session.L2tp']['meta_info']
 
 
-                    class Subscriber(Entity):
+                    class Subscriber(_Entity_):
                         """
                         Subscriber data
                         
@@ -910,7 +972,10 @@ class Vpdn(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vpdn.Nodes.Node.Sessions.Session.Subscriber, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vpdn.Nodes.Node.Sessions.Session.Subscriber, self).__init__()
 
                             self.yang_name = "subscriber"
                             self.yang_parent_name = "session"
@@ -936,9 +1001,13 @@ class Vpdn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Subscriber, ['nas_port_id_val', 'nas_port_type', 'physical_channel_id', 'receive_connect_speed', 'transmit_connect_speed'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                            return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session.Subscriber']['meta_info']
 
 
-                    class Configuration(Entity):
+                    class Configuration(_Entity_):
                         """
                         Configuration data
                         
@@ -1005,7 +1074,10 @@ class Vpdn(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vpdn.Nodes.Node.Sessions.Session.Configuration, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vpdn.Nodes.Node.Sessions.Session.Configuration, self).__init__()
 
                             self.yang_name = "configuration"
                             self.yang_parent_name = "session"
@@ -1038,7 +1110,7 @@ class Vpdn(Entity):
                             self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Configuration, ['template_name', 'vrf_name', 'l2tp_busy_timeout', 'tos_mode', 'tos', 'dsl_line_forwarding'], name, value)
 
 
-                        class VpnId(Entity):
+                        class VpnId(_Entity_):
                             """
                             VPN ID
                             
@@ -1068,7 +1140,10 @@ class Vpdn(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vpdn.Nodes.Node.Sessions.Session.Configuration.VpnId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vpdn.Nodes.Node.Sessions.Session.Configuration.VpnId, self).__init__()
 
                                 self.yang_name = "vpn-id"
                                 self.yang_parent_name = "configuration"
@@ -1088,12 +1163,28 @@ class Vpdn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Configuration.VpnId, ['oui', 'index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                                return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session.Configuration.VpnId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                            return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session.Configuration']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.Sessions.Session']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                    return meta._meta_table['Vpdn.Nodes.Node.Sessions']['meta_info']
 
 
-
-
-
-            class TunnelDestinations(Entity):
+            class TunnelDestinations(_Entity_):
                 """
                 VPDN tunnel Destinations
                 
@@ -1112,7 +1203,10 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Nodes.Node.TunnelDestinations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Nodes.Node.TunnelDestinations, self).__init__()
 
                     self.yang_name = "tunnel-destinations"
                     self.yang_parent_name = "node"
@@ -1130,7 +1224,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Nodes.Node.TunnelDestinations, [], name, value)
 
 
-                class TunnelDestination(Entity):
+                class TunnelDestination(_Entity_):
                     """
                     VPDN tunnel destination information
                     
@@ -1221,7 +1315,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.TunnelDestinations.TunnelDestination, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.TunnelDestinations.TunnelDestination, self).__init__()
 
                         self.yang_name = "tunnel-destination"
                         self.yang_parent_name = "tunnel-destinations"
@@ -1255,10 +1352,18 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.TunnelDestinations.TunnelDestination, ['vrf_name', 'address', 'vrf_name_xr', 'load', 'status', 'connects', 'disconnects', 'retry', 'status_change_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.TunnelDestinations.TunnelDestination']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                    return meta._meta_table['Vpdn.Nodes.Node.TunnelDestinations']['meta_info']
 
 
-
-            class VpdnMirroring(Entity):
+            class VpdnMirroring(_Entity_):
                 """
                 VPDN Mirroring Statistics
                 
@@ -1343,7 +1448,10 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Nodes.Node.VpdnMirroring, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Nodes.Node.VpdnMirroring, self).__init__()
 
                     self.yang_name = "vpdn-mirroring"
                     self.yang_parent_name = "node"
@@ -1386,7 +1494,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Nodes.Node.VpdnMirroring, ['sync_not_conn_cnt', 'sso_err_cnt', 'sso_batch_err_cnt', 'alloc_err_cnt', 'alloc_cnt'], name, value)
 
 
-                class QadSendStats(Entity):
+                class QadSendStats(_Entity_):
                     """
                     qad send stats
                     
@@ -1569,7 +1677,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.VpdnMirroring.QadSendStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.VpdnMirroring.QadSendStats, self).__init__()
 
                         self.yang_name = "qad-send-stats"
                         self.yang_parent_name = "vpdn-mirroring"
@@ -1623,9 +1734,13 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.VpdnMirroring.QadSendStats, ['msgs_sent', 'acks_sent', 'no_partner', 'sends_failed', 'acks_failed', 'pending_acks', 'timeouts', 'suspends', 'resumes', 'sends_fragment', 'qad_last_seq_number', 'qad_frag_count', 'qad_ack_count', 'qad_unknown_acks', 'qad_timeouts', 'qad_rx_count', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_rx_first_seq_number'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.VpdnMirroring.QadSendStats']['meta_info']
 
 
-                class QadRecvStats(Entity):
+                class QadRecvStats(_Entity_):
                     """
                     qad recv stats
                     
@@ -1700,7 +1815,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStats, self).__init__()
 
                         self.yang_name = "qad-recv-stats"
                         self.yang_parent_name = "vpdn-mirroring"
@@ -1730,9 +1848,13 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStats, ['msgs_recvd', 'acks_recvd', 'recvd_acks_failed', 'init_drops', 'msg_drops', 'ooo_drops', 'stale_msgs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.VpdnMirroring.QadRecvStats']['meta_info']
 
 
-                class QadSendStatsLastClear(Entity):
+                class QadSendStatsLastClear(_Entity_):
                     """
                     qad send stats last clear
                     
@@ -1915,7 +2037,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.VpdnMirroring.QadSendStatsLastClear, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.VpdnMirroring.QadSendStatsLastClear, self).__init__()
 
                         self.yang_name = "qad-send-stats-last-clear"
                         self.yang_parent_name = "vpdn-mirroring"
@@ -1969,9 +2094,13 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.VpdnMirroring.QadSendStatsLastClear, ['msgs_sent', 'acks_sent', 'no_partner', 'sends_failed', 'acks_failed', 'pending_acks', 'timeouts', 'suspends', 'resumes', 'sends_fragment', 'qad_last_seq_number', 'qad_frag_count', 'qad_ack_count', 'qad_unknown_acks', 'qad_timeouts', 'qad_rx_count', 'qad_rx_list_count', 'qad_rx_list_q_size', 'qad_rx_first_seq_number'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.VpdnMirroring.QadSendStatsLastClear']['meta_info']
 
 
-                class QadRecvStatsLastClear(Entity):
+                class QadRecvStatsLastClear(_Entity_):
                     """
                     qad recv stats last clear
                     
@@ -2046,7 +2175,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStatsLastClear, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStatsLastClear, self).__init__()
 
                         self.yang_name = "qad-recv-stats-last-clear"
                         self.yang_parent_name = "vpdn-mirroring"
@@ -2076,10 +2208,18 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.VpdnMirroring.QadRecvStatsLastClear, ['msgs_recvd', 'acks_recvd', 'recvd_acks_failed', 'init_drops', 'msg_drops', 'ooo_drops', 'stale_msgs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.VpdnMirroring.QadRecvStatsLastClear']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                    return meta._meta_table['Vpdn.Nodes.Node.VpdnMirroring']['meta_info']
 
 
-
-            class VpdnRedundancy(Entity):
+            class VpdnRedundancy(_Entity_):
                 """
                 Show VPDN Redundancy information
                 
@@ -2143,7 +2283,10 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Nodes.Node.VpdnRedundancy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Nodes.Node.VpdnRedundancy, self).__init__()
 
                     self.yang_name = "vpdn-redundancy"
                     self.yang_parent_name = "node"
@@ -2171,9 +2314,13 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Nodes.Node.VpdnRedundancy, ['session_total', 'session_synced', 'state', 'start_time', 'finish_time', 'abort_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                    return meta._meta_table['Vpdn.Nodes.Node.VpdnRedundancy']['meta_info']
 
 
-            class HistoryFailures(Entity):
+            class HistoryFailures(_Entity_):
                 """
                 VPDN history failure list
                 
@@ -2192,7 +2339,10 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Nodes.Node.HistoryFailures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Nodes.Node.HistoryFailures, self).__init__()
 
                     self.yang_name = "history-failures"
                     self.yang_parent_name = "node"
@@ -2210,7 +2360,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Nodes.Node.HistoryFailures, [], name, value)
 
 
-                class HistoryFailure(Entity):
+                class HistoryFailure(_Entity_):
                     """
                     VPDN history failure information
                     
@@ -2334,7 +2484,10 @@ class Vpdn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vpdn.Nodes.Node.HistoryFailures.HistoryFailure, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Nodes.Node.HistoryFailures.HistoryFailure, self).__init__()
 
                         self.yang_name = "history-failure"
                         self.yang_parent_name = "history-failures"
@@ -2378,13 +2531,33 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Nodes.Node.HistoryFailures.HistoryFailure, ['username', 'remote_name', 'username_xr', 'domain_name', 'mid', 'nas', 'destination_address', 'remote_client_id', 'home_gateway', 'source_address', 'local_client_id', 'event_time', 'error_repeat_count', 'failure_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                        return meta._meta_table['Vpdn.Nodes.Node.HistoryFailures.HistoryFailure']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                    return meta._meta_table['Vpdn.Nodes.Node.HistoryFailures']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+                return meta._meta_table['Vpdn.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+            return meta._meta_table['Vpdn.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vpdn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_oper as meta
+        return meta._meta_table['Vpdn']['meta_info']
 
 

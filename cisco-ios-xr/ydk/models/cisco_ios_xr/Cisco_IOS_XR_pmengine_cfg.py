@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -479,6 +482,12 @@ class EtherReport(Enum):
     report_tx_bad_fcs = Enum.YLeaf(524362, "report-tx-bad-fcs")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['EtherReport']
+
+
 class EtherThreshold(Enum):
     """
     EtherThreshold (Enum Class)
@@ -938,6 +947,12 @@ class EtherThreshold(Enum):
     thresh_tx_bad_fcs = Enum.YLeaf(8388682, "thresh-tx-bad-fcs")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['EtherThreshold']
+
+
 class FecReport(Enum):
     """
     FecReport (Enum Class)
@@ -1005,6 +1020,12 @@ class FecReport(Enum):
     report_q_min = Enum.YLeaf(131087, "report-q-min")
 
     report_q_margin_min = Enum.YLeaf(131088, "report-q-margin-min")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['FecReport']
 
 
 class FecThreshold(Enum):
@@ -1076,6 +1097,12 @@ class FecThreshold(Enum):
     thresh_q_margin_min = Enum.YLeaf(131088, "thresh-q-margin-min")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['FecThreshold']
+
+
 class GfpReport(Enum):
     """
     GfpReport (Enum Class)
@@ -1115,6 +1142,12 @@ class GfpReport(Enum):
     report_rx_csf = Enum.YLeaf(6291460, "report-rx-csf")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['GfpReport']
+
+
 class GfpThreshold(Enum):
     """
     GfpThreshold (Enum Class)
@@ -1152,6 +1185,12 @@ class GfpThreshold(Enum):
     thresh_rx_lfd = Enum.YLeaf(67108867, "thresh-rx-lfd")
 
     thresh_rx_csf = Enum.YLeaf(67108868, "thresh-rx-csf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['GfpThreshold']
 
 
 class HoVcReport(Enum):
@@ -1211,6 +1250,12 @@ class HoVcReport(Enum):
     report_uass = Enum.YLeaf(33554439, "report-uass")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['HoVcReport']
+
+
 class HoVcThreshold(Enum):
     """
     HoVcThreshold (Enum Class)
@@ -1266,6 +1311,12 @@ class HoVcThreshold(Enum):
     thresh_bber = Enum.YLeaf(33554438, "thresh-bber")
 
     thresh_uass = Enum.YLeaf(33554439, "thresh-uass")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['HoVcThreshold']
 
 
 class OcnReport(Enum):
@@ -1361,6 +1412,12 @@ class OcnReport(Enum):
     report_uasl_fe = Enum.YLeaf(3145756, "report-uasl-fe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OcnReport']
+
+
 class OcnThreshold(Enum):
     """
     OcnThreshold (Enum Class)
@@ -1452,6 +1509,12 @@ class OcnThreshold(Enum):
     thresh_sesl_fe = Enum.YLeaf(3145754, "thresh-sesl-fe")
 
     thresh_uasl_fe = Enum.YLeaf(3145756, "thresh-uasl-fe")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OcnThreshold']
 
 
 class OpticsReport(Enum):
@@ -1643,6 +1706,12 @@ class OpticsReport(Enum):
     report_ampli_gain_tilt_max = Enum.YLeaf(65589, "report-ampli-gain-tilt-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OpticsReport']
+
+
 class OpticsThreshold(Enum):
     """
     OpticsThreshold (Enum Class)
@@ -1830,6 +1899,12 @@ class OpticsThreshold(Enum):
     thresh_ampli_gain_max = Enum.YLeaf(65588, "thresh-ampli-gain-max")
 
     thresh_ampli_gain_tilt_max = Enum.YLeaf(65589, "thresh-ampli-gain-tilt-max")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OpticsThreshold']
 
 
 class OtnReport(Enum):
@@ -2033,6 +2108,12 @@ class OtnReport(Enum):
     report_bber_pm_fe = Enum.YLeaf(2097167, "report-bber-pm-fe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OtnReport']
+
+
 class OtnTcmReport(Enum):
     """
     OtnTcmReport (Enum Class)
@@ -2138,6 +2219,12 @@ class OtnTcmReport(Enum):
     report_bber_tcm_ne = Enum.YLeaf(33554439, "report-bber-tcm-ne")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OtnTcmReport']
+
+
 class OtnTcmThreshold(Enum):
     """
     OtnTcmThreshold (Enum Class)
@@ -2241,6 +2328,12 @@ class OtnTcmThreshold(Enum):
     thresh_sesr_tcm_ne = Enum.YLeaf(33554438, "thresh-sesr-tcm-ne")
 
     thresh_bber_tcm_ne = Enum.YLeaf(33554439, "thresh-bber-tcm-ne")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OtnTcmThreshold']
 
 
 class OtnThreshold(Enum):
@@ -2444,6 +2537,12 @@ class OtnThreshold(Enum):
     thresh_bber_pm_fe = Enum.YLeaf(2097167, "thresh-bber-pm-fe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['OtnThreshold']
+
+
 class PathReport(Enum):
     """
     PathReport (Enum Class)
@@ -2475,6 +2574,12 @@ class PathReport(Enum):
     report_ses = Enum.YLeaf(5242882, "report-ses")
 
     report_uas = Enum.YLeaf(5242883, "report-uas")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['PathReport']
 
 
 class PathThreshold(Enum):
@@ -2510,6 +2615,12 @@ class PathThreshold(Enum):
     thresh_uas = Enum.YLeaf(5242883, "thresh-uas")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['PathThreshold']
+
+
 class PcsReport(Enum):
     """
     PcsReport (Enum Class)
@@ -2529,6 +2640,12 @@ class PcsReport(Enum):
     report_bip = Enum.YLeaf(100663296, "report-bip")
 
     report_frm_err = Enum.YLeaf(100663297, "report-frm-err")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['PcsReport']
 
 
 class PcsThreshold(Enum):
@@ -2552,6 +2669,12 @@ class PcsThreshold(Enum):
     thresh_frm_err = Enum.YLeaf(83886081, "thresh-frm-err")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['PcsThreshold']
+
+
 class Report(Enum):
     """
     Report (Enum Class)
@@ -2571,6 +2694,12 @@ class Report(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(1, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['Report']
 
 
 class SecyifReport(Enum):
@@ -2654,6 +2783,12 @@ class SecyifReport(Enum):
     report_if_outoctetsencrypted = Enum.YLeaf(134217739, "report-if-outoctetsencrypted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecyifReport']
+
+
 class SecyifThreshold(Enum):
     """
     SecyifThreshold (Enum Class)
@@ -2735,6 +2870,12 @@ class SecyifThreshold(Enum):
     thresh_if_outoctetsencrypted = Enum.YLeaf(150994955, "thresh-if-outoctetsencrypted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecyifThreshold']
+
+
 class SecyrxReport(Enum):
     """
     SecyrxReport (Enum Class)
@@ -2808,6 +2949,12 @@ class SecyrxReport(Enum):
     report_rx_inoctets_validate_d = Enum.YLeaf(117440521, "report-rx-inoctets-validate-d")
 
     report_rx_inoctetsdecrypted = Enum.YLeaf(117440522, "report-rx-inoctetsdecrypted")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecyrxReport']
 
 
 class SecyrxThreshold(Enum):
@@ -2885,6 +3032,12 @@ class SecyrxThreshold(Enum):
     thresh_rx_inoctetsdecrypted = Enum.YLeaf(117440522, "thresh-rx-inoctetsdecrypted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecyrxThreshold']
+
+
 class SecytxReport(Enum):
     """
     SecytxReport (Enum Class)
@@ -2924,6 +3077,12 @@ class SecytxReport(Enum):
     report_tx_outpkts_too_long = Enum.YLeaf(150994948, "report-tx-outpkts-too-long")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecytxReport']
+
+
 class SecytxThreshold(Enum):
     """
     SecytxThreshold (Enum Class)
@@ -2961,6 +3120,12 @@ class SecytxThreshold(Enum):
     thresh_tx_outoctetsencrypted = Enum.YLeaf(134217731, "thresh-tx-outoctetsencrypted")
 
     thresh_tx_outpkts_too_long = Enum.YLeaf(134217732, "thresh-tx-outpkts-too-long")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['SecytxThreshold']
 
 
 class StmReport(Enum):
@@ -3116,6 +3281,12 @@ class StmReport(Enum):
     report_uasl_fe = Enum.YLeaf(16777252, "report-uasl-fe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['StmReport']
+
+
 class StmThreshold(Enum):
     """
     StmThreshold (Enum Class)
@@ -3269,6 +3440,12 @@ class StmThreshold(Enum):
     thresh_uasl_fe = Enum.YLeaf(16777252, "thresh-uasl-fe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['StmThreshold']
+
+
 class StsReport(Enum):
     """
     StsReport (Enum Class)
@@ -3302,6 +3479,12 @@ class StsReport(Enum):
     report_uas = Enum.YLeaf(4194307, "report-uas")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['StsReport']
+
+
 class StsThreshold(Enum):
     """
     StsThreshold (Enum Class)
@@ -3333,6 +3516,12 @@ class StsThreshold(Enum):
     thresh_ses = Enum.YLeaf(4194306, "thresh-ses")
 
     thresh_uas = Enum.YLeaf(4194307, "thresh-uas")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pmengine_cfg as meta
+        return meta._meta_table['StsThreshold']
 
 
 

@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -57,6 +60,12 @@ class NtpAccess(Enum):
     query_only = Enum.YLeaf(3, "query-only")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+        return meta._meta_table['NtpAccess']
+
+
 class NtpAccessAf(Enum):
     """
     NtpAccessAf (Enum Class)
@@ -76,6 +85,12 @@ class NtpAccessAf(Enum):
     ipv4 = Enum.YLeaf(0, "ipv4")
 
     ipv6 = Enum.YLeaf(1, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+        return meta._meta_table['NtpAccessAf']
 
 
 class NtpPeer(Enum):
@@ -99,6 +114,12 @@ class NtpPeer(Enum):
     server = Enum.YLeaf(1, "server")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+        return meta._meta_table['NtpPeer']
+
+
 class Ntpdscp(Enum):
     """
     Ntpdscp (Enum Class)
@@ -120,8 +141,14 @@ class Ntpdscp(Enum):
     ntpdscp = Enum.YLeaf(1, "ntpdscp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+        return meta._meta_table['Ntpdscp']
 
-class Ntp(Entity):
+
+
+class Ntp(_Entity_):
     """
     NTP configuration
     
@@ -191,7 +218,7 @@ class Ntp(Entity):
     	Act as NTP master clock
     	**type**\: int
     
-    	**range:** 1..15
+    	**range:** 1..20
     
     	**default value**\: 8
     
@@ -220,7 +247,10 @@ class Ntp(Entity):
     _revision = '2017-10-15'
 
     def __init__(self):
-        super(Ntp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ntp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ntp"
@@ -286,7 +316,7 @@ class Ntp(Entity):
         self._perform_setattr(Ntp, ['max_associations', 'master', 'broadcast_delay', 'log_internal_sync', 'update_calendar'], name, value)
 
 
-    class AdminTypes(Entity):
+    class AdminTypes(_Entity_):
         """
         Configure NTP server admin\-plane
         
@@ -303,7 +333,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.AdminTypes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.AdminTypes, self).__init__()
 
             self.yang_name = "admin-types"
             self.yang_parent_name = "ntp"
@@ -322,7 +355,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.AdminTypes, [], name, value)
 
 
-        class AdminType(Entity):
+        class AdminType(_Entity_):
             """
             Configure NTP server admin plane
             
@@ -382,7 +415,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.AdminTypes.AdminType, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.AdminTypes.AdminType, self).__init__()
 
                 self.yang_name = "admin-type"
                 self.yang_parent_name = "admin-types"
@@ -415,10 +451,18 @@ class Ntp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.AdminTypes.AdminType, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'burst', 'iburst'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.AdminTypes.AdminType']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.AdminTypes']['meta_info']
 
 
-
-    class PeerVrfs(Entity):
+    class PeerVrfs(_Entity_):
         """
         Configures NTP Peers or Servers
         
@@ -435,7 +479,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.PeerVrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.PeerVrfs, self).__init__()
 
             self.yang_name = "peer-vrfs"
             self.yang_parent_name = "ntp"
@@ -454,7 +501,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.PeerVrfs, [], name, value)
 
 
-        class PeerVrf(Entity):
+        class PeerVrf(_Entity_):
             """
             Configures NTP Peers or Servers for a single
             VRF. The 'default' must also be specified for
@@ -485,7 +532,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.PeerVrfs.PeerVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.PeerVrfs.PeerVrf, self).__init__()
 
                 self.yang_name = "peer-vrf"
                 self.yang_parent_name = "peer-vrfs"
@@ -513,7 +563,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.PeerVrfs.PeerVrf, ['vrf_name'], name, value)
 
 
-            class PeerIpv4s(Entity):
+            class PeerIpv4s(_Entity_):
                 """
                 Configures IPv4 NTP Peers or Servers
                 
@@ -530,7 +580,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, self).__init__()
 
                     self.yang_name = "peer-ipv4s"
                     self.yang_parent_name = "peer-vrf"
@@ -548,7 +601,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, [], name, value)
 
 
-                class PeerIpv4(Entity):
+                class PeerIpv4(_Entity_):
                     """
                     Configure an IPv4 NTP server or peer
                     
@@ -572,7 +625,10 @@ class Ntp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, self).__init__()
 
                         self.yang_name = "peer-ipv4"
                         self.yang_parent_name = "peer-ipv4s"
@@ -593,7 +649,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, ['address_ipv4'], name, value)
 
 
-                    class PeerTypeIpv4(Entity):
+                    class PeerTypeIpv4(_Entity_):
                         """
                         Configure an IPv4 NTP server or peer
                         
@@ -660,7 +716,10 @@ class Ntp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, self).__init__()
 
                             self.yang_name = "peer-type-ipv4"
                             self.yang_parent_name = "peer-ipv4"
@@ -694,11 +753,23 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                            return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                        return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s']['meta_info']
 
 
-
-
-            class PeerIpv6s(Entity):
+            class PeerIpv6s(_Entity_):
                 """
                 Configuration NTP Peers or Servers of IPV6
                 
@@ -715,7 +786,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, self).__init__()
 
                     self.yang_name = "peer-ipv6s"
                     self.yang_parent_name = "peer-vrf"
@@ -733,7 +807,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, [], name, value)
 
 
-                class PeerIpv6(Entity):
+                class PeerIpv6(_Entity_):
                     """
                     Configure a NTP server or peer
                     
@@ -757,7 +831,10 @@ class Ntp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, self).__init__()
 
                         self.yang_name = "peer-ipv6"
                         self.yang_parent_name = "peer-ipv6s"
@@ -778,7 +855,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, ['address_ipv6'], name, value)
 
 
-                    class PeerTypeIpv6(Entity):
+                    class PeerTypeIpv6(_Entity_):
                         """
                         Configure a NTP server or peer
                         
@@ -852,7 +929,10 @@ class Ntp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, self).__init__()
 
                             self.yang_name = "peer-type-ipv6"
                             self.yang_parent_name = "peer-ipv6"
@@ -888,19 +968,39 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst', 'address_ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                            return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                        return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.PeerVrfs']['meta_info']
 
 
-
-
-
-
-    class DscpIpv4(Entity):
+    class DscpIpv4(_Entity_):
         """
          Set IP DSCP value for outgoing NTP IPV4 packets
         
         .. attribute:: mode
         
-        	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
+        	NTPPRECEDENCE (0) to specify Precedence value NTPDSCP (1) to specify DSCP value
         	**type**\:  :py:class:`Ntpdscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntpdscp>`
         
         	**mandatory**\: True
@@ -924,7 +1024,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.DscpIpv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.DscpIpv4, self).__init__()
 
             self.yang_name = "dscp-ipv4"
             self.yang_parent_name = "ntp"
@@ -946,9 +1049,13 @@ class Ntp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.DscpIpv4, ['mode', 'dscp_or_precedence_value'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.DscpIpv4']['meta_info']
 
 
-    class DscpIpv6(Entity):
+    class DscpIpv6(_Entity_):
         """
          Set IP DSCP value for outgoing NTP IPV6 packets
         
@@ -978,7 +1085,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.DscpIpv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.DscpIpv6, self).__init__()
 
             self.yang_name = "dscp-ipv6"
             self.yang_parent_name = "ntp"
@@ -1000,9 +1110,13 @@ class Ntp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.DscpIpv6, ['mode', 'dscp_or_precedence_value'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.DscpIpv6']['meta_info']
 
 
-    class Sources(Entity):
+    class Sources(_Entity_):
         """
         Configure  NTP source interface
         
@@ -1019,7 +1133,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.Sources, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Sources, self).__init__()
 
             self.yang_name = "sources"
             self.yang_parent_name = "ntp"
@@ -1038,7 +1155,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Sources, [], name, value)
 
 
-        class Source(Entity):
+        class Source(_Entity_):
             """
             Configure  NTP source interface
             
@@ -1066,7 +1183,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Sources.Source, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Sources.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "sources"
@@ -1087,10 +1207,18 @@ class Ntp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Sources.Source, ['vrf_name', 'source_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.Sources.Source']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.Sources']['meta_info']
 
 
-
-    class Drift(Entity):
+    class Drift(_Entity_):
         """
         NTP drift
         
@@ -1114,7 +1242,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.Drift, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Drift, self).__init__()
 
             self.yang_name = "drift"
             self.yang_parent_name = "ntp"
@@ -1138,7 +1269,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Drift, ['aging_time'], name, value)
 
 
-        class File(Entity):
+        class File(_Entity_):
             """
             File containing drift value
             
@@ -1162,7 +1293,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Drift.File, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Drift.File, self).__init__()
 
                 self.yang_name = "file"
                 self.yang_parent_name = "drift"
@@ -1183,10 +1317,18 @@ class Ntp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Drift.File, ['location', 'filename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.Drift.File']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.Drift']['meta_info']
 
 
-
-    class Authentication(Entity):
+    class Authentication(_Entity_):
         """
         Configure NTP Authentication keys
         
@@ -1213,7 +1355,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.Authentication, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Authentication, self).__init__()
 
             self.yang_name = "authentication"
             self.yang_parent_name = "ntp"
@@ -1241,7 +1386,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Authentication, ['enable'], name, value)
 
 
-        class Keys(Entity):
+        class Keys(_Entity_):
             """
             Authentication Key Table
             
@@ -1258,7 +1403,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Authentication.Keys, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Authentication.Keys, self).__init__()
 
                 self.yang_name = "keys"
                 self.yang_parent_name = "authentication"
@@ -1277,7 +1425,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.Authentication.Keys, [], name, value)
 
 
-            class Key(Entity):
+            class Key(_Entity_):
                 """
                 Authentication key for trusted time sources
                 
@@ -1303,7 +1451,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.Authentication.Keys.Key, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Authentication.Keys.Key, self).__init__()
 
                     self.yang_name = "key"
                     self.yang_parent_name = "keys"
@@ -1324,10 +1475,18 @@ class Ntp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.Authentication.Keys.Key, ['key_number', 'authentication_key'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.Authentication.Keys.Key']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.Authentication.Keys']['meta_info']
 
 
-
-        class TrustedKeys(Entity):
+        class TrustedKeys(_Entity_):
             """
             Key numbers for trusted time sources
             
@@ -1344,7 +1503,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Authentication.TrustedKeys, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Authentication.TrustedKeys, self).__init__()
 
                 self.yang_name = "trusted-keys"
                 self.yang_parent_name = "authentication"
@@ -1363,7 +1525,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.Authentication.TrustedKeys, [], name, value)
 
 
-            class TrustedKey(Entity):
+            class TrustedKey(_Entity_):
                 """
                 Configure NTP trusted key
                 
@@ -1382,7 +1544,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.Authentication.TrustedKeys.TrustedKey, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Authentication.TrustedKeys.TrustedKey, self).__init__()
 
                     self.yang_name = "trusted-key"
                     self.yang_parent_name = "trusted-keys"
@@ -1401,11 +1566,23 @@ class Ntp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.Authentication.TrustedKeys.TrustedKey, ['key_number'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.Authentication.TrustedKeys.TrustedKey']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.Authentication.TrustedKeys']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.Authentication']['meta_info']
 
 
-
-
-    class Passive(Entity):
+    class Passive(_Entity_):
         """
         Configure NTP passive associations
         
@@ -1422,7 +1599,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.Passive, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Passive, self).__init__()
 
             self.yang_name = "passive"
             self.yang_parent_name = "ntp"
@@ -1441,9 +1621,13 @@ class Ntp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Passive, ['enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.Passive']['meta_info']
 
 
-    class InterfaceTables(Entity):
+    class InterfaceTables(_Entity_):
         """
         NTP per interface configuration
         
@@ -1460,7 +1644,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.InterfaceTables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.InterfaceTables, self).__init__()
 
             self.yang_name = "interface-tables"
             self.yang_parent_name = "ntp"
@@ -1479,7 +1666,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.InterfaceTables, [], name, value)
 
 
-        class InterfaceTable(Entity):
+        class InterfaceTable(_Entity_):
             """
             NTP per interface configuration
             
@@ -1503,7 +1690,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.InterfaceTables.InterfaceTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.InterfaceTables.InterfaceTable, self).__init__()
 
                 self.yang_name = "interface-table"
                 self.yang_parent_name = "interface-tables"
@@ -1525,7 +1715,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable, ['vrf_name'], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Name of the interface
                 
@@ -1559,7 +1749,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.InterfaceTables.InterfaceTable.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.InterfaceTables.InterfaceTable.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interface-table"
@@ -1588,7 +1781,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface, ['interface', 'disable'], name, value)
 
 
-                class InterfaceMulticast(Entity):
+                class InterfaceMulticast(_Entity_):
                     """
                     Configure NTP multicast service
                     
@@ -1610,7 +1803,10 @@ class Ntp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, self).__init__()
 
                         self.yang_name = "interface-multicast"
                         self.yang_parent_name = "interface"
@@ -1634,7 +1830,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, [], name, value)
 
 
-                    class MulticastClients(Entity):
+                    class MulticastClients(_Entity_):
                         """
                         Configures multicast client peers
                         
@@ -1651,7 +1847,10 @@ class Ntp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients, self).__init__()
 
                             self.yang_name = "multicast-clients"
                             self.yang_parent_name = "interface-multicast"
@@ -1669,7 +1868,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients, [], name, value)
 
 
-                        class MulticastClient(Entity):
+                        class MulticastClient(_Entity_):
                             """
                             Listen to NTP multicasts
                             
@@ -1694,7 +1893,10 @@ class Ntp(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, self).__init__()
 
                                 self.yang_name = "multicast-client"
                                 self.yang_parent_name = "multicast-clients"
@@ -1712,10 +1914,18 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, ['ip_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                                return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                            return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients']['meta_info']
 
 
-
-                    class MulticastServers(Entity):
+                    class MulticastServers(_Entity_):
                         """
                         Configures multicast server peers
                         
@@ -1732,7 +1942,10 @@ class Ntp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers, self).__init__()
 
                             self.yang_name = "multicast-servers"
                             self.yang_parent_name = "interface-multicast"
@@ -1750,7 +1963,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers, [], name, value)
 
 
-                        class MulticastServer(Entity):
+                        class MulticastServer(_Entity_):
                             """
                             Configure NTP multicast group server peer
                             
@@ -1796,7 +2009,10 @@ class Ntp(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, self).__init__()
 
                                 self.yang_name = "multicast-server"
                                 self.yang_parent_name = "multicast-servers"
@@ -1820,11 +2036,23 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, ['ip_address', 'authentication_key', 'version', 'ttl'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                                return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                            return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                        return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast']['meta_info']
 
 
-
-
-                class InterfaceBroadcast(Entity):
+                class InterfaceBroadcast(_Entity_):
                     """
                     Configure NTP broadcast service
                     
@@ -1846,7 +2074,10 @@ class Ntp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, self).__init__()
 
                         self.yang_name = "interface-broadcast"
                         self.yang_parent_name = "interface"
@@ -1869,7 +2100,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, ['broadcast_client'], name, value)
 
 
-                    class BroadcastServers(Entity):
+                    class BroadcastServers(_Entity_):
                         """
                         Configure NTP broadcast
                         
@@ -1886,7 +2117,10 @@ class Ntp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, self).__init__()
 
                             self.yang_name = "broadcast-servers"
                             self.yang_parent_name = "interface-broadcast"
@@ -1904,7 +2138,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, [], name, value)
 
 
-                        class BroadcastServer(Entity):
+                        class BroadcastServer(_Entity_):
                             """
                             Configure NTP broadcast server
                             
@@ -1944,7 +2178,10 @@ class Ntp(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, self).__init__()
 
                                 self.yang_name = "broadcast-server"
                                 self.yang_parent_name = "broadcast-servers"
@@ -1968,14 +2205,38 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, ['broadcast_type', 'address', 'authentication_key', 'ntp_version'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                                return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                            return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                        return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.InterfaceTables.InterfaceTable.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.InterfaceTables.InterfaceTable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.InterfaceTables']['meta_info']
 
 
-
-
-
-
-
-    class AccessGroupTables(Entity):
+    class AccessGroupTables(_Entity_):
         """
         Control NTP access
         
@@ -1992,7 +2253,10 @@ class Ntp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Ntp.AccessGroupTables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.AccessGroupTables, self).__init__()
 
             self.yang_name = "access-group-tables"
             self.yang_parent_name = "ntp"
@@ -2011,7 +2275,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.AccessGroupTables, [], name, value)
 
 
-        class AccessGroupTable(Entity):
+        class AccessGroupTable(_Entity_):
             """
             Control NTP access
             
@@ -2035,7 +2299,10 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.AccessGroupTables.AccessGroupTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.AccessGroupTables.AccessGroupTable, self).__init__()
 
                 self.yang_name = "access-group-table"
                 self.yang_parent_name = "access-group-tables"
@@ -2057,7 +2324,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable, ['vrf_name'], name, value)
 
 
-            class AccessGroupAfTable(Entity):
+            class AccessGroupAfTable(_Entity_):
                 """
                 Configure NTP access address family
                 
@@ -2079,7 +2346,10 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable, self).__init__()
 
                     self.yang_name = "access-group-af-table"
                     self.yang_parent_name = "access-group-table"
@@ -2100,7 +2370,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable, ['af'], name, value)
 
 
-                class AccessGroup(Entity):
+                class AccessGroup(_Entity_):
                     """
                     Configure NTP access group
                     
@@ -2124,7 +2394,10 @@ class Ntp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, self).__init__()
 
                         self.yang_name = "access-group"
                         self.yang_parent_name = "access-group-af-table"
@@ -2144,13 +2417,33 @@ class Ntp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, ['access_group_type', 'access_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                        return meta._meta_table['Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                    return meta._meta_table['Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+                return meta._meta_table['Ntp.AccessGroupTables.AccessGroupTable']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+            return meta._meta_table['Ntp.AccessGroupTables']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_cfg as meta
+        return meta._meta_table['Ntp']['meta_info']
 
 

@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class FabricFiaConfig(Entity):
+class FabricFiaConfig(_Entity_):
     """
     Configure Global Fabric Fia Settings
     
@@ -42,7 +45,10 @@ class FabricFiaConfig(Entity):
     _revision = '2017-08-17'
 
     def __init__(self):
-        super(FabricFiaConfig, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FabricFiaConfig, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fabric-fia-config"
@@ -63,7 +69,7 @@ class FabricFiaConfig(Entity):
         self._perform_setattr(FabricFiaConfig, [], name, value)
 
 
-    class FiaIntfPolicer(Entity):
+    class FiaIntfPolicer(_Entity_):
         """
         FIA interface rate\-limiter on 7\-Fabric LC
         
@@ -80,7 +86,10 @@ class FabricFiaConfig(Entity):
         _revision = '2017-08-17'
 
         def __init__(self):
-            super(FabricFiaConfig.FiaIntfPolicer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FabricFiaConfig.FiaIntfPolicer, self).__init__()
 
             self.yang_name = "fia-intf-policer"
             self.yang_parent_name = "fabric-fia-config"
@@ -99,10 +108,18 @@ class FabricFiaConfig(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(FabricFiaConfig.FiaIntfPolicer, ['disable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fia_cfg as meta
+            return meta._meta_table['FabricFiaConfig.FiaIntfPolicer']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FabricFiaConfig()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fia_cfg as meta
+        return meta._meta_table['FabricFiaConfig']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class LptsIfib(Entity):
+class LptsIfib(_Entity_):
     """
     lpts ifib database
     
@@ -37,10 +40,13 @@ class LptsIfib(Entity):
     """
 
     _prefix = 'lpts-ifib-oper'
-    _revision = '2017-09-07'
+    _revision = '2018-12-17'
 
     def __init__(self):
-        super(LptsIfib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(LptsIfib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lpts-ifib"
@@ -61,7 +67,7 @@ class LptsIfib(Entity):
         self._perform_setattr(LptsIfib, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node ifib database
         
@@ -77,10 +83,13 @@ class LptsIfib(Entity):
         """
 
         _prefix = 'lpts-ifib-oper'
-        _revision = '2017-09-07'
+        _revision = '2018-12-17'
 
         def __init__(self):
-            super(LptsIfib.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LptsIfib.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "lpts-ifib"
@@ -99,7 +108,7 @@ class LptsIfib(Entity):
             self._perform_setattr(LptsIfib.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Per node slice 
             
@@ -124,10 +133,13 @@ class LptsIfib(Entity):
             """
 
             _prefix = 'lpts-ifib-oper'
-            _revision = '2017-09-07'
+            _revision = '2018-12-17'
 
             def __init__(self):
-                super(LptsIfib.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LptsIfib.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -151,7 +163,7 @@ class LptsIfib(Entity):
                 self._perform_setattr(LptsIfib.Nodes.Node, ['node_name'], name, value)
 
 
-            class SliceIds(Entity):
+            class SliceIds(_Entity_):
                 """
                 Slice specific
                 
@@ -167,10 +179,13 @@ class LptsIfib(Entity):
                 """
 
                 _prefix = 'lpts-ifib-oper'
-                _revision = '2017-09-07'
+                _revision = '2018-12-17'
 
                 def __init__(self):
-                    super(LptsIfib.Nodes.Node.SliceIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsIfib.Nodes.Node.SliceIds, self).__init__()
 
                     self.yang_name = "slice-ids"
                     self.yang_parent_name = "node"
@@ -188,7 +203,7 @@ class LptsIfib(Entity):
                     self._perform_setattr(LptsIfib.Nodes.Node.SliceIds, [], name, value)
 
 
-                class SliceId(Entity):
+                class SliceId(_Entity_):
                     """
                     slice types
                     
@@ -213,10 +228,13 @@ class LptsIfib(Entity):
                     """
 
                     _prefix = 'lpts-ifib-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2018-12-17'
 
                     def __init__(self):
-                        super(LptsIfib.Nodes.Node.SliceIds.SliceId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsIfib.Nodes.Node.SliceIds.SliceId, self).__init__()
 
                         self.yang_name = "slice-id"
                         self.yang_parent_name = "slice-ids"
@@ -237,16 +255,16 @@ class LptsIfib(Entity):
                         self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId, ['slice_name'], name, value)
 
 
-                    class Entry(Entity):
+                    class Entry(_Entity_):
                         """
                         Data for single pre\-ifib entry
                         
                         .. attribute:: entry  (key)
                         
                         	Single Pre\-ifib entry
-                        	**type**\: int
+                        	**type**\: str
                         
-                        	**range:** 0..4294967295
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**config**\: False
                         
@@ -454,10 +472,13 @@ class LptsIfib(Entity):
                         """
 
                         _prefix = 'lpts-ifib-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2018-12-17'
 
                         def __init__(self):
-                            super(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, self).__init__()
 
                             self.yang_name = "entry"
                             self.yang_parent_name = "slice-id"
@@ -466,7 +487,7 @@ class LptsIfib(Entity):
                             self.ylist_key_names = ['entry']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
+                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                 ('destination_type', (YLeaf(YType.str, 'destination-type'), ['str'])),
                                 ('destination_value', (YLeaf(YType.str, 'destination-value'), ['str'])),
                                 ('source_port', (YLeaf(YType.str, 'source-port'), ['str'])),
@@ -525,14 +546,38 @@ class LptsIfib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'destination_type', 'destination_value', 'source_port', 'destination_addr', 'source_addr', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'is_syn', 'opcode', 'accepts', 'drops', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'pending_ifibq_delay', 'sl_ifibq_delay', 'ifib_program_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+                            return meta._meta_table['LptsIfib.Nodes.Node.SliceIds.SliceId.Entry']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+                        return meta._meta_table['LptsIfib.Nodes.Node.SliceIds.SliceId']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+                    return meta._meta_table['LptsIfib.Nodes.Node.SliceIds']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+                return meta._meta_table['LptsIfib.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+            return meta._meta_table['LptsIfib.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = LptsIfib()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_ifib_oper as meta
+        return meta._meta_table['LptsIfib']['meta_info']
 
 

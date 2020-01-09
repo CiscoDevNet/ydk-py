@@ -18,8 +18,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -60,6 +63,12 @@ class ArpEncap(Enum):
     srpb = Enum.YLeaf(6, "srpb")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['ArpEncap']
+
+
 class ArpEntry(Enum):
     """
     ArpEntry (Enum Class)
@@ -81,8 +90,14 @@ class ArpEntry(Enum):
     alias = Enum.YLeaf(1, "alias")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['ArpEntry']
 
-class Arp(Entity):
+
+
+class Arp(_Entity_):
     """
     ARP configuraiton
     
@@ -115,7 +130,10 @@ class Arp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Arp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Arp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "arp"
@@ -142,9 +160,13 @@ class Arp(Entity):
         self._top_entity = Arp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['Arp']['meta_info']
 
 
-class IedgeCfg(Entity):
+class IedgeCfg(_Entity_):
     """
     iedge cfg
     
@@ -166,7 +188,10 @@ class IedgeCfg(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(IedgeCfg, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IedgeCfg, self).__init__()
         self._top_entity = None
 
         self.yang_name = "iedge-cfg"
@@ -191,9 +216,13 @@ class IedgeCfg(Entity):
         self._top_entity = IedgeCfg()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['IedgeCfg']['meta_info']
 
 
-class Arpgmp(Entity):
+class Arpgmp(_Entity_):
     """
     arpgmp
     
@@ -210,7 +239,10 @@ class Arpgmp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Arpgmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Arpgmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "arpgmp"
@@ -229,7 +261,7 @@ class Arpgmp(Entity):
         self._perform_setattr(Arpgmp, [], name, value)
 
 
-    class Vrf(Entity):
+    class Vrf(_Entity_):
         """
         Per VRF configuration, for the default VRF use
         'default'
@@ -254,7 +286,10 @@ class Arpgmp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Arpgmp.Vrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Arpgmp.Vrf, self).__init__()
 
             self.yang_name = "vrf"
             self.yang_parent_name = "arpgmp"
@@ -278,7 +313,7 @@ class Arpgmp(Entity):
             self._perform_setattr(Arpgmp.Vrf, ['vrf_name'], name, value)
 
 
-        class Entries(Entity):
+        class Entries(_Entity_):
             """
             ARP static and alias entry configuration
             
@@ -295,7 +330,10 @@ class Arpgmp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Arpgmp.Vrf.Entries, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Arpgmp.Vrf.Entries, self).__init__()
 
                 self.yang_name = "entries"
                 self.yang_parent_name = "vrf"
@@ -313,7 +351,7 @@ class Arpgmp(Entity):
                 self._perform_setattr(Arpgmp.Vrf.Entries, [], name, value)
 
 
-            class Entry(Entity):
+            class Entry(_Entity_):
                 """
                 ARP static and alias entry configuration item
                 
@@ -356,7 +394,10 @@ class Arpgmp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arpgmp.Vrf.Entries.Entry, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arpgmp.Vrf.Entries.Entry, self).__init__()
 
                     self.yang_name = "entry"
                     self.yang_parent_name = "entries"
@@ -382,16 +423,32 @@ class Arpgmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arpgmp.Vrf.Entries.Entry, ['address', 'mac_address', 'encapsulation', 'entry_type', 'interface'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                    return meta._meta_table['Arpgmp.Vrf.Entries.Entry']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                return meta._meta_table['Arpgmp.Vrf.Entries']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+            return meta._meta_table['Arpgmp.Vrf']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Arpgmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['Arpgmp']['meta_info']
 
 
-class ArpRedundancy(Entity):
+class ArpRedundancy(_Entity_):
     """
     arp redundancy
     
@@ -410,7 +467,10 @@ class ArpRedundancy(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ArpRedundancy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ArpRedundancy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "arp-redundancy"
@@ -430,7 +490,7 @@ class ArpRedundancy(Entity):
         self._perform_setattr(ArpRedundancy, [], name, value)
 
 
-    class Redundancy(Entity):
+    class Redundancy(_Entity_):
         """
         Configure parameter for ARP Geo redundancy
         
@@ -456,7 +516,10 @@ class ArpRedundancy(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ArpRedundancy.Redundancy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ArpRedundancy.Redundancy, self).__init__()
 
             self.yang_name = "redundancy"
             self.yang_parent_name = "arp-redundancy"
@@ -481,7 +544,7 @@ class ArpRedundancy(Entity):
             self._perform_setattr(ArpRedundancy.Redundancy, ['enable'], name, value)
 
 
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             Table of Group
             
@@ -498,7 +561,10 @@ class ArpRedundancy(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ArpRedundancy.Redundancy.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ArpRedundancy.Redundancy.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "redundancy"
@@ -517,7 +583,7 @@ class ArpRedundancy(Entity):
                 self._perform_setattr(ArpRedundancy.Redundancy.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 None
                 
@@ -555,7 +621,10 @@ class ArpRedundancy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ArpRedundancy.Redundancy.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ArpRedundancy.Redundancy.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -584,7 +653,7 @@ class ArpRedundancy(Entity):
                     self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group, ['group_id', 'source_interface'], name, value)
 
 
-                class Peers(Entity):
+                class Peers(_Entity_):
                     """
                     Table of Peer
                     
@@ -601,7 +670,10 @@ class ArpRedundancy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ArpRedundancy.Redundancy.Groups.Group.Peers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ArpRedundancy.Redundancy.Groups.Group.Peers, self).__init__()
 
                         self.yang_name = "peers"
                         self.yang_parent_name = "group"
@@ -619,7 +691,7 @@ class ArpRedundancy(Entity):
                         self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers, [], name, value)
 
 
-                    class Peer(Entity):
+                    class Peer(_Entity_):
                         """
                         None
                         
@@ -644,7 +716,10 @@ class ArpRedundancy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, self).__init__()
 
                             self.yang_name = "peer"
                             self.yang_parent_name = "peers"
@@ -662,10 +737,18 @@ class ArpRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, ['prefix_string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                            return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers.Peer']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                        return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info']
 
 
-
-                class InterfaceList(Entity):
+                class InterfaceList(_Entity_):
                     """
                     List of Interfaces for this Group
                     
@@ -691,7 +774,10 @@ class ArpRedundancy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList, self).__init__()
 
                         self.yang_name = "interface-list"
                         self.yang_parent_name = "group"
@@ -715,7 +801,7 @@ class ArpRedundancy(Entity):
                         self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList, ['enable'], name, value)
 
 
-                    class Interfaces(Entity):
+                    class Interfaces(_Entity_):
                         """
                         Table of Interface
                         
@@ -732,7 +818,10 @@ class ArpRedundancy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
 
                             self.yang_name = "interfaces"
                             self.yang_parent_name = "interface-list"
@@ -750,7 +839,7 @@ class ArpRedundancy(Entity):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces, [], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             Interface for this Group
                             
@@ -778,7 +867,10 @@ class ArpRedundancy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "interfaces"
@@ -798,15 +890,43 @@ class ArpRedundancy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                                return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                            return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                        return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                    return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                return meta._meta_table['ArpRedundancy.Redundancy.Groups']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+            return meta._meta_table['ArpRedundancy.Redundancy']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ArpRedundancy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['ArpRedundancy']['meta_info']
 
 

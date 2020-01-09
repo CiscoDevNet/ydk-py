@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class InvAdminState(Enum):
     admin_up = Enum.YLeaf(1, "admin-up")
 
     admin_down = Enum.YLeaf(2, "admin-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['InvAdminState']
 
 
 class InvCardState(Enum):
@@ -290,6 +299,12 @@ class InvCardState(Enum):
     inv_card_num_states = Enum.YLeaf(38, "inv-card-num-states")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['InvCardState']
+
+
 class InvMonitorState(Enum):
     """
     InvMonitorState (Enum Class)
@@ -309,6 +324,12 @@ class InvMonitorState(Enum):
     unmonitored = Enum.YLeaf(0, "unmonitored")
 
     monitored = Enum.YLeaf(1, "monitored")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['InvMonitorState']
 
 
 class InvPowerAdminState(Enum):
@@ -336,6 +357,12 @@ class InvPowerAdminState(Enum):
     admin_on = Enum.YLeaf(2, "admin-on")
 
     admin_off = Enum.YLeaf(3, "admin-off")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['InvPowerAdminState']
 
 
 class InvResetReason(Enum):
@@ -389,8 +416,14 @@ class InvResetReason(Enum):
     module_reset_reason_user_unpower = Enum.YLeaf(6, "module-reset-reason-user-unpower")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['InvResetReason']
 
-class Inventory(Entity):
+
+
+class Inventory(_Entity_):
     """
     Logical Router Inventory operational data
     
@@ -409,7 +442,10 @@ class Inventory(Entity):
     _revision = '2018-06-28'
 
     def __init__(self):
-        super(Inventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Inventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "inventory"
@@ -430,7 +466,7 @@ class Inventory(Entity):
         self._perform_setattr(Inventory, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Table of racks
         
@@ -449,7 +485,10 @@ class Inventory(Entity):
         _revision = '2018-06-28'
 
         def __init__(self):
-            super(Inventory.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "inventory"
@@ -468,7 +507,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Rack number
             
@@ -496,7 +535,10 @@ class Inventory(Entity):
             _revision = '2018-06-28'
 
             def __init__(self):
-                super(Inventory.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Inventory.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -520,7 +562,7 @@ class Inventory(Entity):
                 self._perform_setattr(Inventory.Racks.Rack, ['number'], name, value)
 
 
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Slot table contains all slots in the rack
                 
@@ -539,7 +581,10 @@ class Inventory(Entity):
                 _revision = '2018-06-28'
 
                 def __init__(self):
-                    super(Inventory.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Inventory.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -557,7 +602,7 @@ class Inventory(Entity):
                     self._perform_setattr(Inventory.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     Slot number
                     
@@ -592,7 +637,10 @@ class Inventory(Entity):
                     _revision = '2018-06-28'
 
                     def __init__(self):
-                        super(Inventory.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Inventory.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -619,7 +667,7 @@ class Inventory(Entity):
                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot, ['number'], name, value)
 
 
-                    class Cards(Entity):
+                    class Cards(_Entity_):
                         """
                         Card table contains all cards in the slot
                         
@@ -638,7 +686,10 @@ class Inventory(Entity):
                         _revision = '2018-06-28'
 
                         def __init__(self):
-                            super(Inventory.Racks.Rack.Slots.Slot.Cards, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Inventory.Racks.Rack.Slots.Slot.Cards, self).__init__()
 
                             self.yang_name = "cards"
                             self.yang_parent_name = "slot"
@@ -656,7 +707,7 @@ class Inventory(Entity):
                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards, [], name, value)
 
 
-                        class Card(Entity):
+                        class Card(_Entity_):
                             """
                             Card number
                             
@@ -712,7 +763,10 @@ class Inventory(Entity):
                             _revision = '2018-06-28'
 
                             def __init__(self):
-                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card, self).__init__()
 
                                 self.yang_name = "card"
                                 self.yang_parent_name = "cards"
@@ -751,7 +805,7 @@ class Inventory(Entity):
                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card, ['number'], name, value)
 
 
-                            class SubSlots(Entity):
+                            class SubSlots(_Entity_):
                                 """
                                 SubSlotTable contains all subslots in a
                                 Slot
@@ -771,7 +825,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots, self).__init__()
 
                                     self.yang_name = "sub-slots"
                                     self.yang_parent_name = "card"
@@ -789,7 +846,7 @@ class Inventory(Entity):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots, [], name, value)
 
 
-                                class SubSlot(Entity):
+                                class SubSlot(_Entity_):
                                     """
                                     SubSlot number
                                     
@@ -824,7 +881,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot, self).__init__()
 
                                         self.yang_name = "sub-slot"
                                         self.yang_parent_name = "sub-slots"
@@ -851,7 +911,7 @@ class Inventory(Entity):
                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot, ['number'], name, value)
 
 
-                                    class Module(Entity):
+                                    class Module(_Entity_):
                                         """
                                         Module string
                                         
@@ -884,7 +944,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module, self).__init__()
 
                                             self.yang_name = "module"
                                             self.yang_parent_name = "sub-slot"
@@ -912,7 +975,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module, [], name, value)
 
 
-                                        class Sensors(Entity):
+                                        class Sensors(_Entity_):
                                             """
                                             ModuleSensorTable contains all sensors in a
                                             Module.
@@ -932,7 +995,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors, self).__init__()
 
                                                 self.yang_name = "sensors"
                                                 self.yang_parent_name = "module"
@@ -950,7 +1016,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors, [], name, value)
 
 
-                                            class Sensor(Entity):
+                                            class Sensor(_Entity_):
                                                 """
                                                 Sensor number in the Module
                                                 
@@ -978,7 +1044,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor, self).__init__()
 
                                                     self.yang_name = "sensor"
                                                     self.yang_parent_name = "sensors"
@@ -1001,7 +1070,7 @@ class Inventory(Entity):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor, ['number'], name, value)
 
 
-                                                class BasicAttributes(Entity):
+                                                class BasicAttributes(_Entity_):
                                                     """
                                                     Attributes
                                                     
@@ -1027,7 +1096,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes, self).__init__()
 
                                                         self.yang_name = "basic-attributes"
                                                         self.yang_parent_name = "sensor"
@@ -1051,7 +1123,7 @@ class Inventory(Entity):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes, [], name, value)
 
 
-                                                    class BasicInfo(Entity):
+                                                    class BasicInfo(_Entity_):
                                                         """
                                                         Inventory information
                                                         
@@ -1249,7 +1321,7 @@ class Inventory(Entity):
                                                         
                                                         .. attribute:: redundancystate
                                                         
-                                                        	integer value for Redundancy State if     applicable to this entity
+                                                        	integer value for Redundancy State if applicable to this entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -1288,6 +1360,15 @@ class Inventory(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: power_capacity
+                                                        
+                                                        	Power Capacity of a Power Module
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         
 
                                                         """
@@ -1296,7 +1377,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
 
                                                             self.yang_name = "basic-info"
                                                             self.yang_parent_name = "basic-attributes"
@@ -1332,6 +1416,7 @@ class Inventory(Entity):
                                                                 ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                 ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                                 ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                                ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                             ])
                                                             self.description = None
                                                             self.vendor_type = None
@@ -1360,15 +1445,20 @@ class Inventory(Entity):
                                                             self.xr_scoped = None
                                                             self.unique_id = None
                                                             self.allocated_power = None
+                                                            self.power_capacity = None
                                                             self._segment_path = lambda: "basic-info"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                                    class FruInfo(Entity):
+                                                    class FruInfo(_Entity_):
                                                         """
                                                         Field Replaceable Unit (FRU) inventory
                                                         information
@@ -1430,7 +1520,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
 
                                                             self.yang_name = "fru-info"
                                                             self.yang_parent_name = "basic-attributes"
@@ -1465,7 +1558,7 @@ class Inventory(Entity):
                                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                        class LastOperationalStateChange(Entity):
+                                                        class LastOperationalStateChange(_Entity_):
                                                             """
                                                             Time operational state is   last changed
                                                             
@@ -1499,7 +1592,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                                 self.yang_name = "last-operational-state-change"
                                                                 self.yang_parent_name = "fru-info"
@@ -1519,9 +1615,13 @@ class Inventory(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                        class ModuleUpTime(Entity):
+                                                        class ModuleUpTime(_Entity_):
                                                             """
                                                             Module up time
                                                             
@@ -1555,7 +1655,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                                 self.yang_name = "module-up-time"
                                                                 self.yang_parent_name = "fru-info"
@@ -1575,13 +1678,33 @@ class Inventory(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes.FruInfo']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.BasicAttributes']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors']['meta_info']
 
 
-
-
-
-
-                                        class PortSlots(Entity):
+                                        class PortSlots(_Entity_):
                                             """
                                             PortSlotTable contains all optics ports in a
                                             SPA/PLIM.
@@ -1601,7 +1724,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots, self).__init__()
 
                                                 self.yang_name = "port-slots"
                                                 self.yang_parent_name = "module"
@@ -1619,7 +1745,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots, [], name, value)
 
 
-                                            class PortSlot(Entity):
+                                            class PortSlot(_Entity_):
                                                 """
                                                 PortSlot number in the SPA/PLIM
                                                 
@@ -1654,7 +1780,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot, self).__init__()
 
                                                     self.yang_name = "port-slot"
                                                     self.yang_parent_name = "port-slots"
@@ -1681,7 +1810,7 @@ class Inventory(Entity):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot, ['number'], name, value)
 
 
-                                                class Port(Entity):
+                                                class Port(_Entity_):
                                                     """
                                                     Port string
                                                     
@@ -1700,7 +1829,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port, self).__init__()
 
                                                         self.yang_name = "port"
                                                         self.yang_parent_name = "port-slot"
@@ -1720,7 +1852,7 @@ class Inventory(Entity):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port, [], name, value)
 
 
-                                                    class BasicAttributes(Entity):
+                                                    class BasicAttributes(_Entity_):
                                                         """
                                                         Attributes
                                                         
@@ -1746,7 +1878,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes, self).__init__()
 
                                                             self.yang_name = "basic-attributes"
                                                             self.yang_parent_name = "port"
@@ -1770,7 +1905,7 @@ class Inventory(Entity):
                                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes, [], name, value)
 
 
-                                                        class BasicInfo(Entity):
+                                                        class BasicInfo(_Entity_):
                                                             """
                                                             Inventory information
                                                             
@@ -1968,7 +2103,7 @@ class Inventory(Entity):
                                                             
                                                             .. attribute:: redundancystate
                                                             
-                                                            	integer value for Redundancy State if     applicable to this entity
+                                                            	integer value for Redundancy State if applicable to this entity
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -2007,6 +2142,15 @@ class Inventory(Entity):
                                                             
                                                             	**config**\: False
                                                             
+                                                            .. attribute:: power_capacity
+                                                            
+                                                            	Power Capacity of a Power Module
+                                                            	**type**\: int
+                                                            
+                                                            	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
+                                                            
                                                             
 
                                                             """
@@ -2015,7 +2159,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, self).__init__()
 
                                                                 self.yang_name = "basic-info"
                                                                 self.yang_parent_name = "basic-attributes"
@@ -2051,6 +2198,7 @@ class Inventory(Entity):
                                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                                 ])
                                                                 self.description = None
                                                                 self.vendor_type = None
@@ -2079,15 +2227,20 @@ class Inventory(Entity):
                                                                 self.xr_scoped = None
                                                                 self.unique_id = None
                                                                 self.allocated_power = None
+                                                                self.power_capacity = None
                                                                 self._segment_path = lambda: "basic-info"
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                                        class FruInfo(Entity):
+                                                        class FruInfo(_Entity_):
                                                             """
                                                             Field Replaceable Unit (FRU) inventory
                                                             information
@@ -2149,7 +2302,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, self).__init__()
 
                                                                 self.yang_name = "fru-info"
                                                                 self.yang_parent_name = "basic-attributes"
@@ -2184,7 +2340,7 @@ class Inventory(Entity):
                                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                            class LastOperationalStateChange(Entity):
+                                                            class LastOperationalStateChange(_Entity_):
                                                                 """
                                                                 Time operational state is   last changed
                                                                 
@@ -2218,7 +2374,10 @@ class Inventory(Entity):
                                                                 _revision = '2018-06-28'
 
                                                                 def __init__(self):
-                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                                     self.yang_name = "last-operational-state-change"
                                                                     self.yang_parent_name = "fru-info"
@@ -2238,9 +2397,13 @@ class Inventory(Entity):
                                                                 def __setattr__(self, name, value):
                                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                            class ModuleUpTime(Entity):
+                                                            class ModuleUpTime(_Entity_):
                                                                 """
                                                                 Module up time
                                                                 
@@ -2274,7 +2437,10 @@ class Inventory(Entity):
                                                                 _revision = '2018-06-28'
 
                                                                 def __init__(self):
-                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                                     self.yang_name = "module-up-time"
                                                                     self.yang_parent_name = "fru-info"
@@ -2294,12 +2460,28 @@ class Inventory(Entity):
                                                                 def __setattr__(self, name, value):
                                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes.FruInfo']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.BasicAttributes']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port']['meta_info']
 
 
-
-
-
-                                                class BasicAttributes(Entity):
+                                                class BasicAttributes(_Entity_):
                                                     """
                                                     Attributes
                                                     
@@ -2325,7 +2507,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes, self).__init__()
 
                                                         self.yang_name = "basic-attributes"
                                                         self.yang_parent_name = "port-slot"
@@ -2349,7 +2534,7 @@ class Inventory(Entity):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes, [], name, value)
 
 
-                                                    class BasicInfo(Entity):
+                                                    class BasicInfo(_Entity_):
                                                         """
                                                         Inventory information
                                                         
@@ -2547,7 +2732,7 @@ class Inventory(Entity):
                                                         
                                                         .. attribute:: redundancystate
                                                         
-                                                        	integer value for Redundancy State if     applicable to this entity
+                                                        	integer value for Redundancy State if applicable to this entity
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -2586,6 +2771,15 @@ class Inventory(Entity):
                                                         
                                                         	**config**\: False
                                                         
+                                                        .. attribute:: power_capacity
+                                                        
+                                                        	Power Capacity of a Power Module
+                                                        	**type**\: int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
+                                                        
                                                         
 
                                                         """
@@ -2594,7 +2788,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, self).__init__()
 
                                                             self.yang_name = "basic-info"
                                                             self.yang_parent_name = "basic-attributes"
@@ -2630,6 +2827,7 @@ class Inventory(Entity):
                                                                 ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                                 ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                                 ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                                ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                             ])
                                                             self.description = None
                                                             self.vendor_type = None
@@ -2658,15 +2856,20 @@ class Inventory(Entity):
                                                             self.xr_scoped = None
                                                             self.unique_id = None
                                                             self.allocated_power = None
+                                                            self.power_capacity = None
                                                             self._segment_path = lambda: "basic-info"
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                            self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                                    class FruInfo(Entity):
+                                                    class FruInfo(_Entity_):
                                                         """
                                                         Field Replaceable Unit (FRU) inventory
                                                         information
@@ -2728,7 +2931,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo, self).__init__()
 
                                                             self.yang_name = "fru-info"
                                                             self.yang_parent_name = "basic-attributes"
@@ -2763,7 +2969,7 @@ class Inventory(Entity):
                                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                        class LastOperationalStateChange(Entity):
+                                                        class LastOperationalStateChange(_Entity_):
                                                             """
                                                             Time operational state is   last changed
                                                             
@@ -2797,7 +3003,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                                 self.yang_name = "last-operational-state-change"
                                                                 self.yang_parent_name = "fru-info"
@@ -2817,9 +3026,13 @@ class Inventory(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                        class ModuleUpTime(Entity):
+                                                        class ModuleUpTime(_Entity_):
                                                             """
                                                             Module up time
                                                             
@@ -2853,7 +3066,10 @@ class Inventory(Entity):
                                                             _revision = '2018-06-28'
 
                                                             def __init__(self):
-                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                                 self.yang_name = "module-up-time"
                                                                 self.yang_parent_name = "fru-info"
@@ -2873,13 +3089,33 @@ class Inventory(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes.FruInfo']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.BasicAttributes']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots']['meta_info']
 
 
-
-
-
-
-                                        class BasicAttributes(Entity):
+                                        class BasicAttributes(_Entity_):
                                             """
                                             Attributes
                                             
@@ -2905,7 +3141,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes, self).__init__()
 
                                                 self.yang_name = "basic-attributes"
                                                 self.yang_parent_name = "module"
@@ -2929,7 +3168,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes, [], name, value)
 
 
-                                            class BasicInfo(Entity):
+                                            class BasicInfo(_Entity_):
                                                 """
                                                 Inventory information
                                                 
@@ -3127,7 +3366,7 @@ class Inventory(Entity):
                                                 
                                                 .. attribute:: redundancystate
                                                 
-                                                	integer value for Redundancy State if     applicable to this entity
+                                                	integer value for Redundancy State if applicable to this entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -3166,6 +3405,15 @@ class Inventory(Entity):
                                                 
                                                 	**config**\: False
                                                 
+                                                .. attribute:: power_capacity
+                                                
+                                                	Power Capacity of a Power Module
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -3174,7 +3422,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, self).__init__()
 
                                                     self.yang_name = "basic-info"
                                                     self.yang_parent_name = "basic-attributes"
@@ -3210,6 +3461,7 @@ class Inventory(Entity):
                                                         ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                         ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                         ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                        ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                     ])
                                                     self.description = None
                                                     self.vendor_type = None
@@ -3238,15 +3490,20 @@ class Inventory(Entity):
                                                     self.xr_scoped = None
                                                     self.unique_id = None
                                                     self.allocated_power = None
+                                                    self.power_capacity = None
                                                     self._segment_path = lambda: "basic-info"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                            class FruInfo(Entity):
+                                            class FruInfo(_Entity_):
                                                 """
                                                 Field Replaceable Unit (FRU) inventory
                                                 information
@@ -3308,7 +3565,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo, self).__init__()
 
                                                     self.yang_name = "fru-info"
                                                     self.yang_parent_name = "basic-attributes"
@@ -3343,7 +3603,7 @@ class Inventory(Entity):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                class LastOperationalStateChange(Entity):
+                                                class LastOperationalStateChange(_Entity_):
                                                     """
                                                     Time operational state is   last changed
                                                     
@@ -3377,7 +3637,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                         self.yang_name = "last-operational-state-change"
                                                         self.yang_parent_name = "fru-info"
@@ -3397,9 +3660,13 @@ class Inventory(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                class ModuleUpTime(Entity):
+                                                class ModuleUpTime(_Entity_):
                                                     """
                                                     Module up time
                                                     
@@ -3433,7 +3700,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                         self.yang_name = "module-up-time"
                                                         self.yang_parent_name = "fru-info"
@@ -3453,12 +3723,28 @@ class Inventory(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes.FruInfo']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.BasicAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module']['meta_info']
 
 
-
-
-
-                                    class BasicAttributes(Entity):
+                                    class BasicAttributes(_Entity_):
                                         """
                                         Attributes
                                         
@@ -3484,7 +3770,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes, self).__init__()
 
                                             self.yang_name = "basic-attributes"
                                             self.yang_parent_name = "sub-slot"
@@ -3508,7 +3797,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes, [], name, value)
 
 
-                                        class BasicInfo(Entity):
+                                        class BasicInfo(_Entity_):
                                             """
                                             Inventory information
                                             
@@ -3706,7 +3995,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if     applicable to this entity
+                                            	integer value for Redundancy State if applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -3745,6 +4034,15 @@ class Inventory(Entity):
                                             
                                             	**config**\: False
                                             
+                                            .. attribute:: power_capacity
+                                            
+                                            	Power Capacity of a Power Module
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -3753,7 +4051,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, self).__init__()
 
                                                 self.yang_name = "basic-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -3789,6 +4090,7 @@ class Inventory(Entity):
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -3817,15 +4119,20 @@ class Inventory(Entity):
                                                 self.xr_scoped = None
                                                 self.unique_id = None
                                                 self.allocated_power = None
+                                                self.power_capacity = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                        class FruInfo(Entity):
+                                        class FruInfo(_Entity_):
                                             """
                                             Field Replaceable Unit (FRU) inventory
                                             information
@@ -3887,7 +4194,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo, self).__init__()
 
                                                 self.yang_name = "fru-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -3922,7 +4232,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                            class LastOperationalStateChange(Entity):
+                                            class LastOperationalStateChange(_Entity_):
                                                 """
                                                 Time operational state is   last changed
                                                 
@@ -3956,7 +4266,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                     self.yang_name = "last-operational-state-change"
                                                     self.yang_parent_name = "fru-info"
@@ -3976,9 +4289,13 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                            class ModuleUpTime(Entity):
+                                            class ModuleUpTime(_Entity_):
                                                 """
                                                 Module up time
                                                 
@@ -4012,7 +4329,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                     self.yang_name = "module-up-time"
                                                     self.yang_parent_name = "fru-info"
@@ -4032,13 +4352,33 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes.FruInfo']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.BasicAttributes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots']['meta_info']
 
 
-
-
-
-
-                            class HwComponents(Entity):
+                            class HwComponents(_Entity_):
                                 """
                                 HWComponent table contains all HW modules
                                 within the card 
@@ -4058,7 +4398,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents, self).__init__()
 
                                     self.yang_name = "hw-components"
                                     self.yang_parent_name = "card"
@@ -4076,7 +4419,7 @@ class Inventory(Entity):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents, [], name, value)
 
 
-                                class HwComponent(Entity):
+                                class HwComponent(_Entity_):
                                     """
                                     HWComponent number
                                     
@@ -4111,7 +4454,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent, self).__init__()
 
                                         self.yang_name = "hw-component"
                                         self.yang_parent_name = "hw-components"
@@ -4138,7 +4484,7 @@ class Inventory(Entity):
                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent, ['number'], name, value)
 
 
-                                    class Sensors(Entity):
+                                    class Sensors(_Entity_):
                                         """
                                         ModuleSensorTable contains all sensors in a
                                         Module.
@@ -4158,7 +4504,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors, self).__init__()
 
                                             self.yang_name = "sensors"
                                             self.yang_parent_name = "hw-component"
@@ -4176,7 +4525,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors, [], name, value)
 
 
-                                        class Sensor(Entity):
+                                        class Sensor(_Entity_):
                                             """
                                             Sensor number in the Module
                                             
@@ -4204,7 +4553,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor, self).__init__()
 
                                                 self.yang_name = "sensor"
                                                 self.yang_parent_name = "sensors"
@@ -4227,7 +4579,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor, ['number'], name, value)
 
 
-                                            class BasicAttributes(Entity):
+                                            class BasicAttributes(_Entity_):
                                                 """
                                                 Attributes
                                                 
@@ -4253,7 +4605,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes, self).__init__()
 
                                                     self.yang_name = "basic-attributes"
                                                     self.yang_parent_name = "sensor"
@@ -4277,7 +4632,7 @@ class Inventory(Entity):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes, [], name, value)
 
 
-                                                class BasicInfo(Entity):
+                                                class BasicInfo(_Entity_):
                                                     """
                                                     Inventory information
                                                     
@@ -4475,7 +4830,7 @@ class Inventory(Entity):
                                                     
                                                     .. attribute:: redundancystate
                                                     
-                                                    	integer value for Redundancy State if     applicable to this entity
+                                                    	integer value for Redundancy State if applicable to this entity
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -4514,6 +4869,15 @@ class Inventory(Entity):
                                                     
                                                     	**config**\: False
                                                     
+                                                    .. attribute:: power_capacity
+                                                    
+                                                    	Power Capacity of a Power Module
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**config**\: False
+                                                    
                                                     
 
                                                     """
@@ -4522,7 +4886,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
 
                                                         self.yang_name = "basic-info"
                                                         self.yang_parent_name = "basic-attributes"
@@ -4558,6 +4925,7 @@ class Inventory(Entity):
                                                             ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                             ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                             ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                            ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                         ])
                                                         self.description = None
                                                         self.vendor_type = None
@@ -4586,15 +4954,20 @@ class Inventory(Entity):
                                                         self.xr_scoped = None
                                                         self.unique_id = None
                                                         self.allocated_power = None
+                                                        self.power_capacity = None
                                                         self._segment_path = lambda: "basic-info"
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                                class FruInfo(Entity):
+                                                class FruInfo(_Entity_):
                                                     """
                                                     Field Replaceable Unit (FRU) inventory
                                                     information
@@ -4656,7 +5029,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
 
                                                         self.yang_name = "fru-info"
                                                         self.yang_parent_name = "basic-attributes"
@@ -4691,7 +5067,7 @@ class Inventory(Entity):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                    class LastOperationalStateChange(Entity):
+                                                    class LastOperationalStateChange(_Entity_):
                                                         """
                                                         Time operational state is   last changed
                                                         
@@ -4725,7 +5101,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                             self.yang_name = "last-operational-state-change"
                                                             self.yang_parent_name = "fru-info"
@@ -4745,9 +5124,13 @@ class Inventory(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                    class ModuleUpTime(Entity):
+                                                    class ModuleUpTime(_Entity_):
                                                         """
                                                         Module up time
                                                         
@@ -4781,7 +5164,10 @@ class Inventory(Entity):
                                                         _revision = '2018-06-28'
 
                                                         def __init__(self):
-                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                             self.yang_name = "module-up-time"
                                                             self.yang_parent_name = "fru-info"
@@ -4801,13 +5187,33 @@ class Inventory(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes.FruInfo']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.BasicAttributes']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors']['meta_info']
 
 
-
-
-
-
-                                    class BasicAttributes(Entity):
+                                    class BasicAttributes(_Entity_):
                                         """
                                         Attributes
                                         
@@ -4833,7 +5239,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes, self).__init__()
 
                                             self.yang_name = "basic-attributes"
                                             self.yang_parent_name = "hw-component"
@@ -4857,7 +5266,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes, [], name, value)
 
 
-                                        class BasicInfo(Entity):
+                                        class BasicInfo(_Entity_):
                                             """
                                             Inventory information
                                             
@@ -5055,7 +5464,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if     applicable to this entity
+                                            	integer value for Redundancy State if applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5094,6 +5503,15 @@ class Inventory(Entity):
                                             
                                             	**config**\: False
                                             
+                                            .. attribute:: power_capacity
+                                            
+                                            	Power Capacity of a Power Module
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -5102,7 +5520,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, self).__init__()
 
                                                 self.yang_name = "basic-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -5138,6 +5559,7 @@ class Inventory(Entity):
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -5166,15 +5588,20 @@ class Inventory(Entity):
                                                 self.xr_scoped = None
                                                 self.unique_id = None
                                                 self.allocated_power = None
+                                                self.power_capacity = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                        class FruInfo(Entity):
+                                        class FruInfo(_Entity_):
                                             """
                                             Field Replaceable Unit (FRU) inventory
                                             information
@@ -5236,7 +5663,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo, self).__init__()
 
                                                 self.yang_name = "fru-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -5271,7 +5701,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                            class LastOperationalStateChange(Entity):
+                                            class LastOperationalStateChange(_Entity_):
                                                 """
                                                 Time operational state is   last changed
                                                 
@@ -5305,7 +5735,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                     self.yang_name = "last-operational-state-change"
                                                     self.yang_parent_name = "fru-info"
@@ -5325,9 +5758,13 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                            class ModuleUpTime(Entity):
+                                            class ModuleUpTime(_Entity_):
                                                 """
                                                 Module up time
                                                 
@@ -5361,7 +5798,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                     self.yang_name = "module-up-time"
                                                     self.yang_parent_name = "fru-info"
@@ -5381,13 +5821,33 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes.FruInfo']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.BasicAttributes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents']['meta_info']
 
 
-
-
-
-
-                            class Sensors(Entity):
+                            class Sensors(_Entity_):
                                 """
                                 ModuleSensorTable contains all sensors in a
                                 Module.
@@ -5407,7 +5867,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors, self).__init__()
 
                                     self.yang_name = "sensors"
                                     self.yang_parent_name = "card"
@@ -5425,7 +5888,7 @@ class Inventory(Entity):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors, [], name, value)
 
 
-                                class Sensor(Entity):
+                                class Sensor(_Entity_):
                                     """
                                     Sensor number in the Module
                                     
@@ -5453,7 +5916,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor, self).__init__()
 
                                         self.yang_name = "sensor"
                                         self.yang_parent_name = "sensors"
@@ -5476,7 +5942,7 @@ class Inventory(Entity):
                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor, ['number'], name, value)
 
 
-                                    class BasicAttributes(Entity):
+                                    class BasicAttributes(_Entity_):
                                         """
                                         Attributes
                                         
@@ -5502,7 +5968,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes, self).__init__()
 
                                             self.yang_name = "basic-attributes"
                                             self.yang_parent_name = "sensor"
@@ -5526,7 +5995,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes, [], name, value)
 
 
-                                        class BasicInfo(Entity):
+                                        class BasicInfo(_Entity_):
                                             """
                                             Inventory information
                                             
@@ -5724,7 +6193,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if     applicable to this entity
+                                            	integer value for Redundancy State if applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5763,6 +6232,15 @@ class Inventory(Entity):
                                             
                                             	**config**\: False
                                             
+                                            .. attribute:: power_capacity
+                                            
+                                            	Power Capacity of a Power Module
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -5771,7 +6249,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, self).__init__()
 
                                                 self.yang_name = "basic-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -5807,6 +6288,7 @@ class Inventory(Entity):
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -5835,15 +6317,20 @@ class Inventory(Entity):
                                                 self.xr_scoped = None
                                                 self.unique_id = None
                                                 self.allocated_power = None
+                                                self.power_capacity = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                        class FruInfo(Entity):
+                                        class FruInfo(_Entity_):
                                             """
                                             Field Replaceable Unit (FRU) inventory
                                             information
@@ -5905,7 +6392,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo, self).__init__()
 
                                                 self.yang_name = "fru-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -5940,7 +6430,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                            class LastOperationalStateChange(Entity):
+                                            class LastOperationalStateChange(_Entity_):
                                                 """
                                                 Time operational state is   last changed
                                                 
@@ -5974,7 +6464,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                     self.yang_name = "last-operational-state-change"
                                                     self.yang_parent_name = "fru-info"
@@ -5994,9 +6487,13 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                            class ModuleUpTime(Entity):
+                                            class ModuleUpTime(_Entity_):
                                                 """
                                                 Module up time
                                                 
@@ -6030,7 +6527,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                     self.yang_name = "module-up-time"
                                                     self.yang_parent_name = "fru-info"
@@ -6050,13 +6550,33 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes.FruInfo']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.BasicAttributes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors']['meta_info']
 
 
-
-
-
-
-                            class PortSlots(Entity):
+                            class PortSlots(_Entity_):
                                 """
                                 PortSlotTable contains all optics ports in a
                                 SPA/PLIM.
@@ -6076,7 +6596,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots, self).__init__()
 
                                     self.yang_name = "port-slots"
                                     self.yang_parent_name = "card"
@@ -6094,7 +6617,7 @@ class Inventory(Entity):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots, [], name, value)
 
 
-                                class PortSlot(Entity):
+                                class PortSlot(_Entity_):
                                     """
                                     PortSlot number in the SPA/PLIM
                                     
@@ -6129,7 +6652,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot, self).__init__()
 
                                         self.yang_name = "port-slot"
                                         self.yang_parent_name = "port-slots"
@@ -6156,7 +6682,7 @@ class Inventory(Entity):
                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot, ['number'], name, value)
 
 
-                                    class Port(Entity):
+                                    class Port(_Entity_):
                                         """
                                         Port string
                                         
@@ -6175,7 +6701,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port, self).__init__()
 
                                             self.yang_name = "port"
                                             self.yang_parent_name = "port-slot"
@@ -6195,7 +6724,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port, [], name, value)
 
 
-                                        class BasicAttributes(Entity):
+                                        class BasicAttributes(_Entity_):
                                             """
                                             Attributes
                                             
@@ -6221,7 +6750,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes, self).__init__()
 
                                                 self.yang_name = "basic-attributes"
                                                 self.yang_parent_name = "port"
@@ -6245,7 +6777,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes, [], name, value)
 
 
-                                            class BasicInfo(Entity):
+                                            class BasicInfo(_Entity_):
                                                 """
                                                 Inventory information
                                                 
@@ -6443,7 +6975,7 @@ class Inventory(Entity):
                                                 
                                                 .. attribute:: redundancystate
                                                 
-                                                	integer value for Redundancy State if     applicable to this entity
+                                                	integer value for Redundancy State if applicable to this entity
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6482,6 +7014,15 @@ class Inventory(Entity):
                                                 
                                                 	**config**\: False
                                                 
+                                                .. attribute:: power_capacity
+                                                
+                                                	Power Capacity of a Power Module
+                                                	**type**\: int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -6490,7 +7031,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, self).__init__()
 
                                                     self.yang_name = "basic-info"
                                                     self.yang_parent_name = "basic-attributes"
@@ -6526,6 +7070,7 @@ class Inventory(Entity):
                                                         ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                         ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                         ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                        ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                     ])
                                                     self.description = None
                                                     self.vendor_type = None
@@ -6554,15 +7099,20 @@ class Inventory(Entity):
                                                     self.xr_scoped = None
                                                     self.unique_id = None
                                                     self.allocated_power = None
+                                                    self.power_capacity = None
                                                     self._segment_path = lambda: "basic-info"
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                    self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                            class FruInfo(Entity):
+                                            class FruInfo(_Entity_):
                                                 """
                                                 Field Replaceable Unit (FRU) inventory
                                                 information
@@ -6624,7 +7174,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, self).__init__()
 
                                                     self.yang_name = "fru-info"
                                                     self.yang_parent_name = "basic-attributes"
@@ -6659,7 +7212,7 @@ class Inventory(Entity):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                                class LastOperationalStateChange(Entity):
+                                                class LastOperationalStateChange(_Entity_):
                                                     """
                                                     Time operational state is   last changed
                                                     
@@ -6693,7 +7246,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                         self.yang_name = "last-operational-state-change"
                                                         self.yang_parent_name = "fru-info"
@@ -6713,9 +7269,13 @@ class Inventory(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                                class ModuleUpTime(Entity):
+                                                class ModuleUpTime(_Entity_):
                                                     """
                                                     Module up time
                                                     
@@ -6749,7 +7309,10 @@ class Inventory(Entity):
                                                     _revision = '2018-06-28'
 
                                                     def __init__(self):
-                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                         self.yang_name = "module-up-time"
                                                         self.yang_parent_name = "fru-info"
@@ -6769,12 +7332,28 @@ class Inventory(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes.FruInfo']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.BasicAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port']['meta_info']
 
 
-
-
-
-                                    class BasicAttributes(Entity):
+                                    class BasicAttributes(_Entity_):
                                         """
                                         Attributes
                                         
@@ -6800,7 +7379,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes, self).__init__()
 
                                             self.yang_name = "basic-attributes"
                                             self.yang_parent_name = "port-slot"
@@ -6824,7 +7406,7 @@ class Inventory(Entity):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes, [], name, value)
 
 
-                                        class BasicInfo(Entity):
+                                        class BasicInfo(_Entity_):
                                             """
                                             Inventory information
                                             
@@ -7022,7 +7604,7 @@ class Inventory(Entity):
                                             
                                             .. attribute:: redundancystate
                                             
-                                            	integer value for Redundancy State if     applicable to this entity
+                                            	integer value for Redundancy State if applicable to this entity
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -7061,6 +7643,15 @@ class Inventory(Entity):
                                             
                                             	**config**\: False
                                             
+                                            .. attribute:: power_capacity
+                                            
+                                            	Power Capacity of a Power Module
+                                            	**type**\: int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -7069,7 +7660,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, self).__init__()
 
                                                 self.yang_name = "basic-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -7105,6 +7699,7 @@ class Inventory(Entity):
                                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                                 ])
                                                 self.description = None
                                                 self.vendor_type = None
@@ -7133,15 +7728,20 @@ class Inventory(Entity):
                                                 self.xr_scoped = None
                                                 self.unique_id = None
                                                 self.allocated_power = None
+                                                self.power_capacity = None
                                                 self._segment_path = lambda: "basic-info"
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                        class FruInfo(Entity):
+                                        class FruInfo(_Entity_):
                                             """
                                             Field Replaceable Unit (FRU) inventory
                                             information
@@ -7203,7 +7803,10 @@ class Inventory(Entity):
                                             _revision = '2018-06-28'
 
                                             def __init__(self):
-                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo, self).__init__()
 
                                                 self.yang_name = "fru-info"
                                                 self.yang_parent_name = "basic-attributes"
@@ -7238,7 +7841,7 @@ class Inventory(Entity):
                                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                            class LastOperationalStateChange(Entity):
+                                            class LastOperationalStateChange(_Entity_):
                                                 """
                                                 Time operational state is   last changed
                                                 
@@ -7272,7 +7875,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                                     self.yang_name = "last-operational-state-change"
                                                     self.yang_parent_name = "fru-info"
@@ -7292,9 +7898,13 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                            class ModuleUpTime(Entity):
+                                            class ModuleUpTime(_Entity_):
                                                 """
                                                 Module up time
                                                 
@@ -7328,7 +7938,10 @@ class Inventory(Entity):
                                                 _revision = '2018-06-28'
 
                                                 def __init__(self):
-                                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                                     self.yang_name = "module-up-time"
                                                     self.yang_parent_name = "fru-info"
@@ -7348,13 +7961,33 @@ class Inventory(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes.FruInfo']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.BasicAttributes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info']
 
 
-
-
-
-
-                            class BasicAttributes(Entity):
+                            class BasicAttributes(_Entity_):
                                 """
                                 Attributes
                                 
@@ -7380,7 +8013,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes, self).__init__()
 
                                     self.yang_name = "basic-attributes"
                                     self.yang_parent_name = "card"
@@ -7404,7 +8040,7 @@ class Inventory(Entity):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes, [], name, value)
 
 
-                                class BasicInfo(Entity):
+                                class BasicInfo(_Entity_):
                                     """
                                     Inventory information
                                     
@@ -7602,7 +8238,7 @@ class Inventory(Entity):
                                     
                                     .. attribute:: redundancystate
                                     
-                                    	integer value for Redundancy State if     applicable to this entity
+                                    	integer value for Redundancy State if applicable to this entity
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -7641,6 +8277,15 @@ class Inventory(Entity):
                                     
                                     	**config**\: False
                                     
+                                    .. attribute:: power_capacity
+                                    
+                                    	Power Capacity of a Power Module
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -7649,7 +8294,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, self).__init__()
 
                                         self.yang_name = "basic-info"
                                         self.yang_parent_name = "basic-attributes"
@@ -7685,6 +8333,7 @@ class Inventory(Entity):
                                             ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                             ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                             ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                            ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                         ])
                                         self.description = None
                                         self.vendor_type = None
@@ -7713,15 +8362,20 @@ class Inventory(Entity):
                                         self.xr_scoped = None
                                         self.unique_id = None
                                         self.allocated_power = None
+                                        self.power_capacity = None
                                         self._segment_path = lambda: "basic-info"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                        self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                                class FruInfo(Entity):
+                                class FruInfo(_Entity_):
                                     """
                                     Field Replaceable Unit (FRU) inventory
                                     information
@@ -7783,7 +8437,10 @@ class Inventory(Entity):
                                     _revision = '2018-06-28'
 
                                     def __init__(self):
-                                        super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo, self).__init__()
 
                                         self.yang_name = "fru-info"
                                         self.yang_parent_name = "basic-attributes"
@@ -7818,7 +8475,7 @@ class Inventory(Entity):
                                         self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                                    class LastOperationalStateChange(Entity):
+                                    class LastOperationalStateChange(_Entity_):
                                         """
                                         Time operational state is   last changed
                                         
@@ -7852,7 +8509,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                             self.yang_name = "last-operational-state-change"
                                             self.yang_parent_name = "fru-info"
@@ -7872,9 +8532,13 @@ class Inventory(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                                    class ModuleUpTime(Entity):
+                                    class ModuleUpTime(_Entity_):
                                         """
                                         Module up time
                                         
@@ -7908,7 +8572,10 @@ class Inventory(Entity):
                                         _revision = '2018-06-28'
 
                                         def __init__(self):
-                                            super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                             self.yang_name = "module-up-time"
                                             self.yang_parent_name = "fru-info"
@@ -7928,13 +8595,33 @@ class Inventory(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes.FruInfo']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card.BasicAttributes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.Cards']['meta_info']
 
 
-
-
-
-
-                    class BasicAttributes(Entity):
+                    class BasicAttributes(_Entity_):
                         """
                         Attributes
                         
@@ -7960,7 +8647,10 @@ class Inventory(Entity):
                         _revision = '2018-06-28'
 
                         def __init__(self):
-                            super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes, self).__init__()
 
                             self.yang_name = "basic-attributes"
                             self.yang_parent_name = "slot"
@@ -7984,7 +8674,7 @@ class Inventory(Entity):
                             self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes, [], name, value)
 
 
-                        class BasicInfo(Entity):
+                        class BasicInfo(_Entity_):
                             """
                             Inventory information
                             
@@ -8182,7 +8872,7 @@ class Inventory(Entity):
                             
                             .. attribute:: redundancystate
                             
-                            	integer value for Redundancy State if     applicable to this entity
+                            	integer value for Redundancy State if applicable to this entity
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
@@ -8221,6 +8911,15 @@ class Inventory(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: power_capacity
+                            
+                            	Power Capacity of a Power Module
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
+                            
                             
 
                             """
@@ -8229,7 +8928,10 @@ class Inventory(Entity):
                             _revision = '2018-06-28'
 
                             def __init__(self):
-                                super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, self).__init__()
 
                                 self.yang_name = "basic-info"
                                 self.yang_parent_name = "basic-attributes"
@@ -8265,6 +8967,7 @@ class Inventory(Entity):
                                     ('xr_scoped', (YLeaf(YType.boolean, 'xr-scoped'), ['bool'])),
                                     ('unique_id', (YLeaf(YType.int32, 'unique-id'), ['int'])),
                                     ('allocated_power', (YLeaf(YType.int32, 'allocated-power'), ['int'])),
+                                    ('power_capacity', (YLeaf(YType.int32, 'power-capacity'), ['int'])),
                                 ])
                                 self.description = None
                                 self.vendor_type = None
@@ -8293,15 +8996,20 @@ class Inventory(Entity):
                                 self.xr_scoped = None
                                 self.unique_id = None
                                 self.allocated_power = None
+                                self.power_capacity = None
                                 self._segment_path = lambda: "basic-info"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power'], name, value)
+                                self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo, ['description', 'vendor_type', 'name', 'hardware_revision', 'firmware_revision', 'software_revision', 'chip_hardware_revision', 'serial_number', 'manufacturer_name', 'model_name', 'asset_id_str', 'asset_identification', 'is_field_replaceable_unit', 'manufacturer_asset_tags', 'composite_class_code', 'memory_size', 'environmental_monitor_path', 'alias', 'group_flag', 'new_deviation_number', 'physical_layer_interface_module_type', 'unrecognized_fru', 'redundancystate', 'ceport', 'xr_scoped', 'unique_id', 'allocated_power', 'power_capacity'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.BasicAttributes.BasicInfo']['meta_info']
 
 
-
-                        class FruInfo(Entity):
+                        class FruInfo(_Entity_):
                             """
                             Field Replaceable Unit (FRU) inventory
                             information
@@ -8363,7 +9071,10 @@ class Inventory(Entity):
                             _revision = '2018-06-28'
 
                             def __init__(self):
-                                super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo, self).__init__()
 
                                 self.yang_name = "fru-info"
                                 self.yang_parent_name = "basic-attributes"
@@ -8398,7 +9109,7 @@ class Inventory(Entity):
                                 self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
-                            class LastOperationalStateChange(Entity):
+                            class LastOperationalStateChange(_Entity_):
                                 """
                                 Time operational state is   last changed
                                 
@@ -8432,7 +9143,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange, self).__init__()
 
                                     self.yang_name = "last-operational-state-change"
                                     self.yang_parent_name = "fru-info"
@@ -8452,9 +9166,13 @@ class Inventory(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.LastOperationalStateChange']['meta_info']
 
 
-                            class ModuleUpTime(Entity):
+                            class ModuleUpTime(_Entity_):
                                 """
                                 Module up time
                                 
@@ -8488,7 +9206,10 @@ class Inventory(Entity):
                                 _revision = '2018-06-28'
 
                                 def __init__(self):
-                                    super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime, self).__init__()
 
                                     self.yang_name = "module-up-time"
                                     self.yang_parent_name = "fru-info"
@@ -8508,16 +9229,48 @@ class Inventory(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                    return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo.ModuleUpTime']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                                return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.BasicAttributes.FruInfo']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                            return meta._meta_table['Inventory.Racks.Rack.Slots.Slot.BasicAttributes']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                        return meta._meta_table['Inventory.Racks.Rack.Slots.Slot']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                    return meta._meta_table['Inventory.Racks.Rack.Slots']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+                return meta._meta_table['Inventory.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+            return meta._meta_table['Inventory.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Inventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
+        return meta._meta_table['Inventory']['meta_info']
 
 

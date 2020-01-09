@@ -11,20 +11,32 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-      
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-      
+     
      Tel: +1 800 553-NETS
-      
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ASR9k policy manager configuration.
-      
+     
      Copyright (c) 2013, 2015-2019 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-02 {
+    description
+      "IOS XR 6.6.3 revision.";
+  }
+  revision 2019-07-25 {
+    description
+      "IOS XR 6.6.3 revision.";
+  }
+  revision 2019-07-23 {
+    description
+      "IOS XR 6.6.3 revision.";
+  }
   revision 2018-11-22 {
     description
       "IOS XR 7.0.1 revision.";
@@ -231,6 +243,23 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
        cellsps - units in Cells/Sec";
   }
 
+  typedef Police-Rate-units {
+    type string {
+      pattern "(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)|(per-thousand)|(per-million)";
+    }
+    description
+      "Supported units for police rate or peak-rate.
+       bps     - units in Bits/Sec
+       kbps    - units in KiloBits/Sec
+       mbps    - units in MegaBits/Sec
+       gbps    - units in GigaBits/Sec
+       pps     - units in Packets/Sec
+       percent - units in Percentage
+       cellsps - units in Cells/Sec
+       per-million  - parts per-million bandwidth value
+       per-thousand - Parts per-thousand bandwidth value";
+  }
+
   typedef Cac-rate-units {
     type string {
       pattern "(bps)|(kbps)|(mbps)|(gbps)|(cellsps)";
@@ -316,7 +345,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
     }
     description
       "DSCP value or range string representation.
-       Should be single value 0..63 or predefined string 
+       Should be single value 0..63 or predefined string
        or range <min>-<max>.";
   }
 
@@ -345,6 +374,20 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
     description
       "Numeric value or string representation.
        Should be single value 1536..65535 or predefined string.";
+  }
+
+  typedef shape-value {
+    type union {
+      type string {
+        pattern "[$][a-zA-Z0-9][a-zA-Z0-9\\._@%+:\\-]{0,32}[=]\\d{1,10}";
+      }
+      type uint32 {
+        range "1..4294967295";
+      }
+    }
+    description
+      "The shape can be either given as $var=<value> or
+       <value>. The range is from 1..4294967295";
   }
 
   typedef Precedence {
@@ -673,14 +716,14 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       type Num-range;
       ordered-by user;
       description
-        "Match IPv6 packet length. 
+        "Match IPv6 packet length.
          Should be value 0..65535 or range.";
     }
     leaf-list packet-length {
       type Num-range;
       ordered-by user;
       description
-        "Match packet length. 
+        "Match packet length.
          Should be value 0..65535 or range.";
     }
     leaf-list mpls-disposition-ipv4-access-list {
@@ -768,7 +811,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       type Num-range;
       ordered-by user;
       description
-        "Match destination port. 
+        "Match destination port.
          Should be value 0..65535 or range.";
     }
     leaf-list fragment-type {
@@ -784,7 +827,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       type Num-range;
       ordered-by user;
       description
-        "Match frame-relay DLCI value. 
+        "Match frame-relay DLCI value.
          Should be value 16..1007 or range.";
     }
     leaf-list fr-de {
@@ -799,28 +842,28 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       type Num-range;
       ordered-by user;
       description
-        "Match IPv4 ICMP code. 
+        "Match IPv4 ICMP code.
          Should be value 0..255 or range.";
     }
     leaf-list icmpv4-type {
       type Num-range;
       ordered-by user;
       description
-        "Match IPv4 ICMP type. 
+        "Match IPv4 ICMP type.
          Should be value 0..255 or range.";
     }
     leaf-list icmpv6-code {
       type Num-range;
       ordered-by user;
       description
-        "Match IPv6 ICMP code. 
+        "Match IPv6 ICMP code.
          Should be value 0..255 or range.";
     }
     leaf-list icmpv6-type {
       type Num-range;
       ordered-by user;
       description
-        "Match IPv6 ICMP type. 
+        "Match IPv6 ICMP type.
          Should be value 0..255 or range.";
     }
     list source-address-ipv4 {
@@ -859,7 +902,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       type Num-range;
       ordered-by user;
       description
-        "Match source port. 
+        "Match source port.
          Should be value 0..65535 or range.";
     }
     leaf tcp-flag {
@@ -1196,7 +1239,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       }
       description
         "Sets the discard class on IPv4 or MPLS packets.
-         The discard-class can be used only in service policies 
+         The discard-class can be used only in service policies
          that are attached in the ingress policy.";
     }
     leaf forward-class {
@@ -1221,9 +1264,9 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         "Sets the specific IEEE 802.1Q Layer 2 CoS value of an
          outgoing packet.
          This command should be used by a router if a user wants
-         to mark a packet that is being sent to a switch. 
-         Switches can leverage Layer 2 header information, 
-         including a CoS value marking. Packets entering an 
+         to mark a packet that is being sent to a switch.
+         Switches can leverage Layer 2 header information,
+         including a CoS value marking. Packets entering an
          interface cannot be set with a CoS value.";
     }
     leaf inner-cos {
@@ -1256,9 +1299,9 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         range "0..7";
       }
       description
-        "Sets the experimental value of the MPLS packet 
+        "Sets the experimental value of the MPLS packet
          imposition labels.
-         Imposition can be used only in service policies that 
+         Imposition can be used only in service policies that
          are attached in the ingress policy";
     }
     leaf srp-priority {
@@ -1266,7 +1309,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         range "0..7";
       }
       description
-        "Sets the spatial reuse protocol priority value of an 
+        "Sets the spatial reuse protocol priority value of an
          outgoing packet.";
     }
     leaf fr-de {
@@ -1510,7 +1553,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
               "This container is present only if actions is
                related to timer.";
             description
-              "Set a timer to execute a rule on its 
+              "Set a timer to execute a rule on its
                expiry";
             leaf timer-name {
               type string;
@@ -1565,7 +1608,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
           description
             "Rate configuration.";
           leaf value {
-            type uint32;
+            type shape-value;
             must "../unit" {
               description
                 "unit must be set.";
@@ -1822,7 +1865,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
               "Rate value.";
           }
           leaf units {
-            type Rate-units;
+            type Police-Rate-units;
             description
               "Rate units.";
           }
@@ -1883,13 +1926,13 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         }
         container conform-action {
           description
-            "Configures the action to take on packets that conform 
+            "Configures the action to take on packets that conform
              to the rate limit.";
           uses POLICE-ACTION;
         }
         container exceed-action {
           description
-            "Configures the action to take on packets that exceed 
+            "Configures the action to take on packets that exceed
              the rate limit.";
           uses POLICE-ACTION;
         }
@@ -1932,7 +1975,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         leaf flow-idle-timeout {
           type Idle-timeout;
           description
-            "The interval after which a flow is removed, 
+            "The interval after which a flow is removed,
              if there is no activity.
              If timeout is 0 this flow does not expire.";
         }
@@ -2049,7 +2092,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
               type uint16;
               units "number of flows";
               description
-                "Number of flows to reach before 
+                "Number of flows to reach before
                  triggering alarm";
             }
             leaf group-percent {
@@ -2149,10 +2192,10 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         description
           "Policy action PBR transmit.";
       }
-      leaf pbr-drop {
+      leaf drop {
         type empty;
         description
-          "Policy action PBR drop.";
+          "Policy action drop.";
       }
       leaf decap-gre {
         type empty;
@@ -2238,11 +2281,11 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
         container next-hop {
           description
             "Use specific next-hop.
-             Here we present 5 different combination 
+             Here we present 5 different combination
              for the pbf next-hop.
               1. vrf with v6 address
               2. vrf with v4 address
-              3. vrf 
+              3. vrf
               4. v4 address
               5. v6 address";
           leaf vrf {
@@ -2265,7 +2308,7 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
       leaf service-fragment {
         type string;
         description
-          "Policy action service fragment. 
+          "Policy action service fragment.
            Service fragment name";
       }
       leaf fragment {

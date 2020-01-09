@@ -966,6 +966,26 @@ module Cisco-IOS-XR-ipv6-acl-datatypes {
           description
             "Match on the LDP port";
         }
+        enum "https" {
+          value 443;
+          description
+            "Match on the HTTPS port";
+        }
+        enum "bfd" {
+          value 3784;
+          description
+            "Match on the BFD port";
+        }
+        enum "radius" {
+          value 1812;
+          description
+            "Match on the RADIUS AUTHENTICATION port";
+        }
+        enum "radius-acct" {
+          value 1813;
+          description
+            "Match on the RADIUS ACCOUNTING port";
+        }
       }
       type uint32 {
         range "0..65535";

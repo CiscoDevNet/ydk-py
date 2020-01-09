@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Node(Entity):
+class Node(_Entity_):
     """
     HW module Quad Config
     
@@ -38,7 +41,10 @@ class Node(Entity):
     _revision = '2018-07-21'
 
     def __init__(self):
-        super(Node, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Node, self).__init__()
         self._top_entity = None
 
         self.yang_name = "node"
@@ -59,7 +65,7 @@ class Node(Entity):
         self._perform_setattr(Node, [], name, value)
 
 
-    class Acts(Entity):
+    class Acts(_Entity_):
         """
         none
         
@@ -76,7 +82,10 @@ class Node(Entity):
         _revision = '2018-07-21'
 
         def __init__(self):
-            super(Node.Acts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Node.Acts, self).__init__()
 
             self.yang_name = "acts"
             self.yang_parent_name = "node"
@@ -95,7 +104,7 @@ class Node(Entity):
             self._perform_setattr(Node.Acts, [], name, value)
 
 
-        class Act(Entity):
+        class Act(_Entity_):
             """
             Nodename
             
@@ -119,7 +128,10 @@ class Node(Entity):
             _revision = '2018-07-21'
 
             def __init__(self):
-                super(Node.Acts.Act, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Node.Acts.Act, self).__init__()
 
                 self.yang_name = "act"
                 self.yang_parent_name = "acts"
@@ -143,7 +155,7 @@ class Node(Entity):
                 self._perform_setattr(Node.Acts.Act, ['node_name'], name, value)
 
 
-            class QuadConfigs(Entity):
+            class QuadConfigs(_Entity_):
                 """
                 quad configuration
                 
@@ -160,7 +172,10 @@ class Node(Entity):
                 _revision = '2018-07-21'
 
                 def __init__(self):
-                    super(Node.Acts.Act.QuadConfigs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Node.Acts.Act.QuadConfigs, self).__init__()
 
                     self.yang_name = "quad-configs"
                     self.yang_parent_name = "act"
@@ -178,7 +193,7 @@ class Node(Entity):
                     self._perform_setattr(Node.Acts.Act.QuadConfigs, [], name, value)
 
 
-                class QuadConfig(Entity):
+                class QuadConfig(_Entity_):
                     """
                     none
                     
@@ -202,7 +217,10 @@ class Node(Entity):
                     _revision = '2018-07-21'
 
                     def __init__(self):
-                        super(Node.Acts.Act.QuadConfigs.QuadConfig, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Node.Acts.Act.QuadConfigs.QuadConfig, self).__init__()
 
                         self.yang_name = "quad-config"
                         self.yang_parent_name = "quad-configs"
@@ -225,7 +243,7 @@ class Node(Entity):
                         self._perform_setattr(Node.Acts.Act.QuadConfigs.QuadConfig, ['id1'], name, value)
 
 
-                    class Mode(Entity):
+                    class Mode(_Entity_):
                         """
                         select mode 10g or 25g for a quad(group of 4
                         ports).
@@ -243,7 +261,10 @@ class Node(Entity):
                         _revision = '2018-07-21'
 
                         def __init__(self):
-                            super(Node.Acts.Act.QuadConfigs.QuadConfig.Mode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Node.Acts.Act.QuadConfigs.QuadConfig.Mode, self).__init__()
 
                             self.yang_name = "mode"
                             self.yang_parent_name = "quad-config"
@@ -261,14 +282,38 @@ class Node(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Node.Acts.Act.QuadConfigs.QuadConfig.Mode, ['speed'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+                            return meta._meta_table['Node.Acts.Act.QuadConfigs.QuadConfig.Mode']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+                        return meta._meta_table['Node.Acts.Act.QuadConfigs.QuadConfig']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+                    return meta._meta_table['Node.Acts.Act.QuadConfigs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+                return meta._meta_table['Node.Acts.Act']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+            return meta._meta_table['Node.Acts']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Node()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_optics_driver_quad_cfg as meta
+        return meta._meta_table['Node']['meta_info']
 
 

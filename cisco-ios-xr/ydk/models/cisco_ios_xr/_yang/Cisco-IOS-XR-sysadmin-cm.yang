@@ -69,7 +69,7 @@ module Cisco-IOS-XR-sysadmin-cm {
     container summary {
       config false;
       description
-        "System Admin Manager Node Inventory. All accesses are 
+        "System Admin Manager Node Inventory. All accesses are
          read-only. CLI show command looks like show node-inventory
          location <location>";
       list node_locations {
@@ -86,7 +86,7 @@ module Cisco-IOS-XR-sysadmin-cm {
     container detail {
       config false;
       description
-        "System Admin Manager Node Inventory. All accesses are 
+        "System Admin Manager Node Inventory. All accesses are
          read-only. CLI show command looks like show node-inventory
          location <location>";
       list node_locations {
@@ -399,7 +399,7 @@ module Cisco-IOS-XR-sysadmin-cm {
   container node-inventory {
     config false;
     description
-      "System Admin Manager Node Inventory. All accesses are 
+      "System Admin Manager Node Inventory. All accesses are
        read-only. CLI show command looks like show node-inventory
        location <location>";
     uses nodeInfoGroup;
@@ -407,7 +407,7 @@ module Cisco-IOS-XR-sysadmin-cm {
   container card-inventory {
     config false;
     description
-      "System Admin Manager Card Inventory. All accesses are 
+      "System Admin Manager Card Inventory. All accesses are
        read-only. CLI show command looks like show card-inventory
        location <location>";
     list card_locations {

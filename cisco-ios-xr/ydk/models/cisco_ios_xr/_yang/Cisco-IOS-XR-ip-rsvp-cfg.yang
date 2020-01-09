@@ -39,6 +39,10 @@ module Cisco-IOS-XR-ip-rsvp-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-20 {
+    description
+      "missing some containers under rsvp.signalling.graceful-restart in the RSVP UM cfg model";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";

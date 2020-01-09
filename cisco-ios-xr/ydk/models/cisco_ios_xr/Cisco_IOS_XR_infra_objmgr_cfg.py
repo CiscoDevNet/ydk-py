@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -233,6 +236,12 @@ class EndPort(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['EndPort']
+
+
 class Port(Enum):
     """
     Port (Enum Class)
@@ -446,6 +455,12 @@ class Port(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['Port']
+
+
 class PortOperator(Enum):
     """
     PortOperator (Enum Class)
@@ -485,6 +500,12 @@ class PortOperator(Enum):
     greater_than = Enum.YLeaf(2, "greater-than")
 
     less_than = Enum.YLeaf(3, "less-than")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['PortOperator']
 
 
 class StartPort(Enum):
@@ -700,8 +721,14 @@ class StartPort(Enum):
     ldp = Enum.YLeaf(646, "ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['StartPort']
 
-class ObjectGroup(Entity):
+
+
+class ObjectGroup(_Entity_):
     """
     Object\-group configuration
     
@@ -723,7 +750,10 @@ class ObjectGroup(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ObjectGroup, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ObjectGroup, self).__init__()
         self._top_entity = None
 
         self.yang_name = "object-group"
@@ -748,7 +778,7 @@ class ObjectGroup(Entity):
         self._perform_setattr(ObjectGroup, [], name, value)
 
 
-    class Port(Entity):
+    class Port(_Entity_):
         """
         Port object group
         
@@ -765,7 +795,10 @@ class ObjectGroup(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ObjectGroup.Port, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectGroup.Port, self).__init__()
 
             self.yang_name = "port"
             self.yang_parent_name = "object-group"
@@ -786,7 +819,7 @@ class ObjectGroup(Entity):
             self._perform_setattr(ObjectGroup.Port, [], name, value)
 
 
-        class UdfObjects(Entity):
+        class UdfObjects(_Entity_):
             """
             Table of port objects groups
             
@@ -803,7 +836,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Port.UdfObjects, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Port.UdfObjects, self).__init__()
 
                 self.yang_name = "udf-objects"
                 self.yang_parent_name = "port"
@@ -822,7 +858,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Port.UdfObjects, [], name, value)
 
 
-            class UdfObject(Entity):
+            class UdfObject(_Entity_):
                 """
                 Port object group
                 
@@ -863,7 +899,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Port.UdfObjects.UdfObject, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Port.UdfObjects.UdfObject, self).__init__()
 
                     self.yang_name = "udf-object"
                     self.yang_parent_name = "udf-objects"
@@ -897,7 +936,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
 
 
-                class Operators(Entity):
+                class Operators(_Entity_):
                     """
                     Table of port operators
                     
@@ -914,7 +953,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.UdfObjects.UdfObject.Operators, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.UdfObjects.UdfObject.Operators, self).__init__()
 
                         self.yang_name = "operators"
                         self.yang_parent_name = "udf-object"
@@ -932,7 +974,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators, [], name, value)
 
 
-                    class Operator(Entity):
+                    class Operator(_Entity_):
                         """
                         op class
                         
@@ -960,7 +1002,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, self).__init__()
 
                             self.yang_name = "operator"
                             self.yang_parent_name = "operators"
@@ -980,10 +1025,18 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, ['operator_type', 'port'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators']['meta_info']
 
 
-
-                class NestedGroups(Entity):
+                class NestedGroups(_Entity_):
                     """
                     Table of nested port object groups
                     
@@ -1000,7 +1053,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, self).__init__()
 
                         self.yang_name = "nested-groups"
                         self.yang_parent_name = "udf-object"
@@ -1018,7 +1074,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, [], name, value)
 
 
-                    class NestedGroup(Entity):
+                    class NestedGroup(_Entity_):
                         """
                         nested object group
                         
@@ -1037,7 +1093,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
 
                             self.yang_name = "nested-group"
                             self.yang_parent_name = "nested-groups"
@@ -1055,10 +1114,18 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
-
-                class PortRanges(Entity):
+                class PortRanges(_Entity_):
                     """
                     Table of port range addresses
                     
@@ -1075,7 +1142,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges, self).__init__()
 
                         self.yang_name = "port-ranges"
                         self.yang_parent_name = "udf-object"
@@ -1093,7 +1163,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges, [], name, value)
 
 
-                    class PortRange(Entity):
+                    class PortRange(_Entity_):
                         """
                         Match only packets on a given port range
                         
@@ -1127,7 +1197,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, self).__init__()
 
                             self.yang_name = "port-range"
                             self.yang_parent_name = "port-ranges"
@@ -1147,13 +1220,33 @@ class ObjectGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, ['start_port', 'end_port'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                    return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                return meta._meta_table['ObjectGroup.Port.UdfObjects']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+            return meta._meta_table['ObjectGroup.Port']['meta_info']
 
 
-
-
-
-
-    class Network(Entity):
+    class Network(_Entity_):
         """
         Network object group
         
@@ -1175,7 +1268,10 @@ class ObjectGroup(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ObjectGroup.Network, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectGroup.Network, self).__init__()
 
             self.yang_name = "network"
             self.yang_parent_name = "object-group"
@@ -1200,7 +1296,7 @@ class ObjectGroup(Entity):
             self._perform_setattr(ObjectGroup.Network, [], name, value)
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             IPv6 object group
             
@@ -1217,7 +1313,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Network.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Network.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "network"
@@ -1238,7 +1337,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Network.Ipv6, [], name, value)
 
 
-            class UdfObjects(Entity):
+            class UdfObjects(_Entity_):
                 """
                 Table of ipv6 object groups
                 
@@ -1255,7 +1354,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Network.Ipv6.UdfObjects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Network.Ipv6.UdfObjects, self).__init__()
 
                     self.yang_name = "udf-objects"
                     self.yang_parent_name = "ipv6"
@@ -1274,7 +1376,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects, [], name, value)
 
 
-                class UdfObject(Entity):
+                class UdfObject(_Entity_):
                     """
                     IPv6 object group
                     
@@ -1320,7 +1422,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, self).__init__()
 
                         self.yang_name = "udf-object"
                         self.yang_parent_name = "udf-objects"
@@ -1358,7 +1463,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
 
 
-                    class NestedGroups(Entity):
+                    class NestedGroups(_Entity_):
                         """
                         Table of nested ipv6 object groups
                         
@@ -1375,7 +1480,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, self).__init__()
 
                             self.yang_name = "nested-groups"
                             self.yang_parent_name = "udf-object"
@@ -1393,7 +1501,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, [], name, value)
 
 
-                        class NestedGroup(Entity):
+                        class NestedGroup(_Entity_):
                             """
                             nested object group
                             
@@ -1412,7 +1520,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
 
                                 self.yang_name = "nested-group"
                                 self.yang_parent_name = "nested-groups"
@@ -1430,10 +1541,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
-
-                    class AddressRanges(Entity):
+                    class AddressRanges(_Entity_):
                         """
                         Table of ipv6 address ranges
                         
@@ -1450,7 +1569,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, self).__init__()
 
                             self.yang_name = "address-ranges"
                             self.yang_parent_name = "udf-object"
@@ -1468,7 +1590,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Range of host addresses
                             
@@ -1494,7 +1616,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "address-ranges"
@@ -1514,10 +1639,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges']['meta_info']
 
 
-
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Table of ipv6 addresses
                         
@@ -1534,7 +1667,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "udf-object"
@@ -1552,7 +1688,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IPv6 address
                             
@@ -1578,7 +1714,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -1598,10 +1737,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses']['meta_info']
 
 
-
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of ipv6 host addresses
                         
@@ -1618,7 +1765,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "udf-object"
@@ -1636,7 +1786,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A single host address
                             
@@ -1655,7 +1805,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -1673,13 +1826,33 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                        return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                    return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                return meta._meta_table['ObjectGroup.Network.Ipv6']['meta_info']
 
 
-
-
-
-
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             IPv4 object group
             
@@ -1696,7 +1869,10 @@ class ObjectGroup(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ObjectGroup.Network.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectGroup.Network.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "network"
@@ -1717,7 +1893,7 @@ class ObjectGroup(Entity):
                 self._perform_setattr(ObjectGroup.Network.Ipv4, [], name, value)
 
 
-            class UdfObjects(Entity):
+            class UdfObjects(_Entity_):
                 """
                 Table of ipv4 object groups
                 
@@ -1734,7 +1910,10 @@ class ObjectGroup(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ObjectGroup.Network.Ipv4.UdfObjects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectGroup.Network.Ipv4.UdfObjects, self).__init__()
 
                     self.yang_name = "udf-objects"
                     self.yang_parent_name = "ipv4"
@@ -1753,7 +1932,7 @@ class ObjectGroup(Entity):
                     self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects, [], name, value)
 
 
-                class UdfObject(Entity):
+                class UdfObject(_Entity_):
                     """
                     IPv4 object group
                     
@@ -1799,7 +1978,10 @@ class ObjectGroup(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, self).__init__()
 
                         self.yang_name = "udf-object"
                         self.yang_parent_name = "udf-objects"
@@ -1837,7 +2019,7 @@ class ObjectGroup(Entity):
                         self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
 
 
-                    class NestedGroups(Entity):
+                    class NestedGroups(_Entity_):
                         """
                         Table of nested ipv4 object groups
                         
@@ -1854,7 +2036,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, self).__init__()
 
                             self.yang_name = "nested-groups"
                             self.yang_parent_name = "udf-object"
@@ -1872,7 +2057,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, [], name, value)
 
 
-                        class NestedGroup(Entity):
+                        class NestedGroup(_Entity_):
                             """
                             Nested object group
                             
@@ -1891,7 +2076,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
 
                                 self.yang_name = "nested-group"
                                 self.yang_parent_name = "nested-groups"
@@ -1909,10 +2097,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
-
-                    class AddressRanges(Entity):
+                    class AddressRanges(_Entity_):
                         """
                         Table of ipv4 host address ranges
                         
@@ -1929,7 +2125,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, self).__init__()
 
                             self.yang_name = "address-ranges"
                             self.yang_parent_name = "udf-object"
@@ -1947,7 +2146,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Range of host addresses
                             
@@ -1973,7 +2172,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "address-ranges"
@@ -1993,10 +2195,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges']['meta_info']
 
 
-
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Table of addresses
                         
@@ -2013,7 +2223,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "udf-object"
@@ -2031,7 +2244,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IPv4 address
                             
@@ -2057,7 +2270,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -2077,10 +2293,18 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses']['meta_info']
 
 
-
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of host addresses
                         
@@ -2097,7 +2321,10 @@ class ObjectGroup(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "udf-object"
@@ -2115,7 +2342,7 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A single host address
                             
@@ -2134,7 +2361,10 @@ class ObjectGroup(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -2152,15 +2382,43 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                        return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                    return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+                return meta._meta_table['ObjectGroup.Network.Ipv4']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+            return meta._meta_table['ObjectGroup.Network']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ObjectGroup()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['ObjectGroup']['meta_info']
 
 

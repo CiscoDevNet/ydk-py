@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -54,8 +57,14 @@ class IpArmConflictPolicy(Enum):
     highest_ip = Enum.YLeaf(4, "highest-ip")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+        return meta._meta_table['IpArmConflictPolicy']
 
-class IpArm(Entity):
+
+
+class IpArm(_Entity_):
     """
     IP Address Repository Manager (IPv4/IPv6 ARM)
     configuration data
@@ -78,7 +87,10 @@ class IpArm(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(IpArm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpArm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-arm"
@@ -103,7 +115,7 @@ class IpArm(Entity):
         self._perform_setattr(IpArm, [], name, value)
 
 
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         IPv4 ARM configuration
         
@@ -125,7 +137,10 @@ class IpArm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IpArm.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpArm.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "ip-arm"
@@ -150,7 +165,7 @@ class IpArm(Entity):
             self._perform_setattr(IpArm.Ipv4, [], name, value)
 
 
-        class ConflictPolicyTable(Entity):
+        class ConflictPolicyTable(_Entity_):
             """
             IP ARM conflict policy configuration
             
@@ -167,7 +182,10 @@ class IpArm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IpArm.Ipv4.ConflictPolicyTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpArm.Ipv4.ConflictPolicyTable, self).__init__()
 
                 self.yang_name = "conflict-policy-table"
                 self.yang_parent_name = "ipv4"
@@ -186,9 +204,13 @@ class IpArm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv4.ConflictPolicyTable, ['conflict_policy'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+                return meta._meta_table['IpArm.Ipv4.ConflictPolicyTable']['meta_info']
 
 
-        class MulticastHost(Entity):
+        class MulticastHost(_Entity_):
             """
             IP ARM Multicast Host configuration
             
@@ -207,7 +229,10 @@ class IpArm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IpArm.Ipv4.MulticastHost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpArm.Ipv4.MulticastHost, self).__init__()
 
                 self.yang_name = "multicast-host"
                 self.yang_parent_name = "ipv4"
@@ -226,10 +251,18 @@ class IpArm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv4.MulticastHost, ['multicast_host_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+                return meta._meta_table['IpArm.Ipv4.MulticastHost']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+            return meta._meta_table['IpArm.Ipv4']['meta_info']
 
 
-
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         IPv6 ARM configuration
         
@@ -251,7 +284,10 @@ class IpArm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IpArm.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpArm.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "ip-arm"
@@ -276,7 +312,7 @@ class IpArm(Entity):
             self._perform_setattr(IpArm.Ipv6, [], name, value)
 
 
-        class ConflictPolicyTable(Entity):
+        class ConflictPolicyTable(_Entity_):
             """
             IP ARM conflict policy configuration
             
@@ -293,7 +329,10 @@ class IpArm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IpArm.Ipv6.ConflictPolicyTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpArm.Ipv6.ConflictPolicyTable, self).__init__()
 
                 self.yang_name = "conflict-policy-table"
                 self.yang_parent_name = "ipv6"
@@ -312,9 +351,13 @@ class IpArm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv6.ConflictPolicyTable, ['conflict_policy'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+                return meta._meta_table['IpArm.Ipv6.ConflictPolicyTable']['meta_info']
 
 
-        class MulticastHost(Entity):
+        class MulticastHost(_Entity_):
             """
             IP ARM Multicast Host configuration
             
@@ -333,7 +376,10 @@ class IpArm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IpArm.Ipv6.MulticastHost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpArm.Ipv6.MulticastHost, self).__init__()
 
                 self.yang_name = "multicast-host"
                 self.yang_parent_name = "ipv6"
@@ -352,11 +398,23 @@ class IpArm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv6.MulticastHost, ['multicast_host_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+                return meta._meta_table['IpArm.Ipv6.MulticastHost']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+            return meta._meta_table['IpArm.Ipv6']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpArm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_cfg as meta
+        return meta._meta_table['IpArm']['meta_info']
 
 

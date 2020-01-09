@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -151,6 +154,12 @@ class Ipv4AclDscpNumber(Enum):
     ef = Enum.YLeaf(46, "ef")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclDscpNumber']
+
+
 class Ipv4AclFragFlags(Enum):
     """
     Ipv4AclFragFlags (Enum Class)
@@ -202,6 +211,12 @@ class Ipv4AclFragFlags(Enum):
     dont_fragment_last_fragment = Enum.YLeaf(9, "dont-fragment-last-fragment")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclFragFlags']
+
+
 class Ipv4AclGrantEnum(Enum):
     """
     Ipv4AclGrantEnum (Enum Class)
@@ -221,6 +236,12 @@ class Ipv4AclGrantEnum(Enum):
     deny = Enum.YLeaf(0, "deny")
 
     permit = Enum.YLeaf(1, "permit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclGrantEnum']
 
 
 class Ipv4AclIcmpTypeCodeEnum(Enum):
@@ -496,6 +517,12 @@ class Ipv4AclIcmpTypeCodeEnum(Enum):
     mobile_redirect = Enum.YLeaf(2162687, "mobile-redirect")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclIcmpTypeCodeEnum']
+
+
 class Ipv4AclIgmpNumber(Enum):
     """
     Ipv4AclIgmpNumber (Enum Class)
@@ -565,6 +592,12 @@ class Ipv4AclIgmpNumber(Enum):
     v3_report = Enum.YLeaf(34, "v3-report")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclIgmpNumber']
+
+
 class Ipv4AclLoggingEnum(Enum):
     """
     Ipv4AclLoggingEnum (Enum Class)
@@ -586,6 +619,12 @@ class Ipv4AclLoggingEnum(Enum):
     log = Enum.YLeaf(1, "log")
 
     log_input = Enum.YLeaf(2, "log-input")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclLoggingEnum']
 
 
 class Ipv4AclOperatorEnum(Enum):
@@ -625,6 +664,12 @@ class Ipv4AclOperatorEnum(Enum):
     not_equal = Enum.YLeaf(4, "not-equal")
 
     range = Enum.YLeaf(5, "range")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclOperatorEnum']
 
 
 class Ipv4AclPortNumber(Enum):
@@ -881,6 +926,22 @@ class Ipv4AclPortNumber(Enum):
 
     	Match on the LDP port
 
+    .. data:: https = 443
+
+    	Match on the HTTPS port
+
+    .. data:: bfd = 3784
+
+    	Match on the BFD port
+
+    .. data:: radius = 1812
+
+    	Match on the RADIUS AUTHENTICATION port
+
+    .. data:: radius_acct = 1813
+
+    	Match on the RADIUS ACCOUNTING port
+
     """
 
     echo = Enum.YLeaf(7, "echo")
@@ -979,6 +1040,20 @@ class Ipv4AclPortNumber(Enum):
 
     ldp = Enum.YLeaf(646, "ldp")
 
+    https = Enum.YLeaf(443, "https")
+
+    bfd = Enum.YLeaf(3784, "bfd")
+
+    radius = Enum.YLeaf(1812, "radius")
+
+    radius_acct = Enum.YLeaf(1813, "radius-acct")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclPortNumber']
+
 
 class Ipv4AclPrecedenceNumber(Enum):
     """
@@ -1037,6 +1112,12 @@ class Ipv4AclPrecedenceNumber(Enum):
     priority = Enum.YLeaf(1, "priority")
 
     routine = Enum.YLeaf(0, "routine")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclPrecedenceNumber']
 
 
 class Ipv4AclProtocolNumber(Enum):
@@ -1144,6 +1225,12 @@ class Ipv4AclProtocolNumber(Enum):
     sctp = Enum.YLeaf(132, "sctp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclProtocolNumber']
+
+
 class Ipv4AclStatusEnum(Enum):
     """
     Ipv4AclStatusEnum (Enum Class)
@@ -1163,6 +1250,12 @@ class Ipv4AclStatusEnum(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclStatusEnum']
 
 
 class Ipv4AclTcpMatchOperatorEnum(Enum):
@@ -1186,6 +1279,12 @@ class Ipv4AclTcpMatchOperatorEnum(Enum):
     match_all = Enum.YLeaf(1, "match-all")
 
     match_any = Enum.YLeaf(3, "match-any")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_datatypes as meta
+        return meta._meta_table['Ipv4AclTcpMatchOperatorEnum']
 
 
 

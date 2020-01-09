@@ -17,8 +17,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -27,7 +30,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Clock(Entity):
+class Clock(_Entity_):
     """
     
     
@@ -44,7 +47,10 @@ class Clock(Entity):
     _revision = '2016-07-04'
 
     def __init__(self):
-        super(Clock, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Clock, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clock"
@@ -65,7 +71,7 @@ class Clock(Entity):
         self._perform_setattr(Clock, [], name, value)
 
 
-    class Timezone(Entity):
+    class Timezone(_Entity_):
         """
         
         
@@ -87,7 +93,10 @@ class Clock(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Clock.Timezone, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Clock.Timezone, self).__init__()
 
             self.yang_name = "timezone"
             self.yang_parent_name = "clock"
@@ -108,14 +117,22 @@ class Clock(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Clock.Timezone, ['tzname', 'area'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+            return meta._meta_table['Clock.Timezone']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Clock()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+        return meta._meta_table['Clock']['meta_info']
 
 
-class Trace(Entity):
+class Trace(_Entity_):
     """
     
     
@@ -141,7 +158,10 @@ class Trace(Entity):
     _revision = '2016-07-04'
 
     def __init__(self):
-        super(Trace, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Trace, self).__init__()
         self._top_entity = None
 
         self.yang_name = "trace"
@@ -166,7 +186,7 @@ class Trace(Entity):
         self._perform_setattr(Trace, [], name, value)
 
 
-    class TimezoneConfig(Entity):
+    class TimezoneConfig(_Entity_):
         """
         
         
@@ -185,7 +205,10 @@ class Trace(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Trace.TimezoneConfig, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Trace.TimezoneConfig, self).__init__()
 
             self.yang_name = "timezone_config"
             self.yang_parent_name = "trace"
@@ -204,7 +227,7 @@ class Trace(Entity):
             self._perform_setattr(Trace.TimezoneConfig, [], name, value)
 
 
-        class Trace_(Entity):
+        class Trace_(_Entity_):
             """
             show traceable processes
             
@@ -230,7 +253,10 @@ class Trace(Entity):
             _revision = '2016-07-04'
 
             def __init__(self):
-                super(Trace.TimezoneConfig.Trace_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Trace.TimezoneConfig.Trace_, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "timezone_config"
@@ -252,7 +278,7 @@ class Trace(Entity):
                 self._perform_setattr(Trace.TimezoneConfig.Trace_, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -278,7 +304,10 @@ class Trace(Entity):
                 _revision = '2016-07-04'
 
                 def __init__(self):
-                    super(Trace.TimezoneConfig.Trace_.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Trace.TimezoneConfig.Trace_.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -299,7 +328,7 @@ class Trace(Entity):
                     self._perform_setattr(Trace.TimezoneConfig.Trace_.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -325,7 +354,10 @@ class Trace(Entity):
                     _revision = '2016-07-04'
 
                     def __init__(self):
-                        super(Trace.TimezoneConfig.Trace_.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Trace.TimezoneConfig.Trace_.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -346,7 +378,7 @@ class Trace(Entity):
                         self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -365,7 +397,10 @@ class Trace(Entity):
                         _revision = '2016-07-04'
 
                         def __init__(self):
-                            super(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -383,13 +418,33 @@ class Trace(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                            return meta._meta_table['Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                        return meta._meta_table['Trace.TimezoneConfig.Trace_.Location.AllOptions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                    return meta._meta_table['Trace.TimezoneConfig.Trace_.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                return meta._meta_table['Trace.TimezoneConfig.Trace_']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+            return meta._meta_table['Trace.TimezoneConfig']['meta_info']
 
 
-
-
-
-
-    class TimezoneNotify(Entity):
+    class TimezoneNotify(_Entity_):
         """
         
         
@@ -408,7 +463,10 @@ class Trace(Entity):
         _revision = '2016-07-04'
 
         def __init__(self):
-            super(Trace.TimezoneNotify, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Trace.TimezoneNotify, self).__init__()
 
             self.yang_name = "timezone_notify"
             self.yang_parent_name = "trace"
@@ -427,7 +485,7 @@ class Trace(Entity):
             self._perform_setattr(Trace.TimezoneNotify, [], name, value)
 
 
-        class Trace_(Entity):
+        class Trace_(_Entity_):
             """
             show traceable processes
             
@@ -453,7 +511,10 @@ class Trace(Entity):
             _revision = '2016-07-04'
 
             def __init__(self):
-                super(Trace.TimezoneNotify.Trace_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Trace.TimezoneNotify.Trace_, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "timezone_notify"
@@ -475,7 +536,7 @@ class Trace(Entity):
                 self._perform_setattr(Trace.TimezoneNotify.Trace_, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -501,7 +562,10 @@ class Trace(Entity):
                 _revision = '2016-07-04'
 
                 def __init__(self):
-                    super(Trace.TimezoneNotify.Trace_.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Trace.TimezoneNotify.Trace_.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -522,7 +586,7 @@ class Trace(Entity):
                     self._perform_setattr(Trace.TimezoneNotify.Trace_.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -548,7 +612,10 @@ class Trace(Entity):
                     _revision = '2016-07-04'
 
                     def __init__(self):
-                        super(Trace.TimezoneNotify.Trace_.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Trace.TimezoneNotify.Trace_.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -569,7 +636,7 @@ class Trace(Entity):
                         self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -588,7 +655,10 @@ class Trace(Entity):
                         _revision = '2016-07-04'
 
                         def __init__(self):
-                            super(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -606,14 +676,38 @@ class Trace(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                            return meta._meta_table['Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                        return meta._meta_table['Trace.TimezoneNotify.Trace_.Location.AllOptions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                    return meta._meta_table['Trace.TimezoneNotify.Trace_.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+                return meta._meta_table['Trace.TimezoneNotify.Trace_']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+            return meta._meta_table['Trace.TimezoneNotify']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Trace()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_time_of_day_timezone as meta
+        return meta._meta_table['Trace']['meta_info']
 
 

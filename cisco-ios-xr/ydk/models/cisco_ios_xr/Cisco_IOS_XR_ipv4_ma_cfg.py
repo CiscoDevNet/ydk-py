@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -56,8 +59,14 @@ class Ipv4Qppb(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+        return meta._meta_table['Ipv4Qppb']
 
-class Ipv4NetworkGlobal(Entity):
+
+
+class Ipv4NetworkGlobal(_Entity_):
     """
     IPv4 network global configuration data
     
@@ -104,7 +113,10 @@ class Ipv4NetworkGlobal(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(Ipv4NetworkGlobal, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4NetworkGlobal, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-network-global"
@@ -136,7 +148,7 @@ class Ipv4NetworkGlobal(Entity):
         self._perform_setattr(Ipv4NetworkGlobal, ['source_route', 'reassemble_max_packets', 'reassemble_time_out'], name, value)
 
 
-    class Unnumbered(Entity):
+    class Unnumbered(_Entity_):
         """
         Enable IPv4 processing without an explicit
         address
@@ -154,7 +166,10 @@ class Ipv4NetworkGlobal(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(Ipv4NetworkGlobal.Unnumbered, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4NetworkGlobal.Unnumbered, self).__init__()
 
             self.yang_name = "unnumbered"
             self.yang_parent_name = "ipv4-network-global"
@@ -175,7 +190,7 @@ class Ipv4NetworkGlobal(Entity):
             self._perform_setattr(Ipv4NetworkGlobal.Unnumbered, [], name, value)
 
 
-        class Mpls(Entity):
+        class Mpls(_Entity_):
             """
             Configure MPLS routing protocol parameters
             
@@ -192,7 +207,10 @@ class Ipv4NetworkGlobal(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(Ipv4NetworkGlobal.Unnumbered.Mpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4NetworkGlobal.Unnumbered.Mpls, self).__init__()
 
                 self.yang_name = "mpls"
                 self.yang_parent_name = "unnumbered"
@@ -213,7 +231,7 @@ class Ipv4NetworkGlobal(Entity):
                 self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls, [], name, value)
 
 
-            class Te(Entity):
+            class Te(_Entity_):
                 """
                 IPv4 commands for MPLS Traffic Engineering
                 
@@ -230,7 +248,10 @@ class Ipv4NetworkGlobal(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, self).__init__()
 
                     self.yang_name = "te"
                     self.yang_parent_name = "mpls"
@@ -249,11 +270,23 @@ class Ipv4NetworkGlobal(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, ['interface'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+                    return meta._meta_table['Ipv4NetworkGlobal.Unnumbered.Mpls.Te']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+                return meta._meta_table['Ipv4NetworkGlobal.Unnumbered.Mpls']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+            return meta._meta_table['Ipv4NetworkGlobal.Unnumbered']['meta_info']
 
 
-
-
-    class Qppb(Entity):
+    class Qppb(_Entity_):
         """
         QPPB
         
@@ -275,7 +308,10 @@ class Ipv4NetworkGlobal(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(Ipv4NetworkGlobal.Qppb, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4NetworkGlobal.Qppb, self).__init__()
 
             self.yang_name = "qppb"
             self.yang_parent_name = "ipv4-network-global"
@@ -296,14 +332,22 @@ class Ipv4NetworkGlobal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['source', 'destination'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+            return meta._meta_table['Ipv4NetworkGlobal.Qppb']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4NetworkGlobal()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+        return meta._meta_table['Ipv4NetworkGlobal']['meta_info']
 
 
-class SubscriberPta(Entity):
+class SubscriberPta(_Entity_):
     """
     subscriber pta
     
@@ -324,7 +368,10 @@ class SubscriberPta(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(SubscriberPta, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberPta, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-pta"
@@ -347,5 +394,9 @@ class SubscriberPta(Entity):
         self._top_entity = SubscriberPta()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+        return meta._meta_table['SubscriberPta']['meta_info']
 
 

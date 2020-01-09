@@ -522,6 +522,12 @@ submodule Cisco-IOS-XR-ip-rib-ipv4-oper-sub1 {
         description
           "Private Flags";
       }
+      leaf minimum-recurse-length {
+        type uint8;
+        description
+          "Minimum netmask length of recursive resolving
+           route";
+      }
       leaf looped {
         type boolean;
         description

@@ -1,6 +1,14 @@
+/* 
+ * SNMPv2-TC.yang
+ * Copyright (c) 2015-2016 by Cisco Systems, Inc.
+ * All rights reserved.
+ */
+
 module SNMPv2-TC {
   namespace "http://tail-f.com/ns/mibs/SNMPv2-TC/1.0";
   prefix SNMPv2_TC;
+  tailf:id "";
+  tailf:snmp-mib-module-name "SNMPv2-TC";
 
   import ietf-yang-types {
     prefix yang;
@@ -105,8 +113,8 @@ module SNMPv2-TC {
   }
 
   typedef DateAndTime {
-    type string;
     smiv2:display-hint "2d-1d-1d,1d:1d:1d.1d,1a1d:1d";
+    type string;
   }
 
   typedef StorageType {
@@ -138,6 +146,4 @@ module SNMPv2-TC {
       tailf:value-length "1 .. 255";
     }
   }
-  tailf:id "";
-  tailf:snmp-mib-module-name "SNMPv2-TC";
 }

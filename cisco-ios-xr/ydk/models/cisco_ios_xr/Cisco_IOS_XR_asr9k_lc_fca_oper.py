@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -78,6 +81,12 @@ class SpaFailureReason(Enum):
     spa_failure_reason_read_type = Enum.YLeaf(8, "spa-failure-reason-read-type")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+        return meta._meta_table['SpaFailureReason']
+
+
 class SpaOperState(Enum):
     """
     SpaOperState (Enum Class)
@@ -109,6 +118,12 @@ class SpaOperState(Enum):
     spa_state_booting = Enum.YLeaf(3, "spa-state-booting")
 
     spa_state_ready = Enum.YLeaf(4, "spa-state-ready")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+        return meta._meta_table['SpaOperState']
 
 
 class SpaResetReason(Enum):
@@ -150,8 +165,14 @@ class SpaResetReason(Enum):
     spa_reset_reason_failure = Enum.YLeaf(5, "spa-reset-reason-failure")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+        return meta._meta_table['SpaResetReason']
 
-class MpaInternal(Entity):
+
+
+class MpaInternal(_Entity_):
     """
     Management LAN Operational data space
     
@@ -170,7 +191,10 @@ class MpaInternal(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MpaInternal, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MpaInternal, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpa-internal"
@@ -191,7 +215,7 @@ class MpaInternal(Entity):
         self._perform_setattr(MpaInternal, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of nodes
         
@@ -210,7 +234,10 @@ class MpaInternal(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MpaInternal.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MpaInternal.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "mpa-internal"
@@ -229,7 +256,7 @@ class MpaInternal(Entity):
             self._perform_setattr(MpaInternal.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Number
             
@@ -257,7 +284,10 @@ class MpaInternal(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MpaInternal.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MpaInternal.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -279,7 +309,7 @@ class MpaInternal(Entity):
                 self._perform_setattr(MpaInternal.Nodes.Node, ['node'], name, value)
 
 
-            class Bay(Entity):
+            class Bay(_Entity_):
                 """
                 Number
                 
@@ -307,7 +337,10 @@ class MpaInternal(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MpaInternal.Nodes.Node.Bay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MpaInternal.Nodes.Node.Bay, self).__init__()
 
                     self.yang_name = "bay"
                     self.yang_parent_name = "node"
@@ -330,7 +363,7 @@ class MpaInternal(Entity):
                     self._perform_setattr(MpaInternal.Nodes.Node.Bay, ['number'], name, value)
 
 
-                class Ifsubsies(Entity):
+                class Ifsubsies(_Entity_):
                     """
                     Table of Ifsubsys
                     
@@ -349,7 +382,10 @@ class MpaInternal(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MpaInternal.Nodes.Node.Bay.Ifsubsies, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MpaInternal.Nodes.Node.Bay.Ifsubsies, self).__init__()
 
                         self.yang_name = "ifsubsies"
                         self.yang_parent_name = "bay"
@@ -367,7 +403,7 @@ class MpaInternal(Entity):
                         self._perform_setattr(MpaInternal.Nodes.Node.Bay.Ifsubsies, [], name, value)
 
 
-                    class Ifsubsy(Entity):
+                    class Ifsubsy(_Entity_):
                         """
                         Number
                         
@@ -395,7 +431,10 @@ class MpaInternal(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, self).__init__()
 
                             self.yang_name = "ifsubsy"
                             self.yang_parent_name = "ifsubsies"
@@ -418,7 +457,7 @@ class MpaInternal(Entity):
                             self._perform_setattr(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, ['number'], name, value)
 
 
-                        class MpaInternalInfo(Entity):
+                        class MpaInternalInfo(_Entity_):
                             """
                             mpa internal info
                             
@@ -520,7 +559,10 @@ class MpaInternal(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, self).__init__()
 
                                 self.yang_name = "mpa-internal-info"
                                 self.yang_parent_name = "ifsubsy"
@@ -556,19 +598,47 @@ class MpaInternal(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, ['bay', 'ifsubsys', 'if_state', 'if_event', 'ep_type', 'ep_state', 'ep_presence', 'ep_idprom_major', 'ep_idprom_minor', 'ep_idprom_data'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                                return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                            return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                        return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                    return meta._meta_table['MpaInternal.Nodes.Node.Bay']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                return meta._meta_table['MpaInternal.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+            return meta._meta_table['MpaInternal.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MpaInternal()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+        return meta._meta_table['MpaInternal']['meta_info']
 
 
-class Mpa(Entity):
+class Mpa(_Entity_):
     """
     mpa
     
@@ -587,7 +657,10 @@ class Mpa(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Mpa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mpa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpa"
@@ -608,7 +681,7 @@ class Mpa(Entity):
         self._perform_setattr(Mpa, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of nodes
         
@@ -627,7 +700,10 @@ class Mpa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Mpa.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpa.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "mpa"
@@ -646,7 +722,7 @@ class Mpa(Entity):
             self._perform_setattr(Mpa.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Number
             
@@ -674,7 +750,10 @@ class Mpa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Mpa.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpa.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -696,7 +775,7 @@ class Mpa(Entity):
                 self._perform_setattr(Mpa.Nodes.Node, ['node'], name, value)
 
 
-            class Bay(Entity):
+            class Bay(_Entity_):
                 """
                 Number
                 
@@ -724,7 +803,10 @@ class Mpa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mpa.Nodes.Node.Bay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpa.Nodes.Node.Bay, self).__init__()
 
                     self.yang_name = "bay"
                     self.yang_parent_name = "node"
@@ -747,7 +829,7 @@ class Mpa(Entity):
                     self._perform_setattr(Mpa.Nodes.Node.Bay, ['number'], name, value)
 
 
-                class MpaDetailTable(Entity):
+                class MpaDetailTable(_Entity_):
                     """
                     Table of Mpa Detail Info
                     
@@ -766,7 +848,10 @@ class Mpa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mpa.Nodes.Node.Bay.MpaDetailTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpa.Nodes.Node.Bay.MpaDetailTable, self).__init__()
 
                         self.yang_name = "mpa-detail-table"
                         self.yang_parent_name = "bay"
@@ -786,7 +871,7 @@ class Mpa(Entity):
                         self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable, [], name, value)
 
 
-                    class MpaDetail(Entity):
+                    class MpaDetail(_Entity_):
                         """
                         mpa detail status info
                         
@@ -905,7 +990,10 @@ class Mpa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, self).__init__()
 
                             self.yang_name = "mpa-detail"
                             self.yang_parent_name = "mpa-detail-table"
@@ -947,14 +1035,38 @@ class Mpa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, ['bay_number', 'is_spa_inserted', 'spa_type', 'is_spa_admin_up', 'spa_oper_state', 'is_spa_power_admin_up', 'is_spa_powered', 'is_spa_in_reset', 'last_reset_reason', 'last_failure_reason', 'insertion_time', 'last_ready_time', 'up_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                            return meta._meta_table['Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                        return meta._meta_table['Mpa.Nodes.Node.Bay.MpaDetailTable']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                    return meta._meta_table['Mpa.Nodes.Node.Bay']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+                return meta._meta_table['Mpa.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+            return meta._meta_table['Mpa.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mpa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
+        return meta._meta_table['Mpa']['meta_info']
 
 

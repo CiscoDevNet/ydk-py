@@ -18,8 +18,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,6 +51,12 @@ class BackupDisable(Enum):
     delay = Enum.YLeaf(1, "delay")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BackupDisable']
+
+
 class BdmacLearn(Enum):
     """
     BdmacLearn (Enum Class)
@@ -61,6 +70,12 @@ class BdmacLearn(Enum):
     """
 
     disable_learning = Enum.YLeaf(2, "disable-learning")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BdmacLearn']
 
 
 class BgpRouteDistinguisher(Enum):
@@ -96,6 +111,12 @@ class BgpRouteDistinguisher(Enum):
     ipv4_address = Enum.YLeaf(4, "ipv4-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BgpRouteDistinguisher']
+
+
 class BgpRouteTarget(Enum):
     """
     BgpRouteTarget (Enum Class)
@@ -115,6 +136,12 @@ class BgpRouteTarget(Enum):
     no_stitching = Enum.YLeaf(0, "no-stitching")
 
     stitching = Enum.YLeaf(1, "stitching")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BgpRouteTarget']
 
 
 class BgpRouteTargetFormat(Enum):
@@ -156,6 +183,12 @@ class BgpRouteTargetFormat(Enum):
     es_import = Enum.YLeaf(1538, "es-import")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BgpRouteTargetFormat']
+
+
 class BgpRouteTargetRole(Enum):
     """
     BgpRouteTargetRole (Enum Class)
@@ -183,6 +216,12 @@ class BgpRouteTargetRole(Enum):
     export = Enum.YLeaf(2, "export")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BgpRouteTargetRole']
+
+
 class BridgeDomainTransportMode(Enum):
     """
     BridgeDomainTransportMode (Enum Class)
@@ -196,6 +235,12 @@ class BridgeDomainTransportMode(Enum):
     """
 
     vlan_passthrough = Enum.YLeaf(3, "vlan-passthrough")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['BridgeDomainTransportMode']
 
 
 class ControlWord(Enum):
@@ -217,6 +262,12 @@ class ControlWord(Enum):
     enable = Enum.YLeaf(1, "enable")
 
     disable = Enum.YLeaf(2, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['ControlWord']
 
 
 class ErpPort(Enum):
@@ -246,6 +297,12 @@ class ErpPort(Enum):
     interface = Enum.YLeaf(3, "interface")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['ErpPort']
+
+
 class ErpPort1(Enum):
     """
     ErpPort1 (Enum Class)
@@ -265,6 +322,12 @@ class ErpPort1(Enum):
     port0 = Enum.YLeaf(0, "port0")
 
     port1 = Enum.YLeaf(1, "port1")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['ErpPort1']
 
 
 class Erpaps(Enum):
@@ -300,6 +363,12 @@ class Erpaps(Enum):
     none = Enum.YLeaf(4, "none")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['Erpaps']
+
+
 class EthernetSegmentIdentifier(Enum):
     """
     EthernetSegmentIdentifier (Enum Class)
@@ -327,6 +396,12 @@ class EthernetSegmentIdentifier(Enum):
     override = Enum.YLeaf(129, "override")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EthernetSegmentIdentifier']
+
+
 class EthernetSegmentLoadBalance(Enum):
     """
     EthernetSegmentLoadBalance (Enum Class)
@@ -341,11 +416,23 @@ class EthernetSegmentLoadBalance(Enum):
 
     	Port Active
 
+    .. data:: single_flow_active = 3
+
+    	Single Flow Active
+
     """
 
     single_active = Enum.YLeaf(1, "single-active")
 
     port_active = Enum.YLeaf(2, "port-active")
+
+    single_flow_active = Enum.YLeaf(3, "single-flow-active")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EthernetSegmentLoadBalance']
 
 
 class EthernetSegmentServiceCarving(Enum):
@@ -375,6 +462,12 @@ class EthernetSegmentServiceCarving(Enum):
     hrw = Enum.YLeaf(2, "hrw")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EthernetSegmentServiceCarving']
+
+
 class EthernetSegmentServiceCarvingMcast(Enum):
     """
     EthernetSegmentServiceCarvingMcast (Enum Class)
@@ -402,6 +495,12 @@ class EthernetSegmentServiceCarvingMcast(Enum):
     hrw_g = Enum.YLeaf(2, "hrw-g")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EthernetSegmentServiceCarvingMcast']
+
+
 class EvpnEncapsulation(Enum):
     """
     EvpnEncapsulation (Enum Class)
@@ -423,6 +522,12 @@ class EvpnEncapsulation(Enum):
     evpn_encapsulation_mpls = Enum.YLeaf(10, "evpn-encapsulation-mpls")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EvpnEncapsulation']
+
+
 class EvpnSide(Enum):
     """
     EvpnSide (Enum Class)
@@ -442,6 +547,12 @@ class EvpnSide(Enum):
     evpn_side_regular = Enum.YLeaf(1, "evpn-side-regular")
 
     evpn_side_stitching = Enum.YLeaf(2, "evpn-side-stitching")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['EvpnSide']
 
 
 class FlowLabelLoadBalance(Enum):
@@ -479,6 +590,12 @@ class FlowLabelLoadBalance(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['FlowLabelLoadBalance']
+
+
 class FlowLabelTlvCode(Enum):
     """
     FlowLabelTlvCode (Enum Class)
@@ -500,6 +617,12 @@ class FlowLabelTlvCode(Enum):
     disable = Enum.YLeaf(8, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['FlowLabelTlvCode']
+
+
 class InterfaceProfile(Enum):
     """
     InterfaceProfile (Enum Class)
@@ -519,6 +642,12 @@ class InterfaceProfile(Enum):
     snoop = Enum.YLeaf(1, "snoop")
 
     dhcp_protocol = Enum.YLeaf(2, "dhcp-protocol")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['InterfaceProfile']
 
 
 class InterfaceTrafficFlood(Enum):
@@ -548,6 +677,12 @@ class InterfaceTrafficFlood(Enum):
     disable_flooding = Enum.YLeaf(2, "disable-flooding")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['InterfaceTrafficFlood']
+
+
 class Interworking(Enum):
     """
     Interworking (Enum Class)
@@ -569,6 +704,12 @@ class Interworking(Enum):
     ipv4 = Enum.YLeaf(3, "ipv4")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['Interworking']
+
+
 class L2Encapsulation(Enum):
     """
     L2Encapsulation (Enum Class)
@@ -588,6 +729,12 @@ class L2Encapsulation(Enum):
     vlan = Enum.YLeaf(4, "vlan")
 
     ethernet = Enum.YLeaf(5, "ethernet")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2Encapsulation']
 
 
 class L2mcSrcTrafficEnabled(Enum):
@@ -623,6 +770,12 @@ class L2mcSrcTrafficEnabled(Enum):
     l2mc_ipv4_ipv6 = Enum.YLeaf(3, "l2mc-ipv4-ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2mcSrcTrafficEnabled']
+
+
 class L2tpCookieSize(Enum):
     """
     L2tpCookieSize (Enum Class)
@@ -650,6 +803,12 @@ class L2tpCookieSize(Enum):
     eight = Enum.YLeaf(8, "eight")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2tpCookieSize']
+
+
 class L2tpSignalingProtocol(Enum):
     """
     L2tpSignalingProtocol (Enum Class)
@@ -671,6 +830,12 @@ class L2tpSignalingProtocol(Enum):
     l2tpv3 = Enum.YLeaf(2, "l2tpv3")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2tpSignalingProtocol']
+
+
 class L2tpv3Sequencing(Enum):
     """
     L2tpv3Sequencing (Enum Class)
@@ -690,6 +855,12 @@ class L2tpv3Sequencing(Enum):
     off = Enum.YLeaf(0, "off")
 
     both = Enum.YLeaf(4, "both")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2tpv3Sequencing']
 
 
 class L2vpnCapabilityMode(Enum):
@@ -715,6 +886,12 @@ class L2vpnCapabilityMode(Enum):
     single_mode = Enum.YLeaf(2, "single-mode")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2vpnCapabilityMode']
+
+
 class L2vpnLogging(Enum):
     """
     L2vpnLogging (Enum Class)
@@ -734,6 +911,12 @@ class L2vpnLogging(Enum):
     enable = Enum.YLeaf(1, "enable")
 
     disable = Enum.YLeaf(2, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2vpnLogging']
 
 
 class L2vpnVerification(Enum):
@@ -757,6 +940,12 @@ class L2vpnVerification(Enum):
     disable = Enum.YLeaf(2, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2vpnVerification']
+
+
 class LdpVplsId(Enum):
     """
     LdpVplsId (Enum Class)
@@ -776,6 +965,12 @@ class LdpVplsId(Enum):
     two_byte_as = Enum.YLeaf(10, "two-byte-as")
 
     ipv4_address = Enum.YLeaf(266, "ipv4-address")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['LdpVplsId']
 
 
 class LoadBalance(Enum):
@@ -805,6 +1000,12 @@ class LoadBalance(Enum):
     pseudowire_label = Enum.YLeaf(4, "pseudowire-label")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['LoadBalance']
+
+
 class MacAging(Enum):
     """
     MacAging (Enum Class)
@@ -826,6 +1027,12 @@ class MacAging(Enum):
     inactivity = Enum.YLeaf(2, "inactivity")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacAging']
+
+
 class MacFlushMode(Enum):
     """
     MacFlushMode (Enum Class)
@@ -839,6 +1046,12 @@ class MacFlushMode(Enum):
     """
 
     mvrp = Enum.YLeaf(1, "mvrp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacFlushMode']
 
 
 class MacLearn(Enum):
@@ -866,6 +1079,12 @@ class MacLearn(Enum):
     enable_learning = Enum.YLeaf(1, "enable-learning")
 
     disable_learning = Enum.YLeaf(2, "disable-learning")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacLearn']
 
 
 class MacLimitAction(Enum):
@@ -901,6 +1120,12 @@ class MacLimitAction(Enum):
     shutdown = Enum.YLeaf(3, "shutdown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacLimitAction']
+
+
 class MacNotification(Enum):
     """
     MacNotification (Enum Class)
@@ -934,6 +1159,12 @@ class MacNotification(Enum):
     syslog_snmp = Enum.YLeaf(3, "syslog-snmp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacNotification']
+
+
 class MacSecureAction(Enum):
     """
     MacSecureAction (Enum Class)
@@ -961,6 +1192,12 @@ class MacSecureAction(Enum):
     shutdown = Enum.YLeaf(3, "shutdown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacSecureAction']
+
+
 class MacWithdrawBehavior(Enum):
     """
     MacWithdrawBehavior (Enum Class)
@@ -980,6 +1217,12 @@ class MacWithdrawBehavior(Enum):
     legacy = Enum.YLeaf(1, "legacy")
 
     optimized = Enum.YLeaf(2, "optimized")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MacWithdrawBehavior']
 
 
 class MplsSequencing(Enum):
@@ -1015,6 +1258,12 @@ class MplsSequencing(Enum):
     both = Enum.YLeaf(4, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MplsSequencing']
+
+
 class MplsSignalingProtocol(Enum):
     """
     MplsSignalingProtocol (Enum Class)
@@ -1034,6 +1283,12 @@ class MplsSignalingProtocol(Enum):
     none = Enum.YLeaf(1, "none")
 
     ldp = Enum.YLeaf(4, "ldp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['MplsSignalingProtocol']
 
 
 class PortDownFlush(Enum):
@@ -1061,6 +1316,12 @@ class PortDownFlush(Enum):
     enable_port_down_flush = Enum.YLeaf(1, "enable-port-down-flush")
 
     disable_port_down_flush = Enum.YLeaf(2, "disable-port-down-flush")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['PortDownFlush']
 
 
 class PreferredPath(Enum):
@@ -1102,6 +1363,12 @@ class PreferredPath(Enum):
     named_te_tunnel = Enum.YLeaf(8, "named-te-tunnel")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['PreferredPath']
+
+
 class PwSwitchingPointTlv(Enum):
     """
     PwSwitchingPointTlv (Enum Class)
@@ -1115,6 +1382,12 @@ class PwSwitchingPointTlv(Enum):
     """
 
     hide = Enum.YLeaf(2, "hide")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['PwSwitchingPointTlv']
 
 
 class RplRole(Enum):
@@ -1144,6 +1417,12 @@ class RplRole(Enum):
     next_neighbor = Enum.YLeaf(3, "next-neighbor")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['RplRole']
+
+
 class StormControl(Enum):
     """
     StormControl (Enum Class)
@@ -1169,6 +1448,12 @@ class StormControl(Enum):
     multicast = Enum.YLeaf(2, "multicast")
 
     broadcast = Enum.YLeaf(4, "broadcast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['StormControl']
 
 
 class TransportMode(Enum):
@@ -1198,6 +1483,12 @@ class TransportMode(Enum):
     vlan_passthrough = Enum.YLeaf(3, "vlan-passthrough")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['TransportMode']
+
+
 class TypeOfServiceMode(Enum):
     """
     TypeOfServiceMode (Enum Class)
@@ -1217,6 +1508,12 @@ class TypeOfServiceMode(Enum):
     none = Enum.YLeaf(0, "none")
 
     reflect = Enum.YLeaf(1, "reflect")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['TypeOfServiceMode']
 
 
 class VccvVerification(Enum):
@@ -1240,8 +1537,14 @@ class VccvVerification(Enum):
     lsp_ping = Enum.YLeaf(2, "lsp-ping")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['VccvVerification']
 
-class L2vpn(Entity):
+
+
+class L2vpn(_Entity_):
     """
     L2VPN configuration
     
@@ -1360,7 +1663,10 @@ class L2vpn(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(L2vpn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(L2vpn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2vpn"
@@ -1430,7 +1736,7 @@ class L2vpn(Entity):
         self._perform_setattr(L2vpn, ['nsr', 'mtu_mismatch_ignore', 'tcn_propagation', 'pwoam_refresh', 'load_balance', 'mspw_description', 'mac_limit_threshold', 'pw_status_disable', 'enable', 'pw_grouping', 'capability', 'l2vpn_router_id'], name, value)
 
 
-    class PwRouting(Entity):
+    class PwRouting(_Entity_):
         """
         Pseudowire\-routing attributes
         
@@ -1454,7 +1760,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.PwRouting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.PwRouting, self).__init__()
 
             self.yang_name = "pw-routing"
             self.yang_parent_name = "l2vpn"
@@ -1478,7 +1787,7 @@ class L2vpn(Entity):
             self._perform_setattr(L2vpn.PwRouting, ['pw_routing_global_id'], name, value)
 
 
-        class PwRoutingBgp(Entity):
+        class PwRoutingBgp(_Entity_):
             """
             Enable Autodiscovery BGP Pseudowire\-routing BGP
             
@@ -1500,7 +1809,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.PwRouting.PwRoutingBgp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.PwRouting.PwRoutingBgp, self).__init__()
 
                 self.yang_name = "pw-routing-bgp"
                 self.yang_parent_name = "pw-routing"
@@ -1524,7 +1836,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp, ['enable'], name, value)
 
 
-            class EvpnRouteDistinguisher(Entity):
+            class EvpnRouteDistinguisher(_Entity_):
                 """
                 Route Distinguisher
                 
@@ -1569,7 +1881,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, self).__init__()
 
                     self.yang_name = "evpn-route-distinguisher"
                     self.yang_parent_name = "pw-routing-bgp"
@@ -1596,11 +1911,23 @@ class L2vpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.PwRouting.PwRoutingBgp']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.PwRouting']['meta_info']
 
 
-
-
-    class Neighbor(Entity):
+    class Neighbor(_Entity_):
         """
         L2VPN neighbor submode
         
@@ -1617,7 +1944,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.Neighbor, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.Neighbor, self).__init__()
 
             self.yang_name = "neighbor"
             self.yang_parent_name = "l2vpn"
@@ -1636,9 +1966,13 @@ class L2vpn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Neighbor, ['ldp_flap'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.Neighbor']['meta_info']
 
 
-    class Database(Entity):
+    class Database(_Entity_):
         """
         L2VPN databases
         
@@ -1685,7 +2019,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.Database, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.Database, self).__init__()
 
             self.yang_name = "database"
             self.yang_parent_name = "l2vpn"
@@ -1730,7 +2067,7 @@ class L2vpn(Entity):
             self._perform_setattr(L2vpn.Database, [], name, value)
 
 
-        class G8032Rings(Entity):
+        class G8032Rings(_Entity_):
             """
             List of G8032 Ring
             
@@ -1747,7 +2084,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.G8032Rings, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.G8032Rings, self).__init__()
 
                 self.yang_name = "g8032-rings"
                 self.yang_parent_name = "database"
@@ -1766,7 +2106,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.G8032Rings, [], name, value)
 
 
-            class G8032Ring(Entity):
+            class G8032Ring(_Entity_):
                 """
                 G8032 Ring
                 
@@ -1815,7 +2155,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.G8032Rings.G8032Ring, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.G8032Rings.G8032Ring, self).__init__()
 
                     self.yang_name = "g8032-ring"
                     self.yang_parent_name = "g8032-rings"
@@ -1853,7 +2196,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring, ['g8032_ring_name', 'open_ring', 'exclusion_list', 'erp_provider_bridge'], name, value)
 
 
-                class ErpPort0s(Entity):
+                class ErpPort0s(_Entity_):
                     """
                     Ethernet ring protection port0
                     
@@ -1870,7 +2213,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s, self).__init__()
 
                         self.yang_name = "erp-port0s"
                         self.yang_parent_name = "g8032-ring"
@@ -1888,7 +2234,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s, [], name, value)
 
 
-                    class ErpPort0(Entity):
+                    class ErpPort0(_Entity_):
                         """
                         Configure ERP main port0
                         
@@ -1914,7 +2260,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, self).__init__()
 
                             self.yang_name = "erp-port0"
                             self.yang_parent_name = "erp-port0s"
@@ -1934,10 +2283,18 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, ['interface_name', 'monitor'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s']['meta_info']
 
 
-
-                class ErpInstances(Entity):
+                class ErpInstances(_Entity_):
                     """
                     List of ethernet ring protection instance
                     
@@ -1954,7 +2311,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances, self).__init__()
 
                         self.yang_name = "erp-instances"
                         self.yang_parent_name = "g8032-ring"
@@ -1972,7 +2332,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances, [], name, value)
 
 
-                    class ErpInstance(Entity):
+                    class ErpInstance(_Entity_):
                         """
                         Ethernet ring protection instance
                         
@@ -2020,7 +2380,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, self).__init__()
 
                             self.yang_name = "erp-instance"
                             self.yang_parent_name = "erp-instances"
@@ -2053,7 +2416,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, ['erp_instance_id', 'description', 'inclusion_list', 'profile'], name, value)
 
 
-                        class Rpl(Entity):
+                        class Rpl(_Entity_):
                             """
                             Ring protection link
                             
@@ -2075,7 +2438,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, self).__init__()
 
                                 self.yang_name = "rpl"
                                 self.yang_parent_name = "erp-instance"
@@ -2095,9 +2461,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, ['port', 'role'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl']['meta_info']
 
 
-                        class Aps(Entity):
+                        class Aps(_Entity_):
                             """
                             Automatic protection switching
                             
@@ -2131,7 +2501,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, self).__init__()
 
                                 self.yang_name = "aps"
                                 self.yang_parent_name = "erp-instance"
@@ -2158,7 +2531,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, ['port0', 'enable', 'level'], name, value)
 
 
-                            class Port1(Entity):
+                            class Port1(_Entity_):
                                 """
                                 APS channel for ERP port1
                                 
@@ -2180,7 +2553,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, self).__init__()
 
                                     self.yang_name = "port1"
                                     self.yang_parent_name = "aps"
@@ -2200,12 +2576,28 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, ['aps_type', 'aps_channel'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info']
 
 
-
-
-
-                class ErpPort1s(Entity):
+                class ErpPort1s(_Entity_):
                     """
                     Ethernet ring protection port0
                     
@@ -2222,7 +2614,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s, self).__init__()
 
                         self.yang_name = "erp-port1s"
                         self.yang_parent_name = "g8032-ring"
@@ -2240,7 +2635,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s, [], name, value)
 
 
-                    class ErpPort1(Entity):
+                    class ErpPort1(_Entity_):
                         """
                         Ethernet ring protection port1
                         
@@ -2269,7 +2664,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, self).__init__()
 
                             self.yang_name = "erp-port1"
                             self.yang_parent_name = "erp-port1s"
@@ -2293,7 +2691,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, ['erp_port_type'], name, value)
 
 
-                        class NoneOrVirtual(Entity):
+                        class NoneOrVirtual(_Entity_):
                             """
                             none or virtual
                             
@@ -2314,7 +2712,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, self).__init__()
 
                                 self.yang_name = "none-or-virtual"
                                 self.yang_parent_name = "erp-port1"
@@ -2333,9 +2734,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, ['monitor'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual']['meta_info']
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             interface
                             
@@ -2361,7 +2766,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "erp-port1"
@@ -2381,13 +2789,33 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, ['interface_name', 'monitor'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.G8032Rings']['meta_info']
 
 
-
-
-
-
-        class XconnectGroups(Entity):
+        class XconnectGroups(_Entity_):
             """
             List of xconnect groups
             
@@ -2404,7 +2832,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.XconnectGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.XconnectGroups, self).__init__()
 
                 self.yang_name = "xconnect-groups"
                 self.yang_parent_name = "database"
@@ -2423,7 +2854,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.XconnectGroups, [], name, value)
 
 
-            class XconnectGroup(Entity):
+            class XconnectGroup(_Entity_):
                 """
                 Xconnect group
                 
@@ -2452,7 +2883,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.XconnectGroups.XconnectGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.XconnectGroups.XconnectGroup, self).__init__()
 
                     self.yang_name = "xconnect-group"
                     self.yang_parent_name = "xconnect-groups"
@@ -2480,7 +2914,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup, ['name'], name, value)
 
 
-                class P2pXconnects(Entity):
+                class P2pXconnects(_Entity_):
                     """
                     List of point to point xconnects
                     
@@ -2497,7 +2931,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects, self).__init__()
 
                         self.yang_name = "p2p-xconnects"
                         self.yang_parent_name = "xconnect-group"
@@ -2515,7 +2952,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects, [], name, value)
 
 
-                    class P2pXconnect(Entity):
+                    class P2pXconnect(_Entity_):
                         """
                         Point to point xconnect
                         
@@ -2576,7 +3013,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, self).__init__()
 
                             self.yang_name = "p2p-xconnect"
                             self.yang_parent_name = "p2p-xconnects"
@@ -2623,7 +3063,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, ['name', 'p2p_description', 'interworking'], name, value)
 
 
-                        class BackupAttachmentCircuits(Entity):
+                        class BackupAttachmentCircuits(_Entity_):
                             """
                             List of backup attachment circuits
                             
@@ -2640,7 +3080,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits, self).__init__()
 
                                 self.yang_name = "backup-attachment-circuits"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -2658,7 +3101,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits, [], name, value)
 
 
-                            class BackupAttachmentCircuit(Entity):
+                            class BackupAttachmentCircuit(_Entity_):
                                 """
                                 Backup attachment circuit
                                 
@@ -2677,7 +3120,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, self).__init__()
 
                                     self.yang_name = "backup-attachment-circuit"
                                     self.yang_parent_name = "backup-attachment-circuits"
@@ -2695,10 +3141,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, ['interface_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits']['meta_info']
 
 
-
-                        class PseudowireEvpns(Entity):
+                        class PseudowireEvpns(_Entity_):
                             """
                             List of EVPN Services
                             
@@ -2715,7 +3169,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns, self).__init__()
 
                                 self.yang_name = "pseudowire-evpns"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -2733,7 +3190,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns, [], name, value)
 
 
-                            class PseudowireEvpn(Entity):
+                            class PseudowireEvpn(_Entity_):
                                 """
                                 EVPN P2P Service Configuration
                                 
@@ -2773,7 +3230,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, self).__init__()
 
                                     self.yang_name = "pseudowire-evpn"
                                     self.yang_parent_name = "pseudowire-evpns"
@@ -2797,10 +3257,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid', 'class_'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns']['meta_info']
 
 
-
-                        class Pseudowires(Entity):
+                        class Pseudowires(_Entity_):
                             """
                             List of pseudowires
                             
@@ -2817,7 +3285,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires, self).__init__()
 
                                 self.yang_name = "pseudowires"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -2835,7 +3306,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires, [], name, value)
 
 
-                            class Pseudowire(Entity):
+                            class Pseudowire(_Entity_):
                                 """
                                 Pseudowire configuration
                                 
@@ -2864,7 +3335,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, self).__init__()
 
                                     self.yang_name = "pseudowire"
                                     self.yang_parent_name = "pseudowires"
@@ -2886,7 +3360,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, ['pseudowire_id'], name, value)
 
 
-                                class Neighbor(Entity):
+                                class Neighbor(_Entity_):
                                     """
                                     keys\: neighbor
                                     
@@ -2959,7 +3433,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, self).__init__()
 
                                         self.yang_name = "neighbor"
                                         self.yang_parent_name = "pseudowire"
@@ -3002,7 +3479,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, ['neighbor', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
-                                    class MplsStaticLabels(Entity):
+                                    class MplsStaticLabels(_Entity_):
                                         """
                                         MPLS static labels
                                         
@@ -3028,7 +3505,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, self).__init__()
 
                                             self.yang_name = "mpls-static-labels"
                                             self.yang_parent_name = "neighbor"
@@ -3048,9 +3528,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels']['meta_info']
 
 
-                                    class BackupPseudowires(Entity):
+                                    class BackupPseudowires(_Entity_):
                                         """
                                         List of pseudowires
                                         
@@ -3067,7 +3551,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires, self).__init__()
 
                                             self.yang_name = "backup-pseudowires"
                                             self.yang_parent_name = "neighbor"
@@ -3085,7 +3572,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires, [], name, value)
 
 
-                                        class BackupPseudowire(Entity):
+                                        class BackupPseudowire(_Entity_):
                                             """
                                             Backup pseudowire for the cross connect
                                             
@@ -3123,7 +3610,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, self).__init__()
 
                                                 self.yang_name = "backup-pseudowire"
                                                 self.yang_parent_name = "backup-pseudowires"
@@ -3150,7 +3640,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
-                                            class BackupMplsStaticLabels(Entity):
+                                            class BackupMplsStaticLabels(_Entity_):
                                                 """
                                                 MPLS static labels
                                                 
@@ -3176,7 +3666,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
 
                                                     self.yang_name = "backup-mpls-static-labels"
                                                     self.yang_parent_name = "backup-pseudowire"
@@ -3196,11 +3689,23 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires']['meta_info']
 
 
-
-
-                                    class L2tpStaticAttributes(Entity):
+                                    class L2tpStaticAttributes(_Entity_):
                                         """
                                         L2TP Static Attributes
                                         
@@ -3241,7 +3746,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, self).__init__()
 
                                             self.yang_name = "l2tp-static-attributes"
                                             self.yang_parent_name = "neighbor"
@@ -3274,7 +3782,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
-                                        class L2tpRemoteCookie(Entity):
+                                        class L2tpRemoteCookie(_Entity_):
                                             """
                                             L2TP remote cookie
                                             
@@ -3305,7 +3813,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-remote-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -3327,9 +3838,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie']['meta_info']
 
 
-                                        class L2tpSecondaryLocalCookie(Entity):
+                                        class L2tpSecondaryLocalCookie(_Entity_):
                                             """
                                             L2TP secondary local cookie
                                             
@@ -3360,7 +3875,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-secondary-local-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -3382,9 +3900,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie']['meta_info']
 
 
-                                        class L2tpLocalCookie(Entity):
+                                        class L2tpLocalCookie(_Entity_):
                                             """
                                             L2TP local cookie
                                             
@@ -3415,7 +3937,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-local-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -3437,10 +3962,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes']['meta_info']
 
 
-
-                                    class L2tpStatic(Entity):
+                                    class L2tpStatic(_Entity_):
                                         """
                                         Pseudowire L2TPv3 static configuration
                                         
@@ -3457,7 +3990,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, self).__init__()
 
                                             self.yang_name = "l2tp-static"
                                             self.yang_parent_name = "neighbor"
@@ -3475,10 +4011,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor']['meta_info']
 
 
-
-                                class PseudowireAddress(Entity):
+                                class PseudowireAddress(_Entity_):
                                     """
                                     keys\: pseudowire\-address
                                     
@@ -3551,7 +4095,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, self).__init__()
 
                                         self.yang_name = "pseudowire-address"
                                         self.yang_parent_name = "pseudowire"
@@ -3594,7 +4141,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, ['pseudowire_address', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
-                                    class MplsStaticLabels(Entity):
+                                    class MplsStaticLabels(_Entity_):
                                         """
                                         MPLS static labels
                                         
@@ -3620,7 +4167,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, self).__init__()
 
                                             self.yang_name = "mpls-static-labels"
                                             self.yang_parent_name = "pseudowire-address"
@@ -3640,9 +4190,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels']['meta_info']
 
 
-                                    class BackupPseudowires(Entity):
+                                    class BackupPseudowires(_Entity_):
                                         """
                                         List of pseudowires
                                         
@@ -3659,7 +4213,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires, self).__init__()
 
                                             self.yang_name = "backup-pseudowires"
                                             self.yang_parent_name = "pseudowire-address"
@@ -3677,7 +4234,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires, [], name, value)
 
 
-                                        class BackupPseudowire(Entity):
+                                        class BackupPseudowire(_Entity_):
                                             """
                                             Backup pseudowire for the cross connect
                                             
@@ -3715,7 +4272,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, self).__init__()
 
                                                 self.yang_name = "backup-pseudowire"
                                                 self.yang_parent_name = "backup-pseudowires"
@@ -3742,7 +4302,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
-                                            class BackupMplsStaticLabels(Entity):
+                                            class BackupMplsStaticLabels(_Entity_):
                                                 """
                                                 MPLS static labels
                                                 
@@ -3768,7 +4328,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, self).__init__()
 
                                                     self.yang_name = "backup-mpls-static-labels"
                                                     self.yang_parent_name = "backup-pseudowire"
@@ -3788,11 +4351,23 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires']['meta_info']
 
 
-
-
-                                    class L2tpStaticAttributes(Entity):
+                                    class L2tpStaticAttributes(_Entity_):
                                         """
                                         L2TP Static Attributes
                                         
@@ -3833,7 +4408,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, self).__init__()
 
                                             self.yang_name = "l2tp-static-attributes"
                                             self.yang_parent_name = "pseudowire-address"
@@ -3866,7 +4444,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
-                                        class L2tpRemoteCookie(Entity):
+                                        class L2tpRemoteCookie(_Entity_):
                                             """
                                             L2TP remote cookie
                                             
@@ -3897,7 +4475,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-remote-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -3919,9 +4500,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie']['meta_info']
 
 
-                                        class L2tpSecondaryLocalCookie(Entity):
+                                        class L2tpSecondaryLocalCookie(_Entity_):
                                             """
                                             L2TP secondary local cookie
                                             
@@ -3952,7 +4537,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-secondary-local-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -3974,9 +4562,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie']['meta_info']
 
 
-                                        class L2tpLocalCookie(Entity):
+                                        class L2tpLocalCookie(_Entity_):
                                             """
                                             L2TP local cookie
                                             
@@ -4007,7 +4599,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, self).__init__()
 
                                                 self.yang_name = "l2tp-local-cookie"
                                                 self.yang_parent_name = "l2tp-static-attributes"
@@ -4029,10 +4624,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes']['meta_info']
 
 
-
-                                    class L2tpStatic(Entity):
+                                    class L2tpStatic(_Entity_):
                                         """
                                         Pseudowire L2TPv3 static configuration
                                         
@@ -4049,7 +4652,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, self).__init__()
 
                                             self.yang_name = "l2tp-static"
                                             self.yang_parent_name = "pseudowire-address"
@@ -4067,12 +4673,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires']['meta_info']
 
 
-
-
-
-                        class MonitorSessions(Entity):
+                        class MonitorSessions(_Entity_):
                             """
                             List of Monitor session segments
                             
@@ -4089,7 +4711,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions, self).__init__()
 
                                 self.yang_name = "monitor-sessions"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -4107,7 +4732,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions, [], name, value)
 
 
-                            class MonitorSession(Entity):
+                            class MonitorSession(_Entity_):
                                 """
                                 Monitor session segment
                                 
@@ -4131,7 +4756,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, self).__init__()
 
                                     self.yang_name = "monitor-session"
                                     self.yang_parent_name = "monitor-sessions"
@@ -4151,10 +4779,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, ['name', 'enable'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions']['meta_info']
 
 
-
-                        class PseudowireRouteds(Entity):
+                        class PseudowireRouteds(_Entity_):
                             """
                             List of pseudowire\-routed
                             
@@ -4171,7 +4807,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds, self).__init__()
 
                                 self.yang_name = "pseudowire-routeds"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -4189,7 +4828,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds, [], name, value)
 
 
-                            class PseudowireRouted(Entity):
+                            class PseudowireRouted(_Entity_):
                                 """
                                 Pseudowire configuration
                                 
@@ -4243,7 +4882,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, self).__init__()
 
                                     self.yang_name = "pseudowire-routed"
                                     self.yang_parent_name = "pseudowire-routeds"
@@ -4271,10 +4913,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, ['global_id', 'prefix', 'acid', 'sacid', 'tag_impose', 'class_'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds']['meta_info']
 
 
-
-                        class AttachmentCircuits(Entity):
+                        class AttachmentCircuits(_Entity_):
                             """
                             List of attachment circuits
                             
@@ -4291,7 +4941,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits, self).__init__()
 
                                 self.yang_name = "attachment-circuits"
                                 self.yang_parent_name = "p2p-xconnect"
@@ -4309,7 +4962,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits, [], name, value)
 
 
-                            class AttachmentCircuit(Entity):
+                            class AttachmentCircuit(_Entity_):
                                 """
                                 Attachment circuit interface
                                 
@@ -4333,7 +4986,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, self).__init__()
 
                                     self.yang_name = "attachment-circuit"
                                     self.yang_parent_name = "attachment-circuits"
@@ -4353,12 +5009,28 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, ['name', 'enable'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects']['meta_info']
 
 
-
-
-
-                class Mp2mpXconnects(Entity):
+                class Mp2mpXconnects(_Entity_):
                     """
                     List of multi point to multi point xconnects
                     
@@ -4375,7 +5047,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects, self).__init__()
 
                         self.yang_name = "mp2mp-xconnects"
                         self.yang_parent_name = "xconnect-group"
@@ -4393,7 +5068,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects, [], name, value)
 
 
-                    class Mp2mpXconnect(Entity):
+                    class Mp2mpXconnect(_Entity_):
                         """
                         Multi point to multi point xconnect
                         
@@ -4453,7 +5128,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, self).__init__()
 
                             self.yang_name = "mp2mp-xconnect"
                             self.yang_parent_name = "mp2mp-xconnects"
@@ -4488,7 +5166,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, ['name', 'mp2mpmtu', 'mp2mp_control_word', 'mp2mpl2_encapsulation', 'mp2mp_interworking', 'mp2mp_shutdown', 'mp2mpvpn_id'], name, value)
 
 
-                        class Mp2mpAutoDiscovery(Entity):
+                        class Mp2mpAutoDiscovery(_Entity_):
                             """
                             auto\-discovery in this MP2MP
                             
@@ -4525,7 +5203,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, self).__init__()
 
                                 self.yang_name = "mp2mp-auto-discovery"
                                 self.yang_parent_name = "mp2mp-xconnect"
@@ -4560,7 +5241,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, ['enable'], name, value)
 
 
-                            class RouteDistinguisher(Entity):
+                            class RouteDistinguisher(_Entity_):
                                 """
                                 Route Distinguisher
                                 
@@ -4605,7 +5286,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, self).__init__()
 
                                     self.yang_name = "route-distinguisher"
                                     self.yang_parent_name = "mp2mp-auto-discovery"
@@ -4631,9 +5315,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher']['meta_info']
 
 
-                            class Mp2mpRoutePolicy(Entity):
+                            class Mp2mpRoutePolicy(_Entity_):
                                 """
                                 Route policy
                                 
@@ -4650,7 +5338,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, self).__init__()
 
                                     self.yang_name = "mp2mp-route-policy"
                                     self.yang_parent_name = "mp2mp-auto-discovery"
@@ -4668,9 +5359,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, ['export'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy']['meta_info']
 
 
-                            class Mp2mpRouteTargets(Entity):
+                            class Mp2mpRouteTargets(_Entity_):
                                 """
                                 Route Target
                                 
@@ -4687,7 +5382,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets, self).__init__()
 
                                     self.yang_name = "mp2mp-route-targets"
                                     self.yang_parent_name = "mp2mp-auto-discovery"
@@ -4705,7 +5403,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets, [], name, value)
 
 
-                                class Mp2mpRouteTarget(Entity):
+                                class Mp2mpRouteTarget(_Entity_):
                                     """
                                     Name of the Route Target
                                     
@@ -4737,7 +5435,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, self).__init__()
 
                                         self.yang_name = "mp2mp-route-target"
                                         self.yang_parent_name = "mp2mp-route-targets"
@@ -4761,7 +5462,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, ['role', 'format'], name, value)
 
 
-                                    class TwoByteAsOrFourByteAs(Entity):
+                                    class TwoByteAsOrFourByteAs(_Entity_):
                                         """
                                         two byte as or four byte as
                                         
@@ -4787,7 +5488,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, self).__init__()
 
                                             self.yang_name = "two-byte-as-or-four-byte-as"
                                             self.yang_parent_name = "mp2mp-route-target"
@@ -4807,9 +5511,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs']['meta_info']
 
 
-                                    class Ipv4Address(Entity):
+                                    class Ipv4Address(_Entity_):
                                         """
                                         ipv4 address
                                         
@@ -4835,7 +5543,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, self).__init__()
 
                                             self.yang_name = "ipv4-address"
                                             self.yang_parent_name = "mp2mp-route-target"
@@ -4855,11 +5566,23 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets']['meta_info']
 
 
-
-
-                            class Mp2mpSignalingProtocol(Entity):
+                            class Mp2mpSignalingProtocol(_Entity_):
                                 """
                                 signaling protocol in this MP2MP
                                 
@@ -4893,7 +5616,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, self).__init__()
 
                                     self.yang_name = "mp2mp-signaling-protocol"
                                     self.yang_parent_name = "mp2mp-auto-discovery"
@@ -4922,7 +5648,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, ['ce_range', 'enable'], name, value)
 
 
-                                class FlowLabelLoadBalance(Entity):
+                                class FlowLabelLoadBalance(_Entity_):
                                     """
                                     Enable Flow Label based load balancing
                                     
@@ -4944,7 +5670,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
 
                                         self.yang_name = "flow-label-load-balance"
                                         self.yang_parent_name = "mp2mp-signaling-protocol"
@@ -4964,9 +5693,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
 
 
-                                class Ceids(Entity):
+                                class Ceids(_Entity_):
                                     """
                                     Local Customer Edge Identifier Table
                                     
@@ -4983,7 +5716,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids, self).__init__()
 
                                         self.yang_name = "ceids"
                                         self.yang_parent_name = "mp2mp-signaling-protocol"
@@ -5001,7 +5737,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids, [], name, value)
 
 
-                                    class Ceid(Entity):
+                                    class Ceid(_Entity_):
                                         """
                                         Local Customer Edge Identifier 
                                         
@@ -5025,7 +5761,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, self).__init__()
 
                                             self.yang_name = "ceid"
                                             self.yang_parent_name = "ceids"
@@ -5048,7 +5787,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, ['ce_id'], name, value)
 
 
-                                        class RemoteCeidAttachmentCircuits(Entity):
+                                        class RemoteCeidAttachmentCircuits(_Entity_):
                                             """
                                             AC And Remote Customer Edge Identifier
                                             Table
@@ -5066,7 +5805,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits, self).__init__()
 
                                                 self.yang_name = "remote-ceid-attachment-circuits"
                                                 self.yang_parent_name = "ceid"
@@ -5084,7 +5826,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits, [], name, value)
 
 
-                                            class RemoteCeidAttachmentCircuit(Entity):
+                                            class RemoteCeidAttachmentCircuit(_Entity_):
                                                 """
                                                 AC And Remote Customer Edge Identifier
                                                 
@@ -5110,7 +5852,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, self).__init__()
 
                                                     self.yang_name = "remote-ceid-attachment-circuit"
                                                     self.yang_parent_name = "remote-ceid-attachment-circuits"
@@ -5130,18 +5875,58 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, ['name', 'remote_ce_id'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.XconnectGroups']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-        class BridgeDomainGroups(Entity):
+        class BridgeDomainGroups(_Entity_):
             """
             List of bridge groups
             
@@ -5158,7 +5943,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.BridgeDomainGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.BridgeDomainGroups, self).__init__()
 
                 self.yang_name = "bridge-domain-groups"
                 self.yang_parent_name = "database"
@@ -5177,7 +5965,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups, [], name, value)
 
 
-            class BridgeDomainGroup(Entity):
+            class BridgeDomainGroup(_Entity_):
                 """
                 Bridge group
                 
@@ -5201,7 +5989,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, self).__init__()
 
                     self.yang_name = "bridge-domain-group"
                     self.yang_parent_name = "bridge-domain-groups"
@@ -5225,7 +6016,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, ['name'], name, value)
 
 
-                class BridgeDomains(Entity):
+                class BridgeDomains(_Entity_):
                     """
                     List of Bridge Domain
                     
@@ -5242,7 +6033,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains, self).__init__()
 
                         self.yang_name = "bridge-domains"
                         self.yang_parent_name = "bridge-domain-group"
@@ -5260,7 +6054,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains, [], name, value)
 
 
-                    class BridgeDomain(Entity):
+                    class BridgeDomain(_Entity_):
                         """
                         bridge domain
                         
@@ -5431,7 +6225,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, self).__init__()
 
                             self.yang_name = "bridge-domain"
                             self.yang_parent_name = "bridge-domains"
@@ -5536,7 +6333,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'efp_visibility', 'l2_multicast_source', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
-                        class BdStormControls(Entity):
+                        class BdStormControls(_Entity_):
                             """
                             Storm Control
                             
@@ -5553,7 +6350,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
 
                                 self.yang_name = "bd-storm-controls"
                                 self.yang_parent_name = "bridge-domain"
@@ -5571,7 +6371,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls, [], name, value)
 
 
-                            class BdStormControl(Entity):
+                            class BdStormControl(_Entity_):
                                 """
                                 Storm Control Type
                                 
@@ -5593,7 +6393,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
 
                                     self.yang_name = "bd-storm-control"
                                     self.yang_parent_name = "bd-storm-controls"
@@ -5616,7 +6419,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
 
 
-                                class StormControlUnit(Entity):
+                                class StormControlUnit(_Entity_):
                                     """
                                     Specify units for Storm Control Configuration
                                     
@@ -5646,7 +6449,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
 
                                         self.yang_name = "storm-control-unit"
                                         self.yang_parent_name = "bd-storm-control"
@@ -5666,11 +6472,23 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls']['meta_info']
 
 
-
-
-                        class MemberVnis(Entity):
+                        class MemberVnis(_Entity_):
                             """
                             Bridge Domain VxLAN Network Identifier Table
                             
@@ -5687,7 +6505,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
 
                                 self.yang_name = "member-vnis"
                                 self.yang_parent_name = "bridge-domain"
@@ -5705,7 +6526,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis, [], name, value)
 
 
-                            class MemberVni(Entity):
+                            class MemberVni(_Entity_):
                                 """
                                 Bridge Domain Member VxLAN Network Identifier
                                 
@@ -5729,7 +6550,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
 
                                     self.yang_name = "member-vni"
                                     self.yang_parent_name = "member-vnis"
@@ -5752,7 +6576,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
 
 
-                                class MemberVniStaticMacAddresses(Entity):
+                                class MemberVniStaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -5769,7 +6593,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
 
                                         self.yang_name = "member-vni-static-mac-addresses"
                                         self.yang_parent_name = "member-vni"
@@ -5787,7 +6614,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, [], name, value)
 
 
-                                    class MemberVniStaticMacAddress(Entity):
+                                    class MemberVniStaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -5813,7 +6640,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
 
                                             self.yang_name = "member-vni-static-mac-address"
                                             self.yang_parent_name = "member-vni-static-mac-addresses"
@@ -5833,12 +6663,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis']['meta_info']
 
 
-
-
-
-                        class BridgeDomainMac(Entity):
+                        class BridgeDomainMac(_Entity_):
                             """
                             MAC configuration commands
                             
@@ -5900,7 +6746,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
 
                                 self.yang_name = "bridge-domain-mac"
                                 self.yang_parent_name = "bridge-domain"
@@ -5945,7 +6794,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
 
 
-                            class BdMacLimit(Entity):
+                            class BdMacLimit(_Entity_):
                                 """
                                 MAC\-Limit configuration commands
                                 
@@ -5974,7 +6823,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
 
                                     self.yang_name = "bd-mac-limit"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -5996,9 +6848,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit']['meta_info']
 
 
-                            class BdMacFilters(Entity):
+                            class BdMacFilters(_Entity_):
                                 """
                                 Filter Mac Address
                                 
@@ -6015,7 +6871,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
 
                                     self.yang_name = "bd-mac-filters"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -6033,7 +6892,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, [], name, value)
 
 
-                                class BdMacFilter(Entity):
+                                class BdMacFilter(_Entity_):
                                     """
                                     Static MAC address
                                     
@@ -6057,7 +6916,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
 
                                         self.yang_name = "bd-mac-filter"
                                         self.yang_parent_name = "bd-mac-filters"
@@ -6077,10 +6939,18 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters']['meta_info']
 
 
-
-                            class MacSecure(Entity):
+                            class MacSecure(_Entity_):
                                 """
                                 MAC Secure
                                 
@@ -6119,7 +6989,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
 
                                     self.yang_name = "mac-secure"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -6145,9 +7018,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'enable', 'threshold', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure']['meta_info']
 
 
-                            class BdMacAging(Entity):
+                            class BdMacAging(_Entity_):
                                 """
                                 MAC\-Aging configuration commands
                                 
@@ -6171,7 +7048,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
 
                                     self.yang_name = "bd-mac-aging"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -6191,10 +7071,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac']['meta_info']
 
 
-
-                        class NvSatellite(Entity):
+                        class NvSatellite(_Entity_):
                             """
                             nV Satellite
                             
@@ -6216,7 +7104,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
 
                                 self.yang_name = "nv-satellite"
                                 self.yang_parent_name = "bridge-domain"
@@ -6236,9 +7127,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite']['meta_info']
 
 
-                        class BridgeDomainPbb(Entity):
+                        class BridgeDomainPbb(_Entity_):
                             """
                             Bridge Domain PBB
                             
@@ -6260,7 +7155,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
 
                                 self.yang_name = "bridge-domain-pbb"
                                 self.yang_parent_name = "bridge-domain"
@@ -6284,7 +7182,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb, [], name, value)
 
 
-                            class PbbEdges(Entity):
+                            class PbbEdges(_Entity_):
                                 """
                                 PBB Edge
                                 
@@ -6301,7 +7199,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
 
                                     self.yang_name = "pbb-edges"
                                     self.yang_parent_name = "bridge-domain-pbb"
@@ -6319,7 +7220,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, [], name, value)
 
 
-                                class PbbEdge(Entity):
+                                class PbbEdge(_Entity_):
                                     """
                                     Configure BD as PBB Edge with ISID and
                                     associated PBB Core BD
@@ -6380,7 +7281,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
 
                                         self.yang_name = "pbb-edge"
                                         self.yang_parent_name = "pbb-edges"
@@ -6421,7 +7325,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
 
 
-                                    class PbbEdgeSplitHorizonGroup(Entity):
+                                    class PbbEdgeSplitHorizonGroup(_Entity_):
                                         """
                                         Split Horizon Group
                                         
@@ -6438,7 +7342,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
 
                                             self.yang_name = "pbb-edge-split-horizon-group"
                                             self.yang_parent_name = "pbb-edge"
@@ -6456,9 +7363,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup']['meta_info']
 
 
-                                    class PbbStaticMacMappings(Entity):
+                                    class PbbStaticMacMappings(_Entity_):
                                         """
                                         PBB Static Mac Address Mapping Table
                                         
@@ -6475,7 +7386,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
 
                                             self.yang_name = "pbb-static-mac-mappings"
                                             self.yang_parent_name = "pbb-edge"
@@ -6493,7 +7407,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, [], name, value)
 
 
-                                        class PbbStaticMacMapping(Entity):
+                                        class PbbStaticMacMapping(_Entity_):
                                             """
                                             PBB Static Mac Address Mapping
                                             Configuration
@@ -6520,7 +7434,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
 
                                                 self.yang_name = "pbb-static-mac-mapping"
                                                 self.yang_parent_name = "pbb-static-mac-mappings"
@@ -6540,10 +7457,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings']['meta_info']
 
 
-
-                                    class PbbEdgeDhcpProfile(Entity):
+                                    class PbbEdgeDhcpProfile(_Entity_):
                                         """
                                         Attach a DHCP profile
                                         
@@ -6565,7 +7490,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
 
                                             self.yang_name = "pbb-edge-dhcp-profile"
                                             self.yang_parent_name = "pbb-edge"
@@ -6585,9 +7513,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile']['meta_info']
 
 
-                                    class PbbEdgeMac(Entity):
+                                    class PbbEdgeMac(_Entity_):
                                         """
                                         MAC configuration commands
                                         
@@ -6619,7 +7551,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
 
                                             self.yang_name = "pbb-edge-mac"
                                             self.yang_parent_name = "pbb-edge"
@@ -6650,7 +7585,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
 
 
-                                        class PbbEdgeMacLimit(Entity):
+                                        class PbbEdgeMacLimit(_Entity_):
                                             """
                                             MAC\-Limit configuration commands
                                             
@@ -6679,7 +7614,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-limit"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -6701,9 +7639,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit']['meta_info']
 
 
-                                        class PbbEdgeMacAging(Entity):
+                                        class PbbEdgeMacAging(_Entity_):
                                             """
                                             MAC\-Aging configuration commands
                                             
@@ -6727,7 +7669,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-aging"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -6747,9 +7692,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging']['meta_info']
 
 
-                                        class PbbEdgeMacSecure(Entity):
+                                        class PbbEdgeMacSecure(_Entity_):
                                             """
                                             MAC Secure
                                             
@@ -6786,7 +7735,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-secure"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -6812,12 +7764,28 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['enable', 'accept_shutdown', 'logging', 'disable', 'action'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges']['meta_info']
 
 
-
-
-
-                            class PbbCore(Entity):
+                            class PbbCore(_Entity_):
                                 """
                                 PBB Core
                                 
@@ -6868,7 +7836,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
 
                                     self.yang_name = "pbb-core"
                                     self.yang_parent_name = "bridge-domain-pbb"
@@ -6905,7 +7876,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
 
 
-                                class PbbCoreMac(Entity):
+                                class PbbCoreMac(_Entity_):
                                     """
                                     MAC configuration commands
                                     
@@ -6932,7 +7903,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
 
                                         self.yang_name = "pbb-core-mac"
                                         self.yang_parent_name = "pbb-core"
@@ -6959,7 +7933,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
 
 
-                                    class PbbCoreMacAging(Entity):
+                                    class PbbCoreMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -6983,7 +7957,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
 
                                             self.yang_name = "pbb-core-mac-aging"
                                             self.yang_parent_name = "pbb-core-mac"
@@ -7003,9 +7980,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging']['meta_info']
 
 
-                                    class PbbCoreMacLimit(Entity):
+                                    class PbbCoreMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -7034,7 +8015,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
 
                                             self.yang_name = "pbb-core-mac-limit"
                                             self.yang_parent_name = "pbb-core-mac"
@@ -7056,10 +8040,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac']['meta_info']
 
 
-
-                                class PbbCoreEvis(Entity):
+                                class PbbCoreEvis(_Entity_):
                                     """
                                     PBB Core EVI Table
                                     
@@ -7076,7 +8068,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
 
                                         self.yang_name = "pbb-core-evis"
                                         self.yang_parent_name = "pbb-core"
@@ -7094,7 +8089,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, [], name, value)
 
 
-                                    class PbbCoreEvi(Entity):
+                                    class PbbCoreEvi(_Entity_):
                                         """
                                         PBB Core EVI
                                         
@@ -7113,7 +8108,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
 
                                             self.yang_name = "pbb-core-evi"
                                             self.yang_parent_name = "pbb-core-evis"
@@ -7131,10 +8129,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis']['meta_info']
 
 
-
-                                class PbbCoreDhcpProfile(Entity):
+                                class PbbCoreDhcpProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -7156,7 +8162,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
 
                                         self.yang_name = "pbb-core-dhcp-profile"
                                         self.yang_parent_name = "pbb-core"
@@ -7176,11 +8185,23 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
 
 
-
-
-                        class BridgeDomainEvis(Entity):
+                        class BridgeDomainEvis(_Entity_):
                             """
                             Bridge Domain EVI Table
                             
@@ -7197,7 +8218,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
 
                                 self.yang_name = "bridge-domain-evis"
                                 self.yang_parent_name = "bridge-domain"
@@ -7215,7 +8239,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis, [], name, value)
 
 
-                            class BridgeDomainEvi(Entity):
+                            class BridgeDomainEvi(_Entity_):
                                 """
                                 Bridge Domain MPLS EVPN
                                 
@@ -7234,7 +8258,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
 
                                     self.yang_name = "bridge-domain-evi"
                                     self.yang_parent_name = "bridge-domain-evis"
@@ -7252,10 +8279,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis']['meta_info']
 
 
-
-                        class AccessVfis(Entity):
+                        class AccessVfis(_Entity_):
                             """
                             Specify the access virtual forwarding
                             interface name
@@ -7273,7 +8308,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
 
                                 self.yang_name = "access-vfis"
                                 self.yang_parent_name = "bridge-domain"
@@ -7291,7 +8329,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis, [], name, value)
 
 
-                            class AccessVfi(Entity):
+                            class AccessVfi(_Entity_):
                                 """
                                 Name of the Acess Virtual Forwarding
                                 Interface
@@ -7321,7 +8359,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
 
                                     self.yang_name = "access-vfi"
                                     self.yang_parent_name = "access-vfis"
@@ -7346,7 +8387,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
 
 
-                                class AccessVfiPseudowires(Entity):
+                                class AccessVfiPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -7363,7 +8404,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
 
                                         self.yang_name = "access-vfi-pseudowires"
                                         self.yang_parent_name = "access-vfi"
@@ -7381,7 +8425,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, [], name, value)
 
 
-                                    class AccessVfiPseudowire(Entity):
+                                    class AccessVfiPseudowire(_Entity_):
                                         """
                                         Pseudowire configuration
                                         
@@ -7419,7 +8463,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
 
                                             self.yang_name = "access-vfi-pseudowire"
                                             self.yang_parent_name = "access-vfi-pseudowires"
@@ -7446,7 +8493,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
 
 
-                                        class AccessVfiPseudowireStaticMacAddresses(Entity):
+                                        class AccessVfiPseudowireStaticMacAddresses(_Entity_):
                                             """
                                             Static Mac Address Table
                                             
@@ -7463,7 +8510,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
 
                                                 self.yang_name = "access-vfi-pseudowire-static-mac-addresses"
                                                 self.yang_parent_name = "access-vfi-pseudowire"
@@ -7481,7 +8531,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, [], name, value)
 
 
-                                            class AccessVfiPseudowireStaticMacAddress(Entity):
+                                            class AccessVfiPseudowireStaticMacAddress(_Entity_):
                                                 """
                                                 Static Mac Address Configuration
                                                 
@@ -7500,7 +8550,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
 
                                                     self.yang_name = "access-vfi-pseudowire-static-mac-address"
                                                     self.yang_parent_name = "access-vfi-pseudowire-static-mac-addresses"
@@ -7518,14 +8571,38 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis']['meta_info']
 
 
-
-
-
-
-
-                        class BdPseudowires(Entity):
+                        class BdPseudowires(_Entity_):
                             """
                             List of pseudowires
                             
@@ -7542,7 +8619,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
 
                                 self.yang_name = "bd-pseudowires"
                                 self.yang_parent_name = "bridge-domain"
@@ -7560,7 +8640,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires, [], name, value)
 
 
-                            class BdPseudowire(Entity):
+                            class BdPseudowire(_Entity_):
                                 """
                                 Pseudowire configuration
                                 
@@ -7662,7 +8742,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
 
                                     self.yang_name = "bd-pseudowire"
                                     self.yang_parent_name = "bd-pseudowires"
@@ -7729,7 +8812,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
 
 
-                                class PseudowireDai(Entity):
+                                class PseudowireDai(_Entity_):
                                     """
                                     Access Pseudowire Dynamic ARP Inspection
                                     
@@ -7761,7 +8844,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
 
                                         self.yang_name = "pseudowire-dai"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -7788,7 +8874,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
 
 
-                                    class PseudowireDaiAddressValidation(Entity):
+                                    class PseudowireDaiAddressValidation(_Entity_):
                                         """
                                         Address Validation
                                         
@@ -7815,7 +8901,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
 
                                             self.yang_name = "pseudowire-dai-address-validation"
                                             self.yang_parent_name = "pseudowire-dai"
@@ -7837,10 +8926,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai']['meta_info']
 
 
-
-                                class BdpwStormControlTypes(Entity):
+                                class BdpwStormControlTypes(_Entity_):
                                     """
                                     Storm Control
                                     
@@ -7857,7 +8954,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
 
                                         self.yang_name = "bdpw-storm-control-types"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -7875,7 +8975,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, [], name, value)
 
 
-                                    class BdpwStormControlType(Entity):
+                                    class BdpwStormControlType(_Entity_):
                                         """
                                         Storm Control Type
                                         
@@ -7897,7 +8997,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
 
                                             self.yang_name = "bdpw-storm-control-type"
                                             self.yang_parent_name = "bdpw-storm-control-types"
@@ -7920,7 +9023,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
 
 
-                                        class StormControlUnit(Entity):
+                                        class StormControlUnit(_Entity_):
                                             """
                                             Specify units for Storm Control Configuration
                                             
@@ -7950,7 +9053,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
 
                                                 self.yang_name = "storm-control-unit"
                                                 self.yang_parent_name = "bdpw-storm-control-type"
@@ -7970,11 +9076,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes']['meta_info']
 
 
-
-
-                                class PseudowireProfile(Entity):
+                                class PseudowireProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -7996,7 +9114,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
 
                                         self.yang_name = "pseudowire-profile"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8016,9 +9137,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile']['meta_info']
 
 
-                                class BdPwStaticMacAddresses(Entity):
+                                class BdPwStaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -8035,7 +9160,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
 
                                         self.yang_name = "bd-pw-static-mac-addresses"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8053,7 +9181,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, [], name, value)
 
 
-                                    class BdPwStaticMacAddress(Entity):
+                                    class BdPwStaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -8072,7 +9200,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
 
                                             self.yang_name = "bd-pw-static-mac-address"
                                             self.yang_parent_name = "bd-pw-static-mac-addresses"
@@ -8090,10 +9221,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses']['meta_info']
 
 
-
-                                class PseudowireIpSourceGuard(Entity):
+                                class PseudowireIpSourceGuard(_Entity_):
                                     """
                                     IP Source Guard
                                     
@@ -8120,7 +9259,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
 
                                         self.yang_name = "pseudowire-ip-source-guard"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8142,9 +9284,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard']['meta_info']
 
 
-                                class PseudowireMac(Entity):
+                                class PseudowireMac(_Entity_):
                                     """
                                     Bridge\-domain Pseudowire MAC configuration
                                     commands
@@ -8187,7 +9333,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
 
                                         self.yang_name = "pseudowire-mac"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8222,7 +9371,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
 
 
-                                    class PseudowireMacSecure(Entity):
+                                    class PseudowireMacSecure(_Entity_):
                                         """
                                         MAC Secure
                                         
@@ -8261,7 +9410,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-secure"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -8287,9 +9439,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure']['meta_info']
 
 
-                                    class PseudowireMacAging(Entity):
+                                    class PseudowireMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -8313,7 +9469,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-aging"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -8333,9 +9492,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging']['meta_info']
 
 
-                                    class PseudowireMacLimit(Entity):
+                                    class PseudowireMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -8364,7 +9527,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-limit"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -8386,10 +9552,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac']['meta_info']
 
 
-
-                                class BdPwSplitHorizon(Entity):
+                                class BdPwSplitHorizon(_Entity_):
                                     """
                                     Split Horizon
                                     
@@ -8406,7 +9580,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
 
                                         self.yang_name = "bd-pw-split-horizon"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8426,7 +9603,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, [], name, value)
 
 
-                                    class BdPwSplitHorizonGroup(Entity):
+                                    class BdPwSplitHorizonGroup(_Entity_):
                                         """
                                         Split Horizon Group
                                         
@@ -8443,7 +9620,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
 
                                             self.yang_name = "bd-pw-split-horizon-group"
                                             self.yang_parent_name = "bd-pw-split-horizon"
@@ -8461,10 +9641,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon']['meta_info']
 
 
-
-                                class BdPwMplsStaticLabels(Entity):
+                                class BdPwMplsStaticLabels(_Entity_):
                                     """
                                     MPLS static labels
                                     
@@ -8490,7 +9678,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
 
                                         self.yang_name = "bd-pw-mpls-static-labels"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8510,9 +9701,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels']['meta_info']
 
 
-                                class BridgeDomainBackupPseudowires(Entity):
+                                class BridgeDomainBackupPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -8529,7 +9724,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
 
                                         self.yang_name = "bridge-domain-backup-pseudowires"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -8547,7 +9745,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, [], name, value)
 
 
-                                    class BridgeDomainBackupPseudowire(Entity):
+                                    class BridgeDomainBackupPseudowire(_Entity_):
                                         """
                                         Backup pseudowire configuration
                                         
@@ -8580,7 +9778,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
 
                                             self.yang_name = "bridge-domain-backup-pseudowire"
                                             self.yang_parent_name = "bridge-domain-backup-pseudowires"
@@ -8602,12 +9803,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires']['meta_info']
 
 
-
-
-
-                        class Vfis(Entity):
+                        class Vfis(_Entity_):
                             """
                             Specify the virtual forwarding interface name
                             
@@ -8624,7 +9841,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis, self).__init__()
 
                                 self.yang_name = "vfis"
                                 self.yang_parent_name = "bridge-domain"
@@ -8642,7 +9862,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis, [], name, value)
 
 
-                            class Vfi(Entity):
+                            class Vfi(_Entity_):
                                 """
                                 Name of the Virtual Forwarding Interface
                                 
@@ -8688,7 +9908,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
 
                                     self.yang_name = "vfi"
                                     self.yang_parent_name = "vfis"
@@ -8723,7 +9946,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
 
 
-                                class MulticastP2mp(Entity):
+                                class MulticastP2mp(_Entity_):
                                     """
                                     Enable Multicast P2MP in this VFI
                                     
@@ -8750,7 +9973,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
 
                                         self.yang_name = "multicast-p2mp"
                                         self.yang_parent_name = "vfi"
@@ -8777,7 +10003,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
 
 
-                                    class Transports(Entity):
+                                    class Transports(_Entity_):
                                         """
                                         Multicast P2MP Transport
                                         
@@ -8794,7 +10020,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
 
                                             self.yang_name = "transports"
                                             self.yang_parent_name = "multicast-p2mp"
@@ -8812,7 +10041,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, [], name, value)
 
 
-                                        class Transport(Entity):
+                                        class Transport(_Entity_):
                                             """
                                             Multicast P2MP Transport Type
                                             
@@ -8838,7 +10067,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
 
                                                 self.yang_name = "transport"
                                                 self.yang_parent_name = "transports"
@@ -8858,10 +10090,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports']['meta_info']
 
 
-
-                                    class Signalings(Entity):
+                                    class Signalings(_Entity_):
                                         """
                                         Multicast P2MP Signaling Type
                                         
@@ -8878,7 +10118,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
 
                                             self.yang_name = "signalings"
                                             self.yang_parent_name = "multicast-p2mp"
@@ -8896,7 +10139,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, [], name, value)
 
 
-                                        class Signaling(Entity):
+                                        class Signaling(_Entity_):
                                             """
                                             Multicast P2MP Signaling Type
                                             
@@ -8915,7 +10158,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
 
                                                 self.yang_name = "signaling"
                                                 self.yang_parent_name = "signalings"
@@ -8933,11 +10179,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp']['meta_info']
 
 
-
-
-                                class VfiPseudowires(Entity):
+                                class VfiPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -8954,7 +10212,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
 
                                         self.yang_name = "vfi-pseudowires"
                                         self.yang_parent_name = "vfi"
@@ -8972,7 +10233,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, [], name, value)
 
 
-                                    class VfiPseudowire(Entity):
+                                    class VfiPseudowire(_Entity_):
                                         """
                                         Pseudowire configuration
                                         
@@ -9034,7 +10295,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
 
                                             self.yang_name = "vfi-pseudowire"
                                             self.yang_parent_name = "vfi-pseudowires"
@@ -9073,7 +10337,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
 
 
-                                        class VfiPwDhcpSnoop(Entity):
+                                        class VfiPwDhcpSnoop(_Entity_):
                                             """
                                             Attach a DHCP Snooping profile
                                             
@@ -9095,7 +10359,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
 
                                                 self.yang_name = "vfi-pw-dhcp-snoop"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -9115,9 +10382,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop']['meta_info']
 
 
-                                        class VfiPwMplsStaticLabels(Entity):
+                                        class VfiPwMplsStaticLabels(_Entity_):
                                             """
                                             MPLS static labels
                                             
@@ -9143,7 +10414,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
 
                                                 self.yang_name = "vfi-pw-mpls-static-labels"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -9163,9 +10437,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels']['meta_info']
 
 
-                                        class PseudowireStaticMacAddresses(Entity):
+                                        class PseudowireStaticMacAddresses(_Entity_):
                                             """
                                             Static Mac Address Table
                                             
@@ -9182,7 +10460,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
 
                                                 self.yang_name = "pseudowire-static-mac-addresses"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -9200,7 +10481,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, [], name, value)
 
 
-                                            class PseudowireStaticMacAddress(Entity):
+                                            class PseudowireStaticMacAddress(_Entity_):
                                                 """
                                                 Static Mac Address Configuration
                                                 
@@ -9219,7 +10500,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
 
                                                     self.yang_name = "pseudowire-static-mac-address"
                                                     self.yang_parent_name = "pseudowire-static-mac-addresses"
@@ -9237,12 +10521,28 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires']['meta_info']
 
 
-
-
-
-                                class BgpAutoDiscovery(Entity):
+                                class BgpAutoDiscovery(_Entity_):
                                     """
                                     Enable Autodiscovery BGP in this VFI
                                     
@@ -9294,7 +10594,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
 
                                         self.yang_name = "bgp-auto-discovery"
                                         self.yang_parent_name = "vfi"
@@ -9337,7 +10640,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
 
 
-                                    class LdpSignalingProtocol(Entity):
+                                    class LdpSignalingProtocol(_Entity_):
                                         """
                                         Signaling Protocol LDP in this VFI
                                         configuration
@@ -9365,7 +10668,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
 
                                             self.yang_name = "ldp-signaling-protocol"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -9392,7 +10698,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
 
 
-                                        class VplsId(Entity):
+                                        class VplsId(_Entity_):
                                             """
                                             VPLS ID
                                             
@@ -9437,7 +10743,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
 
                                                 self.yang_name = "vpls-id"
                                                 self.yang_parent_name = "ldp-signaling-protocol"
@@ -9463,9 +10772,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId']['meta_info']
 
 
-                                        class FlowLabelLoadBalance(Entity):
+                                        class FlowLabelLoadBalance(_Entity_):
                                             """
                                             Enable Flow Label based load balancing
                                             
@@ -9487,7 +10800,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
 
                                                 self.yang_name = "flow-label-load-balance"
                                                 self.yang_parent_name = "ldp-signaling-protocol"
@@ -9507,10 +10823,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol']['meta_info']
 
 
-
-                                    class BgpRoutePolicy(Entity):
+                                    class BgpRoutePolicy(_Entity_):
                                         """
                                         Route policy
                                         
@@ -9527,7 +10851,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
 
                                             self.yang_name = "bgp-route-policy"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -9545,9 +10872,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy']['meta_info']
 
 
-                                    class RouteDistinguisher(Entity):
+                                    class RouteDistinguisher(_Entity_):
                                         """
                                         Route Distinguisher
                                         
@@ -9592,7 +10923,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
 
                                             self.yang_name = "route-distinguisher"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -9618,9 +10952,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher']['meta_info']
 
 
-                                    class BgpSignalingProtocol(Entity):
+                                    class BgpSignalingProtocol(_Entity_):
                                         """
                                         Enable Signaling Protocol BGP in this VFI
                                         
@@ -9656,7 +10994,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
 
                                             self.yang_name = "bgp-signaling-protocol"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -9683,7 +11024,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
 
 
-                                        class FlowLabelLoadBalance(Entity):
+                                        class FlowLabelLoadBalance(_Entity_):
                                             """
                                             Enable Flow Label based load balancing
                                             
@@ -9705,7 +11046,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
 
                                                 self.yang_name = "flow-label-load-balance"
                                                 self.yang_parent_name = "bgp-signaling-protocol"
@@ -9725,10 +11069,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol']['meta_info']
 
 
-
-                                    class RouteTargets(Entity):
+                                    class RouteTargets(_Entity_):
                                         """
                                         Route Target
                                         
@@ -9745,7 +11097,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
 
                                             self.yang_name = "route-targets"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -9763,7 +11118,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, [], name, value)
 
 
-                                        class RouteTarget(Entity):
+                                        class RouteTarget(_Entity_):
                                             """
                                             Name of the Route Target
                                             
@@ -9795,7 +11150,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
 
                                                 self.yang_name = "route-target"
                                                 self.yang_parent_name = "route-targets"
@@ -9819,7 +11177,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
 
 
-                                            class TwoByteAsOrFourByteAs(Entity):
+                                            class TwoByteAsOrFourByteAs(_Entity_):
                                                 """
                                                 two byte as or four byte as
                                                 
@@ -9845,7 +11203,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
 
                                                     self.yang_name = "two-byte-as-or-four-byte-as"
                                                     self.yang_parent_name = "route-target"
@@ -9865,9 +11226,13 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs']['meta_info']
 
 
-                                            class Ipv4Address(Entity):
+                                            class Ipv4Address(_Entity_):
                                                 """
                                                 ipv4 address
                                                 
@@ -9893,7 +11258,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                                     self.yang_name = "ipv4-address"
                                                     self.yang_parent_name = "route-target"
@@ -9913,14 +11281,38 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis']['meta_info']
 
 
-
-
-
-
-
-                        class BridgeDomainvnis(Entity):
+                        class BridgeDomainvnis(_Entity_):
                             """
                             Bridge Domain EVPN VxLAN Network Identifier
                             Table
@@ -9938,7 +11330,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
 
                                 self.yang_name = "bridge-domainvnis"
                                 self.yang_parent_name = "bridge-domain"
@@ -9956,7 +11351,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, [], name, value)
 
 
-                            class BridgeDomainvni(Entity):
+                            class BridgeDomainvni(_Entity_):
                                 """
                                 Bridge Domain VxLAN EVPN
                                 
@@ -9975,7 +11370,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
 
                                     self.yang_name = "bridge-domainvni"
                                     self.yang_parent_name = "bridge-domainvnis"
@@ -9993,10 +11391,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis']['meta_info']
 
 
-
-                        class BdAttachmentCircuits(Entity):
+                        class BdAttachmentCircuits(_Entity_):
                             """
                             Attachment Circuit table
                             
@@ -10013,7 +11419,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
 
                                 self.yang_name = "bd-attachment-circuits"
                                 self.yang_parent_name = "bridge-domain"
@@ -10031,7 +11440,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits, [], name, value)
 
 
-                            class BdAttachmentCircuit(Entity):
+                            class BdAttachmentCircuit(_Entity_):
                                 """
                                 Name of the Attachment Circuit
                                 
@@ -10109,7 +11518,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
 
                                     self.yang_name = "bd-attachment-circuit"
                                     self.yang_parent_name = "bd-attachment-circuits"
@@ -10164,7 +11576,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
 
 
-                                class InterfaceIpSourceGuard(Entity):
+                                class InterfaceIpSourceGuard(_Entity_):
                                     """
                                     IP Source Guard
                                     
@@ -10191,7 +11603,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
 
                                         self.yang_name = "interface-ip-source-guard"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10213,9 +11628,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard']['meta_info']
 
 
-                                class InterfaceDai(Entity):
+                                class InterfaceDai(_Entity_):
                                     """
                                     L2 Interface Dynamic ARP Inspection
                                     
@@ -10247,7 +11666,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
 
                                         self.yang_name = "interface-dai"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10274,7 +11696,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
 
 
-                                    class InterfaceDaiAddressValidation(Entity):
+                                    class InterfaceDaiAddressValidation(_Entity_):
                                         """
                                         Address Validation
                                         
@@ -10306,7 +11728,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
 
                                             self.yang_name = "interface-dai-address-validation"
                                             self.yang_parent_name = "interface-dai"
@@ -10330,10 +11755,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai']['meta_info']
 
 
-
-                                class InterfaceProfile(Entity):
+                                class InterfaceProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -10355,7 +11788,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
 
                                         self.yang_name = "interface-profile"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10375,9 +11811,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile']['meta_info']
 
 
-                                class BdacStormControlTypes(Entity):
+                                class BdacStormControlTypes(_Entity_):
                                     """
                                     Storm Control
                                     
@@ -10394,7 +11834,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
 
                                         self.yang_name = "bdac-storm-control-types"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10412,7 +11855,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, [], name, value)
 
 
-                                    class BdacStormControlType(Entity):
+                                    class BdacStormControlType(_Entity_):
                                         """
                                         Storm Control Type
                                         
@@ -10434,7 +11877,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
 
                                             self.yang_name = "bdac-storm-control-type"
                                             self.yang_parent_name = "bdac-storm-control-types"
@@ -10457,7 +11903,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
 
 
-                                        class StormControlUnit(Entity):
+                                        class StormControlUnit(_Entity_):
                                             """
                                             Specify units for Storm Control Configuration
                                             
@@ -10487,7 +11933,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
 
                                                 self.yang_name = "storm-control-unit"
                                                 self.yang_parent_name = "bdac-storm-control-type"
@@ -10507,11 +11956,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes']['meta_info']
 
 
-
-
-                                class SplitHorizon(Entity):
+                                class SplitHorizon(_Entity_):
                                     """
                                     Split Horizon
                                     
@@ -10528,7 +11989,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
 
                                         self.yang_name = "split-horizon"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10548,7 +12012,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, [], name, value)
 
 
-                                    class SplitHorizonGroupId(Entity):
+                                    class SplitHorizonGroupId(_Entity_):
                                         """
                                         Split Horizon Group ID
                                         
@@ -10565,7 +12029,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
 
                                             self.yang_name = "split-horizon-group-id"
                                             self.yang_parent_name = "split-horizon"
@@ -10583,10 +12050,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon']['meta_info']
 
 
-
-                                class StaticMacAddresses(Entity):
+                                class StaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -10603,7 +12078,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
 
                                         self.yang_name = "static-mac-addresses"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10621,7 +12099,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, [], name, value)
 
 
-                                    class StaticMacAddress(Entity):
+                                    class StaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -10640,7 +12118,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
 
                                             self.yang_name = "static-mac-address"
                                             self.yang_parent_name = "static-mac-addresses"
@@ -10658,10 +12139,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses']['meta_info']
 
 
-
-                                class InterfaceMac(Entity):
+                                class InterfaceMac(_Entity_):
                                     """
                                     MAC configuration commands
                                     
@@ -10698,7 +12187,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
 
                                         self.yang_name = "interface-mac"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -10731,7 +12223,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
 
 
-                                    class InterfaceMacAging(Entity):
+                                    class InterfaceMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -10755,7 +12247,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
 
                                             self.yang_name = "interface-mac-aging"
                                             self.yang_parent_name = "interface-mac"
@@ -10775,9 +12270,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging']['meta_info']
 
 
-                                    class InterfaceMacSecure(Entity):
+                                    class InterfaceMacSecure(_Entity_):
                                         """
                                         MAC Secure
                                         
@@ -10816,7 +12315,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
 
                                             self.yang_name = "interface-mac-secure"
                                             self.yang_parent_name = "interface-mac"
@@ -10842,9 +12344,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure']['meta_info']
 
 
-                                    class InterfaceMacLimit(Entity):
+                                    class InterfaceMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -10873,7 +12379,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
 
                                             self.yang_name = "interface-mac-limit"
                                             self.yang_parent_name = "interface-mac"
@@ -10895,12 +12404,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info']
 
 
-
-
-
-                        class BdPseudowireEvpns(Entity):
+                        class BdPseudowireEvpns(_Entity_):
                             """
                             List of EVPN pseudowires
                             
@@ -10917,7 +12442,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
 
                                 self.yang_name = "bd-pseudowire-evpns"
                                 self.yang_parent_name = "bridge-domain"
@@ -10935,7 +12463,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns, [], name, value)
 
 
-                            class BdPseudowireEvpn(Entity):
+                            class BdPseudowireEvpn(_Entity_):
                                 """
                                 EVPN Pseudowire configuration
                                 
@@ -10961,7 +12489,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
 
                                     self.yang_name = "bd-pseudowire-evpn"
                                     self.yang_parent_name = "bd-pseudowire-evpns"
@@ -10981,10 +12512,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns']['meta_info']
 
 
-
-                        class IpSourceGuard(Entity):
+                        class IpSourceGuard(_Entity_):
                             """
                             IP Source Guard
                             
@@ -11006,7 +12545,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
 
                                 self.yang_name = "ip-source-guard"
                                 self.yang_parent_name = "bridge-domain"
@@ -11026,9 +12568,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard']['meta_info']
 
 
-                        class Dai(Entity):
+                        class Dai(_Entity_):
                             """
                             Dynamic ARP Inspection
                             
@@ -11055,7 +12601,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, self).__init__()
 
                                 self.yang_name = "dai"
                                 self.yang_parent_name = "bridge-domain"
@@ -11080,7 +12629,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
 
 
-                            class DaiAddressValidation(Entity):
+                            class DaiAddressValidation(_Entity_):
                                 """
                                 Address Validation
                                 
@@ -11112,7 +12661,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
 
                                     self.yang_name = "dai-address-validation"
                                     self.yang_parent_name = "dai"
@@ -11136,10 +12688,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai']['meta_info']
 
 
-
-                        class RoutedInterfaces(Entity):
+                        class RoutedInterfaces(_Entity_):
                             """
                             Bridge Domain Routed Interface Table
                             
@@ -11156,7 +12716,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
 
                                 self.yang_name = "routed-interfaces"
                                 self.yang_parent_name = "bridge-domain"
@@ -11174,7 +12737,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces, [], name, value)
 
 
-                            class RoutedInterface(Entity):
+                            class RoutedInterface(_Entity_):
                                 """
                                 Bridge Domain Routed Interface
                                 
@@ -11198,7 +12761,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
 
                                     self.yang_name = "routed-interface"
                                     self.yang_parent_name = "routed-interfaces"
@@ -11221,7 +12787,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
 
 
-                                class RoutedInterfaceSplitHorizonGroup(Entity):
+                                class RoutedInterfaceSplitHorizonGroup(_Entity_):
                                     """
                                     Routed interface split horizon group
                                     
@@ -11238,7 +12804,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
 
                                         self.yang_name = "routed-interface-split-horizon-group"
                                         self.yang_parent_name = "routed-interface"
@@ -11256,15 +12825,43 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.BridgeDomainGroups']['meta_info']
 
 
-
-
-
-
-
-
-        class PseudowireClasses(Entity):
+        class PseudowireClasses(_Entity_):
             """
             List of pseudowire classes
             
@@ -11281,7 +12878,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.PseudowireClasses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.PseudowireClasses, self).__init__()
 
                 self.yang_name = "pseudowire-classes"
                 self.yang_parent_name = "database"
@@ -11300,7 +12900,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.PseudowireClasses, [], name, value)
 
 
-            class PseudowireClass(Entity):
+            class PseudowireClass(_Entity_):
                 """
                 Pseudowire class
                 
@@ -11344,7 +12944,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.PseudowireClasses.PseudowireClass, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.PseudowireClasses.PseudowireClass, self).__init__()
 
                     self.yang_name = "pseudowire-class"
                     self.yang_parent_name = "pseudowire-classes"
@@ -11380,7 +12983,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass, ['name', 'mac_withdraw', 'enable'], name, value)
 
 
-                class L2tpv3Encapsulation(Entity):
+                class L2tpv3Encapsulation(_Entity_):
                     """
                     L2TPv3 encapsulation
                     
@@ -11448,7 +13051,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, self).__init__()
 
                         self.yang_name = "l2tpv3-encapsulation"
                         self.yang_parent_name = "pseudowire-class"
@@ -11493,7 +13099,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, ['df_bit_set', 'cookie_size', 'source_address', 'transport_mode', 'enable', 'time_to_live'], name, value)
 
 
-                    class Sequencing(Entity):
+                    class Sequencing(_Entity_):
                         """
                         Sequencing
                         
@@ -11521,7 +13127,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, self).__init__()
 
                             self.yang_name = "sequencing"
                             self.yang_parent_name = "l2tpv3-encapsulation"
@@ -11541,9 +13150,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing']['meta_info']
 
 
-                    class TypeOfService(Entity):
+                    class TypeOfService(_Entity_):
                         """
                         Type of service
                         
@@ -11567,7 +13180,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, self).__init__()
 
                             self.yang_name = "type-of-service"
                             self.yang_parent_name = "l2tpv3-encapsulation"
@@ -11587,9 +13203,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, ['type_of_service_value', 'type_of_service_mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService']['meta_info']
 
 
-                    class SignalingProtocol(Entity):
+                    class SignalingProtocol(_Entity_):
                         """
                         L2TPv3 signaling protocol
                         
@@ -11615,7 +13235,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, self).__init__()
 
                             self.yang_name = "signaling-protocol"
                             self.yang_parent_name = "l2tpv3-encapsulation"
@@ -11635,9 +13258,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, ['protocol', 'l2tpv3_class_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol']['meta_info']
 
 
-                    class PathMtu(Entity):
+                    class PathMtu(_Entity_):
                         """
                         Path maximum transmission unit
                         
@@ -11661,7 +13288,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, self).__init__()
 
                             self.yang_name = "path-mtu"
                             self.yang_parent_name = "l2tpv3-encapsulation"
@@ -11681,10 +13311,18 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, ['enable', 'max_path_mtu'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation']['meta_info']
 
 
-
-                class BackupDisableDelay(Entity):
+                class BackupDisableDelay(_Entity_):
                     """
                     Back Up Pseudowire class
                     
@@ -11708,7 +13346,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, self).__init__()
 
                         self.yang_name = "backup-disable-delay"
                         self.yang_parent_name = "pseudowire-class"
@@ -11728,9 +13369,13 @@ class L2vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, ['type', 'disable_backup'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay']['meta_info']
 
 
-                class MplsEncapsulation(Entity):
+                class MplsEncapsulation(_Entity_):
                     """
                     MPLS encapsulation
                     
@@ -11810,7 +13455,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, self).__init__()
 
                         self.yang_name = "mpls-encapsulation"
                         self.yang_parent_name = "pseudowire-class"
@@ -11859,7 +13507,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, ['pw_switching_tlv', 'static_tag_rewrite', 'signaling_protocol', 'vccv_type', 'source_address', 'transport_mode', 'enable', 'control_word'], name, value)
 
 
-                    class Sequencing(Entity):
+                    class Sequencing(_Entity_):
                         """
                         Sequencing
                         
@@ -11887,7 +13535,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, self).__init__()
 
                             self.yang_name = "sequencing"
                             self.yang_parent_name = "mpls-encapsulation"
@@ -11907,9 +13558,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing']['meta_info']
 
 
-                    class MplsRedundancy(Entity):
+                    class MplsRedundancy(_Entity_):
                         """
                         Redundancy options for MPLS encapsulation
                         
@@ -11935,7 +13590,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, self).__init__()
 
                             self.yang_name = "mpls-redundancy"
                             self.yang_parent_name = "mpls-encapsulation"
@@ -11955,9 +13613,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, ['redundancy_one_way', 'redundancy_initial_delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy']['meta_info']
 
 
-                    class PreferredPath(Entity):
+                    class PreferredPath(_Entity_):
                         """
                         Preferred path
                         
@@ -11993,7 +13655,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, self).__init__()
 
                             self.yang_name = "preferred-path"
                             self.yang_parent_name = "mpls-encapsulation"
@@ -12017,9 +13682,13 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'path_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath']['meta_info']
 
 
-                    class LoadBalanceGroup(Entity):
+                    class LoadBalanceGroup(_Entity_):
                         """
                         Load Balancing
                         
@@ -12046,7 +13715,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, self).__init__()
 
                             self.yang_name = "load-balance-group"
                             self.yang_parent_name = "mpls-encapsulation"
@@ -12071,7 +13743,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, ['flow_label_load_balance_code', 'pw_label_load_balance'], name, value)
 
 
-                        class FlowLabelLoadBalance(Entity):
+                        class FlowLabelLoadBalance(_Entity_):
                             """
                             Enable Flow Label based load balancing
                             
@@ -12093,7 +13765,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, self).__init__()
 
                                 self.yang_name = "flow-label-load-balance"
                                 self.yang_parent_name = "load-balance-group"
@@ -12113,13 +13788,33 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.PseudowireClasses']['meta_info']
 
 
-
-
-
-
-        class VlanSwitches(Entity):
+        class VlanSwitches(_Entity_):
             """
             List of VLAN Switches
             
@@ -12136,7 +13831,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.VlanSwitches, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.VlanSwitches, self).__init__()
 
                 self.yang_name = "vlan-switches"
                 self.yang_parent_name = "database"
@@ -12155,7 +13853,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.VlanSwitches, [], name, value)
 
 
-            class VlanSwitch(Entity):
+            class VlanSwitch(_Entity_):
                 """
                 VLAN Switch
                 
@@ -12199,7 +13897,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.VlanSwitches.VlanSwitch, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch, self).__init__()
 
                     self.yang_name = "vlan-switch"
                     self.yang_parent_name = "vlan-switches"
@@ -12239,7 +13940,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch, ['name'], name, value)
 
 
-                class VlanSwitchPorts(Entity):
+                class VlanSwitchPorts(_Entity_):
                     """
                     List of VLAN Switched Ports
                     
@@ -12256,7 +13957,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, self).__init__()
 
                         self.yang_name = "vlan-switch-ports"
                         self.yang_parent_name = "vlan-switch"
@@ -12274,7 +13978,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, [], name, value)
 
 
-                    class VlanSwitchPort(Entity):
+                    class VlanSwitchPort(_Entity_):
                         """
                         VLAN Switched Port
                         
@@ -12293,7 +13997,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, self).__init__()
 
                             self.yang_name = "vlan-switch-port"
                             self.yang_parent_name = "vlan-switch-ports"
@@ -12311,10 +14018,18 @@ class L2vpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts']['meta_info']
 
 
-
-                class VniRanges(Entity):
+                class VniRanges(_Entity_):
                     """
                     Configure VLAN Switch VxLAN Ethernet VPN\-ID
                     ranges
@@ -12453,7 +14168,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, self).__init__()
 
                         self.yang_name = "vni-ranges"
                         self.yang_parent_name = "vlan-switch"
@@ -12505,9 +14223,13 @@ class L2vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, ['vni_range1_min', 'vni_range1_max', 'vni_range2_min', 'vni_range2_max', 'vni_range3_min', 'vni_range3_max', 'vni_range4_min', 'vni_range4_max', 'vni_range5_min', 'vni_range5_max', 'vni_range6_min', 'vni_range6_max', 'vni_range7_min', 'vni_range7_max', 'vni_range8_min', 'vni_range8_max', 'vni_range9_min', 'vni_range9_max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges']['meta_info']
 
 
-                class VlanRanges(Entity):
+                class VlanRanges(_Entity_):
                     """
                     Configure VLAN Switch VLAN ranges
                     
@@ -12645,7 +14367,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, self).__init__()
 
                         self.yang_name = "vlan-ranges"
                         self.yang_parent_name = "vlan-switch"
@@ -12697,9 +14422,13 @@ class L2vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, ['vlan_range1_min', 'vlan_range1_max', 'vlan_range2_min', 'vlan_range2_max', 'vlan_range3_min', 'vlan_range3_max', 'vlan_range4_min', 'vlan_range4_max', 'vlan_range5_min', 'vlan_range5_max', 'vlan_range6_min', 'vlan_range6_max', 'vlan_range7_min', 'vlan_range7_max', 'vlan_range8_min', 'vlan_range8_max', 'vlan_range9_min', 'vlan_range9_max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges']['meta_info']
 
 
-                class RoutedInterfaceRanges(Entity):
+                class RoutedInterfaceRanges(_Entity_):
                     """
                     Configure VLAN Switch Routed BVI Interface
                     ranges
@@ -12838,7 +14567,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, self).__init__()
 
                         self.yang_name = "routed-interface-ranges"
                         self.yang_parent_name = "vlan-switch"
@@ -12890,9 +14622,13 @@ class L2vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, ['interface_range1_min', 'interface_range1_max', 'interface_range2_min', 'interface_range2_max', 'interface_range3_min', 'interface_range3_max', 'interface_range4_min', 'interface_range4_max', 'interface_range5_min', 'interface_range5_max', 'interface_range6_min', 'interface_range6_max', 'interface_range7_min', 'interface_range7_max', 'interface_range8_min', 'interface_range8_max', 'interface_range9_min', 'interface_range9_max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges']['meta_info']
 
 
-                class BridgeDomains(Entity):
+                class BridgeDomains(_Entity_):
                     """
                     List of Bridge Domain
                     
@@ -12909,7 +14645,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, self).__init__()
 
                         self.yang_name = "bridge-domains"
                         self.yang_parent_name = "vlan-switch"
@@ -12927,7 +14666,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, [], name, value)
 
 
-                    class BridgeDomain(Entity):
+                    class BridgeDomain(_Entity_):
                         """
                         bridge domain
                         
@@ -13098,7 +14837,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, self).__init__()
 
                             self.yang_name = "bridge-domain"
                             self.yang_parent_name = "bridge-domains"
@@ -13203,7 +14945,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'efp_visibility', 'l2_multicast_source', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
-                        class BdStormControls(Entity):
+                        class BdStormControls(_Entity_):
                             """
                             Storm Control
                             
@@ -13220,7 +14962,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
 
                                 self.yang_name = "bd-storm-controls"
                                 self.yang_parent_name = "bridge-domain"
@@ -13238,7 +14983,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, [], name, value)
 
 
-                            class BdStormControl(Entity):
+                            class BdStormControl(_Entity_):
                                 """
                                 Storm Control Type
                                 
@@ -13260,7 +15005,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
 
                                     self.yang_name = "bd-storm-control"
                                     self.yang_parent_name = "bd-storm-controls"
@@ -13283,7 +15031,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
 
 
-                                class StormControlUnit(Entity):
+                                class StormControlUnit(_Entity_):
                                     """
                                     Specify units for Storm Control Configuration
                                     
@@ -13313,7 +15061,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
 
                                         self.yang_name = "storm-control-unit"
                                         self.yang_parent_name = "bd-storm-control"
@@ -13333,11 +15084,23 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls']['meta_info']
 
 
-
-
-                        class MemberVnis(Entity):
+                        class MemberVnis(_Entity_):
                             """
                             Bridge Domain VxLAN Network Identifier Table
                             
@@ -13354,7 +15117,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
 
                                 self.yang_name = "member-vnis"
                                 self.yang_parent_name = "bridge-domain"
@@ -13372,7 +15138,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, [], name, value)
 
 
-                            class MemberVni(Entity):
+                            class MemberVni(_Entity_):
                                 """
                                 Bridge Domain Member VxLAN Network Identifier
                                 
@@ -13396,7 +15162,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
 
                                     self.yang_name = "member-vni"
                                     self.yang_parent_name = "member-vnis"
@@ -13419,7 +15188,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
 
 
-                                class MemberVniStaticMacAddresses(Entity):
+                                class MemberVniStaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -13436,7 +15205,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
 
                                         self.yang_name = "member-vni-static-mac-addresses"
                                         self.yang_parent_name = "member-vni"
@@ -13454,7 +15226,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, [], name, value)
 
 
-                                    class MemberVniStaticMacAddress(Entity):
+                                    class MemberVniStaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -13480,7 +15252,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
 
                                             self.yang_name = "member-vni-static-mac-address"
                                             self.yang_parent_name = "member-vni-static-mac-addresses"
@@ -13500,12 +15275,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis']['meta_info']
 
 
-
-
-
-                        class BridgeDomainMac(Entity):
+                        class BridgeDomainMac(_Entity_):
                             """
                             MAC configuration commands
                             
@@ -13567,7 +15358,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
 
                                 self.yang_name = "bridge-domain-mac"
                                 self.yang_parent_name = "bridge-domain"
@@ -13612,7 +15406,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
 
 
-                            class BdMacLimit(Entity):
+                            class BdMacLimit(_Entity_):
                                 """
                                 MAC\-Limit configuration commands
                                 
@@ -13641,7 +15435,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
 
                                     self.yang_name = "bd-mac-limit"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -13663,9 +15460,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit']['meta_info']
 
 
-                            class BdMacFilters(Entity):
+                            class BdMacFilters(_Entity_):
                                 """
                                 Filter Mac Address
                                 
@@ -13682,7 +15483,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
 
                                     self.yang_name = "bd-mac-filters"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -13700,7 +15504,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, [], name, value)
 
 
-                                class BdMacFilter(Entity):
+                                class BdMacFilter(_Entity_):
                                     """
                                     Static MAC address
                                     
@@ -13724,7 +15528,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
 
                                         self.yang_name = "bd-mac-filter"
                                         self.yang_parent_name = "bd-mac-filters"
@@ -13744,10 +15551,18 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters']['meta_info']
 
 
-
-                            class MacSecure(Entity):
+                            class MacSecure(_Entity_):
                                 """
                                 MAC Secure
                                 
@@ -13786,7 +15601,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
 
                                     self.yang_name = "mac-secure"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -13812,9 +15630,13 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'enable', 'threshold', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure']['meta_info']
 
 
-                            class BdMacAging(Entity):
+                            class BdMacAging(_Entity_):
                                 """
                                 MAC\-Aging configuration commands
                                 
@@ -13838,7 +15660,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
 
                                     self.yang_name = "bd-mac-aging"
                                     self.yang_parent_name = "bridge-domain-mac"
@@ -13858,10 +15683,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac']['meta_info']
 
 
-
-                        class NvSatellite(Entity):
+                        class NvSatellite(_Entity_):
                             """
                             nV Satellite
                             
@@ -13883,7 +15716,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
 
                                 self.yang_name = "nv-satellite"
                                 self.yang_parent_name = "bridge-domain"
@@ -13903,9 +15739,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite']['meta_info']
 
 
-                        class BridgeDomainPbb(Entity):
+                        class BridgeDomainPbb(_Entity_):
                             """
                             Bridge Domain PBB
                             
@@ -13927,7 +15767,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
 
                                 self.yang_name = "bridge-domain-pbb"
                                 self.yang_parent_name = "bridge-domain"
@@ -13951,7 +15794,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, [], name, value)
 
 
-                            class PbbEdges(Entity):
+                            class PbbEdges(_Entity_):
                                 """
                                 PBB Edge
                                 
@@ -13968,7 +15811,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
 
                                     self.yang_name = "pbb-edges"
                                     self.yang_parent_name = "bridge-domain-pbb"
@@ -13986,7 +15832,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, [], name, value)
 
 
-                                class PbbEdge(Entity):
+                                class PbbEdge(_Entity_):
                                     """
                                     Configure BD as PBB Edge with ISID and
                                     associated PBB Core BD
@@ -14047,7 +15893,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
 
                                         self.yang_name = "pbb-edge"
                                         self.yang_parent_name = "pbb-edges"
@@ -14088,7 +15937,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
 
 
-                                    class PbbEdgeSplitHorizonGroup(Entity):
+                                    class PbbEdgeSplitHorizonGroup(_Entity_):
                                         """
                                         Split Horizon Group
                                         
@@ -14105,7 +15954,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
 
                                             self.yang_name = "pbb-edge-split-horizon-group"
                                             self.yang_parent_name = "pbb-edge"
@@ -14123,9 +15975,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup']['meta_info']
 
 
-                                    class PbbStaticMacMappings(Entity):
+                                    class PbbStaticMacMappings(_Entity_):
                                         """
                                         PBB Static Mac Address Mapping Table
                                         
@@ -14142,7 +15998,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
 
                                             self.yang_name = "pbb-static-mac-mappings"
                                             self.yang_parent_name = "pbb-edge"
@@ -14160,7 +16019,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, [], name, value)
 
 
-                                        class PbbStaticMacMapping(Entity):
+                                        class PbbStaticMacMapping(_Entity_):
                                             """
                                             PBB Static Mac Address Mapping
                                             Configuration
@@ -14187,7 +16046,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
 
                                                 self.yang_name = "pbb-static-mac-mapping"
                                                 self.yang_parent_name = "pbb-static-mac-mappings"
@@ -14207,10 +16069,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings']['meta_info']
 
 
-
-                                    class PbbEdgeDhcpProfile(Entity):
+                                    class PbbEdgeDhcpProfile(_Entity_):
                                         """
                                         Attach a DHCP profile
                                         
@@ -14232,7 +16102,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
 
                                             self.yang_name = "pbb-edge-dhcp-profile"
                                             self.yang_parent_name = "pbb-edge"
@@ -14252,9 +16125,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile']['meta_info']
 
 
-                                    class PbbEdgeMac(Entity):
+                                    class PbbEdgeMac(_Entity_):
                                         """
                                         MAC configuration commands
                                         
@@ -14286,7 +16163,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
 
                                             self.yang_name = "pbb-edge-mac"
                                             self.yang_parent_name = "pbb-edge"
@@ -14317,7 +16197,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
 
 
-                                        class PbbEdgeMacLimit(Entity):
+                                        class PbbEdgeMacLimit(_Entity_):
                                             """
                                             MAC\-Limit configuration commands
                                             
@@ -14346,7 +16226,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-limit"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -14368,9 +16251,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit']['meta_info']
 
 
-                                        class PbbEdgeMacAging(Entity):
+                                        class PbbEdgeMacAging(_Entity_):
                                             """
                                             MAC\-Aging configuration commands
                                             
@@ -14394,7 +16281,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-aging"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -14414,9 +16304,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging']['meta_info']
 
 
-                                        class PbbEdgeMacSecure(Entity):
+                                        class PbbEdgeMacSecure(_Entity_):
                                             """
                                             MAC Secure
                                             
@@ -14453,7 +16347,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
 
                                                 self.yang_name = "pbb-edge-mac-secure"
                                                 self.yang_parent_name = "pbb-edge-mac"
@@ -14479,12 +16376,28 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['enable', 'accept_shutdown', 'logging', 'disable', 'action'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges']['meta_info']
 
 
-
-
-
-                            class PbbCore(Entity):
+                            class PbbCore(_Entity_):
                                 """
                                 PBB Core
                                 
@@ -14535,7 +16448,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
 
                                     self.yang_name = "pbb-core"
                                     self.yang_parent_name = "bridge-domain-pbb"
@@ -14572,7 +16488,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
 
 
-                                class PbbCoreMac(Entity):
+                                class PbbCoreMac(_Entity_):
                                     """
                                     MAC configuration commands
                                     
@@ -14599,7 +16515,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
 
                                         self.yang_name = "pbb-core-mac"
                                         self.yang_parent_name = "pbb-core"
@@ -14626,7 +16545,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
 
 
-                                    class PbbCoreMacAging(Entity):
+                                    class PbbCoreMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -14650,7 +16569,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
 
                                             self.yang_name = "pbb-core-mac-aging"
                                             self.yang_parent_name = "pbb-core-mac"
@@ -14670,9 +16592,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging']['meta_info']
 
 
-                                    class PbbCoreMacLimit(Entity):
+                                    class PbbCoreMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -14701,7 +16627,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
 
                                             self.yang_name = "pbb-core-mac-limit"
                                             self.yang_parent_name = "pbb-core-mac"
@@ -14723,10 +16652,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac']['meta_info']
 
 
-
-                                class PbbCoreEvis(Entity):
+                                class PbbCoreEvis(_Entity_):
                                     """
                                     PBB Core EVI Table
                                     
@@ -14743,7 +16680,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
 
                                         self.yang_name = "pbb-core-evis"
                                         self.yang_parent_name = "pbb-core"
@@ -14761,7 +16701,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, [], name, value)
 
 
-                                    class PbbCoreEvi(Entity):
+                                    class PbbCoreEvi(_Entity_):
                                         """
                                         PBB Core EVI
                                         
@@ -14780,7 +16720,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
 
                                             self.yang_name = "pbb-core-evi"
                                             self.yang_parent_name = "pbb-core-evis"
@@ -14798,10 +16741,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis']['meta_info']
 
 
-
-                                class PbbCoreDhcpProfile(Entity):
+                                class PbbCoreDhcpProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -14823,7 +16774,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
 
                                         self.yang_name = "pbb-core-dhcp-profile"
                                         self.yang_parent_name = "pbb-core"
@@ -14843,11 +16797,23 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
 
 
-
-
-                        class BridgeDomainEvis(Entity):
+                        class BridgeDomainEvis(_Entity_):
                             """
                             Bridge Domain EVI Table
                             
@@ -14864,7 +16830,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
 
                                 self.yang_name = "bridge-domain-evis"
                                 self.yang_parent_name = "bridge-domain"
@@ -14882,7 +16851,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, [], name, value)
 
 
-                            class BridgeDomainEvi(Entity):
+                            class BridgeDomainEvi(_Entity_):
                                 """
                                 Bridge Domain MPLS EVPN
                                 
@@ -14901,7 +16870,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
 
                                     self.yang_name = "bridge-domain-evi"
                                     self.yang_parent_name = "bridge-domain-evis"
@@ -14919,10 +16891,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis']['meta_info']
 
 
-
-                        class AccessVfis(Entity):
+                        class AccessVfis(_Entity_):
                             """
                             Specify the access virtual forwarding
                             interface name
@@ -14940,7 +16920,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
 
                                 self.yang_name = "access-vfis"
                                 self.yang_parent_name = "bridge-domain"
@@ -14958,7 +16941,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, [], name, value)
 
 
-                            class AccessVfi(Entity):
+                            class AccessVfi(_Entity_):
                                 """
                                 Name of the Acess Virtual Forwarding
                                 Interface
@@ -14988,7 +16971,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
 
                                     self.yang_name = "access-vfi"
                                     self.yang_parent_name = "access-vfis"
@@ -15013,7 +16999,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
 
 
-                                class AccessVfiPseudowires(Entity):
+                                class AccessVfiPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -15030,7 +17016,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
 
                                         self.yang_name = "access-vfi-pseudowires"
                                         self.yang_parent_name = "access-vfi"
@@ -15048,7 +17037,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, [], name, value)
 
 
-                                    class AccessVfiPseudowire(Entity):
+                                    class AccessVfiPseudowire(_Entity_):
                                         """
                                         Pseudowire configuration
                                         
@@ -15086,7 +17075,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
 
                                             self.yang_name = "access-vfi-pseudowire"
                                             self.yang_parent_name = "access-vfi-pseudowires"
@@ -15113,7 +17105,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
 
 
-                                        class AccessVfiPseudowireStaticMacAddresses(Entity):
+                                        class AccessVfiPseudowireStaticMacAddresses(_Entity_):
                                             """
                                             Static Mac Address Table
                                             
@@ -15130,7 +17122,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
 
                                                 self.yang_name = "access-vfi-pseudowire-static-mac-addresses"
                                                 self.yang_parent_name = "access-vfi-pseudowire"
@@ -15148,7 +17143,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, [], name, value)
 
 
-                                            class AccessVfiPseudowireStaticMacAddress(Entity):
+                                            class AccessVfiPseudowireStaticMacAddress(_Entity_):
                                                 """
                                                 Static Mac Address Configuration
                                                 
@@ -15167,7 +17162,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
 
                                                     self.yang_name = "access-vfi-pseudowire-static-mac-address"
                                                     self.yang_parent_name = "access-vfi-pseudowire-static-mac-addresses"
@@ -15185,14 +17183,38 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis']['meta_info']
 
 
-
-
-
-
-
-                        class BdPseudowires(Entity):
+                        class BdPseudowires(_Entity_):
                             """
                             List of pseudowires
                             
@@ -15209,7 +17231,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
 
                                 self.yang_name = "bd-pseudowires"
                                 self.yang_parent_name = "bridge-domain"
@@ -15227,7 +17252,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, [], name, value)
 
 
-                            class BdPseudowire(Entity):
+                            class BdPseudowire(_Entity_):
                                 """
                                 Pseudowire configuration
                                 
@@ -15329,7 +17354,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
 
                                     self.yang_name = "bd-pseudowire"
                                     self.yang_parent_name = "bd-pseudowires"
@@ -15396,7 +17424,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
 
 
-                                class PseudowireDai(Entity):
+                                class PseudowireDai(_Entity_):
                                     """
                                     Access Pseudowire Dynamic ARP Inspection
                                     
@@ -15428,7 +17456,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
 
                                         self.yang_name = "pseudowire-dai"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15455,7 +17486,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
 
 
-                                    class PseudowireDaiAddressValidation(Entity):
+                                    class PseudowireDaiAddressValidation(_Entity_):
                                         """
                                         Address Validation
                                         
@@ -15482,7 +17513,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
 
                                             self.yang_name = "pseudowire-dai-address-validation"
                                             self.yang_parent_name = "pseudowire-dai"
@@ -15504,10 +17538,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai']['meta_info']
 
 
-
-                                class BdpwStormControlTypes(Entity):
+                                class BdpwStormControlTypes(_Entity_):
                                     """
                                     Storm Control
                                     
@@ -15524,7 +17566,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
 
                                         self.yang_name = "bdpw-storm-control-types"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15542,7 +17587,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, [], name, value)
 
 
-                                    class BdpwStormControlType(Entity):
+                                    class BdpwStormControlType(_Entity_):
                                         """
                                         Storm Control Type
                                         
@@ -15564,7 +17609,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
 
                                             self.yang_name = "bdpw-storm-control-type"
                                             self.yang_parent_name = "bdpw-storm-control-types"
@@ -15587,7 +17635,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
 
 
-                                        class StormControlUnit(Entity):
+                                        class StormControlUnit(_Entity_):
                                             """
                                             Specify units for Storm Control Configuration
                                             
@@ -15617,7 +17665,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
 
                                                 self.yang_name = "storm-control-unit"
                                                 self.yang_parent_name = "bdpw-storm-control-type"
@@ -15637,11 +17688,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes']['meta_info']
 
 
-
-
-                                class PseudowireProfile(Entity):
+                                class PseudowireProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -15663,7 +17726,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
 
                                         self.yang_name = "pseudowire-profile"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15683,9 +17749,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile']['meta_info']
 
 
-                                class BdPwStaticMacAddresses(Entity):
+                                class BdPwStaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -15702,7 +17772,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
 
                                         self.yang_name = "bd-pw-static-mac-addresses"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15720,7 +17793,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, [], name, value)
 
 
-                                    class BdPwStaticMacAddress(Entity):
+                                    class BdPwStaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -15739,7 +17812,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
 
                                             self.yang_name = "bd-pw-static-mac-address"
                                             self.yang_parent_name = "bd-pw-static-mac-addresses"
@@ -15757,10 +17833,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses']['meta_info']
 
 
-
-                                class PseudowireIpSourceGuard(Entity):
+                                class PseudowireIpSourceGuard(_Entity_):
                                     """
                                     IP Source Guard
                                     
@@ -15787,7 +17871,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
 
                                         self.yang_name = "pseudowire-ip-source-guard"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15809,9 +17896,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard']['meta_info']
 
 
-                                class PseudowireMac(Entity):
+                                class PseudowireMac(_Entity_):
                                     """
                                     Bridge\-domain Pseudowire MAC configuration
                                     commands
@@ -15854,7 +17945,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
 
                                         self.yang_name = "pseudowire-mac"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -15889,7 +17983,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
 
 
-                                    class PseudowireMacSecure(Entity):
+                                    class PseudowireMacSecure(_Entity_):
                                         """
                                         MAC Secure
                                         
@@ -15928,7 +18022,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-secure"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -15954,9 +18051,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure']['meta_info']
 
 
-                                    class PseudowireMacAging(Entity):
+                                    class PseudowireMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -15980,7 +18081,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-aging"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -16000,9 +18104,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging']['meta_info']
 
 
-                                    class PseudowireMacLimit(Entity):
+                                    class PseudowireMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -16031,7 +18139,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
 
                                             self.yang_name = "pseudowire-mac-limit"
                                             self.yang_parent_name = "pseudowire-mac"
@@ -16053,10 +18164,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac']['meta_info']
 
 
-
-                                class BdPwSplitHorizon(Entity):
+                                class BdPwSplitHorizon(_Entity_):
                                     """
                                     Split Horizon
                                     
@@ -16073,7 +18192,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
 
                                         self.yang_name = "bd-pw-split-horizon"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -16093,7 +18215,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, [], name, value)
 
 
-                                    class BdPwSplitHorizonGroup(Entity):
+                                    class BdPwSplitHorizonGroup(_Entity_):
                                         """
                                         Split Horizon Group
                                         
@@ -16110,7 +18232,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
 
                                             self.yang_name = "bd-pw-split-horizon-group"
                                             self.yang_parent_name = "bd-pw-split-horizon"
@@ -16128,10 +18253,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon']['meta_info']
 
 
-
-                                class BdPwMplsStaticLabels(Entity):
+                                class BdPwMplsStaticLabels(_Entity_):
                                     """
                                     MPLS static labels
                                     
@@ -16157,7 +18290,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
 
                                         self.yang_name = "bd-pw-mpls-static-labels"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -16177,9 +18313,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels']['meta_info']
 
 
-                                class BridgeDomainBackupPseudowires(Entity):
+                                class BridgeDomainBackupPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -16196,7 +18336,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
 
                                         self.yang_name = "bridge-domain-backup-pseudowires"
                                         self.yang_parent_name = "bd-pseudowire"
@@ -16214,7 +18357,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, [], name, value)
 
 
-                                    class BridgeDomainBackupPseudowire(Entity):
+                                    class BridgeDomainBackupPseudowire(_Entity_):
                                         """
                                         Backup pseudowire configuration
                                         
@@ -16247,7 +18390,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
 
                                             self.yang_name = "bridge-domain-backup-pseudowire"
                                             self.yang_parent_name = "bridge-domain-backup-pseudowires"
@@ -16269,12 +18415,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires']['meta_info']
 
 
-
-
-
-                        class Vfis(Entity):
+                        class Vfis(_Entity_):
                             """
                             Specify the virtual forwarding interface name
                             
@@ -16291,7 +18453,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, self).__init__()
 
                                 self.yang_name = "vfis"
                                 self.yang_parent_name = "bridge-domain"
@@ -16309,7 +18474,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, [], name, value)
 
 
-                            class Vfi(Entity):
+                            class Vfi(_Entity_):
                                 """
                                 Name of the Virtual Forwarding Interface
                                 
@@ -16355,7 +18520,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
 
                                     self.yang_name = "vfi"
                                     self.yang_parent_name = "vfis"
@@ -16390,7 +18558,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
 
 
-                                class MulticastP2mp(Entity):
+                                class MulticastP2mp(_Entity_):
                                     """
                                     Enable Multicast P2MP in this VFI
                                     
@@ -16417,7 +18585,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
 
                                         self.yang_name = "multicast-p2mp"
                                         self.yang_parent_name = "vfi"
@@ -16444,7 +18615,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
 
 
-                                    class Transports(Entity):
+                                    class Transports(_Entity_):
                                         """
                                         Multicast P2MP Transport
                                         
@@ -16461,7 +18632,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
 
                                             self.yang_name = "transports"
                                             self.yang_parent_name = "multicast-p2mp"
@@ -16479,7 +18653,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, [], name, value)
 
 
-                                        class Transport(Entity):
+                                        class Transport(_Entity_):
                                             """
                                             Multicast P2MP Transport Type
                                             
@@ -16505,7 +18679,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
 
                                                 self.yang_name = "transport"
                                                 self.yang_parent_name = "transports"
@@ -16525,10 +18702,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports']['meta_info']
 
 
-
-                                    class Signalings(Entity):
+                                    class Signalings(_Entity_):
                                         """
                                         Multicast P2MP Signaling Type
                                         
@@ -16545,7 +18730,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
 
                                             self.yang_name = "signalings"
                                             self.yang_parent_name = "multicast-p2mp"
@@ -16563,7 +18751,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, [], name, value)
 
 
-                                        class Signaling(Entity):
+                                        class Signaling(_Entity_):
                                             """
                                             Multicast P2MP Signaling Type
                                             
@@ -16582,7 +18770,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
 
                                                 self.yang_name = "signaling"
                                                 self.yang_parent_name = "signalings"
@@ -16600,11 +18791,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp']['meta_info']
 
 
-
-
-                                class VfiPseudowires(Entity):
+                                class VfiPseudowires(_Entity_):
                                     """
                                     List of pseudowires
                                     
@@ -16621,7 +18824,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
 
                                         self.yang_name = "vfi-pseudowires"
                                         self.yang_parent_name = "vfi"
@@ -16639,7 +18845,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, [], name, value)
 
 
-                                    class VfiPseudowire(Entity):
+                                    class VfiPseudowire(_Entity_):
                                         """
                                         Pseudowire configuration
                                         
@@ -16701,7 +18907,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
 
                                             self.yang_name = "vfi-pseudowire"
                                             self.yang_parent_name = "vfi-pseudowires"
@@ -16740,7 +18949,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
 
 
-                                        class VfiPwDhcpSnoop(Entity):
+                                        class VfiPwDhcpSnoop(_Entity_):
                                             """
                                             Attach a DHCP Snooping profile
                                             
@@ -16762,7 +18971,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
 
                                                 self.yang_name = "vfi-pw-dhcp-snoop"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -16782,9 +18994,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop']['meta_info']
 
 
-                                        class VfiPwMplsStaticLabels(Entity):
+                                        class VfiPwMplsStaticLabels(_Entity_):
                                             """
                                             MPLS static labels
                                             
@@ -16810,7 +19026,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
 
                                                 self.yang_name = "vfi-pw-mpls-static-labels"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -16830,9 +19049,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels']['meta_info']
 
 
-                                        class PseudowireStaticMacAddresses(Entity):
+                                        class PseudowireStaticMacAddresses(_Entity_):
                                             """
                                             Static Mac Address Table
                                             
@@ -16849,7 +19072,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
 
                                                 self.yang_name = "pseudowire-static-mac-addresses"
                                                 self.yang_parent_name = "vfi-pseudowire"
@@ -16867,7 +19093,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, [], name, value)
 
 
-                                            class PseudowireStaticMacAddress(Entity):
+                                            class PseudowireStaticMacAddress(_Entity_):
                                                 """
                                                 Static Mac Address Configuration
                                                 
@@ -16886,7 +19112,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
 
                                                     self.yang_name = "pseudowire-static-mac-address"
                                                     self.yang_parent_name = "pseudowire-static-mac-addresses"
@@ -16904,12 +19133,28 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires']['meta_info']
 
 
-
-
-
-                                class BgpAutoDiscovery(Entity):
+                                class BgpAutoDiscovery(_Entity_):
                                     """
                                     Enable Autodiscovery BGP in this VFI
                                     
@@ -16961,7 +19206,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
 
                                         self.yang_name = "bgp-auto-discovery"
                                         self.yang_parent_name = "vfi"
@@ -17004,7 +19252,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
 
 
-                                    class LdpSignalingProtocol(Entity):
+                                    class LdpSignalingProtocol(_Entity_):
                                         """
                                         Signaling Protocol LDP in this VFI
                                         configuration
@@ -17032,7 +19280,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
 
                                             self.yang_name = "ldp-signaling-protocol"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -17059,7 +19310,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
 
 
-                                        class VplsId(Entity):
+                                        class VplsId(_Entity_):
                                             """
                                             VPLS ID
                                             
@@ -17104,7 +19355,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
 
                                                 self.yang_name = "vpls-id"
                                                 self.yang_parent_name = "ldp-signaling-protocol"
@@ -17130,9 +19384,13 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId']['meta_info']
 
 
-                                        class FlowLabelLoadBalance(Entity):
+                                        class FlowLabelLoadBalance(_Entity_):
                                             """
                                             Enable Flow Label based load balancing
                                             
@@ -17154,7 +19412,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
 
                                                 self.yang_name = "flow-label-load-balance"
                                                 self.yang_parent_name = "ldp-signaling-protocol"
@@ -17174,10 +19435,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol']['meta_info']
 
 
-
-                                    class BgpRoutePolicy(Entity):
+                                    class BgpRoutePolicy(_Entity_):
                                         """
                                         Route policy
                                         
@@ -17194,7 +19463,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
 
                                             self.yang_name = "bgp-route-policy"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -17212,9 +19484,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy']['meta_info']
 
 
-                                    class RouteDistinguisher(Entity):
+                                    class RouteDistinguisher(_Entity_):
                                         """
                                         Route Distinguisher
                                         
@@ -17259,7 +19535,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
 
                                             self.yang_name = "route-distinguisher"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -17285,9 +19564,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher']['meta_info']
 
 
-                                    class BgpSignalingProtocol(Entity):
+                                    class BgpSignalingProtocol(_Entity_):
                                         """
                                         Enable Signaling Protocol BGP in this VFI
                                         
@@ -17323,7 +19606,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
 
                                             self.yang_name = "bgp-signaling-protocol"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -17350,7 +19636,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
 
 
-                                        class FlowLabelLoadBalance(Entity):
+                                        class FlowLabelLoadBalance(_Entity_):
                                             """
                                             Enable Flow Label based load balancing
                                             
@@ -17372,7 +19658,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
 
                                                 self.yang_name = "flow-label-load-balance"
                                                 self.yang_parent_name = "bgp-signaling-protocol"
@@ -17392,10 +19681,18 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol']['meta_info']
 
 
-
-                                    class RouteTargets(Entity):
+                                    class RouteTargets(_Entity_):
                                         """
                                         Route Target
                                         
@@ -17412,7 +19709,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
 
                                             self.yang_name = "route-targets"
                                             self.yang_parent_name = "bgp-auto-discovery"
@@ -17430,7 +19730,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, [], name, value)
 
 
-                                        class RouteTarget(Entity):
+                                        class RouteTarget(_Entity_):
                                             """
                                             Name of the Route Target
                                             
@@ -17462,7 +19762,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
 
                                                 self.yang_name = "route-target"
                                                 self.yang_parent_name = "route-targets"
@@ -17486,7 +19789,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
 
 
-                                            class TwoByteAsOrFourByteAs(Entity):
+                                            class TwoByteAsOrFourByteAs(_Entity_):
                                                 """
                                                 two byte as or four byte as
                                                 
@@ -17512,7 +19815,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
 
                                                     self.yang_name = "two-byte-as-or-four-byte-as"
                                                     self.yang_parent_name = "route-target"
@@ -17532,9 +19838,13 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs']['meta_info']
 
 
-                                            class Ipv4Address(Entity):
+                                            class Ipv4Address(_Entity_):
                                                 """
                                                 ipv4 address
                                                 
@@ -17560,7 +19870,10 @@ class L2vpn(Entity):
                                                 _revision = '2018-06-15'
 
                                                 def __init__(self):
-                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                                     self.yang_name = "ipv4-address"
                                                     self.yang_parent_name = "route-target"
@@ -17580,14 +19893,38 @@ class L2vpn(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis']['meta_info']
 
 
-
-
-
-
-
-                        class BridgeDomainvnis(Entity):
+                        class BridgeDomainvnis(_Entity_):
                             """
                             Bridge Domain EVPN VxLAN Network Identifier
                             Table
@@ -17605,7 +19942,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
 
                                 self.yang_name = "bridge-domainvnis"
                                 self.yang_parent_name = "bridge-domain"
@@ -17623,7 +19963,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, [], name, value)
 
 
-                            class BridgeDomainvni(Entity):
+                            class BridgeDomainvni(_Entity_):
                                 """
                                 Bridge Domain VxLAN EVPN
                                 
@@ -17642,7 +19982,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
 
                                     self.yang_name = "bridge-domainvni"
                                     self.yang_parent_name = "bridge-domainvnis"
@@ -17660,10 +20003,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis']['meta_info']
 
 
-
-                        class BdAttachmentCircuits(Entity):
+                        class BdAttachmentCircuits(_Entity_):
                             """
                             Attachment Circuit table
                             
@@ -17680,7 +20031,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
 
                                 self.yang_name = "bd-attachment-circuits"
                                 self.yang_parent_name = "bridge-domain"
@@ -17698,7 +20052,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, [], name, value)
 
 
-                            class BdAttachmentCircuit(Entity):
+                            class BdAttachmentCircuit(_Entity_):
                                 """
                                 Name of the Attachment Circuit
                                 
@@ -17776,7 +20130,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
 
                                     self.yang_name = "bd-attachment-circuit"
                                     self.yang_parent_name = "bd-attachment-circuits"
@@ -17831,7 +20188,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
 
 
-                                class InterfaceIpSourceGuard(Entity):
+                                class InterfaceIpSourceGuard(_Entity_):
                                     """
                                     IP Source Guard
                                     
@@ -17858,7 +20215,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
 
                                         self.yang_name = "interface-ip-source-guard"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -17880,9 +20240,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard']['meta_info']
 
 
-                                class InterfaceDai(Entity):
+                                class InterfaceDai(_Entity_):
                                     """
                                     L2 Interface Dynamic ARP Inspection
                                     
@@ -17914,7 +20278,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
 
                                         self.yang_name = "interface-dai"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -17941,7 +20308,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
 
 
-                                    class InterfaceDaiAddressValidation(Entity):
+                                    class InterfaceDaiAddressValidation(_Entity_):
                                         """
                                         Address Validation
                                         
@@ -17973,7 +20340,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
 
                                             self.yang_name = "interface-dai-address-validation"
                                             self.yang_parent_name = "interface-dai"
@@ -17997,10 +20367,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai']['meta_info']
 
 
-
-                                class InterfaceProfile(Entity):
+                                class InterfaceProfile(_Entity_):
                                     """
                                     Attach a DHCP profile
                                     
@@ -18022,7 +20400,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
 
                                         self.yang_name = "interface-profile"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -18042,9 +20423,13 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile']['meta_info']
 
 
-                                class BdacStormControlTypes(Entity):
+                                class BdacStormControlTypes(_Entity_):
                                     """
                                     Storm Control
                                     
@@ -18061,7 +20446,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
 
                                         self.yang_name = "bdac-storm-control-types"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -18079,7 +20467,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, [], name, value)
 
 
-                                    class BdacStormControlType(Entity):
+                                    class BdacStormControlType(_Entity_):
                                         """
                                         Storm Control Type
                                         
@@ -18101,7 +20489,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
 
                                             self.yang_name = "bdac-storm-control-type"
                                             self.yang_parent_name = "bdac-storm-control-types"
@@ -18124,7 +20515,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
 
 
-                                        class StormControlUnit(Entity):
+                                        class StormControlUnit(_Entity_):
                                             """
                                             Specify units for Storm Control Configuration
                                             
@@ -18154,7 +20545,10 @@ class L2vpn(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
 
                                                 self.yang_name = "storm-control-unit"
                                                 self.yang_parent_name = "bdac-storm-control-type"
@@ -18174,11 +20568,23 @@ class L2vpn(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes']['meta_info']
 
 
-
-
-                                class SplitHorizon(Entity):
+                                class SplitHorizon(_Entity_):
                                     """
                                     Split Horizon
                                     
@@ -18195,7 +20601,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
 
                                         self.yang_name = "split-horizon"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -18215,7 +20624,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, [], name, value)
 
 
-                                    class SplitHorizonGroupId(Entity):
+                                    class SplitHorizonGroupId(_Entity_):
                                         """
                                         Split Horizon Group ID
                                         
@@ -18232,7 +20641,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
 
                                             self.yang_name = "split-horizon-group-id"
                                             self.yang_parent_name = "split-horizon"
@@ -18250,10 +20662,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon']['meta_info']
 
 
-
-                                class StaticMacAddresses(Entity):
+                                class StaticMacAddresses(_Entity_):
                                     """
                                     Static Mac Address Table
                                     
@@ -18270,7 +20690,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
 
                                         self.yang_name = "static-mac-addresses"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -18288,7 +20711,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, [], name, value)
 
 
-                                    class StaticMacAddress(Entity):
+                                    class StaticMacAddress(_Entity_):
                                         """
                                         Static Mac Address Configuration
                                         
@@ -18307,7 +20730,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
 
                                             self.yang_name = "static-mac-address"
                                             self.yang_parent_name = "static-mac-addresses"
@@ -18325,10 +20751,18 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses']['meta_info']
 
 
-
-                                class InterfaceMac(Entity):
+                                class InterfaceMac(_Entity_):
                                     """
                                     MAC configuration commands
                                     
@@ -18365,7 +20799,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
 
                                         self.yang_name = "interface-mac"
                                         self.yang_parent_name = "bd-attachment-circuit"
@@ -18398,7 +20835,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
 
 
-                                    class InterfaceMacAging(Entity):
+                                    class InterfaceMacAging(_Entity_):
                                         """
                                         MAC\-Aging configuration commands
                                         
@@ -18422,7 +20859,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
 
                                             self.yang_name = "interface-mac-aging"
                                             self.yang_parent_name = "interface-mac"
@@ -18442,9 +20882,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging']['meta_info']
 
 
-                                    class InterfaceMacSecure(Entity):
+                                    class InterfaceMacSecure(_Entity_):
                                         """
                                         MAC Secure
                                         
@@ -18483,7 +20927,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
 
                                             self.yang_name = "interface-mac-secure"
                                             self.yang_parent_name = "interface-mac"
@@ -18509,9 +20956,13 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['enable', 'logging', 'disable', 'action', 'shutdown_recovery_timer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure']['meta_info']
 
 
-                                    class InterfaceMacLimit(Entity):
+                                    class InterfaceMacLimit(_Entity_):
                                         """
                                         MAC\-Limit configuration commands
                                         
@@ -18540,7 +20991,10 @@ class L2vpn(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
 
                                             self.yang_name = "interface-mac-limit"
                                             self.yang_parent_name = "interface-mac"
@@ -18562,12 +21016,28 @@ class L2vpn(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info']
 
 
-
-
-
-                        class BdPseudowireEvpns(Entity):
+                        class BdPseudowireEvpns(_Entity_):
                             """
                             List of EVPN pseudowires
                             
@@ -18584,7 +21054,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
 
                                 self.yang_name = "bd-pseudowire-evpns"
                                 self.yang_parent_name = "bridge-domain"
@@ -18602,7 +21075,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, [], name, value)
 
 
-                            class BdPseudowireEvpn(Entity):
+                            class BdPseudowireEvpn(_Entity_):
                                 """
                                 EVPN Pseudowire configuration
                                 
@@ -18628,7 +21101,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
 
                                     self.yang_name = "bd-pseudowire-evpn"
                                     self.yang_parent_name = "bd-pseudowire-evpns"
@@ -18648,10 +21124,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns']['meta_info']
 
 
-
-                        class IpSourceGuard(Entity):
+                        class IpSourceGuard(_Entity_):
                             """
                             IP Source Guard
                             
@@ -18673,7 +21157,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
 
                                 self.yang_name = "ip-source-guard"
                                 self.yang_parent_name = "bridge-domain"
@@ -18693,9 +21180,13 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard']['meta_info']
 
 
-                        class Dai(Entity):
+                        class Dai(_Entity_):
                             """
                             Dynamic ARP Inspection
                             
@@ -18722,7 +21213,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, self).__init__()
 
                                 self.yang_name = "dai"
                                 self.yang_parent_name = "bridge-domain"
@@ -18747,7 +21241,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
 
 
-                            class DaiAddressValidation(Entity):
+                            class DaiAddressValidation(_Entity_):
                                 """
                                 Address Validation
                                 
@@ -18779,7 +21273,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
 
                                     self.yang_name = "dai-address-validation"
                                     self.yang_parent_name = "dai"
@@ -18803,10 +21300,18 @@ class L2vpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai']['meta_info']
 
 
-
-                        class RoutedInterfaces(Entity):
+                        class RoutedInterfaces(_Entity_):
                             """
                             Bridge Domain Routed Interface Table
                             
@@ -18823,7 +21328,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
 
                                 self.yang_name = "routed-interfaces"
                                 self.yang_parent_name = "bridge-domain"
@@ -18841,7 +21349,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, [], name, value)
 
 
-                            class RoutedInterface(Entity):
+                            class RoutedInterface(_Entity_):
                                 """
                                 Bridge Domain Routed Interface
                                 
@@ -18865,7 +21373,10 @@ class L2vpn(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
 
                                     self.yang_name = "routed-interface"
                                     self.yang_parent_name = "routed-interfaces"
@@ -18888,7 +21399,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
 
 
-                                class RoutedInterfaceSplitHorizonGroup(Entity):
+                                class RoutedInterfaceSplitHorizonGroup(_Entity_):
                                     """
                                     Routed interface split horizon group
                                     
@@ -18905,7 +21416,10 @@ class L2vpn(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
 
                                         self.yang_name = "routed-interface-split-horizon-group"
                                         self.yang_parent_name = "routed-interface"
@@ -18923,15 +21437,43 @@ class L2vpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.VlanSwitches.VlanSwitch']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.VlanSwitches']['meta_info']
 
 
-
-
-
-
-
-
-        class FlexibleXconnectServiceTable(Entity):
+        class FlexibleXconnectServiceTable(_Entity_):
             """
             List of Flexible XConnect Services
             
@@ -18953,7 +21495,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.FlexibleXconnectServiceTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.FlexibleXconnectServiceTable, self).__init__()
 
                 self.yang_name = "flexible-xconnect-service-table"
                 self.yang_parent_name = "database"
@@ -18978,7 +21523,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable, [], name, value)
 
 
-            class VlanUnawareFlexibleXconnectServices(Entity):
+            class VlanUnawareFlexibleXconnectServices(_Entity_):
                 """
                 List of Vlan\-Unaware Flexible XConnect
                 Services
@@ -18996,7 +21541,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices, self).__init__()
 
                     self.yang_name = "vlan-unaware-flexible-xconnect-services"
                     self.yang_parent_name = "flexible-xconnect-service-table"
@@ -19015,7 +21563,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices, [], name, value)
 
 
-                class VlanUnawareFlexibleXconnectService(Entity):
+                class VlanUnawareFlexibleXconnectService(_Entity_):
                     """
                     Flexible XConnect Service
                     
@@ -19044,7 +21592,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, self).__init__()
 
                         self.yang_name = "vlan-unaware-flexible-xconnect-service"
                         self.yang_parent_name = "vlan-unaware-flexible-xconnect-services"
@@ -19072,7 +21623,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, ['name'], name, value)
 
 
-                    class VlanUnawareFxcAttachmentCircuits(Entity):
+                    class VlanUnawareFxcAttachmentCircuits(_Entity_):
                         """
                         List of attachment circuits
                         
@@ -19089,7 +21640,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits, self).__init__()
 
                             self.yang_name = "vlan-unaware-fxc-attachment-circuits"
                             self.yang_parent_name = "vlan-unaware-flexible-xconnect-service"
@@ -19107,7 +21661,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits, [], name, value)
 
 
-                        class VlanUnawareFxcAttachmentCircuit(Entity):
+                        class VlanUnawareFxcAttachmentCircuit(_Entity_):
                             """
                             Attachment circuit interface
                             
@@ -19126,7 +21680,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, self).__init__()
 
                                 self.yang_name = "vlan-unaware-fxc-attachment-circuit"
                                 self.yang_parent_name = "vlan-unaware-fxc-attachment-circuits"
@@ -19144,10 +21701,18 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, ['name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits']['meta_info']
 
 
-
-                    class VlanUnawareFxcPseudowireEvpns(Entity):
+                    class VlanUnawareFxcPseudowireEvpns(_Entity_):
                         """
                         List of EVPN Services
                         
@@ -19164,7 +21729,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns, self).__init__()
 
                             self.yang_name = "vlan-unaware-fxc-pseudowire-evpns"
                             self.yang_parent_name = "vlan-unaware-flexible-xconnect-service"
@@ -19182,7 +21750,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns, [], name, value)
 
 
-                        class VlanUnawareFxcPseudowireEvpn(Entity):
+                        class VlanUnawareFxcPseudowireEvpn(_Entity_):
                             """
                             EVPN FXC Service Configuration
                             
@@ -19208,7 +21776,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, self).__init__()
 
                                 self.yang_name = "vlan-unaware-fxc-pseudowire-evpn"
                                 self.yang_parent_name = "vlan-unaware-fxc-pseudowire-evpns"
@@ -19228,12 +21799,28 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, ['eviid', 'acid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices']['meta_info']
 
 
-
-
-
-            class VlanAwareFlexibleXconnectServices(Entity):
+            class VlanAwareFlexibleXconnectServices(_Entity_):
                 """
                 List of Vlan\-Aware Flexible XConnect Services
                 
@@ -19250,7 +21837,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices, self).__init__()
 
                     self.yang_name = "vlan-aware-flexible-xconnect-services"
                     self.yang_parent_name = "flexible-xconnect-service-table"
@@ -19269,7 +21859,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices, [], name, value)
 
 
-                class VlanAwareFlexibleXconnectService(Entity):
+                class VlanAwareFlexibleXconnectService(_Entity_):
                     """
                     Flexible XConnect Service
                     
@@ -19293,7 +21883,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, self).__init__()
 
                         self.yang_name = "vlan-aware-flexible-xconnect-service"
                         self.yang_parent_name = "vlan-aware-flexible-xconnect-services"
@@ -19317,7 +21910,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, ['eviid'], name, value)
 
 
-                    class VlanAwareFxcAttachmentCircuits(Entity):
+                    class VlanAwareFxcAttachmentCircuits(_Entity_):
                         """
                         List of attachment circuits
                         
@@ -19334,7 +21927,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits, self).__init__()
 
                             self.yang_name = "vlan-aware-fxc-attachment-circuits"
                             self.yang_parent_name = "vlan-aware-flexible-xconnect-service"
@@ -19352,7 +21948,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits, [], name, value)
 
 
-                        class VlanAwareFxcAttachmentCircuit(Entity):
+                        class VlanAwareFxcAttachmentCircuit(_Entity_):
                             """
                             Attachment circuit interface
                             
@@ -19371,7 +21967,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, self).__init__()
 
                                 self.yang_name = "vlan-aware-fxc-attachment-circuit"
                                 self.yang_parent_name = "vlan-aware-fxc-attachment-circuits"
@@ -19389,13 +21988,33 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, ['name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.FlexibleXconnectServiceTable']['meta_info']
 
 
-
-
-
-
-        class Redundancy(Entity):
+        class Redundancy(_Entity_):
             """
             Redundancy groups
             
@@ -19417,7 +22036,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Database.Redundancy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Database.Redundancy, self).__init__()
 
                 self.yang_name = "redundancy"
                 self.yang_parent_name = "database"
@@ -19441,7 +22063,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Database.Redundancy, ['enable'], name, value)
 
 
-            class IccpRedundancyGroups(Entity):
+            class IccpRedundancyGroups(_Entity_):
                 """
                 List of Inter\-Chassis Communication Protocol
                 redundancy groups
@@ -19459,7 +22081,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Database.Redundancy.IccpRedundancyGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Database.Redundancy.IccpRedundancyGroups, self).__init__()
 
                     self.yang_name = "iccp-redundancy-groups"
                     self.yang_parent_name = "redundancy"
@@ -19478,7 +22103,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups, [], name, value)
 
 
-                class IccpRedundancyGroup(Entity):
+                class IccpRedundancyGroup(_Entity_):
                     """
                     ICCP Redundancy group
                     
@@ -19509,7 +22134,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, self).__init__()
 
                         self.yang_name = "iccp-redundancy-group"
                         self.yang_parent_name = "iccp-redundancy-groups"
@@ -19535,7 +22163,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, ['group_id', 'multi_homing_node_id'], name, value)
 
 
-                    class IccpInterfaces(Entity):
+                    class IccpInterfaces(_Entity_):
                         """
                         List of interfaces
                         
@@ -19552,7 +22180,10 @@ class L2vpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces, self).__init__()
 
                             self.yang_name = "iccp-interfaces"
                             self.yang_parent_name = "iccp-redundancy-group"
@@ -19570,7 +22201,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces, [], name, value)
 
 
-                        class IccpInterface(Entity):
+                        class IccpInterface(_Entity_):
                             """
                             Interface name
                             
@@ -19613,7 +22244,10 @@ class L2vpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, self).__init__()
 
                                 self.yang_name = "iccp-interface"
                                 self.yang_parent_name = "iccp-interfaces"
@@ -19639,14 +22273,38 @@ class L2vpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, ['interface_name', 'secondary_vlan_range', 'recovery_delay', 'primary_vlan_range', 'mac_flush_tcn'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Database.Redundancy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.Database']['meta_info']
 
 
-
-
-
-
-
-    class Pbb(Entity):
+    class Pbb(_Entity_):
         """
         L2VPN PBB Global
         
@@ -19665,7 +22323,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.Pbb, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.Pbb, self).__init__()
 
             self.yang_name = "pbb"
             self.yang_parent_name = "l2vpn"
@@ -19684,9 +22345,13 @@ class L2vpn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Pbb, ['backbone_source_mac'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.Pbb']['meta_info']
 
 
-    class AutoDiscovery(Entity):
+    class AutoDiscovery(_Entity_):
         """
         Global auto\-discovery attributes
         
@@ -19703,7 +22368,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.AutoDiscovery, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.AutoDiscovery, self).__init__()
 
             self.yang_name = "auto-discovery"
             self.yang_parent_name = "l2vpn"
@@ -19724,7 +22392,7 @@ class L2vpn(Entity):
             self._perform_setattr(L2vpn.AutoDiscovery, [], name, value)
 
 
-        class BgpSignaling(Entity):
+        class BgpSignaling(_Entity_):
             """
             Global bgp signaling attributes
             
@@ -19741,7 +22409,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.AutoDiscovery.BgpSignaling, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.AutoDiscovery.BgpSignaling, self).__init__()
 
                 self.yang_name = "bgp-signaling"
                 self.yang_parent_name = "auto-discovery"
@@ -19760,10 +22431,18 @@ class L2vpn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, ['mtu_mismatch_ignore'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.AutoDiscovery.BgpSignaling']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.AutoDiscovery']['meta_info']
 
 
-
-    class Utility(Entity):
+    class Utility(_Entity_):
         """
         L2VPN utilities
         
@@ -19780,7 +22459,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.Utility, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.Utility, self).__init__()
 
             self.yang_name = "utility"
             self.yang_parent_name = "l2vpn"
@@ -19801,7 +22483,7 @@ class L2vpn(Entity):
             self._perform_setattr(L2vpn.Utility, [], name, value)
 
 
-        class Logging(Entity):
+        class Logging(_Entity_):
             """
             L2VPN logging utility
             
@@ -19838,7 +22520,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Utility.Logging, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Utility.Logging, self).__init__()
 
                 self.yang_name = "logging"
                 self.yang_parent_name = "utility"
@@ -19865,10 +22550,18 @@ class L2vpn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Utility.Logging, ['bridge_domain_state_change', 'pseudowire_state_change', 'vfi', 'nsr_state_change', 'pwhe_replication_state_change'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Utility.Logging']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.Utility']['meta_info']
 
 
-
-    class Snmp(Entity):
+    class Snmp(_Entity_):
         """
         SNMP related configuration
         
@@ -19885,7 +22578,10 @@ class L2vpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(L2vpn.Snmp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L2vpn.Snmp, self).__init__()
 
             self.yang_name = "snmp"
             self.yang_parent_name = "l2vpn"
@@ -19906,7 +22602,7 @@ class L2vpn(Entity):
             self._perform_setattr(L2vpn.Snmp, [], name, value)
 
 
-        class Mib(Entity):
+        class Mib(_Entity_):
             """
             MIB related configuration
             
@@ -19928,7 +22624,10 @@ class L2vpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(L2vpn.Snmp.Mib, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L2vpn.Snmp.Mib, self).__init__()
 
                 self.yang_name = "mib"
                 self.yang_parent_name = "snmp"
@@ -19953,7 +22652,7 @@ class L2vpn(Entity):
                 self._perform_setattr(L2vpn.Snmp.Mib, [], name, value)
 
 
-            class MibInterface(Entity):
+            class MibInterface(_Entity_):
                 """
                 Interface related configuration for MIB
                 
@@ -19970,7 +22669,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Snmp.Mib.MibInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Snmp.Mib.MibInterface, self).__init__()
 
                     self.yang_name = "mib-interface"
                     self.yang_parent_name = "mib"
@@ -19991,7 +22693,7 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.Snmp.Mib.MibInterface, [], name, value)
 
 
-                class Format(Entity):
+                class Format(_Entity_):
                     """
                     MIB interface name output format
                     
@@ -20008,7 +22710,10 @@ class L2vpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(L2vpn.Snmp.Mib.MibInterface.Format, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L2vpn.Snmp.Mib.MibInterface.Format, self).__init__()
 
                         self.yang_name = "format"
                         self.yang_parent_name = "mib-interface"
@@ -20027,10 +22732,18 @@ class L2vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, ['external_interface_format'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['L2vpn.Snmp.Mib.MibInterface.Format']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Snmp.Mib.MibInterface']['meta_info']
 
 
-
-            class MibPseudowire(Entity):
+            class MibPseudowire(_Entity_):
                 """
                 Pseudowire related configuration for MIB
                 
@@ -20047,7 +22760,10 @@ class L2vpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(L2vpn.Snmp.Mib.MibPseudowire, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L2vpn.Snmp.Mib.MibPseudowire, self).__init__()
 
                     self.yang_name = "mib-pseudowire"
                     self.yang_parent_name = "mib"
@@ -20066,16 +22782,32 @@ class L2vpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, ['statistics'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['L2vpn.Snmp.Mib.MibPseudowire']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['L2vpn.Snmp.Mib']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['L2vpn.Snmp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = L2vpn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['L2vpn']['meta_info']
 
 
-class GenericInterfaceLists(Entity):
+class GenericInterfaceLists(_Entity_):
     """
     generic interface lists
     
@@ -20092,7 +22824,10 @@ class GenericInterfaceLists(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(GenericInterfaceLists, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GenericInterfaceLists, self).__init__()
         self._top_entity = None
 
         self.yang_name = "generic-interface-lists"
@@ -20111,7 +22846,7 @@ class GenericInterfaceLists(Entity):
         self._perform_setattr(GenericInterfaceLists, [], name, value)
 
 
-    class GenericInterfaceList(Entity):
+    class GenericInterfaceList(_Entity_):
         """
         Generic interface list
         
@@ -20140,7 +22875,10 @@ class GenericInterfaceLists(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(GenericInterfaceLists.GenericInterfaceList, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GenericInterfaceLists.GenericInterfaceList, self).__init__()
 
             self.yang_name = "generic-interface-list"
             self.yang_parent_name = "generic-interface-lists"
@@ -20166,7 +22904,7 @@ class GenericInterfaceLists(Entity):
             self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, ['generic_interface_list_name', 'enable'], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             Interface table
             
@@ -20183,7 +22921,10 @@ class GenericInterfaceLists(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(GenericInterfaceLists.GenericInterfaceList.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GenericInterfaceLists.GenericInterfaceList.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "generic-interface-list"
@@ -20201,7 +22942,7 @@ class GenericInterfaceLists(Entity):
                 self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Interface
                 
@@ -20225,7 +22966,10 @@ class GenericInterfaceLists(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -20245,16 +22989,32 @@ class GenericInterfaceLists(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['GenericInterfaceLists.GenericInterfaceList.Interfaces']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['GenericInterfaceLists.GenericInterfaceList']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GenericInterfaceLists()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['GenericInterfaceLists']['meta_info']
 
 
-class Evpn(Entity):
+class Evpn(_Entity_):
     """
     evpn
     
@@ -20276,7 +23036,10 @@ class Evpn(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(Evpn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Evpn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "evpn"
@@ -20300,7 +23063,7 @@ class Evpn(Entity):
         self._perform_setattr(Evpn, ['enable'], name, value)
 
 
-    class EvpnTables(Entity):
+    class EvpnTables(_Entity_):
         """
         EVPN submodes
         
@@ -20393,7 +23156,10 @@ class Evpn(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Evpn.EvpnTables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Evpn.EvpnTables, self).__init__()
 
             self.yang_name = "evpn-tables"
             self.yang_parent_name = "evpn"
@@ -20465,7 +23231,7 @@ class Evpn(Entity):
             self._perform_setattr(Evpn.EvpnTables, ['evi_cost_out', 'evpn_source_interface', 'evpn_cost_in_startup'], name, value)
 
 
-        class EvpnTimers(Entity):
+        class EvpnTimers(_Entity_):
             """
             Enter EVPN timers configuration submode
             
@@ -20474,16 +23240,25 @@ class Evpn(Entity):
             	Global Carving timer
             	**type**\: int
             
-            	**range:** 0..10
+            	**range:** 0..300
             
             	**default value**\: 0
+            
+            .. attribute:: evpn_mac_postpone
+            
+            	Global MAC postpone timer
+            	**type**\: int
+            
+            	**range:** 0..300
+            
+            	**default value**\: 300
             
             .. attribute:: evpn_recovery
             
             	Global Recovery timer
             	**type**\: int
             
-            	**range:** 20..3600
+            	**range:** 0..3600
             
             	**default value**\: 30
             
@@ -20509,7 +23284,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnTimers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnTimers, self).__init__()
 
                 self.yang_name = "evpn-timers"
                 self.yang_parent_name = "evpn-tables"
@@ -20519,11 +23297,13 @@ class Evpn(Entity):
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('evpn_carving', (YLeaf(YType.uint32, 'evpn-carving'), ['int'])),
+                    ('evpn_mac_postpone', (YLeaf(YType.uint32, 'evpn-mac-postpone'), ['int'])),
                     ('evpn_recovery', (YLeaf(YType.uint32, 'evpn-recovery'), ['int'])),
                     ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ('evpn_peering', (YLeaf(YType.uint32, 'evpn-peering'), ['int'])),
                 ])
                 self.evpn_carving = None
+                self.evpn_mac_postpone = None
                 self.evpn_recovery = None
                 self.enable = None
                 self.evpn_peering = None
@@ -20532,11 +23312,15 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_mac_postpone', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnTimers']['meta_info']
 
 
-
-        class EvpnEvis(Entity):
+        class EvpnEvis(_Entity_):
             """
             Enter EVPN Instance configuration submode
             
@@ -20553,7 +23337,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnEvis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnEvis, self).__init__()
 
                 self.yang_name = "evpn-evis"
                 self.yang_parent_name = "evpn-tables"
@@ -20572,7 +23359,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis, [], name, value)
 
 
-            class EvpnEvi(Entity):
+            class EvpnEvi(_Entity_):
                 """
                 Enter EVPN Instance configuration submode
                 
@@ -20643,7 +23430,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnEvis.EvpnEvi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi, self).__init__()
 
                     self.yang_name = "evpn-evi"
                     self.yang_parent_name = "evpn-evis"
@@ -20691,7 +23481,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi, ['eviid', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
-                class EviLoadBalancing(Entity):
+                class EviLoadBalancing(_Entity_):
                     """
                     Enter Loadbalancing configuration submode
                     
@@ -20713,7 +23503,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, self).__init__()
 
                         self.yang_name = "evi-load-balancing"
                         self.yang_parent_name = "evpn-evi"
@@ -20733,9 +23526,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing']['meta_info']
 
 
-                class EvpnEviBgpAutoDiscovery(Entity):
+                class EvpnEviBgpAutoDiscovery(_Entity_):
                     """
                     Enable Autodiscovery BGP in EVPN Instance
                     
@@ -20772,7 +23569,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, self).__init__()
 
                         self.yang_name = "evpn-evi-bgp-auto-discovery"
                         self.yang_parent_name = "evpn-evi"
@@ -20803,7 +23603,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
-                    class EvpnRouteDistinguisher(Entity):
+                    class EvpnRouteDistinguisher(_Entity_):
                         """
                         Route Distinguisher
                         
@@ -20848,7 +23648,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
 
                             self.yang_name = "evpn-route-distinguisher"
                             self.yang_parent_name = "evpn-evi-bgp-auto-discovery"
@@ -20874,9 +23677,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher']['meta_info']
 
 
-                    class EvpnRouteTargets(Entity):
+                    class EvpnRouteTargets(_Entity_):
                         """
                         Route Target
                         
@@ -20903,7 +23710,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
 
                             self.yang_name = "evpn-route-targets"
                             self.yang_parent_name = "evpn-evi-bgp-auto-discovery"
@@ -20923,7 +23733,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets, [], name, value)
 
 
-                        class EvpnRouteTargetAs(Entity):
+                        class EvpnRouteTargetAs(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -20964,7 +23774,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
 
                                 self.yang_name = "evpn-route-target-as"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -20990,9 +23803,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs']['meta_info']
 
 
-                        class EvpnRouteTargetNone(Entity):
+                        class EvpnRouteTargetNone(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -21019,7 +23836,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
 
                                 self.yang_name = "evpn-route-target-none"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -21041,9 +23861,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone']['meta_info']
 
 
-                        class EvpnRouteTargetIpv4Address(Entity):
+                        class EvpnRouteTargetIpv4Address(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -21084,7 +23908,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
 
                                 self.yang_name = "evpn-route-target-ipv4-address"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -21110,11 +23937,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery']['meta_info']
 
 
-
-
-                class EviMulticast(Entity):
+                class EviMulticast(_Entity_):
                     """
                     Enter Multicast configuration submode
                     
@@ -21136,7 +23975,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, self).__init__()
 
                         self.yang_name = "evi-multicast"
                         self.yang_parent_name = "evpn-evi"
@@ -21156,9 +23998,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast']['meta_info']
 
 
-                class EviAdvertiseMac(Entity):
+                class EviAdvertiseMac(_Entity_):
                     """
                     Enter Advertise local MAC\-only routes
                     configuration submode
@@ -21181,7 +24027,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, self).__init__()
 
                         self.yang_name = "evi-advertise-mac"
                         self.yang_parent_name = "evpn-evi"
@@ -21201,11 +24050,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnEvis.EvpnEvi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnEvis']['meta_info']
 
 
-
-
-        class EvpnVirtualAccessVfis(Entity):
+        class EvpnVirtualAccessVfis(_Entity_):
             """
             Virtual Access VFI interfaces
             
@@ -21222,7 +24083,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnVirtualAccessVfis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnVirtualAccessVfis, self).__init__()
 
                 self.yang_name = "evpn-virtual-access-vfis"
                 self.yang_parent_name = "evpn-tables"
@@ -21241,7 +24105,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis, [], name, value)
 
 
-            class EvpnVirtualAccessVfi(Entity):
+            class EvpnVirtualAccessVfi(_Entity_):
                 """
                 Virtual Access VFI
                 
@@ -21270,7 +24134,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, self).__init__()
 
                     self.yang_name = "evpn-virtual-access-vfi"
                     self.yang_parent_name = "evpn-virtual-access-vfis"
@@ -21298,7 +24165,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, ['name'], name, value)
 
 
-                class EvpnVirtualAccessVfiTimers(Entity):
+                class EvpnVirtualAccessVfiTimers(_Entity_):
                     """
                     Enter Virtual Forwarding Interface timers
                     configuration submode
@@ -21308,7 +24175,7 @@ class Evpn(Entity):
                     	Virtual Forwarding Interface\-specific Recovery timer
                     	**type**\: int
                     
-                    	**range:** 20..3600
+                    	**range:** 0..3600
                     
                     	**default value**\: 30
                     
@@ -21326,7 +24193,7 @@ class Evpn(Entity):
                     	Virtual Forwarding Interface\-specific Carving timer
                     	**type**\: int
                     
-                    	**range:** 0..10
+                    	**range:** 0..300
                     
                     	**default value**\: 0
                     
@@ -21343,7 +24210,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, self).__init__()
 
                         self.yang_name = "evpn-virtual-access-vfi-timers"
                         self.yang_parent_name = "evpn-virtual-access-vfi"
@@ -21367,9 +24237,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'evpn_virtual_access_vfi_carving', 'enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers']['meta_info']
 
 
-                class EvpnVirtualEthernetSegment(Entity):
+                class EvpnVirtualEthernetSegment(_Entity_):
                     """
                     Enter Ethernet Segment configuration submode
                     
@@ -21415,7 +24289,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, self).__init__()
 
                         self.yang_name = "evpn-virtual-ethernet-segment"
                         self.yang_parent_name = "evpn-virtual-access-vfi"
@@ -21447,7 +24324,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, ['enable', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
-                    class Identifier(Entity):
+                    class Identifier(_Entity_):
                         """
                         Ethernet segment identifier
                         
@@ -21521,7 +24398,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, self).__init__()
 
                             self.yang_name = "identifier"
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
@@ -21550,9 +24430,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier']['meta_info']
 
 
-                    class ManualServiceCarving(Entity):
+                    class ManualServiceCarving(_Entity_):
                         """
                         Enter Manual service carving configuration
                         submode
@@ -21575,7 +24459,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
 
                             self.yang_name = "manual-service-carving"
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
@@ -21598,7 +24485,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
-                        class ServiceList(Entity):
+                        class ServiceList(_Entity_):
                             """
                             Manual service carving primary,secondary lists
                             
@@ -21624,7 +24511,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
 
                                 self.yang_name = "service-list"
                                 self.yang_parent_name = "manual-service-carving"
@@ -21644,13 +24534,33 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis']['meta_info']
 
 
-
-
-
-
-        class EvpnLoadBalancing(Entity):
+        class EvpnLoadBalancing(_Entity_):
             """
             Enter EVPN Loadbalancing configuration submode
             
@@ -21672,7 +24582,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnLoadBalancing, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnLoadBalancing, self).__init__()
 
                 self.yang_name = "evpn-load-balancing"
                 self.yang_parent_name = "evpn-tables"
@@ -21693,9 +24606,13 @@ class Evpn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_static_flow_label', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnLoadBalancing']['meta_info']
 
 
-        class EvpnBgpAutoDiscovery(Entity):
+        class EvpnBgpAutoDiscovery(_Entity_):
             """
             Enable Autodiscovery BGP in EVPN
             
@@ -21717,7 +24634,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnBgpAutoDiscovery, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnBgpAutoDiscovery, self).__init__()
 
                 self.yang_name = "evpn-bgp-auto-discovery"
                 self.yang_parent_name = "evpn-tables"
@@ -21741,7 +24661,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery, ['enable'], name, value)
 
 
-            class EvpnRouteDistinguisher(Entity):
+            class EvpnRouteDistinguisher(_Entity_):
                 """
                 Route Distinguisher
                 
@@ -21786,7 +24706,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
 
                     self.yang_name = "evpn-route-distinguisher"
                     self.yang_parent_name = "evpn-bgp-auto-discovery"
@@ -21813,10 +24736,18 @@ class Evpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnBgpAutoDiscovery']['meta_info']
 
 
-
-        class EvpnGroups(Entity):
+        class EvpnGroups(_Entity_):
             """
             Enter EVPN Group Table submode
             
@@ -21833,7 +24764,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnGroups, self).__init__()
 
                 self.yang_name = "evpn-groups"
                 self.yang_parent_name = "evpn-tables"
@@ -21852,7 +24786,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnGroups, [], name, value)
 
 
-            class EvpnGroup(Entity):
+            class EvpnGroup(_Entity_):
                 """
                 Enter EVPN Group submode
                 
@@ -21876,7 +24810,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnGroups.EvpnGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnGroups.EvpnGroup, self).__init__()
 
                     self.yang_name = "evpn-group"
                     self.yang_parent_name = "evpn-groups"
@@ -21900,7 +24837,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup, ['group_id'], name, value)
 
 
-                class EvpnGroupCoreInterfaces(Entity):
+                class EvpnGroupCoreInterfaces(_Entity_):
                     """
                     EVPN Group core interfaces
                     
@@ -21917,7 +24854,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces, self).__init__()
 
                         self.yang_name = "evpn-group-core-interfaces"
                         self.yang_parent_name = "evpn-group"
@@ -21935,7 +24875,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces, [], name, value)
 
 
-                    class EvpnGroupCoreInterface(Entity):
+                    class EvpnGroupCoreInterface(_Entity_):
                         """
                         EVPN Group Core interface
                         
@@ -21954,7 +24894,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, self).__init__()
 
                             self.yang_name = "evpn-group-core-interface"
                             self.yang_parent_name = "evpn-group-core-interfaces"
@@ -21972,12 +24915,28 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnGroups.EvpnGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnGroups']['meta_info']
 
 
-
-
-
-        class EvpnInstances(Entity):
+        class EvpnInstances(_Entity_):
             """
             Enter EVPN Instance configuration submode
             
@@ -21994,7 +24953,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnInstances, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnInstances, self).__init__()
 
                 self.yang_name = "evpn-instances"
                 self.yang_parent_name = "evpn-tables"
@@ -22013,7 +24975,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances, [], name, value)
 
 
-            class EvpnInstance(Entity):
+            class EvpnInstance(_Entity_):
                 """
                 Enter EVPN Instance configuration submode
                 
@@ -22099,7 +25061,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnInstances.EvpnInstance, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance, self).__init__()
 
                     self.yang_name = "evpn-instance"
                     self.yang_parent_name = "evpn-instances"
@@ -22155,7 +25120,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, ['vpn_id', 'encapsulation', 'side', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
-                class EvpnInstanceBgpAutoDiscovery(Entity):
+                class EvpnInstanceBgpAutoDiscovery(_Entity_):
                     """
                     Enable Autodiscovery BGP in EVPN Instance
                     
@@ -22192,7 +25157,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, self).__init__()
 
                         self.yang_name = "evpn-instance-bgp-auto-discovery"
                         self.yang_parent_name = "evpn-instance"
@@ -22223,7 +25191,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, ['enable', 'table_policy', 'implicit_import_disable'], name, value)
 
 
-                    class EvpnRouteDistinguisher(Entity):
+                    class EvpnRouteDistinguisher(_Entity_):
                         """
                         Route Distinguisher
                         
@@ -22268,7 +25236,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, self).__init__()
 
                             self.yang_name = "evpn-route-distinguisher"
                             self.yang_parent_name = "evpn-instance-bgp-auto-discovery"
@@ -22294,9 +25265,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher']['meta_info']
 
 
-                    class EvpnRouteTargets(Entity):
+                    class EvpnRouteTargets(_Entity_):
                         """
                         Route Target
                         
@@ -22323,7 +25298,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets, self).__init__()
 
                             self.yang_name = "evpn-route-targets"
                             self.yang_parent_name = "evpn-instance-bgp-auto-discovery"
@@ -22343,7 +25321,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets, [], name, value)
 
 
-                        class EvpnRouteTargetAs(Entity):
+                        class EvpnRouteTargetAs(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -22384,7 +25362,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, self).__init__()
 
                                 self.yang_name = "evpn-route-target-as"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -22410,9 +25391,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs']['meta_info']
 
 
-                        class EvpnRouteTargetNone(Entity):
+                        class EvpnRouteTargetNone(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -22439,7 +25424,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, self).__init__()
 
                                 self.yang_name = "evpn-route-target-none"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -22461,9 +25449,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone']['meta_info']
 
 
-                        class EvpnRouteTargetIpv4Address(Entity):
+                        class EvpnRouteTargetIpv4Address(_Entity_):
                             """
                             Name of the Route Target
                             
@@ -22504,7 +25496,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, self).__init__()
 
                                 self.yang_name = "evpn-route-target-ipv4-address"
                                 self.yang_parent_name = "evpn-route-targets"
@@ -22530,11 +25525,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery']['meta_info']
 
 
-
-
-                class EvpnInstanceEtree(Entity):
+                class EvpnInstanceEtree(_Entity_):
                     """
                     Enter EVPN E\-Tree configuration submode
                     
@@ -22556,7 +25563,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree, self).__init__()
 
                         self.yang_name = "evpn-instance-etree"
                         self.yang_parent_name = "evpn-instance"
@@ -22576,9 +25586,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree, ['evpn_instance_etree_leaf', 'enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceEtree']['meta_info']
 
 
-                class EvpnInstanceAdvertiseMac(Entity):
+                class EvpnInstanceAdvertiseMac(_Entity_):
                     """
                     Enter Advertise local MAC\-only routes
                     configuration submode
@@ -22601,7 +25615,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, self).__init__()
 
                         self.yang_name = "evpn-instance-advertise-mac"
                         self.yang_parent_name = "evpn-instance"
@@ -22621,9 +25638,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac']['meta_info']
 
 
-                class EvpnInstanceMulticast(Entity):
+                class EvpnInstanceMulticast(_Entity_):
                     """
                     Enter Multicast configuration submode
                     
@@ -22645,7 +25666,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, self).__init__()
 
                         self.yang_name = "evpn-instance-multicast"
                         self.yang_parent_name = "evpn-instance"
@@ -22665,9 +25689,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast']['meta_info']
 
 
-                class EvpnInstanceLoadBalancing(Entity):
+                class EvpnInstanceLoadBalancing(_Entity_):
                     """
                     Enter Loadbalancing configuration submode
                     
@@ -22689,7 +25717,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, self).__init__()
 
                         self.yang_name = "evpn-instance-load-balancing"
                         self.yang_parent_name = "evpn-instance"
@@ -22709,11 +25740,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnInstances.EvpnInstance']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnInstances']['meta_info']
 
 
-
-
-        class EvpnLogging(Entity):
+        class EvpnLogging(_Entity_):
             """
             Enter EVPN Logging configuration submode
             
@@ -22735,7 +25778,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnLogging, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnLogging, self).__init__()
 
                 self.yang_name = "evpn-logging"
                 self.yang_parent_name = "evpn-tables"
@@ -22756,9 +25802,13 @@ class Evpn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnLogging, ['evpn_df_election', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnLogging']['meta_info']
 
 
-        class EvpnInterfaces(Entity):
+        class EvpnInterfaces(_Entity_):
             """
             Attachment Circuit interfaces
             
@@ -22775,7 +25825,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnInterfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnInterfaces, self).__init__()
 
                 self.yang_name = "evpn-interfaces"
                 self.yang_parent_name = "evpn-tables"
@@ -22794,7 +25847,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces, [], name, value)
 
 
-            class EvpnInterface(Entity):
+            class EvpnInterface(_Entity_):
                 """
                 Attachment circuit interface
                 
@@ -22835,7 +25888,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, self).__init__()
 
                     self.yang_name = "evpn-interface"
                     self.yang_parent_name = "evpn-interfaces"
@@ -22867,7 +25923,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, ['interface_name', 'evpn_core_isolation_group', 'mac_flush'], name, value)
 
 
-                class EvpnacTimers(Entity):
+                class EvpnacTimers(_Entity_):
                     """
                     Enter Interface\-specific timers configuration
                     submode
@@ -22886,7 +25942,7 @@ class Evpn(Entity):
                     	Interface\-specific Carving timer
                     	**type**\: int
                     
-                    	**range:** 0..10
+                    	**range:** 0..300
                     
                     	**default value**\: 0
                     
@@ -22900,7 +25956,7 @@ class Evpn(Entity):
                     	Interface\-specific Recovery timer
                     	**type**\: int
                     
-                    	**range:** 20..3600
+                    	**range:** 0..3600
                     
                     	**default value**\: 30
                     
@@ -22912,7 +25968,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, self).__init__()
 
                         self.yang_name = "evpnac-timers"
                         self.yang_parent_name = "evpn-interface"
@@ -22936,9 +25995,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'evpnac_carving', 'enable', 'evpnac_recovery'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers']['meta_info']
 
 
-                class EthernetSegment(Entity):
+                class EthernetSegment(_Entity_):
                     """
                     Enter Ethernet Segment configuration submode
                     
@@ -23001,7 +26064,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, self).__init__()
 
                         self.yang_name = "ethernet-segment"
                         self.yang_parent_name = "evpn-interface"
@@ -23039,7 +26105,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, ['force_single_homed', 'load_balancing_mode', 'enable', 'backbone_source_mac', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
-                    class Identifier(Entity):
+                    class Identifier(_Entity_):
                         """
                         Ethernet segment identifier
                         
@@ -23113,7 +26179,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, self).__init__()
 
                             self.yang_name = "identifier"
                             self.yang_parent_name = "ethernet-segment"
@@ -23142,9 +26211,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier']['meta_info']
 
 
-                    class ManualServiceCarving(Entity):
+                    class ManualServiceCarving(_Entity_):
                         """
                         Enter Manual service carving configuration
                         submode
@@ -23167,7 +26240,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, self).__init__()
 
                             self.yang_name = "manual-service-carving"
                             self.yang_parent_name = "ethernet-segment"
@@ -23190,7 +26266,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
-                        class ServiceList(Entity):
+                        class ServiceList(_Entity_):
                             """
                             Manual service carving primary,secondary lists
                             
@@ -23216,7 +26292,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
 
                                 self.yang_name = "service-list"
                                 self.yang_parent_name = "manual-service-carving"
@@ -23236,13 +26315,33 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnInterfaces']['meta_info']
 
 
-
-
-
-
-        class EvpnVirtualAccessPws(Entity):
+        class EvpnVirtualAccessPws(_Entity_):
             """
             Virtual Access Pseudowire interfaces
             
@@ -23259,7 +26358,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnVirtualAccessPws, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnVirtualAccessPws, self).__init__()
 
                 self.yang_name = "evpn-virtual-access-pws"
                 self.yang_parent_name = "evpn-tables"
@@ -23278,7 +26380,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws, [], name, value)
 
 
-            class EvpnVirtualAccessPw(Entity):
+            class EvpnVirtualAccessPw(_Entity_):
                 """
                 Virtual Access Pseudowire
                 
@@ -23314,7 +26416,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, self).__init__()
 
                     self.yang_name = "evpn-virtual-access-pw"
                     self.yang_parent_name = "evpn-virtual-access-pws"
@@ -23344,7 +26449,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, ['neighbor', 'pseudowire_id'], name, value)
 
 
-                class EvpnVirtualAccessPwTimers(Entity):
+                class EvpnVirtualAccessPwTimers(_Entity_):
                     """
                     Enter Virtual Access Pseudowire\-specific
                     timers configuration submode
@@ -23354,7 +26459,7 @@ class Evpn(Entity):
                     	Virtual Access Pseudowire\-specific Recovery timer
                     	**type**\: int
                     
-                    	**range:** 20..3600
+                    	**range:** 0..3600
                     
                     	**default value**\: 30
                     
@@ -23377,7 +26482,7 @@ class Evpn(Entity):
                     	Virtual Access Pseudowire\-specific Carving timer
                     	**type**\: int
                     
-                    	**range:** 0..10
+                    	**range:** 0..300
                     
                     	**default value**\: 0
                     
@@ -23389,7 +26494,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, self).__init__()
 
                         self.yang_name = "evpn-virtual-access-pw-timers"
                         self.yang_parent_name = "evpn-virtual-access-pw"
@@ -23413,9 +26521,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable', 'evpn_virtual_access_pw_carving'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers']['meta_info']
 
 
-                class EvpnVirtualEthernetSegment(Entity):
+                class EvpnVirtualEthernetSegment(_Entity_):
                     """
                     Enter Ethernet Segment configuration submode
                     
@@ -23461,7 +26573,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, self).__init__()
 
                         self.yang_name = "evpn-virtual-ethernet-segment"
                         self.yang_parent_name = "evpn-virtual-access-pw"
@@ -23493,7 +26608,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, ['enable', 'service_carving_mcast_type', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
-                    class Identifier(Entity):
+                    class Identifier(_Entity_):
                         """
                         Ethernet segment identifier
                         
@@ -23567,7 +26682,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, self).__init__()
 
                             self.yang_name = "identifier"
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
@@ -23596,9 +26714,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier']['meta_info']
 
 
-                    class ManualServiceCarving(Entity):
+                    class ManualServiceCarving(_Entity_):
                         """
                         Enter Manual service carving configuration
                         submode
@@ -23621,7 +26743,10 @@ class Evpn(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, self).__init__()
 
                             self.yang_name = "manual-service-carving"
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
@@ -23644,7 +26769,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
-                        class ServiceList(Entity):
+                        class ServiceList(_Entity_):
                             """
                             Manual service carving primary,secondary lists
                             
@@ -23670,7 +26795,10 @@ class Evpn(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, self).__init__()
 
                                 self.yang_name = "service-list"
                                 self.yang_parent_name = "manual-service-carving"
@@ -23690,13 +26818,33 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                                return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                            return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws']['meta_info']
 
 
-
-
-
-
-        class EvpnEthernetSegment(Entity):
+        class EvpnEthernetSegment(_Entity_):
             """
             EVPN Global Ethernet Segment submode
             
@@ -23718,7 +26866,10 @@ class Evpn(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Evpn.EvpnTables.EvpnEthernetSegment, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.EvpnEthernetSegment, self).__init__()
 
                 self.yang_name = "evpn-ethernet-segment"
                 self.yang_parent_name = "evpn-tables"
@@ -23742,7 +26893,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment, ['enable'], name, value)
 
 
-            class EvpnEsiTypes(Entity):
+            class EvpnEsiTypes(_Entity_):
                 """
                 EVPN ESI type table
                 
@@ -23759,7 +26910,10 @@ class Evpn(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes, self).__init__()
 
                     self.yang_name = "evpn-esi-types"
                     self.yang_parent_name = "evpn-ethernet-segment"
@@ -23778,7 +26932,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes, [], name, value)
 
 
-                class EvpnEsiType(Entity):
+                class EvpnEsiType(_Entity_):
                     """
                     ESI type
                     
@@ -23802,7 +26956,10 @@ class Evpn(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, self).__init__()
 
                         self.yang_name = "evpn-esi-type"
                         self.yang_parent_name = "evpn-esi-types"
@@ -23823,11 +26980,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, ['esi_type', 'disable_auto_generation'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.EvpnEthernetSegment']['meta_info']
 
 
-
-
-        class Host(Entity):
+        class Host(_Entity_):
             """
             EVPN HOST Configuration
             
@@ -23854,7 +27023,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.EvpnTables.Host, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.EvpnTables.Host, self).__init__()
 
                 self.yang_name = "host"
                 self.yang_parent_name = "evpn-tables"
@@ -23883,7 +27055,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.Host, [], name, value)
 
 
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 EVPN HOST IPV6\-ADDR Configuration
                 
@@ -23900,7 +27072,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.Host.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.Host.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "host"
@@ -23921,7 +27096,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.Host.Ipv6, [], name, value)
 
 
-                class DuplicateDetection(Entity):
+                class DuplicateDetection(_Entity_):
                     """
                     EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
                     Configuration
@@ -23975,7 +27150,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.Host.Ipv6.DuplicateDetection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.Host.Ipv6.DuplicateDetection, self).__init__()
 
                         self.yang_name = "duplicate-detection"
                         self.yang_parent_name = "ipv6"
@@ -24002,10 +27180,18 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.Host.Ipv6.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.Host.Ipv6.DuplicateDetection']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.Host.Ipv6']['meta_info']
 
 
-
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 EVPN HOST IPV4\-ADDR Configuration
                 
@@ -24022,7 +27208,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.Host.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.Host.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "host"
@@ -24043,7 +27232,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.Host.Ipv4, [], name, value)
 
 
-                class DuplicateDetection(Entity):
+                class DuplicateDetection(_Entity_):
                     """
                     EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
                     Configuration
@@ -24097,7 +27286,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.Host.Ipv4.DuplicateDetection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.Host.Ipv4.DuplicateDetection, self).__init__()
 
                         self.yang_name = "duplicate-detection"
                         self.yang_parent_name = "ipv4"
@@ -24124,10 +27316,18 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.Host.Ipv4.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.Host.Ipv4.DuplicateDetection']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.Host.Ipv4']['meta_info']
 
 
-
-            class Mac(Entity):
+            class Mac(_Entity_):
                 """
                 EVPN HOST MAC\-ADDR Configuration
                 
@@ -24144,7 +27344,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.EvpnTables.Host.Mac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.EvpnTables.Host.Mac, self).__init__()
 
                     self.yang_name = "mac"
                     self.yang_parent_name = "host"
@@ -24165,7 +27368,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.EvpnTables.Host.Mac, [], name, value)
 
 
-                class DuplicateDetection(Entity):
+                class DuplicateDetection(_Entity_):
                     """
                     EVPN HOST [MAC/IPv4/IPv6] DUP\-DETECT
                     Configuration
@@ -24219,7 +27422,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.EvpnTables.Host.Mac.DuplicateDetection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.EvpnTables.Host.Mac.DuplicateDetection, self).__init__()
 
                         self.yang_name = "duplicate-detection"
                         self.yang_parent_name = "mac"
@@ -24246,13 +27452,33 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.Host.Mac.DuplicateDetection, ['move_count', 'retry_count', 'freeze_time', 'move_interval', 'disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                        return meta._meta_table['Evpn.EvpnTables.Host.Mac.DuplicateDetection']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                    return meta._meta_table['Evpn.EvpnTables.Host.Mac']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+                return meta._meta_table['Evpn.EvpnTables.Host']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+            return meta._meta_table['Evpn.EvpnTables']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Evpn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
+        return meta._meta_table['Evpn']['meta_info']
 
 

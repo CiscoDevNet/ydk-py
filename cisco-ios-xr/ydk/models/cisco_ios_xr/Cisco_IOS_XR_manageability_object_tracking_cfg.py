@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ObjectTrackings(Entity):
+class ObjectTrackings(_Entity_):
     """
     Object Tracking configuration
     
@@ -42,7 +45,10 @@ class ObjectTrackings(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(ObjectTrackings, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ObjectTrackings, self).__init__()
         self._top_entity = None
 
         self.yang_name = "object-trackings"
@@ -61,7 +67,7 @@ class ObjectTrackings(Entity):
         self._perform_setattr(ObjectTrackings, [], name, value)
 
 
-    class ObjectTracking(Entity):
+    class ObjectTracking(_Entity_):
         """
         Track name \- maximum 32 characters
         
@@ -158,7 +164,10 @@ class ObjectTrackings(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(ObjectTrackings.ObjectTracking, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ObjectTrackings.ObjectTracking, self).__init__()
 
             self.yang_name = "object-tracking"
             self.yang_parent_name = "object-trackings"
@@ -220,7 +229,7 @@ class ObjectTrackings(Entity):
             self._perform_setattr(ObjectTrackings.ObjectTracking, ['track_name', 'delay_up', 'enable', 'delay_down', 'type_interface_enable', 'type_route_enable', 'type_boolean_list_and_enable', 'type_boolean_list_or_enable'], name, value)
 
 
-        class Action(Entity):
+        class Action(_Entity_):
             """
             Actions associated with track state changes
             
@@ -242,7 +251,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.Action, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.Action, self).__init__()
 
                 self.yang_name = "action"
                 self.yang_parent_name = "object-tracking"
@@ -265,7 +277,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.Action, ['actions_enable'], name, value)
 
 
-            class ActionErrDis(Entity):
+            class ActionErrDis(_Entity_):
                 """
                 The list of all track actions
                 
@@ -282,7 +294,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.Action.ActionErrDis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.Action.ActionErrDis, self).__init__()
 
                     self.yang_name = "action-err-dis"
                     self.yang_parent_name = "action"
@@ -300,7 +315,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.Action.ActionErrDis, [], name, value)
 
 
-                class ActionErrDi(Entity):
+                class ActionErrDi(_Entity_):
                     """
                     Error disable track action
                     
@@ -326,7 +341,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.Action.ActionErrDis.ActionErrDi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.Action.ActionErrDis.ActionErrDi, self).__init__()
 
                         self.yang_name = "action-err-di"
                         self.yang_parent_name = "action-err-dis"
@@ -346,11 +364,23 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.Action.ActionErrDis.ActionErrDi, ['track_state_type', 'interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.Action.ActionErrDis.ActionErrDi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.Action.ActionErrDis']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.Action']['meta_info']
 
 
-
-
-        class TypeBfdRtr(Entity):
+        class TypeBfdRtr(_Entity_):
             """
             Track type BFD RTR (BFD Response Time Reporter)
             
@@ -369,7 +399,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeBfdRtr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeBfdRtr, self).__init__()
 
                 self.yang_name = "type-bfd-rtr"
                 self.yang_parent_name = "object-tracking"
@@ -388,7 +421,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBfdRtr, [], name, value)
 
 
-            class BfdRtr(Entity):
+            class BfdRtr(_Entity_):
                 """
                 BFD session related parameters
                 
@@ -438,7 +471,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeBfdRtr.BfdRtr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeBfdRtr.BfdRtr, self).__init__()
 
                     self.yang_name = "bfd-rtr"
                     self.yang_parent_name = "type-bfd-rtr"
@@ -463,10 +499,18 @@ class ObjectTrackings(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBfdRtr.BfdRtr, ['rate', 'debounce_count', 'interface_name', 'dest_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBfdRtr.BfdRtr']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBfdRtr']['meta_info']
 
 
-
-        class TypeInterface(Entity):
+        class TypeInterface(_Entity_):
             """
             Track type line\-protocol
             
@@ -485,7 +529,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeInterface, self).__init__()
 
                 self.yang_name = "type-interface"
                 self.yang_parent_name = "object-tracking"
@@ -503,9 +550,13 @@ class ObjectTrackings(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeInterface, ['interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeInterface']['meta_info']
 
 
-        class TypeRtr(Entity):
+        class TypeRtr(_Entity_):
             """
             Track type RTR (Response Time Reporter \- IPSLA)
             
@@ -524,7 +575,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeRtr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeRtr, self).__init__()
 
                 self.yang_name = "type-rtr"
                 self.yang_parent_name = "object-tracking"
@@ -542,9 +596,13 @@ class ObjectTrackings(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRtr, ['rtr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeRtr']['meta_info']
 
 
-        class TypeList(Entity):
+        class TypeList(_Entity_):
             """
             Track type boolean list
             
@@ -588,7 +646,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeList, self).__init__()
 
                 self.yang_name = "type-list"
                 self.yang_parent_name = "object-tracking"
@@ -625,7 +686,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList, ['threshold_percentage_object_enable', 'threshold_weight_object_enable'], name, value)
 
 
-            class ThresholdWeight(Entity):
+            class ThresholdWeight(_Entity_):
                 """
                 Track type threshold weight
                 
@@ -642,7 +703,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight, self).__init__()
 
                     self.yang_name = "threshold-weight"
                     self.yang_parent_name = "type-list"
@@ -662,7 +726,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight, [], name, value)
 
 
-                class ThresholdLimits(Entity):
+                class ThresholdLimits(_Entity_):
                     """
                     Threshold Limits
                     
@@ -690,7 +754,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, self).__init__()
 
                         self.yang_name = "threshold-limits"
                         self.yang_parent_name = "threshold-weight"
@@ -710,10 +777,18 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits, ['up', 'down'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight']['meta_info']
 
 
-
-            class ThresholdPercentageObject(Entity):
+            class ThresholdPercentageObject(_Entity_):
                 """
                 Track type threshold percentage
                 
@@ -730,7 +805,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject, self).__init__()
 
                     self.yang_name = "threshold-percentage-object"
                     self.yang_parent_name = "type-list"
@@ -748,7 +826,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject, [], name, value)
 
 
-                class Object(Entity):
+                class Object(_Entity_):
                     """
                     Track name object
                     
@@ -776,7 +854,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, self).__init__()
 
                         self.yang_name = "object"
                         self.yang_parent_name = "threshold-percentage-object"
@@ -796,10 +877,18 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, ['object', 'object_weight'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject']['meta_info']
 
 
-
-            class ThresholdPercentage(Entity):
+            class ThresholdPercentage(_Entity_):
                 """
                 Track type threshold percentage
                 
@@ -816,7 +905,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage, self).__init__()
 
                     self.yang_name = "threshold-percentage"
                     self.yang_parent_name = "type-list"
@@ -836,7 +928,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage, [], name, value)
 
 
-                class ThresholdLimits(Entity):
+                class ThresholdLimits(_Entity_):
                     """
                     Threshold Limits
                     
@@ -864,7 +956,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, self).__init__()
 
                         self.yang_name = "threshold-limits"
                         self.yang_parent_name = "threshold-percentage"
@@ -884,10 +979,18 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits, ['up', 'down'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage']['meta_info']
 
 
-
-            class ThresholdWeightObject(Entity):
+            class ThresholdWeightObject(_Entity_):
                 """
                 Track type threshold weight
                 
@@ -904,7 +1007,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject, self).__init__()
 
                     self.yang_name = "threshold-weight-object"
                     self.yang_parent_name = "type-list"
@@ -922,7 +1028,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject, [], name, value)
 
 
-                class Object(Entity):
+                class Object(_Entity_):
                     """
                     Track name object
                     
@@ -950,7 +1056,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, self).__init__()
 
                         self.yang_name = "object"
                         self.yang_parent_name = "threshold-weight-object"
@@ -970,11 +1079,23 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, ['object', 'object_weight'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeList']['meta_info']
 
 
-
-
-        class TypeRoute(Entity):
+        class TypeRoute(_Entity_):
             """
             Track type route ipv4
             
@@ -1000,7 +1121,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeRoute, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeRoute, self).__init__()
 
                 self.yang_name = "type-route"
                 self.yang_parent_name = "object-tracking"
@@ -1022,7 +1146,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRoute, ['vrf'], name, value)
 
 
-            class IpAddress(Entity):
+            class IpAddress(_Entity_):
                 """
                 set track IPv4 address
                 
@@ -1050,7 +1174,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeRoute.IpAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeRoute.IpAddress, self).__init__()
 
                     self.yang_name = "ip-address"
                     self.yang_parent_name = "type-route"
@@ -1071,10 +1198,18 @@ class ObjectTrackings(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRoute.IpAddress, ['address', 'mask'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeRoute.IpAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeRoute']['meta_info']
 
 
-
-        class TypeBooleanList(Entity):
+        class TypeBooleanList(_Entity_):
             """
             Track type boolean list
             
@@ -1096,7 +1231,10 @@ class ObjectTrackings(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ObjectTrackings.ObjectTracking.TypeBooleanList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ObjectTrackings.ObjectTracking.TypeBooleanList, self).__init__()
 
                 self.yang_name = "type-boolean-list"
                 self.yang_parent_name = "object-tracking"
@@ -1120,7 +1258,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList, [], name, value)
 
 
-            class OrObjects(Entity):
+            class OrObjects(_Entity_):
                 """
                 Track type boolean or list
                 
@@ -1137,7 +1275,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects, self).__init__()
 
                     self.yang_name = "or-objects"
                     self.yang_parent_name = "type-boolean-list"
@@ -1155,7 +1296,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects, [], name, value)
 
 
-                class OrObject(Entity):
+                class OrObject(_Entity_):
                     """
                     Track name \- maximum 32 characters
                     
@@ -1179,7 +1320,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, self).__init__()
 
                         self.yang_name = "or-object"
                         self.yang_parent_name = "or-objects"
@@ -1199,10 +1343,18 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, ['object', 'object_sign'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects']['meta_info']
 
 
-
-            class AndObjects(Entity):
+            class AndObjects(_Entity_):
                 """
                 Track type boolean and list
                 
@@ -1219,7 +1371,10 @@ class ObjectTrackings(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects, self).__init__()
 
                     self.yang_name = "and-objects"
                     self.yang_parent_name = "type-boolean-list"
@@ -1237,7 +1392,7 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects, [], name, value)
 
 
-                class AndObject(Entity):
+                class AndObject(_Entity_):
                     """
                     Track name \- maximum 32 characters
                     
@@ -1261,7 +1416,10 @@ class ObjectTrackings(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, self).__init__()
 
                         self.yang_name = "and-object"
                         self.yang_parent_name = "and-objects"
@@ -1281,13 +1439,33 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, ['object_name', 'object_sign'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                        return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                    return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+                return meta._meta_table['ObjectTrackings.ObjectTracking.TypeBooleanList']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+            return meta._meta_table['ObjectTrackings.ObjectTracking']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ObjectTrackings()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_object_tracking_cfg as meta
+        return meta._meta_table['ObjectTrackings']['meta_info']
 
 

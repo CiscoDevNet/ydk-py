@@ -6,7 +6,7 @@ module Cisco-IOS-XR-aaa-diameter-oper {
     prefix a1;
   }
   include Cisco-IOS-XR-aaa-diameter-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2019-09-26;
   }
 
   organization
@@ -32,6 +32,14 @@ module Cisco-IOS-XR-aaa-diameter-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-26 {
+    description
+      "Introduced a peer-closed-reason leaf and transaction related leaves in DIAMETER-SERVERBAG grouping.";
+  }
+  revision 2019-08-25 {
+    description
+      "Fixed the string length to Bounded String.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

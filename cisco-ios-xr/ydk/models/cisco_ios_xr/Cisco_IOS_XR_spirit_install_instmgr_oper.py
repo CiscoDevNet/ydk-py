@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -63,6 +66,12 @@ class CardTypeEt(Enum):
     card_sp = Enum.YLeaf(4, "card-sp")
 
     card_other = Enum.YLeaf(5, "card-other")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['CardTypeEt']
 
 
 class IsdErrorEt(Enum):
@@ -206,6 +215,12 @@ class IsdErrorEt(Enum):
     err_issu_dir_restart = Enum.YLeaf(21, "err-issu-dir-restart")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['IsdErrorEt']
+
+
 class IsdIssuStatusEt(Enum):
     """
     IsdIssuStatusEt (Enum Class)
@@ -267,6 +282,12 @@ class IsdIssuStatusEt(Enum):
     abort_cleanup = Enum.YLeaf(7, "abort-cleanup")
 
     abort_cmd_reject = Enum.YLeaf(8, "abort-cmd-reject")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['IsdIssuStatusEt']
 
 
 class IsdStateEt(Enum):
@@ -386,6 +407,12 @@ class IsdStateEt(Enum):
     unknown_state = Enum.YLeaf(17, "unknown-state")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['IsdStateEt']
+
+
 class IssuNodeRoleEt(Enum):
     """
     IssuNodeRoleEt (Enum Class)
@@ -417,6 +444,12 @@ class IssuNodeRoleEt(Enum):
     secondary_role = Enum.YLeaf(2, "secondary-role")
 
     tertiary_role = Enum.YLeaf(3, "tertiary-role")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['IssuNodeRoleEt']
 
 
 class IssudirNodeStatusEt(Enum):
@@ -452,6 +485,12 @@ class IssudirNodeStatusEt(Enum):
     node_fail = Enum.YLeaf(3, "node-fail")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['IssudirNodeStatusEt']
+
+
 class NodeRoleEt(Enum):
     """
     NodeRoleEt (Enum Class)
@@ -485,8 +524,14 @@ class NodeRoleEt(Enum):
     node_unusable = Enum.YLeaf(3, "node-unusable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['NodeRoleEt']
 
-class SoftwareInstall(Entity):
+
+
+class SoftwareInstall(_Entity_):
     """
     Install operations info
     
@@ -610,7 +655,10 @@ class SoftwareInstall(Entity):
     _revision = '2019-08-24'
 
     def __init__(self):
-        super(SoftwareInstall, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SoftwareInstall, self).__init__()
         self._top_entity = None
 
         self.yang_name = "software-install"
@@ -691,7 +739,7 @@ class SoftwareInstall(Entity):
         self._perform_setattr(SoftwareInstall, [], name, value)
 
 
-    class Superseded(Entity):
+    class Superseded(_Entity_):
         """
         Show superseded packages
         
@@ -710,7 +758,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Superseded, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Superseded, self).__init__()
 
             self.yang_name = "superseded"
             self.yang_parent_name = "software-install"
@@ -729,7 +780,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Superseded, [], name, value)
 
 
-        class SupersededPackageInfo(Entity):
+        class SupersededPackageInfo(_Entity_):
             """
             superseded package info
             
@@ -785,7 +836,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Superseded.SupersededPackageInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Superseded.SupersededPackageInfo, self).__init__()
 
                 self.yang_name = "superseded-package-info"
                 self.yang_parent_name = "superseded"
@@ -814,10 +868,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages', 'number_of_packages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Superseded.SupersededPackageInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Superseded']['meta_info']
 
 
-
-    class CommittedSummary(Entity):
+    class CommittedSummary(_Entity_):
         """
         Show Committed packages installed
         
@@ -836,7 +898,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.CommittedSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.CommittedSummary, self).__init__()
 
             self.yang_name = "committed-summary"
             self.yang_parent_name = "software-install"
@@ -855,7 +920,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.CommittedSummary, [], name, value)
 
 
-        class CommittedPackageInfo(Entity):
+        class CommittedPackageInfo(_Entity_):
             """
             committed package info
             
@@ -911,7 +976,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.CommittedSummary.CommittedPackageInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.CommittedSummary.CommittedPackageInfo, self).__init__()
 
                 self.yang_name = "committed-package-info"
                 self.yang_parent_name = "committed-summary"
@@ -940,10 +1008,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.CommittedSummary.CommittedPackageInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.CommittedSummary']['meta_info']
 
 
-
-    class ActiveSummary(Entity):
+    class ActiveSummary(_Entity_):
         """
         Show active packages installed
         
@@ -962,7 +1038,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.ActiveSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.ActiveSummary, self).__init__()
 
             self.yang_name = "active-summary"
             self.yang_parent_name = "software-install"
@@ -981,7 +1060,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.ActiveSummary, [], name, value)
 
 
-        class ActivePackageInfo(Entity):
+        class ActivePackageInfo(_Entity_):
             """
             active package info
             
@@ -1037,7 +1116,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.ActiveSummary.ActivePackageInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.ActiveSummary.ActivePackageInfo, self).__init__()
 
                 self.yang_name = "active-package-info"
                 self.yang_parent_name = "active-summary"
@@ -1066,10 +1148,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.ActiveSummary.ActivePackageInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.ActiveSummary']['meta_info']
 
 
-
-    class InactiveSummary(Entity):
+    class InactiveSummary(_Entity_):
         """
         Show XR inactive packages
         
@@ -1088,7 +1178,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.InactiveSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.InactiveSummary, self).__init__()
 
             self.yang_name = "inactive-summary"
             self.yang_parent_name = "software-install"
@@ -1107,9 +1200,13 @@ class SoftwareInstall(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.InactiveSummary, ['log'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.InactiveSummary']['meta_info']
 
 
-    class Prepare(Entity):
+    class Prepare(_Entity_):
         """
         Show prepared packages ready for activation
         
@@ -1155,6 +1252,13 @@ class SoftwareInstall(Entity):
         
         	**config**\: False
         
+        .. attribute:: error_message
+        
+        	ErrorMessage
+        	**type**\: str
+        
+        	**config**\: False
+        
         .. attribute:: rpm
         
         	rpm
@@ -1177,7 +1281,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Prepare, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Prepare, self).__init__()
 
             self.yang_name = "prepare"
             self.yang_parent_name = "software-install"
@@ -1192,6 +1299,7 @@ class SoftwareInstall(Entity):
                 ('restart_type', (YLeaf(YType.str, 'restart-type'), ['str'])),
                 ('activate_message', (YLeaf(YType.str, 'activate-message'), ['str'])),
                 ('prepare_clean_message', (YLeaf(YType.str, 'prepare-clean-message'), ['str'])),
+                ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
             ])
             self.no_prepare_done = None
             self.prepared_boot_image = None
@@ -1199,6 +1307,7 @@ class SoftwareInstall(Entity):
             self.restart_type = None
             self.activate_message = None
             self.prepare_clean_message = None
+            self.error_message = None
 
             self.rpm = YList(self)
             self.package = YList(self)
@@ -1207,10 +1316,10 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Prepare, ['no_prepare_done', 'prepared_boot_image', 'prepared_boot_partition', 'restart_type', 'activate_message', 'prepare_clean_message'], name, value)
+            self._perform_setattr(SoftwareInstall.Prepare, ['no_prepare_done', 'prepared_boot_image', 'prepared_boot_partition', 'restart_type', 'activate_message', 'prepare_clean_message', 'error_message'], name, value)
 
 
-        class Rpm(Entity):
+        class Rpm(_Entity_):
             """
             rpm
             
@@ -1229,7 +1338,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Prepare.Rpm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Prepare.Rpm, self).__init__()
 
                 self.yang_name = "rpm"
                 self.yang_parent_name = "prepare"
@@ -1248,9 +1360,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Prepare.Rpm, ['package'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Prepare.Rpm']['meta_info']
 
 
-        class Package(Entity):
+        class Package(_Entity_):
             """
             package
             
@@ -1269,7 +1385,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Prepare.Package, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Prepare.Package, self).__init__()
 
                 self.yang_name = "package"
                 self.yang_parent_name = "prepare"
@@ -1288,10 +1407,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Prepare.Package, ['package'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Prepare.Package']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Prepare']['meta_info']
 
 
-
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Show active packages installed
         
@@ -1310,7 +1437,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "software-install"
@@ -1329,7 +1459,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Active, [], name, value)
 
 
-        class ActivePackageInfo(Entity):
+        class ActivePackageInfo(_Entity_):
             """
             active package info
             
@@ -1385,7 +1515,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Active.ActivePackageInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Active.ActivePackageInfo, self).__init__()
 
                 self.yang_name = "active-package-info"
                 self.yang_parent_name = "active"
@@ -1414,10 +1547,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Active.ActivePackageInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Active']['meta_info']
 
 
-
-    class Version(Entity):
+    class Version(_Entity_):
         """
         Show install version
         
@@ -1478,7 +1619,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Version, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Version, self).__init__()
 
             self.yang_name = "version"
             self.yang_parent_name = "software-install"
@@ -1510,7 +1654,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime', 'img_info'], name, value)
 
 
-        class Package(Entity):
+        class Package(_Entity_):
             """
             package
             
@@ -1564,7 +1708,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Version.Package, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Version.Package, self).__init__()
 
                 self.yang_name = "package"
                 self.yang_parent_name = "version"
@@ -1593,10 +1740,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Version.Package, ['name', 'version', 'built_by', 'built_on', 'build_host', 'workspace'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Version.Package']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Version']['meta_info']
 
 
-
-    class Inactive(Entity):
+    class Inactive(_Entity_):
         """
         Show XR inactive packages
         
@@ -1615,7 +1770,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Inactive, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Inactive, self).__init__()
 
             self.yang_name = "inactive"
             self.yang_parent_name = "software-install"
@@ -1634,9 +1792,13 @@ class SoftwareInstall(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Inactive, ['log'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Inactive']['meta_info']
 
 
-    class Request(Entity):
+    class Request(_Entity_):
         """
         Show current request
         
@@ -1655,7 +1817,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Request, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Request, self).__init__()
 
             self.yang_name = "request"
             self.yang_parent_name = "software-install"
@@ -1674,9 +1839,13 @@ class SoftwareInstall(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Request, ['curr_inst_oper'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Request']['meta_info']
 
 
-    class SupersededSummary(Entity):
+    class SupersededSummary(_Entity_):
         """
         Show superseded packages
         
@@ -1695,7 +1864,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.SupersededSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.SupersededSummary, self).__init__()
 
             self.yang_name = "superseded-summary"
             self.yang_parent_name = "software-install"
@@ -1714,9 +1886,13 @@ class SoftwareInstall(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.SupersededSummary, ['log'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.SupersededSummary']['meta_info']
 
 
-    class Issu(Entity):
+    class Issu(_Entity_):
         """
         ISSU operation
         
@@ -1742,7 +1918,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Issu, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Issu, self).__init__()
 
             self.yang_name = "issu"
             self.yang_parent_name = "software-install"
@@ -1767,7 +1946,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Issu, [], name, value)
 
 
-        class Stage(Entity):
+        class Stage(_Entity_):
             """
             Show XR install issu stage
             
@@ -1829,7 +2008,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Issu.Stage, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Issu.Stage, self).__init__()
 
                 self.yang_name = "stage"
                 self.yang_parent_name = "issu"
@@ -1858,9 +2040,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Issu.Stage, ['state', 'issu_node_cnt', 'issu_ready_node_cnt', 'percentage', 'issu_status', 'issu_error'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Issu.Stage']['meta_info']
 
 
-        class Inventory(Entity):
+        class Inventory(_Entity_):
             """
             Show XR install issu inventory
             
@@ -1879,7 +2065,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Issu.Inventory, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Issu.Inventory, self).__init__()
 
                 self.yang_name = "inventory"
                 self.yang_parent_name = "issu"
@@ -1898,7 +2087,7 @@ class SoftwareInstall(Entity):
                 self._perform_setattr(SoftwareInstall.Issu.Inventory, [], name, value)
 
 
-            class Invinfo(Entity):
+            class Invinfo(_Entity_):
                 """
                 invinfo
                 
@@ -1947,7 +2136,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.Issu.Inventory.Invinfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.Issu.Inventory.Invinfo, self).__init__()
 
                     self.yang_name = "invinfo"
                     self.yang_parent_name = "inventory"
@@ -1974,11 +2166,23 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, ['node_id', 'node_type', 'issu_node_role', 'node_state', 'node_role'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.Issu.Inventory.Invinfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Issu.Inventory']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Issu']['meta_info']
 
 
-
-
-    class Committed(Entity):
+    class Committed(_Entity_):
         """
         Show Committed packages installed
         
@@ -1997,7 +2201,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Committed, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Committed, self).__init__()
 
             self.yang_name = "committed"
             self.yang_parent_name = "software-install"
@@ -2016,7 +2223,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Committed, [], name, value)
 
 
-        class CommittedPackageInfo(Entity):
+        class CommittedPackageInfo(_Entity_):
             """
             committed package info
             
@@ -2072,7 +2279,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Committed.CommittedPackageInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Committed.CommittedPackageInfo, self).__init__()
 
                 self.yang_name = "committed-package-info"
                 self.yang_parent_name = "committed"
@@ -2101,10 +2311,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Committed.CommittedPackageInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Committed']['meta_info']
 
 
-
-    class AllOperationsLog(Entity):
+    class AllOperationsLog(_Entity_):
         """
         Show log file for all operations
         
@@ -2144,7 +2362,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.AllOperationsLog, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.AllOperationsLog, self).__init__()
 
             self.yang_name = "all-operations-log"
             self.yang_parent_name = "software-install"
@@ -2177,7 +2398,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.AllOperationsLog, [], name, value)
 
 
-        class ReverseDetail(Entity):
+        class ReverseDetail(_Entity_):
             """
             Show detailed log file for all operations \-
             reverse
@@ -2197,7 +2418,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.AllOperationsLog.ReverseDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.AllOperationsLog.ReverseDetail, self).__init__()
 
                 self.yang_name = "reverse-detail"
                 self.yang_parent_name = "all-operations-log"
@@ -2216,9 +2440,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.ReverseDetail']['meta_info']
 
 
-        class Reverse(Entity):
+        class Reverse(_Entity_):
             """
             Show log file for all operations \- reverse
             
@@ -2237,7 +2465,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.AllOperationsLog.Reverse, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.AllOperationsLog.Reverse, self).__init__()
 
                 self.yang_name = "reverse"
                 self.yang_parent_name = "all-operations-log"
@@ -2256,9 +2487,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.Reverse']['meta_info']
 
 
-        class Summary(Entity):
+        class Summary(_Entity_):
             """
             Show summary log file for all operations
             
@@ -2277,7 +2512,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.AllOperationsLog.Summary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.AllOperationsLog.Summary, self).__init__()
 
                 self.yang_name = "summary"
                 self.yang_parent_name = "all-operations-log"
@@ -2296,9 +2534,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.Summary']['meta_info']
 
 
-        class Detail(Entity):
+        class Detail(_Entity_):
             """
             Show detailed log file for all operations
             
@@ -2317,7 +2559,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.AllOperationsLog.Detail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.AllOperationsLog.Detail, self).__init__()
 
                 self.yang_name = "detail"
                 self.yang_parent_name = "all-operations-log"
@@ -2336,10 +2581,18 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.Detail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.AllOperationsLog']['meta_info']
 
 
-
-    class Packages(Entity):
+    class Packages(_Entity_):
         """
         Show the list of installed packages
         
@@ -2358,7 +2611,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Packages, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Packages, self).__init__()
 
             self.yang_name = "packages"
             self.yang_parent_name = "software-install"
@@ -2377,7 +2633,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Packages, [], name, value)
 
 
-        class Package(Entity):
+        class Package(_Entity_):
             """
             Show the info for a installed package
             
@@ -2417,7 +2673,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Packages.Package, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Packages.Package, self).__init__()
 
                 self.yang_name = "package"
                 self.yang_parent_name = "packages"
@@ -2449,7 +2708,7 @@ class SoftwareInstall(Entity):
                 self._perform_setattr(SoftwareInstall.Packages.Package, ['package_name'], name, value)
 
 
-            class Verbose(Entity):
+            class Verbose(_Entity_):
                 """
                 Show the verbose info for a installed package
                 
@@ -2468,7 +2727,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.Packages.Package.Verbose, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.Packages.Package.Verbose, self).__init__()
 
                     self.yang_name = "verbose"
                     self.yang_parent_name = "package"
@@ -2486,9 +2748,13 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.Packages.Package.Verbose']['meta_info']
 
 
-            class Brief(Entity):
+            class Brief(_Entity_):
                 """
                 Show the info for a installed package
                 
@@ -2507,7 +2773,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.Packages.Package.Brief, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.Packages.Package.Brief, self).__init__()
 
                     self.yang_name = "brief"
                     self.yang_parent_name = "package"
@@ -2525,9 +2794,13 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Brief, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.Packages.Package.Brief']['meta_info']
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 Show the deatil info for a installed package
                 
@@ -2546,7 +2819,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.Packages.Package.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.Packages.Package.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "package"
@@ -2564,11 +2840,23 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Detail, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.Packages.Package.Detail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Packages.Package']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Packages']['meta_info']
 
 
-
-
-    class OperationLogs(Entity):
+    class OperationLogs(_Entity_):
         """
         Show log file
         
@@ -2587,7 +2875,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.OperationLogs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.OperationLogs, self).__init__()
 
             self.yang_name = "operation-logs"
             self.yang_parent_name = "software-install"
@@ -2606,7 +2897,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.OperationLogs, [], name, value)
 
 
-        class OperationLog(Entity):
+        class OperationLog(_Entity_):
             """
             Show log file for the specified install ID
             
@@ -2641,7 +2932,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.OperationLogs.OperationLog, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.OperationLogs.OperationLog, self).__init__()
 
                 self.yang_name = "operation-log"
                 self.yang_parent_name = "operation-logs"
@@ -2669,7 +2963,7 @@ class SoftwareInstall(Entity):
                 self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog, ['log_id'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Show summary log file for the specified
                 install ID
@@ -2689,7 +2983,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.OperationLogs.OperationLog.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.OperationLogs.OperationLog.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "operation-log"
@@ -2707,9 +3004,13 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Summary']['meta_info']
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 Show detailed log file for the specified
                 install ID
@@ -2729,7 +3030,10 @@ class SoftwareInstall(Entity):
                 _revision = '2019-08-24'
 
                 def __init__(self):
-                    super(SoftwareInstall.OperationLogs.OperationLog.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SoftwareInstall.OperationLogs.OperationLog.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "operation-log"
@@ -2747,11 +3051,23 @@ class SoftwareInstall(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Detail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.OperationLogs']['meta_info']
 
 
-
-
-    class Repository(Entity):
+    class Repository(_Entity_):
         """
         Show packages stored in install software
         repositories
@@ -2778,7 +3094,10 @@ class SoftwareInstall(Entity):
         _revision = '2019-08-24'
 
         def __init__(self):
-            super(SoftwareInstall.Repository, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SoftwareInstall.Repository, self).__init__()
 
             self.yang_name = "repository"
             self.yang_parent_name = "software-install"
@@ -2803,7 +3122,7 @@ class SoftwareInstall(Entity):
             self._perform_setattr(SoftwareInstall.Repository, [], name, value)
 
 
-        class Xr(Entity):
+        class Xr(_Entity_):
             """
             Show install software repository for XR
             
@@ -2822,7 +3141,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Repository.Xr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Repository.Xr, self).__init__()
 
                 self.yang_name = "xr"
                 self.yang_parent_name = "repository"
@@ -2841,9 +3163,13 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Repository.Xr, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Repository.Xr']['meta_info']
 
 
-        class All(Entity):
+        class All(_Entity_):
             """
             Show contents of all install software
             repositories
@@ -2863,7 +3189,10 @@ class SoftwareInstall(Entity):
             _revision = '2019-08-24'
 
             def __init__(self):
-                super(SoftwareInstall.Repository.All, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SoftwareInstall.Repository.All, self).__init__()
 
                 self.yang_name = "all"
                 self.yang_parent_name = "repository"
@@ -2882,11 +3211,23 @@ class SoftwareInstall(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Repository.All, ['log'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Repository.All']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Repository']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SoftwareInstall()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+        return meta._meta_table['SoftwareInstall']['meta_info']
 
 

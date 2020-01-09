@@ -3,12 +3,15 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR action package configuration.
 
-Copyright (c) 2016\-2018 by Cisco Systems, Inc.
+Copyright (c) 2016\-2019 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class InstallAdd(Entity):
+class InstallAdd(_Entity_):
     """
     Cli\-command install add source
     
@@ -39,7 +42,10 @@ class InstallAdd(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallAdd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallAdd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-add"
@@ -61,7 +67,7 @@ class InstallAdd(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -83,7 +89,10 @@ class InstallAdd(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallAdd.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallAdd.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-add"
@@ -104,9 +113,13 @@ class InstallAdd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallAdd.Input, ['packagepath', 'packagename'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallAdd.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -128,7 +141,10 @@ class InstallAdd(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallAdd.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallAdd.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-add"
@@ -149,14 +165,22 @@ class InstallAdd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallAdd.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallAdd.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallAdd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallAdd']['meta_info']
 
 
-class InstallCommit(Entity):
+class InstallCommit(_Entity_):
     """
     Cli\-command install commit
     
@@ -178,7 +202,10 @@ class InstallCommit(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallCommit, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallCommit, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-commit"
@@ -200,7 +227,7 @@ class InstallCommit(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -217,7 +244,10 @@ class InstallCommit(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallCommit.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallCommit.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-commit"
@@ -236,9 +266,13 @@ class InstallCommit(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallCommit.Input, ['sdr'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallCommit.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -260,7 +294,10 @@ class InstallCommit(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallCommit.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallCommit.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-commit"
@@ -281,14 +318,22 @@ class InstallCommit(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallCommit.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallCommit.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallCommit()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallCommit']['meta_info']
 
 
-class InstallRemove(Entity):
+class InstallRemove(_Entity_):
     """
     Cli\-command remove
     
@@ -310,7 +355,10 @@ class InstallRemove(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallRemove, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallRemove, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-remove"
@@ -332,7 +380,7 @@ class InstallRemove(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -364,7 +412,10 @@ class InstallRemove(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallRemove.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallRemove.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-remove"
@@ -394,7 +445,7 @@ class InstallRemove(Entity):
             self._perform_setattr(InstallRemove.Input, ['inactive', 'inactiveall'], name, value)
 
 
-        class Packages(Entity):
+        class Packages(_Entity_):
             """
             
             
@@ -411,7 +462,10 @@ class InstallRemove(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallRemove.Input.Packages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallRemove.Input.Packages, self).__init__()
 
                 self.yang_name = "packages"
                 self.yang_parent_name = "input"
@@ -430,9 +484,13 @@ class InstallRemove(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallRemove.Input.Packages, ['packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallRemove.Input.Packages']['meta_info']
 
 
-        class Ids(Entity):
+        class Ids(_Entity_):
             """
             
             
@@ -449,7 +507,10 @@ class InstallRemove(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallRemove.Input.Ids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallRemove.Input.Ids, self).__init__()
 
                 self.yang_name = "ids"
                 self.yang_parent_name = "input"
@@ -468,10 +529,18 @@ class InstallRemove(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallRemove.Input.Ids, ['id_no'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallRemove.Input.Ids']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallRemove.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -493,7 +562,10 @@ class InstallRemove(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallRemove.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallRemove.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-remove"
@@ -514,14 +586,22 @@ class InstallRemove(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallRemove.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallRemove.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallRemove()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallRemove']['meta_info']
 
 
-class InstallPrepare(Entity):
+class InstallPrepare(_Entity_):
     """
     Cli\-command prepare
     
@@ -543,7 +623,10 @@ class InstallPrepare(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallPrepare, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallPrepare, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-prepare"
@@ -565,7 +648,7 @@ class InstallPrepare(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -597,7 +680,10 @@ class InstallPrepare(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallPrepare.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallPrepare.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-prepare"
@@ -629,7 +715,7 @@ class InstallPrepare(Entity):
             self._perform_setattr(InstallPrepare.Input, ['clean'], name, value)
 
 
-        class Packages(Entity):
+        class Packages(_Entity_):
             """
             
             
@@ -646,7 +732,10 @@ class InstallPrepare(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallPrepare.Input.Packages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallPrepare.Input.Packages, self).__init__()
 
                 self.yang_name = "packages"
                 self.yang_parent_name = "input"
@@ -665,9 +754,13 @@ class InstallPrepare(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallPrepare.Input.Packages, ['packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallPrepare.Input.Packages']['meta_info']
 
 
-        class Ids(Entity):
+        class Ids(_Entity_):
             """
             
             
@@ -684,7 +777,10 @@ class InstallPrepare(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallPrepare.Input.Ids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallPrepare.Input.Ids, self).__init__()
 
                 self.yang_name = "ids"
                 self.yang_parent_name = "input"
@@ -703,9 +799,13 @@ class InstallPrepare(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallPrepare.Input.Ids, ['id_no'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallPrepare.Input.Ids']['meta_info']
 
 
-        class PrepareForce(Entity):
+        class PrepareForce(_Entity_):
             """
             
             
@@ -727,7 +827,10 @@ class InstallPrepare(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallPrepare.Input.PrepareForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallPrepare.Input.PrepareForce, self).__init__()
 
                 self.yang_name = "prepare-force"
                 self.yang_parent_name = "input"
@@ -748,10 +851,18 @@ class InstallPrepare(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallPrepare.Input.PrepareForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallPrepare.Input.PrepareForce']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallPrepare.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -773,7 +884,10 @@ class InstallPrepare(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallPrepare.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallPrepare.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-prepare"
@@ -794,14 +908,22 @@ class InstallPrepare(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallPrepare.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallPrepare.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallPrepare()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallPrepare']['meta_info']
 
 
-class InstallActivate(Entity):
+class InstallActivate(_Entity_):
     """
     Cli\-command activate
     
@@ -823,7 +945,10 @@ class InstallActivate(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallActivate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallActivate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-activate"
@@ -845,7 +970,7 @@ class InstallActivate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -952,7 +1077,10 @@ class InstallActivate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallActivate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallActivate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-activate"
@@ -1030,7 +1158,7 @@ class InstallActivate(Entity):
             self._perform_setattr(InstallActivate.Input, ['activate_prepared_pkg', 'force', 'activate_reload', 'activate_reload_force', 'activate_warm_prepared_pkg', 'activate_warm_force_prepared_pkg', 'activate_warm_replace_prepared_pkg', 'activate_warm_force_replace_prepared_pkg'], name, value)
 
 
-        class Warm(Entity):
+        class Warm(_Entity_):
             """
             
             
@@ -1052,7 +1180,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.Warm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.Warm, self).__init__()
 
                 self.yang_name = "warm"
                 self.yang_parent_name = "input"
@@ -1073,9 +1204,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Warm, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.Warm']['meta_info']
 
 
-        class WarmForce(Entity):
+        class WarmForce(_Entity_):
             """
             
             
@@ -1097,7 +1232,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.WarmForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.WarmForce, self).__init__()
 
                 self.yang_name = "warm-force"
                 self.yang_parent_name = "input"
@@ -1118,9 +1256,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.WarmForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.WarmForce']['meta_info']
 
 
-        class WarmReplace(Entity):
+        class WarmReplace(_Entity_):
             """
             
             
@@ -1142,7 +1284,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.WarmReplace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.WarmReplace, self).__init__()
 
                 self.yang_name = "warm-replace"
                 self.yang_parent_name = "input"
@@ -1163,9 +1308,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.WarmReplace, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.WarmReplace']['meta_info']
 
 
-        class WarmReplaceForce(Entity):
+        class WarmReplaceForce(_Entity_):
             """
             
             
@@ -1187,7 +1336,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.WarmReplaceForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.WarmReplaceForce, self).__init__()
 
                 self.yang_name = "warm-replace-force"
                 self.yang_parent_name = "input"
@@ -1208,9 +1360,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.WarmReplaceForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.WarmReplaceForce']['meta_info']
 
 
-        class Reload(Entity):
+        class Reload(_Entity_):
             """
             
             
@@ -1232,7 +1388,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.Reload, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.Reload, self).__init__()
 
                 self.yang_name = "reload"
                 self.yang_parent_name = "input"
@@ -1253,9 +1412,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Reload, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.Reload']['meta_info']
 
 
-        class ReloadForce(Entity):
+        class ReloadForce(_Entity_):
             """
             
             
@@ -1277,7 +1440,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.ReloadForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.ReloadForce, self).__init__()
 
                 self.yang_name = "reload-force"
                 self.yang_parent_name = "input"
@@ -1298,9 +1464,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.ReloadForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.ReloadForce']['meta_info']
 
 
-        class Replace(Entity):
+        class Replace(_Entity_):
             """
             
             
@@ -1322,7 +1492,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.Replace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.Replace, self).__init__()
 
                 self.yang_name = "replace"
                 self.yang_parent_name = "input"
@@ -1343,9 +1516,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Replace, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.Replace']['meta_info']
 
 
-        class ReplaceForce(Entity):
+        class ReplaceForce(_Entity_):
             """
             
             
@@ -1367,7 +1544,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.ReplaceForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.ReplaceForce, self).__init__()
 
                 self.yang_name = "replace-force"
                 self.yang_parent_name = "input"
@@ -1388,9 +1568,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.ReplaceForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.ReplaceForce']['meta_info']
 
 
-        class ActivateForce(Entity):
+        class ActivateForce(_Entity_):
             """
             
             
@@ -1412,7 +1596,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.ActivateForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.ActivateForce, self).__init__()
 
                 self.yang_name = "activate-force"
                 self.yang_parent_name = "input"
@@ -1433,9 +1620,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.ActivateForce, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.ActivateForce']['meta_info']
 
 
-        class Packages(Entity):
+        class Packages(_Entity_):
             """
             
             
@@ -1452,7 +1643,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.Packages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.Packages, self).__init__()
 
                 self.yang_name = "packages"
                 self.yang_parent_name = "input"
@@ -1471,9 +1665,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Packages, ['packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.Packages']['meta_info']
 
 
-        class Ids(Entity):
+        class Ids(_Entity_):
             """
             
             
@@ -1490,7 +1688,10 @@ class InstallActivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallActivate.Input.Ids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallActivate.Input.Ids, self).__init__()
 
                 self.yang_name = "ids"
                 self.yang_parent_name = "input"
@@ -1509,10 +1710,18 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Ids, ['id_no'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallActivate.Input.Ids']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallActivate.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -1534,7 +1743,10 @@ class InstallActivate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallActivate.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallActivate.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-activate"
@@ -1555,14 +1767,22 @@ class InstallActivate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallActivate.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallActivate.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallActivate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallActivate']['meta_info']
 
 
-class InstallDeactivate(Entity):
+class InstallDeactivate(_Entity_):
     """
     Cli\-command deactivate
     
@@ -1584,7 +1804,10 @@ class InstallDeactivate(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallDeactivate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallDeactivate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-deactivate"
@@ -1606,7 +1829,7 @@ class InstallDeactivate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1638,7 +1861,10 @@ class InstallDeactivate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallDeactivate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallDeactivate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-deactivate"
@@ -1670,7 +1896,7 @@ class InstallDeactivate(Entity):
             self._perform_setattr(InstallDeactivate.Input, ['superseded'], name, value)
 
 
-        class Reload(Entity):
+        class Reload(_Entity_):
             """
             
             
@@ -1692,7 +1918,10 @@ class InstallDeactivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallDeactivate.Input.Reload, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallDeactivate.Input.Reload, self).__init__()
 
                 self.yang_name = "reload"
                 self.yang_parent_name = "input"
@@ -1713,9 +1942,13 @@ class InstallDeactivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallDeactivate.Input.Reload, ['packagename', 'ids'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallDeactivate.Input.Reload']['meta_info']
 
 
-        class Packages(Entity):
+        class Packages(_Entity_):
             """
             
             
@@ -1732,7 +1965,10 @@ class InstallDeactivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallDeactivate.Input.Packages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallDeactivate.Input.Packages, self).__init__()
 
                 self.yang_name = "packages"
                 self.yang_parent_name = "input"
@@ -1751,9 +1987,13 @@ class InstallDeactivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallDeactivate.Input.Packages, ['packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallDeactivate.Input.Packages']['meta_info']
 
 
-        class Ids(Entity):
+        class Ids(_Entity_):
             """
             
             
@@ -1770,7 +2010,10 @@ class InstallDeactivate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallDeactivate.Input.Ids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallDeactivate.Input.Ids, self).__init__()
 
                 self.yang_name = "ids"
                 self.yang_parent_name = "input"
@@ -1789,10 +2032,18 @@ class InstallDeactivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallDeactivate.Input.Ids, ['id_no'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallDeactivate.Input.Ids']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallDeactivate.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -1814,7 +2065,10 @@ class InstallDeactivate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallDeactivate.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallDeactivate.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-deactivate"
@@ -1835,14 +2089,22 @@ class InstallDeactivate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallDeactivate.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallDeactivate.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallDeactivate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallDeactivate']['meta_info']
 
 
-class InstallExtract(Entity):
+class InstallExtract(_Entity_):
     """
     Cli\-command extract
     
@@ -1864,7 +2126,10 @@ class InstallExtract(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallExtract, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallExtract, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-extract"
@@ -1886,7 +2151,7 @@ class InstallExtract(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1903,7 +2168,10 @@ class InstallExtract(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallExtract.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallExtract.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-extract"
@@ -1924,7 +2192,7 @@ class InstallExtract(Entity):
             self._perform_setattr(InstallExtract.Input, [], name, value)
 
 
-        class Packages(Entity):
+        class Packages(_Entity_):
             """
             
             
@@ -1941,7 +2209,10 @@ class InstallExtract(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallExtract.Input.Packages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallExtract.Input.Packages, self).__init__()
 
                 self.yang_name = "packages"
                 self.yang_parent_name = "input"
@@ -1960,10 +2231,18 @@ class InstallExtract(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallExtract.Input.Packages, ['packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallExtract.Input.Packages']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallExtract.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -1985,7 +2264,10 @@ class InstallExtract(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallExtract.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallExtract.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-extract"
@@ -2006,14 +2288,22 @@ class InstallExtract(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallExtract.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallExtract.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallExtract()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallExtract']['meta_info']
 
 
-class InstallVerify(Entity):
+class InstallVerify(_Entity_):
     """
     Cli\-command install verify packages
     
@@ -2035,7 +2325,10 @@ class InstallVerify(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallVerify, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallVerify, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-verify"
@@ -2057,7 +2350,7 @@ class InstallVerify(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -2074,7 +2367,10 @@ class InstallVerify(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallVerify.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallVerify.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-verify"
@@ -2093,9 +2389,13 @@ class InstallVerify(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallVerify.Input, ['location'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallVerify.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -2117,7 +2417,10 @@ class InstallVerify(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallVerify.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallVerify.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-verify"
@@ -2138,14 +2441,22 @@ class InstallVerify(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallVerify.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallVerify.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallVerify()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallVerify']['meta_info']
 
 
-class InstallUpdate(Entity):
+class InstallUpdate(_Entity_):
     """
     Cli\-command install update
     
@@ -2167,7 +2478,10 @@ class InstallUpdate(Entity):
     _revision = '2018-09-10'
 
     def __init__(self):
-        super(InstallUpdate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InstallUpdate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install-update"
@@ -2189,7 +2503,7 @@ class InstallUpdate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -2256,7 +2570,10 @@ class InstallUpdate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallUpdate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallUpdate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "install-update"
@@ -2314,7 +2631,7 @@ class InstallUpdate(Entity):
             self._perform_setattr(InstallUpdate.Input, ['packagepath', 'packagename'], name, value)
 
 
-        class Warm(Entity):
+        class Warm(_Entity_):
             """
             
             
@@ -2336,7 +2653,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.Warm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.Warm, self).__init__()
 
                 self.yang_name = "warm"
                 self.yang_parent_name = "input"
@@ -2357,9 +2677,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.Warm, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.Warm']['meta_info']
 
 
-        class WarmForce(Entity):
+        class WarmForce(_Entity_):
             """
             
             
@@ -2381,7 +2705,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.WarmForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.WarmForce, self).__init__()
 
                 self.yang_name = "warm-force"
                 self.yang_parent_name = "input"
@@ -2402,9 +2729,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.WarmForce, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.WarmForce']['meta_info']
 
 
-        class WarmReplace(Entity):
+        class WarmReplace(_Entity_):
             """
             
             
@@ -2426,7 +2757,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.WarmReplace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.WarmReplace, self).__init__()
 
                 self.yang_name = "warm-replace"
                 self.yang_parent_name = "input"
@@ -2447,9 +2781,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.WarmReplace, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.WarmReplace']['meta_info']
 
 
-        class WarmReplaceForce(Entity):
+        class WarmReplaceForce(_Entity_):
             """
             
             
@@ -2471,7 +2809,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.WarmReplaceForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.WarmReplaceForce, self).__init__()
 
                 self.yang_name = "warm-replace-force"
                 self.yang_parent_name = "input"
@@ -2492,9 +2833,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.WarmReplaceForce, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.WarmReplaceForce']['meta_info']
 
 
-        class Force(Entity):
+        class Force(_Entity_):
             """
             
             
@@ -2516,7 +2861,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.Force, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.Force, self).__init__()
 
                 self.yang_name = "force"
                 self.yang_parent_name = "input"
@@ -2537,9 +2885,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.Force, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.Force']['meta_info']
 
 
-        class Replace(Entity):
+        class Replace(_Entity_):
             """
             
             
@@ -2561,7 +2913,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.Replace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.Replace, self).__init__()
 
                 self.yang_name = "replace"
                 self.yang_parent_name = "input"
@@ -2582,9 +2937,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.Replace, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.Replace']['meta_info']
 
 
-        class ReplaceForce(Entity):
+        class ReplaceForce(_Entity_):
             """
             
             
@@ -2606,7 +2965,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.ReplaceForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.ReplaceForce, self).__init__()
 
                 self.yang_name = "replace-force"
                 self.yang_parent_name = "input"
@@ -2627,9 +2989,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceForce, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.ReplaceForce']['meta_info']
 
 
-        class ReplaceCommit(Entity):
+        class ReplaceCommit(_Entity_):
             """
             
             
@@ -2651,7 +3017,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.ReplaceCommit, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.ReplaceCommit, self).__init__()
 
                 self.yang_name = "replace-commit"
                 self.yang_parent_name = "input"
@@ -2672,9 +3041,13 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceCommit, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.ReplaceCommit']['meta_info']
 
 
-        class ReplaceCommitForce(Entity):
+        class ReplaceCommitForce(_Entity_):
             """
             
             
@@ -2696,7 +3069,10 @@ class InstallUpdate(Entity):
             _revision = '2018-09-10'
 
             def __init__(self):
-                super(InstallUpdate.Input.ReplaceCommitForce, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InstallUpdate.Input.ReplaceCommitForce, self).__init__()
 
                 self.yang_name = "replace-commit-force"
                 self.yang_parent_name = "input"
@@ -2717,10 +3093,18 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceCommitForce, ['packagepath', 'packagename'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+                return meta._meta_table['InstallUpdate.Input.ReplaceCommitForce']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallUpdate.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -2742,7 +3126,10 @@ class InstallUpdate(Entity):
         _revision = '2018-09-10'
 
         def __init__(self):
-            super(InstallUpdate.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InstallUpdate.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "install-update"
@@ -2763,10 +3150,18 @@ class InstallUpdate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallUpdate.Output, ['op_id', 'error'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+            return meta._meta_table['InstallUpdate.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InstallUpdate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_act as meta
+        return meta._meta_table['InstallUpdate']['meta_info']
 
 

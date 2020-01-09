@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class GmplsOtuTtiMode(Enum):
     gmpls_otu_tti_mode_tcm = Enum.YLeaf(3, "gmpls-otu-tti-mode-tcm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['GmplsOtuTtiMode']
+
+
 class OtuAinsStateEt(Enum):
     """
     OtuAinsStateEt (Enum Class)
@@ -78,6 +87,12 @@ class OtuAinsStateEt(Enum):
     active_running = Enum.YLeaf(1, "active-running")
 
     active_pending = Enum.YLeaf(2, "active-pending")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuAinsStateEt']
 
 
 class OtuDerState(Enum):
@@ -111,6 +126,12 @@ class OtuDerState(Enum):
     maintenance = Enum.YLeaf(2, "maintenance")
 
     ains = Enum.YLeaf(3, "ains")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuDerState']
 
 
 class OtuG709fecMode(Enum):
@@ -194,6 +215,12 @@ class OtuG709fecMode(Enum):
     otu_bag_all_fec = Enum.YLeaf(2048, "otu-bag-all-fec")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuG709fecMode']
+
+
 class OtuLoopBackMode(Enum):
     """
     OtuLoopBackMode (Enum Class)
@@ -221,6 +248,12 @@ class OtuLoopBackMode(Enum):
     internal = Enum.YLeaf(4, "internal")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuLoopBackMode']
+
+
 class OtuPerMon(Enum):
     """
     OtuPerMon (Enum Class)
@@ -240,6 +273,12 @@ class OtuPerMon(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPerMon']
 
 
 class OtuPpFsmState(Enum):
@@ -317,6 +356,12 @@ class OtuPpFsmState(Enum):
     otu_regen_failed = Enum.YLeaf(10, "otu-regen-failed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPpFsmState']
+
+
 class OtuPpIntfState(Enum):
     """
     OtuPpIntfState (Enum Class)
@@ -342,6 +387,12 @@ class OtuPpIntfState(Enum):
     otu_pp_intf_failing = Enum.YLeaf(1, "otu-pp-intf-failing")
 
     otu_pp_intf_down = Enum.YLeaf(2, "otu-pp-intf-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPpIntfState']
 
 
 class OtuPrbsMode(Enum):
@@ -375,6 +426,12 @@ class OtuPrbsMode(Enum):
     sink = Enum.YLeaf(2, "sink")
 
     source_sink = Enum.YLeaf(3, "source-sink")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPrbsMode']
 
 
 class OtuPrbsPattern(Enum):
@@ -428,6 +485,12 @@ class OtuPrbsPattern(Enum):
     pn15 = Enum.YLeaf(32, "pn15")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPrbsPattern']
+
+
 class OtuPrbsStatus(Enum):
     """
     OtuPrbsStatus (Enum Class)
@@ -455,6 +518,12 @@ class OtuPrbsStatus(Enum):
     not_applicable = Enum.YLeaf(2, "not-applicable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPrbsStatus']
+
+
 class OtuPrbsTest(Enum):
     """
     OtuPrbsTest (Enum Class)
@@ -474,6 +543,12 @@ class OtuPrbsTest(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuPrbsTest']
 
 
 class OtuSecState(Enum):
@@ -501,6 +576,12 @@ class OtuSecState(Enum):
     maintenance = Enum.YLeaf(1, "maintenance")
 
     ains = Enum.YLeaf(2, "ains")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuSecState']
 
 
 class OtuStateEt(Enum):
@@ -626,6 +707,12 @@ class OtuStateEt(Enum):
     last = Enum.YLeaf(18, "last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuStateEt']
+
+
 class OtuTtiEt(Enum):
     """
     OtuTtiEt (Enum Class)
@@ -659,8 +746,14 @@ class OtuTtiEt(Enum):
     full_hex = Enum.YLeaf(3, "full-hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['OtuTtiEt']
 
-class Otu(Entity):
+
+
+class Otu(_Entity_):
     """
     OTU operational data
     
@@ -679,7 +772,10 @@ class Otu(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Otu, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Otu, self).__init__()
         self._top_entity = None
 
         self.yang_name = "otu"
@@ -700,7 +796,7 @@ class Otu(Entity):
         self._perform_setattr(Otu, [], name, value)
 
 
-    class Controllers(Entity):
+    class Controllers(_Entity_):
         """
         All OTU Port operational data
         
@@ -719,7 +815,10 @@ class Otu(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Otu.Controllers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Otu.Controllers, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "otu"
@@ -738,7 +837,7 @@ class Otu(Entity):
             self._perform_setattr(Otu.Controllers, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             OTU Port operational data
             
@@ -773,7 +872,10 @@ class Otu(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Otu.Controllers.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Otu.Controllers.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -801,7 +903,7 @@ class Otu(Entity):
                 self._perform_setattr(Otu.Controllers.Controller, ['controller_name'], name, value)
 
 
-            class Prbs(Entity):
+            class Prbs(_Entity_):
                 """
                 OTU port PRBS operational data
                 
@@ -841,7 +943,10 @@ class Otu(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Otu.Controllers.Controller.Prbs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Otu.Controllers.Controller.Prbs, self).__init__()
 
                     self.yang_name = "prbs"
                     self.yang_parent_name = "controller"
@@ -865,9 +970,13 @@ class Otu(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Otu.Controllers.Controller.Prbs, ['otu_prbs_test', 'otu_prbs_mode', 'otu_prbs_pattern', 'otu_prbs_status'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                    return meta._meta_table['Otu.Controllers.Controller.Prbs']['meta_info']
 
 
-            class Info(Entity):
+            class Info(_Entity_):
                 """
                 OTU port operational data
                 
@@ -1135,7 +1244,10 @@ class Otu(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Otu.Controllers.Controller.Info, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Otu.Controllers.Controller.Info, self).__init__()
 
                     self.yang_name = "info"
                     self.yang_parent_name = "controller"
@@ -1236,7 +1348,7 @@ class Otu(Entity):
                     self._perform_setattr(Otu.Controllers.Controller.Info, ['state', 'name', 'sf', 'sd', 'loopback_mode', 'fec_mode', 'derivedstate_mode', 'inherit_sec_state', 'config_sec_state', 'gcc_mode', 'q', 'q_margin', 'performance_monitoring', 'ec', 'uc', 'pre_fec_val', 'pre_fec_mantissa', 'ec_value', 'uc_value', 'pre_fec_ber_value', 'pre_fec_ber_mantissa', 'nv_optical_support', 'gmpls_tti_mode', 'gmpls_tvm_id', 'auto_tti_flag', 'description'], name, value)
 
 
-                class Local(Entity):
+                class Local(_Entity_):
                     """
                     TTI
                     
@@ -1266,7 +1378,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.Local, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.Local, self).__init__()
 
                         self.yang_name = "local"
                         self.yang_parent_name = "info"
@@ -1286,9 +1401,13 @@ class Otu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.Local, ['router_id', 'if_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.Local']['meta_info']
 
 
-                class Remote(Entity):
+                class Remote(_Entity_):
                     """
                     Remote
                     
@@ -1318,7 +1437,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.Remote, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.Remote, self).__init__()
 
                         self.yang_name = "remote"
                         self.yang_parent_name = "info"
@@ -1338,9 +1460,13 @@ class Otu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.Remote, ['router_id', 'if_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.Remote']['meta_info']
 
 
-                class TtiMode(Entity):
+                class TtiMode(_Entity_):
                     """
                     OTU TTI
                     
@@ -1415,7 +1541,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.TtiMode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.TtiMode, self).__init__()
 
                         self.yang_name = "tti-mode"
                         self.yang_parent_name = "info"
@@ -1456,7 +1585,7 @@ class Otu(Entity):
                         self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode', 'remote_interface', 'remote_host_name', 'remote_ip_addr'], name, value)
 
 
-                    class Tx(Entity):
+                    class Tx(_Entity_):
                         """
                         String Sent
                         
@@ -1496,7 +1625,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
 
                             self.yang_name = "tx"
                             self.yang_parent_name = "tti-mode"
@@ -1519,7 +1651,7 @@ class Otu(Entity):
                             self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, ['full_tti_ascii_string'], name, value)
 
 
-                        class Sapi(Entity):
+                        class Sapi(_Entity_):
                             """
                             tx String 
                             
@@ -1540,7 +1672,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, self).__init__()
 
                                 self.yang_name = "sapi"
                                 self.yang_parent_name = "tx"
@@ -1558,9 +1693,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi']['meta_info']
 
 
-                        class Dapi(Entity):
+                        class Dapi(_Entity_):
                             """
                             exp String 
                             
@@ -1581,7 +1720,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, self).__init__()
 
                                 self.yang_name = "dapi"
                                 self.yang_parent_name = "tx"
@@ -1599,9 +1741,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi']['meta_info']
 
 
-                        class OperatorSpecific(Entity):
+                        class OperatorSpecific(_Entity_):
                             """
                             rec String 
                             
@@ -1622,7 +1768,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, self).__init__()
 
                                 self.yang_name = "operator-specific"
                                 self.yang_parent_name = "tx"
@@ -1640,10 +1789,18 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx']['meta_info']
 
 
-
-                    class Exp(Entity):
+                    class Exp(_Entity_):
                         """
                         String Expected
                         
@@ -1683,7 +1840,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
 
                             self.yang_name = "exp"
                             self.yang_parent_name = "tti-mode"
@@ -1706,7 +1866,7 @@ class Otu(Entity):
                             self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, ['full_tti_ascii_string'], name, value)
 
 
-                        class Sapi(Entity):
+                        class Sapi(_Entity_):
                             """
                             tx String 
                             
@@ -1727,7 +1887,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, self).__init__()
 
                                 self.yang_name = "sapi"
                                 self.yang_parent_name = "exp"
@@ -1745,9 +1908,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi']['meta_info']
 
 
-                        class Dapi(Entity):
+                        class Dapi(_Entity_):
                             """
                             exp String 
                             
@@ -1768,7 +1935,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, self).__init__()
 
                                 self.yang_name = "dapi"
                                 self.yang_parent_name = "exp"
@@ -1786,9 +1956,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi']['meta_info']
 
 
-                        class OperatorSpecific(Entity):
+                        class OperatorSpecific(_Entity_):
                             """
                             rec String 
                             
@@ -1809,7 +1983,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, self).__init__()
 
                                 self.yang_name = "operator-specific"
                                 self.yang_parent_name = "exp"
@@ -1827,10 +2004,18 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp']['meta_info']
 
 
-
-                    class Rec(Entity):
+                    class Rec(_Entity_):
                         """
                         String Received
                         
@@ -1870,7 +2055,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
 
                             self.yang_name = "rec"
                             self.yang_parent_name = "tti-mode"
@@ -1893,7 +2081,7 @@ class Otu(Entity):
                             self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, ['full_tti_ascii_string'], name, value)
 
 
-                        class Sapi(Entity):
+                        class Sapi(_Entity_):
                             """
                             tx String 
                             
@@ -1914,7 +2102,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, self).__init__()
 
                                 self.yang_name = "sapi"
                                 self.yang_parent_name = "rec"
@@ -1932,9 +2123,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi']['meta_info']
 
 
-                        class Dapi(Entity):
+                        class Dapi(_Entity_):
                             """
                             exp String 
                             
@@ -1955,7 +2150,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, self).__init__()
 
                                 self.yang_name = "dapi"
                                 self.yang_parent_name = "rec"
@@ -1973,9 +2171,13 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi']['meta_info']
 
 
-                        class OperatorSpecific(Entity):
+                        class OperatorSpecific(_Entity_):
                             """
                             rec String 
                             
@@ -1996,7 +2198,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, self).__init__()
 
                                 self.yang_name = "operator-specific"
                                 self.yang_parent_name = "rec"
@@ -2014,11 +2219,23 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
 
 
-
-
-                class NetworkSrlg(Entity):
+                class NetworkSrlg(_Entity_):
                     """
                     Network Shared Risk Link Group information
                     
@@ -2037,7 +2254,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.NetworkSrlg, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.NetworkSrlg, self).__init__()
 
                         self.yang_name = "network-srlg"
                         self.yang_parent_name = "info"
@@ -2055,7 +2275,7 @@ class Otu(Entity):
                         self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg, [], name, value)
 
 
-                    class SrlgInfo(Entity):
+                    class SrlgInfo(_Entity_):
                         """
                         Array of Network Shared Risk Link Group
                         information
@@ -2084,7 +2304,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, self).__init__()
 
                             self.yang_name = "srlg-info"
                             self.yang_parent_name = "network-srlg"
@@ -2105,7 +2328,7 @@ class Otu(Entity):
                             self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, ['set_id'], name, value)
 
 
-                        class Srlg(Entity):
+                        class Srlg(_Entity_):
                             """
                             Shared Risk Link Group information expressed in
                             
@@ -2128,7 +2351,10 @@ class Otu(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, self).__init__()
 
                                 self.yang_name = "srlg"
                                 self.yang_parent_name = "srlg-info"
@@ -2146,11 +2372,23 @@ class Otu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                                return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg']['meta_info']
 
 
-
-
-                class OtuAlarmInfo(Entity):
+                class OtuAlarmInfo(_Entity_):
                     """
                     OTU layer alarm Information
                     
@@ -2281,7 +2519,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo, self).__init__()
 
                         self.yang_name = "otu-alarm-info"
                         self.yang_parent_name = "info"
@@ -2365,7 +2606,7 @@ class Otu(Entity):
                         self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo, [], name, value)
 
 
-                    class Los(Entity):
+                    class Los(_Entity_):
                         """
                         Loss of Signal
                         
@@ -2407,7 +2648,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, self).__init__()
 
                             self.yang_name = "los"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2431,9 +2675,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Los']['meta_info']
 
 
-                    class Lof(Entity):
+                    class Lof(_Entity_):
                         """
                         Loss of Frame
                         
@@ -2475,7 +2723,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__init__()
 
                             self.yang_name = "lof"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2499,9 +2750,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof']['meta_info']
 
 
-                    class Lom(Entity):
+                    class Lom(_Entity_):
                         """
                         Loss of MultiFrame
                         
@@ -2543,7 +2798,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__init__()
 
                             self.yang_name = "lom"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2567,9 +2825,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom']['meta_info']
 
 
-                    class Oof(Entity):
+                    class Oof(_Entity_):
                         """
                         Out of Frame
                         
@@ -2611,7 +2873,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, self).__init__()
 
                             self.yang_name = "oof"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2635,9 +2900,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof']['meta_info']
 
 
-                    class Oom(Entity):
+                    class Oom(_Entity_):
                         """
                         Out of MultiFrame
                         
@@ -2679,7 +2948,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, self).__init__()
 
                             self.yang_name = "oom"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2703,9 +2975,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom']['meta_info']
 
 
-                    class Ais(Entity):
+                    class Ais(_Entity_):
                         """
                         Alarm Indication Signal
                         
@@ -2747,7 +3023,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__init__()
 
                             self.yang_name = "ais"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2771,9 +3050,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais']['meta_info']
 
 
-                    class Iae(Entity):
+                    class Iae(_Entity_):
                         """
                         Incoming Alignment Error
                         
@@ -2815,7 +3098,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__init__()
 
                             self.yang_name = "iae"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2839,9 +3125,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae']['meta_info']
 
 
-                    class Biae(Entity):
+                    class Biae(_Entity_):
                         """
                         Backward Incoming Alignment Error
                         
@@ -2883,7 +3173,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__init__()
 
                             self.yang_name = "biae"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2907,9 +3200,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae']['meta_info']
 
 
-                    class Bdi(Entity):
+                    class Bdi(_Entity_):
                         """
                         Backward Defect Indication
                         
@@ -2951,7 +3248,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__init__()
 
                             self.yang_name = "bdi"
                             self.yang_parent_name = "otu-alarm-info"
@@ -2975,9 +3275,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi']['meta_info']
 
 
-                    class Tim(Entity):
+                    class Tim(_Entity_):
                         """
                         Trace Identifier Mismatch
                         
@@ -3019,7 +3323,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, self).__init__()
 
                             self.yang_name = "tim"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3043,9 +3350,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim']['meta_info']
 
 
-                    class Eoc(Entity):
+                    class Eoc(_Entity_):
                         """
                         GCC End of Channel
                         
@@ -3087,7 +3398,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__init__()
 
                             self.yang_name = "eoc"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3111,9 +3425,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc']['meta_info']
 
 
-                    class FecMismatch(Entity):
+                    class FecMismatch(_Entity_):
                         """
                         FEC mismatch alarm
                         
@@ -3155,7 +3473,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__init__()
 
                             self.yang_name = "fec-mismatch"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3179,9 +3500,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch']['meta_info']
 
 
-                    class SfBer(Entity):
+                    class SfBer(_Entity_):
                         """
                         SF BER alarm
                         
@@ -3223,7 +3548,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__init__()
 
                             self.yang_name = "sf-ber"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3247,9 +3575,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer']['meta_info']
 
 
-                    class SdBer(Entity):
+                    class SdBer(_Entity_):
                         """
                         SD BER alarm
                         
@@ -3291,7 +3623,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__init__()
 
                             self.yang_name = "sd-ber"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3315,9 +3650,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer']['meta_info']
 
 
-                    class Ec(Entity):
+                    class Ec(_Entity_):
                         """
                         EC alarm
                         
@@ -3359,7 +3698,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__init__()
 
                             self.yang_name = "ec"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3383,9 +3725,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec']['meta_info']
 
 
-                    class Uc(Entity):
+                    class Uc(_Entity_):
                         """
                         UC alarm
                         
@@ -3427,7 +3773,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, self).__init__()
 
                             self.yang_name = "uc"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3451,9 +3800,13 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc']['meta_info']
 
 
-                    class Fecunc(Entity):
+                    class Fecunc(_Entity_):
                         """
                         FEC UnCorrected Word
                         
@@ -3495,7 +3848,10 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__init__()
 
                             self.yang_name = "fecunc"
                             self.yang_parent_name = "otu-alarm-info"
@@ -3519,10 +3875,18 @@ class Otu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info']
 
 
-
-                class Proactive(Entity):
+                class Proactive(_Entity_):
                     """
                     Proactive Protection
                     
@@ -3623,7 +3987,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.Proactive, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.Proactive, self).__init__()
 
                         self.yang_name = "proactive"
                         self.yang_parent_name = "info"
@@ -3661,9 +4028,13 @@ class Otu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, ['proactive_status', 'inherit_sec_state', 'config_sec_state', 'proactive_fsm_state', 'proactive_fsm_if_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'trigger_window', 'revert_window'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.Proactive']['meta_info']
 
 
-                class OtuFecSatistics(Entity):
+                class OtuFecSatistics(_Entity_):
                     """
                     OTU FEC Statistics
                     
@@ -3689,7 +4060,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.OtuFecSatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.OtuFecSatistics, self).__init__()
 
                         self.yang_name = "otu-fec-satistics"
                         self.yang_parent_name = "info"
@@ -3709,9 +4083,13 @@ class Otu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, ['post_fec_ber', 'pre_fec_ber'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.OtuFecSatistics']['meta_info']
 
 
-                class AinsInfo(Entity):
+                class AinsInfo(_Entity_):
                     """
                     AINS information
                     
@@ -3752,7 +4130,10 @@ class Otu(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Otu.Controllers.Controller.Info.AinsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Otu.Controllers.Controller.Info.AinsInfo, self).__init__()
 
                         self.yang_name = "ains-info"
                         self.yang_parent_name = "info"
@@ -3774,13 +4155,33 @@ class Otu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.AinsInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                    return meta._meta_table['Otu.Controllers.Controller.Info']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                return meta._meta_table['Otu.Controllers.Controller']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+            return meta._meta_table['Otu.Controllers']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Otu()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+        return meta._meta_table['Otu']['meta_info']
 
 

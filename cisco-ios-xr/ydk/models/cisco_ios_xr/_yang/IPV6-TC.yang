@@ -1,6 +1,8 @@
 module IPV6-TC {
   namespace "http://tail-f.com/ns/mibs/IPV6-TC/199812010000Z";
   prefix IPV6_TC;
+  tailf:id "";
+  tailf:snmp-mib-module-name "IPV6-TC";
 
   import ietf-inet-types {
     prefix inet;
@@ -39,6 +41,4 @@ module IPV6-TC {
       range "0 .. 2147483647";
     }
   }
-  tailf:id "";
-  tailf:snmp-mib-module-name "IPV6-TC";
 }

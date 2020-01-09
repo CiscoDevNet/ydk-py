@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ssrp(Entity):
+class Ssrp(_Entity_):
     """
     Shared plane SSRP configuration data
     
@@ -43,7 +46,10 @@ class Ssrp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ssrp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ssrp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ssrp"
@@ -64,7 +70,7 @@ class Ssrp(Entity):
         self._perform_setattr(Ssrp, [], name, value)
 
 
-    class Profiles(Entity):
+    class Profiles(_Entity_):
         """
         Table of SSRP Profiles
         
@@ -81,7 +87,10 @@ class Ssrp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ssrp.Profiles, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssrp.Profiles, self).__init__()
 
             self.yang_name = "profiles"
             self.yang_parent_name = "ssrp"
@@ -100,7 +109,7 @@ class Ssrp(Entity):
             self._perform_setattr(Ssrp.Profiles, [], name, value)
 
 
-        class Profile(Entity):
+        class Profile(_Entity_):
             """
             SSRP Profile configuration
             
@@ -133,7 +142,10 @@ class Ssrp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ssrp.Profiles.Profile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssrp.Profiles.Profile, self).__init__()
 
                 self.yang_name = "profile"
                 self.yang_parent_name = "profiles"
@@ -156,11 +168,23 @@ class Ssrp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssrp.Profiles.Profile, ['name', 'max_hops', 'peer_ipv4_address'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_ssrp_cfg as meta
+                return meta._meta_table['Ssrp.Profiles.Profile']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_ssrp_cfg as meta
+            return meta._meta_table['Ssrp.Profiles']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ssrp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_ssrp_cfg as meta
+        return meta._meta_table['Ssrp']['meta_info']
 
 

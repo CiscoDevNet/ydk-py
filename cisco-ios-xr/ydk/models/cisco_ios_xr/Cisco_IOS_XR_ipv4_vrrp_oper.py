@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class VrrpBAf(Enum):
     vrrp_baf_count = Enum.YLeaf(2, "vrrp-baf-count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpBAf']
+
+
 class VrrpBagProtocolState(Enum):
     """
     VrrpBagProtocolState (Enum Class)
@@ -72,6 +81,12 @@ class VrrpBagProtocolState(Enum):
     state_backup = Enum.YLeaf(2, "state-backup")
 
     state_master = Enum.YLeaf(3, "state-master")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpBagProtocolState']
 
 
 class VrrpBfdSessionState(Enum):
@@ -107,6 +122,12 @@ class VrrpBfdSessionState(Enum):
     bfd_state_down = Enum.YLeaf(3, "bfd-state-down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpBfdSessionState']
+
+
 class VrrpProtAuth(Enum):
     """
     VrrpProtAuth (Enum Class)
@@ -132,6 +153,12 @@ class VrrpProtAuth(Enum):
     authentication_text = Enum.YLeaf(1, "authentication-text")
 
     authentication_ip = Enum.YLeaf(2, "authentication-ip")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpProtAuth']
 
 
 class VrrpStateChangeReason(Enum):
@@ -221,6 +248,12 @@ class VrrpStateChangeReason(Enum):
     state_change_issu_resync = Enum.YLeaf(12, "state-change-issu-resync")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpStateChangeReason']
+
+
 class VrrpVipState(Enum):
     """
     VrrpVipState (Enum Class)
@@ -240,6 +273,12 @@ class VrrpVipState(Enum):
     virtual_ip_state_down = Enum.YLeaf(0, "virtual-ip-state-down")
 
     virtual_ip_state_up = Enum.YLeaf(1, "virtual-ip-state-up")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpVipState']
 
 
 class VrrpVmacState(Enum):
@@ -275,8 +314,14 @@ class VrrpVmacState(Enum):
     reserving = Enum.YLeaf(3, "reserving")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['VrrpVmacState']
 
-class Vrrp(Entity):
+
+
+class Vrrp(_Entity_):
     """
     VRRP operational data
     
@@ -316,7 +361,10 @@ class Vrrp(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Vrrp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vrrp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vrrp"
@@ -349,7 +397,7 @@ class Vrrp(Entity):
         self._perform_setattr(Vrrp, [], name, value)
 
 
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         VRRP summary statistics
         
@@ -775,7 +823,10 @@ class Vrrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vrrp.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vrrp.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "vrrp"
@@ -884,9 +935,13 @@ class Vrrp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.Summary, ['ipv4_sessions_master_owner', 'ipv4_sessions_master', 'ipv4_sessions_backup', 'ipv4_sessions_init', 'ipv4_slaves_master', 'ipv4_slaves_backup', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_master_owner_up', 'ipv4_virtual_ip_addresses_master_owner_down', 'ipv4_virtual_ip_addresses_master_up', 'ipv4_virtual_ip_addresses_master_down', 'ipv4_virtual_ip_addresses_backup_up', 'ipv4_virtual_ip_addresses_backup_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_master_owner', 'ipv6_sessions_master', 'ipv6_sessions_backup', 'ipv6_sessions_init', 'ipv6_slaves_master', 'ipv6_slaves_backup', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_master_owner_up', 'ipv6_virtual_ip_addresses_master_owner_down', 'ipv6_virtual_ip_addresses_master_up', 'ipv6_virtual_ip_addresses_master_down', 'ipv6_virtual_ip_addresses_backup_up', 'ipv6_virtual_ip_addresses_backup_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'tracked_objects_state_up', 'tracked_objects_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive', 'ipv6bfd_sessions_up', 'ipv6bfd_sessions_down', 'ipv6bfd_session_inactive'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+            return meta._meta_table['Vrrp.Summary']['meta_info']
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         IPv6 VRRP configuration
         
@@ -919,7 +974,10 @@ class Vrrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vrrp.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vrrp.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "vrrp"
@@ -948,7 +1006,7 @@ class Vrrp(Entity):
             self._perform_setattr(Vrrp.Ipv6, [], name, value)
 
 
-        class TrackItems(Entity):
+        class TrackItems(_Entity_):
             """
             The VRRP tracked item table
             
@@ -967,7 +1025,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv6.TrackItems, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv6.TrackItems, self).__init__()
 
                 self.yang_name = "track-items"
                 self.yang_parent_name = "ipv6"
@@ -986,7 +1047,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv6.TrackItems, [], name, value)
 
 
-            class TrackItem(Entity):
+            class TrackItem(_Entity_):
                 """
                 A configured VRRP IP address entry
                 
@@ -1079,7 +1140,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv6.TrackItems.TrackItem, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv6.TrackItems.TrackItem, self).__init__()
 
                     self.yang_name = "track-item"
                     self.yang_parent_name = "track-items"
@@ -1114,10 +1178,18 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv6.TrackItems.TrackItem']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv6.TrackItems']['meta_info']
 
 
-
-        class VirtualRouters(Entity):
+        class VirtualRouters(_Entity_):
             """
             The VRRP virtual router table
             
@@ -1136,7 +1208,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv6.VirtualRouters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv6.VirtualRouters, self).__init__()
 
                 self.yang_name = "virtual-routers"
                 self.yang_parent_name = "ipv6"
@@ -1155,7 +1230,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv6.VirtualRouters, [], name, value)
 
 
-            class VirtualRouter(Entity):
+            class VirtualRouter(_Entity_):
                 """
                 A VRRP virtual router
                 
@@ -1830,7 +1905,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv6.VirtualRouters.VirtualRouter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter, self).__init__()
 
                     self.yang_name = "virtual-router"
                     self.yang_parent_name = "virtual-routers"
@@ -2003,7 +2081,7 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
 
 
-                class ResignSentTime(Entity):
+                class ResignSentTime(_Entity_):
                     """
                     Time last resign was sent
                     
@@ -2037,7 +2115,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
 
                         self.yang_name = "resign-sent-time"
                         self.yang_parent_name = "virtual-router"
@@ -2057,9 +2138,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime']['meta_info']
 
 
-                class ResignReceivedTime(Entity):
+                class ResignReceivedTime(_Entity_):
                     """
                     Time last resign was received
                     
@@ -2093,7 +2178,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
 
                         self.yang_name = "resign-received-time"
                         self.yang_parent_name = "virtual-router"
@@ -2113,9 +2201,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime']['meta_info']
 
 
-                class Ipv6OperationalAddress(Entity):
+                class Ipv6OperationalAddress(_Entity_):
                     """
                     IPv6 Operational VRRP addresses
                     
@@ -2136,7 +2228,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
 
                         self.yang_name = "ipv6-operational-address"
                         self.yang_parent_name = "virtual-router"
@@ -2154,9 +2249,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress']['meta_info']
 
 
-                class Ipv6ConfiguredDownAddress(Entity):
+                class Ipv6ConfiguredDownAddress(_Entity_):
                     """
                     IPv6 Configured but Down VRRP addresses
                     
@@ -2177,7 +2276,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
 
                         self.yang_name = "ipv6-configured-down-address"
                         self.yang_parent_name = "virtual-router"
@@ -2195,9 +2297,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress']['meta_info']
 
 
-                class TrackItemInfo(Entity):
+                class TrackItemInfo(_Entity_):
                     """
                     Track Item Info
                     
@@ -2263,7 +2369,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
 
                         self.yang_name = "track-item-info"
                         self.yang_parent_name = "virtual-router"
@@ -2291,9 +2400,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo']['meta_info']
 
 
-                class StateChangeHistory(Entity):
+                class StateChangeHistory(_Entity_):
                     """
                     State change history
                     
@@ -2333,7 +2446,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
 
                         self.yang_name = "state-change-history"
                         self.yang_parent_name = "virtual-router"
@@ -2360,7 +2476,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
 
 
-                    class Time(Entity):
+                    class Time(_Entity_):
                         """
                         Time of state change
                         
@@ -2394,7 +2510,10 @@ class Vrrp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
 
                             self.yang_name = "time"
                             self.yang_parent_name = "state-change-history"
@@ -2414,12 +2533,28 @@ class Vrrp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                            return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv6.VirtualRouters.VirtualRouter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv6.VirtualRouters']['meta_info']
 
 
-
-
-
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             The VRRP interface table
             
@@ -2438,7 +2573,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv6.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv6.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "ipv6"
@@ -2457,7 +2595,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv6.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 A VRRP interface entry
                 
@@ -2523,7 +2661,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv6.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv6.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -2552,11 +2693,23 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv6.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv6.Interfaces']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+            return meta._meta_table['Vrrp.Ipv6']['meta_info']
 
 
-
-
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         IPv4 VRRP configuration
         
@@ -2589,7 +2742,10 @@ class Vrrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vrrp.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vrrp.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "vrrp"
@@ -2618,7 +2774,7 @@ class Vrrp(Entity):
             self._perform_setattr(Vrrp.Ipv4, [], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             The VRRP interface table
             
@@ -2637,7 +2793,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv4.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv4.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "ipv4"
@@ -2656,7 +2815,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv4.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 A VRRP interface entry
                 
@@ -2722,7 +2881,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv4.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv4.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -2751,10 +2913,18 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv4.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv4.Interfaces']['meta_info']
 
 
-
-        class TrackItems(Entity):
+        class TrackItems(_Entity_):
             """
             The VRRP tracked item table
             
@@ -2773,7 +2943,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv4.TrackItems, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv4.TrackItems, self).__init__()
 
                 self.yang_name = "track-items"
                 self.yang_parent_name = "ipv4"
@@ -2792,7 +2965,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv4.TrackItems, [], name, value)
 
 
-            class TrackItem(Entity):
+            class TrackItem(_Entity_):
                 """
                 A configured VRRP IP address entry
                 
@@ -2885,7 +3058,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv4.TrackItems.TrackItem, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv4.TrackItems.TrackItem, self).__init__()
 
                     self.yang_name = "track-item"
                     self.yang_parent_name = "track-items"
@@ -2920,10 +3096,18 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv4.TrackItems.TrackItem']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv4.TrackItems']['meta_info']
 
 
-
-        class VirtualRouters(Entity):
+        class VirtualRouters(_Entity_):
             """
             The VRRP virtual router table
             
@@ -2942,7 +3126,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.Ipv4.VirtualRouters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.Ipv4.VirtualRouters, self).__init__()
 
                 self.yang_name = "virtual-routers"
                 self.yang_parent_name = "ipv4"
@@ -2961,7 +3148,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Ipv4.VirtualRouters, [], name, value)
 
 
-            class VirtualRouter(Entity):
+            class VirtualRouter(_Entity_):
                 """
                 A VRRP virtual router
                 
@@ -3636,7 +3823,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.Ipv4.VirtualRouters.VirtualRouter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter, self).__init__()
 
                     self.yang_name = "virtual-router"
                     self.yang_parent_name = "virtual-routers"
@@ -3809,7 +3999,7 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
 
 
-                class ResignSentTime(Entity):
+                class ResignSentTime(_Entity_):
                     """
                     Time last resign was sent
                     
@@ -3843,7 +4033,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, self).__init__()
 
                         self.yang_name = "resign-sent-time"
                         self.yang_parent_name = "virtual-router"
@@ -3863,9 +4056,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime']['meta_info']
 
 
-                class ResignReceivedTime(Entity):
+                class ResignReceivedTime(_Entity_):
                     """
                     Time last resign was received
                     
@@ -3899,7 +4096,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, self).__init__()
 
                         self.yang_name = "resign-received-time"
                         self.yang_parent_name = "virtual-router"
@@ -3919,9 +4119,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime']['meta_info']
 
 
-                class Ipv6OperationalAddress(Entity):
+                class Ipv6OperationalAddress(_Entity_):
                     """
                     IPv6 Operational VRRP addresses
                     
@@ -3942,7 +4146,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, self).__init__()
 
                         self.yang_name = "ipv6-operational-address"
                         self.yang_parent_name = "virtual-router"
@@ -3960,9 +4167,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress']['meta_info']
 
 
-                class Ipv6ConfiguredDownAddress(Entity):
+                class Ipv6ConfiguredDownAddress(_Entity_):
                     """
                     IPv6 Configured but Down VRRP addresses
                     
@@ -3983,7 +4194,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, self).__init__()
 
                         self.yang_name = "ipv6-configured-down-address"
                         self.yang_parent_name = "virtual-router"
@@ -4001,9 +4215,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress']['meta_info']
 
 
-                class TrackItemInfo(Entity):
+                class TrackItemInfo(_Entity_):
                     """
                     Track Item Info
                     
@@ -4069,7 +4287,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, self).__init__()
 
                         self.yang_name = "track-item-info"
                         self.yang_parent_name = "virtual-router"
@@ -4097,9 +4318,13 @@ class Vrrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo']['meta_info']
 
 
-                class StateChangeHistory(Entity):
+                class StateChangeHistory(_Entity_):
                     """
                     State change history
                     
@@ -4139,7 +4364,10 @@ class Vrrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, self).__init__()
 
                         self.yang_name = "state-change-history"
                         self.yang_parent_name = "virtual-router"
@@ -4166,7 +4394,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
 
 
-                    class Time(Entity):
+                    class Time(_Entity_):
                         """
                         Time of state change
                         
@@ -4200,7 +4428,10 @@ class Vrrp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, self).__init__()
 
                             self.yang_name = "time"
                             self.yang_parent_name = "state-change-history"
@@ -4220,13 +4451,33 @@ class Vrrp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                            return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                        return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.Ipv4.VirtualRouters.VirtualRouter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.Ipv4.VirtualRouters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+            return meta._meta_table['Vrrp.Ipv4']['meta_info']
 
 
-
-
-
-
-    class MgoSessions(Entity):
+    class MgoSessions(_Entity_):
         """
         VRRP MGO Session information
         
@@ -4245,7 +4496,10 @@ class Vrrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vrrp.MgoSessions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vrrp.MgoSessions, self).__init__()
 
             self.yang_name = "mgo-sessions"
             self.yang_parent_name = "vrrp"
@@ -4264,7 +4518,7 @@ class Vrrp(Entity):
             self._perform_setattr(Vrrp.MgoSessions, [], name, value)
 
 
-        class MgoSession(Entity):
+        class MgoSession(_Entity_):
             """
             A VRRP MGO Session
             
@@ -4333,7 +4587,10 @@ class Vrrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vrrp.MgoSessions.MgoSession, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrrp.MgoSessions.MgoSession, self).__init__()
 
                 self.yang_name = "mgo-session"
                 self.yang_parent_name = "mgo-sessions"
@@ -4365,7 +4622,7 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
 
 
-            class Slave(Entity):
+            class Slave(_Entity_):
                 """
                 List of slaves following this primary session
                 
@@ -4395,7 +4652,10 @@ class Vrrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vrrp.MgoSessions.MgoSession.Slave, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrrp.MgoSessions.MgoSession.Slave, self).__init__()
 
                     self.yang_name = "slave"
                     self.yang_parent_name = "mgo-session"
@@ -4415,12 +4675,28 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, ['slave_interface', 'slave_virtual_router_id'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                    return meta._meta_table['Vrrp.MgoSessions.MgoSession.Slave']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+                return meta._meta_table['Vrrp.MgoSessions.MgoSession']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+            return meta._meta_table['Vrrp.MgoSessions']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vrrp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_oper as meta
+        return meta._meta_table['Vrrp']['meta_info']
 
 

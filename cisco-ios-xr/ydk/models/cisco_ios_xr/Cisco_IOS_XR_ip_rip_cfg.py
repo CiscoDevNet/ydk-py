@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class BgpRedistRoute(Enum):
     local = Enum.YLeaf(2048, "local")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['BgpRedistRoute']
+
+
 class DefaultInformationOption(Enum):
     """
     DefaultInformationOption (Enum Class)
@@ -74,6 +83,12 @@ class DefaultInformationOption(Enum):
     policy = Enum.YLeaf(1, "policy")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['DefaultInformationOption']
+
+
 class DefaultRedistRoute(Enum):
     """
     DefaultRedistRoute (Enum Class)
@@ -87,6 +102,12 @@ class DefaultRedistRoute(Enum):
     """
 
     all = Enum.YLeaf(0, "all")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['DefaultRedistRoute']
 
 
 class IsisRedistRoute(Enum):
@@ -116,6 +137,12 @@ class IsisRedistRoute(Enum):
     level1_and2 = Enum.YLeaf(3, "level1-and2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['IsisRedistRoute']
+
+
 class RipAuthMode(Enum):
     """
     RipAuthMode (Enum Class)
@@ -135,6 +162,12 @@ class RipAuthMode(Enum):
     text = Enum.YLeaf(2, "text")
 
     md5 = Enum.YLeaf(3, "md5")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['RipAuthMode']
 
 
 class RipExtCommunity(Enum):
@@ -164,8 +197,14 @@ class RipExtCommunity(Enum):
     four_byte_as = Enum.YLeaf(2, "four-byte-as")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['RipExtCommunity']
 
-class Rip(Entity):
+
+
+class Rip(_Entity_):
     """
     RIP configuration
     
@@ -187,7 +226,10 @@ class Rip(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Rip, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rip, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rip"
@@ -212,7 +254,7 @@ class Rip(Entity):
         self._perform_setattr(Rip, [], name, value)
 
 
-    class DefaultVrf(Entity):
+    class DefaultVrf(_Entity_):
         """
         RIP configuration for Default VRF
         
@@ -327,7 +369,10 @@ class Rip(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rip.DefaultVrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rip.DefaultVrf, self).__init__()
 
             self.yang_name = "default-vrf"
             self.yang_parent_name = "rip"
@@ -389,7 +434,7 @@ class Rip(Entity):
             self._perform_setattr(Rip.DefaultVrf, ['enable', 'broadcast_for_v2', 'distance', 'default_metric', 'output_delay', 'auto_summary', 'policy_out', 'validate_source_disable', 'maximum_paths', 'nsf', 'policy_in'], name, value)
 
 
-        class DefaultInformation(Entity):
+        class DefaultInformation(_Entity_):
             """
             Controls default information origination
             
@@ -415,7 +460,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.DefaultInformation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.DefaultInformation, self).__init__()
 
                 self.yang_name = "default-information"
                 self.yang_parent_name = "default-vrf"
@@ -437,9 +485,13 @@ class Rip(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.DefaultInformation']['meta_info']
 
 
-        class Redistribution(Entity):
+        class Redistribution(_Entity_):
             """
             Redistribute information from another routing
             protocol
@@ -486,7 +538,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Redistribution, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Redistribution, self).__init__()
 
                 self.yang_name = "redistribution"
                 self.yang_parent_name = "default-vrf"
@@ -525,7 +580,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Redistribution, [], name, value)
 
 
-            class Connected(Entity):
+            class Connected(_Entity_):
                 """
                 Redistribute connected routes
                 
@@ -549,7 +604,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.Connected, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.Connected, self).__init__()
 
                     self.yang_name = "connected"
                     self.yang_parent_name = "redistribution"
@@ -571,9 +629,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.Connected']['meta_info']
 
 
-            class Bgps(Entity):
+            class Bgps(_Entity_):
                 """
                 Redistribute BGP routes
                 
@@ -590,7 +652,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.Bgps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.Bgps, self).__init__()
 
                     self.yang_name = "bgps"
                     self.yang_parent_name = "redistribution"
@@ -609,7 +674,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Bgps, [], name, value)
 
 
-                class Bgp(Entity):
+                class Bgp(_Entity_):
                     """
                     Autonomous system number
                     
@@ -645,7 +710,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Redistribution.Bgps.Bgp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Redistribution.Bgps.Bgp, self).__init__()
 
                         self.yang_name = "bgp"
                         self.yang_parent_name = "bgps"
@@ -670,10 +738,18 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Redistribution.Bgps.Bgp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.Bgps']['meta_info']
 
 
-
-            class Isises(Entity):
+            class Isises(_Entity_):
                 """
                 Redistribute IS\-IS routes
                 
@@ -690,7 +766,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.Isises, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.Isises, self).__init__()
 
                     self.yang_name = "isises"
                     self.yang_parent_name = "redistribution"
@@ -709,7 +788,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Isises, [], name, value)
 
 
-                class Isis(Entity):
+                class Isis(_Entity_):
                     """
                     Redistribute IS\-IS routes
                     
@@ -738,7 +817,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Redistribution.Isises.Isis, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Redistribution.Isises.Isis, self).__init__()
 
                         self.yang_name = "isis"
                         self.yang_parent_name = "isises"
@@ -761,10 +843,18 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Redistribution.Isises.Isis']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.Isises']['meta_info']
 
 
-
-            class EigrpS(Entity):
+            class EigrpS(_Entity_):
                 """
                 Redistribute EIGRP routes
                 
@@ -781,7 +871,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.EigrpS, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.EigrpS, self).__init__()
 
                     self.yang_name = "eigrp-s"
                     self.yang_parent_name = "redistribution"
@@ -800,7 +893,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.EigrpS, [], name, value)
 
 
-                class Eigrp(Entity):
+                class Eigrp(_Entity_):
                     """
                     Redistribute EIGRP routes
                     
@@ -829,7 +922,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Redistribution.EigrpS.Eigrp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Redistribution.EigrpS.Eigrp, self).__init__()
 
                         self.yang_name = "eigrp"
                         self.yang_parent_name = "eigrp-s"
@@ -852,10 +948,18 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Redistribution.EigrpS.Eigrp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.EigrpS']['meta_info']
 
 
-
-            class Static(Entity):
+            class Static(_Entity_):
                 """
                 Redistribute static routes
                 
@@ -879,7 +983,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.Static, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.Static, self).__init__()
 
                     self.yang_name = "static"
                     self.yang_parent_name = "redistribution"
@@ -901,9 +1008,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.Static']['meta_info']
 
 
-            class Ospfs(Entity):
+            class Ospfs(_Entity_):
                 """
                 Redistribute OSPF routes
                 
@@ -920,7 +1031,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Redistribution.Ospfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Redistribution.Ospfs, self).__init__()
 
                     self.yang_name = "ospfs"
                     self.yang_parent_name = "redistribution"
@@ -939,7 +1053,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Ospfs, [], name, value)
 
 
-                class Ospf(Entity):
+                class Ospf(_Entity_):
                     """
                     Redistribute OSPF routes
                     
@@ -992,7 +1106,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Redistribution.Ospfs.Ospf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Redistribution.Ospfs.Ospf, self).__init__()
 
                         self.yang_name = "ospf"
                         self.yang_parent_name = "ospfs"
@@ -1023,11 +1140,23 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Redistribution.Ospfs.Ospf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Redistribution.Ospfs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.Redistribution']['meta_info']
 
 
-
-
-        class IpDistances(Entity):
+        class IpDistances(_Entity_):
             """
             Table of IP specific administrative distances
             
@@ -1044,7 +1173,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.IpDistances, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.IpDistances, self).__init__()
 
                 self.yang_name = "ip-distances"
                 self.yang_parent_name = "default-vrf"
@@ -1063,7 +1195,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.IpDistances, [], name, value)
 
 
-            class IpDistance(Entity):
+            class IpDistance(_Entity_):
                 """
                 IP specific administrative distance
                 
@@ -1098,7 +1230,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.IpDistances.IpDistance, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.IpDistances.IpDistance, self).__init__()
 
                     self.yang_name = "ip-distance"
                     self.yang_parent_name = "ip-distances"
@@ -1121,10 +1256,18 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.IpDistances.IpDistance']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.IpDistances']['meta_info']
 
 
-
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             Table of RIP interfaces
             
@@ -1141,7 +1284,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "default-vrf"
@@ -1160,7 +1306,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 RIP interface name
                 
@@ -1241,7 +1387,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -1292,7 +1441,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface, ['interface_name', 'broadcast_for_v2', 'poison_reverse', 'passive', 'enable', 'policy_out', 'accept_metric_zero', 'policy_in', 'split_horizon_disable'], name, value)
 
 
-                class Authentication(Entity):
+                class Authentication(_Entity_):
                     """
                     Authentication keychain and mode
                     
@@ -1320,7 +1469,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.Authentication, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.Authentication, self).__init__()
 
                         self.yang_name = "authentication"
                         self.yang_parent_name = "interface"
@@ -1341,9 +1493,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.Authentication']['meta_info']
 
 
-                class SiteOfOrigin(Entity):
+                class SiteOfOrigin(_Entity_):
                     """
                     SOO community for prefixes learned over this
                     interface
@@ -1396,7 +1552,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin, self).__init__()
 
                         self.yang_name = "site-of-origin"
                         self.yang_parent_name = "interface"
@@ -1424,9 +1583,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin']['meta_info']
 
 
-                class ReceiveVersion(Entity):
+                class ReceiveVersion(_Entity_):
                     """
                     RIP versions supported for receiving
                     advertisements
@@ -1451,7 +1614,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion, self).__init__()
 
                         self.yang_name = "receive-version"
                         self.yang_parent_name = "interface"
@@ -1471,9 +1637,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion']['meta_info']
 
 
-                class SendVersion(Entity):
+                class SendVersion(_Entity_):
                     """
                     RIP versions supported for sending
                     advertisements
@@ -1498,7 +1668,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.DefaultVrf.Interfaces.Interface.SendVersion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.DefaultVrf.Interfaces.Interface.SendVersion, self).__init__()
 
                         self.yang_name = "send-version"
                         self.yang_parent_name = "interface"
@@ -1518,11 +1691,23 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.SendVersion']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.Interfaces']['meta_info']
 
 
-
-
-        class Neighbors(Entity):
+        class Neighbors(_Entity_):
             """
             Configure RIP Neighbors
             
@@ -1539,7 +1724,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Neighbors, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Neighbors, self).__init__()
 
                 self.yang_name = "neighbors"
                 self.yang_parent_name = "default-vrf"
@@ -1558,7 +1746,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Neighbors, [], name, value)
 
 
-            class Neighbor(Entity):
+            class Neighbor(_Entity_):
                 """
                 Neighbor address
                 
@@ -1577,7 +1765,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Neighbors.Neighbor, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.DefaultVrf.Neighbors.Neighbor, self).__init__()
 
                     self.yang_name = "neighbor"
                     self.yang_parent_name = "neighbors"
@@ -1596,10 +1787,18 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.DefaultVrf.Neighbors.Neighbor']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.Neighbors']['meta_info']
 
 
-
-        class Timers(Entity):
+        class Timers(_Entity_):
             """
             Various routing timers
             
@@ -1649,7 +1848,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Timers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.DefaultVrf.Timers, self).__init__()
 
                 self.yang_name = "timers"
                 self.yang_parent_name = "default-vrf"
@@ -1675,10 +1877,18 @@ class Rip(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.DefaultVrf.Timers']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+            return meta._meta_table['Rip.DefaultVrf']['meta_info']
 
 
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF related RIP configuration
         
@@ -1695,7 +1905,10 @@ class Rip(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rip.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rip.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "rip"
@@ -1714,7 +1927,7 @@ class Rip(Entity):
             self._perform_setattr(Rip.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             RIP configuration for a particular VRF
             
@@ -1836,7 +2049,10 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rip.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -1900,7 +2116,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.Vrfs.Vrf, ['vrf_name', 'enable', 'broadcast_for_v2', 'distance', 'default_metric', 'output_delay', 'auto_summary', 'policy_out', 'validate_source_disable', 'maximum_paths', 'nsf', 'policy_in'], name, value)
 
 
-            class DefaultInformation(Entity):
+            class DefaultInformation(_Entity_):
                 """
                 Controls default information origination
                 
@@ -1926,7 +2142,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.DefaultInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.DefaultInformation, self).__init__()
 
                     self.yang_name = "default-information"
                     self.yang_parent_name = "vrf"
@@ -1947,9 +2166,13 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.DefaultInformation']['meta_info']
 
 
-            class Redistribution(Entity):
+            class Redistribution(_Entity_):
                 """
                 Redistribute information from another routing
                 protocol
@@ -1996,7 +2219,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Redistribution, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Redistribution, self).__init__()
 
                     self.yang_name = "redistribution"
                     self.yang_parent_name = "vrf"
@@ -2034,7 +2260,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Redistribution, [], name, value)
 
 
-                class Connected(Entity):
+                class Connected(_Entity_):
                     """
                     Redistribute connected routes
                     
@@ -2058,7 +2284,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.Connected, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.Connected, self).__init__()
 
                         self.yang_name = "connected"
                         self.yang_parent_name = "redistribution"
@@ -2079,9 +2308,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Connected']['meta_info']
 
 
-                class Bgps(Entity):
+                class Bgps(_Entity_):
                     """
                     Redistribute BGP routes
                     
@@ -2098,7 +2331,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.Bgps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.Bgps, self).__init__()
 
                         self.yang_name = "bgps"
                         self.yang_parent_name = "redistribution"
@@ -2116,7 +2352,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Bgps, [], name, value)
 
 
-                    class Bgp(Entity):
+                    class Bgp(_Entity_):
                         """
                         Autonomous system number
                         
@@ -2152,7 +2388,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp, self).__init__()
 
                             self.yang_name = "bgp"
                             self.yang_parent_name = "bgps"
@@ -2176,10 +2415,18 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Bgps']['meta_info']
 
 
-
-                class Isises(Entity):
+                class Isises(_Entity_):
                     """
                     Redistribute IS\-IS routes
                     
@@ -2196,7 +2443,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.Isises, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.Isises, self).__init__()
 
                         self.yang_name = "isises"
                         self.yang_parent_name = "redistribution"
@@ -2214,7 +2464,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Isises, [], name, value)
 
 
-                    class Isis(Entity):
+                    class Isis(_Entity_):
                         """
                         Redistribute IS\-IS routes
                         
@@ -2243,7 +2493,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Redistribution.Isises.Isis, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Redistribution.Isises.Isis, self).__init__()
 
                             self.yang_name = "isis"
                             self.yang_parent_name = "isises"
@@ -2265,10 +2518,18 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Isises.Isis']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Isises']['meta_info']
 
 
-
-                class EigrpS(Entity):
+                class EigrpS(_Entity_):
                     """
                     Redistribute EIGRP routes
                     
@@ -2285,7 +2546,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.EigrpS, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.EigrpS, self).__init__()
 
                         self.yang_name = "eigrp-s"
                         self.yang_parent_name = "redistribution"
@@ -2303,7 +2567,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.EigrpS, [], name, value)
 
 
-                    class Eigrp(Entity):
+                    class Eigrp(_Entity_):
                         """
                         Redistribute EIGRP routes
                         
@@ -2332,7 +2596,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp, self).__init__()
 
                             self.yang_name = "eigrp"
                             self.yang_parent_name = "eigrp-s"
@@ -2354,10 +2621,18 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.EigrpS']['meta_info']
 
 
-
-                class Static(Entity):
+                class Static(_Entity_):
                     """
                     Redistribute static routes
                     
@@ -2381,7 +2656,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.Static, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.Static, self).__init__()
 
                         self.yang_name = "static"
                         self.yang_parent_name = "redistribution"
@@ -2402,9 +2680,13 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Static']['meta_info']
 
 
-                class Ospfs(Entity):
+                class Ospfs(_Entity_):
                     """
                     Redistribute OSPF routes
                     
@@ -2421,7 +2703,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Redistribution.Ospfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Redistribution.Ospfs, self).__init__()
 
                         self.yang_name = "ospfs"
                         self.yang_parent_name = "redistribution"
@@ -2439,7 +2724,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Ospfs, [], name, value)
 
 
-                    class Ospf(Entity):
+                    class Ospf(_Entity_):
                         """
                         Redistribute OSPF routes
                         
@@ -2492,7 +2777,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf, self).__init__()
 
                             self.yang_name = "ospf"
                             self.yang_parent_name = "ospfs"
@@ -2522,11 +2810,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Redistribution.Ospfs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Redistribution']['meta_info']
 
 
-
-
-            class IpDistances(Entity):
+            class IpDistances(_Entity_):
                 """
                 Table of IP specific administrative distances
                 
@@ -2543,7 +2843,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.IpDistances, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.IpDistances, self).__init__()
 
                     self.yang_name = "ip-distances"
                     self.yang_parent_name = "vrf"
@@ -2561,7 +2864,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.IpDistances, [], name, value)
 
 
-                class IpDistance(Entity):
+                class IpDistance(_Entity_):
                     """
                     IP specific administrative distance
                     
@@ -2596,7 +2899,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.IpDistances.IpDistance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.IpDistances.IpDistance, self).__init__()
 
                         self.yang_name = "ip-distance"
                         self.yang_parent_name = "ip-distances"
@@ -2618,10 +2924,18 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.IpDistances.IpDistance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.IpDistances']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Table of RIP interfaces
                 
@@ -2638,7 +2952,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "vrf"
@@ -2656,7 +2973,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     RIP interface name
                     
@@ -2737,7 +3054,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2787,7 +3107,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'broadcast_for_v2', 'poison_reverse', 'passive', 'enable', 'policy_out', 'accept_metric_zero', 'policy_in', 'split_horizon_disable'], name, value)
 
 
-                    class Authentication(Entity):
+                    class Authentication(_Entity_):
                         """
                         Authentication keychain and mode
                         
@@ -2815,7 +3135,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.Authentication, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.Authentication, self).__init__()
 
                             self.yang_name = "authentication"
                             self.yang_parent_name = "interface"
@@ -2836,9 +3159,13 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.Authentication']['meta_info']
 
 
-                    class SiteOfOrigin(Entity):
+                    class SiteOfOrigin(_Entity_):
                         """
                         SOO community for prefixes learned over this
                         interface
@@ -2891,7 +3218,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin, self).__init__()
 
                             self.yang_name = "site-of-origin"
                             self.yang_parent_name = "interface"
@@ -2919,9 +3249,13 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin']['meta_info']
 
 
-                    class ReceiveVersion(Entity):
+                    class ReceiveVersion(_Entity_):
                         """
                         RIP versions supported for receiving
                         advertisements
@@ -2946,7 +3280,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion, self).__init__()
 
                             self.yang_name = "receive-version"
                             self.yang_parent_name = "interface"
@@ -2966,9 +3303,13 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion']['meta_info']
 
 
-                    class SendVersion(Entity):
+                    class SendVersion(_Entity_):
                         """
                         RIP versions supported for sending
                         advertisements
@@ -2993,7 +3334,10 @@ class Rip(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion, self).__init__()
 
                             self.yang_name = "send-version"
                             self.yang_parent_name = "interface"
@@ -3013,11 +3357,23 @@ class Rip(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Interfaces']['meta_info']
 
 
-
-
-            class Neighbors(Entity):
+            class Neighbors(_Entity_):
                 """
                 Configure RIP Neighbors
                 
@@ -3034,7 +3390,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "vrf"
@@ -3052,7 +3411,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Neighbors, [], name, value)
 
 
-                class Neighbor(Entity):
+                class Neighbor(_Entity_):
                     """
                     Neighbor address
                     
@@ -3071,7 +3430,10 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Neighbors.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rip.Vrfs.Vrf.Neighbors.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "neighbors"
@@ -3089,10 +3451,18 @@ class Rip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                        return meta._meta_table['Rip.Vrfs.Vrf.Neighbors.Neighbor']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Neighbors']['meta_info']
 
 
-
-            class Timers(Entity):
+            class Timers(_Entity_):
                 """
                 Various routing timers
                 
@@ -3142,7 +3512,10 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Timers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rip.Vrfs.Vrf.Timers, self).__init__()
 
                     self.yang_name = "timers"
                     self.yang_parent_name = "vrf"
@@ -3167,12 +3540,28 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                    return meta._meta_table['Rip.Vrfs.Vrf.Timers']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+                return meta._meta_table['Rip.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+            return meta._meta_table['Rip.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rip()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_cfg as meta
+        return meta._meta_table['Rip']['meta_info']
 
 

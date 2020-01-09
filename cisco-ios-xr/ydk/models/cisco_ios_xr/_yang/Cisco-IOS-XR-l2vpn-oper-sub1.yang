@@ -22,6 +22,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-30 {
+    description
+      "- Rename l2fib-mac-learning-mac* interface-handle to interface-name - Rename l2fib-pw-group tunnel-if-handle to tunnel-interface-name - Convert several array from leaf-list to list syntax. - Implement range datatypes for all L2FIB integers.";
+  }
   revision 2018-08-01 {
     description
       "Removed empty groupings.";

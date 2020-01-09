@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Lldp(Entity):
+class Lldp(_Entity_):
     """
     Enable LLDP, or configure global LLDP subcommands
     
@@ -104,7 +107,10 @@ class Lldp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Lldp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lldp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lldp"
@@ -141,7 +147,7 @@ class Lldp(Entity):
         self._perform_setattr(Lldp, ['holdtime', 'enable_priority_addr', 'extended_show_width', 'enable_subintf', 'enable_mgmtintf', 'timer', 'reinit', 'enable'], name, value)
 
 
-    class TlvSelect(Entity):
+    class TlvSelect(_Entity_):
         """
         Selection of LLDP TLVs to disable
         
@@ -187,7 +193,10 @@ class Lldp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Lldp.TlvSelect, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.TlvSelect, self).__init__()
 
             self.yang_name = "tlv-select"
             self.yang_parent_name = "lldp"
@@ -228,7 +237,7 @@ class Lldp(Entity):
             self._perform_setattr(Lldp.TlvSelect, ['tlv_select_enter'], name, value)
 
 
-        class SystemName(Entity):
+        class SystemName(_Entity_):
             """
             System Name TLV
             
@@ -247,7 +256,10 @@ class Lldp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Lldp.TlvSelect.SystemName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.TlvSelect.SystemName, self).__init__()
 
                 self.yang_name = "system-name"
                 self.yang_parent_name = "tlv-select"
@@ -266,9 +278,13 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemName, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.SystemName']['meta_info']
 
 
-        class PortDescription(Entity):
+        class PortDescription(_Entity_):
             """
             Port Description TLV
             
@@ -287,7 +303,10 @@ class Lldp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Lldp.TlvSelect.PortDescription, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.TlvSelect.PortDescription, self).__init__()
 
                 self.yang_name = "port-description"
                 self.yang_parent_name = "tlv-select"
@@ -306,9 +325,13 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.PortDescription, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.PortDescription']['meta_info']
 
 
-        class SystemDescription(Entity):
+        class SystemDescription(_Entity_):
             """
             System Description TLV
             
@@ -327,7 +350,10 @@ class Lldp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Lldp.TlvSelect.SystemDescription, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.TlvSelect.SystemDescription, self).__init__()
 
                 self.yang_name = "system-description"
                 self.yang_parent_name = "tlv-select"
@@ -346,9 +372,13 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemDescription, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.SystemDescription']['meta_info']
 
 
-        class SystemCapabilities(Entity):
+        class SystemCapabilities(_Entity_):
             """
             System Capabilities TLV
             
@@ -367,7 +397,10 @@ class Lldp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Lldp.TlvSelect.SystemCapabilities, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.TlvSelect.SystemCapabilities, self).__init__()
 
                 self.yang_name = "system-capabilities"
                 self.yang_parent_name = "tlv-select"
@@ -386,9 +419,13 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemCapabilities, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.SystemCapabilities']['meta_info']
 
 
-        class ManagementAddress(Entity):
+        class ManagementAddress(_Entity_):
             """
             Management Address TLV
             
@@ -407,7 +444,10 @@ class Lldp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Lldp.TlvSelect.ManagementAddress, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.TlvSelect.ManagementAddress, self).__init__()
 
                 self.yang_name = "management-address"
                 self.yang_parent_name = "tlv-select"
@@ -426,11 +466,23 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.ManagementAddress, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.ManagementAddress']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+            return meta._meta_table['Lldp.TlvSelect']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Lldp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+        return meta._meta_table['Lldp']['meta_info']
 
 

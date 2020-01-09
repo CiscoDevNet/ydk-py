@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class EigrpDelayUnit(Enum):
     picosecond = Enum.YLeaf(1, "picosecond")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpDelayUnit']
+
+
 class EigrpDir(Enum):
     """
     EigrpDir (Enum Class)
@@ -60,6 +69,12 @@ class EigrpDir(Enum):
     in_ = Enum.YLeaf(1, "in")
 
     out = Enum.YLeaf(2, "out")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpDir']
 
 
 class EigrpMet(Enum):
@@ -95,6 +110,12 @@ class EigrpMet(Enum):
     version = Enum.YLeaf(4, "version")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpMet']
+
+
 class EigrpMetricVersion(Enum):
     """
     EigrpMetricVersion (Enum Class)
@@ -114,6 +135,12 @@ class EigrpMetricVersion(Enum):
     Y_64bit = Enum.YLeaf(0, "64bit")
 
     Y_32bit = Enum.YLeaf(1, "32bit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpMetricVersion']
 
 
 class EigrpRedistProto(Enum):
@@ -191,6 +218,12 @@ class EigrpRedistProto(Enum):
     mobile = Enum.YLeaf(11, "mobile")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpRedistProto']
+
+
 class EigrpSoo(Enum):
     """
     EigrpSoo (Enum Class)
@@ -218,6 +251,12 @@ class EigrpSoo(Enum):
     four_byte_as = Enum.YLeaf(3, "four-byte-as")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpSoo']
+
+
 class EigrpStub(Enum):
     """
     EigrpStub (Enum Class)
@@ -237,6 +276,12 @@ class EigrpStub(Enum):
     receive_only = Enum.YLeaf(1, "receive-only")
 
     filtered = Enum.YLeaf(2, "filtered")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpStub']
 
 
 class EigrpTimer(Enum):
@@ -272,8 +317,14 @@ class EigrpTimer(Enum):
     converge = Enum.YLeaf(4, "converge")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['EigrpTimer']
 
-class Eigrp(Entity):
+
+
+class Eigrp(_Entity_):
     """
     Configure Neighbor
     
@@ -290,7 +341,10 @@ class Eigrp(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(Eigrp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Eigrp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "eigrp"
@@ -311,7 +365,7 @@ class Eigrp(Entity):
         self._perform_setattr(Eigrp, [], name, value)
 
 
-    class Processes(Entity):
+    class Processes(_Entity_):
         """
         Process related configuration
         
@@ -328,7 +382,10 @@ class Eigrp(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Eigrp.Processes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eigrp.Processes, self).__init__()
 
             self.yang_name = "processes"
             self.yang_parent_name = "eigrp"
@@ -347,7 +404,7 @@ class Eigrp(Entity):
             self._perform_setattr(Eigrp.Processes, [], name, value)
 
 
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Configuration for a particular EIGRP process.
             
@@ -381,7 +438,10 @@ class Eigrp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Eigrp.Processes.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eigrp.Processes.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "processes"
@@ -411,7 +471,7 @@ class Eigrp(Entity):
                 self._perform_setattr(Eigrp.Processes.Process, ['process_id', 'nsf_disable'], name, value)
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 List of VRFs
                 
@@ -428,7 +488,10 @@ class Eigrp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Eigrp.Processes.Process.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Eigrp.Processes.Process.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "process"
@@ -446,7 +509,7 @@ class Eigrp(Entity):
                     self._perform_setattr(Eigrp.Processes.Process.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     Non\-default VRF configuration.Deletion of
                     this object also causes deletion of all
@@ -478,7 +541,10 @@ class Eigrp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Eigrp.Processes.Process.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Eigrp.Processes.Process.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -503,7 +569,7 @@ class Eigrp(Entity):
                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
 
 
-                    class Afs(Entity):
+                    class Afs(_Entity_):
                         """
                         Address family list in a VRF
                         
@@ -520,7 +586,10 @@ class Eigrp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs, self).__init__()
 
                             self.yang_name = "afs"
                             self.yang_parent_name = "vrf"
@@ -538,7 +607,7 @@ class Eigrp(Entity):
                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs, [], name, value)
 
 
-                        class Af(Entity):
+                        class Af(_Entity_):
                             """
                             Configuration under an AF in a non\-default
                             VRF context.Deletion of this object also
@@ -685,7 +754,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, self).__init__()
 
                                 self.yang_name = "af"
                                 self.yang_parent_name = "afs"
@@ -774,7 +846,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, ['af_name', 'enable', 'auto_summary', 'maximum_paths', 'router_id', 'log_neighbor_warnings', 'autonomous_system', 'variance', 'nsf_disable', 'passive_interface_default', 'log_neighbor_changes'], name, value)
 
 
-                            class AllNeighborsMaximumPrefix(Entity):
+                            class AllNeighborsMaximumPrefix(_Entity_):
                                 """
                                 Maximum number of IP prefixes acceptable
                                 in aggregate, from neighbors
@@ -834,7 +906,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.AllNeighborsMaximumPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.AllNeighborsMaximumPrefix, self).__init__()
 
                                     self.yang_name = "all-neighbors-maximum-prefix"
                                     self.yang_parent_name = "af"
@@ -864,9 +939,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.AllNeighborsMaximumPrefix, ['max_prefix', 'threshold', 'dampened', 'reset_time', 'restart', 'restart_count', 'warning_only'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.AllNeighborsMaximumPrefix']['meta_info']
 
 
-                            class RedistMaximumPrefix(Entity):
+                            class RedistMaximumPrefix(_Entity_):
                                 """
                                 Maximum number of prefixes redistributed
                                 to protocol
@@ -928,7 +1007,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.RedistMaximumPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.RedistMaximumPrefix, self).__init__()
 
                                     self.yang_name = "redist-maximum-prefix"
                                     self.yang_parent_name = "af"
@@ -958,9 +1040,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.RedistMaximumPrefix, ['max_prefix', 'threshold', 'dampened', 'reset_time', 'restart', 'restart_count', 'warning_only'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.RedistMaximumPrefix']['meta_info']
 
 
-                            class NeighborMaximumPrefixes(Entity):
+                            class NeighborMaximumPrefixes(_Entity_):
                                 """
                                 List of neighbors with prefix limits
                                 
@@ -977,7 +1063,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes, self).__init__()
 
                                     self.yang_name = "neighbor-maximum-prefixes"
                                     self.yang_parent_name = "af"
@@ -995,7 +1084,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes, [], name, value)
 
 
-                                class NeighborMaximumPrefix(Entity):
+                                class NeighborMaximumPrefix(_Entity_):
                                     """
                                     Neighbor prefix limits configuration
                                     
@@ -1041,7 +1130,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes.NeighborMaximumPrefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes.NeighborMaximumPrefix, self).__init__()
 
                                         self.yang_name = "neighbor-maximum-prefix"
                                         self.yang_parent_name = "neighbor-maximum-prefixes"
@@ -1065,10 +1157,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes.NeighborMaximumPrefix, ['neighbor_address', 'max_prefix', 'threshold', 'warning_only'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes.NeighborMaximumPrefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.NeighborMaximumPrefixes']['meta_info']
 
 
-
-                            class MaximumPrefix(Entity):
+                            class MaximumPrefix(_Entity_):
                                 """
                                 Maximum number of IP prefixes acceptable
                                 in aggregate
@@ -1128,7 +1228,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
 
                                     self.yang_name = "maximum-prefix"
                                     self.yang_parent_name = "af"
@@ -1158,9 +1261,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.MaximumPrefix, ['max_prefix', 'threshold', 'dampened', 'reset_time', 'restart', 'restart_count', 'warning_only'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
 
 
-                            class Stub(Entity):
+                            class Stub(_Entity_):
                                 """
                                 EIGRP stub configuration
                                 
@@ -1199,7 +1306,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Stub, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Stub, self).__init__()
 
                                     self.yang_name = "stub"
                                     self.yang_parent_name = "af"
@@ -1226,9 +1336,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Stub, ['type', 'connected', 'redistributed', 'static', 'summary'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Stub']['meta_info']
 
 
-                            class Redistributes(Entity):
+                            class Redistributes(_Entity_):
                                 """
                                 List of redistributed protocols
                                 
@@ -1282,7 +1396,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes, self).__init__()
 
                                     self.yang_name = "redistributes"
                                     self.yang_parent_name = "af"
@@ -1308,7 +1425,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes, [], name, value)
 
 
-                                class Redistribute(Entity):
+                                class Redistribute(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1337,7 +1454,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.Redistribute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.Redistribute, self).__init__()
 
                                         self.yang_name = "redistribute"
                                         self.yang_parent_name = "redistributes"
@@ -1359,9 +1479,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.Redistribute, ['protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.Redistribute']['meta_info']
 
 
-                                class RedistributeAsXx(Entity):
+                                class RedistributeAsXx(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1397,7 +1521,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXx, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXx, self).__init__()
 
                                         self.yang_name = "redistribute-as-xx"
                                         self.yang_parent_name = "redistributes"
@@ -1421,9 +1548,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXx, ['as_xx', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXx']['meta_info']
 
 
-                                class RedistributeAsYy(Entity):
+                                class RedistributeAsYy(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1459,7 +1590,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYy, self).__init__()
 
                                         self.yang_name = "redistribute-as-yy"
                                         self.yang_parent_name = "redistributes"
@@ -1483,9 +1617,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYy, ['as_yy', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYy']['meta_info']
 
 
-                                class RedistributeAsXxAsYy(Entity):
+                                class RedistributeAsXxAsYy(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1528,7 +1666,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYy, self).__init__()
 
                                         self.yang_name = "redistribute-as-xx-as-yy"
                                         self.yang_parent_name = "redistributes"
@@ -1554,9 +1695,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYy, ['as_xx', 'as_yy', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYy']['meta_info']
 
 
-                                class RedistributeTagName(Entity):
+                                class RedistributeTagName(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1592,7 +1737,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeTagName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeTagName, self).__init__()
 
                                         self.yang_name = "redistribute-tag-name"
                                         self.yang_parent_name = "redistributes"
@@ -1616,9 +1764,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeTagName, ['tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeTagName']['meta_info']
 
 
-                                class RedistributeAsXxTagName(Entity):
+                                class RedistributeAsXxTagName(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1661,7 +1813,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxTagName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxTagName, self).__init__()
 
                                         self.yang_name = "redistribute-as-xx-tag-name"
                                         self.yang_parent_name = "redistributes"
@@ -1687,9 +1842,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxTagName, ['as_xx', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxTagName']['meta_info']
 
 
-                                class RedistributeAsYyTagName(Entity):
+                                class RedistributeAsYyTagName(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1732,7 +1891,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYyTagName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYyTagName, self).__init__()
 
                                         self.yang_name = "redistribute-as-yy-tag-name"
                                         self.yang_parent_name = "redistributes"
@@ -1758,9 +1920,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYyTagName, ['as_yy', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsYyTagName']['meta_info']
 
 
-                                class RedistributeAsXxAsYyTagName(Entity):
+                                class RedistributeAsXxAsYyTagName(_Entity_):
                                     """
                                     Redistribute another protocol
                                     
@@ -1810,7 +1976,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYyTagName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYyTagName, self).__init__()
 
                                         self.yang_name = "redistribute-as-xx-as-yy-tag-name"
                                         self.yang_parent_name = "redistributes"
@@ -1838,10 +2007,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYyTagName, ['as_xx', 'as_yy', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes.RedistributeAsXxAsYyTagName']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Redistributes']['meta_info']
 
 
-
-                            class FilterPolicies(Entity):
+                            class FilterPolicies(_Entity_):
                                 """
                                 Inbound and outbound filter policies
                                 
@@ -1858,7 +2035,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies, self).__init__()
 
                                     self.yang_name = "filter-policies"
                                     self.yang_parent_name = "af"
@@ -1876,7 +2056,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies, [], name, value)
 
 
-                                class FilterPolicy(Entity):
+                                class FilterPolicy(_Entity_):
                                     """
                                     Inbound/outbound policies
                                     
@@ -1900,7 +2080,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies.FilterPolicy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies.FilterPolicy, self).__init__()
 
                                         self.yang_name = "filter-policy"
                                         self.yang_parent_name = "filter-policies"
@@ -1920,10 +2103,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies.FilterPolicy, ['direction', 'policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies.FilterPolicy']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.FilterPolicies']['meta_info']
 
 
-
-                            class DefaultMetric(Entity):
+                            class DefaultMetric(_Entity_):
                                 """
                                 Set metric of redistributed routes
                                 
@@ -1972,7 +2163,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultMetric, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultMetric, self).__init__()
 
                                     self.yang_name = "default-metric"
                                     self.yang_parent_name = "af"
@@ -1998,9 +2192,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultMetric, ['bandwidth', 'delay', 'reliability', 'load', 'mtu'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultMetric']['meta_info']
 
 
-                            class Metrics(Entity):
+                            class Metrics(_Entity_):
                                 """
                                 List of metric change behaviours
                                 
@@ -2017,7 +2215,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics, self).__init__()
 
                                     self.yang_name = "metrics"
                                     self.yang_parent_name = "af"
@@ -2035,7 +2236,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics, [], name, value)
 
 
-                                class Metric(Entity):
+                                class Metric(_Entity_):
                                     """
                                     Modify EIGRP routing metrics and parameters
                                     
@@ -2120,7 +2321,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics.Metric, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics.Metric, self).__init__()
 
                                         self.yang_name = "metric"
                                         self.yang_parent_name = "metrics"
@@ -2158,10 +2362,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics.Metric, ['metric_name', 'max_hops', 'tos', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'rib_scale', 'metric_version'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics.Metric']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Metrics']['meta_info']
 
 
-
-                            class Timers(Entity):
+                            class Timers(_Entity_):
                                 """
                                 List of timer configurations
                                 
@@ -2178,7 +2390,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers, self).__init__()
 
                                     self.yang_name = "timers"
                                     self.yang_parent_name = "af"
@@ -2196,7 +2411,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers, [], name, value)
 
 
-                                class Timer(Entity):
+                                class Timer(_Entity_):
                                     """
                                     Configure EIGRP timers
                                     
@@ -2249,7 +2464,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers.Timer, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers.Timer, self).__init__()
 
                                         self.yang_name = "timer"
                                         self.yang_parent_name = "timers"
@@ -2275,10 +2493,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers.Timer, ['timer_type', 'active_time', 'hold_time', 'signal_time', 'converge_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers.Timer']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Timers']['meta_info']
 
 
-
-                            class DefaultAccepts(Entity):
+                            class DefaultAccepts(_Entity_):
                                 """
                                 Candidate default policy table
                                 
@@ -2295,7 +2521,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts, self).__init__()
 
                                     self.yang_name = "default-accepts"
                                     self.yang_parent_name = "af"
@@ -2313,7 +2542,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts, [], name, value)
 
 
-                                class DefaultAccept(Entity):
+                                class DefaultAccept(_Entity_):
                                     """
                                     Candidate default behaviour
                                     
@@ -2342,7 +2571,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts.DefaultAccept, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts.DefaultAccept, self).__init__()
 
                                         self.yang_name = "default-accept"
                                         self.yang_parent_name = "default-accepts"
@@ -2364,10 +2596,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts.DefaultAccept, ['direction', 'policy_name', 'policy_specified'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts.DefaultAccept']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.DefaultAccepts']['meta_info']
 
 
-
-                            class Interfaces(Entity):
+                            class Interfaces(_Entity_):
                                 """
                                 List of interfaces
                                 
@@ -2384,7 +2624,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces, self).__init__()
 
                                     self.yang_name = "interfaces"
                                     self.yang_parent_name = "af"
@@ -2402,7 +2645,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces, [], name, value)
 
 
-                                class Interface(Entity):
+                                class Interface(_Entity_):
                                     """
                                     Configuration for an Interface.Deletion of this
                                     object also causes deletion of all objectsunder
@@ -2513,7 +2756,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "interfaces"
@@ -2577,7 +2823,7 @@ class Eigrp(Entity):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface, ['interface_name', 'hold_time', 'bandwidth_percent', 'passive_interface', 'hello_interval', 'next_hop_self', 'enable', 'split_horizon'], name, value)
 
 
-                                    class InterfaceMetric(Entity):
+                                    class InterfaceMetric(_Entity_):
                                         """
                                         Metric
                                         
@@ -2624,7 +2870,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceMetric, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceMetric, self).__init__()
 
                                             self.yang_name = "interface-metric"
                                             self.yang_parent_name = "interface"
@@ -2650,9 +2899,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceMetric, ['bandwidth', 'delay', 'delay_unit', 'reliability', 'load'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceMetric']['meta_info']
 
 
-                                    class RemoteNeighbor(Entity):
+                                    class RemoteNeighbor(_Entity_):
                                         """
                                         Remote\-Neighbors enabled, default is 65535
                                         
@@ -2685,7 +2938,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.RemoteNeighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.RemoteNeighbor, self).__init__()
 
                                             self.yang_name = "remote-neighbor"
                                             self.yang_parent_name = "interface"
@@ -2708,9 +2964,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.RemoteNeighbor, ['enable', 'allow_list', 'max_neighbors'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.RemoteNeighbor']['meta_info']
 
 
-                                    class Bfd(Entity):
+                                    class Bfd(_Entity_):
                                         """
                                         Configure BFD parameters
                                         
@@ -2743,7 +3003,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Bfd, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Bfd, self).__init__()
 
                                             self.yang_name = "bfd"
                                             self.yang_parent_name = "interface"
@@ -2765,9 +3028,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Bfd, ['fast_detect', 'detection_multiplier', 'interval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                    class SiteOfOrigin(Entity):
+                                    class SiteOfOrigin(_Entity_):
                                         """
                                         Configure Site\-of\-origin
                                         
@@ -2819,7 +3086,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SiteOfOrigin, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SiteOfOrigin, self).__init__()
 
                                             self.yang_name = "site-of-origin"
                                             self.yang_parent_name = "interface"
@@ -2847,9 +3117,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'index', 'address', 'address_index'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SiteOfOrigin']['meta_info']
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authentication configuration
                                         
@@ -2866,7 +3140,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "interface"
@@ -2884,9 +3161,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Authentication, ['keychain'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                    class SummaryAddresses(Entity):
+                                    class SummaryAddresses(_Entity_):
                                         """
                                         List of summary addresses under this interface
                                         
@@ -2903,7 +3184,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses, self).__init__()
 
                                             self.yang_name = "summary-addresses"
                                             self.yang_parent_name = "interface"
@@ -2921,7 +3205,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses, [], name, value)
 
 
-                                        class SummaryAddress(Entity):
+                                        class SummaryAddress(_Entity_):
                                             """
                                             Summary address
                                             
@@ -2962,7 +3246,10 @@ class Eigrp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses.SummaryAddress, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses.SummaryAddress, self).__init__()
 
                                                 self.yang_name = "summary-address"
                                                 self.yang_parent_name = "summary-addresses"
@@ -2984,10 +3271,18 @@ class Eigrp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses.SummaryAddress, ['summary_address_addr', 'summary_address_prefix', 'distance'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses.SummaryAddress']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.SummaryAddresses']['meta_info']
 
 
-
-                                    class InterfaceFilterPolicies(Entity):
+                                    class InterfaceFilterPolicies(_Entity_):
                                         """
                                         List of filter policies
                                         
@@ -3004,7 +3299,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies, self).__init__()
 
                                             self.yang_name = "interface-filter-policies"
                                             self.yang_parent_name = "interface"
@@ -3022,7 +3320,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies, [], name, value)
 
 
-                                        class InterfaceFilterPolicy(Entity):
+                                        class InterfaceFilterPolicy(_Entity_):
                                             """
                                             none
                                             
@@ -3046,7 +3344,10 @@ class Eigrp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, self).__init__()
 
                                                 self.yang_name = "interface-filter-policy"
                                                 self.yang_parent_name = "interface-filter-policies"
@@ -3066,10 +3367,18 @@ class Eigrp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, ['direction', 'policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceFilterPolicies']['meta_info']
 
 
-
-                                    class InterfaceStaticNeighbors(Entity):
+                                    class InterfaceStaticNeighbors(_Entity_):
                                         """
                                         List of Neighbors
                                         
@@ -3086,7 +3395,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors, self).__init__()
 
                                             self.yang_name = "interface-static-neighbors"
                                             self.yang_parent_name = "interface"
@@ -3104,7 +3416,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors, [], name, value)
 
 
-                                        class InterfaceStaticNeighbor(Entity):
+                                        class InterfaceStaticNeighbor(_Entity_):
                                             """
                                             Configure Neighbor
                                             
@@ -3138,7 +3450,10 @@ class Eigrp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, self).__init__()
 
                                                 self.yang_name = "interface-static-neighbor"
                                                 self.yang_parent_name = "interface-static-neighbors"
@@ -3158,12 +3473,28 @@ class Eigrp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, ['neighbor_address', 'max_hops'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface.InterfaceStaticNeighbors']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Interfaces']['meta_info']
 
 
-
-
-
-                            class Distance(Entity):
+                            class Distance(_Entity_):
                                 """
                                 Set distance for EIGRP routes
                                 
@@ -3189,7 +3520,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Distance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Distance, self).__init__()
 
                                     self.yang_name = "distance"
                                     self.yang_parent_name = "af"
@@ -3209,13 +3543,33 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Distance, ['internal_distance', 'external_distance'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Distance']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                    return meta._meta_table['Eigrp.Processes.Process.Vrfs']['meta_info']
 
 
-
-
-
-
-            class DefaultVrf(Entity):
+            class DefaultVrf(_Entity_):
                 """
                 Default VRF configuration.Deletion of this
                 object also causes deletion of all
@@ -3240,7 +3594,10 @@ class Eigrp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Eigrp.Processes.Process.DefaultVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Eigrp.Processes.Process.DefaultVrf, self).__init__()
 
                     self.yang_name = "default-vrf"
                     self.yang_parent_name = "process"
@@ -3263,7 +3620,7 @@ class Eigrp(Entity):
                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf, ['enable'], name, value)
 
 
-                class DefaultAfs(Entity):
+                class DefaultAfs(_Entity_):
                     """
                     Address family list in the default context
                     
@@ -3280,7 +3637,10 @@ class Eigrp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs, self).__init__()
 
                         self.yang_name = "default-afs"
                         self.yang_parent_name = "default-vrf"
@@ -3298,7 +3658,7 @@ class Eigrp(Entity):
                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs, [], name, value)
 
 
-                    class DefaultAf(Entity):
+                    class DefaultAf(_Entity_):
                         """
                         Configuration under an AF in the default
                         context.Deletion of this object also causes
@@ -3425,7 +3785,10 @@ class Eigrp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf, self).__init__()
 
                             self.yang_name = "default-af"
                             self.yang_parent_name = "default-afs"
@@ -3498,7 +3861,7 @@ class Eigrp(Entity):
                             self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf, ['af_name', 'enable', 'auto_summary', 'maximum_paths', 'router_id', 'log_neighbor_warnings', 'autonomous_system', 'variance', 'nsf_disable', 'passive_interface_default', 'log_neighbor_changes'], name, value)
 
 
-                        class Stub(Entity):
+                        class Stub(_Entity_):
                             """
                             EIGRP stub configuration
                             
@@ -3537,7 +3900,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Stub, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Stub, self).__init__()
 
                                 self.yang_name = "stub"
                                 self.yang_parent_name = "default-af"
@@ -3564,9 +3930,13 @@ class Eigrp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Stub, ['type', 'connected', 'redistributed', 'static', 'summary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Stub']['meta_info']
 
 
-                        class Redistributes(Entity):
+                        class Redistributes(_Entity_):
                             """
                             List of redistributed protocols
                             
@@ -3620,7 +3990,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes, self).__init__()
 
                                 self.yang_name = "redistributes"
                                 self.yang_parent_name = "default-af"
@@ -3646,7 +4019,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes, [], name, value)
 
 
-                            class Redistribute(Entity):
+                            class Redistribute(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3675,7 +4048,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.Redistribute, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.Redistribute, self).__init__()
 
                                     self.yang_name = "redistribute"
                                     self.yang_parent_name = "redistributes"
@@ -3697,9 +4073,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.Redistribute, ['protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.Redistribute']['meta_info']
 
 
-                            class RedistributeAsXx(Entity):
+                            class RedistributeAsXx(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3735,7 +4115,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXx, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXx, self).__init__()
 
                                     self.yang_name = "redistribute-as-xx"
                                     self.yang_parent_name = "redistributes"
@@ -3759,9 +4142,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXx, ['as_xx', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXx']['meta_info']
 
 
-                            class RedistributeAsYy(Entity):
+                            class RedistributeAsYy(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3797,7 +4184,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYy, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYy, self).__init__()
 
                                     self.yang_name = "redistribute-as-yy"
                                     self.yang_parent_name = "redistributes"
@@ -3821,9 +4211,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYy, ['as_yy', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYy']['meta_info']
 
 
-                            class RedistributeAsXxAsYy(Entity):
+                            class RedistributeAsXxAsYy(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3866,7 +4260,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYy, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYy, self).__init__()
 
                                     self.yang_name = "redistribute-as-xx-as-yy"
                                     self.yang_parent_name = "redistributes"
@@ -3892,9 +4289,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYy, ['as_xx', 'as_yy', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYy']['meta_info']
 
 
-                            class RedistributeTagName(Entity):
+                            class RedistributeTagName(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3930,7 +4331,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeTagName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeTagName, self).__init__()
 
                                     self.yang_name = "redistribute-tag-name"
                                     self.yang_parent_name = "redistributes"
@@ -3954,9 +4358,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeTagName, ['tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeTagName']['meta_info']
 
 
-                            class RedistributeAsXxTagName(Entity):
+                            class RedistributeAsXxTagName(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -3999,7 +4407,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxTagName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxTagName, self).__init__()
 
                                     self.yang_name = "redistribute-as-xx-tag-name"
                                     self.yang_parent_name = "redistributes"
@@ -4025,9 +4436,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxTagName, ['as_xx', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxTagName']['meta_info']
 
 
-                            class RedistributeAsYyTagName(Entity):
+                            class RedistributeAsYyTagName(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -4070,7 +4485,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYyTagName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYyTagName, self).__init__()
 
                                     self.yang_name = "redistribute-as-yy-tag-name"
                                     self.yang_parent_name = "redistributes"
@@ -4096,9 +4514,13 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYyTagName, ['as_yy', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsYyTagName']['meta_info']
 
 
-                            class RedistributeAsXxAsYyTagName(Entity):
+                            class RedistributeAsXxAsYyTagName(_Entity_):
                                 """
                                 Redistribute another protocol
                                 
@@ -4148,7 +4570,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYyTagName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYyTagName, self).__init__()
 
                                     self.yang_name = "redistribute-as-xx-as-yy-tag-name"
                                     self.yang_parent_name = "redistributes"
@@ -4176,10 +4601,18 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYyTagName, ['as_xx', 'as_yy', 'tag_name', 'protocol_name', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes.RedistributeAsXxAsYyTagName']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Redistributes']['meta_info']
 
 
-
-                        class FilterPolicies(Entity):
+                        class FilterPolicies(_Entity_):
                             """
                             Inbound and outbound filter policies
                             
@@ -4196,7 +4629,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies, self).__init__()
 
                                 self.yang_name = "filter-policies"
                                 self.yang_parent_name = "default-af"
@@ -4214,7 +4650,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies, [], name, value)
 
 
-                            class FilterPolicy(Entity):
+                            class FilterPolicy(_Entity_):
                                 """
                                 Inbound/outbound policies
                                 
@@ -4238,7 +4674,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies.FilterPolicy, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies.FilterPolicy, self).__init__()
 
                                     self.yang_name = "filter-policy"
                                     self.yang_parent_name = "filter-policies"
@@ -4258,10 +4697,18 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies.FilterPolicy, ['direction', 'policy_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies.FilterPolicy']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.FilterPolicies']['meta_info']
 
 
-
-                        class DefaultMetric(Entity):
+                        class DefaultMetric(_Entity_):
                             """
                             Set metric of redistributed routes
                             
@@ -4310,7 +4757,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultMetric, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultMetric, self).__init__()
 
                                 self.yang_name = "default-metric"
                                 self.yang_parent_name = "default-af"
@@ -4336,9 +4786,13 @@ class Eigrp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultMetric, ['bandwidth', 'delay', 'reliability', 'load', 'mtu'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultMetric']['meta_info']
 
 
-                        class Metrics(Entity):
+                        class Metrics(_Entity_):
                             """
                             List of metric change behaviours
                             
@@ -4355,7 +4809,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics, self).__init__()
 
                                 self.yang_name = "metrics"
                                 self.yang_parent_name = "default-af"
@@ -4373,7 +4830,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics, [], name, value)
 
 
-                            class Metric(Entity):
+                            class Metric(_Entity_):
                                 """
                                 Modify EIGRP routing metrics and parameters
                                 
@@ -4458,7 +4915,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics.Metric, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics.Metric, self).__init__()
 
                                     self.yang_name = "metric"
                                     self.yang_parent_name = "metrics"
@@ -4496,10 +4956,18 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics.Metric, ['metric_name', 'max_hops', 'tos', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'rib_scale', 'metric_version'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics.Metric']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Metrics']['meta_info']
 
 
-
-                        class Timers(Entity):
+                        class Timers(_Entity_):
                             """
                             List of timer configurations
                             
@@ -4516,7 +4984,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers, self).__init__()
 
                                 self.yang_name = "timers"
                                 self.yang_parent_name = "default-af"
@@ -4534,7 +5005,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers, [], name, value)
 
 
-                            class Timer(Entity):
+                            class Timer(_Entity_):
                                 """
                                 Configure EIGRP timers
                                 
@@ -4587,7 +5058,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers.Timer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers.Timer, self).__init__()
 
                                     self.yang_name = "timer"
                                     self.yang_parent_name = "timers"
@@ -4613,10 +5087,18 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers.Timer, ['timer_type', 'active_time', 'hold_time', 'signal_time', 'converge_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers.Timer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Timers']['meta_info']
 
 
-
-                        class DefaultAccepts(Entity):
+                        class DefaultAccepts(_Entity_):
                             """
                             Candidate default policy table
                             
@@ -4633,7 +5115,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts, self).__init__()
 
                                 self.yang_name = "default-accepts"
                                 self.yang_parent_name = "default-af"
@@ -4651,7 +5136,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts, [], name, value)
 
 
-                            class DefaultAccept(Entity):
+                            class DefaultAccept(_Entity_):
                                 """
                                 Candidate default behaviour
                                 
@@ -4680,7 +5165,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts.DefaultAccept, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts.DefaultAccept, self).__init__()
 
                                     self.yang_name = "default-accept"
                                     self.yang_parent_name = "default-accepts"
@@ -4702,10 +5190,18 @@ class Eigrp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts.DefaultAccept, ['direction', 'policy_name', 'policy_specified'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts.DefaultAccept']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.DefaultAccepts']['meta_info']
 
 
-
-                        class Interfaces(Entity):
+                        class Interfaces(_Entity_):
                             """
                             List of interfaces
                             
@@ -4722,7 +5218,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces, self).__init__()
 
                                 self.yang_name = "interfaces"
                                 self.yang_parent_name = "default-af"
@@ -4740,7 +5239,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces, [], name, value)
 
 
-                            class Interface(Entity):
+                            class Interface(_Entity_):
                                 """
                                 Configuration for an Interface.Deletion of this
                                 object also causes deletion of all objectsunder
@@ -4851,7 +5350,10 @@ class Eigrp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface, self).__init__()
 
                                     self.yang_name = "interface"
                                     self.yang_parent_name = "interfaces"
@@ -4915,7 +5417,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface, ['interface_name', 'hold_time', 'bandwidth_percent', 'passive_interface', 'hello_interval', 'next_hop_self', 'enable', 'split_horizon'], name, value)
 
 
-                                class InterfaceMetric(Entity):
+                                class InterfaceMetric(_Entity_):
                                     """
                                     Metric
                                     
@@ -4962,7 +5464,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceMetric, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceMetric, self).__init__()
 
                                         self.yang_name = "interface-metric"
                                         self.yang_parent_name = "interface"
@@ -4988,9 +5493,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceMetric, ['bandwidth', 'delay', 'delay_unit', 'reliability', 'load'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceMetric']['meta_info']
 
 
-                                class RemoteNeighbor(Entity):
+                                class RemoteNeighbor(_Entity_):
                                     """
                                     Remote\-Neighbors enabled, default is 65535
                                     
@@ -5023,7 +5532,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.RemoteNeighbor, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.RemoteNeighbor, self).__init__()
 
                                         self.yang_name = "remote-neighbor"
                                         self.yang_parent_name = "interface"
@@ -5046,9 +5558,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.RemoteNeighbor, ['enable', 'allow_list', 'max_neighbors'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.RemoteNeighbor']['meta_info']
 
 
-                                class Bfd(Entity):
+                                class Bfd(_Entity_):
                                     """
                                     Configure BFD parameters
                                     
@@ -5081,7 +5597,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Bfd, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Bfd, self).__init__()
 
                                         self.yang_name = "bfd"
                                         self.yang_parent_name = "interface"
@@ -5103,9 +5622,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Bfd, ['fast_detect', 'detection_multiplier', 'interval'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                class SiteOfOrigin(Entity):
+                                class SiteOfOrigin(_Entity_):
                                     """
                                     Configure Site\-of\-origin
                                     
@@ -5157,7 +5680,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SiteOfOrigin, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SiteOfOrigin, self).__init__()
 
                                         self.yang_name = "site-of-origin"
                                         self.yang_parent_name = "interface"
@@ -5185,9 +5711,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'index', 'address', 'address_index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SiteOfOrigin']['meta_info']
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authentication configuration
                                     
@@ -5204,7 +5734,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "interface"
@@ -5222,9 +5755,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Authentication, ['keychain'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                class SummaryAddresses(Entity):
+                                class SummaryAddresses(_Entity_):
                                     """
                                     List of summary addresses under this interface
                                     
@@ -5241,7 +5778,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses, self).__init__()
 
                                         self.yang_name = "summary-addresses"
                                         self.yang_parent_name = "interface"
@@ -5259,7 +5799,7 @@ class Eigrp(Entity):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses, [], name, value)
 
 
-                                    class SummaryAddress(Entity):
+                                    class SummaryAddress(_Entity_):
                                         """
                                         Summary address
                                         
@@ -5300,7 +5840,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses.SummaryAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses.SummaryAddress, self).__init__()
 
                                             self.yang_name = "summary-address"
                                             self.yang_parent_name = "summary-addresses"
@@ -5322,10 +5865,18 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses.SummaryAddress, ['summary_address_addr', 'summary_address_prefix', 'distance'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses.SummaryAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.SummaryAddresses']['meta_info']
 
 
-
-                                class InterfaceFilterPolicies(Entity):
+                                class InterfaceFilterPolicies(_Entity_):
                                     """
                                     List of filter policies
                                     
@@ -5342,7 +5893,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies, self).__init__()
 
                                         self.yang_name = "interface-filter-policies"
                                         self.yang_parent_name = "interface"
@@ -5360,7 +5914,7 @@ class Eigrp(Entity):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies, [], name, value)
 
 
-                                    class InterfaceFilterPolicy(Entity):
+                                    class InterfaceFilterPolicy(_Entity_):
                                         """
                                         none
                                         
@@ -5384,7 +5938,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, self).__init__()
 
                                             self.yang_name = "interface-filter-policy"
                                             self.yang_parent_name = "interface-filter-policies"
@@ -5404,10 +5961,18 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy, ['direction', 'policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies.InterfaceFilterPolicy']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceFilterPolicies']['meta_info']
 
 
-
-                                class InterfaceStaticNeighbors(Entity):
+                                class InterfaceStaticNeighbors(_Entity_):
                                     """
                                     List of Neighbors
                                     
@@ -5424,7 +5989,10 @@ class Eigrp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors, self).__init__()
 
                                         self.yang_name = "interface-static-neighbors"
                                         self.yang_parent_name = "interface"
@@ -5442,7 +6010,7 @@ class Eigrp(Entity):
                                         self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors, [], name, value)
 
 
-                                    class InterfaceStaticNeighbor(Entity):
+                                    class InterfaceStaticNeighbor(_Entity_):
                                         """
                                         Configure Neighbor
                                         
@@ -5476,7 +6044,10 @@ class Eigrp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, self).__init__()
 
                                             self.yang_name = "interface-static-neighbor"
                                             self.yang_parent_name = "interface-static-neighbors"
@@ -5496,12 +6067,28 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor, ['neighbor_address', 'max_hops'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors.InterfaceStaticNeighbor']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface.InterfaceStaticNeighbors']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces.Interface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Interfaces']['meta_info']
 
 
-
-
-
-                        class Distance(Entity):
+                        class Distance(_Entity_):
                             """
                             Set distance for EIGRP routes
                             
@@ -5527,7 +6114,10 @@ class Eigrp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Distance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Distance, self).__init__()
 
                                 self.yang_name = "distance"
                                 self.yang_parent_name = "default-af"
@@ -5547,15 +6137,43 @@ class Eigrp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Distance, ['internal_distance', 'external_distance'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                                return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf.Distance']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                            return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs.DefaultAf']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                        return meta._meta_table['Eigrp.Processes.Process.DefaultVrf.DefaultAfs']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                    return meta._meta_table['Eigrp.Processes.Process.DefaultVrf']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+                return meta._meta_table['Eigrp.Processes.Process']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+            return meta._meta_table['Eigrp.Processes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Eigrp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_cfg as meta
+        return meta._meta_table['Eigrp']['meta_info']
 
 

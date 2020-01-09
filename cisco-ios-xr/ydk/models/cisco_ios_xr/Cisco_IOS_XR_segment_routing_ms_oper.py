@@ -14,8 +14,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class SidTypeEnum(Enum):
     absolute = Enum.YLeaf(1, "absolute")
 
     index = Enum.YLeaf(2, "index")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SidTypeEnum']
 
 
 class SrmsAf(Enum):
@@ -71,6 +80,12 @@ class SrmsAf(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SrmsAf']
+
+
 class SrmsMiAfEB(Enum):
     """
     SrmsMiAfEB (Enum Class)
@@ -98,6 +113,12 @@ class SrmsMiAfEB(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SrmsMiAfEB']
+
+
 class SrmsMiFlagEB(Enum):
     """
     SrmsMiFlagEB (Enum Class)
@@ -117,6 +138,12 @@ class SrmsMiFlagEB(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(1, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SrmsMiFlagEB']
 
 
 class SrmsMiSrcEB(Enum):
@@ -146,8 +173,14 @@ class SrmsMiSrcEB(Enum):
     remote = Enum.YLeaf(2, "remote")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SrmsMiSrcEB']
 
-class StandbySrms(Entity):
+
+
+class StandbySrms(_Entity_):
     """
     Standby Segment Routing Mapping Server
     operational data
@@ -174,7 +207,10 @@ class StandbySrms(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(StandbySrms, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(StandbySrms, self).__init__()
         self._top_entity = None
 
         self.yang_name = "standby-srms"
@@ -199,7 +235,7 @@ class StandbySrms(Entity):
         self._perform_setattr(StandbySrms, [], name, value)
 
 
-    class Mapping(Entity):
+    class Mapping(_Entity_):
         """
         IP prefix to SID mappings
         
@@ -225,7 +261,10 @@ class StandbySrms(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(StandbySrms.Mapping, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(StandbySrms.Mapping, self).__init__()
 
             self.yang_name = "mapping"
             self.yang_parent_name = "standby-srms"
@@ -250,7 +289,7 @@ class StandbySrms(Entity):
             self._perform_setattr(StandbySrms.Mapping, [], name, value)
 
 
-        class MappingIpv4(Entity):
+        class MappingIpv4(_Entity_):
             """
             IPv4 prefix to SID mappings
             
@@ -269,7 +308,10 @@ class StandbySrms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(StandbySrms.Mapping.MappingIpv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(StandbySrms.Mapping.MappingIpv4, self).__init__()
 
                 self.yang_name = "mapping-ipv4"
                 self.yang_parent_name = "mapping"
@@ -288,7 +330,7 @@ class StandbySrms(Entity):
                 self._perform_setattr(StandbySrms.Mapping.MappingIpv4, [], name, value)
 
 
-            class MappingMi(Entity):
+            class MappingMi(_Entity_):
                 """
                 IP prefix to SID mapping item. It's not possible
                 to list all of the IP prefix to SID mappings, as
@@ -406,7 +448,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Mapping.MappingIpv4.MappingMi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Mapping.MappingIpv4.MappingMi, self).__init__()
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv4"
@@ -450,7 +495,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Mapping.MappingIpv4.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                class Addr(Entity):
+                class Addr(_Entity_):
                     """
                     addr
                     
@@ -487,7 +532,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Mapping.MappingIpv4.MappingMi.Addr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Mapping.MappingIpv4.MappingMi.Addr, self).__init__()
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
@@ -510,11 +558,23 @@ class StandbySrms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(StandbySrms.Mapping.MappingIpv4.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Mapping.MappingIpv4.MappingMi.Addr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Mapping.MappingIpv4.MappingMi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['StandbySrms.Mapping.MappingIpv4']['meta_info']
 
 
-
-
-        class MappingIpv6(Entity):
+        class MappingIpv6(_Entity_):
             """
             IPv6 prefix to SID mappings
             
@@ -533,7 +593,10 @@ class StandbySrms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(StandbySrms.Mapping.MappingIpv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(StandbySrms.Mapping.MappingIpv6, self).__init__()
 
                 self.yang_name = "mapping-ipv6"
                 self.yang_parent_name = "mapping"
@@ -552,7 +615,7 @@ class StandbySrms(Entity):
                 self._perform_setattr(StandbySrms.Mapping.MappingIpv6, [], name, value)
 
 
-            class MappingMi(Entity):
+            class MappingMi(_Entity_):
                 """
                 IP prefix to SID mapping item. It's not possible
                 to list all of the IP prefix to SID mappings, as
@@ -670,7 +733,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Mapping.MappingIpv6.MappingMi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Mapping.MappingIpv6.MappingMi, self).__init__()
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv6"
@@ -714,7 +780,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Mapping.MappingIpv6.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                class Addr(Entity):
+                class Addr(_Entity_):
                     """
                     addr
                     
@@ -751,7 +817,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Mapping.MappingIpv6.MappingMi.Addr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Mapping.MappingIpv6.MappingMi.Addr, self).__init__()
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
@@ -774,12 +843,28 @@ class StandbySrms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(StandbySrms.Mapping.MappingIpv6.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Mapping.MappingIpv6.MappingMi.Addr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Mapping.MappingIpv6.MappingMi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['StandbySrms.Mapping.MappingIpv6']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['StandbySrms.Mapping']['meta_info']
 
 
-
-
-
-    class Policy(Entity):
+    class Policy(_Entity_):
         """
         Policy operational data
         
@@ -805,7 +890,10 @@ class StandbySrms(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(StandbySrms.Policy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(StandbySrms.Policy, self).__init__()
 
             self.yang_name = "policy"
             self.yang_parent_name = "standby-srms"
@@ -830,7 +918,7 @@ class StandbySrms(Entity):
             self._perform_setattr(StandbySrms.Policy, [], name, value)
 
 
-        class PolicyIpv4(Entity):
+        class PolicyIpv4(_Entity_):
             """
             IPv4 policy operational data
             
@@ -856,7 +944,10 @@ class StandbySrms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(StandbySrms.Policy.PolicyIpv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(StandbySrms.Policy.PolicyIpv4, self).__init__()
 
                 self.yang_name = "policy-ipv4"
                 self.yang_parent_name = "policy"
@@ -881,7 +972,7 @@ class StandbySrms(Entity):
                 self._perform_setattr(StandbySrms.Policy.PolicyIpv4, [], name, value)
 
 
-            class PolicyIpv4Backup(Entity):
+            class PolicyIpv4Backup(_Entity_):
                 """
                 IPv4 backup policy operational data
                 
@@ -900,7 +991,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
 
                     self.yang_name = "policy-ipv4-backup"
                     self.yang_parent_name = "policy-ipv4"
@@ -919,7 +1013,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -1024,7 +1118,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv4-backup"
@@ -1066,7 +1163,7 @@ class StandbySrms(Entity):
                         self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -1103,7 +1200,10 @@ class StandbySrms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -1125,11 +1225,23 @@ class StandbySrms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info']
 
 
-
-
-            class PolicyIpv4Active(Entity):
+            class PolicyIpv4Active(_Entity_):
                 """
                 IPv4 active policy operational data
                 
@@ -1148,7 +1260,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
 
                     self.yang_name = "policy-ipv4-active"
                     self.yang_parent_name = "policy-ipv4"
@@ -1167,7 +1282,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -1272,7 +1387,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv4-active"
@@ -1314,7 +1432,7 @@ class StandbySrms(Entity):
                         self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -1351,7 +1469,10 @@ class StandbySrms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -1373,12 +1494,28 @@ class StandbySrms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['StandbySrms.Policy.PolicyIpv4']['meta_info']
 
 
-
-
-
-        class PolicyIpv6(Entity):
+        class PolicyIpv6(_Entity_):
             """
             IPv6 policy operational data
             
@@ -1404,7 +1541,10 @@ class StandbySrms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(StandbySrms.Policy.PolicyIpv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(StandbySrms.Policy.PolicyIpv6, self).__init__()
 
                 self.yang_name = "policy-ipv6"
                 self.yang_parent_name = "policy"
@@ -1429,7 +1569,7 @@ class StandbySrms(Entity):
                 self._perform_setattr(StandbySrms.Policy.PolicyIpv6, [], name, value)
 
 
-            class PolicyIpv6Backup(Entity):
+            class PolicyIpv6Backup(_Entity_):
                 """
                 IPv6 backup policy operational data
                 
@@ -1448,7 +1588,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
 
                     self.yang_name = "policy-ipv6-backup"
                     self.yang_parent_name = "policy-ipv6"
@@ -1467,7 +1610,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -1572,7 +1715,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv6-backup"
@@ -1614,7 +1760,7 @@ class StandbySrms(Entity):
                         self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -1651,7 +1797,10 @@ class StandbySrms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -1673,11 +1822,23 @@ class StandbySrms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info']
 
 
-
-
-            class PolicyIpv6Active(Entity):
+            class PolicyIpv6Active(_Entity_):
                 """
                 IPv6 active policy operational data
                 
@@ -1696,7 +1857,10 @@ class StandbySrms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
 
                     self.yang_name = "policy-ipv6-active"
                     self.yang_parent_name = "policy-ipv6"
@@ -1715,7 +1879,7 @@ class StandbySrms(Entity):
                     self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -1820,7 +1984,10 @@ class StandbySrms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv6-active"
@@ -1862,7 +2029,7 @@ class StandbySrms(Entity):
                         self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -1899,7 +2066,10 @@ class StandbySrms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -1921,18 +2091,42 @@ class StandbySrms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['StandbySrms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['StandbySrms.Policy.PolicyIpv6']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['StandbySrms.Policy']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = StandbySrms()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['StandbySrms']['meta_info']
 
 
-class Srms(Entity):
+class Srms(_Entity_):
     """
     srms
     
@@ -1965,7 +2159,10 @@ class Srms(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Srms, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Srms, self).__init__()
         self._top_entity = None
 
         self.yang_name = "srms"
@@ -1994,7 +2191,7 @@ class Srms(Entity):
         self._perform_setattr(Srms, [], name, value)
 
 
-    class AdjacencySid(Entity):
+    class AdjacencySid(_Entity_):
         """
         Adjacency SID
         
@@ -2013,7 +2210,10 @@ class Srms(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srms.AdjacencySid, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srms.AdjacencySid, self).__init__()
 
             self.yang_name = "adjacency-sid"
             self.yang_parent_name = "srms"
@@ -2034,7 +2234,7 @@ class Srms(Entity):
             self._perform_setattr(Srms.AdjacencySid, [], name, value)
 
 
-        class L2Adjacency(Entity):
+        class L2Adjacency(_Entity_):
             """
             L2 Adjacency Option
             
@@ -2053,7 +2253,10 @@ class Srms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srms.AdjacencySid.L2Adjacency, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srms.AdjacencySid.L2Adjacency, self).__init__()
 
                 self.yang_name = "l2-adjacency"
                 self.yang_parent_name = "adjacency-sid"
@@ -2074,7 +2277,7 @@ class Srms(Entity):
                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency, [], name, value)
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface directory
                 
@@ -2093,7 +2296,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.AdjacencySid.L2Adjacency.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.AdjacencySid.L2Adjacency.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "l2-adjacency"
@@ -2112,7 +2318,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Segment Routing Adjacency SID Interface
                     
@@ -2140,7 +2346,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2164,7 +2373,7 @@ class Srms(Entity):
                         self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                    class AddressFamily(Entity):
+                    class AddressFamily(_Entity_):
                         """
                         address family container
                         
@@ -2190,7 +2399,10 @@ class Srms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, self).__init__()
 
                             self.yang_name = "address-family"
                             self.yang_parent_name = "interface"
@@ -2214,7 +2426,7 @@ class Srms(Entity):
                             self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, [], name, value)
 
 
-                        class Ipv4(Entity):
+                        class Ipv4(_Entity_):
                             """
                             IP version 4
                             
@@ -2233,7 +2445,10 @@ class Srms(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4, self).__init__()
 
                                 self.yang_name = "ipv4"
                                 self.yang_parent_name = "address-family"
@@ -2251,7 +2466,7 @@ class Srms(Entity):
                                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4, [], name, value)
 
 
-                            class SidRecord(Entity):
+                            class SidRecord(_Entity_):
                                 """
                                 SID record
                                 
@@ -2347,7 +2562,10 @@ class Srms(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, self).__init__()
 
                                     self.yang_name = "sid-record"
                                     self.yang_parent_name = "ipv4"
@@ -2386,7 +2604,7 @@ class Srms(Entity):
                                     self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
-                                class NexthopAddress(Entity):
+                                class NexthopAddress(_Entity_):
                                     """
                                     Nexthop address
                                     
@@ -2423,7 +2641,10 @@ class Srms(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, self).__init__()
 
                                         self.yang_name = "nexthop-address"
                                         self.yang_parent_name = "sid-record"
@@ -2445,11 +2666,23 @@ class Srms(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                        return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                    return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4']['meta_info']
 
 
-
-
-                        class Ipv6(Entity):
+                        class Ipv6(_Entity_):
                             """
                             IP version 6
                             
@@ -2468,7 +2701,10 @@ class Srms(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6, self).__init__()
 
                                 self.yang_name = "ipv6"
                                 self.yang_parent_name = "address-family"
@@ -2486,7 +2722,7 @@ class Srms(Entity):
                                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6, [], name, value)
 
 
-                            class SidRecord(Entity):
+                            class SidRecord(_Entity_):
                                 """
                                 SID record
                                 
@@ -2582,7 +2818,10 @@ class Srms(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, self).__init__()
 
                                     self.yang_name = "sid-record"
                                     self.yang_parent_name = "ipv6"
@@ -2621,7 +2860,7 @@ class Srms(Entity):
                                     self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
-                                class NexthopAddress(Entity):
+                                class NexthopAddress(_Entity_):
                                     """
                                     Nexthop address
                                     
@@ -2658,7 +2897,10 @@ class Srms(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, self).__init__()
 
                                         self.yang_name = "nexthop-address"
                                         self.yang_parent_name = "sid-record"
@@ -2680,16 +2922,48 @@ class Srms(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                        return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                    return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                                return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.AdjacencySid.L2Adjacency.Interfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['Srms.AdjacencySid.L2Adjacency']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['Srms.AdjacencySid']['meta_info']
 
 
-
-
-
-
-
-
-
-    class Mapping(Entity):
+    class Mapping(_Entity_):
         """
         IP prefix to SID mappings
         
@@ -2715,7 +2989,10 @@ class Srms(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srms.Mapping, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srms.Mapping, self).__init__()
 
             self.yang_name = "mapping"
             self.yang_parent_name = "srms"
@@ -2740,7 +3017,7 @@ class Srms(Entity):
             self._perform_setattr(Srms.Mapping, [], name, value)
 
 
-        class MappingIpv4(Entity):
+        class MappingIpv4(_Entity_):
             """
             IPv4 prefix to SID mappings
             
@@ -2759,7 +3036,10 @@ class Srms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srms.Mapping.MappingIpv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srms.Mapping.MappingIpv4, self).__init__()
 
                 self.yang_name = "mapping-ipv4"
                 self.yang_parent_name = "mapping"
@@ -2778,7 +3058,7 @@ class Srms(Entity):
                 self._perform_setattr(Srms.Mapping.MappingIpv4, [], name, value)
 
 
-            class MappingMi(Entity):
+            class MappingMi(_Entity_):
                 """
                 IP prefix to SID mapping item. It's not possible
                 to list all of the IP prefix to SID mappings, as
@@ -2896,7 +3176,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Mapping.MappingIpv4.MappingMi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Mapping.MappingIpv4.MappingMi, self).__init__()
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv4"
@@ -2940,7 +3223,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                class Addr(Entity):
+                class Addr(_Entity_):
                     """
                     addr
                     
@@ -2977,7 +3260,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Mapping.MappingIpv4.MappingMi.Addr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Mapping.MappingIpv4.MappingMi.Addr, self).__init__()
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
@@ -3000,11 +3286,23 @@ class Srms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Mapping.MappingIpv4.MappingMi.Addr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Mapping.MappingIpv4.MappingMi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['Srms.Mapping.MappingIpv4']['meta_info']
 
 
-
-
-        class MappingIpv6(Entity):
+        class MappingIpv6(_Entity_):
             """
             IPv6 prefix to SID mappings
             
@@ -3023,7 +3321,10 @@ class Srms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srms.Mapping.MappingIpv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srms.Mapping.MappingIpv6, self).__init__()
 
                 self.yang_name = "mapping-ipv6"
                 self.yang_parent_name = "mapping"
@@ -3042,7 +3343,7 @@ class Srms(Entity):
                 self._perform_setattr(Srms.Mapping.MappingIpv6, [], name, value)
 
 
-            class MappingMi(Entity):
+            class MappingMi(_Entity_):
                 """
                 IP prefix to SID mapping item. It's not possible
                 to list all of the IP prefix to SID mappings, as
@@ -3160,7 +3461,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Mapping.MappingIpv6.MappingMi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Mapping.MappingIpv6.MappingMi, self).__init__()
 
                     self.yang_name = "mapping-mi"
                     self.yang_parent_name = "mapping-ipv6"
@@ -3204,7 +3508,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                class Addr(Entity):
+                class Addr(_Entity_):
                     """
                     addr
                     
@@ -3241,7 +3545,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Mapping.MappingIpv6.MappingMi.Addr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Mapping.MappingIpv6.MappingMi.Addr, self).__init__()
 
                         self.yang_name = "addr"
                         self.yang_parent_name = "mapping-mi"
@@ -3264,12 +3571,28 @@ class Srms(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Mapping.MappingIpv6.MappingMi.Addr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Mapping.MappingIpv6.MappingMi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['Srms.Mapping.MappingIpv6']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['Srms.Mapping']['meta_info']
 
 
-
-
-
-    class Policy(Entity):
+    class Policy(_Entity_):
         """
         Policy operational data
         
@@ -3295,7 +3618,10 @@ class Srms(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srms.Policy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srms.Policy, self).__init__()
 
             self.yang_name = "policy"
             self.yang_parent_name = "srms"
@@ -3320,7 +3646,7 @@ class Srms(Entity):
             self._perform_setattr(Srms.Policy, [], name, value)
 
 
-        class PolicyIpv4(Entity):
+        class PolicyIpv4(_Entity_):
             """
             IPv4 policy operational data
             
@@ -3346,7 +3672,10 @@ class Srms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srms.Policy.PolicyIpv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srms.Policy.PolicyIpv4, self).__init__()
 
                 self.yang_name = "policy-ipv4"
                 self.yang_parent_name = "policy"
@@ -3371,7 +3700,7 @@ class Srms(Entity):
                 self._perform_setattr(Srms.Policy.PolicyIpv4, [], name, value)
 
 
-            class PolicyIpv4Backup(Entity):
+            class PolicyIpv4Backup(_Entity_):
                 """
                 IPv4 backup policy operational data
                 
@@ -3390,7 +3719,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
 
                     self.yang_name = "policy-ipv4-backup"
                     self.yang_parent_name = "policy-ipv4"
@@ -3409,7 +3741,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -3514,7 +3846,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv4-backup"
@@ -3556,7 +3891,7 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -3593,7 +3928,10 @@ class Srms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -3615,11 +3953,23 @@ class Srms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info']
 
 
-
-
-            class PolicyIpv4Active(Entity):
+            class PolicyIpv4Active(_Entity_):
                 """
                 IPv4 active policy operational data
                 
@@ -3638,7 +3988,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
 
                     self.yang_name = "policy-ipv4-active"
                     self.yang_parent_name = "policy-ipv4"
@@ -3657,7 +4010,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -3762,7 +4115,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv4-active"
@@ -3804,7 +4160,7 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -3841,7 +4197,10 @@ class Srms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -3863,12 +4222,28 @@ class Srms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['Srms.Policy.PolicyIpv4']['meta_info']
 
 
-
-
-
-        class PolicyIpv6(Entity):
+        class PolicyIpv6(_Entity_):
             """
             IPv6 policy operational data
             
@@ -3894,7 +4269,10 @@ class Srms(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srms.Policy.PolicyIpv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srms.Policy.PolicyIpv6, self).__init__()
 
                 self.yang_name = "policy-ipv6"
                 self.yang_parent_name = "policy"
@@ -3919,7 +4297,7 @@ class Srms(Entity):
                 self._perform_setattr(Srms.Policy.PolicyIpv6, [], name, value)
 
 
-            class PolicyIpv6Backup(Entity):
+            class PolicyIpv6Backup(_Entity_):
                 """
                 IPv6 backup policy operational data
                 
@@ -3938,7 +4316,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
 
                     self.yang_name = "policy-ipv6-backup"
                     self.yang_parent_name = "policy-ipv6"
@@ -3957,7 +4338,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -4062,7 +4443,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv6-backup"
@@ -4104,7 +4488,7 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -4141,7 +4525,10 @@ class Srms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -4163,11 +4550,23 @@ class Srms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info']
 
 
-
-
-            class PolicyIpv6Active(Entity):
+            class PolicyIpv6Active(_Entity_):
                 """
                 IPv6 active policy operational data
                 
@@ -4186,7 +4585,10 @@ class Srms(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
 
                     self.yang_name = "policy-ipv6-active"
                     self.yang_parent_name = "policy-ipv6"
@@ -4205,7 +4607,7 @@ class Srms(Entity):
                     self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
 
 
-                class PolicyMi(Entity):
+                class PolicyMi(_Entity_):
                     """
                     Mapping Item
                     
@@ -4310,7 +4712,10 @@ class Srms(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
                         self.yang_parent_name = "policy-ipv6-active"
@@ -4352,7 +4757,7 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
-                    class Addr(Entity):
+                    class Addr(_Entity_):
                         """
                         addr
                         
@@ -4389,7 +4794,10 @@ class Srms(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -4411,18 +4819,42 @@ class Srms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                            return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                        return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                    return meta._meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+                return meta._meta_table['Srms.Policy.PolicyIpv6']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['Srms.Policy']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Srms()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['Srms']['meta_info']
 
 
-class Srlb(Entity):
+class Srlb(_Entity_):
     """
     srlb
     
@@ -4441,7 +4873,10 @@ class Srlb(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Srlb, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Srlb, self).__init__()
         self._top_entity = None
 
         self.yang_name = "srlb"
@@ -4462,7 +4897,7 @@ class Srlb(Entity):
         self._perform_setattr(Srlb, [], name, value)
 
 
-    class SrlbInconsistency(Entity):
+    class SrlbInconsistency(_Entity_):
         """
         SRLB Inconsistencies
         
@@ -4492,7 +4927,10 @@ class Srlb(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlb.SrlbInconsistency, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlb.SrlbInconsistency, self).__init__()
 
             self.yang_name = "srlb-inconsistency"
             self.yang_parent_name = "srlb"
@@ -4513,10 +4951,18 @@ class Srlb(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Srlb.SrlbInconsistency, ['start_srlb_range', 'end_srlb_range'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+            return meta._meta_table['Srlb.SrlbInconsistency']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Srlb()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['Srlb']['meta_info']
 
 

@@ -7,8 +7,11 @@ Copyright (c) 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ClearControllerCounters(Entity):
+class ClearControllerCounters(_Entity_):
     """
     Clear Ethernet MAC ASIC statistics.
     
@@ -34,7 +37,10 @@ class ClearControllerCounters(Entity):
     _revision = '2018-02-12'
 
     def __init__(self):
-        super(ClearControllerCounters, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearControllerCounters, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-controller-counters"
@@ -52,7 +58,7 @@ class ClearControllerCounters(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -73,7 +79,10 @@ class ClearControllerCounters(Entity):
         _revision = '2018-02-12'
 
         def __init__(self):
-            super(ClearControllerCounters.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearControllerCounters.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-controller-counters"
@@ -92,10 +101,18 @@ class ClearControllerCounters(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearControllerCounters.Input, ['controller_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_act as meta
+            return meta._meta_table['ClearControllerCounters.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearControllerCounters()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_act as meta
+        return meta._meta_table['ClearControllerCounters']['meta_info']
 
 

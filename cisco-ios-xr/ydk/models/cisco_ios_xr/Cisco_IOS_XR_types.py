@@ -1,14 +1,17 @@
 """ Cisco_IOS_XR_types 
 
-This module contains a collection of IOS\-XR derived YANG data 
+This module contains a collection of IOS\-XR derived YANG data
 types.
-    
+
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -32,13 +35,13 @@ class EncryptionType(Enum):
 
     .. data:: proprietary = 2
 
-    	The password is encrypted using Cisco type 7 
+    	The password is encrypted using Cisco type 7
 
     	password encryption.
 
     .. data:: type6 = 3
 
-    	The password is encrypted using Cisco type 6 
+    	The password is encrypted using Cisco type 6
 
     	password encryption.
 
@@ -51,6 +54,12 @@ class EncryptionType(Enum):
     proprietary = Enum.YLeaf(2, "proprietary")
 
     type6 = Enum.YLeaf(3, "type6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_types as meta
+        return meta._meta_table['EncryptionType']
 
 
 

@@ -9,7 +9,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-subscriber-pppoe-ma-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2019-10-07;
   }
 
   organization
@@ -35,6 +35,10 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-07 {
+    description
+      "Introduced an new cli pppoe bba-group padi host-uniq-disconnect";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";

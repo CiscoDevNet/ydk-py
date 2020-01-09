@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class LineState(Enum):
     registered = Enum.YLeaf(1, "registered")
 
     in_use = Enum.YLeaf(2, "in-use")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+        return meta._meta_table['LineState']
 
 
 class SessionOperation(Enum):
@@ -86,8 +95,14 @@ class SessionOperation(Enum):
     packet = Enum.YLeaf(4, "packet")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+        return meta._meta_table['SessionOperation']
 
-class Tty(Entity):
+
+
+class Tty(_Entity_):
     """
     TTY Line Configuration
     
@@ -120,7 +135,10 @@ class Tty(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Tty, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Tty, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tty"
@@ -149,7 +167,7 @@ class Tty(Entity):
         self._perform_setattr(Tty, [], name, value)
 
 
-    class ConsoleNodes(Entity):
+    class ConsoleNodes(_Entity_):
         """
         List of Nodes for console
         
@@ -168,7 +186,10 @@ class Tty(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Tty.ConsoleNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tty.ConsoleNodes, self).__init__()
 
             self.yang_name = "console-nodes"
             self.yang_parent_name = "tty"
@@ -187,7 +208,7 @@ class Tty(Entity):
             self._perform_setattr(Tty.ConsoleNodes, [], name, value)
 
 
-        class ConsoleNode(Entity):
+        class ConsoleNode(_Entity_):
             """
             Console line configuration on a node
             
@@ -215,7 +236,10 @@ class Tty(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Tty.ConsoleNodes.ConsoleNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tty.ConsoleNodes.ConsoleNode, self).__init__()
 
                 self.yang_name = "console-node"
                 self.yang_parent_name = "console-nodes"
@@ -239,7 +263,7 @@ class Tty(Entity):
                 self._perform_setattr(Tty.ConsoleNodes.ConsoleNode, ['id'], name, value)
 
 
-            class ConsoleLine(Entity):
+            class ConsoleLine(_Entity_):
                 """
                 Console line
                 
@@ -272,7 +296,10 @@ class Tty(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine, self).__init__()
 
                     self.yang_name = "console-line"
                     self.yang_parent_name = "console-node"
@@ -300,7 +327,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine, [], name, value)
 
 
-                class ConsoleStatistics(Entity):
+                class ConsoleStatistics(_Entity_):
                     """
                     Statistics of the console line
                     
@@ -340,7 +367,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics, self).__init__()
 
                         self.yang_name = "console-statistics"
                         self.yang_parent_name = "console-line"
@@ -372,7 +402,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics, [], name, value)
 
 
-                    class Rs232(Entity):
+                    class Rs232(_Entity_):
                         """
                         RS232 statistics of console line
                         
@@ -469,7 +499,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, self).__init__()
 
                             self.yang_name = "rs232"
                             self.yang_parent_name = "console-statistics"
@@ -503,9 +536,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, ['data_bits', 'exec_disabled', 'hardware_flow_control_status', 'parity_status', 'baud_rate', 'stop_bits', 'overrun_error_count', 'framing_error_count', 'parity_error_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232']['meta_info']
 
 
-                    class GeneralStatistics(Entity):
+                    class GeneralStatistics(_Entity_):
                         """
                         General statistics of line
                         
@@ -606,7 +643,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, self).__init__()
 
                             self.yang_name = "general-statistics"
                             self.yang_parent_name = "console-statistics"
@@ -644,9 +684,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics']['meta_info']
 
 
-                    class Exec(Entity):
+                    class Exec(_Entity_):
                         """
                         Exec related statistics
                         
@@ -665,7 +709,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, self).__init__()
 
                             self.yang_name = "exec"
                             self.yang_parent_name = "console-statistics"
@@ -683,9 +730,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, ['time_stamp_enabled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec']['meta_info']
 
 
-                    class Aaa(Entity):
+                    class Aaa(_Entity_):
                         """
                         AAA related statistics
                         
@@ -704,7 +755,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, self).__init__()
 
                             self.yang_name = "aaa"
                             self.yang_parent_name = "console-statistics"
@@ -722,10 +776,18 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, ['user_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
 
 
-
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Line state information
                     
@@ -751,7 +813,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "console-line"
@@ -775,7 +840,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State, [], name, value)
 
 
-                    class Template(Entity):
+                    class Template(_Entity_):
                         """
                         Information related to template applied to the
                         line
@@ -795,7 +860,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, self).__init__()
 
                             self.yang_name = "template"
                             self.yang_parent_name = "state"
@@ -813,9 +881,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, ['name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template']['meta_info']
 
 
-                    class General(Entity):
+                    class General(_Entity_):
                         """
                         General information
                         
@@ -841,7 +913,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, self).__init__()
 
                             self.yang_name = "general"
                             self.yang_parent_name = "state"
@@ -861,10 +936,18 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, ['operation_', 'general_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State']['meta_info']
 
 
-
-                class Configuration(Entity):
+                class Configuration(_Entity_):
                     """
                     Configuration information of the line
                     
@@ -883,7 +966,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration, self).__init__()
 
                         self.yang_name = "configuration"
                         self.yang_parent_name = "console-line"
@@ -903,7 +989,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration, [], name, value)
 
 
-                    class ConnectionConfiguration(Entity):
+                    class ConnectionConfiguration(_Entity_):
                         """
                         Conection configuration information
                         
@@ -936,7 +1022,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, self).__init__()
 
                             self.yang_name = "connection-configuration"
                             self.yang_parent_name = "configuration"
@@ -961,7 +1050,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
 
 
-                        class TransportInput(Entity):
+                        class TransportInput(_Entity_):
                             """
                             Protocols to use when connecting to the
                             terminal server
@@ -1006,7 +1095,10 @@ class Tty(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
                                 self.yang_name = "transport-input"
                                 self.yang_parent_name = "connection-configuration"
@@ -1030,14 +1122,38 @@ class Tty(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                                return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                return meta._meta_table['Tty.ConsoleNodes.ConsoleNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+            return meta._meta_table['Tty.ConsoleNodes']['meta_info']
 
 
-
-
-
-
-
-    class VtyLines(Entity):
+    class VtyLines(_Entity_):
         """
         List of VTY lines
         
@@ -1056,7 +1172,10 @@ class Tty(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Tty.VtyLines, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tty.VtyLines, self).__init__()
 
             self.yang_name = "vty-lines"
             self.yang_parent_name = "tty"
@@ -1075,7 +1194,7 @@ class Tty(Entity):
             self._perform_setattr(Tty.VtyLines, [], name, value)
 
 
-        class VtyLine(Entity):
+        class VtyLine(_Entity_):
             """
             VTY Line
             
@@ -1124,7 +1243,10 @@ class Tty(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Tty.VtyLines.VtyLine, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tty.VtyLines.VtyLine, self).__init__()
 
                 self.yang_name = "vty-line"
                 self.yang_parent_name = "vty-lines"
@@ -1160,7 +1282,7 @@ class Tty(Entity):
                 self._perform_setattr(Tty.VtyLines.VtyLine, ['line_number'], name, value)
 
 
-            class VtyStatistics(Entity):
+            class VtyStatistics(_Entity_):
                 """
                 Statistics of the VTY line
                 
@@ -1200,7 +1322,10 @@ class Tty(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Tty.VtyLines.VtyLine.VtyStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.VtyLines.VtyLine.VtyStatistics, self).__init__()
 
                     self.yang_name = "vty-statistics"
                     self.yang_parent_name = "vty-line"
@@ -1232,7 +1357,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics, [], name, value)
 
 
-                class Connection(Entity):
+                class Connection(_Entity_):
                     """
                     Connection related statistics
                     
@@ -1271,7 +1396,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.VtyStatistics.Connection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.VtyStatistics.Connection, self).__init__()
 
                         self.yang_name = "connection"
                         self.yang_parent_name = "vty-statistics"
@@ -1293,9 +1421,13 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Connection, ['incoming_host_address', 'host_address_family', 'service'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Connection']['meta_info']
 
 
-                class GeneralStatistics(Entity):
+                class GeneralStatistics(_Entity_):
                     """
                     General statistics of line
                     
@@ -1396,7 +1528,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, self).__init__()
 
                         self.yang_name = "general-statistics"
                         self.yang_parent_name = "vty-statistics"
@@ -1434,9 +1569,13 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics']['meta_info']
 
 
-                class Exec(Entity):
+                class Exec(_Entity_):
                     """
                     Exec related statistics
                     
@@ -1455,7 +1594,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.VtyStatistics.Exec, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.VtyStatistics.Exec, self).__init__()
 
                         self.yang_name = "exec"
                         self.yang_parent_name = "vty-statistics"
@@ -1473,9 +1615,13 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec, ['time_stamp_enabled'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec']['meta_info']
 
 
-                class Aaa(Entity):
+                class Aaa(_Entity_):
                     """
                     AAA related statistics
                     
@@ -1494,7 +1640,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, self).__init__()
 
                         self.yang_name = "aaa"
                         self.yang_parent_name = "vty-statistics"
@@ -1512,10 +1661,18 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, ['user_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Aaa']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
 
 
-
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Line state information
                 
@@ -1541,7 +1698,10 @@ class Tty(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Tty.VtyLines.VtyLine.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.VtyLines.VtyLine.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "vty-line"
@@ -1565,7 +1725,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.VtyLines.VtyLine.State, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     Information related to template applied to the
                     line
@@ -1585,7 +1745,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.State.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.State.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "state"
@@ -1603,9 +1766,13 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.State.Template, ['name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.State.Template']['meta_info']
 
 
-                class General(Entity):
+                class General(_Entity_):
                     """
                     General information
                     
@@ -1631,7 +1798,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.State.General, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.State.General, self).__init__()
 
                         self.yang_name = "general"
                         self.yang_parent_name = "state"
@@ -1651,10 +1821,18 @@ class Tty(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.State.General, ['operation_', 'general_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.State.General']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.VtyLines.VtyLine.State']['meta_info']
 
 
-
-            class Configuration(Entity):
+            class Configuration(_Entity_):
                 """
                 Configuration information of the line
                 
@@ -1673,7 +1851,10 @@ class Tty(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Tty.VtyLines.VtyLine.Configuration, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.VtyLines.VtyLine.Configuration, self).__init__()
 
                     self.yang_name = "configuration"
                     self.yang_parent_name = "vty-line"
@@ -1693,7 +1874,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.VtyLines.VtyLine.Configuration, [], name, value)
 
 
-                class ConnectionConfiguration(Entity):
+                class ConnectionConfiguration(_Entity_):
                     """
                     Conection configuration information
                     
@@ -1726,7 +1907,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, self).__init__()
 
                         self.yang_name = "connection-configuration"
                         self.yang_parent_name = "configuration"
@@ -1751,7 +1935,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
 
 
-                    class TransportInput(Entity):
+                    class TransportInput(_Entity_):
                         """
                         Protocols to use when connecting to the
                         terminal server
@@ -1796,7 +1980,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
                             self.yang_name = "transport-input"
                             self.yang_parent_name = "connection-configuration"
@@ -1820,11 +2007,23 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.VtyLines.VtyLine.Configuration']['meta_info']
 
 
-
-
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 Outgoing sessions
                 
@@ -1843,7 +2042,10 @@ class Tty(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Tty.VtyLines.VtyLine.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.VtyLines.VtyLine.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "vty-line"
@@ -1861,7 +2063,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.VtyLines.VtyLine.Sessions, [], name, value)
 
 
-                class OutgoingConnection(Entity):
+                class OutgoingConnection(_Entity_):
                     """
                     List of outgoing sessions
                     
@@ -1921,7 +2123,10 @@ class Tty(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, self).__init__()
 
                         self.yang_name = "outgoing-connection"
                         self.yang_parent_name = "sessions"
@@ -1952,7 +2157,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, ['connection_id', 'host_name', 'transport_protocol', 'is_last_active_session', 'idle_time'], name, value)
 
 
-                    class HostAddress(Entity):
+                    class HostAddress(_Entity_):
                         """
                         Host address
                         
@@ -1989,7 +2194,10 @@ class Tty(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, self).__init__()
 
                             self.yang_name = "host-address"
                             self.yang_parent_name = "outgoing-connection"
@@ -2011,13 +2219,33 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.VtyLines.VtyLine.Sessions.OutgoingConnection']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.VtyLines.VtyLine.Sessions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                return meta._meta_table['Tty.VtyLines.VtyLine']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+            return meta._meta_table['Tty.VtyLines']['meta_info']
 
 
-
-
-
-
-    class AuxiliaryNodes(Entity):
+    class AuxiliaryNodes(_Entity_):
         """
         List of Nodes attached with an auxiliary line
         
@@ -2036,7 +2264,10 @@ class Tty(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Tty.AuxiliaryNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tty.AuxiliaryNodes, self).__init__()
 
             self.yang_name = "auxiliary-nodes"
             self.yang_parent_name = "tty"
@@ -2055,7 +2286,7 @@ class Tty(Entity):
             self._perform_setattr(Tty.AuxiliaryNodes, [], name, value)
 
 
-        class AuxiliaryNode(Entity):
+        class AuxiliaryNode(_Entity_):
             """
             Line configuration on a node
             
@@ -2083,7 +2314,10 @@ class Tty(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Tty.AuxiliaryNodes.AuxiliaryNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tty.AuxiliaryNodes.AuxiliaryNode, self).__init__()
 
                 self.yang_name = "auxiliary-node"
                 self.yang_parent_name = "auxiliary-nodes"
@@ -2107,7 +2341,7 @@ class Tty(Entity):
                 self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode, ['id'], name, value)
 
 
-            class AuxiliaryLine(Entity):
+            class AuxiliaryLine(_Entity_):
                 """
                 Auxiliary line
                 
@@ -2140,7 +2374,10 @@ class Tty(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine, self).__init__()
 
                     self.yang_name = "auxiliary-line"
                     self.yang_parent_name = "auxiliary-node"
@@ -2168,7 +2405,7 @@ class Tty(Entity):
                     self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine, [], name, value)
 
 
-                class AuxiliaryStatistics(Entity):
+                class AuxiliaryStatistics(_Entity_):
                     """
                     Statistics of the auxiliary line
                     
@@ -2208,7 +2445,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics, self).__init__()
 
                         self.yang_name = "auxiliary-statistics"
                         self.yang_parent_name = "auxiliary-line"
@@ -2240,7 +2480,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics, [], name, value)
 
 
-                    class Rs232(Entity):
+                    class Rs232(_Entity_):
                         """
                         RS232 statistics of console line
                         
@@ -2337,7 +2577,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, self).__init__()
 
                             self.yang_name = "rs232"
                             self.yang_parent_name = "auxiliary-statistics"
@@ -2371,9 +2614,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, ['data_bits', 'exec_disabled', 'hardware_flow_control_status', 'parity_status', 'baud_rate', 'stop_bits', 'overrun_error_count', 'framing_error_count', 'parity_error_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232']['meta_info']
 
 
-                    class GeneralStatistics(Entity):
+                    class GeneralStatistics(_Entity_):
                         """
                         General statistics of line
                         
@@ -2474,7 +2721,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, self).__init__()
 
                             self.yang_name = "general-statistics"
                             self.yang_parent_name = "auxiliary-statistics"
@@ -2512,9 +2762,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics']['meta_info']
 
 
-                    class Exec(Entity):
+                    class Exec(_Entity_):
                         """
                         Exec related statistics
                         
@@ -2533,7 +2787,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, self).__init__()
 
                             self.yang_name = "exec"
                             self.yang_parent_name = "auxiliary-statistics"
@@ -2551,9 +2808,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, ['time_stamp_enabled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec']['meta_info']
 
 
-                    class Aaa(Entity):
+                    class Aaa(_Entity_):
                         """
                         AAA related statistics
                         
@@ -2572,7 +2833,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, self).__init__()
 
                             self.yang_name = "aaa"
                             self.yang_parent_name = "auxiliary-statistics"
@@ -2590,10 +2854,18 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, ['user_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
 
 
-
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Line state information
                     
@@ -2619,7 +2891,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "auxiliary-line"
@@ -2643,7 +2918,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State, [], name, value)
 
 
-                    class Template(Entity):
+                    class Template(_Entity_):
                         """
                         Information related to template applied to the
                         line
@@ -2663,7 +2938,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, self).__init__()
 
                             self.yang_name = "template"
                             self.yang_parent_name = "state"
@@ -2681,9 +2959,13 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, ['name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template']['meta_info']
 
 
-                    class General(Entity):
+                    class General(_Entity_):
                         """
                         General information
                         
@@ -2709,7 +2991,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, self).__init__()
 
                             self.yang_name = "general"
                             self.yang_parent_name = "state"
@@ -2729,10 +3014,18 @@ class Tty(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, ['operation_', 'general_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State']['meta_info']
 
 
-
-                class Configuration(Entity):
+                class Configuration(_Entity_):
                     """
                     Configuration information of the line
                     
@@ -2751,7 +3044,10 @@ class Tty(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration, self).__init__()
 
                         self.yang_name = "configuration"
                         self.yang_parent_name = "auxiliary-line"
@@ -2771,7 +3067,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration, [], name, value)
 
 
-                    class ConnectionConfiguration(Entity):
+                    class ConnectionConfiguration(_Entity_):
                         """
                         Conection configuration information
                         
@@ -2804,7 +3100,10 @@ class Tty(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, self).__init__()
 
                             self.yang_name = "connection-configuration"
                             self.yang_parent_name = "configuration"
@@ -2829,7 +3128,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, ['acl_out', 'acl_in'], name, value)
 
 
-                        class TransportInput(Entity):
+                        class TransportInput(_Entity_):
                             """
                             Protocols to use when connecting to the
                             terminal server
@@ -2874,7 +3173,10 @@ class Tty(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
                                 self.yang_name = "transport-input"
                                 self.yang_parent_name = "connection-configuration"
@@ -2898,15 +3200,43 @@ class Tty(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                                return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                    return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+                return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+            return meta._meta_table['Tty.AuxiliaryNodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Tty()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
+        return meta._meta_table['Tty']['meta_info']
 
 

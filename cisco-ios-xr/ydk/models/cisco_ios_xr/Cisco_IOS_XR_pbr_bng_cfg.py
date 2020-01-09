@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,8 +56,14 @@ class BngPbrHttpEnrichmentParams(Enum):
     bng_identifier_interface = Enum.YLeaf(8, "bng-identifier-interface")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_bng_cfg as meta
+        return meta._meta_table['BngPbrHttpEnrichmentParams']
 
-class BngPbr(Entity):
+
+
+class BngPbr(_Entity_):
     """
     Subscriber PBR configuration
     
@@ -78,7 +87,10 @@ class BngPbr(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(BngPbr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(BngPbr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bng-pbr"
@@ -102,7 +114,7 @@ class BngPbr(Entity):
         self._perform_setattr(BngPbr, ['bng_interface'], name, value)
 
 
-    class HttpEnrichment(Entity):
+    class HttpEnrichment(_Entity_):
         """
         HTTP Enrichment
         
@@ -121,7 +133,10 @@ class BngPbr(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(BngPbr.HttpEnrichment, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(BngPbr.HttpEnrichment, self).__init__()
 
             self.yang_name = "http-enrichment"
             self.yang_parent_name = "bng-pbr"
@@ -141,7 +156,7 @@ class BngPbr(Entity):
             self._perform_setattr(BngPbr.HttpEnrichment, [], name, value)
 
 
-        class Parameters(Entity):
+        class Parameters(_Entity_):
             """
             HTTP Enrichment parameters
             
@@ -177,7 +192,10 @@ class BngPbr(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(BngPbr.HttpEnrichment.Parameters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(BngPbr.HttpEnrichment.Parameters, self).__init__()
 
                 self.yang_name = "parameters"
                 self.yang_parent_name = "http-enrichment"
@@ -203,11 +221,23 @@ class BngPbr(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BngPbr.HttpEnrichment.Parameters, ['arg1', 'arg2', 'arg3', 'arg4'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_bng_cfg as meta
+                return meta._meta_table['BngPbr.HttpEnrichment.Parameters']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_bng_cfg as meta
+            return meta._meta_table['BngPbr.HttpEnrichment']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = BngPbr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_bng_cfg as meta
+        return meta._meta_table['BngPbr']['meta_info']
 
 

@@ -7,8 +7,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Wdmon(Entity):
+class Wdmon(_Entity_):
     """
     
     
@@ -36,7 +39,10 @@ class Wdmon(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Wdmon, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Wdmon, self).__init__()
         self._top_entity = None
 
         self.yang_name = "wdmon"
@@ -55,7 +61,7 @@ class Wdmon(Entity):
         self._perform_setattr(Wdmon, [], name, value)
 
 
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -81,7 +87,10 @@ class Wdmon(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Wdmon.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Wdmon.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "wdmon"
@@ -103,7 +112,7 @@ class Wdmon(Entity):
             self._perform_setattr(Wdmon.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -129,7 +138,10 @@ class Wdmon(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Wdmon.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Wdmon.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -150,7 +162,7 @@ class Wdmon(Entity):
                 self._perform_setattr(Wdmon.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -176,7 +188,10 @@ class Wdmon(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Wdmon.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Wdmon.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -197,7 +212,7 @@ class Wdmon(Entity):
                     self._perform_setattr(Wdmon.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -216,7 +231,10 @@ class Wdmon(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Wdmon.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Wdmon.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -234,17 +252,37 @@ class Wdmon(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Wdmon.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+                        return meta._meta_table['Wdmon.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+                    return meta._meta_table['Wdmon.Trace.Location.AllOptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+                return meta._meta_table['Wdmon.Trace.Location']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+            return meta._meta_table['Wdmon.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Wdmon()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+        return meta._meta_table['Wdmon']['meta_info']
 
 
-class WdmonInfo(Entity):
+class WdmonInfo(_Entity_):
     """
     
     
@@ -263,7 +301,10 @@ class WdmonInfo(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(WdmonInfo, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(WdmonInfo, self).__init__()
         self._top_entity = None
 
         self.yang_name = "wdmon-info"
@@ -282,7 +323,7 @@ class WdmonInfo(Entity):
         self._perform_setattr(WdmonInfo, [], name, value)
 
 
-    class AllLocations(Entity):
+    class AllLocations(_Entity_):
         """
         
         
@@ -478,7 +519,10 @@ class WdmonInfo(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(WdmonInfo.AllLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(WdmonInfo.AllLocations, self).__init__()
 
             self.yang_name = "all-locations"
             self.yang_parent_name = "wdmon-info"
@@ -543,10 +587,18 @@ class WdmonInfo(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(WdmonInfo.AllLocations, ['location', 'start_timestamp', 'hushd_timeout', 'calv_restart_timeout', 'hushd_wd_action_disable', 'hushd_wd_action_timestamp', 'hushd_capi_up', 'hushd_pending_resp', 'hushd_stop_punching', 'hushd_capi_up_timestamp', 'hushd_last_hb_resp', 'hushd_num_capi_connects', 'wds_action_disable', 'wds_action_timestamp', 'wds_restart_timeout', 'wds_liveness_timeout', 'wds_client_up', 'wds_client_pid', 'wds_client_up_timestamp', 'wds_client_last_hb', 'wds_client_num_connects', 'wds_num_liveness_timeout', 'wds_num_restart_timeout', 'wds_client_reported_status'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+            return meta._meta_table['WdmonInfo.AllLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = WdmonInfo()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_wdmon as meta
+        return meta._meta_table['WdmonInfo']['meta_info']
 
 

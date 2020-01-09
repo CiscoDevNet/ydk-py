@@ -212,7 +212,7 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
         "Is Key Server";
     }
     leaf status {
-      type uint32;
+      type string;
       description
         "Session Status [Secured/Not Secured]";
     }

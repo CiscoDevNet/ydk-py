@@ -29,6 +29,18 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-09 {
+    description
+      "PCE/SRTE topology should display P-flag set for OSPF prefix-SID with explicit-null";
+  }
+  revision 2019-05-01 {
+    description
+      "Added operational models for interface database.";
+  }
+  revision 2019-04-15 {
+    description
+      "Hierarchical changes to policy forwarding model to organize the paths under the proper segment lists and LSPs.";
+  }
   revision 2018-11-28 {
     description
       "Various modifications to policy-related models for better compatibility with the IETF policy draft.";
@@ -40,6 +52,33 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Cmn-ha-case {
+    type enumeration {
+      enum "ha-case-migration" {
+        description
+          "HA Case Migration";
+      }
+      enum "ha-case-restart" {
+        description
+          "HA Case Restart";
+      }
+      enum "ha-case-switchover" {
+        description
+          "HA Case Switchover";
+      }
+      enum "ha-case-startup" {
+        description
+          "HA Case Startup";
+      }
+      enum "ha-case-invalid" {
+        description
+          "HA Case Invalid";
+      }
+    }
+    description
+      "Various HA cases";
   }
 
   typedef Xtc-sid1 {
@@ -323,6 +362,26 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       "Xtc af id";
   }
 
+  grouping XTC-INTERFACE-SUMMARY-BAG {
+    description
+      "XTC interface summary information";
+    leaf interface-count {
+      type uint32;
+      description
+        "Number of interfaces";
+    }
+    leaf interface-operational-up-count {
+      type uint32;
+      description
+        "Number of interfaces that are operationally up";
+    }
+    leaf interface-operational-down-count {
+      type uint32;
+      description
+        "Number of interfaces that are operationally down";
+    }
+  }
+
   grouping XTC-PFX-ENTRY {
     description
       "XTC prefix etnry";
@@ -353,9 +412,44 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
+  grouping XTC-TOPO-READY-BAG {
+    description
+      "XTC Topology Readiness Information";
+    container timer {
+      description
+        "Topology readiness timer";
+      uses CMN-TIMER-INFO;
+    }
+    leaf ready {
+      type boolean;
+      description
+        "Topology readiness";
+    }
+    leaf ha-case {
+      type Cmn-ha-case;
+      description
+        "Last HA case";
+    }
+    leaf timer-value {
+      type uint32;
+      description
+        "Topology ready timer value selected at start";
+    }
+    leaf pcep-allowed {
+      type boolean;
+      description
+        "Whether PCEP is allowed";
+    }
+  }
+
   grouping XTC-TOPO-SUMMARY-BAG {
     description
       "XTC Topology Node Summary Information";
+    container topology-ready-summary {
+      description
+        "Topology ready summary";
+      uses XTC-TOPO-READY-BAG;
+    }
     leaf nodes {
       type uint32;
       description
@@ -869,6 +963,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
   grouping XTC-FWDING-POLICY-PATH-BAG {
     description
       "Policy Forwarding path information";
+    container stats {
+      description
+        "Forwarding stats of the path";
+      uses XTC-FWDING-STATS-BAG;
+    }
     leaf outgoing-interface {
       type xr:Interface-name;
       description
@@ -894,6 +993,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Is this path a pure backup ?";
     }
+    leaf is-lfa-or-ecmp-backup {
+      type boolean;
+      description
+        "Whether the path is LFA or ECMP backup";
+    }
     leaf load-metric {
       type uint32;
       description
@@ -909,31 +1013,97 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Backup path Id";
     }
-    leaf segment-list-name {
-      type string;
-      description
-        "Associated segment-list";
-    }
-    leaf are-stats-valid {
-      type boolean;
-      description
-        "Are per path stats valid?";
-    }
-    leaf forwarding-stats-pkts {
-      type uint64;
-      description
-        "Number of packets forwarded on this path";
-    }
-    leaf forwarding-stats-bytes {
-      type uint64;
-      units "byte";
-      description
-        "Number of bytes forwarded on this path";
-    }
     leaf-list label-stack {
       type uint32;
       description
         "Path outgoing labels";
+    }
+  }
+
+  grouping XTC-FWDING-POLICY-SL-BAG {
+    description
+      "Forwarding information related to a single
+       segment list";
+    container stats {
+      description
+        "Forwarding stats of the segment list";
+      uses XTC-FWDING-STATS-BAG;
+    }
+    leaf name {
+      type string;
+      description
+        "Name of the segment list, if any";
+    }
+    list paths {
+      description
+        "Segment list paths";
+      uses XTC-FWDING-POLICY-PATH-BAG;
+    }
+  }
+
+  grouping XTC-FWDING-POLICY-CPATH-BAG {
+    description
+      "XTC FWDING POLICY CPATH BAG";
+    container originator {
+      description
+        "Candidate path originator";
+      uses XTC-POLICY-CPATH-ORIGINATOR-BAG;
+    }
+    leaf name {
+      type string;
+      description
+        "Name of the candidate path, if any";
+    }
+    leaf preference {
+      type uint32;
+      description
+        "Candidate path preference";
+    }
+    leaf protocol-originator {
+      type Xtc-policy-cpath-proto-origin;
+      description
+        "Candidate path protocol origin";
+    }
+    leaf discriminator {
+      type uint32;
+      description
+        "Candidate path discriminator";
+    }
+  }
+
+  grouping XTC-FWDING-POLICY-LSP-BAG {
+    description
+      "Forwarding information related to a single LSP";
+    container candidate-path {
+      description
+        "Candidate path associated with this LSP";
+      uses XTC-FWDING-POLICY-CPATH-BAG;
+    }
+    leaf local-label {
+      type uint32;
+      description
+        "Local label of the LSP";
+    }
+    list segment-list {
+      description
+        "Segment lists";
+      uses XTC-FWDING-POLICY-SL-BAG;
+    }
+  }
+
+  grouping XTC-FWDING-STATS-BAG {
+    description
+      "Forwarding stats";
+    leaf packets {
+      type uint64;
+      description
+        "Number of packets forwarded";
+    }
+    leaf bytes {
+      type uint64;
+      units "byte";
+      description
+        "Number of bytes forwarded";
     }
   }
 
@@ -950,51 +1120,50 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Programmed Binding SID";
       uses XTC-PREFIX-SID-TYPE;
     }
+    container stats {
+      description
+        "Overall forwarding stats of the policy";
+      uses XTC-FWDING-STATS-BAG;
+    }
+    container active-lsp {
+      description
+        "Active LSP information";
+      uses XTC-FWDING-POLICY-LSP-BAG;
+    }
+    container reoptimized-lsp {
+      description
+        "Reoptimized LSP information";
+      uses XTC-FWDING-POLICY-LSP-BAG;
+    }
     leaf policy-name {
       type string;
       description
         "Policy name";
-    }
-    leaf candidate-path-name {
-      type string;
-      description
-        "Candidate path name";
     }
     leaf color {
       type uint32;
       description
         "Color";
     }
-    leaf is-local-label-valid {
+  }
+
+  grouping XTC-INTERFACE-BAG {
+    description
+      "XTC interface information";
+    leaf interface-handle {
+      type xr:Interface-name;
+      description
+        "Interface handle";
+    }
+    leaf name {
+      type string;
+      description
+        "Name of the interface";
+    }
+    leaf operational-up {
       type boolean;
       description
-        "Is local label valid and allocated?";
-    }
-    leaf local-label {
-      type uint32;
-      description
-        "Local label for SR MPLS policy";
-    }
-    leaf are-stats-valid {
-      type boolean;
-      description
-        "Are policy stats valid?";
-    }
-    leaf forwarding-stats-pkts {
-      type uint64;
-      description
-        "Number of packets forwarded";
-    }
-    leaf forwarding-stats-bytes {
-      type uint64;
-      units "byte";
-      description
-        "Number of bytes forwarded";
-    }
-    list paths {
-      description
-        "Forwarding paths";
-      uses XTC-FWDING-POLICY-PATH-BAG;
+        "Operational up";
     }
   }
 
@@ -1007,7 +1176,7 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Event message";
     }
     leaf time-stamp {
-      type uint32;
+      type uint64;
       description
         "Event time, relative to Jan 1, 1970";
     }
@@ -1024,12 +1193,12 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     container install-timer {
       description
         "Install timer information";
-      uses XTC-TIMER-INFO;
+      uses CMN-TIMER-INFO;
     }
     container cleanup-timer {
       description
         "Cleanup timer information";
-      uses XTC-TIMER-INFO;
+      uses CMN-TIMER-INFO;
     }
     leaf lsp-id {
       type uint16;
@@ -1063,6 +1232,21 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
+  grouping XTC-PROFILE-KEY {
+    description
+      "XTC profile key bag";
+    leaf id {
+      type uint16;
+      description
+        "Numeric part of profile key";
+    }
+    leaf source-address {
+      type inet:ipv4-address;
+      description
+        "Source IPv4 address";
+    }
+  }
+
   grouping XTC-PCC-INFO-BAG {
     description
       "XTC PCC info";
@@ -1070,7 +1254,13 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Orphan timer for PCE-initiated candidate paths
          in orphan state";
-      uses XTC-TIMER-INFO;
+      uses CMN-TIMER-INFO;
+    }
+    container fallback-timer {
+      description
+        "Timer for delaying delegation revoke back to LSP
+         originator";
+      uses CMN-TIMER-INFO;
     }
     leaf symbolic-name {
       type string;
@@ -1087,11 +1277,16 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Whether the candidate path is in orphan state";
     }
+    list profile-key {
+      description
+        "List of profile keys";
+      uses XTC-PROFILE-KEY;
+    }
   }
 
-  grouping XTC-TIMER-INFO {
+  grouping CMN-TIMER-INFO {
     description
-      "XTC Timer information";
+      "Timer information";
     leaf running {
       type boolean;
       description
@@ -1338,7 +1533,7 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Cleanup timer if the candidate path is in the
          process of being cleaned up";
-      uses XTC-TIMER-INFO;
+      uses CMN-TIMER-INFO;
     }
     container pcc-information {
       description
@@ -1551,7 +1746,8 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     leaf profile-id {
       type uint16;
       description
-        "Profile ID";
+        "deprecated - replaced by key list in
+         xtc_pcc_info_bag";
     }
     leaf ipv6-caps-enabled {
       type boolean;

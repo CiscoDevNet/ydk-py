@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class ProtocolName(Enum):
     ospf = Enum.YLeaf(0, "ospf")
 
     isis = Enum.YLeaf(1, "isis")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+        return meta._meta_table['ProtocolName']
 
 
 class RcmdPriority(Enum):
@@ -74,8 +83,14 @@ class RcmdPriority(Enum):
     low = Enum.YLeaf(3, "low")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+        return meta._meta_table['RcmdPriority']
 
-class RouterConvergence(Entity):
+
+
+class RouterConvergence(_Entity_):
     """
     Configure Router Convergence Monitoring
     
@@ -156,7 +171,10 @@ class RouterConvergence(Entity):
     _revision = '2017-10-15'
 
     def __init__(self):
-        super(RouterConvergence, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RouterConvergence, self).__init__()
         self._top_entity = None
 
         self.yang_name = "router-convergence"
@@ -204,7 +222,7 @@ class RouterConvergence(Entity):
         self._perform_setattr(RouterConvergence, ['event_buffer_size', 'prefix_monitor_limit', 'disable', 'enable', 'max_events_stored', 'monitoring_interval'], name, value)
 
 
-    class Protocols(Entity):
+    class Protocols(_Entity_):
         """
         Table of Protocol
         
@@ -221,7 +239,10 @@ class RouterConvergence(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(RouterConvergence.Protocols, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RouterConvergence.Protocols, self).__init__()
 
             self.yang_name = "protocols"
             self.yang_parent_name = "router-convergence"
@@ -240,7 +261,7 @@ class RouterConvergence(Entity):
             self._perform_setattr(RouterConvergence.Protocols, [], name, value)
 
 
-        class Protocol(Entity):
+        class Protocol(_Entity_):
             """
             Protocol for which to configure RCMD parameters
             
@@ -267,7 +288,10 @@ class RouterConvergence(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(RouterConvergence.Protocols.Protocol, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RouterConvergence.Protocols.Protocol, self).__init__()
 
                 self.yang_name = "protocol"
                 self.yang_parent_name = "protocols"
@@ -293,7 +317,7 @@ class RouterConvergence(Entity):
                 self._perform_setattr(RouterConvergence.Protocols.Protocol, ['protocol_name', 'enable'], name, value)
 
 
-            class Priorities(Entity):
+            class Priorities(_Entity_):
                 """
                 Table of Priority
                 
@@ -310,7 +334,10 @@ class RouterConvergence(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(RouterConvergence.Protocols.Protocol.Priorities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RouterConvergence.Protocols.Protocol.Priorities, self).__init__()
 
                     self.yang_name = "priorities"
                     self.yang_parent_name = "protocol"
@@ -328,7 +355,7 @@ class RouterConvergence(Entity):
                     self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities, [], name, value)
 
 
-                class Priority(Entity):
+                class Priority(_Entity_):
                     """
                     Priority
                     
@@ -378,7 +405,10 @@ class RouterConvergence(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(RouterConvergence.Protocols.Protocol.Priorities.Priority, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RouterConvergence.Protocols.Protocol.Priorities.Priority, self).__init__()
 
                         self.yang_name = "priority"
                         self.yang_parent_name = "priorities"
@@ -406,12 +436,28 @@ class RouterConvergence(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities.Priority, ['rcmd_priority', 'threshold', 'leaf_networks', 'disable', 'enable', 'frr_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                        return meta._meta_table['RouterConvergence.Protocols.Protocol.Priorities.Priority']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                    return meta._meta_table['RouterConvergence.Protocols.Protocol.Priorities']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                return meta._meta_table['RouterConvergence.Protocols.Protocol']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+            return meta._meta_table['RouterConvergence.Protocols']['meta_info']
 
 
-
-
-
-    class StorageLocation(Entity):
+    class StorageLocation(_Entity_):
         """
         Absolute directory path for saving the archive
         files. Example /disk0\:/rcmd/ or
@@ -451,7 +497,10 @@ class RouterConvergence(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(RouterConvergence.StorageLocation, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RouterConvergence.StorageLocation, self).__init__()
 
             self.yang_name = "storage-location"
             self.yang_parent_name = "router-convergence"
@@ -477,9 +526,13 @@ class RouterConvergence(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.StorageLocation, ['diagnostics', 'diagnostics_size', 'reports_size', 'reports'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+            return meta._meta_table['RouterConvergence.StorageLocation']['meta_info']
 
 
-    class MplsLdp(Entity):
+    class MplsLdp(_Entity_):
         """
         RCMD related configuration for MPLS\-LDP
         
@@ -500,7 +553,10 @@ class RouterConvergence(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(RouterConvergence.MplsLdp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RouterConvergence.MplsLdp, self).__init__()
 
             self.yang_name = "mpls-ldp"
             self.yang_parent_name = "router-convergence"
@@ -521,7 +577,7 @@ class RouterConvergence(Entity):
             self._perform_setattr(RouterConvergence.MplsLdp, [], name, value)
 
 
-        class RemoteLfa(Entity):
+        class RemoteLfa(_Entity_):
             """
             Monitoring configuration for Remote LFA
             
@@ -544,7 +600,10 @@ class RouterConvergence(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(RouterConvergence.MplsLdp.RemoteLfa, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RouterConvergence.MplsLdp.RemoteLfa, self).__init__()
 
                 self.yang_name = "remote-lfa"
                 self.yang_parent_name = "mpls-ldp"
@@ -564,10 +623,18 @@ class RouterConvergence(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.MplsLdp.RemoteLfa, ['threshold'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                return meta._meta_table['RouterConvergence.MplsLdp.RemoteLfa']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+            return meta._meta_table['RouterConvergence.MplsLdp']['meta_info']
 
 
-
-    class CollectDiagnostics(Entity):
+    class CollectDiagnostics(_Entity_):
         """
         Table of CollectDiagnostics
         
@@ -584,7 +651,10 @@ class RouterConvergence(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(RouterConvergence.CollectDiagnostics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RouterConvergence.CollectDiagnostics, self).__init__()
 
             self.yang_name = "collect-diagnostics"
             self.yang_parent_name = "router-convergence"
@@ -603,7 +673,7 @@ class RouterConvergence(Entity):
             self._perform_setattr(RouterConvergence.CollectDiagnostics, [], name, value)
 
 
-        class CollectDiagnostic(Entity):
+        class CollectDiagnostic(_Entity_):
             """
             Collect diagnostics on specified node
             
@@ -627,7 +697,10 @@ class RouterConvergence(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(RouterConvergence.CollectDiagnostics.CollectDiagnostic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RouterConvergence.CollectDiagnostics.CollectDiagnostic, self).__init__()
 
                 self.yang_name = "collect-diagnostic"
                 self.yang_parent_name = "collect-diagnostics"
@@ -648,10 +721,18 @@ class RouterConvergence(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.CollectDiagnostics.CollectDiagnostic, ['node_name', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                return meta._meta_table['RouterConvergence.CollectDiagnostics.CollectDiagnostic']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+            return meta._meta_table['RouterConvergence.CollectDiagnostics']['meta_info']
 
 
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of Node
         
@@ -668,7 +749,10 @@ class RouterConvergence(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(RouterConvergence.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RouterConvergence.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "router-convergence"
@@ -687,7 +771,7 @@ class RouterConvergence(Entity):
             self._perform_setattr(RouterConvergence.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Configure parameters for the specified node
             (Partially qualified location allowed)
@@ -717,7 +801,10 @@ class RouterConvergence(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(RouterConvergence.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RouterConvergence.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -740,11 +827,23 @@ class RouterConvergence(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.Nodes.Node, ['node_name', 'disable', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+                return meta._meta_table['RouterConvergence.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+            return meta._meta_table['RouterConvergence.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RouterConvergence()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
+        return meta._meta_table['RouterConvergence']['meta_info']
 
 

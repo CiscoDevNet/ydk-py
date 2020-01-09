@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HardwareModuleBccDisable(Entity):
+class HardwareModuleBccDisable(_Entity_):
     """
     HW module BCC Disable config
     
@@ -38,7 +41,10 @@ class HardwareModuleBccDisable(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(HardwareModuleBccDisable, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleBccDisable, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-bcc-disable"
@@ -59,7 +65,7 @@ class HardwareModuleBccDisable(Entity):
         self._perform_setattr(HardwareModuleBccDisable, [], name, value)
 
 
-    class Bcc(Entity):
+    class Bcc(_Entity_):
         """
         bundle configuration
         
@@ -76,7 +82,10 @@ class HardwareModuleBccDisable(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HardwareModuleBccDisable.Bcc, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleBccDisable.Bcc, self).__init__()
 
             self.yang_name = "bcc"
             self.yang_parent_name = "hardware-module-bcc-disable"
@@ -97,7 +106,7 @@ class HardwareModuleBccDisable(Entity):
             self._perform_setattr(HardwareModuleBccDisable.Bcc, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node
             
@@ -114,7 +123,10 @@ class HardwareModuleBccDisable(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(HardwareModuleBccDisable.Bcc.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleBccDisable.Bcc.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "bcc"
@@ -135,7 +147,7 @@ class HardwareModuleBccDisable(Entity):
                 self._perform_setattr(HardwareModuleBccDisable.Bcc.Node, [], name, value)
 
 
-            class All(Entity):
+            class All(_Entity_):
                 """
                 all node configuration
                 
@@ -152,7 +164,10 @@ class HardwareModuleBccDisable(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(HardwareModuleBccDisable.Bcc.Node.All, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleBccDisable.Bcc.Node.All, self).__init__()
 
                     self.yang_name = "all"
                     self.yang_parent_name = "node"
@@ -171,12 +186,28 @@ class HardwareModuleBccDisable(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleBccDisable.Bcc.Node.All, ['disable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_hwmod_bcc_disable_cfg as meta
+                    return meta._meta_table['HardwareModuleBccDisable.Bcc.Node.All']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_hwmod_bcc_disable_cfg as meta
+                return meta._meta_table['HardwareModuleBccDisable.Bcc.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_hwmod_bcc_disable_cfg as meta
+            return meta._meta_table['HardwareModuleBccDisable.Bcc']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleBccDisable()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_hwmod_bcc_disable_cfg as meta
+        return meta._meta_table['HardwareModuleBccDisable']['meta_info']
 
 

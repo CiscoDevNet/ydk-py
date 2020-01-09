@@ -612,12 +612,12 @@ submodule Cisco-IOS-XR-ipv6-acl-oper-sub1 {
         "hits";
     }
     leaf capture {
-      type boolean;
+      type int32;
       description
         "Capture option, TRUE if enabled";
     }
     leaf undetermined-transport {
-      type boolean;
+      type int32;
       description
         "Undetermined transport option, TRUE if enabled";
     }

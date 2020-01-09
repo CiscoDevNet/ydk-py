@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class AlAlarmBistate(Enum):
     active = Enum.YLeaf(1, "active")
 
     clear = Enum.YLeaf(2, "clear")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+        return meta._meta_table['AlAlarmBistate']
 
 
 class AlAlarmSeverity(Enum):
@@ -110,8 +119,14 @@ class AlAlarmSeverity(Enum):
     debugging = Enum.YLeaf(7, "debugging")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+        return meta._meta_table['AlAlarmSeverity']
 
-class AlarmLogger(Entity):
+
+
+class AlarmLogger(_Entity_):
     """
     Alarm Logger operational data
     
@@ -137,7 +152,10 @@ class AlarmLogger(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(AlarmLogger, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AlarmLogger, self).__init__()
         self._top_entity = None
 
         self.yang_name = "alarm-logger"
@@ -162,7 +180,7 @@ class AlarmLogger(Entity):
         self._perform_setattr(AlarmLogger, [], name, value)
 
 
-    class BufferStatus(Entity):
+    class BufferStatus(_Entity_):
         """
         Describes buffer utilization and parameters
         configured
@@ -224,7 +242,10 @@ class AlarmLogger(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(AlarmLogger.BufferStatus, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AlarmLogger.BufferStatus, self).__init__()
 
             self.yang_name = "buffer-status"
             self.yang_parent_name = "alarm-logger"
@@ -251,9 +272,13 @@ class AlarmLogger(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmLogger.BufferStatus, ['log_buffer_size', 'max_log_buffer_size', 'record_count', 'capacity_threshold', 'severity_filter'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+            return meta._meta_table['AlarmLogger.BufferStatus']['meta_info']
 
 
-    class Alarms(Entity):
+    class Alarms(_Entity_):
         """
         Table that contains the database of logged
         alarms
@@ -273,7 +298,10 @@ class AlarmLogger(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(AlarmLogger.Alarms, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AlarmLogger.Alarms, self).__init__()
 
             self.yang_name = "alarms"
             self.yang_parent_name = "alarm-logger"
@@ -292,7 +320,7 @@ class AlarmLogger(Entity):
             self._perform_setattr(AlarmLogger.Alarms, [], name, value)
 
 
-        class Alarm(Entity):
+        class Alarm(_Entity_):
             """
             One of the logged alarms
             
@@ -389,7 +417,10 @@ class AlarmLogger(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(AlarmLogger.Alarms.Alarm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmLogger.Alarms.Alarm, self).__init__()
 
                 self.yang_name = "alarm"
                 self.yang_parent_name = "alarms"
@@ -428,11 +459,23 @@ class AlarmLogger(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+                return meta._meta_table['AlarmLogger.Alarms.Alarm']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+            return meta._meta_table['AlarmLogger.Alarms']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AlarmLogger()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
+        return meta._meta_table['AlarmLogger']['meta_info']
 
 

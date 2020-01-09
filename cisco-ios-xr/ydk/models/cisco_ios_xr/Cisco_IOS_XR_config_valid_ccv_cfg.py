@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -36,6 +39,12 @@ class Failure(Enum):
     unsupported = Enum.YLeaf(0, "unsupported")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_valid_ccv_cfg as meta
+        return meta._meta_table['Failure']
+
+
 class FailureAction(Enum):
     """
     FailureAction (Enum Class)
@@ -51,8 +60,14 @@ class FailureAction(Enum):
     report = Enum.YLeaf(1, "report")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_valid_ccv_cfg as meta
+        return meta._meta_table['FailureAction']
 
-class Configurationvalidation(Entity):
+
+
+class Configurationvalidation(_Entity_):
     """
     Configuration for the Configuration Validation
     feature
@@ -75,7 +90,10 @@ class Configurationvalidation(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Configurationvalidation, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Configurationvalidation, self).__init__()
         self._top_entity = None
 
         self.yang_name = "configurationvalidation"
@@ -99,7 +117,7 @@ class Configurationvalidation(Entity):
         self._perform_setattr(Configurationvalidation, ['enable'], name, value)
 
 
-    class FailureTypeActions(Entity):
+    class FailureTypeActions(_Entity_):
         """
         Table for failure type actions
         
@@ -116,7 +134,10 @@ class Configurationvalidation(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Configurationvalidation.FailureTypeActions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Configurationvalidation.FailureTypeActions, self).__init__()
 
             self.yang_name = "failure-type-actions"
             self.yang_parent_name = "configurationvalidation"
@@ -135,7 +156,7 @@ class Configurationvalidation(Entity):
             self._perform_setattr(Configurationvalidation.FailureTypeActions, [], name, value)
 
 
-        class FailureTypeAction(Entity):
+        class FailureTypeAction(_Entity_):
             """
             Failure type action configuration
             
@@ -157,7 +178,10 @@ class Configurationvalidation(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Configurationvalidation.FailureTypeActions.FailureTypeAction, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Configurationvalidation.FailureTypeActions.FailureTypeAction, self).__init__()
 
                 self.yang_name = "failure-type-action"
                 self.yang_parent_name = "failure-type-actions"
@@ -178,11 +202,23 @@ class Configurationvalidation(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Configurationvalidation.FailureTypeActions.FailureTypeAction, ['failure', 'action'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_valid_ccv_cfg as meta
+                return meta._meta_table['Configurationvalidation.FailureTypeActions.FailureTypeAction']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_valid_ccv_cfg as meta
+            return meta._meta_table['Configurationvalidation.FailureTypeActions']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Configurationvalidation()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_valid_ccv_cfg as meta
+        return meta._meta_table['Configurationvalidation']['meta_info']
 
 

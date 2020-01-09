@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class Fpd(Enum):
     sam = Enum.YLeaf(2, "sam")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+        return meta._meta_table['Fpd']
+
+
 class Fpd1(Enum):
     """
     Fpd1 (Enum Class)
@@ -72,6 +81,12 @@ class Fpd1(Enum):
     lc = Enum.YLeaf(1, "lc")
 
     sam = Enum.YLeaf(2, "sam")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+        return meta._meta_table['Fpd1']
 
 
 class FpdSub(Enum):
@@ -287,6 +302,12 @@ class FpdSub(Enum):
     fc_lnx = Enum.YLeaf(33, "fc-lnx")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+        return meta._meta_table['FpdSub']
+
+
 class FpdSub1(Enum):
     """
     FpdSub1 (Enum Class)
@@ -500,8 +521,14 @@ class FpdSub1(Enum):
     fc_lnx = Enum.YLeaf(33, "fc-lnx")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+        return meta._meta_table['FpdSub1']
 
-class Fpd_(Entity):
+
+
+class Fpd_(_Entity_):
     """
     Field programmable device (FPD) operational data
     
@@ -527,7 +554,10 @@ class Fpd_(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Fpd_, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Fpd_, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fpd"
@@ -552,7 +582,7 @@ class Fpd_(Entity):
         self._perform_setattr(Fpd_, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of FPD supported nodes
         
@@ -571,7 +601,10 @@ class Fpd_(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Fpd_.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fpd_.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "fpd"
@@ -590,7 +623,7 @@ class Fpd_(Entity):
             self._perform_setattr(Fpd_.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a particular node
             
@@ -618,7 +651,10 @@ class Fpd_(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Fpd_.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fpd_.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -642,7 +678,7 @@ class Fpd_(Entity):
                 self._perform_setattr(Fpd_.Nodes.Node, ['node_name'], name, value)
 
 
-            class Devices(Entity):
+            class Devices(_Entity_):
                 """
                 FPD information table
                 
@@ -661,7 +697,10 @@ class Fpd_(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Fpd_.Nodes.Node.Devices, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fpd_.Nodes.Node.Devices, self).__init__()
 
                     self.yang_name = "devices"
                     self.yang_parent_name = "node"
@@ -679,7 +718,7 @@ class Fpd_(Entity):
                     self._perform_setattr(Fpd_.Nodes.Node.Devices, [], name, value)
 
 
-                class Device(Entity):
+                class Device(_Entity_):
                     """
                     FPD information for a particular fpd type
                     
@@ -742,7 +781,10 @@ class Fpd_(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Fpd_.Nodes.Node.Devices.Device, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fpd_.Nodes.Node.Devices.Device, self).__init__()
 
                         self.yang_name = "device"
                         self.yang_parent_name = "devices"
@@ -772,12 +814,28 @@ class Fpd_(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fpd_.Nodes.Node.Devices.Device, ['fpd_type', 'instance', 'sub_type', 'card_type', 'hardware_version', 'software_version', 'is_upgrade_downgrade'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+                        return meta._meta_table['Fpd_.Nodes.Node.Devices.Device']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+                    return meta._meta_table['Fpd_.Nodes.Node.Devices']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+                return meta._meta_table['Fpd_.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+            return meta._meta_table['Fpd_.Nodes']['meta_info']
 
 
-
-
-
-    class Packages(Entity):
+    class Packages(_Entity_):
         """
         FPD packages information
         
@@ -796,7 +854,10 @@ class Fpd_(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Fpd_.Packages, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fpd_.Packages, self).__init__()
 
             self.yang_name = "packages"
             self.yang_parent_name = "fpd"
@@ -815,7 +876,7 @@ class Fpd_(Entity):
             self._perform_setattr(Fpd_.Packages, [], name, value)
 
 
-        class AllPackage(Entity):
+        class AllPackage(_Entity_):
             """
             List of packages
             
@@ -876,7 +937,10 @@ class Fpd_(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Fpd_.Packages.AllPackage, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fpd_.Packages.AllPackage, self).__init__()
 
                 self.yang_name = "all-package"
                 self.yang_parent_name = "packages"
@@ -907,11 +971,23 @@ class Fpd_(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Fpd_.Packages.AllPackage, ['card_type', 'card_description', 'fpd_type', 'fpd_sub_type', 'software_version', 'minimum_required_software_version', 'minimum_required_hardware_version'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+                return meta._meta_table['Fpd_.Packages.AllPackage']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+            return meta._meta_table['Fpd_.Packages']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Fpd_()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_oper as meta
+        return meta._meta_table['Fpd_']['meta_info']
 
 

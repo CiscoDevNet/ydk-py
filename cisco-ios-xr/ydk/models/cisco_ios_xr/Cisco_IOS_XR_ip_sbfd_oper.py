@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class BfdAfId(Enum):
     bfd_af_id_ipv6 = Enum.YLeaf(10, "bfd-af-id-ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+        return meta._meta_table['BfdAfId']
+
+
 class SbfdAddressFamily(Enum):
     """
     SbfdAddressFamily (Enum Class)
@@ -68,8 +77,14 @@ class SbfdAddressFamily(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+        return meta._meta_table['SbfdAddressFamily']
 
-class Sbfd(Entity):
+
+
+class Sbfd(_Entity_):
     """
     Seamless BFD (S\-BFD) operational data
     
@@ -88,7 +103,10 @@ class Sbfd(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Sbfd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sbfd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sbfd"
@@ -109,7 +127,7 @@ class Sbfd(Entity):
         self._perform_setattr(Sbfd, [], name, value)
 
 
-    class TargetIdentifier(Entity):
+    class TargetIdentifier(_Entity_):
         """
         Target\-identifier information
         
@@ -135,7 +153,10 @@ class Sbfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sbfd.TargetIdentifier, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sbfd.TargetIdentifier, self).__init__()
 
             self.yang_name = "target-identifier"
             self.yang_parent_name = "sbfd"
@@ -160,7 +181,7 @@ class Sbfd(Entity):
             self._perform_setattr(Sbfd.TargetIdentifier, [], name, value)
 
 
-        class RemoteVrfs(Entity):
+        class RemoteVrfs(_Entity_):
             """
             SBFD remote discriminator data
             
@@ -179,7 +200,10 @@ class Sbfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sbfd.TargetIdentifier.RemoteVrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.TargetIdentifier.RemoteVrfs, self).__init__()
 
                 self.yang_name = "remote-vrfs"
                 self.yang_parent_name = "target-identifier"
@@ -198,7 +222,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs, [], name, value)
 
 
-            class RemoteVrf(Entity):
+            class RemoteVrf(_Entity_):
                 """
                 Table of remote discriminator data per VRF
                 
@@ -226,7 +250,10 @@ class Sbfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__init__()
 
                     self.yang_name = "remote-vrf"
                     self.yang_parent_name = "remote-vrfs"
@@ -248,7 +275,7 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, ['vrf_name'], name, value)
 
 
-                class RemoteDiscriminator(Entity):
+                class RemoteDiscriminator(_Entity_):
                     """
                     SBFD remote discriminator 
                     
@@ -337,7 +364,10 @@ class Sbfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__init__()
 
                         self.yang_name = "remote-discriminator"
                         self.yang_parent_name = "remote-vrf"
@@ -374,7 +404,7 @@ class Sbfd(Entity):
                         self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, ['vrf_name', 'remote_discriminator', 'address', 'tid_type', 'discr', 'vrf_name_xr', 'status', 'discr_src'], name, value)
 
 
-                    class IpAddress(Entity):
+                    class IpAddress(_Entity_):
                         """
                         IP address
                         
@@ -420,7 +450,10 @@ class Sbfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__init__()
 
                             self.yang_name = "ip-address"
                             self.yang_parent_name = "remote-discriminator"
@@ -444,12 +477,28 @@ class Sbfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                            return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                        return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                    return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs']['meta_info']
 
 
-
-
-
-        class LocalVrfs(Entity):
+        class LocalVrfs(_Entity_):
             """
             SBFD local discriminator  data
             
@@ -468,7 +517,10 @@ class Sbfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
 
                 self.yang_name = "local-vrfs"
                 self.yang_parent_name = "target-identifier"
@@ -487,7 +539,7 @@ class Sbfd(Entity):
                 self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs, [], name, value)
 
 
-            class LocalVrf(Entity):
+            class LocalVrf(_Entity_):
                 """
                 Table of local discriminator data per VRF
                 
@@ -515,7 +567,10 @@ class Sbfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
 
                     self.yang_name = "local-vrf"
                     self.yang_parent_name = "local-vrfs"
@@ -537,7 +592,7 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, ['vrf_name'], name, value)
 
 
-                class LocalDiscriminator(Entity):
+                class LocalDiscriminator(_Entity_):
                     """
                     SBFD local discriminator 
                     
@@ -604,7 +659,10 @@ class Sbfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
 
                         self.yang_name = "local-discriminator"
                         self.yang_parent_name = "local-vrf"
@@ -634,13 +692,33 @@ class Sbfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, ['local_discriminator', 'vrf_name', 'discr', 'vrf_name_xr', 'flags', 'status', 'discr_src'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                        return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                    return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs.LocalVrf']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+                return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+            return meta._meta_table['Sbfd.TargetIdentifier']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sbfd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
+        return meta._meta_table['Sbfd']['meta_info']
 
 

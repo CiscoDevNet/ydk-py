@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MplsEa(Entity):
+class MplsEa(_Entity_):
     """
     MPLS IO EA operational data
     
@@ -41,7 +44,10 @@ class MplsEa(Entity):
     _revision = '2017-05-18'
 
     def __init__(self):
-        super(MplsEa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsEa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-ea"
@@ -62,7 +68,7 @@ class MplsEa(Entity):
         self._perform_setattr(MplsEa, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         NODE container class for MPLS IO EA operational
         data
@@ -82,7 +88,10 @@ class MplsEa(Entity):
         _revision = '2017-05-18'
 
         def __init__(self):
-            super(MplsEa.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsEa.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "mpls-ea"
@@ -101,7 +110,7 @@ class MplsEa(Entity):
             self._perform_setattr(MplsEa.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Per node MPLS IO EA operational data
             
@@ -129,7 +138,10 @@ class MplsEa(Entity):
             _revision = '2017-05-18'
 
             def __init__(self):
-                super(MplsEa.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsEa.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -153,7 +165,7 @@ class MplsEa(Entity):
                 self._perform_setattr(MplsEa.Nodes.Node, ['node_name'], name, value)
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 MPLS IO EA Interfaces information 
                 
@@ -172,7 +184,10 @@ class MplsEa(Entity):
                 _revision = '2017-05-18'
 
                 def __init__(self):
-                    super(MplsEa.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsEa.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -190,7 +205,7 @@ class MplsEa(Entity):
                     self._perform_setattr(MplsEa.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     MPLS IO EA NODE Interface data 
                     
@@ -247,7 +262,10 @@ class MplsEa(Entity):
                     _revision = '2017-05-18'
 
                     def __init__(self):
-                        super(MplsEa.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsEa.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -273,17 +291,37 @@ class MplsEa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                        return meta._meta_table['MplsEa.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                    return meta._meta_table['MplsEa.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                return meta._meta_table['MplsEa.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+            return meta._meta_table['MplsEa.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsEa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+        return meta._meta_table['MplsEa']['meta_info']
 
 
-class MplsMa(Entity):
+class MplsMa(_Entity_):
     """
     mpls ma
     
@@ -302,7 +340,10 @@ class MplsMa(Entity):
     _revision = '2017-05-18'
 
     def __init__(self):
-        super(MplsMa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsMa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-ma"
@@ -323,7 +364,7 @@ class MplsMa(Entity):
         self._perform_setattr(MplsMa, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         NODE container class for MPLS IO MA operational
         data
@@ -343,7 +384,10 @@ class MplsMa(Entity):
         _revision = '2017-05-18'
 
         def __init__(self):
-            super(MplsMa.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsMa.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "mpls-ma"
@@ -362,7 +406,7 @@ class MplsMa(Entity):
             self._perform_setattr(MplsMa.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Per node MPLS IO MA operational data
             
@@ -390,7 +434,10 @@ class MplsMa(Entity):
             _revision = '2017-05-18'
 
             def __init__(self):
-                super(MplsMa.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsMa.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -414,7 +461,7 @@ class MplsMa(Entity):
                 self._perform_setattr(MplsMa.Nodes.Node, ['node_name'], name, value)
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 MPLS IO MA Interfaces information 
                 
@@ -433,7 +480,10 @@ class MplsMa(Entity):
                 _revision = '2017-05-18'
 
                 def __init__(self):
-                    super(MplsMa.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsMa.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -451,7 +501,7 @@ class MplsMa(Entity):
                     self._perform_setattr(MplsMa.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     MPLS IO MA NODE Interface data 
                     
@@ -508,7 +558,10 @@ class MplsMa(Entity):
                     _revision = '2017-05-18'
 
                     def __init__(self):
-                        super(MplsMa.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsMa.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -534,13 +587,33 @@ class MplsMa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                        return meta._meta_table['MplsMa.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                    return meta._meta_table['MplsMa.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+                return meta._meta_table['MplsMa.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+            return meta._meta_table['MplsMa.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsMa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_io_oper as meta
+        return meta._meta_table['MplsMa']['meta_info']
 
 

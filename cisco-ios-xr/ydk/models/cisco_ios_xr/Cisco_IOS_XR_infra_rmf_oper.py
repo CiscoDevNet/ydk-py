@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Redundancy(Entity):
+class Redundancy(_Entity_):
     """
     Redundancy show information
     
@@ -47,7 +50,10 @@ class Redundancy(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Redundancy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Redundancy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "redundancy"
@@ -72,7 +78,7 @@ class Redundancy(Entity):
         self._perform_setattr(Redundancy, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Location show information
         
@@ -91,7 +97,10 @@ class Redundancy(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Redundancy.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Redundancy.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "redundancy"
@@ -110,7 +119,7 @@ class Redundancy(Entity):
             self._perform_setattr(Redundancy.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Redundancy Node Information
             
@@ -166,7 +175,10 @@ class Redundancy(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Redundancy.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Redundancy.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -198,7 +210,7 @@ class Redundancy(Entity):
                 self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'log', 'active_reboot_reason', 'standby_reboot_reason', 'err_log'], name, value)
 
 
-            class Redundancy_(Entity):
+            class Redundancy_(_Entity_):
                 """
                 Row information
                 
@@ -245,7 +257,10 @@ class Redundancy(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Redundancy.Nodes.Node.Redundancy_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Redundancy.Nodes.Node.Redundancy_, self).__init__()
 
                     self.yang_name = "redundancy"
                     self.yang_parent_name = "node"
@@ -272,7 +287,7 @@ class Redundancy(Entity):
                     self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
-                class Groupinfo(Entity):
+                class Groupinfo(_Entity_):
                     """
                     groupinfo
                     
@@ -312,7 +327,10 @@ class Redundancy(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Redundancy.Nodes.Node.Redundancy_.Groupinfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Redundancy.Nodes.Node.Redundancy_.Groupinfo, self).__init__()
 
                         self.yang_name = "groupinfo"
                         self.yang_parent_name = "redundancy"
@@ -336,12 +354,28 @@ class Redundancy(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+                        return meta._meta_table['Redundancy.Nodes.Node.Redundancy_.Groupinfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+                    return meta._meta_table['Redundancy.Nodes.Node.Redundancy_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+                return meta._meta_table['Redundancy.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+            return meta._meta_table['Redundancy.Nodes']['meta_info']
 
 
-
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Redundancy Summary of Nodes
         
@@ -367,7 +401,10 @@ class Redundancy(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Redundancy.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Redundancy.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "redundancy"
@@ -389,7 +426,7 @@ class Redundancy(Entity):
             self._perform_setattr(Redundancy.Summary, ['err_log'], name, value)
 
 
-        class RedPair(Entity):
+        class RedPair(_Entity_):
             """
             Redundancy Pair
             
@@ -436,7 +473,10 @@ class Redundancy(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Redundancy.Summary.RedPair, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Redundancy.Summary.RedPair, self).__init__()
 
                 self.yang_name = "red-pair"
                 self.yang_parent_name = "summary"
@@ -464,7 +504,7 @@ class Redundancy(Entity):
                 self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
-            class Groupinfo(Entity):
+            class Groupinfo(_Entity_):
                 """
                 groupinfo
                 
@@ -504,7 +544,10 @@ class Redundancy(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Redundancy.Summary.RedPair.Groupinfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Redundancy.Summary.RedPair.Groupinfo, self).__init__()
 
                     self.yang_name = "groupinfo"
                     self.yang_parent_name = "red-pair"
@@ -529,12 +572,28 @@ class Redundancy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+                    return meta._meta_table['Redundancy.Summary.RedPair.Groupinfo']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+                return meta._meta_table['Redundancy.Summary.RedPair']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+            return meta._meta_table['Redundancy.Summary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Redundancy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
+        return meta._meta_table['Redundancy']['meta_info']
 
 

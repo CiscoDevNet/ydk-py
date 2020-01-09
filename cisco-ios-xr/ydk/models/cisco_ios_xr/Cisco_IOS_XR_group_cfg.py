@@ -1,14 +1,17 @@
 """ Cisco_IOS_XR_group_cfg 
 
-This module contains IOS\-XR group YANG data 
-for flexible cli groups 
-    
+This module contains IOS\-XR group YANG data
+for flexible cli groups
+
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Groups(Entity):
+class Groups(_Entity_):
     """
     config groups
     
@@ -34,7 +37,10 @@ class Groups(Entity):
     _revision = '2016-04-29'
 
     def __init__(self):
-        super(Groups, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Groups, self).__init__()
         self._top_entity = None
 
         self.yang_name = "groups"
@@ -53,7 +59,7 @@ class Groups(Entity):
         self._perform_setattr(Groups, [], name, value)
 
 
-    class Group(Entity):
+    class Group(_Entity_):
         """
         Group config definition
         
@@ -72,7 +78,10 @@ class Groups(Entity):
         _revision = '2016-04-29'
 
         def __init__(self):
-            super(Groups.Group, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Groups.Group, self).__init__()
 
             self.yang_name = "group"
             self.yang_parent_name = "groups"
@@ -91,14 +100,22 @@ class Groups(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Groups.Group, ['group_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_group_cfg as meta
+            return meta._meta_table['Groups.Group']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Groups()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_group_cfg as meta
+        return meta._meta_table['Groups']['meta_info']
 
 
-class ApplyGroups(Entity):
+class ApplyGroups(_Entity_):
     """
     apply groups
     
@@ -117,7 +134,10 @@ class ApplyGroups(Entity):
     _revision = '2016-04-29'
 
     def __init__(self):
-        super(ApplyGroups, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ApplyGroups, self).__init__()
         self._top_entity = None
 
         self.yang_name = "apply-groups"
@@ -140,5 +160,9 @@ class ApplyGroups(Entity):
         self._top_entity = ApplyGroups()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_group_cfg as meta
+        return meta._meta_table['ApplyGroups']['meta_info']
 
 

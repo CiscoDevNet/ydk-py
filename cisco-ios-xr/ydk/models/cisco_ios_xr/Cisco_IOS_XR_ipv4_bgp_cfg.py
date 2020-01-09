@@ -19,8 +19,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -49,6 +52,12 @@ class BgpAdvRt(Enum):
     bgp_stitching_rt = Enum.YLeaf(1, "bgp-stitching-rt")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAdvRt']
+
+
 class BgpAfEncapsulation(Enum):
     """
     BgpAfEncapsulation (Enum Class)
@@ -62,6 +71,12 @@ class BgpAfEncapsulation(Enum):
     """
 
     vx_lan = Enum.YLeaf(1, "vx-lan")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAfEncapsulation']
 
 
 class BgpAigpCfg(Enum):
@@ -85,6 +100,12 @@ class BgpAigpCfg(Enum):
     disable = Enum.YLeaf(2, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAigpCfg']
+
+
 class BgpAigpCfgPoi(Enum):
     """
     BgpAigpCfgPoi (Enum Class)
@@ -106,6 +127,12 @@ class BgpAigpCfgPoi(Enum):
     igp_cost = Enum.YLeaf(2, "igp-cost")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAigpCfgPoi']
+
+
 class BgpAsn(Enum):
     """
     BgpAsn (Enum Class)
@@ -125,6 +152,12 @@ class BgpAsn(Enum):
     as_plain = Enum.YLeaf(1, "as-plain")
 
     asdot = Enum.YLeaf(2, "asdot")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAsn']
 
 
 class BgpBfdEnableMode(Enum):
@@ -156,6 +189,12 @@ class BgpBfdEnableMode(Enum):
     strict = Enum.YLeaf(2, "strict")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpBfdEnableMode']
+
+
 class BgpClusterId(Enum):
     """
     BgpClusterId (Enum Class)
@@ -175,6 +214,12 @@ class BgpClusterId(Enum):
     number = Enum.YLeaf(1, "number")
 
     ipv4_address = Enum.YLeaf(2, "ipv4-address")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpClusterId']
 
 
 class BgpEbgpSendDmzEnableMode(Enum):
@@ -208,6 +253,12 @@ class BgpEbgpSendDmzEnableMode(Enum):
     cumulative = Enum.YLeaf(2, "cumulative")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpEbgpSendDmzEnableMode']
+
+
 class BgpFlowspecValidationCfg(Enum):
     """
     BgpFlowspecValidationCfg (Enum Class)
@@ -233,6 +284,12 @@ class BgpFlowspecValidationCfg(Enum):
     disable = Enum.YLeaf(2, "disable")
 
     redirect_nexhop_disable = Enum.YLeaf(3, "redirect-nexhop-disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpFlowspecValidationCfg']
 
 
 class BgpGlobalRouteDistinguisher(Enum):
@@ -262,6 +319,12 @@ class BgpGlobalRouteDistinguisher(Enum):
     ipv4_address = Enum.YLeaf(4, "ipv4-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpGlobalRouteDistinguisher']
+
+
 class BgpMvpnSfsSelect(Enum):
     """
     BgpMvpnSfsSelect (Enum Class)
@@ -285,6 +348,12 @@ class BgpMvpnSfsSelect(Enum):
     highest_ip_address = Enum.YLeaf(2, "highest-ip-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpMvpnSfsSelect']
+
+
 class BgpNbrgr(Enum):
     """
     BgpNbrgr (Enum Class)
@@ -304,6 +373,12 @@ class BgpNbrgr(Enum):
     true = Enum.YLeaf(0, "true")
 
     false = Enum.YLeaf(1, "false")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpNbrgr']
 
 
 class BgpOrf(Enum):
@@ -337,6 +412,12 @@ class BgpOrf(Enum):
     send = Enum.YLeaf(2, "send")
 
     both = Enum.YLeaf(3, "both")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpOrf']
 
 
 class BgpReorgOpt(Enum):
@@ -392,6 +473,12 @@ class BgpReorgOpt(Enum):
     bgp_cfg_adv_vrf_evpn_re_imp_disable = Enum.YLeaf(7, "bgp-cfg-adv-vrf-evpn-re-imp-disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpReorgOpt']
+
+
 class BgpRnhInstallFormat(Enum):
     """
     BgpRnhInstallFormat (Enum Class)
@@ -411,6 +498,12 @@ class BgpRnhInstallFormat(Enum):
     ext_comm = Enum.YLeaf(0, "ext-comm")
 
     ext_comm_only = Enum.YLeaf(1, "ext-comm-only")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpRnhInstallFormat']
 
 
 class BgpRouteDistinguisher(Enum):
@@ -446,6 +539,33 @@ class BgpRouteDistinguisher(Enum):
     ipv4_address = Enum.YLeaf(4, "ipv4-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpRouteDistinguisher']
+
+
+class BgpRpkiBinssrc(Enum):
+    """
+    BgpRpkiBinssrc (Enum Class)
+
+    Bgp rpki binssrc
+
+    .. data:: interface = 0
+
+    	Bind Source Interface
+
+    """
+
+    interface = Enum.YLeaf(0, "interface")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpRpkiBinssrc']
+
+
 class BgpRpkiTransport(Enum):
     """
     BgpRpkiTransport (Enum Class)
@@ -465,6 +585,12 @@ class BgpRpkiTransport(Enum):
     tcp = Enum.YLeaf(0, "tcp")
 
     ssh = Enum.YLeaf(1, "ssh")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpRpkiTransport']
 
 
 class BgpSendMcastAttrCfg(Enum):
@@ -488,6 +614,12 @@ class BgpSendMcastAttrCfg(Enum):
     disable = Enum.YLeaf(2, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpSendMcastAttrCfg']
+
+
 class BgpSignal(Enum):
     """
     BgpSignal (Enum Class)
@@ -507,6 +639,12 @@ class BgpSignal(Enum):
     bgp_disable = Enum.YLeaf(1, "bgp-disable")
 
     ldp_disable = Enum.YLeaf(2, "ldp-disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpSignal']
 
 
 class BgpSiteOfOrigin(Enum):
@@ -536,6 +674,12 @@ class BgpSiteOfOrigin(Enum):
     four_byte_as = Enum.YLeaf(2, "four-byte-as")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpSiteOfOrigin']
+
+
 class BgpTcpMode(Enum):
     """
     BgpTcpMode (Enum Class)
@@ -561,6 +705,12 @@ class BgpTcpMode(Enum):
     active_only = Enum.YLeaf(1, "active-only")
 
     passive_only = Enum.YLeaf(2, "passive-only")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpTcpMode']
 
 
 class BgpVrfRouteTarget(Enum):
@@ -590,6 +740,12 @@ class BgpVrfRouteTarget(Enum):
     four_byte_as = Enum.YLeaf(2, "four-byte-as")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpVrfRouteTarget']
+
+
 class BmpPolicySelect(Enum):
     """
     BmpPolicySelect (Enum Class)
@@ -603,6 +759,12 @@ class BmpPolicySelect(Enum):
     """
 
     post_policy = Enum.YLeaf(2, "post-policy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpPolicySelect']
 
 
 class BmpRouteDirection(Enum):
@@ -620,8 +782,14 @@ class BmpRouteDirection(Enum):
     inbound = Enum.YLeaf(1, "inbound")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpRouteDirection']
 
-class Bgp(Entity):
+
+
+class Bgp(_Entity_):
     """
     bgp
     
@@ -638,7 +806,10 @@ class Bgp(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(Bgp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Bgp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bgp"
@@ -657,7 +828,7 @@ class Bgp(Entity):
         self._perform_setattr(Bgp, [], name, value)
 
 
-    class Instance(Entity):
+    class Instance(_Entity_):
         """
         BGP instance configuration commands
         
@@ -681,7 +852,10 @@ class Bgp(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Bgp.Instance, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bgp.Instance, self).__init__()
 
             self.yang_name = "instance"
             self.yang_parent_name = "bgp"
@@ -703,7 +877,7 @@ class Bgp(Entity):
             self._perform_setattr(Bgp.Instance, ['instance_name'], name, value)
 
 
-        class InstanceAs(Entity):
+        class InstanceAs(_Entity_):
             """
             Autonomous system
             
@@ -727,7 +901,10 @@ class Bgp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Bgp.Instance.InstanceAs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bgp.Instance.InstanceAs, self).__init__()
 
                 self.yang_name = "instance-as"
                 self.yang_parent_name = "instance"
@@ -748,7 +925,7 @@ class Bgp(Entity):
                 self._perform_setattr(Bgp.Instance.InstanceAs, ['as_'], name, value)
 
 
-            class FourByteAs(Entity):
+            class FourByteAs(_Entity_):
                 """
                 4\-byte Autonomous system
                 
@@ -782,7 +959,10 @@ class Bgp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Bgp.Instance.InstanceAs.FourByteAs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bgp.Instance.InstanceAs.FourByteAs, self).__init__()
 
                     self.yang_name = "four-byte-as"
                     self.yang_parent_name = "instance-as"
@@ -811,7 +991,7 @@ class Bgp(Entity):
                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs, ['as_', 'bgp_running'], name, value)
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     VRF config
                     
@@ -828,7 +1008,10 @@ class Bgp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "four-byte-as"
@@ -846,7 +1029,7 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         VRF config
                         
@@ -875,7 +1058,10 @@ class Bgp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -902,7 +1088,7 @@ class Bgp(Entity):
                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class VrfGlobal(Entity):
+                        class VrfGlobal(_Entity_):
                             """
                             VRF attribute config
                             
@@ -1089,7 +1275,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal, self).__init__()
 
                                 self.yang_name = "vrf-global"
                                 self.yang_parent_name = "vrf"
@@ -1186,7 +1375,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal, ['exists', 'router_id', 'disable_enforce_first_as', 'best_path_cost_community', 'best_path_aigp_ignore', 'best_path_as_path_length', 'igp_redist_internal', 'multi_path_as_path_ignore_onwards', 'disable_fast_external_fallover', 'unsafe_ebgp_policy', 'default_metric', 'default_info_originate', 'rpki_origin_as_validity_signal_ibgp', 'rpki_bestpath_use_origin_as_validity', 'best_path_confederation_paths', 'best_path_as_multipath_relax', 'disable_auto_soft_reset', 'disable_msg_log', 'best_path_igp_metric_ignore', 'next_hop_res_allow_default', 'next_hop_mpls_fwd_ibgp', 'disable_neighbor_logging', 'best_path_med_always', 'best_path_router_id', 'best_path_med_missing', 'local_preference'], name, value)
 
 
-                            class RouteDistinguisher(Entity):
+                            class RouteDistinguisher(_Entity_):
                                 """
                                 Route distinguisher
                                 
@@ -1238,7 +1427,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, self).__init__()
 
                                     self.yang_name = "route-distinguisher"
                                     self.yang_parent_name = "vrf-global"
@@ -1266,9 +1458,13 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher']['meta_info']
 
 
-                            class VrfGlobalAfs(Entity):
+                            class VrfGlobalAfs(_Entity_):
                                 """
                                 Global VRF\-specific configuration
                                 
@@ -1285,7 +1481,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs, self).__init__()
 
                                     self.yang_name = "vrf-global-afs"
                                     self.yang_parent_name = "vrf-global"
@@ -1303,7 +1502,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs, [], name, value)
 
 
-                                class VrfGlobalAf(Entity):
+                                class VrfGlobalAf(_Entity_):
                                     """
                                     Global VRF AF\-specific configuration
                                     
@@ -1556,7 +1755,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, self).__init__()
 
                                         self.yang_name = "vrf-global-af"
                                         self.yang_parent_name = "vrf-global-afs"
@@ -1686,7 +1888,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf, ['af_name', 'rt_download', 'allow_vpn_default_originate', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
 
 
-                                    class Mvpn(Entity):
+                                    class Mvpn(_Entity_):
                                         """
                                         MVPN configurations
                                         
@@ -1703,7 +1905,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, self).__init__()
 
                                             self.yang_name = "mvpn"
                                             self.yang_parent_name = "vrf-global-af"
@@ -1721,9 +1926,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, ['single_forwarder_selection'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn']['meta_info']
 
 
-                                    class Ebgp(Entity):
+                                    class Ebgp(_Entity_):
                                         """
                                         Use eBGP multipaths
                                         
@@ -1767,7 +1976,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, self).__init__()
 
                                             self.yang_name = "ebgp"
                                             self.yang_parent_name = "vrf-global-af"
@@ -1792,9 +2004,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp']['meta_info']
 
 
-                                    class Eibgp(Entity):
+                                    class Eibgp(_Entity_):
                                         """
                                         Use eiBGP multipaths
                                         
@@ -1838,7 +2054,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, self).__init__()
 
                                             self.yang_name = "eibgp"
                                             self.yang_parent_name = "vrf-global-af"
@@ -1863,9 +2082,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp']['meta_info']
 
 
-                                    class Ibgp(Entity):
+                                    class Ibgp(_Entity_):
                                         """
                                         Use iBGP multipaths
                                         
@@ -1909,7 +2132,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, self).__init__()
 
                                             self.yang_name = "ibgp"
                                             self.yang_parent_name = "vrf-global-af"
@@ -1934,9 +2160,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp']['meta_info']
 
 
-                                    class AggregateAddresses(Entity):
+                                    class AggregateAddresses(_Entity_):
                                         """
                                         Configure BGP aggregate entries
                                         
@@ -1953,7 +2183,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses, self).__init__()
 
                                             self.yang_name = "aggregate-addresses"
                                             self.yang_parent_name = "vrf-global-af"
@@ -1971,7 +2204,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses, [], name, value)
 
 
-                                        class AggregateAddress(Entity):
+                                        class AggregateAddress(_Entity_):
                                             """
                                             Aggregate address configuration
                                             
@@ -2023,7 +2256,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
 
                                                 self.yang_name = "aggregate-address"
                                                 self.yang_parent_name = "aggregate-addresses"
@@ -2051,10 +2287,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, ['aggregate_addr', 'aggregate_prefix', 'generate_set_info', 'generate_confederation_set_info', 'summary_only', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses']['meta_info']
 
 
-
-                                    class OptimalRouteReflectorGroups(Entity):
+                                    class OptimalRouteReflectorGroups(_Entity_):
                                         """
                                         Table of multiple ORR groups
                                         
@@ -2071,7 +2315,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups, self).__init__()
 
                                             self.yang_name = "optimal-route-reflector-groups"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2089,7 +2336,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups, [], name, value)
 
 
-                                        class OptimalRouteReflectorGroup(Entity):
+                                        class OptimalRouteReflectorGroup(_Entity_):
                                             """
                                             Optimal Route Reffelctor group. Each such group
                                             is equivalent to an IGP area
@@ -2148,7 +2395,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
 
                                                 self.yang_name = "optimal-route-reflector-group"
                                                 self.yang_parent_name = "optimal-route-reflector-groups"
@@ -2172,10 +2422,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, ['group_name', 'primary_root_address', 'secondary_root_address', 'tertiary_root_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups']['meta_info']
 
 
-
-                                    class Dampening(Entity):
+                                    class Dampening(_Entity_):
                                         """
                                         Enable route\-flap dampening
                                         
@@ -2226,7 +2484,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, self).__init__()
 
                                             self.yang_name = "dampening"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2253,9 +2514,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, ['half_life', 'reuse_threshold', 'suppress_threshold', 'suppress_time', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening']['meta_info']
 
 
-                                    class RipRoutes(Entity):
+                                    class RipRoutes(_Entity_):
                                         """
                                         Redistribute RIP routes
                                         
@@ -2288,7 +2553,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, self).__init__()
 
                                             self.yang_name = "rip-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2311,9 +2579,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes']['meta_info']
 
 
-                                    class LispRoutes(Entity):
+                                    class LispRoutes(_Entity_):
                                         """
                                         Redistribute lisp routes
                                         
@@ -2339,7 +2611,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, self).__init__()
 
                                             self.yang_name = "lisp-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2360,9 +2635,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, ['default_metric', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes']['meta_info']
 
 
-                                    class StaticRoutes(Entity):
+                                    class StaticRoutes(_Entity_):
                                         """
                                         Redistribute static routes
                                         
@@ -2395,7 +2674,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, self).__init__()
 
                                             self.yang_name = "static-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2418,9 +2700,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes']['meta_info']
 
 
-                                    class Distance(Entity):
+                                    class Distance(_Entity_):
                                         """
                                         Define an administrative distance
                                         
@@ -2461,7 +2747,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, self).__init__()
 
                                             self.yang_name = "distance"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2484,9 +2773,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, ['external_routes', 'internal_routes', 'local_routes'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance']['meta_info']
 
 
-                                    class ApplicationRoutes(Entity):
+                                    class ApplicationRoutes(_Entity_):
                                         """
                                         Redistribute information for Application routes.
                                         
@@ -2503,7 +2796,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes, self).__init__()
 
                                             self.yang_name = "application-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2521,7 +2817,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes, [], name, value)
 
 
-                                        class ApplicationRoute(Entity):
+                                        class ApplicationRoute(_Entity_):
                                             """
                                             Redistribute application routes
                                             
@@ -2559,7 +2855,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
 
                                                 self.yang_name = "application-route"
                                                 self.yang_parent_name = "application-routes"
@@ -2583,10 +2882,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, ['instance_name', 'default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes']['meta_info']
 
 
-
-                                    class LabelMode(Entity):
+                                    class LabelMode(_Entity_):
                                         """
                                         BGP 6PE/MPLS\-VPN label allocation mode
                                         
@@ -2610,7 +2917,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, self).__init__()
 
                                             self.yang_name = "label-mode"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2631,9 +2941,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode']['meta_info']
 
 
-                                    class EigrpRoutes(Entity):
+                                    class EigrpRoutes(_Entity_):
                                         """
                                         Redistribute information for EIGRP routes.
                                         
@@ -2650,7 +2964,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes, self).__init__()
 
                                             self.yang_name = "eigrp-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2668,7 +2985,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes, [], name, value)
 
 
-                                        class EigrpRoute(Entity):
+                                        class EigrpRoute(_Entity_):
                                             """
                                             Redistribute EIGRP routes
                                             
@@ -2706,7 +3023,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
 
                                                 self.yang_name = "eigrp-route"
                                                 self.yang_parent_name = "eigrp-routes"
@@ -2730,10 +3050,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes']['meta_info']
 
 
-
-                                    class SourcedNetworks(Entity):
+                                    class SourcedNetworks(_Entity_):
                                         """
                                         Specify a network to announce via BGP
                                         
@@ -2750,7 +3078,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks, self).__init__()
 
                                             self.yang_name = "sourced-networks"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2768,7 +3099,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks, [], name, value)
 
 
-                                        class SourcedNetwork(Entity):
+                                        class SourcedNetwork(_Entity_):
                                             """
                                             Sourced network configuration
                                             
@@ -2810,7 +3141,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
 
                                                 self.yang_name = "sourced-network"
                                                 self.yang_parent_name = "sourced-networks"
@@ -2834,10 +3168,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, ['network_addr', 'network_prefix', 'backdoor', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks']['meta_info']
 
 
-
-                                    class ConnectedRoutes(Entity):
+                                    class ConnectedRoutes(_Entity_):
                                         """
                                         Redistribute connected routes
                                         
@@ -2870,7 +3212,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, self).__init__()
 
                                             self.yang_name = "connected-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2893,9 +3238,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes']['meta_info']
 
 
-                                    class AllocateLabel(Entity):
+                                    class AllocateLabel(_Entity_):
                                         """
                                         Label allocation policy
                                         
@@ -2924,7 +3273,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, self).__init__()
 
                                             self.yang_name = "allocate-label"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2947,9 +3299,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, ['all', 'route_policy_name', 'un_labeled_path'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel']['meta_info']
 
 
-                                    class AdditionalPathsSelection(Entity):
+                                    class AdditionalPathsSelection(_Entity_):
                                         """
                                         Configure additional paths selection
                                         
@@ -2971,7 +3327,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, self).__init__()
 
                                             self.yang_name = "additional-paths-selection"
                                             self.yang_parent_name = "vrf-global-af"
@@ -2991,9 +3350,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, ['selection', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection']['meta_info']
 
 
-                                    class OspfRoutes(Entity):
+                                    class OspfRoutes(_Entity_):
                                         """
                                         Redistribute information for OSPF routes.
                                         
@@ -3010,7 +3373,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes, self).__init__()
 
                                             self.yang_name = "ospf-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -3028,7 +3394,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes, [], name, value)
 
 
-                                        class OspfRoute(Entity):
+                                        class OspfRoute(_Entity_):
                                             """
                                             Redistribute OSPF routes
                                             
@@ -3066,7 +3432,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, self).__init__()
 
                                                 self.yang_name = "ospf-route"
                                                 self.yang_parent_name = "ospf-routes"
@@ -3090,10 +3459,18 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes']['meta_info']
 
 
-
-                                    class MobileRoutes(Entity):
+                                    class MobileRoutes(_Entity_):
                                         """
                                         Redistribute mobile routes
                                         
@@ -3126,7 +3503,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, self).__init__()
 
                                             self.yang_name = "mobile-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -3149,9 +3529,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes']['meta_info']
 
 
-                                    class SubscriberRoutes(Entity):
+                                    class SubscriberRoutes(_Entity_):
                                         """
                                         Redistribute subscriber routes
                                         
@@ -3184,7 +3568,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, self).__init__()
 
                                             self.yang_name = "subscriber-routes"
                                             self.yang_parent_name = "vrf-global-af"
@@ -3207,9 +3594,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes']['meta_info']
 
 
-                                    class SegmentRouting(Entity):
+                                    class SegmentRouting(_Entity_):
                                         """
                                         Segment\-routing Configurations
                                         
@@ -3226,7 +3617,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting, self).__init__()
 
                                             self.yang_name = "segment-routing"
                                             self.yang_parent_name = "vrf-global-af"
@@ -3246,7 +3640,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting, [], name, value)
 
 
-                                        class Srv6(Entity):
+                                        class Srv6(_Entity_):
                                             """
                                             SRv6 Configurations
                                             
@@ -3273,7 +3667,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6, self).__init__()
 
                                                 self.yang_name = "srv6"
                                                 self.yang_parent_name = "segment-routing"
@@ -3295,12 +3692,28 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6, ['enable', 'srv6sid_allocation_mode', 'locator_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting.Srv6']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SegmentRouting']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs']['meta_info']
 
 
-
-
-
-                            class MplsActivatedInterfaces(Entity):
+                            class MplsActivatedInterfaces(_Entity_):
                                 """
                                 Configure list of MPLS activated interfaces
                                 
@@ -3317,7 +3730,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces, self).__init__()
 
                                     self.yang_name = "mpls-activated-interfaces"
                                     self.yang_parent_name = "vrf-global"
@@ -3335,7 +3751,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces, [], name, value)
 
 
-                                class MplsActivatedInterface(Entity):
+                                class MplsActivatedInterface(_Entity_):
                                     """
                                     Configure a MPLS activated interface
                                     
@@ -3354,7 +3770,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
 
                                         self.yang_name = "mpls-activated-interface"
                                         self.yang_parent_name = "mpls-activated-interfaces"
@@ -3372,10 +3791,18 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces']['meta_info']
 
 
-
-                            class GlobalTimers(Entity):
+                            class GlobalTimers(_Entity_):
                                 """
                                 Adjust routing timers.
                                 
@@ -3420,7 +3847,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, self).__init__()
 
                                     self.yang_name = "global-timers"
                                     self.yang_parent_name = "vrf-global"
@@ -3442,9 +3872,13 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, ['keepalive', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers']['meta_info']
 
 
-                            class Bfd(Entity):
+                            class Bfd(_Entity_):
                                 """
                                 BFD configuration
                                 
@@ -3472,7 +3906,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, self).__init__()
 
                                     self.yang_name = "bfd"
                                     self.yang_parent_name = "vrf-global"
@@ -3492,9 +3929,13 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, ['detection_multiplier', 'interval'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd']['meta_info']
 
 
-                            class SendSocketBufferSizes(Entity):
+                            class SendSocketBufferSizes(_Entity_):
                                 """
                                 set socket parameters
                                 
@@ -3528,7 +3969,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, self).__init__()
 
                                     self.yang_name = "send-socket-buffer-sizes"
                                     self.yang_parent_name = "vrf-global"
@@ -3548,9 +3992,13 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes']['meta_info']
 
 
-                            class ReceiveSocketBufferSizes(Entity):
+                            class ReceiveSocketBufferSizes(_Entity_):
                                 """
                                 Set socket and BGP receive buffer sizes
                                 
@@ -3584,7 +4032,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, self).__init__()
 
                                     self.yang_name = "receive-socket-buffer-sizes"
                                     self.yang_parent_name = "vrf-global"
@@ -3604,10 +4055,18 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal']['meta_info']
 
 
-
-                        class VrfNeighbors(Entity):
+                        class VrfNeighbors(_Entity_):
                             """
                             BGP VRF peer
                             
@@ -3629,7 +4088,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors, self).__init__()
 
                                 self.yang_name = "vrf-neighbors"
                                 self.yang_parent_name = "vrf"
@@ -3648,7 +4110,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors, [], name, value)
 
 
-                            class VrfNeighbor(Entity):
+                            class VrfNeighbor(_Entity_):
                                 """
                                 A particular VRF peer
                                 
@@ -3935,7 +4397,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -3958,7 +4420,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, self).__init__()
 
                                     self.yang_name = "vrf-neighbor"
                                     self.yang_parent_name = "vrf-neighbors"
@@ -4120,7 +4585,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
-                                class VrfNeighborAfs(Entity):
+                                class VrfNeighborAfs(_Entity_):
                                     """
                                     Address family type of a VRF neighbor
                                     
@@ -4137,7 +4602,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs, self).__init__()
 
                                         self.yang_name = "vrf-neighbor-afs"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -4155,7 +4623,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs, [], name, value)
 
 
-                                    class VrfNeighborAf(Entity):
+                                    class VrfNeighborAf(_Entity_):
                                         """
                                         Address family type of a VRF neighbor
                                         
@@ -4173,18 +4641,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -4350,7 +4823,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -4455,7 +4928,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, self).__init__()
 
                                             self.yang_name = "vrf-neighbor-af"
                                             self.yang_parent_name = "vrf-neighbor-afs"
@@ -4468,6 +4944,7 @@ class Bgp(Entity):
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
                                                 ('advertise_local_labeled_route', (YLeaf(YType.enumeration, 'advertise-local-labeled-route'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAdvertiseLocalLabeledRouteCfg', '')])),
@@ -4501,6 +4978,7 @@ class Bgp(Entity):
                                             self.neighbor_af_long_lived_graceful_restart_capable = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.next_hop_unchanged = None
                                             self.advertise_local_labeled_route = None
@@ -4618,10 +5096,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -4655,7 +5133,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4679,9 +5160,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -4708,7 +5193,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4730,9 +5218,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -4759,7 +5251,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4781,9 +5276,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -4839,7 +5338,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4866,9 +5368,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -4896,7 +5402,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4918,9 +5427,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -4946,7 +5459,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -4967,9 +5483,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -4996,7 +5516,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5018,9 +5541,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -5048,7 +5575,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5070,9 +5600,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -5099,7 +5633,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5121,9 +5658,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -5151,7 +5692,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5173,9 +5717,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -5210,7 +5758,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5230,9 +5781,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class SiteOfOrigin(Entity):
+                                        class SiteOfOrigin(_Entity_):
                                             """
                                             Site\-of\-Origin extended community associated
                                             with the neighbor
@@ -5285,7 +5840,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
 
                                                 self.yang_name = "site-of-origin"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5313,9 +5871,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -5342,7 +5904,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5364,9 +5929,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -5394,7 +5963,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5416,9 +5988,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -5446,7 +6022,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5468,9 +6047,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -5494,7 +6077,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5514,9 +6100,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -5543,7 +6133,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5563,9 +6156,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -5592,7 +6189,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5614,9 +6214,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -5643,7 +6247,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5665,9 +6272,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -5695,7 +6306,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5717,9 +6331,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -5745,7 +6363,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5766,9 +6387,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -5795,7 +6420,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -5817,11 +6445,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs']['meta_info']
 
 
-
-
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -5853,7 +6493,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -5873,9 +6516,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -5905,7 +6552,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -5925,9 +6575,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -5944,7 +6598,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -5962,7 +6619,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -5981,7 +6638,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -5999,10 +6659,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -6031,7 +6699,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6051,9 +6722,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -6079,7 +6754,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6099,9 +6777,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -6147,7 +6829,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6175,9 +6860,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -6201,7 +6890,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6221,9 +6913,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -6258,7 +6954,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6279,9 +6978,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -6307,7 +7010,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6327,9 +7033,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -6353,7 +7063,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6373,9 +7086,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -6403,7 +7120,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6423,9 +7143,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -6459,7 +7183,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6485,7 +7212,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -6515,7 +7242,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -6536,10 +7266,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -6568,7 +7306,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6590,9 +7331,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -6624,7 +7369,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6648,9 +7396,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -6685,7 +7437,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6705,9 +7460,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -6736,7 +7495,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6758,9 +7520,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -6795,7 +7561,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6815,9 +7584,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -6856,7 +7629,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6878,9 +7654,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -6902,7 +7682,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6922,9 +7705,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -6956,7 +7743,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "vrf-neighbor"
@@ -6985,7 +7775,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -7009,7 +7799,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -7029,9 +7822,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -7056,7 +7853,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -7076,11 +7876,23 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor']['meta_info']
 
 
-
-
-                            class VrfNeighborPrefixLength(Entity):
+                            class VrfNeighborPrefixLength(_Entity_):
                                 """
                                 A particular VRF peer
                                 
@@ -7374,7 +8186,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -7397,7 +8209,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, self).__init__()
 
                                     self.yang_name = "vrf-neighbor-prefix-length"
                                     self.yang_parent_name = "vrf-neighbors"
@@ -7561,7 +8376,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
-                                class VrfNeighborAfs(Entity):
+                                class VrfNeighborAfs(_Entity_):
                                     """
                                     Address family type of a VRF neighbor
                                     
@@ -7578,7 +8393,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs, self).__init__()
 
                                         self.yang_name = "vrf-neighbor-afs"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -7596,7 +8414,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs, [], name, value)
 
 
-                                    class VrfNeighborAf(Entity):
+                                    class VrfNeighborAf(_Entity_):
                                         """
                                         Address family type of a VRF neighbor
                                         
@@ -7614,18 +8432,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -7791,7 +8614,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -7896,7 +8719,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, self).__init__()
 
                                             self.yang_name = "vrf-neighbor-af"
                                             self.yang_parent_name = "vrf-neighbor-afs"
@@ -7909,6 +8735,7 @@ class Bgp(Entity):
                                                 ('neighbor_af_long_lived_graceful_restart_capable', (YLeaf(YType.boolean, 'neighbor-af-long-lived-graceful-restart-capable'), ['bool'])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
                                                 ('advertise_local_labeled_route', (YLeaf(YType.enumeration, 'advertise-local-labeled-route'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAdvertiseLocalLabeledRouteCfg', '')])),
@@ -7942,6 +8769,7 @@ class Bgp(Entity):
                                             self.neighbor_af_long_lived_graceful_restart_capable = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.next_hop_unchanged = None
                                             self.advertise_local_labeled_route = None
@@ -8059,10 +8887,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -8096,7 +8924,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8120,9 +8951,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -8149,7 +8984,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8171,9 +9009,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -8200,7 +9042,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8222,9 +9067,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -8280,7 +9129,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8307,9 +9159,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -8337,7 +9193,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8359,9 +9218,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -8387,7 +9250,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8408,9 +9274,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -8437,7 +9307,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8459,9 +9332,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -8489,7 +9366,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8511,9 +9391,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -8540,7 +9424,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8562,9 +9449,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -8592,7 +9483,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8614,9 +9508,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -8651,7 +9549,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8671,9 +9572,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class SiteOfOrigin(Entity):
+                                        class SiteOfOrigin(_Entity_):
                                             """
                                             Site\-of\-Origin extended community associated
                                             with the neighbor
@@ -8726,7 +9631,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, self).__init__()
 
                                                 self.yang_name = "site-of-origin"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8754,9 +9662,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -8783,7 +9695,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8805,9 +9720,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -8835,7 +9754,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8857,9 +9779,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -8887,7 +9813,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8909,9 +9838,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -8935,7 +9868,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -8955,9 +9891,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -8984,7 +9924,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9004,9 +9947,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -9033,7 +9980,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9055,9 +10005,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -9084,7 +10038,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9106,9 +10063,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -9136,7 +10097,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9158,9 +10122,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -9186,7 +10154,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9207,9 +10178,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -9236,7 +10211,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "vrf-neighbor-af"
@@ -9258,11 +10236,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs']['meta_info']
 
 
-
-
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -9294,7 +10284,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9314,9 +10307,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -9346,7 +10343,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9366,9 +10366,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -9385,7 +10389,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9403,7 +10410,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -9422,7 +10429,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -9440,10 +10450,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -9472,7 +10490,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9492,9 +10513,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -9520,7 +10545,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9540,9 +10568,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -9588,7 +10620,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9616,9 +10651,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -9642,7 +10681,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9662,9 +10704,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -9699,7 +10745,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9720,9 +10769,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -9748,7 +10801,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9768,9 +10824,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -9794,7 +10854,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9814,9 +10877,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -9844,7 +10911,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9864,9 +10934,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -9900,7 +10974,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -9926,7 +11003,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -9956,7 +11033,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -9977,10 +11057,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -10009,7 +11097,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10031,9 +11122,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -10065,7 +11160,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10089,9 +11187,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -10126,7 +11228,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10146,9 +11251,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -10177,7 +11286,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10199,9 +11311,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -10236,7 +11352,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10256,9 +11375,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -10297,7 +11420,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10319,9 +11445,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -10343,7 +11473,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10363,9 +11496,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -10397,7 +11534,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "vrf-neighbor-prefix-length"
@@ -10426,7 +11566,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -10450,7 +11590,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -10470,9 +11613,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -10497,7 +11644,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -10517,14 +11667,38 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs']['meta_info']
 
 
-
-
-
-
-
-                class DefaultVrf(Entity):
+                class DefaultVrf(_Entity_):
                     """
                     Global default config
                     
@@ -10546,7 +11720,10 @@ class Bgp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, self).__init__()
 
                         self.yang_name = "default-vrf"
                         self.yang_parent_name = "four-byte-as"
@@ -10570,7 +11747,7 @@ class Bgp(Entity):
                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf, [], name, value)
 
 
-                    class BgpEntity(Entity):
+                    class BgpEntity(_Entity_):
                         """
                         Neighbor, neighbor\-group, af\-group and
                         session\-group configuration
@@ -10603,7 +11780,10 @@ class Bgp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, self).__init__()
 
                             self.yang_name = "bgp-entity"
                             self.yang_parent_name = "default-vrf"
@@ -10635,7 +11815,7 @@ class Bgp(Entity):
                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity, [], name, value)
 
 
-                        class Neighbors(Entity):
+                        class Neighbors(_Entity_):
                             """
                             Neighbor configuration
                             
@@ -10657,7 +11837,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors, self).__init__()
 
                                 self.yang_name = "neighbors"
                                 self.yang_parent_name = "bgp-entity"
@@ -10676,7 +11859,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors, [], name, value)
 
 
-                            class Neighbor(Entity):
+                            class Neighbor(_Entity_):
                                 """
                                 A particular BGP peer
                                 
@@ -10963,7 +12146,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -10986,7 +12169,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, self).__init__()
 
                                     self.yang_name = "neighbor"
                                     self.yang_parent_name = "neighbors"
@@ -11148,7 +12334,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor, ['neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
-                                class NeighborAfs(Entity):
+                                class NeighborAfs(_Entity_):
                                     """
                                     BGP neighbor AF configuration table
                                     
@@ -11165,7 +12351,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs, self).__init__()
 
                                         self.yang_name = "neighbor-afs"
                                         self.yang_parent_name = "neighbor"
@@ -11183,7 +12372,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs, [], name, value)
 
 
-                                    class NeighborAf(Entity):
+                                    class NeighborAf(_Entity_):
                                         """
                                         Address family type of neighbor
                                         
@@ -11206,18 +12395,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -11383,7 +12577,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -11488,7 +12682,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, self).__init__()
 
                                             self.yang_name = "neighbor-af"
                                             self.yang_parent_name = "neighbor-afs"
@@ -11502,6 +12699,7 @@ class Bgp(Entity):
                                                 ('l2vpn_signalling', (YLeaf(YType.enumeration, 'l2vpn-signalling'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal', '')])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('send_multicast_attr', (YLeaf(YType.enumeration, 'send-multicast-attr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg', '')])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
@@ -11537,6 +12735,7 @@ class Bgp(Entity):
                                             self.l2vpn_signalling = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.send_multicast_attr = None
                                             self.next_hop_unchanged = None
@@ -11651,10 +12850,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -11688,7 +12887,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "neighbor-af"
@@ -11712,9 +12914,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -11741,7 +12947,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -11763,9 +12972,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -11792,7 +13005,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "neighbor-af"
@@ -11814,9 +13030,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -11872,7 +13092,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "neighbor-af"
@@ -11899,9 +13122,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -11929,7 +13156,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -11951,9 +13181,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -11979,7 +13213,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12000,9 +13237,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -12029,7 +13270,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12051,9 +13295,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -12081,7 +13329,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12103,9 +13354,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -12132,7 +13387,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12154,9 +13412,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -12184,7 +13446,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12206,9 +13471,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -12243,7 +13512,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12263,9 +13535,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -12292,7 +13568,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12314,9 +13593,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -12344,7 +13627,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12366,9 +13652,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -12396,7 +13686,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12418,9 +13711,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -12444,7 +13741,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12464,9 +13764,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -12493,7 +13797,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12513,9 +13820,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -12542,7 +13853,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12564,9 +13878,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -12593,7 +13911,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12615,9 +13936,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -12645,7 +13970,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12667,9 +13995,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -12695,7 +14027,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12716,9 +14051,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -12745,7 +14084,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -12767,11 +14109,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs']['meta_info']
 
 
-
-
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -12803,7 +14157,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "neighbor"
@@ -12823,9 +14180,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -12855,7 +14216,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "neighbor"
@@ -12875,9 +14239,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -12894,7 +14262,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "neighbor"
@@ -12912,7 +14283,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -12931,7 +14302,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -12949,10 +14323,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -12981,7 +14363,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "neighbor"
@@ -13001,9 +14386,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -13029,7 +14418,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "neighbor"
@@ -13049,9 +14441,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -13097,7 +14493,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "neighbor"
@@ -13125,9 +14524,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -13151,7 +14554,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "neighbor"
@@ -13171,9 +14577,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -13208,7 +14618,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "neighbor"
@@ -13229,9 +14642,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -13257,7 +14674,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "neighbor"
@@ -13277,9 +14697,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -13303,7 +14727,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "neighbor"
@@ -13323,9 +14750,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -13353,7 +14784,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "neighbor"
@@ -13373,9 +14807,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -13409,7 +14847,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "neighbor"
@@ -13435,7 +14876,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -13465,7 +14906,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -13486,10 +14930,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -13518,7 +14970,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "neighbor"
@@ -13540,9 +14995,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -13574,7 +15033,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "neighbor"
@@ -13598,9 +15060,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -13635,7 +15101,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "neighbor"
@@ -13655,9 +15124,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -13686,7 +15159,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "neighbor"
@@ -13708,9 +15184,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -13745,7 +15225,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "neighbor"
@@ -13765,9 +15248,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -13806,7 +15293,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "neighbor"
@@ -13828,9 +15318,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -13852,7 +15346,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "neighbor"
@@ -13872,9 +15369,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -13906,7 +15407,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "neighbor"
@@ -13935,7 +15439,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -13959,7 +15463,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -13979,9 +15486,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -14006,7 +15517,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -14026,11 +15540,23 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor']['meta_info']
 
 
-
-
-                            class NeighborPrefixLength(Entity):
+                            class NeighborPrefixLength(_Entity_):
                                 """
                                 A particular BGP peer
                                 
@@ -14324,7 +15850,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -14347,7 +15873,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, self).__init__()
 
                                     self.yang_name = "neighbor-prefix-length"
                                     self.yang_parent_name = "neighbors"
@@ -14511,7 +16040,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength, ['prefix_length', 'neighbor_address', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'neighbor_group_add_member', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface'], name, value)
 
 
-                                class NeighborAfs(Entity):
+                                class NeighborAfs(_Entity_):
                                     """
                                     BGP neighbor AF configuration table
                                     
@@ -14528,7 +16057,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs, self).__init__()
 
                                         self.yang_name = "neighbor-afs"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -14546,7 +16078,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs, [], name, value)
 
 
-                                    class NeighborAf(Entity):
+                                    class NeighborAf(_Entity_):
                                         """
                                         Address family type of neighbor
                                         
@@ -14569,18 +16101,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -14746,7 +16283,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -14851,7 +16388,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, self).__init__()
 
                                             self.yang_name = "neighbor-af"
                                             self.yang_parent_name = "neighbor-afs"
@@ -14865,6 +16405,7 @@ class Bgp(Entity):
                                                 ('l2vpn_signalling', (YLeaf(YType.enumeration, 'l2vpn-signalling'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal', '')])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('send_multicast_attr', (YLeaf(YType.enumeration, 'send-multicast-attr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg', '')])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
@@ -14900,6 +16441,7 @@ class Bgp(Entity):
                                             self.l2vpn_signalling = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.send_multicast_attr = None
                                             self.next_hop_unchanged = None
@@ -15014,10 +16556,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -15051,7 +16593,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15075,9 +16620,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -15104,7 +16653,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15126,9 +16678,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -15155,7 +16711,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15177,9 +16736,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -15235,7 +16798,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15262,9 +16828,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -15292,7 +16862,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15314,9 +16887,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -15342,7 +16919,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15363,9 +16943,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -15392,7 +16976,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15414,9 +17001,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -15444,7 +17035,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15466,9 +17060,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -15495,7 +17093,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15517,9 +17118,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -15547,7 +17152,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15569,9 +17177,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -15606,7 +17218,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15626,9 +17241,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -15655,7 +17274,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15677,9 +17299,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -15707,7 +17333,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15729,9 +17358,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -15759,7 +17392,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15781,9 +17417,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -15807,7 +17447,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15827,9 +17470,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -15856,7 +17503,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15876,9 +17526,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -15905,7 +17559,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15927,9 +17584,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -15956,7 +17617,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -15978,9 +17642,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -16008,7 +17676,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -16030,9 +17701,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -16058,7 +17733,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "neighbor-af"
@@ -16079,9 +17757,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -16108,7 +17790,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-af"
@@ -16130,11 +17815,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs']['meta_info']
 
 
-
-
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -16166,7 +17863,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16186,9 +17886,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -16218,7 +17922,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16238,9 +17945,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -16257,7 +17968,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16275,7 +17989,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -16294,7 +18008,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -16312,10 +18029,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -16344,7 +18069,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16364,9 +18092,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -16392,7 +18124,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16412,9 +18147,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -16460,7 +18199,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16488,9 +18230,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -16514,7 +18260,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16534,9 +18283,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -16571,7 +18324,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16592,9 +18348,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -16620,7 +18380,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16640,9 +18403,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -16666,7 +18433,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16686,9 +18456,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -16716,7 +18490,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16736,9 +18513,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -16772,7 +18553,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16798,7 +18582,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -16828,7 +18612,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -16849,10 +18636,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -16881,7 +18676,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16903,9 +18701,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -16937,7 +18739,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -16961,9 +18766,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -16998,7 +18807,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17018,9 +18830,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -17049,7 +18865,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17071,9 +18890,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -17108,7 +18931,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17128,9 +18954,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -17169,7 +18999,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17191,9 +19024,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -17215,7 +19052,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17235,9 +19075,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -17269,7 +19113,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "neighbor-prefix-length"
@@ -17298,7 +19145,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -17322,7 +19169,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -17342,9 +19192,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -17369,7 +19223,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -17389,12 +19246,28 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors']['meta_info']
 
 
-
-
-
-                        class NeighborGroups(Entity):
+                        class NeighborGroups(_Entity_):
                             """
                             Neighbor\-group configuration
                             
@@ -17411,7 +19284,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups, self).__init__()
 
                                 self.yang_name = "neighbor-groups"
                                 self.yang_parent_name = "bgp-entity"
@@ -17429,7 +19305,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups, [], name, value)
 
 
-                            class NeighborGroup(Entity):
+                            class NeighborGroup(_Entity_):
                                 """
                                 A particular BGP neighbor group
                                 
@@ -17710,7 +19586,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -17738,7 +19614,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, self).__init__()
 
                                     self.yang_name = "neighbor-group"
                                     self.yang_parent_name = "neighbor-groups"
@@ -17902,7 +19781,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup, ['neighbor_group_name', 'neighbor_group_add_member', 'internal_vpn_client_ibgp_ce', 'session_group_add_member', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
 
 
-                                class NeighborGroupAfs(Entity):
+                                class NeighborGroupAfs(_Entity_):
                                     """
                                     BGP neighbor\-group AF configuration table
                                     
@@ -17919,7 +19798,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs, self).__init__()
 
                                         self.yang_name = "neighbor-group-afs"
                                         self.yang_parent_name = "neighbor-group"
@@ -17937,7 +19819,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs, [], name, value)
 
 
-                                    class NeighborGroupAf(Entity):
+                                    class NeighborGroupAf(_Entity_):
                                         """
                                         Address family type of neighbor group
                                         
@@ -17960,18 +19842,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -18142,7 +20029,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -18247,7 +20134,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, self).__init__()
 
                                             self.yang_name = "neighbor-group-af"
                                             self.yang_parent_name = "neighbor-group-afs"
@@ -18261,6 +20151,7 @@ class Bgp(Entity):
                                                 ('l2vpn_signalling', (YLeaf(YType.enumeration, 'l2vpn-signalling'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal', '')])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('send_multicast_attr', (YLeaf(YType.enumeration, 'send-multicast-attr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg', '')])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
@@ -18296,6 +20187,7 @@ class Bgp(Entity):
                                             self.l2vpn_signalling = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.send_multicast_attr = None
                                             self.next_hop_unchanged = None
@@ -18414,10 +20306,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf, ['af_name', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'activate', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'af_group', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -18451,7 +20343,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18475,9 +20370,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -18504,7 +20403,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18526,9 +20428,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -18555,7 +20461,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18577,9 +20486,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -18635,7 +20548,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18662,9 +20578,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -18692,7 +20612,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18714,9 +20637,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -18742,7 +20669,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18763,9 +20693,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -18792,7 +20726,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18814,9 +20751,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -18844,7 +20785,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18866,9 +20810,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -18895,7 +20843,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18917,9 +20868,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -18947,7 +20902,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -18969,9 +20927,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -19006,7 +20968,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19026,9 +20991,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class SiteOfOrigin(Entity):
+                                        class SiteOfOrigin(_Entity_):
                                             """
                                             Site\-of\-Origin extended community associated
                                             with the neighbor
@@ -19081,7 +21050,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, self).__init__()
 
                                                 self.yang_name = "site-of-origin"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19109,9 +21081,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -19138,7 +21114,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19160,9 +21139,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -19190,7 +21173,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19212,9 +21198,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -19242,7 +21232,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19264,9 +21257,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -19290,7 +21287,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19310,9 +21310,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -19339,7 +21343,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19359,9 +21366,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -19388,7 +21399,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19410,9 +21424,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -19439,7 +21457,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19461,9 +21482,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -19491,7 +21516,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19513,9 +21541,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -19541,7 +21573,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19562,9 +21597,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -19591,7 +21630,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "neighbor-group-af"
@@ -19613,11 +21655,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs']['meta_info']
 
 
-
-
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -19649,7 +21703,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "neighbor-group"
@@ -19669,9 +21726,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -19701,7 +21762,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "neighbor-group"
@@ -19721,9 +21785,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -19740,7 +21808,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "neighbor-group"
@@ -19758,7 +21829,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -19777,7 +21848,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -19795,10 +21869,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -19827,7 +21909,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "neighbor-group"
@@ -19847,9 +21932,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -19875,7 +21964,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "neighbor-group"
@@ -19895,9 +21987,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -19943,7 +22039,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "neighbor-group"
@@ -19971,9 +22070,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -19997,7 +22100,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "neighbor-group"
@@ -20017,9 +22123,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -20054,7 +22164,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "neighbor-group"
@@ -20075,9 +22188,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -20103,7 +22220,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "neighbor-group"
@@ -20123,9 +22243,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -20149,7 +22273,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "neighbor-group"
@@ -20169,9 +22296,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -20199,7 +22330,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "neighbor-group"
@@ -20219,9 +22353,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -20255,7 +22393,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "neighbor-group"
@@ -20281,7 +22422,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -20311,7 +22452,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -20332,10 +22476,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -20364,7 +22516,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "neighbor-group"
@@ -20386,9 +22541,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -20420,7 +22579,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "neighbor-group"
@@ -20444,9 +22606,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -20481,7 +22647,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "neighbor-group"
@@ -20501,9 +22670,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -20532,7 +22705,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "neighbor-group"
@@ -20554,9 +22730,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -20591,7 +22771,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "neighbor-group"
@@ -20611,9 +22794,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -20652,7 +22839,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "neighbor-group"
@@ -20674,9 +22864,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -20698,7 +22892,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "neighbor-group"
@@ -20718,9 +22915,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -20752,7 +22953,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "neighbor-group"
@@ -20781,7 +22985,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -20805,7 +23009,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -20825,9 +23032,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -20852,7 +23063,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -20872,12 +23086,28 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups']['meta_info']
 
 
-
-
-
-                        class AfGroups(Entity):
+                        class AfGroups(_Entity_):
                             """
                             AF\-group configuration
                             
@@ -20894,7 +23124,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups, self).__init__()
 
                                 self.yang_name = "af-groups"
                                 self.yang_parent_name = "bgp-entity"
@@ -20912,7 +23145,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups, [], name, value)
 
 
-                            class AfGroup(Entity):
+                            class AfGroup(_Entity_):
                                 """
                                 A particular BGP AF group
                                 
@@ -20936,7 +23169,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup, self).__init__()
 
                                     self.yang_name = "af-group"
                                     self.yang_parent_name = "af-groups"
@@ -20959,7 +23195,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup, ['af_group_name'], name, value)
 
 
-                                class AfGroupAfs(Entity):
+                                class AfGroupAfs(_Entity_):
                                     """
                                     AF group configuration table
                                     
@@ -20976,7 +23212,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs, self).__init__()
 
                                         self.yang_name = "af-group-afs"
                                         self.yang_parent_name = "af-group"
@@ -20994,7 +23233,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs, [], name, value)
 
 
-                                    class AfGroupAf(Entity):
+                                    class AfGroupAf(_Entity_):
                                         """
                                         Address family type of an AF group
                                         
@@ -21027,18 +23266,23 @@ class Bgp(Entity):
                                         
                                         .. attribute:: send_ext_community_ebgp
                                         
-                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group. FALSE not to send and to prevent inheritance from a parent
                                         	**type**\: bool
                                         
                                         .. attribute:: accept_route_legacy_rt
                                         
-                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	TRUE to configure as a accept\-route\-legacy\-RT. FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
                                         	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity>`
+                                        
+                                        .. attribute:: cluster_id_allow_equal
+                                        
+                                        	TRUE to disable cluster\-id check for first id in the cluster\-id\-list. FALSE to enable check for all cluster\-ids in the list
+                                        	**type**\: bool
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -21204,7 +23448,7 @@ class Bgp(Entity):
                                         
                                         .. attribute:: route_reflector_client
                                         
-                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	TRUE to configure as a route\-reflector\-client. FALSE to prevent route\-reflector\-client from being inherited
                                         	**type**\: bool
                                         
                                         .. attribute:: next_hop_self
@@ -21304,7 +23548,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, self).__init__()
 
                                             self.yang_name = "af-group-af"
                                             self.yang_parent_name = "af-group-afs"
@@ -21320,6 +23567,7 @@ class Bgp(Entity):
                                                 ('l2vpn_signalling', (YLeaf(YType.enumeration, 'l2vpn-signalling'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal', '')])),
                                                 ('send_ext_community_ebgp', (YLeaf(YType.boolean, 'send-ext-community-ebgp'), ['bool'])),
                                                 ('accept_route_legacy_rt', (YLeaf(YType.boolean, 'accept-route-legacy-rt'), ['bool'])),
+                                                ('cluster_id_allow_equal', (YLeaf(YType.boolean, 'cluster-id-allow-equal'), ['bool'])),
                                                 ('send_community_ebgp', (YLeaf(YType.boolean, 'send-community-ebgp'), ['bool'])),
                                                 ('send_multicast_attr', (YLeaf(YType.enumeration, 'send-multicast-attr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg', '')])),
                                                 ('next_hop_unchanged', (YLeaf(YType.boolean, 'next-hop-unchanged'), ['bool'])),
@@ -21355,6 +23603,7 @@ class Bgp(Entity):
                                             self.l2vpn_signalling = None
                                             self.send_ext_community_ebgp = None
                                             self.accept_route_legacy_rt = None
+                                            self.cluster_id_allow_equal = None
                                             self.send_community_ebgp = None
                                             self.send_multicast_attr = None
                                             self.next_hop_unchanged = None
@@ -21471,10 +23720,10 @@ class Bgp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, ['af_name', 'af_group', 'create', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf, ['af_name', 'af_group', 'create', 'neighbor_af_long_lived_graceful_restart_capable', 'l2vpn_signalling', 'send_ext_community_ebgp', 'accept_route_legacy_rt', 'cluster_id_allow_equal', 'send_community_ebgp', 'send_multicast_attr', 'next_hop_unchanged', 'advertise_local_labeled_route', 'rpki_origin_as_validation_disable', 'flowspec_validation', 'encapsulation_type', 'rpki_bestpath_origin_as_allow_invalid', 'enforce_multiple_labels', 'as_override', 'multipath', 'send_community_ebgp_graceful_shutdown', 'prefix_orf_policy', 'update_out_orig_loop_chk_disable', 'aigp', 'aigp_send_med', 'allow_as_in', 'advertise_orf', 'route_reflector_client', 'next_hop_self', 'route_policy_in', 'default_weight', 'next_hop_unchanged_multipath', 'optimal_route_reflection_group', 'accept_own', 'route_policy_out', 'advertise_permanent_network'], name, value)
 
 
-                                        class AigpCostCommunity(Entity):
+                                        class AigpCostCommunity(_Entity_):
                                             """
                                             Send AIGP value in Cost Community. 
                                             
@@ -21508,7 +23757,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, self).__init__()
 
                                                 self.yang_name = "aigp-cost-community"
                                                 self.yang_parent_name = "af-group-af"
@@ -21532,9 +23784,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV6(Entity):
+                                        class AdvertiseDefImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -21561,7 +23817,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v6"
                                                 self.yang_parent_name = "af-group-af"
@@ -21583,9 +23842,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseDisable(Entity):
+                                        class AdvertiseDisable(_Entity_):
                                             """
                                             Disable Advertise Of Routes to the peer
                                             
@@ -21612,7 +23875,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, self).__init__()
 
                                                 self.yang_name = "advertise-disable"
                                                 self.yang_parent_name = "af-group-af"
@@ -21634,9 +23900,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable']['meta_info']
 
 
-                                        class MaximumPrefixes(Entity):
+                                        class MaximumPrefixes(_Entity_):
                                             """
                                             Maximum number of prefixes to accept from this
                                             peer
@@ -21692,7 +23962,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, self).__init__()
 
                                                 self.yang_name = "maximum-prefixes"
                                                 self.yang_parent_name = "af-group-af"
@@ -21719,9 +23992,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV6(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -21749,7 +24026,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v6"
                                                 self.yang_parent_name = "af-group-af"
@@ -21771,9 +24051,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV6']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPathInbound(Entity):
+                                        class RemovePrivateAsEntireAsPathInbound(_Entity_):
                                             """
                                             Remove private AS number from inbound updates
                                             
@@ -21799,7 +24083,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path-inbound"
                                                 self.yang_parent_name = "af-group-af"
@@ -21820,9 +24107,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
-                                        class AdvertiseDefImpDisableV4(Entity):
+                                        class AdvertiseDefImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
@@ -21849,7 +24140,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-def-imp-disable-v4"
                                                 self.yang_parent_name = "af-group-af"
@@ -21871,9 +24165,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseBridgeDomainImpDisableV4(Entity):
+                                        class AdvertiseBridgeDomainImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF EVPN Extranet Imported
                                             Routes
@@ -21901,7 +24199,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-bridge-domain-imp-disable-v4"
                                                 self.yang_parent_name = "af-group-af"
@@ -21923,9 +24224,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseBridgeDomainImpDisableV4']['meta_info']
 
 
-                                        class AdvertiseL2vpnEvpn(Entity):
+                                        class AdvertiseL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -21952,7 +24257,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-l2vpn-evpn"
                                                 self.yang_parent_name = "af-group-af"
@@ -21974,9 +24282,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn']['meta_info']
 
 
-                                        class AdvertiseLocalL2vpnEvpn(Entity):
+                                        class AdvertiseLocalL2vpnEvpn(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -22004,7 +24316,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, self).__init__()
 
                                                 self.yang_name = "advertise-local-l2vpn-evpn"
                                                 self.yang_parent_name = "af-group-af"
@@ -22026,9 +24341,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn']['meta_info']
 
 
-                                        class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(_Entity_):
                                             """
                                             Maximum time to wait before purging long lived
                                             routes
@@ -22063,7 +24382,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, self).__init__()
 
                                                 self.yang_name = "neighbor-af-long-lived-graceful-restart-stale-time"
                                                 self.yang_parent_name = "af-group-af"
@@ -22083,9 +24405,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
 
 
-                                        class SiteOfOrigin(Entity):
+                                        class SiteOfOrigin(_Entity_):
                                             """
                                             Site\-of\-Origin extended community associated
                                             with the neighbor
@@ -22138,7 +24464,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, self).__init__()
 
                                                 self.yang_name = "site-of-origin"
                                                 self.yang_parent_name = "af-group-af"
@@ -22166,9 +24495,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin']['meta_info']
 
 
-                                        class AdvertiseV6(Entity):
+                                        class AdvertiseV6(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -22195,7 +24528,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, self).__init__()
 
                                                 self.yang_name = "advertise-v6"
                                                 self.yang_parent_name = "af-group-af"
@@ -22217,9 +24553,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6']['meta_info']
 
 
-                                        class AdvertiseLocalV6(Entity):
+                                        class AdvertiseLocalV6(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -22247,7 +24587,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, self).__init__()
 
                                                 self.yang_name = "advertise-local-v6"
                                                 self.yang_parent_name = "af-group-af"
@@ -22269,9 +24612,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(Entity):
+                                        class Import(_Entity_):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -22299,7 +24646,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, self).__init__()
 
                                                 self.yang_name = "import"
                                                 self.yang_parent_name = "af-group-af"
@@ -22321,9 +24671,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import']['meta_info']
 
 
-                                        class DefaultOriginate(Entity):
+                                        class DefaultOriginate(_Entity_):
                                             """
                                             Originate default route to this neighbor
                                             
@@ -22347,7 +24701,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, self).__init__()
 
                                                 self.yang_name = "default-originate"
                                                 self.yang_parent_name = "af-group-af"
@@ -22367,9 +24724,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate']['meta_info']
 
 
-                                        class SoftReconfiguration(Entity):
+                                        class SoftReconfiguration(_Entity_):
                                             """
                                             Enable/disable inbound soft reconfiguration for
                                             this neighbor/neighbor\-group/af\-group
@@ -22396,7 +24757,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, self).__init__()
 
                                                 self.yang_name = "soft-reconfiguration"
                                                 self.yang_parent_name = "af-group-af"
@@ -22416,9 +24780,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV6(Entity):
+                                        class AdvertiseVrfImpDisableV6(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -22445,7 +24813,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v6"
                                                 self.yang_parent_name = "af-group-af"
@@ -22467,9 +24838,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6']['meta_info']
 
 
-                                        class AdvertiseV4(Entity):
+                                        class AdvertiseV4(_Entity_):
                                             """
                                             Advertise Translated Routes to the peer
                                             
@@ -22496,7 +24871,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, self).__init__()
 
                                                 self.yang_name = "advertise-v4"
                                                 self.yang_parent_name = "af-group-af"
@@ -22518,9 +24896,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4']['meta_info']
 
 
-                                        class AdvertiseLocalV4(Entity):
+                                        class AdvertiseLocalV4(_Entity_):
                                             """
                                             Advertise Of Local Routes to the peer with
                                             different RT
@@ -22548,7 +24930,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, self).__init__()
 
                                                 self.yang_name = "advertise-local-v4"
                                                 self.yang_parent_name = "af-group-af"
@@ -22570,9 +24955,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4']['meta_info']
 
 
-                                        class RemovePrivateAsEntireAsPath(Entity):
+                                        class RemovePrivateAsEntireAsPath(_Entity_):
                                             """
                                             Remove private AS number from outbound updates
                                             
@@ -22598,7 +24987,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, self).__init__()
 
                                                 self.yang_name = "remove-private-as-entire-as-path"
                                                 self.yang_parent_name = "af-group-af"
@@ -22619,9 +25011,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath']['meta_info']
 
 
-                                        class AdvertiseVrfImpDisableV4(Entity):
+                                        class AdvertiseVrfImpDisableV4(_Entity_):
                                             """
                                             Disable Advertise Of VRF ReImported Routes
                                             
@@ -22648,7 +25044,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, self).__init__()
 
                                                 self.yang_name = "advertise-vrf-imp-disable-v4"
                                                 self.yang_parent_name = "af-group-af"
@@ -22670,13 +25069,33 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups']['meta_info']
 
 
-
-
-
-
-                        class SessionGroups(Entity):
+                        class SessionGroups(_Entity_):
                             """
                             Session group configuration
                             
@@ -22693,7 +25112,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups, self).__init__()
 
                                 self.yang_name = "session-groups"
                                 self.yang_parent_name = "bgp-entity"
@@ -22711,7 +25133,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups, [], name, value)
 
 
-                            class SessionGroup(Entity):
+                            class SessionGroup(_Entity_):
                                 """
                                 A particular BGP session group
                                 
@@ -22982,7 +25404,7 @@ class Bgp(Entity):
                                 
                                 .. attribute:: suppress_four_byte_as_capability
                                 
-                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	TRUE to suppress BGP 4\-byte\-as capability. FALSE to not suppress it and to prevent inheritance from a parent
                                 	**type**\: bool
                                 
                                 .. attribute:: update_source_interface
@@ -23010,7 +25432,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, self).__init__()
 
                                     self.yang_name = "session-group"
                                     self.yang_parent_name = "session-groups"
@@ -23168,7 +25593,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup, ['session_group_name', 'session_group_add_member', 'internal_vpn_client_ibgp_ce', 'egress_peer_engineering', 'merge_safi1_and4_inbound_updates', 'neighbor_graceful_restart_stalepath_time', 'shutdown', 'description', 'ebgp_recv_dmz', 'neighbor_graceful_restart', 'enforce_first_as', 'idle_watch_time', 'session_open_mode', 'rpki_origin_as_validation_disable', 'ebgp_send_dmz_enable_modes', 'suppress_all_capabilities', 'max_peers', 'rpki_bestpath_origin_as_allow_invalid', 'additional_paths_send_capability', 'propagate_dmz_link_bandwidth', 'bfd_enable_modes', 'ttl_security', 'neighbor_graceful_restart_time', 'bfd_multiplier', 'bfd_minimum_interval', 'remote_as_list', 'additional_paths_receive_capability', 'ignore_connected_check_ebgp', 'suppress_four_byte_as_capability', 'update_source_interface', 'create'], name, value)
 
 
-                                class LocalAddressSubNet(Entity):
+                                class LocalAddressSubNet(_Entity_):
                                     """
                                     Local Address subnet of routing updates
                                     
@@ -23200,7 +25625,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet, self).__init__()
 
                                         self.yang_name = "local-address-sub-net"
                                         self.yang_parent_name = "session-group"
@@ -23220,9 +25648,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet, ['local_addresss_subnet', 'prefix_len'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddressSubNet']['meta_info']
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local ip address
                                     
@@ -23252,7 +25684,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "session-group"
@@ -23272,9 +25707,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress']['meta_info']
 
 
-                                class BmpActivates(Entity):
+                                class BmpActivates(_Entity_):
                                     """
                                     Enable BMP logging for this neighbor
                                     
@@ -23291,7 +25730,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates, self).__init__()
 
                                         self.yang_name = "bmp-activates"
                                         self.yang_parent_name = "session-group"
@@ -23309,7 +25751,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates, [], name, value)
 
 
-                                    class BmpActivate(Entity):
+                                    class BmpActivate(_Entity_):
                                         """
                                         Enable BMP logging for this particular server
                                         
@@ -23328,7 +25770,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, self).__init__()
 
                                             self.yang_name = "bmp-activate"
                                             self.yang_parent_name = "bmp-activates"
@@ -23346,10 +25791,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, ['server_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates']['meta_info']
 
 
-
-                                class EbgpMultihop(Entity):
+                                class EbgpMultihop(_Entity_):
                                     """
                                     Allow EBGP neighbors not on directly connected
                                     networks
@@ -23378,7 +25831,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, self).__init__()
 
                                         self.yang_name = "ebgp-multihop"
                                         self.yang_parent_name = "session-group"
@@ -23398,9 +25854,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop']['meta_info']
 
 
-                                class RemoteAs(Entity):
+                                class RemoteAs(_Entity_):
                                     """
                                     Set remote AS
                                     
@@ -23426,7 +25886,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, self).__init__()
 
                                         self.yang_name = "remote-as"
                                         self.yang_parent_name = "session-group"
@@ -23446,9 +25909,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs']['meta_info']
 
 
-                                class LocalAs(Entity):
+                                class LocalAs(_Entity_):
                                     """
                                     Specify a local\-as number
                                     
@@ -23494,7 +25961,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, self).__init__()
 
                                         self.yang_name = "local-as"
                                         self.yang_parent_name = "session-group"
@@ -23522,9 +25992,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs']['meta_info']
 
 
-                                class Password(Entity):
+                                class Password(_Entity_):
                                     """
                                     Set or disable a password
                                     
@@ -23548,7 +26022,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, self).__init__()
 
                                         self.yang_name = "password"
                                         self.yang_parent_name = "session-group"
@@ -23568,9 +26045,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, ['password_disable', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password']['meta_info']
 
 
-                                class AdvertisementInterval(Entity):
+                                class AdvertisementInterval(_Entity_):
                                     """
                                     Minimum interval between sending BGP routing
                                     updates
@@ -23605,7 +26086,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, self).__init__()
 
                                         self.yang_name = "advertisement-interval"
                                         self.yang_parent_name = "session-group"
@@ -23626,9 +26110,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval']['meta_info']
 
 
-                                class NeighborClusterId(Entity):
+                                class NeighborClusterId(_Entity_):
                                     """
                                     Neighbor Cluster\-id
                                     
@@ -23654,7 +26142,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, self).__init__()
 
                                         self.yang_name = "neighbor-cluster-id"
                                         self.yang_parent_name = "session-group"
@@ -23674,9 +26165,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId']['meta_info']
 
 
-                                class Tcpmss(Entity):
+                                class Tcpmss(_Entity_):
                                     """
                                     TCP Maximum segment size
                                     
@@ -23700,7 +26195,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, self).__init__()
 
                                         self.yang_name = "tcpmss"
                                         self.yang_parent_name = "session-group"
@@ -23720,9 +26218,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss']['meta_info']
 
 
-                                class Tos(Entity):
+                                class Tos(_Entity_):
                                     """
                                     TOS (Type Of Service)
                                     
@@ -23750,7 +26252,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, self).__init__()
 
                                         self.yang_name = "tos"
                                         self.yang_parent_name = "session-group"
@@ -23770,9 +26275,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, ['type', 'value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos']['meta_info']
 
 
-                                class UpdateInFiltering(Entity):
+                                class UpdateInFiltering(_Entity_):
                                     """
                                     Inbound update filtering
                                     
@@ -23806,7 +26315,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering, self).__init__()
 
                                         self.yang_name = "update-in-filtering"
                                         self.yang_parent_name = "session-group"
@@ -23832,7 +26344,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering, ['enable', 'update_in_filtering_attribute_filter_group', 'update_in_filtering_syslog_disable'], name, value)
 
 
-                                    class UpdateInFilteringMessageBuffers(Entity):
+                                    class UpdateInFilteringMessageBuffers(_Entity_):
                                         """
                                         Message buffers to store filtered updates
                                         
@@ -23862,7 +26374,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, self).__init__()
 
                                             self.yang_name = "update-in-filtering-message-buffers"
                                             self.yang_parent_name = "update-in-filtering"
@@ -23883,10 +26398,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering']['meta_info']
 
 
-
-                                class MsgLogOut(Entity):
+                                class MsgLogOut(_Entity_):
                                     """
                                     Message log outbound
                                     
@@ -23915,7 +26438,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, self).__init__()
 
                                         self.yang_name = "msg-log-out"
                                         self.yang_parent_name = "session-group"
@@ -23937,9 +26463,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut']['meta_info']
 
 
-                                class AoKeychain(Entity):
+                                class AoKeychain(_Entity_):
                                     """
                                     Set or disable AO based authentication
                                     
@@ -23971,7 +26501,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain, self).__init__()
 
                                         self.yang_name = "ao-keychain"
                                         self.yang_parent_name = "session-group"
@@ -23995,9 +26528,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain']['meta_info']
 
 
-                                class ReceiveBufferSize(Entity):
+                                class ReceiveBufferSize(_Entity_):
                                     """
                                     Set socket receive buffer size and BGP read
                                     buffer size
@@ -24032,7 +26569,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, self).__init__()
 
                                         self.yang_name = "receive-buffer-size"
                                         self.yang_parent_name = "session-group"
@@ -24052,9 +26592,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize']['meta_info']
 
 
-                                class MsgLogIn(Entity):
+                                class MsgLogIn(_Entity_):
                                     """
                                     Message log inbound
                                     
@@ -24083,7 +26627,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, self).__init__()
 
                                         self.yang_name = "msg-log-in"
                                         self.yang_parent_name = "session-group"
@@ -24105,9 +26652,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn']['meta_info']
 
 
-                                class SendBufferSize(Entity):
+                                class SendBufferSize(_Entity_):
                                     """
                                     Set socket send buffer size and BGP write buffer
                                     size
@@ -24142,7 +26693,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, self).__init__()
 
                                         self.yang_name = "send-buffer-size"
                                         self.yang_parent_name = "session-group"
@@ -24162,9 +26716,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize']['meta_info']
 
 
-                                class Timers(Entity):
+                                class Timers(_Entity_):
                                     """
                                     BGP per neighbor timers.
                                     
@@ -24203,7 +26761,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, self).__init__()
 
                                         self.yang_name = "timers"
                                         self.yang_parent_name = "session-group"
@@ -24225,9 +26786,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers']['meta_info']
 
 
-                                class Keychain(Entity):
+                                class Keychain(_Entity_):
                                     """
                                     Set or disable keychain based authentication
                                     
@@ -24249,7 +26814,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, self).__init__()
 
                                         self.yang_name = "keychain"
                                         self.yang_parent_name = "session-group"
@@ -24269,9 +26837,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, ['keychain_disable', 'keychain_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain']['meta_info']
 
 
-                                class GracefulMaintenance(Entity):
+                                class GracefulMaintenance(_Entity_):
                                     """
                                     Graceful Maintenance mode
                                     
@@ -24303,7 +26875,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance, self).__init__()
 
                                         self.yang_name = "graceful-maintenance"
                                         self.yang_parent_name = "session-group"
@@ -24332,7 +26907,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance, ['enable', 'graceful_maintenance_activate'], name, value)
 
 
-                                    class GracefulMaintenanceLocalPreference(Entity):
+                                    class GracefulMaintenanceLocalPreference(_Entity_):
                                         """
                                         Set Local Preference to advertise routes with
                                         
@@ -24356,7 +26931,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-local-preference"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -24376,9 +26954,13 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
 
 
-                                    class GracefulMaintenanceAsPrepends(Entity):
+                                    class GracefulMaintenanceAsPrepends(_Entity_):
                                         """
                                         Number of times to prepend local AS number to
                                         the AS path
@@ -24403,7 +26985,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, self).__init__()
 
                                             self.yang_name = "graceful-maintenance-as-prepends"
                                             self.yang_parent_name = "graceful-maintenance"
@@ -24423,13 +27008,33 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info']
 
 
-
-
-
-
-                    class Global(Entity):
+                    class Global(_Entity_):
                         """
                         Global default config
                         
@@ -24483,15 +27088,20 @@ class Bgp(Entity):
                         	Attribute\-filter groups list
                         	**type**\:  :py:class:`AttributeFilterGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups>`
                         
-                        .. attribute:: global_graceful_maintenance_activate
+                        .. attribute:: segment_routing_global
                         
-                        	Activate Graceful Maintenance Mode for all neighbors with graceful maintenance config
-                        	**type**\:  :py:class:`GlobalGracefulMaintenanceActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate>`
+                        	Segment\-routing Gbl Configurations
+                        	**type**\:  :py:class:`SegmentRoutingGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal>`
                         
                         .. attribute:: global_afs
                         
                         	Global AF\-specific configuration
                         	**type**\:  :py:class:`GlobalAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs>`
+                        
+                        .. attribute:: global_graceful_maintenance_activate
+                        
+                        	Graceful maintenance activate configurations
+                        	**type**\:  :py:class:`GlobalGracefulMaintenanceActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate>`
                         
                         .. attribute:: rpki_static_routes
                         
@@ -24557,7 +27167,7 @@ class Bgp(Entity):
                         
                         .. attribute:: rpki_origin_as_validation_time
                         
-                        	Prefix validation time (in seconds). Range  \: 5 \- 60. Specify 0 for timer off
+                        	Prefix validation time (in seconds). Range \: 5 \- 60. Specify 0 for timer off
                         	**type**\: int
                         
                         	**range:** 0..60
@@ -24821,14 +27431,17 @@ class Bgp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global, self).__init__()
 
                             self.yang_name = "global"
                             self.yang_parent_name = "default-vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("cluster-id", ("cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId)), ("write-limit", ("write_limit", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit)), ("update-delay", ("update_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay)), ("as-league", ("as_league", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague)), ("rpki-servers", ("rpki_servers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers)), ("as-list-groups", ("as_list_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups)), ("limits", ("limits", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits)), ("confederation-domain", ("confederation_domain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain)), ("confederation-peer-ases", ("confederation_peer_ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses)), ("attribute-filter-groups", ("attribute_filter_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups)), ("global-graceful-maintenance-activate", ("global_graceful_maintenance_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate)), ("global-afs", ("global_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs)), ("rpki-static-routes", ("rpki_static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes))])
+                            self._child_classes = OrderedDict([("cluster-id", ("cluster_id", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId)), ("write-limit", ("write_limit", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit)), ("update-delay", ("update_delay", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay)), ("as-league", ("as_league", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague)), ("rpki-servers", ("rpki_servers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers)), ("as-list-groups", ("as_list_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups)), ("limits", ("limits", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits)), ("confederation-domain", ("confederation_domain", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain)), ("confederation-peer-ases", ("confederation_peer_ases", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses)), ("attribute-filter-groups", ("attribute_filter_groups", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups)), ("segment-routing-global", ("segment_routing_global", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal)), ("global-afs", ("global_afs", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs)), ("global-graceful-maintenance-activate", ("global_graceful_maintenance_activate", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate)), ("rpki-static-routes", ("rpki_static_routes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes)), ("mpls-activated-interfaces", ("mpls_activated_interfaces", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces)), ("global-timers", ("global_timers", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers)), ("bfd", ("bfd", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd)), ("send-socket-buffer-sizes", ("send_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes)), ("receive-socket-buffer-sizes", ("receive_socket_buffer_sizes", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes))])
                             self._leafs = OrderedDict([
                                 ('graceful_restart', (YLeaf(YType.empty, 'graceful-restart'), ['Empty'])),
                                 ('update_out_logging', (YLeaf(YType.empty, 'update-out-logging'), ['Empty'])),
@@ -24968,13 +27581,17 @@ class Bgp(Entity):
                             self.attribute_filter_groups.parent = self
                             self._children_name_map["attribute_filter_groups"] = "attribute-filter-groups"
 
-                            self.global_graceful_maintenance_activate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate()
-                            self.global_graceful_maintenance_activate.parent = self
-                            self._children_name_map["global_graceful_maintenance_activate"] = "global-graceful-maintenance-activate"
+                            self.segment_routing_global = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal()
+                            self.segment_routing_global.parent = self
+                            self._children_name_map["segment_routing_global"] = "segment-routing-global"
 
                             self.global_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs()
                             self.global_afs.parent = self
                             self._children_name_map["global_afs"] = "global-afs"
+
+                            self.global_graceful_maintenance_activate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate()
+                            self.global_graceful_maintenance_activate.parent = self
+                            self._children_name_map["global_graceful_maintenance_activate"] = "global-graceful-maintenance-activate"
 
                             self.rpki_static_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes()
                             self.rpki_static_routes.parent = self
@@ -25006,7 +27623,7 @@ class Bgp(Entity):
                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global, ['graceful_restart', 'update_out_logging', 'install_diversion', 'next_hop_trigger_delay', 'nsr', 'neighbor_logging_detail', 'mvpn', 'rpki_origin_as_validation_disable', 'global_scan_time', 'rpki_origin_as_validation_time', 'rpki_bestpath_origin_as_allow_invalid', 'graceful_restart_purge_time', 'enforce_ibgp_out_policy', 'update_limit_process', 'graceful_restart_time', 'update_error_handling_basic_ibgp_disable', 'read_only', 'graceful_restart_stalepath_time', 'update_error_handling_extended_ebgp', 'update_error_handling_basic_ebgp_disable', 'graceful_reset', 'igp_loop_check', 'update_error_handling_extended_ibgp', 'router_id', 'disable_enforce_first_as', 'best_path_cost_community', 'best_path_aigp_ignore', 'best_path_as_path_length', 'igp_redist_internal', 'multi_path_as_path_ignore_onwards', 'disable_fast_external_fallover', 'unsafe_ebgp_policy', 'default_metric', 'default_info_originate', 'rpki_origin_as_validity_signal_ibgp', 'rpki_bestpath_use_origin_as_validity', 'best_path_confederation_paths', 'best_path_as_multipath_relax', 'disable_auto_soft_reset', 'disable_msg_log', 'best_path_igp_metric_ignore', 'next_hop_res_allow_default', 'next_hop_mpls_fwd_ibgp', 'disable_neighbor_logging', 'best_path_med_always', 'best_path_router_id', 'best_path_med_missing', 'local_preference'], name, value)
 
 
-                        class ClusterId(Entity):
+                        class ClusterId(_Entity_):
                             """
                             Configure Route\-Reflector Cluster\-id
                             
@@ -25032,7 +27649,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, self).__init__()
 
                                 self.yang_name = "cluster-id"
                                 self.yang_parent_name = "global"
@@ -25052,9 +27672,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId']['meta_info']
 
 
-                        class WriteLimit(Entity):
+                        class WriteLimit(_Entity_):
                             """
                             Set write\-queue limit for each update group
                             
@@ -25091,7 +27715,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, self).__init__()
 
                                 self.yang_name = "write-limit"
                                 self.yang_parent_name = "global"
@@ -25113,9 +27740,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, ['formatted_messages', 'enqueued_messages', 'desynchronize'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit']['meta_info']
 
 
-                        class UpdateDelay(Entity):
+                        class UpdateDelay(_Entity_):
                             """
                             Set the max initial delay for sending
                             updates
@@ -25146,7 +27777,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, self).__init__()
 
                                 self.yang_name = "update-delay"
                                 self.yang_parent_name = "global"
@@ -25166,9 +27800,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, ['delay', 'always'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay']['meta_info']
 
 
-                        class AsLeague(Entity):
+                        class AsLeague(_Entity_):
                             """
                             AS League
                             
@@ -25190,7 +27828,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague, self).__init__()
 
                                 self.yang_name = "as-league"
                                 self.yang_parent_name = "global"
@@ -25213,7 +27854,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague, ['enable'], name, value)
 
 
-                            class Peers(Entity):
+                            class Peers(_Entity_):
                                 """
                                 AS League Peers
                                 
@@ -25230,7 +27871,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers, self).__init__()
 
                                     self.yang_name = "peers"
                                     self.yang_parent_name = "as-league"
@@ -25248,7 +27892,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers, [], name, value)
 
 
-                                class Peer(Entity):
+                                class Peer(_Entity_):
                                     """
                                     AS League Peer AS
                                     
@@ -25274,7 +27918,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, self).__init__()
 
                                         self.yang_name = "peer"
                                         self.yang_parent_name = "peers"
@@ -25294,11 +27941,23 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, ['as_xx', 'as_yy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague']['meta_info']
 
 
-
-
-                        class RpkiServers(Entity):
+                        class RpkiServers(_Entity_):
                             """
                             RPKI server configuration
                             
@@ -25315,7 +27974,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers, self).__init__()
 
                                 self.yang_name = "rpki-servers"
                                 self.yang_parent_name = "global"
@@ -25333,7 +27995,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers, [], name, value)
 
 
-                            class RpkiServer(Entity):
+                            class RpkiServer(_Entity_):
                                 """
                                 RPKI server configuration
                                 
@@ -25343,6 +28005,11 @@ class Bgp(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: bindsrc
+                                
+                                	RPKI server transport bind source
+                                	**type**\:  :py:class:`Bindsrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc>`
                                 
                                 .. attribute:: transport
                                 
@@ -25404,14 +28071,17 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer, self).__init__()
 
                                     self.yang_name = "rpki-server"
                                     self.yang_parent_name = "rpki-servers"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['server']
-                                    self._child_classes = OrderedDict([("transport", ("transport", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport))])
+                                    self._child_classes = OrderedDict([("bindsrc", ("bindsrc", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc)), ("transport", ("transport", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport))])
                                     self._leafs = OrderedDict([
                                         ('server', (YLeaf(YType.str, 'server'), ['str'])),
                                         ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
@@ -25431,6 +28101,10 @@ class Bgp(Entity):
                                     self.refresh_time = None
                                     self.purge_time = None
 
+                                    self.bindsrc = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc()
+                                    self.bindsrc.parent = self
+                                    self._children_name_map["bindsrc"] = "bindsrc"
+
                                     self.transport = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport()
                                     self.transport.parent = self
                                     self._children_name_map["transport"] = "transport"
@@ -25441,7 +28115,58 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer, ['server', 'enable', 'shutdown', 'password', 'response_time', 'username', 'refresh_time', 'purge_time'], name, value)
 
 
-                                class Transport(Entity):
+                                class Bindsrc(_Entity_):
+                                    """
+                                    RPKI server transport bind source
+                                    
+                                    .. attribute:: bindsrc_type
+                                    
+                                    	Bind source type
+                                    	**type**\:  :py:class:`BgpRpkiBinssrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRpkiBinssrc>`
+                                    
+                                    .. attribute:: bind_src
+                                    
+                                    	server bind source interface
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc, self).__init__()
+
+                                        self.yang_name = "bindsrc"
+                                        self.yang_parent_name = "rpki-server"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('bindsrc_type', (YLeaf(YType.enumeration, 'bindsrc-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRpkiBinssrc', '')])),
+                                            ('bind_src', (YLeaf(YType.str, 'bind-src'), ['str'])),
+                                        ])
+                                        self.bindsrc_type = None
+                                        self.bind_src = None
+                                        self._segment_path = lambda: "bindsrc"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc, ['bindsrc_type', 'bind_src'], name, value)
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Bindsrc']['meta_info']
+
+
+                                class Transport(_Entity_):
                                     """
                                     RPKI server transport
                                     
@@ -25469,7 +28194,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, self).__init__()
 
                                         self.yang_name = "transport"
                                         self.yang_parent_name = "rpki-server"
@@ -25489,11 +28217,23 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, ['transport', 'port'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers']['meta_info']
 
 
-
-
-                        class AsListGroups(Entity):
+                        class AsListGroups(_Entity_):
                             """
                             AS\-list group lists
                             
@@ -25510,7 +28250,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups, self).__init__()
 
                                 self.yang_name = "as-list-groups"
                                 self.yang_parent_name = "global"
@@ -25528,7 +28271,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups, [], name, value)
 
 
-                            class AsListGroup(Entity):
+                            class AsListGroup(_Entity_):
                                 """
                                 AS\-List group
                                 
@@ -25557,7 +28300,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup, self).__init__()
 
                                     self.yang_name = "as-list-group"
                                     self.yang_parent_name = "as-list-groups"
@@ -25582,7 +28328,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup, ['as_list_group_name', 'enable'], name, value)
 
 
-                                class Ases(Entity):
+                                class Ases(_Entity_):
                                     """
                                     AS list
                                     
@@ -25599,7 +28345,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases, self).__init__()
 
                                         self.yang_name = "ases"
                                         self.yang_parent_name = "as-list-group"
@@ -25617,7 +28366,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases, [], name, value)
 
 
-                                    class As(Entity):
+                                    class As(_Entity_):
                                         """
                                         AS\-List group
                                         
@@ -25643,7 +28392,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, self).__init__()
 
                                             self.yang_name = "as"
                                             self.yang_parent_name = "ases"
@@ -25663,12 +28415,28 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, ['as_xx', 'as_yy'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups']['meta_info']
 
 
-
-
-
-                        class Limits(Entity):
+                        class Limits(_Entity_):
                             """
                             Maximum number that can be configured
                             
@@ -25689,7 +28457,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, self).__init__()
 
                                 self.yang_name = "limits"
                                 self.yang_parent_name = "global"
@@ -25707,9 +28478,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, ['maximum_neighbors'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits']['meta_info']
 
 
-                        class ConfederationDomain(Entity):
+                        class ConfederationDomain(_Entity_):
                             """
                             Set routing domain confederation AS
                             
@@ -25735,7 +28510,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, self).__init__()
 
                                 self.yang_name = "confederation-domain"
                                 self.yang_parent_name = "global"
@@ -25755,9 +28533,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, ['as_xx', 'as_yy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain']['meta_info']
 
 
-                        class ConfederationPeerAses(Entity):
+                        class ConfederationPeerAses(_Entity_):
                             """
                             Define peer ASes in BGP confederation
                             
@@ -25774,7 +28556,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses, self).__init__()
 
                                 self.yang_name = "confederation-peer-ases"
                                 self.yang_parent_name = "global"
@@ -25792,7 +28577,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses, [], name, value)
 
 
-                            class ConfederationPeerAs(Entity):
+                            class ConfederationPeerAs(_Entity_):
                                 """
                                 Confederation peer AS
                                 
@@ -25818,7 +28603,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, self).__init__()
 
                                     self.yang_name = "confederation-peer-as"
                                     self.yang_parent_name = "confederation-peer-ases"
@@ -25838,10 +28626,18 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, ['as_xx', 'as_yy'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses']['meta_info']
 
 
-
-                        class AttributeFilterGroups(Entity):
+                        class AttributeFilterGroups(_Entity_):
                             """
                             Attribute\-filter groups list
                             
@@ -25858,7 +28654,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups, self).__init__()
 
                                 self.yang_name = "attribute-filter-groups"
                                 self.yang_parent_name = "global"
@@ -25876,7 +28675,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups, [], name, value)
 
 
-                            class AttributeFilterGroup(Entity):
+                            class AttributeFilterGroup(_Entity_):
                                 """
                                 Attribute\-filter group
                                 
@@ -25905,7 +28704,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup, self).__init__()
 
                                     self.yang_name = "attribute-filter-group"
                                     self.yang_parent_name = "attribute-filter-groups"
@@ -25930,7 +28732,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup, ['attribute_filter_group_name', 'enable'], name, value)
 
 
-                                class AttributeFilters(Entity):
+                                class AttributeFilters(_Entity_):
                                     """
                                     Attribute\-filter group attributes list
                                     
@@ -25947,7 +28749,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters, self).__init__()
 
                                         self.yang_name = "attribute-filters"
                                         self.yang_parent_name = "attribute-filter-group"
@@ -25965,7 +28770,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters, [], name, value)
 
 
-                                    class AttributeFilter(Entity):
+                                    class AttributeFilter(_Entity_):
                                         """
                                         Attribute\-filter group attribute
                                         
@@ -25998,7 +28803,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, self).__init__()
 
                                             self.yang_name = "attribute-filter"
                                             self.yang_parent_name = "attribute-filters"
@@ -26020,25 +28828,35 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, ['attribute_start', 'attribute_end', 'filter_action'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups']['meta_info']
 
 
-
-
-
-                        class GlobalGracefulMaintenanceActivate(Entity):
+                        class SegmentRoutingGlobal(_Entity_):
                             """
-                            Activate Graceful Maintenance Mode for all
-                            neighbors with graceful maintenance config
+                            Segment\-routing Gbl Configurations
                             
-                            .. attribute:: all_neighbors
+                            .. attribute:: srv6_global
                             
-                            	Also for neighbors without graceful maintenance config
-                            	**type**\: bool
-                            
-                            .. attribute:: retain_routes
-                            
-                            	Keep routes in RIB once BGP stops
-                            	**type**\: bool
+                            	SRv6 Configurations
+                            	**type**\:  :py:class:`Srv6Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global>`
                             
                             
 
@@ -26048,29 +28866,86 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal, self).__init__()
 
-                                self.yang_name = "global-graceful-maintenance-activate"
+                                self.yang_name = "segment-routing-global"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('all_neighbors', (YLeaf(YType.boolean, 'all-neighbors'), ['bool'])),
-                                    ('retain_routes', (YLeaf(YType.boolean, 'retain-routes'), ['bool'])),
-                                ])
-                                self.all_neighbors = None
-                                self.retain_routes = None
-                                self._segment_path = lambda: "global-graceful-maintenance-activate"
+                                self._child_classes = OrderedDict([("srv6-global", ("srv6_global", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global))])
+                                self._leafs = OrderedDict()
+
+                                self.srv6_global = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global()
+                                self.srv6_global.parent = self
+                                self._children_name_map["srv6_global"] = "srv6-global"
+                                self._segment_path = lambda: "segment-routing-global"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, ['all_neighbors', 'retain_routes'], name, value)
+                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal, [], name, value)
 
 
+                            class Srv6Global(_Entity_):
+                                """
+                                SRv6 Configurations
+                                
+                                .. attribute:: enable
+                                
+                                	Enable SRv6 configuration submode
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: locator_name
+                                
+                                	Configure Locator name for SID allocation
+                                	**type**\: str
+                                
+                                
 
-                        class GlobalAfs(Entity):
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2018-06-15'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global, self).__init__()
+
+                                    self.yang_name = "srv6-global"
+                                    self.yang_parent_name = "segment-routing-global"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                    ])
+                                    self.enable = None
+                                    self.locator_name = None
+                                    self._segment_path = lambda: "srv6-global"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global, ['enable', 'locator_name'], name, value)
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal.Srv6Global']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SegmentRoutingGlobal']['meta_info']
+
+
+                        class GlobalAfs(_Entity_):
                             """
                             Global AF\-specific configuration
                             
@@ -26087,7 +28962,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs, self).__init__()
 
                                 self.yang_name = "global-afs"
                                 self.yang_parent_name = "global"
@@ -26105,7 +28983,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs, [], name, value)
 
 
-                            class GlobalAf(Entity):
+                            class GlobalAf(_Entity_):
                                 """
                                 Global AF\-specific configuration
                                 
@@ -26529,7 +29407,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, self).__init__()
 
                                     self.yang_name = "global-af"
                                     self.yang_parent_name = "global-afs"
@@ -26718,7 +29599,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf, ['af_name', 'rnh_install_format', 'inter_as_install', 'segmented_mcast', 'implicit_import', 'disable_default_martian_check', 'next_hop_critical_trigger_delay', 'next_hop_non_critical_trigger_delay', 'label_security_rpf', 'use_igpsr_label', 'label_retain', 'scan_time', 'source_route_target_policy', 'rpki_origin_as_validation_disable', 'update_limit_sub_group_ebgp', 'update_limit_address_family', 'update_limit_sub_group_ibgp', 'disable_client_to_client_rr', 'next_hop_route_policy', 'global_table_mcast', 'wait_rib_install', 'prefix_sid_map', 'rpki_origin_as_validation_enable', 'dynamic_med_interval', 'enable', 'table_policy', 'attribute_download', 'best_external', 'rpki_origin_as_validity_signal_ibgp', 'additional_paths_receive', 'permanent_network', 'rpki_bestpath_use_origin_as_validity', 'rpki_bestpath_origin_as_allow_invalid', 'next_hop_resolution_prefix_length_minimum', 'reset_weight_on_import', 'additional_paths_send', 'advertise_local_labeled_route_safi_unicast', 'disable_as_path_loop_check'], name, value)
 
 
-                                class IsisRoutes(Entity):
+                                class IsisRoutes(_Entity_):
                                     """
                                     Redistribute information for IS\-IS routes
                                     .
@@ -26736,7 +29617,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes, self).__init__()
 
                                         self.yang_name = "isis-routes"
                                         self.yang_parent_name = "global-af"
@@ -26754,7 +29638,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes, [], name, value)
 
 
-                                    class IsisRoute(Entity):
+                                    class IsisRoute(_Entity_):
                                         """
                                         Redistribute IS\-IS routes
                                         
@@ -26792,7 +29676,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, self).__init__()
 
                                             self.yang_name = "isis-route"
                                             self.yang_parent_name = "isis-routes"
@@ -26816,10 +29703,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes']['meta_info']
 
 
-
-                                class DomainDistinguisher(Entity):
+                                class DomainDistinguisher(_Entity_):
                                     """
                                     <ASN, router\-id> tuple to use to identify
                                     the link\-state domain
@@ -26852,7 +29747,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, self).__init__()
 
                                         self.yang_name = "domain-distinguisher"
                                         self.yang_parent_name = "global-af"
@@ -26873,12 +29771,21 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, ['as_', 'router_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher']['meta_info']
 
 
-                                class VrfAll(Entity):
+                                class VrfAll(_Entity_):
                                     """
                                     Configurations to be inherited to all
                                     vrfs
+                                    
+                                    .. attribute:: segment_routing_vrf_all
+                                    
+                                    	Segment\-routing Vrf All Configurations
+                                    	**type**\:  :py:class:`SegmentRoutingVrfAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll>`
                                     
                                     .. attribute:: label_mode
                                     
@@ -26902,7 +29809,7 @@ class Bgp(Entity):
                                     
                                     .. attribute:: source_rt_import_policy
                                     
-                                    	Enable sourcing of import route\-targets  from import\-policy
+                                    	Enable sourcing of import route\-targets from import\-policy
                                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
@@ -26913,14 +29820,17 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, self).__init__()
 
                                         self.yang_name = "vrf-all"
                                         self.yang_parent_name = "global-af"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode))])
+                                        self._child_classes = OrderedDict([("segment-routing-vrf-all", ("segment_routing_vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll)), ("label-mode", ("label_mode", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode))])
                                         self._leafs = OrderedDict([
                                             ('rnh_install_format', (YLeaf(YType.enumeration, 'rnh-install-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRnhInstallFormat', '')])),
                                             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
@@ -26932,6 +29842,10 @@ class Bgp(Entity):
                                         self.table_policy = None
                                         self.source_rt_import_policy = None
 
+                                        self.segment_routing_vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll()
+                                        self.segment_routing_vrf_all.parent = self
+                                        self._children_name_map["segment_routing_vrf_all"] = "segment-routing-vrf-all"
+
                                         self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode()
                                         self.label_mode.parent = self
                                         self._children_name_map["label_mode"] = "label-mode"
@@ -26942,7 +29856,110 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll, ['rnh_install_format', 'enable', 'table_policy', 'source_rt_import_policy'], name, value)
 
 
-                                    class LabelMode(Entity):
+                                    class SegmentRoutingVrfAll(_Entity_):
+                                        """
+                                        Segment\-routing Vrf All Configurations
+                                        
+                                        .. attribute:: srv6_vrf_all
+                                        
+                                        	SRv6 Configurations
+                                        	**type**\:  :py:class:`Srv6VrfAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2018-06-15'
+
+                                        def __init__(self):
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll, self).__init__()
+
+                                            self.yang_name = "segment-routing-vrf-all"
+                                            self.yang_parent_name = "vrf-all"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("srv6-vrf-all", ("srv6_vrf_all", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll))])
+                                            self._leafs = OrderedDict()
+
+                                            self.srv6_vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll()
+                                            self.srv6_vrf_all.parent = self
+                                            self._children_name_map["srv6_vrf_all"] = "srv6-vrf-all"
+                                            self._segment_path = lambda: "segment-routing-vrf-all"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll, [], name, value)
+
+
+                                        class Srv6VrfAll(_Entity_):
+                                            """
+                                            SRv6 Configurations
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	Enable SRv6 configuration submode
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: srv6sid_allocation_mode
+                                            
+                                            	SID allocation mode\: per\-ce  Set per CE SID mode,per\-vrf Set per VRF SID mode
+                                            	**type**\: str
+                                            
+                                            .. attribute:: locator_name
+                                            
+                                            	Configure Locator name for SID allocation
+                                            	**type**\: str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2018-06-15'
+
+                                            def __init__(self):
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll, self).__init__()
+
+                                                self.yang_name = "srv6-vrf-all"
+                                                self.yang_parent_name = "segment-routing-vrf-all"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('srv6sid_allocation_mode', (YLeaf(YType.str, 'srv6sid-allocation-mode'), ['str'])),
+                                                    ('locator_name', (YLeaf(YType.str, 'locator-name'), ['str'])),
+                                                ])
+                                                self.enable = None
+                                                self.srv6sid_allocation_mode = None
+                                                self.locator_name = None
+                                                self._segment_path = lambda: "srv6-vrf-all"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll, ['enable', 'srv6sid_allocation_mode', 'locator_name'], name, value)
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll.Srv6VrfAll']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.SegmentRoutingVrfAll']['meta_info']
+
+
+                                    class LabelMode(_Entity_):
                                         """
                                         MPLS\-VPN label allocation mode
                                         
@@ -26964,7 +29981,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, self).__init__()
 
                                             self.yang_name = "label-mode"
                                             self.yang_parent_name = "vrf-all"
@@ -26984,10 +30004,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll']['meta_info']
 
 
-
-                                class DisableClusterClientToClientRrs(Entity):
+                                class DisableClusterClientToClientRrs(_Entity_):
                                     """
                                     Disable client\-to\-client reflection for a
                                     cluster
@@ -27005,7 +30033,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs, self).__init__()
 
                                         self.yang_name = "disable-cluster-client-to-client-rrs"
                                         self.yang_parent_name = "global-af"
@@ -27023,7 +30054,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs, [], name, value)
 
 
-                                    class DisableClusterClientToClientRr(Entity):
+                                    class DisableClusterClientToClientRr(_Entity_):
                                         """
                                         Cluster ID for which reflection is to be
                                         disbled
@@ -27051,7 +30082,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr, self).__init__()
 
                                             self.yang_name = "disable-cluster-client-to-client-rr"
                                             self.yang_parent_name = "disable-cluster-client-to-client-rrs"
@@ -27073,7 +30107,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr, ['cluster_type'], name, value)
 
 
-                                        class Number(Entity):
+                                        class Number(_Entity_):
                                             """
                                             number
                                             
@@ -27092,7 +30126,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, self).__init__()
 
                                                 self.yang_name = "number"
                                                 self.yang_parent_name = "disable-cluster-client-to-client-rr"
@@ -27110,9 +30147,13 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, ['cluster_id_number'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number']['meta_info']
 
 
-                                        class Ipv4Address(Entity):
+                                        class Ipv4Address(_Entity_):
                                             """
                                             ipv4 address
                                             
@@ -27137,7 +30178,10 @@ class Bgp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, self).__init__()
 
                                                 self.yang_name = "ipv4-address"
                                                 self.yang_parent_name = "disable-cluster-client-to-client-rr"
@@ -27155,11 +30199,23 @@ class Bgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, ['cluster_id_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info']
 
 
-
-
-                                class LabelDelay(Entity):
+                                class LabelDelay(_Entity_):
                                     """
                                     Delay timer to batch label processing.
                                     
@@ -27195,7 +30251,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, self).__init__()
 
                                         self.yang_name = "label-delay"
                                         self.yang_parent_name = "global-af"
@@ -27216,9 +30275,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, ['seconds', 'milliseconds'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay']['meta_info']
 
 
-                                class Ebgp(Entity):
+                                class Ebgp(_Entity_):
                                     """
                                     Use eBGP multipaths
                                     
@@ -27262,7 +30325,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, self).__init__()
 
                                         self.yang_name = "ebgp"
                                         self.yang_parent_name = "global-af"
@@ -27287,9 +30353,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp']['meta_info']
 
 
-                                class Eibgp(Entity):
+                                class Eibgp(_Entity_):
                                     """
                                     Use eiBGP multipaths
                                     
@@ -27333,7 +30403,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, self).__init__()
 
                                         self.yang_name = "eibgp"
                                         self.yang_parent_name = "global-af"
@@ -27358,9 +30431,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp']['meta_info']
 
 
-                                class RetainRt(Entity):
+                                class RetainRt(_Entity_):
                                     """
                                     Accept received updates with the
                                     specified attributes
@@ -27383,7 +30460,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, self).__init__()
 
                                         self.yang_name = "retain-rt"
                                         self.yang_parent_name = "global-af"
@@ -27403,9 +30483,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, ['all', 'route_policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt']['meta_info']
 
 
-                                class Ibgp(Entity):
+                                class Ibgp(_Entity_):
                                     """
                                     Use iBGP multipaths
                                     
@@ -27449,7 +30533,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, self).__init__()
 
                                         self.yang_name = "ibgp"
                                         self.yang_parent_name = "global-af"
@@ -27474,9 +30561,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp']['meta_info']
 
 
-                                class ImportDelay(Entity):
+                                class ImportDelay(_Entity_):
                                     """
                                     Delay timer to batch import processing.
                                     
@@ -27512,7 +30603,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, self).__init__()
 
                                         self.yang_name = "import-delay"
                                         self.yang_parent_name = "global-af"
@@ -27533,9 +30627,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, ['seconds', 'milliseconds'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay']['meta_info']
 
 
-                                class AggregateAddresses(Entity):
+                                class AggregateAddresses(_Entity_):
                                     """
                                     Configure BGP aggregate entries
                                     
@@ -27552,7 +30650,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses, self).__init__()
 
                                         self.yang_name = "aggregate-addresses"
                                         self.yang_parent_name = "global-af"
@@ -27570,7 +30671,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses, [], name, value)
 
 
-                                    class AggregateAddress(Entity):
+                                    class AggregateAddress(_Entity_):
                                         """
                                         Aggregate address configuration
                                         
@@ -27622,7 +30723,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, self).__init__()
 
                                             self.yang_name = "aggregate-address"
                                             self.yang_parent_name = "aggregate-addresses"
@@ -27650,10 +30754,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, ['aggregate_addr', 'aggregate_prefix', 'generate_set_info', 'generate_confederation_set_info', 'summary_only', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info']
 
 
-
-                                class OptimalRouteReflectorGroups(Entity):
+                                class OptimalRouteReflectorGroups(_Entity_):
                                     """
                                     Table of multiple ORR groups
                                     
@@ -27670,7 +30782,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups, self).__init__()
 
                                         self.yang_name = "optimal-route-reflector-groups"
                                         self.yang_parent_name = "global-af"
@@ -27688,7 +30803,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups, [], name, value)
 
 
-                                    class OptimalRouteReflectorGroup(Entity):
+                                    class OptimalRouteReflectorGroup(_Entity_):
                                         """
                                         Optimal Route Reffelctor group. Each such group
                                         is equivalent to an IGP area
@@ -27747,7 +30862,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, self).__init__()
 
                                             self.yang_name = "optimal-route-reflector-group"
                                             self.yang_parent_name = "optimal-route-reflector-groups"
@@ -27771,10 +30889,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, ['group_name', 'primary_root_address', 'secondary_root_address', 'tertiary_root_address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups']['meta_info']
 
 
-
-                                class Dampening(Entity):
+                                class Dampening(_Entity_):
                                     """
                                     Enable route\-flap dampening
                                     
@@ -27825,7 +30951,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, self).__init__()
 
                                         self.yang_name = "dampening"
                                         self.yang_parent_name = "global-af"
@@ -27852,9 +30981,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, ['half_life', 'reuse_threshold', 'suppress_threshold', 'suppress_time', 'route_policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening']['meta_info']
 
 
-                                class RipRoutes(Entity):
+                                class RipRoutes(_Entity_):
                                     """
                                     Redistribute RIP routes
                                     
@@ -27887,7 +31020,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, self).__init__()
 
                                         self.yang_name = "rip-routes"
                                         self.yang_parent_name = "global-af"
@@ -27910,9 +31046,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes']['meta_info']
 
 
-                                class LispRoutes(Entity):
+                                class LispRoutes(_Entity_):
                                     """
                                     Redistribute lisp routes
                                     
@@ -27938,7 +31078,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, self).__init__()
 
                                         self.yang_name = "lisp-routes"
                                         self.yang_parent_name = "global-af"
@@ -27959,9 +31102,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, ['default_metric', 'route_policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes']['meta_info']
 
 
-                                class StaticRoutes(Entity):
+                                class StaticRoutes(_Entity_):
                                     """
                                     Redistribute static routes
                                     
@@ -27994,7 +31141,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, self).__init__()
 
                                         self.yang_name = "static-routes"
                                         self.yang_parent_name = "global-af"
@@ -28017,9 +31167,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes']['meta_info']
 
 
-                                class Distance(Entity):
+                                class Distance(_Entity_):
                                     """
                                     Define an administrative distance
                                     
@@ -28060,7 +31214,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, self).__init__()
 
                                         self.yang_name = "distance"
                                         self.yang_parent_name = "global-af"
@@ -28083,9 +31240,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, ['external_routes', 'internal_routes', 'local_routes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance']['meta_info']
 
 
-                                class ApplicationRoutes(Entity):
+                                class ApplicationRoutes(_Entity_):
                                     """
                                     Redistribute information for Application routes.
                                     
@@ -28102,7 +31263,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes, self).__init__()
 
                                         self.yang_name = "application-routes"
                                         self.yang_parent_name = "global-af"
@@ -28120,7 +31284,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes, [], name, value)
 
 
-                                    class ApplicationRoute(Entity):
+                                    class ApplicationRoute(_Entity_):
                                         """
                                         Redistribute application routes
                                         
@@ -28158,7 +31322,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, self).__init__()
 
                                             self.yang_name = "application-route"
                                             self.yang_parent_name = "application-routes"
@@ -28182,10 +31349,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, ['instance_name', 'default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info']
 
 
-
-                                class LabelMode(Entity):
+                                class LabelMode(_Entity_):
                                     """
                                     BGP 6PE/MPLS\-VPN label allocation mode
                                     
@@ -28209,7 +31384,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, self).__init__()
 
                                         self.yang_name = "label-mode"
                                         self.yang_parent_name = "global-af"
@@ -28230,9 +31408,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode']['meta_info']
 
 
-                                class EigrpRoutes(Entity):
+                                class EigrpRoutes(_Entity_):
                                     """
                                     Redistribute information for EIGRP routes.
                                     
@@ -28249,7 +31431,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes, self).__init__()
 
                                         self.yang_name = "eigrp-routes"
                                         self.yang_parent_name = "global-af"
@@ -28267,7 +31452,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes, [], name, value)
 
 
-                                    class EigrpRoute(Entity):
+                                    class EigrpRoute(_Entity_):
                                         """
                                         Redistribute EIGRP routes
                                         
@@ -28305,7 +31490,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, self).__init__()
 
                                             self.yang_name = "eigrp-route"
                                             self.yang_parent_name = "eigrp-routes"
@@ -28329,10 +31517,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info']
 
 
-
-                                class SourcedNetworks(Entity):
+                                class SourcedNetworks(_Entity_):
                                     """
                                     Specify a network to announce via BGP
                                     
@@ -28349,7 +31545,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks, self).__init__()
 
                                         self.yang_name = "sourced-networks"
                                         self.yang_parent_name = "global-af"
@@ -28367,7 +31566,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks, [], name, value)
 
 
-                                    class SourcedNetwork(Entity):
+                                    class SourcedNetwork(_Entity_):
                                         """
                                         Sourced network configuration
                                         
@@ -28409,7 +31608,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, self).__init__()
 
                                             self.yang_name = "sourced-network"
                                             self.yang_parent_name = "sourced-networks"
@@ -28433,10 +31635,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, ['network_addr', 'network_prefix', 'backdoor', 'route_policy_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info']
 
 
-
-                                class ConnectedRoutes(Entity):
+                                class ConnectedRoutes(_Entity_):
                                     """
                                     Redistribute connected routes
                                     
@@ -28469,7 +31679,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, self).__init__()
 
                                         self.yang_name = "connected-routes"
                                         self.yang_parent_name = "global-af"
@@ -28492,9 +31705,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes']['meta_info']
 
 
-                                class AllocateLabel(Entity):
+                                class AllocateLabel(_Entity_):
                                     """
                                     Label allocation policy
                                     
@@ -28523,7 +31740,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, self).__init__()
 
                                         self.yang_name = "allocate-label"
                                         self.yang_parent_name = "global-af"
@@ -28546,9 +31766,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, ['all', 'route_policy_name', 'un_labeled_path'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel']['meta_info']
 
 
-                                class AdditionalPathsSelection(Entity):
+                                class AdditionalPathsSelection(_Entity_):
                                     """
                                     Configure additional paths selection
                                     
@@ -28570,7 +31794,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, self).__init__()
 
                                         self.yang_name = "additional-paths-selection"
                                         self.yang_parent_name = "global-af"
@@ -28590,9 +31817,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, ['selection', 'route_policy_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection']['meta_info']
 
 
-                                class OspfRoutes(Entity):
+                                class OspfRoutes(_Entity_):
                                     """
                                     Redistribute information for OSPF routes.
                                     
@@ -28609,7 +31840,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes, self).__init__()
 
                                         self.yang_name = "ospf-routes"
                                         self.yang_parent_name = "global-af"
@@ -28627,7 +31861,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes, [], name, value)
 
 
-                                    class OspfRoute(Entity):
+                                    class OspfRoute(_Entity_):
                                         """
                                         Redistribute OSPF routes
                                         
@@ -28665,7 +31899,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, self).__init__()
 
                                             self.yang_name = "ospf-route"
                                             self.yang_parent_name = "ospf-routes"
@@ -28689,10 +31926,18 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes']['meta_info']
 
 
-
-                                class MobileRoutes(Entity):
+                                class MobileRoutes(_Entity_):
                                     """
                                     Redistribute mobile routes
                                     
@@ -28725,7 +31970,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, self).__init__()
 
                                         self.yang_name = "mobile-routes"
                                         self.yang_parent_name = "global-af"
@@ -28748,9 +31996,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes']['meta_info']
 
 
-                                class SubscriberRoutes(Entity):
+                                class SubscriberRoutes(_Entity_):
                                     """
                                     Redistribute subscriber routes
                                     
@@ -28783,7 +32035,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, self).__init__()
 
                                         self.yang_name = "subscriber-routes"
                                         self.yang_parent_name = "global-af"
@@ -28806,9 +32061,13 @@ class Bgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes']['meta_info']
 
 
-                                class SegmentRouting(Entity):
+                                class SegmentRouting(_Entity_):
                                     """
                                     Segment\-routing Configurations
                                     
@@ -28825,7 +32084,10 @@ class Bgp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting, self).__init__()
 
                                         self.yang_name = "segment-routing"
                                         self.yang_parent_name = "global-af"
@@ -28845,7 +32107,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting, [], name, value)
 
 
-                                    class Srv6(Entity):
+                                    class Srv6(_Entity_):
                                         """
                                         SRv6 Configurations
                                         
@@ -28872,7 +32134,10 @@ class Bgp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6, self).__init__()
 
                                             self.yang_name = "srv6"
                                             self.yang_parent_name = "segment-routing"
@@ -28894,12 +32159,287 @@ class Bgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6, ['enable', 'srv6sid_allocation_mode', 'locator_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting.Srv6']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SegmentRouting']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs']['meta_info']
 
 
+                        class GlobalGracefulMaintenanceActivate(_Entity_):
+                            """
+                            Graceful maintenance activate
+                            configurations
+                            
+                            .. attribute:: interfaces
+                            
+                            	BGP graceful maintenance interface table
+                            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces>`
+                            
+                            .. attribute:: locations
+                            
+                            	BGP graceful maintenance location table
+                            	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations>`
+                            
+                            .. attribute:: retain_routes
+                            
+                            	BGP graceful maintenance retain routes 
+                            	**type**\: bool
+                            
+                            .. attribute:: enable
+                            
+                            	Enable graceful maintenance activate configuration submode
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: all_neighbor
+                            
+                            	Enable graceful maintenance for all neighbors without graceful maintenance config
+                            	**type**\: bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-bgp-cfg'
+                            _revision = '2018-06-15'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, self).__init__()
+
+                                self.yang_name = "global-graceful-maintenance-activate"
+                                self.yang_parent_name = "global"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("interfaces", ("interfaces", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces)), ("locations", ("locations", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations))])
+                                self._leafs = OrderedDict([
+                                    ('retain_routes', (YLeaf(YType.boolean, 'retain-routes'), ['bool'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('all_neighbor', (YLeaf(YType.boolean, 'all-neighbor'), ['bool'])),
+                                ])
+                                self.retain_routes = None
+                                self.enable = None
+                                self.all_neighbor = None
+
+                                self.interfaces = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces()
+                                self.interfaces.parent = self
+                                self._children_name_map["interfaces"] = "interfaces"
+
+                                self.locations = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations()
+                                self.locations.parent = self
+                                self._children_name_map["locations"] = "locations"
+                                self._segment_path = lambda: "global-graceful-maintenance-activate"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, ['retain_routes', 'enable', 'all_neighbor'], name, value)
 
 
+                            class Interfaces(_Entity_):
+                                """
+                                BGP graceful maintenance interface table
+                                
+                                .. attribute:: interface
+                                
+                                	Enable graceful maintenance for e\-bgp directly connected neighbors going over this interface
+                                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces.Interface>`
+                                
+                                
 
-                        class RpkiStaticRoutes(Entity):
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2018-06-15'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces, self).__init__()
+
+                                    self.yang_name = "interfaces"
+                                    self.yang_parent_name = "global-graceful-maintenance-activate"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("interface", ("interface", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces.Interface))])
+                                    self._leafs = OrderedDict()
+
+                                    self.interface = YList(self)
+                                    self._segment_path = lambda: "interfaces"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces, [], name, value)
+
+
+                                class Interface(_Entity_):
+                                    """
+                                    Enable graceful maintenance for e\-bgp
+                                    directly connected neighbors going over
+                                    this interface
+                                    
+                                    .. attribute:: interface_name  (key)
+                                    
+                                    	Name of Interface
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces.Interface, self).__init__()
+
+                                        self.yang_name = "interface"
+                                        self.yang_parent_name = "interfaces"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces.Interface, ['interface_name'], name, value)
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Interfaces']['meta_info']
+
+
+                            class Locations(_Entity_):
+                                """
+                                BGP graceful maintenance location table
+                                
+                                .. attribute:: location
+                                
+                                	Enable graceful maintenance for e\-bgp directly connected neighbors going over this line\-card (location)
+                                	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations.Location>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2018-06-15'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations, self).__init__()
+
+                                    self.yang_name = "locations"
+                                    self.yang_parent_name = "global-graceful-maintenance-activate"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("location", ("location", Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations.Location))])
+                                    self._leafs = OrderedDict()
+
+                                    self.location = YList(self)
+                                    self._segment_path = lambda: "locations"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations, [], name, value)
+
+
+                                class Location(_Entity_):
+                                    """
+                                    Enable graceful maintenance for e\-bgp
+                                    directly connected neighbors going over
+                                    this line\-card (location)
+                                    
+                                    .. attribute:: location  (key)
+                                    
+                                    	Name of Location
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2018-06-15'
+
+                                    def __init__(self):
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations.Location, self).__init__()
+
+                                        self.yang_name = "location"
+                                        self.yang_parent_name = "locations"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['location']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                                        ])
+                                        self.location = None
+                                        self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations.Location, ['location'], name, value)
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations.Location']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate.Locations']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate']['meta_info']
+
+
+                        class RpkiStaticRoutes(_Entity_):
                             """
                             RPKI static route configuration
                             
@@ -28916,7 +32456,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes, self).__init__()
 
                                 self.yang_name = "rpki-static-routes"
                                 self.yang_parent_name = "global"
@@ -28934,7 +32477,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes, [], name, value)
 
 
-                            class RpkiStaticRoute(Entity):
+                            class RpkiStaticRoute(_Entity_):
                                 """
                                 RPKI static route
                                 
@@ -28980,7 +32523,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, self).__init__()
 
                                     self.yang_name = "rpki-static-route"
                                     self.yang_parent_name = "rpki-static-routes"
@@ -29004,10 +32550,18 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, ['address', 'minimum', 'maximum', 'as_'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes']['meta_info']
 
 
-
-                        class MplsActivatedInterfaces(Entity):
+                        class MplsActivatedInterfaces(_Entity_):
                             """
                             Configure list of MPLS activated interfaces
                             
@@ -29024,7 +32578,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces, self).__init__()
 
                                 self.yang_name = "mpls-activated-interfaces"
                                 self.yang_parent_name = "global"
@@ -29042,7 +32599,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces, [], name, value)
 
 
-                            class MplsActivatedInterface(Entity):
+                            class MplsActivatedInterface(_Entity_):
                                 """
                                 Configure a MPLS activated interface
                                 
@@ -29061,7 +32618,10 @@ class Bgp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, self).__init__()
 
                                     self.yang_name = "mpls-activated-interface"
                                     self.yang_parent_name = "mpls-activated-interfaces"
@@ -29079,10 +32639,18 @@ class Bgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, ['interface_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces']['meta_info']
 
 
-
-                        class GlobalTimers(Entity):
+                        class GlobalTimers(_Entity_):
                             """
                             Adjust routing timers.
                             
@@ -29127,7 +32695,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, self).__init__()
 
                                 self.yang_name = "global-timers"
                                 self.yang_parent_name = "global"
@@ -29149,9 +32720,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, ['keepalive', 'hold_time', 'min_accept_hold_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers']['meta_info']
 
 
-                        class Bfd(Entity):
+                        class Bfd(_Entity_):
                             """
                             BFD configuration
                             
@@ -29179,7 +32754,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, self).__init__()
 
                                 self.yang_name = "bfd"
                                 self.yang_parent_name = "global"
@@ -29199,9 +32777,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, ['detection_multiplier', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd']['meta_info']
 
 
-                        class SendSocketBufferSizes(Entity):
+                        class SendSocketBufferSizes(_Entity_):
                             """
                             set socket parameters
                             
@@ -29235,7 +32817,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, self).__init__()
 
                                 self.yang_name = "send-socket-buffer-sizes"
                                 self.yang_parent_name = "global"
@@ -29255,9 +32840,13 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, ['socket_send_size', 'bgp_send_size'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes']['meta_info']
 
 
-                        class ReceiveSocketBufferSizes(Entity):
+                        class ReceiveSocketBufferSizes(_Entity_):
                             """
                             Set socket and BGP receive buffer sizes
                             
@@ -29291,7 +32880,10 @@ class Bgp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, self).__init__()
 
                                 self.yang_name = "receive-socket-buffer-sizes"
                                 self.yang_parent_name = "global"
@@ -29311,19 +32903,47 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                return meta._meta_table['Bgp.Instance.InstanceAs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+            return meta._meta_table['Bgp.Instance']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Bgp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['Bgp']['meta_info']
 
 
-class BmpServerAll(Entity):
+class BmpServerAll(_Entity_):
     """
     bmp server all
     
@@ -29349,7 +32969,10 @@ class BmpServerAll(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(BmpServerAll, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(BmpServerAll, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bmp-server-all"
@@ -29373,7 +32996,7 @@ class BmpServerAll(Entity):
         self._perform_setattr(BmpServerAll, ['maximum_buffer_size'], name, value)
 
 
-    class RouteMonitoring(Entity):
+    class RouteMonitoring(_Entity_):
         """
         Enable Route Monitoring capability for the BMP
         servers.
@@ -29399,7 +33022,10 @@ class BmpServerAll(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(BmpServerAll.RouteMonitoring, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(BmpServerAll.RouteMonitoring, self).__init__()
 
             self.yang_name = "route-monitoring"
             self.yang_parent_name = "bmp-server-all"
@@ -29420,14 +33046,22 @@ class BmpServerAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(BmpServerAll.RouteMonitoring, ['policy', 'direction'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+            return meta._meta_table['BmpServerAll.RouteMonitoring']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = BmpServerAll()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpServerAll']['meta_info']
 
 
-class BmpServers(Entity):
+class BmpServers(_Entity_):
     """
     bmp servers
     
@@ -29444,7 +33078,10 @@ class BmpServers(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(BmpServers, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(BmpServers, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bmp-servers"
@@ -29463,7 +33100,7 @@ class BmpServers(Entity):
         self._perform_setattr(BmpServers, [], name, value)
 
 
-    class BmpServer(Entity):
+    class BmpServer(_Entity_):
         """
         A particular BMP server
         
@@ -29578,7 +33215,10 @@ class BmpServers(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(BmpServers.BmpServer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(BmpServers.BmpServer, self).__init__()
 
             self.yang_name = "bmp-server"
             self.yang_parent_name = "bmp-servers"
@@ -29632,7 +33272,7 @@ class BmpServers(Entity):
             self._perform_setattr(BmpServers.BmpServer, ['server_id', 'create', 'maximum_buffer_size', 'initial_delay', 'flapping_delay', 'status_report_interval', 'description', 'bmptcp_maximum_segment_size', 'bmptcp_keep_alive', 'vrf', 'shutdown', 'update_source_interface'], name, value)
 
 
-        class InitialRefreshDelay(Entity):
+        class InitialRefreshDelay(_Entity_):
             """
             Initial refresh to generate BGP updates
             
@@ -29665,7 +33305,10 @@ class BmpServers(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(BmpServers.BmpServer.InitialRefreshDelay, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(BmpServers.BmpServer.InitialRefreshDelay, self).__init__()
 
                 self.yang_name = "initial-refresh-delay"
                 self.yang_parent_name = "bmp-server"
@@ -29687,9 +33330,13 @@ class BmpServers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BmpServers.BmpServer.InitialRefreshDelay, ['delay', 'spread', 'skip'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                return meta._meta_table['BmpServers.BmpServer.InitialRefreshDelay']['meta_info']
 
 
-        class HostPort(Entity):
+        class HostPort(_Entity_):
             """
             Configure Host Name/Address and Port for BMP
             Server
@@ -29714,7 +33361,10 @@ class BmpServers(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(BmpServers.BmpServer.HostPort, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(BmpServers.BmpServer.HostPort, self).__init__()
 
                 self.yang_name = "host-port"
                 self.yang_parent_name = "bmp-server"
@@ -29734,9 +33384,13 @@ class BmpServers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BmpServers.BmpServer.HostPort, ['host', 'port'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                return meta._meta_table['BmpServers.BmpServer.HostPort']['meta_info']
 
 
-        class Tos(Entity):
+        class Tos(_Entity_):
             """
             TOS (Type Of Service)
             
@@ -29764,7 +33418,10 @@ class BmpServers(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(BmpServers.BmpServer.Tos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(BmpServers.BmpServer.Tos, self).__init__()
 
                 self.yang_name = "tos"
                 self.yang_parent_name = "bmp-server"
@@ -29784,11 +33441,23 @@ class BmpServers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BmpServers.BmpServer.Tos, ['type', 'value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                return meta._meta_table['BmpServers.BmpServer.Tos']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+            return meta._meta_table['BmpServers.BmpServer']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = BmpServers()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpServers']['meta_info']
 
 

@@ -1,6 +1,14 @@
+/* 
+ * SNMP-FRAMEWORK-MIB.yang
+ * Copyright (c) 2015 by Cisco Systems, Inc.
+ * All rights reserved.
+ */
+
 module SNMP-FRAMEWORK-MIB {
   namespace "http://tail-f.com/ns/mibs/SNMP-FRAMEWORK-MIB/200210140000Z";
   prefix SNMP_FRAMEWORK_MIB;
+  tailf:id "";
+  tailf:snmp-mib-module-name "SNMP-FRAMEWORK-MIB";
 
   import tailf-common {
     prefix tailf;
@@ -9,6 +17,33 @@ module SNMP-FRAMEWORK-MIB {
   revision 2002-10-14 {
     description
       "";
+  }
+
+  container SNMP-FRAMEWORK-MIB {
+    config false;
+    container snmpEngine {
+      tailf:snmp-oid "1.3.6.1.6.3.10.2.1";
+      leaf snmpEngineID {
+        type SnmpEngineID;
+        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.1";
+        config false;
+      }
+      leaf snmpEngineBoots {
+        type snmpEngineBootsType;
+        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.2";
+        config false;
+      }
+      leaf snmpEngineTime {
+        type snmpEngineTimeType;
+        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.3";
+        config false;
+      }
+      leaf snmpEngineMaxMessageSize {
+        type snmpEngineMaxMessageSizeType;
+        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.4";
+        config false;
+      }
+    }
   }
 
   typedef SnmpEngineID {
@@ -65,35 +100,6 @@ module SNMP-FRAMEWORK-MIB {
   typedef snmpEngineMaxMessageSizeType {
     type int32 {
       range "484 .. 2147483647";
-    }
-  }
-  tailf:id "";
-  tailf:snmp-mib-module-name "SNMP-FRAMEWORK-MIB";
-
-  container SNMP-FRAMEWORK-MIB {
-    config false;
-    container snmpEngine {
-      tailf:snmp-oid "1.3.6.1.6.3.10.2.1";
-      leaf snmpEngineID {
-        type SnmpEngineID;
-        config false;
-        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.1";
-      }
-      leaf snmpEngineBoots {
-        type snmpEngineBootsType;
-        config false;
-        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.2";
-      }
-      leaf snmpEngineTime {
-        type snmpEngineTimeType;
-        config false;
-        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.3";
-      }
-      leaf snmpEngineMaxMessageSize {
-        type snmpEngineMaxMessageSizeType;
-        config false;
-        tailf:snmp-oid "1.3.6.1.6.3.10.2.1.4";
-      }
     }
   }
 }

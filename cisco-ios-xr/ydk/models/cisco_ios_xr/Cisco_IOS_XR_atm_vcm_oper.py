@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -65,6 +68,12 @@ class ClassLinkOamInheritLevel(Enum):
     vc_inherit_level_unknown = Enum.YLeaf(5, "vc-inherit-level-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['ClassLinkOamInheritLevel']
+
+
 class Vc(Enum):
     """
     Vc (Enum Class)
@@ -98,6 +107,12 @@ class Vc(Enum):
     vc_type_unknown = Enum.YLeaf(3, "vc-type-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['Vc']
+
+
 class VcCellPackingMode(Enum):
     """
     VcCellPackingMode (Enum Class)
@@ -123,6 +138,12 @@ class VcCellPackingMode(Enum):
     vc = Enum.YLeaf(2, "vc")
 
     port_mode = Enum.YLeaf(3, "port-mode")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcCellPackingMode']
 
 
 class VcEncap(Enum):
@@ -188,6 +209,12 @@ class VcEncap(Enum):
     encap_unknown = Enum.YLeaf(9, "encap-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcEncap']
+
+
 class VcInheritLevel(Enum):
     """
     VcInheritLevel (Enum Class)
@@ -241,6 +268,12 @@ class VcInheritLevel(Enum):
     not_supported = Enum.YLeaf(6, "not-supported")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcInheritLevel']
+
+
 class VcManageLevel(Enum):
     """
     VcManageLevel (Enum Class)
@@ -260,6 +293,12 @@ class VcManageLevel(Enum):
     manage = Enum.YLeaf(1, "manage")
 
     not_managed = Enum.YLeaf(2, "not-managed")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcManageLevel']
 
 
 class VcState(Enum):
@@ -349,6 +388,12 @@ class VcState(Enum):
     state_unknown = Enum.YLeaf(11, "state-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcState']
+
+
 class VcTestMode(Enum):
     """
     VcTestMode (Enum Class)
@@ -374,6 +419,12 @@ class VcTestMode(Enum):
     loop = Enum.YLeaf(2, "loop")
 
     reserved = Enum.YLeaf(3, "reserved")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcTestMode']
 
 
 class VcTrafShaping(Enum):
@@ -427,6 +478,12 @@ class VcTrafShaping(Enum):
     traf_shaping_unknown = Enum.YLeaf(7, "traf-shaping-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcTrafShaping']
+
+
 class VcmPort(Enum):
     """
     VcmPort (Enum Class)
@@ -452,6 +509,12 @@ class VcmPort(Enum):
     port_type_layer_3 = Enum.YLeaf(1, "port-type-layer-3")
 
     port_type_unknown = Enum.YLeaf(3, "port-type-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcmPort']
 
 
 class VpState(Enum):
@@ -503,6 +566,12 @@ class VpState(Enum):
     vp_deleted = Enum.YLeaf(5, "vp-deleted")
 
     vp_state_unknown = Enum.YLeaf(6, "vp-state-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VpState']
 
 
 class VpTrafShaping(Enum):
@@ -558,8 +627,14 @@ class VpTrafShaping(Enum):
     vp_traf_shaping_unknown = Enum.YLeaf(7, "vp-traf-shaping-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VpTrafShaping']
 
-class AtmVcm(Entity):
+
+
+class AtmVcm(_Entity_):
     """
     ATM VCM operational data
     
@@ -578,7 +653,10 @@ class AtmVcm(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(AtmVcm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AtmVcm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "atm-vcm"
@@ -599,7 +677,7 @@ class AtmVcm(Entity):
         self._perform_setattr(AtmVcm, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Contains all the nodes
         
@@ -618,7 +696,10 @@ class AtmVcm(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(AtmVcm.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AtmVcm.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "atm-vcm"
@@ -637,7 +718,7 @@ class AtmVcm(Entity):
             self._perform_setattr(AtmVcm.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The node on which ATM Interfaces/VCs/VPs are
             located
@@ -701,7 +782,10 @@ class AtmVcm(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(AtmVcm.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AtmVcm.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -745,7 +829,7 @@ class AtmVcm(Entity):
                 self._perform_setattr(AtmVcm.Nodes.Node, ['node_name'], name, value)
 
 
-            class Vcs(Entity):
+            class Vcs(_Entity_):
                 """
                 Contains all VC information for node
                 
@@ -764,7 +848,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.Vcs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.Vcs, self).__init__()
 
                     self.yang_name = "vcs"
                     self.yang_parent_name = "node"
@@ -782,7 +869,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.Vcs, [], name, value)
 
 
-                class Vc(Entity):
+                class Vc(_Entity_):
                     """
                     All VC information on a node
                     
@@ -1008,7 +1095,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.Vcs.Vc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.Vcs.Vc, self).__init__()
 
                         self.yang_name = "vc"
                         self.yang_parent_name = "vcs"
@@ -1079,7 +1169,7 @@ class AtmVcm(Entity):
                         self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'vpi', 'vci', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
 
 
-                    class CellPackingData(Entity):
+                    class CellPackingData(_Entity_):
                         """
                         Cell packing specific data
                         
@@ -1120,7 +1210,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, self).__init__()
 
                             self.yang_name = "cell-packing-data"
                             self.yang_parent_name = "vc"
@@ -1142,11 +1235,23 @@ class AtmVcm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.Vcs.Vc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.Vcs']['meta_info']
 
 
-
-
-            class CellPacks(Entity):
+            class CellPacks(_Entity_):
                 """
                 Contains all cell packing information for node
                 
@@ -1165,7 +1270,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.CellPacks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.CellPacks, self).__init__()
 
                     self.yang_name = "cell-packs"
                     self.yang_parent_name = "node"
@@ -1183,7 +1291,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.CellPacks, [], name, value)
 
 
-                class CellPack(Entity):
+                class CellPack(_Entity_):
                     """
                     All cell packing information on a node
                     
@@ -1272,7 +1380,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.CellPacks.CellPack, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.CellPacks.CellPack, self).__init__()
 
                         self.yang_name = "cell-pack"
                         self.yang_parent_name = "cell-packs"
@@ -1309,7 +1420,7 @@ class AtmVcm(Entity):
                         self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack, ['interface_name', 'pci', 'sub_interface_name', 'cell_packing_mode', 'vpi', 'vci', 'received_average_cells_packets', 'sent_cells_packets'], name, value)
 
 
-                    class CellPacking(Entity):
+                    class CellPacking(_Entity_):
                         """
                         Cell packing specific data
                         
@@ -1350,7 +1461,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, self).__init__()
 
                             self.yang_name = "cell-packing"
                             self.yang_parent_name = "cell-pack"
@@ -1372,11 +1486,23 @@ class AtmVcm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.CellPacks.CellPack']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.CellPacks']['meta_info']
 
 
-
-
-            class Pvps(Entity):
+            class Pvps(_Entity_):
                 """
                 Contains all L2 PVP information for node
                 
@@ -1395,7 +1521,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.Pvps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.Pvps, self).__init__()
 
                     self.yang_name = "pvps"
                     self.yang_parent_name = "node"
@@ -1413,7 +1542,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.Pvps, [], name, value)
 
 
-                class Pvp(Entity):
+                class Pvp(_Entity_):
                     """
                     All L2 PVP information on a node
                     
@@ -1630,7 +1759,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.Pvps.Pvp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.Pvps.Pvp, self).__init__()
 
                         self.yang_name = "pvp"
                         self.yang_parent_name = "pvps"
@@ -1699,7 +1831,7 @@ class AtmVcm(Entity):
                         self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'vpi', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
 
 
-                    class CellPackingData(Entity):
+                    class CellPackingData(_Entity_):
                         """
                         Cell packing specific data
                         
@@ -1740,7 +1872,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, self).__init__()
 
                             self.yang_name = "cell-packing-data"
                             self.yang_parent_name = "pvp"
@@ -1762,11 +1897,23 @@ class AtmVcm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.Pvps.Pvp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.Pvps']['meta_info']
 
 
-
-
-            class ClassLinks(Entity):
+            class ClassLinks(_Entity_):
                 """
                 Contains all class link information for node
                 
@@ -1785,7 +1932,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.ClassLinks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.ClassLinks, self).__init__()
 
                     self.yang_name = "class-links"
                     self.yang_parent_name = "node"
@@ -1803,7 +1953,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks, [], name, value)
 
 
-                class ClassLink(Entity):
+                class ClassLink(_Entity_):
                     """
                     All ATM VC information on a node
                     
@@ -1856,7 +2006,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.ClassLinks.ClassLink, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.ClassLinks.ClassLink, self).__init__()
 
                         self.yang_name = "class-link"
                         self.yang_parent_name = "class-links"
@@ -1887,7 +2040,7 @@ class AtmVcm(Entity):
                         self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', 'sub_interface_name'], name, value)
 
 
-                    class VcClassNotSupported(Entity):
+                    class VcClassNotSupported(_Entity_):
                         """
                         Not supported VC class
                         
@@ -1913,7 +2066,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, self).__init__()
 
                             self.yang_name = "vc-class-not-supported"
                             self.yang_parent_name = "class-link"
@@ -1933,9 +2089,13 @@ class AtmVcm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, ['encapsulation_not_supported', 'not_supported_inherit_level'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported']['meta_info']
 
 
-                    class OamConfig(Entity):
+                    class OamConfig(_Entity_):
                         """
                         Oam values for class link
                         
@@ -1982,7 +2142,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, self).__init__()
 
                             self.yang_name = "oam-config"
                             self.yang_parent_name = "class-link"
@@ -2018,7 +2181,7 @@ class AtmVcm(Entity):
                             self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, [], name, value)
 
 
-                        class ClassLinkShaping(Entity):
+                        class ClassLinkShaping(_Entity_):
                             """
                             Traffic Shaping detail of VC class
                             
@@ -2073,7 +2236,10 @@ class AtmVcm(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, self).__init__()
 
                                 self.yang_name = "class-link-shaping"
                                 self.yang_parent_name = "oam-config"
@@ -2099,9 +2265,13 @@ class AtmVcm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, ['shaping_type', 'peak_output_rate', 'average_output_rate', 'burst_output_rate', 'shaping_inherit_level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                                return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping']['meta_info']
 
 
-                        class ClassLinkEncapsulation(Entity):
+                        class ClassLinkEncapsulation(_Entity_):
                             """
                             Encapsulation details of VC class
                             
@@ -2127,7 +2297,10 @@ class AtmVcm(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, self).__init__()
 
                                 self.yang_name = "class-link-encapsulation"
                                 self.yang_parent_name = "oam-config"
@@ -2147,9 +2320,13 @@ class AtmVcm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, ['encapsulation_type', 'encapsulation_inherit_level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                                return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation']['meta_info']
 
 
-                        class OamPvc(Entity):
+                        class OamPvc(_Entity_):
                             """
                             OAM PVC details of VC class
                             
@@ -2198,7 +2375,10 @@ class AtmVcm(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, self).__init__()
 
                                 self.yang_name = "oam-pvc"
                                 self.yang_parent_name = "oam-config"
@@ -2224,9 +2404,13 @@ class AtmVcm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, ['manage_level', 'pvc_frequency', 'keep_vc_up', 'ais_rdi_failure', 'manage_inherit_level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                                return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc']['meta_info']
 
 
-                        class OamRetry(Entity):
+                        class OamRetry(_Entity_):
                             """
                             OAM Retry details of VC class
                             
@@ -2272,7 +2456,10 @@ class AtmVcm(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, self).__init__()
 
                                 self.yang_name = "oam-retry"
                                 self.yang_parent_name = "oam-config"
@@ -2296,9 +2483,13 @@ class AtmVcm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, ['retry_up_count', 'down_count', 'retry_frequency', 'retry_inherit_level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                                return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry']['meta_info']
 
 
-                        class AisRdi(Entity):
+                        class AisRdi(_Entity_):
                             """
                             AIS RDI details of a VC class
                             
@@ -2337,7 +2528,10 @@ class AtmVcm(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, self).__init__()
 
                                 self.yang_name = "ais-rdi"
                                 self.yang_parent_name = "oam-config"
@@ -2359,12 +2553,28 @@ class AtmVcm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, ['ais_rdi_up_count', 'ais_rdi_up_time', 'ais_rdi_inherit_level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                                return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.ClassLinks']['meta_info']
 
 
-
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Contains all Interface information for node
                 
@@ -2383,7 +2593,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -2401,7 +2614,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     ATM Interface data
                     
@@ -2569,7 +2782,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2624,7 +2840,7 @@ class AtmVcm(Entity):
                         self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'ilmi_vpi', 'ilmi_vci', 'pvc_failures', 'currently_failing_layer2pv_ps', 'currently_failing_layer2pv_cs', 'currently_failing_layer3vp_tunnels', 'currently_failing_layer3pv_cs', 'pvc_failures_trap_enable', 'pvc_notification_interval', 'configured_layer2pv_ps', 'configured_layer2pv_cs', 'configured_layer3vp_tunnels', 'configured_layer3pv_cs', 'port_type', 'main_interface', 'l2_cell_packing_count'], name, value)
 
 
-                    class CellPackingData(Entity):
+                    class CellPackingData(_Entity_):
                         """
                         Cell packing specific information
                         
@@ -2665,7 +2881,10 @@ class AtmVcm(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, self).__init__()
 
                             self.yang_name = "cell-packing-data"
                             self.yang_parent_name = "interface"
@@ -2687,11 +2906,23 @@ class AtmVcm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                            return meta._meta_table['AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-            class VpTunnels(Entity):
+            class VpTunnels(_Entity_):
                 """
                 Contains all VP\-tunnel information for node
                 
@@ -2710,7 +2941,10 @@ class AtmVcm(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AtmVcm.Nodes.Node.VpTunnels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AtmVcm.Nodes.Node.VpTunnels, self).__init__()
 
                     self.yang_name = "vp-tunnels"
                     self.yang_parent_name = "node"
@@ -2728,7 +2962,7 @@ class AtmVcm(Entity):
                     self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels, [], name, value)
 
 
-                class VpTunnel(Entity):
+                class VpTunnel(_Entity_):
                     """
                     All VP\-tunnel information on a node
                     
@@ -2869,7 +3103,10 @@ class AtmVcm(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, self).__init__()
 
                         self.yang_name = "vp-tunnel"
                         self.yang_parent_name = "vp-tunnels"
@@ -2915,13 +3152,33 @@ class AtmVcm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'vpi', 'main_interface', 'vp_interface', 'vpi_xr', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'f4oam_enabled', 'data_vc_count', 'oper_status', 'amin_status', 'internal_state', 'last_vp_state_change_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                        return meta._meta_table['AtmVcm.Nodes.Node.VpTunnels.VpTunnel']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                    return meta._meta_table['AtmVcm.Nodes.Node.VpTunnels']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+                return meta._meta_table['AtmVcm.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+            return meta._meta_table['AtmVcm.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AtmVcm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['AtmVcm']['meta_info']
 
 

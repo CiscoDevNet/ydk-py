@@ -32,6 +32,10 @@ module Cisco-IOS-XR-infra-xtc-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-24 {
+    description
+      "YANG automation failure, Cisco-IOS-XR-infra-xtc-cfg.yang.";
+  }
   revision 2018-07-25 {
     description
       "Removed incorrect mandatory specifications.";
@@ -55,6 +59,18 @@ module Cisco-IOS-XR-infra-xtc-cfg {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Pce-loggging-disabled {
+    type enumeration {
+      enum "disabled" {
+        value 1;
+        description
+          "Logging disabled";
+      }
+    }
+    description
+      "Pce loggging disabled";
   }
 
   typedef Pce-segment {
@@ -213,38 +229,11 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       "Pcerest authentication";
   }
 
-  typedef Pce-explicit-path-hop {
-    type enumeration {
-      enum "address" {
-        value 1;
-        description
-          "Address";
-      }
-      enum "sid-node" {
-        value 2;
-        description
-          "SID Node";
-      }
-      enum "sid-adjancency" {
-        value 3;
-        description
-          "SID Adjacency";
-      }
-      enum "binding-sid" {
-        value 4;
-        description
-          "Binding SID";
-      }
-    }
-    description
-      "Pce explicit path hop";
-  }
-
   grouping ENABLE {
     description
       "Common node of pce, lsp-name, disjoint-path,
-       group, rsvp-te, explicit-path, pcc-address, rest,
-       rest-user, netconf";
+       group, rsvp-te, pcc-address, rest, rest-user,
+       netconf, segment-list";
     leaf enable {
       type empty;
       description
@@ -371,6 +360,15 @@ module Cisco-IOS-XR-infra-xtc-cfg {
     container logging {
       description
         "PCE logging configuration";
+      container rest-logging {
+        description
+          "REST logging configuration";
+        leaf send-queue-congestion {
+          type Pce-loggging-disabled;
+          description
+            "Logging of send queue congestion messages";
+        }
+      }
       leaf no-path {
         type empty;
         description
@@ -729,6 +727,7 @@ module Cisco-IOS-XR-infra-xtc-cfg {
               description
                 "Segment-list name";
             }
+            uses ENABLE;
           }
         }
         leaf enable {
@@ -752,6 +751,26 @@ module Cisco-IOS-XR-infra-xtc-cfg {
       presence "Indicates a timers node is configured.";
       description
         "PCE Timers configuration";
+      leaf initial-verify-restart {
+        type uint32 {
+          range "10..10000";
+        }
+        units "second";
+        default "40";
+        description
+          "Timer to wait for topology convergence after
+           topology starts populating for restart case";
+      }
+      leaf initial-verify-startup {
+        type uint32 {
+          range "10..10000";
+        }
+        units "second";
+        default "300";
+        description
+          "Timer to wait for topology convergence after
+           topology starts populating for startup case";
+      }
       leaf reoptimization-timer {
         type uint32 {
           range "600..86400";
@@ -760,6 +779,16 @@ module Cisco-IOS-XR-infra-xtc-cfg {
         default "1800";
         description
           "Topology reoptimization timer configuration";
+      }
+      leaf initial-verify-switchover {
+        type uint32 {
+          range "10..10000";
+        }
+        units "second";
+        default "60";
+        description
+          "Timer to wait for topology convergence after
+           topology starts populating for switchover case";
       }
       leaf keepalive {
         type uint32 {
@@ -872,76 +901,6 @@ module Cisco-IOS-XR-infra-xtc-cfg {
         }
       }
       uses ENABLE;
-    }
-    container explicit-paths {
-      description
-        "Explicit paths";
-      list explicit-path {
-        key "name";
-        description
-          "Explicit-path configuration";
-        container path-hops {
-          description
-            "Path Hops";
-          list path-hop {
-            key "index";
-            description
-              "Explicit path hop configuration";
-            leaf index {
-              type uint32 {
-                range "1..65535";
-              }
-              description
-                "Hop Index";
-            }
-            leaf hop-type {
-              type Pce-explicit-path-hop;
-              description
-                "Path hop type";
-            }
-            leaf address {
-              when "../hop-type = 'address' or ../hop-type = 'sid-node' or ../hop-type = 'sid-adjancency'" {
-                description
-                  "../HopType = Address or ../HopType =
-                   SIDNode or ../HopType = SIDAdjancency";
-              }
-              type inet:ipv4-address-no-zone;
-              default "0.0.0.0";
-              description
-                "IPv4 Address";
-            }
-            leaf remote-address {
-              when "../hop-type = 'sid-adjancency'" {
-                description
-                  "../HopType = SIDAdjancency";
-              }
-              type inet:ipv4-address-no-zone;
-              default "0.0.0.0";
-              description
-                "Remote IPv4 address";
-            }
-            leaf mpls-label {
-              when "../hop-type = 'sid-node' or ../hop-type = 'sid-adjancency' or ../hop-type = 'binding-sid'" {
-                description
-                  "../HopType = SIDNode or ../HopType =
-                   SIDAdjancency or ../HopType = BindingSID";
-              }
-              type uint32 {
-                range "0..1048575";
-              }
-              default "0";
-              description
-                "MPLS Label";
-            }
-          }
-        }
-        leaf name {
-          type xr:Cisco-ios-xr-string;
-          description
-            "Explicit-path name";
-        }
-        uses ENABLE;
-      }
     }
     container peer-filter {
       description

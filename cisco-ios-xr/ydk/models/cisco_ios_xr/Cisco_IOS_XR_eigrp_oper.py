@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class EigrpBdDelayUnit(Enum):
     microsecond = Enum.YLeaf(3, "microsecond")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdDelayUnit']
+
+
 class EigrpBdMetricVersion(Enum):
     """
     EigrpBdMetricVersion (Enum Class)
@@ -72,6 +81,12 @@ class EigrpBdMetricVersion(Enum):
     metric_version32_bit = Enum.YLeaf(0, "metric-version32-bit")
 
     metric_version64_bit = Enum.YLeaf(1, "metric-version64-bit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdMetricVersion']
 
 
 class EigrpBdPathOrigin(Enum):
@@ -149,6 +164,12 @@ class EigrpBdPathOrigin(Enum):
     origin_count = Enum.YLeaf(10, "origin-count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdPathOrigin']
+
+
 class EigrpBdPathRibState(Enum):
     """
     EigrpBdPathRibState (Enum Class)
@@ -186,6 +207,12 @@ class EigrpBdPathRibState(Enum):
     path_not_selected = Enum.YLeaf(3, "path-not-selected")
 
     error_state = Enum.YLeaf(4, "error-state")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdPathRibState']
 
 
 class EigrpBdPathSendFlag(Enum):
@@ -233,6 +260,12 @@ class EigrpBdPathSendFlag(Enum):
     sia_reply_pending = Enum.YLeaf(5, "sia-reply-pending")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdPathSendFlag']
+
+
 class EigrpBdSoo(Enum):
     """
     EigrpBdSoo (Enum Class)
@@ -266,8 +299,14 @@ class EigrpBdSoo(Enum):
     four_byte_as = Enum.YLeaf(3, "four-byte-as")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['EigrpBdSoo']
 
-class Eigrp(Entity):
+
+
+class Eigrp(_Entity_):
     """
     EIGRP operational data
     
@@ -286,7 +325,10 @@ class Eigrp(Entity):
     _revision = '2018-04-05'
 
     def __init__(self):
-        super(Eigrp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Eigrp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "eigrp"
@@ -307,7 +349,7 @@ class Eigrp(Entity):
         self._perform_setattr(Eigrp, [], name, value)
 
 
-    class Processes(Entity):
+    class Processes(_Entity_):
         """
         Operational data for an EIGRP process
         
@@ -326,7 +368,10 @@ class Eigrp(Entity):
         _revision = '2018-04-05'
 
         def __init__(self):
-            super(Eigrp.Processes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eigrp.Processes, self).__init__()
 
             self.yang_name = "processes"
             self.yang_parent_name = "eigrp"
@@ -345,7 +390,7 @@ class Eigrp(Entity):
             self._perform_setattr(Eigrp.Processes, [], name, value)
 
 
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Operational data for an EIGRP process
             
@@ -380,7 +425,10 @@ class Eigrp(Entity):
             _revision = '2018-04-05'
 
             def __init__(self):
-                super(Eigrp.Processes.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eigrp.Processes.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "processes"
@@ -408,7 +456,7 @@ class Eigrp(Entity):
                 self._perform_setattr(Eigrp.Processes.Process, ['process_id'], name, value)
 
 
-            class VrfsXr(Entity):
+            class VrfsXr(_Entity_):
                 """
                 List of VRFs
                 
@@ -427,7 +475,10 @@ class Eigrp(Entity):
                 _revision = '2018-04-05'
 
                 def __init__(self):
-                    super(Eigrp.Processes.Process.VrfsXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Eigrp.Processes.Process.VrfsXr, self).__init__()
 
                     self.yang_name = "vrfs-xr"
                     self.yang_parent_name = "process"
@@ -445,7 +496,7 @@ class Eigrp(Entity):
                     self._perform_setattr(Eigrp.Processes.Process.VrfsXr, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     A VRF
                     
@@ -473,7 +524,10 @@ class Eigrp(Entity):
                     _revision = '2018-04-05'
 
                     def __init__(self):
-                        super(Eigrp.Processes.Process.VrfsXr.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Eigrp.Processes.Process.VrfsXr.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs-xr"
@@ -493,10 +547,18 @@ class Eigrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Eigrp.Processes.Process.VrfsXr.Vrf, ['vrf_name', 'vrf_name_xr'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                        return meta._meta_table['Eigrp.Processes.Process.VrfsXr.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                    return meta._meta_table['Eigrp.Processes.Process.VrfsXr']['meta_info']
 
 
-
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 List of VRFs
                 
@@ -515,7 +577,10 @@ class Eigrp(Entity):
                 _revision = '2018-04-05'
 
                 def __init__(self):
-                    super(Eigrp.Processes.Process.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Eigrp.Processes.Process.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "process"
@@ -533,7 +598,7 @@ class Eigrp(Entity):
                     self._perform_setattr(Eigrp.Processes.Process.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     Operational data for a VRF
                     
@@ -561,7 +626,10 @@ class Eigrp(Entity):
                     _revision = '2018-04-05'
 
                     def __init__(self):
-                        super(Eigrp.Processes.Process.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Eigrp.Processes.Process.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -584,7 +652,7 @@ class Eigrp(Entity):
                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                    class Afs(Entity):
+                    class Afs(_Entity_):
                         """
                         List of Address Families
                         
@@ -603,7 +671,10 @@ class Eigrp(Entity):
                         _revision = '2018-04-05'
 
                         def __init__(self):
-                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs, self).__init__()
 
                             self.yang_name = "afs"
                             self.yang_parent_name = "vrf"
@@ -621,7 +692,7 @@ class Eigrp(Entity):
                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs, [], name, value)
 
 
-                        class Af(Entity):
+                        class Af(_Entity_):
                             """
                             Operational data for one AF
                             
@@ -654,7 +725,10 @@ class Eigrp(Entity):
                             _revision = '2018-04-05'
 
                             def __init__(self):
-                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, self).__init__()
 
                                 self.yang_name = "af"
                                 self.yang_parent_name = "afs"
@@ -681,7 +755,7 @@ class Eigrp(Entity):
                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af, ['af_name'], name, value)
 
 
-                            class Protocol(Entity):
+                            class Protocol(_Entity_):
                                 """
                                 Address family specific protocol
                                 information
@@ -1233,7 +1307,10 @@ class Eigrp(Entity):
                                 _revision = '2018-04-05'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol, self).__init__()
 
                                     self.yang_name = "protocol"
                                     self.yang_parent_name = "af"
@@ -1383,7 +1460,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol, ['afi', 'as_number', 'router_id', 'auto_summarization', 'log_neighbor_changes', 'log_neighbor_warnings', 'rib_table_limit_reached', 'outbound_filter_policy', 'inbound_filter_policy', 'outgoing_candidate_default_flagged', 'outgoing_candidate_default_policy', 'incoming_candidate_default_flagged', 'incoming_candidate_default_policy', 'internal_distance', 'external_distance', 'maximum_paths', 'variance', 'metric_weight_k1', 'metric_weight_k2', 'metric_weight_k3', 'metric_weight_k4', 'metric_weight_k5', 'metric_weight_k6', 'rib_scale', 'metric_version', 'metric_maximum_hopcount', 'default_metric_configured', 'default_bandwidth', 'default_delay', 'default_reliability', 'default_load', 'default_mtu', 'stub_configured', 'stub_receive_only', 'stub_allow_connected_routes', 'stub_allow_static_routes', 'stub_allow_summary_routes', 'stub_allow_redistributed_routes', 'nsf_enabled', 'nsf_route_hold_time', 'nsf_signal_time', 'nsf_converge_time', 'restart_configured', 'restart_time', 'sia_active_time', 'rib_protocol_id', 'table_id', 'vrf_id', 'ital_activation_received', 'vrf_activated', 'up', 'rib_initialized', 'rib_converged', 'rib_converged_reload', 'socket_request', 'socket_setup', 'default_vrf', 'af_enabled', 'is_passive_default', 'configured_items', 'af_configured_items', 'ip_arm_router_id', 'first_interface_up_address', 'nsf_in_progress', 'rib_table_converged'], name, value)
 
 
-                                class RedistributedProtocol(Entity):
+                                class RedistributedProtocol(_Entity_):
                                     """
                                     Redistributed Protocols
                                     
@@ -1443,7 +1520,10 @@ class Eigrp(Entity):
                                     _revision = '2018-04-05'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.RedistributedProtocol, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.RedistributedProtocol, self).__init__()
 
                                         self.yang_name = "redistributed-protocol"
                                         self.yang_parent_name = "protocol"
@@ -1471,9 +1551,13 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.RedistributedProtocol, ['afi', 'redistributed_protocol', 'redistributed_protocol_tag', 'redristribute_policy', 'redistribute_protocol_id', 'rib_handle'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.RedistributedProtocol']['meta_info']
 
 
-                                class Interface(Entity):
+                                class Interface(_Entity_):
                                     """
                                     Interfaces
                                     
@@ -1529,7 +1613,10 @@ class Eigrp(Entity):
                                     _revision = '2018-04-05'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "protocol"
@@ -1557,10 +1644,18 @@ class Eigrp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.Interface, ['afi', 'interface', 'outbound_filter_policy', 'inbound_filter_policy', 'inactive', 'passive_interface'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Protocol']['meta_info']
 
 
-
-                            class Ases(Entity):
+                            class Ases(_Entity_):
                                 """
                                 List of Autonomous Systems
                                 
@@ -1579,7 +1674,10 @@ class Eigrp(Entity):
                                 _revision = '2018-04-05'
 
                                 def __init__(self):
-                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases, self).__init__()
 
                                     self.yang_name = "ases"
                                     self.yang_parent_name = "af"
@@ -1597,7 +1695,7 @@ class Eigrp(Entity):
                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases, [], name, value)
 
 
-                                class As(Entity):
+                                class As(_Entity_):
                                     """
                                     Operational data for one AS
                                     
@@ -1681,7 +1779,10 @@ class Eigrp(Entity):
                                     _revision = '2018-04-05'
 
                                     def __init__(self):
-                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As, self).__init__()
 
                                         self.yang_name = "as"
                                         self.yang_parent_name = "ases"
@@ -1736,7 +1837,7 @@ class Eigrp(Entity):
                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As, ['asn'], name, value)
 
 
-                                    class StaticNeighbors(Entity):
+                                    class StaticNeighbors(_Entity_):
                                         """
                                         EIGRP static neighbors
                                         
@@ -1755,7 +1856,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors, self).__init__()
 
                                             self.yang_name = "static-neighbors"
                                             self.yang_parent_name = "as"
@@ -1773,7 +1877,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors, [], name, value)
 
 
-                                        class StaticNeighbor(Entity):
+                                        class StaticNeighbor(_Entity_):
                                             """
                                             Information on one static EIGRP
                                             neighbor
@@ -1827,7 +1931,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor, self).__init__()
 
                                                 self.yang_name = "static-neighbor"
                                                 self.yang_parent_name = "static-neighbors"
@@ -1856,7 +1963,7 @@ class Eigrp(Entity):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor, ['neighbor_address', 'afi', 'as_number', 'interface_list'], name, value)
 
 
-                                            class Source(Entity):
+                                            class Source(_Entity_):
                                                 """
                                                 Neighbor address
                                                 
@@ -1886,7 +1993,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor.Source, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor.Source, self).__init__()
 
                                                     self.yang_name = "source"
                                                     self.yang_parent_name = "static-neighbor"
@@ -1906,11 +2016,23 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor.Source, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor.Source']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors.StaticNeighbor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.StaticNeighbors']['meta_info']
 
 
-
-
-                                    class TopologyRoutes(Entity):
+                                    class TopologyRoutes(_Entity_):
                                         """
                                         EIGRP topology table
                                         
@@ -1929,7 +2051,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes, self).__init__()
 
                                             self.yang_name = "topology-routes"
                                             self.yang_parent_name = "as"
@@ -1947,7 +2072,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes, [], name, value)
 
 
-                                        class TopologyRoute(Entity):
+                                        class TopologyRoute(_Entity_):
                                             """
                                             Information about one EIGRP route
                                             
@@ -2258,7 +2383,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute, self).__init__()
 
                                                 self.yang_name = "topology-route"
                                                 self.yang_parent_name = "topology-routes"
@@ -2345,7 +2473,7 @@ class Eigrp(Entity):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute, ['prefix', 'prefix_length', 'afi', 'as_number', 'router_id', 'active', 'successors', 'successors_present', 'old_metric', 'old_metric64', 'metric', 'metric64', 'rib_metric', 'tag', 'send_flag', 'transmit_serial_number', 'transmit_refcount', 'transmit_anchored', 'reply_handles', 'active_time_secs', 'active_time_nsecs', 'origin', 'retry_count', 'active_stats', 'min_time', 'max_time', 'average_time', 'ack_count', 'replies', 'route_in_sia', 'sia_reply_handles'], name, value)
 
 
-                                            class PrefixXr(Entity):
+                                            class PrefixXr(_Entity_):
                                                 """
                                                 IP Prefix/length
                                                 
@@ -2384,7 +2512,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.PrefixXr, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.PrefixXr, self).__init__()
 
                                                     self.yang_name = "prefix-xr"
                                                     self.yang_parent_name = "topology-route"
@@ -2406,9 +2537,13 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.PrefixXr, ['ipv4_prefix', 'ipv6_prefix', 'prefix_length'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.PrefixXr']['meta_info']
 
 
-                                            class Paths(Entity):
+                                            class Paths(_Entity_):
                                                 """
                                                 Paths for this route
                                                 
@@ -2753,7 +2888,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths, self).__init__()
 
                                                     self.yang_name = "paths"
                                                     self.yang_parent_name = "topology-route"
@@ -2856,7 +2994,7 @@ class Eigrp(Entity):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths, ['afi', 'next_hop_present', 'interface_handle', 'interface_name', 'origin', 'send_flag', 'reply_outstanding', 'metric', 'metric64', 'successor_metric', 'successor_metric64', 'reply_status', 'sia_status', 'transmit_serial_number', 'anchored', 'external_path', 'bandwidth', 'bandwidth64', 'delay', 'delay64', 'delay_unit', 'mtu', 'hop_count', 'reliability', 'load', 'internal_router_id', 'internal_tag', 'extended_communities_present', 'extended_communities_length', 'extended_communities', 'external_information_present', 'external_router_id', 'external_this_system', 'external_as', 'external_protocol', 'external_metric', 'external_tag', 'conditional_default_path', 'rib_state'], name, value)
 
 
-                                                class NextHopAddress(Entity):
+                                                class NextHopAddress(_Entity_):
                                                     """
                                                     Nexthop address
                                                     
@@ -2886,7 +3024,10 @@ class Eigrp(Entity):
                                                     _revision = '2018-04-05'
 
                                                     def __init__(self):
-                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.NextHopAddress, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.NextHopAddress, self).__init__()
 
                                                         self.yang_name = "next-hop-address"
                                                         self.yang_parent_name = "paths"
@@ -2906,9 +3047,13 @@ class Eigrp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.NextHopAddress, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.NextHopAddress']['meta_info']
 
 
-                                                class Infosource(Entity):
+                                                class Infosource(_Entity_):
                                                     """
                                                     Source of route
                                                     
@@ -2938,7 +3083,10 @@ class Eigrp(Entity):
                                                     _revision = '2018-04-05'
 
                                                     def __init__(self):
-                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.Infosource, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.Infosource, self).__init__()
 
                                                         self.yang_name = "infosource"
                                                         self.yang_parent_name = "paths"
@@ -2958,10 +3106,18 @@ class Eigrp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.Infosource, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths.Infosource']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.Paths']['meta_info']
 
 
-
-                                            class ActivePeer(Entity):
+                                            class ActivePeer(_Entity_):
                                                 """
                                                 Peers yet to respond
                                                 
@@ -3003,7 +3159,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer, self).__init__()
 
                                                     self.yang_name = "active-peer"
                                                     self.yang_parent_name = "topology-route"
@@ -3030,7 +3189,7 @@ class Eigrp(Entity):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer, ['peer_available', 'interface_list', 'handle_number'], name, value)
 
 
-                                                class Source(Entity):
+                                                class Source(_Entity_):
                                                     """
                                                     Peer Address
                                                     
@@ -3060,7 +3219,10 @@ class Eigrp(Entity):
                                                     _revision = '2018-04-05'
 
                                                     def __init__(self):
-                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer.Source, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer.Source, self).__init__()
 
                                                         self.yang_name = "source"
                                                         self.yang_parent_name = "active-peer"
@@ -3080,10 +3242,18 @@ class Eigrp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer.Source, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer.Source']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.ActivePeer']['meta_info']
 
 
-
-                                            class SiaPeer(Entity):
+                                            class SiaPeer(_Entity_):
                                                 """
                                                 SIA Peers yet to respond
                                                 
@@ -3125,7 +3295,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer, self).__init__()
 
                                                     self.yang_name = "sia-peer"
                                                     self.yang_parent_name = "topology-route"
@@ -3152,7 +3325,7 @@ class Eigrp(Entity):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer, ['peer_available', 'interface_list', 'handle_number'], name, value)
 
 
-                                                class Source(Entity):
+                                                class Source(_Entity_):
                                                     """
                                                     Peer Address
                                                     
@@ -3182,7 +3355,10 @@ class Eigrp(Entity):
                                                     _revision = '2018-04-05'
 
                                                     def __init__(self):
-                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer.Source, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer.Source, self).__init__()
 
                                                         self.yang_name = "source"
                                                         self.yang_parent_name = "sia-peer"
@@ -3202,12 +3378,28 @@ class Eigrp(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer.Source, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer.Source']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute.SiaPeer']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes.TopologyRoute']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.TopologyRoutes']['meta_info']
 
 
-
-
-
-                                    class EigrpAccounting(Entity):
+                                    class EigrpAccounting(_Entity_):
                                         """
                                         Accounting info for one VRF AF
                                         
@@ -3305,7 +3497,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting, self).__init__()
 
                                             self.yang_name = "eigrp-accounting"
                                             self.yang_parent_name = "as"
@@ -3342,7 +3537,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting, ['afi', 'as_number', 'router_id', 'aggregate_count', 'state', 'redist_prefix_count', 'restart_count', 'time_left', 'redist_prefix_present'], name, value)
 
 
-                                        class PeerStatistics(Entity):
+                                        class PeerStatistics(_Entity_):
                                             """
                                             Peers and their status
                                             
@@ -3413,7 +3608,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics, self).__init__()
 
                                                 self.yang_name = "peer-statistics"
                                                 self.yang_parent_name = "eigrp-accounting"
@@ -3446,7 +3644,7 @@ class Eigrp(Entity):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics, ['afi', 'state', 'interface_list', 'peer_prefix_count', 'restart_count', 'time_left'], name, value)
 
 
-                                            class Source(Entity):
+                                            class Source(_Entity_):
                                                 """
                                                 Source address
                                                 
@@ -3476,7 +3674,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics.Source, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics.Source, self).__init__()
 
                                                     self.yang_name = "source"
                                                     self.yang_parent_name = "peer-statistics"
@@ -3496,11 +3697,23 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics.Source, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics.Source']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting.PeerStatistics']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpAccounting']['meta_info']
 
 
-
-
-                                    class EigrpTraffic(Entity):
+                                    class EigrpTraffic(_Entity_):
                                         """
                                         Traffic info for one VRF AF
                                         
@@ -3674,7 +3887,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTraffic, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTraffic, self).__init__()
 
                                             self.yang_name = "eigrp-traffic"
                                             self.yang_parent_name = "as"
@@ -3726,9 +3942,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTraffic, ['afi', 'as_number', 'hellos_sent', 'hellos_received', 'updates_sent', 'updates_received', 'queries_sent', 'queries_received', 'replies_sent', 'replies_received', 'acks_sent', 'acks_received', 'sia_queries_sent', 'sia_queries_received', 'sia_replies_sent', 'sia_replies_received', 'max_queue_depth', 'queue_drops'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTraffic']['meta_info']
 
 
-                                    class EigrpTopologySummary(Entity):
+                                    class EigrpTopologySummary(_Entity_):
                                         """
                                         Topology summary info for one VRF AF
                                         
@@ -3860,7 +4080,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary, self).__init__()
 
                                             self.yang_name = "eigrp-topology-summary"
                                             self.yang_parent_name = "as"
@@ -3905,7 +4128,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary, ['afi', 'as_number', 'router_id', 'thread_present', 'transmit_serial_number', 'next_serial_number', 'route_count', 'path_count', 'dummy_count', 'ddb_name', 'interface_count', 'handles_used', 'active_interface_count'], name, value)
 
 
-                                        class Quiescent(Entity):
+                                        class Quiescent(_Entity_):
                                             """
                                             Quiescent interfaces
                                             
@@ -3924,7 +4147,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary.Quiescent, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary.Quiescent, self).__init__()
 
                                                 self.yang_name = "quiescent"
                                                 self.yang_parent_name = "eigrp-topology-summary"
@@ -3942,10 +4168,18 @@ class Eigrp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary.Quiescent, ['quiescent_interface_list'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary.Quiescent']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpTopologySummary']['meta_info']
 
 
-
-                                    class Interfaces(Entity):
+                                    class Interfaces(_Entity_):
                                         """
                                         EIGRP interfaces
                                         
@@ -3964,7 +4198,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces, self).__init__()
 
                                             self.yang_name = "interfaces"
                                             self.yang_parent_name = "as"
@@ -3982,7 +4219,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces, [], name, value)
 
 
-                                        class Interface(Entity):
+                                        class Interface(_Entity_):
                                             """
                                             Information for an EIGRP interface
                                             
@@ -4678,7 +4915,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface, self).__init__()
 
                                                 self.yang_name = "interface"
                                                 self.yang_parent_name = "interfaces"
@@ -4859,7 +5099,7 @@ class Eigrp(Entity):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface, ['interface_name', 'afi', 'as_number', 'peer_count', 'classic_peer_count', 'wide_peer_count', 'unreliable_transmits', 'reliable_transmits', 'total_srtt', 'unreliable_send_interval', 'reliable_send_interval', 'last_mc_flow_delay', 'pending_routes', 'hello_interval', 'holdtime', 'bfd_enabled', 'bfd_interval', 'bfd_multiplier', 'serial_number_present', 'transmit_serial_number', 'packetize_pending', 'unreliable_multicast_sent', 'reliable_multicast_sent', 'unreliable_unicast_sent', 'reliable_unicast_sent', 'multicast_exceptions_sent', 'cr_packets_sent', 'acks_suppressed', 'retransmissions_sent', 'out_of_sequence_received', 'stub_interface', 'next_hop_self_enabled', 'split_horizon_enabled', 'passive_interface', 'bandwidth_percent', 'site_of_origin_type', 'site_of_origin', 'auth_mode', 'auth_keychain', 'auth_key_exists', 'auth_key_md5', 'auth_key_id', 'total_pkt_recvd', 'pkt_drop_wrong_kc', 'pkt_drop_no_auth', 'pkt_drop_invalid_auth', 'pkt_accepted_valid_auth', 'bandwidth', 'bandwidth64', 'delay', 'delay64', 'delay_unit', 'reliability', 'load', 'mtu', 'configured_bandwidth', 'configured_bandwidth64', 'configured_delay', 'configured_delay64', 'configured_delay_unit', 'configured_reliability', 'configured_load', 'configured_bandwidth_flag', 'configured_delay_flag', 'configured_reliability_flag', 'configured_load_flag', 'up', 'type_supported', 'ital_record_found', 'configured', 'multicast_enabled', 'socket_setup', 'lpts_socket_setup', 'primary_ipv4_address', 'ipv6_link_local_addr', 'primary_prefix_length', 'interface_handle', 'interface_type', 'configured_items', 'is_passive_enabled', 'is_passive_disabled'], name, value)
 
 
-                                            class StaticNeighbor(Entity):
+                                            class StaticNeighbor(_Entity_):
                                                 """
                                                 Static Neighbors
                                                 
@@ -4889,7 +5129,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface.StaticNeighbor, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface.StaticNeighbor, self).__init__()
 
                                                     self.yang_name = "static-neighbor"
                                                     self.yang_parent_name = "interface"
@@ -4909,11 +5152,23 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface.StaticNeighbor, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface.StaticNeighbor']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces.Interface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Interfaces']['meta_info']
 
 
-
-
-                                    class EigrpEvents(Entity):
+                                    class EigrpEvents(_Entity_):
                                         """
                                         Events for a specific VRF AF
                                         
@@ -4996,7 +5251,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpEvents, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpEvents, self).__init__()
 
                                             self.yang_name = "eigrp-events"
                                             self.yang_parent_name = "as"
@@ -5026,9 +5284,13 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpEvents, ['afi', 'as_number', 'current_event_index', 'eigrp_start_absolute_seconds', 'eigrp_start_absolute_nanoseconds', 'eigrp_start_relative_seconds', 'eigrp_start_relative_nanoseconds'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpEvents']['meta_info']
 
 
-                                    class Neighbors(Entity):
+                                    class Neighbors(_Entity_):
                                         """
                                         EIGRP neighbors
                                         
@@ -5047,7 +5309,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors, self).__init__()
 
                                             self.yang_name = "neighbors"
                                             self.yang_parent_name = "as"
@@ -5065,7 +5330,7 @@ class Eigrp(Entity):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors, [], name, value)
 
 
-                                        class Neighbor(Entity):
+                                        class Neighbor(_Entity_):
                                             """
                                             Information on one EIGRP neighbor
                                             
@@ -5412,7 +5677,10 @@ class Eigrp(Entity):
                                             _revision = '2018-04-05'
 
                                             def __init__(self):
-                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor, self).__init__()
 
                                                 self.yang_name = "neighbor"
                                                 self.yang_parent_name = "neighbors"
@@ -5513,7 +5781,7 @@ class Eigrp(Entity):
                                                 self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor, ['neighbor_address', 'afi', 'as_number', 'peer_suspended', 'peer_handle', 'interface_list', 'holdtime', 'uptime', 'srtt', 'rto', 'bfd_enabled', 'queue_count', 'last_sequence_number', 'static_neighbor', 'remote_neighbor', 'hop_count', 'restart_configured', 'restart_time', 'last_startup_serial_number', 'ios_major_version', 'ios_minor_version', 'eigrp_major_version', 'eigrp_minor_version', 'retransmission_count', 'retry_count', 'need_init', 'need_init_ack', 'reinitialization_needed', 'reinit_start', 'peer_prefix_count', 'stubbed', 'allow_connected', 'allow_static', 'allow_summaries', 'allow_redistributed', 'test_handle', 'stubbed_interface', 'suspended_reset', 'suspended_time_left'], name, value)
 
 
-                                            class Source(Entity):
+                                            class Source(_Entity_):
                                                 """
                                                 Peer address
                                                 
@@ -5543,7 +5811,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.Source, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.Source, self).__init__()
 
                                                     self.yang_name = "source"
                                                     self.yang_parent_name = "neighbor"
@@ -5563,9 +5834,13 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.Source, ['ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.Source']['meta_info']
 
 
-                                            class NeighborQueue(Entity):
+                                            class NeighborQueue(_Entity_):
                                                 """
                                                 Neighbor Queue
                                                 
@@ -5659,7 +5934,10 @@ class Eigrp(Entity):
                                                 _revision = '2018-04-05'
 
                                                 def __init__(self):
-                                                    super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.NeighborQueue, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.NeighborQueue, self).__init__()
 
                                                     self.yang_name = "neighbor-queue"
                                                     self.yang_parent_name = "neighbor"
@@ -5695,11 +5973,23 @@ class Eigrp(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.NeighborQueue, ['operation_code', 'ack_sequnce_number', 'start_serial_number', 'end_serial_number', 'pregenerated', 'packet_length', 'time_sent_flag', 'time_sent', 'init_bit_set', 'sequenced'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor.NeighborQueue']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors.Neighbor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.Neighbors']['meta_info']
 
 
-
-
-                                    class EigrpStatistics(Entity):
+                                    class EigrpStatistics(_Entity_):
                                         """
                                         Statistics for a specific VRF AF
                                         
@@ -5882,7 +6172,10 @@ class Eigrp(Entity):
                                         _revision = '2018-04-05'
 
                                         def __init__(self):
-                                            super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpStatistics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpStatistics, self).__init__()
 
                                             self.yang_name = "eigrp-statistics"
                                             self.yang_parent_name = "as"
@@ -5936,18 +6229,58 @@ class Eigrp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpStatistics, ['afi', 'as_number', 'configured_interface_count', 'active_interfaces_count', 'activate_count', 'activate_error', 'activate_last_error', 'deactivate_count', 'deactivate_error', 'deactivate_last_error', 'socket_set', 'socket_set_error', 'sock_set_last_error', 'raw_packet_in', 'raw_packet_in_error', 'raw_packet_in_last_error', 'raw_packet_out', 'raw_packet_out_error', 'raw_packet_out_last_error'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As.EigrpStatistics']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases.As']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                    return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af.Ases']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                                return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs.Af']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                            return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf.Afs']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                        return meta._meta_table['Eigrp.Processes.Process.Vrfs.Vrf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                    return meta._meta_table['Eigrp.Processes.Process.Vrfs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+                return meta._meta_table['Eigrp.Processes.Process']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+            return meta._meta_table['Eigrp.Processes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Eigrp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_eigrp_oper as meta
+        return meta._meta_table['Eigrp']['meta_info']
 
 

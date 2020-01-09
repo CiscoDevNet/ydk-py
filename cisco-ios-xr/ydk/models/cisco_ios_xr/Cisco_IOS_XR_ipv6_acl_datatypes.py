@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -151,6 +154,12 @@ class Ipv6AclDscpNumber(Enum):
     ef = Enum.YLeaf(46, "ef")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclDscpNumber']
+
+
 class Ipv6AclGrantEnum(Enum):
     """
     Ipv6AclGrantEnum (Enum Class)
@@ -170,6 +179,12 @@ class Ipv6AclGrantEnum(Enum):
     deny = Enum.YLeaf(0, "deny")
 
     permit = Enum.YLeaf(1, "permit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclGrantEnum']
 
 
 class Ipv6AclIcmpTypeCodeEnum(Enum):
@@ -397,6 +412,12 @@ class Ipv6AclIcmpTypeCodeEnum(Enum):
     who_are_you_reply = Enum.YLeaf(9240575, "who-are-you-reply")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclIcmpTypeCodeEnum']
+
+
 class Ipv6AclLoggingEnum(Enum):
     """
     Ipv6AclLoggingEnum (Enum Class)
@@ -418,6 +439,12 @@ class Ipv6AclLoggingEnum(Enum):
     log = Enum.YLeaf(1, "log")
 
     log_input = Enum.YLeaf(2, "log-input")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclLoggingEnum']
 
 
 class Ipv6AclOperatorEnum(Enum):
@@ -457,6 +484,12 @@ class Ipv6AclOperatorEnum(Enum):
     not_equal = Enum.YLeaf(4, "not-equal")
 
     range = Enum.YLeaf(5, "range")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclOperatorEnum']
 
 
 class Ipv6AclPortNumber(Enum):
@@ -713,6 +746,22 @@ class Ipv6AclPortNumber(Enum):
 
     	Match on the LDP port
 
+    .. data:: https = 443
+
+    	Match on the HTTPS port
+
+    .. data:: bfd = 3784
+
+    	Match on the BFD port
+
+    .. data:: radius = 1812
+
+    	Match on the RADIUS AUTHENTICATION port
+
+    .. data:: radius_acct = 1813
+
+    	Match on the RADIUS ACCOUNTING port
+
     """
 
     echo = Enum.YLeaf(7, "echo")
@@ -811,6 +860,20 @@ class Ipv6AclPortNumber(Enum):
 
     ldp = Enum.YLeaf(646, "ldp")
 
+    https = Enum.YLeaf(443, "https")
+
+    bfd = Enum.YLeaf(3784, "bfd")
+
+    radius = Enum.YLeaf(1812, "radius")
+
+    radius_acct = Enum.YLeaf(1813, "radius-acct")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclPortNumber']
+
 
 class Ipv6AclPrecedenceNumber(Enum):
     """
@@ -869,6 +932,12 @@ class Ipv6AclPrecedenceNumber(Enum):
     priority = Enum.YLeaf(1, "priority")
 
     routine = Enum.YLeaf(0, "routine")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclPrecedenceNumber']
 
 
 class Ipv6AclProtocolNumber(Enum):
@@ -982,6 +1051,12 @@ class Ipv6AclProtocolNumber(Enum):
     sctp = Enum.YLeaf(132, "sctp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclProtocolNumber']
+
+
 class Ipv6AclStatusEnum(Enum):
     """
     Ipv6AclStatusEnum (Enum Class)
@@ -1001,6 +1076,12 @@ class Ipv6AclStatusEnum(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclStatusEnum']
 
 
 class Ipv6AclTcpMatchOperatorEnum(Enum):
@@ -1026,6 +1107,12 @@ class Ipv6AclTcpMatchOperatorEnum(Enum):
     match_any = Enum.YLeaf(3, "match-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclTcpMatchOperatorEnum']
+
+
 class Ipv6AclTypeEnum(Enum):
     """
     Ipv6AclTypeEnum (Enum Class)
@@ -1047,6 +1134,12 @@ class Ipv6AclTypeEnum(Enum):
     prefix_list = Enum.YLeaf(2, "prefix-list")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6AclTypeEnum']
+
+
 class Ipv6PrefixMatchExactLength(Enum):
     """
     Ipv6PrefixMatchExactLength (Enum Class)
@@ -1060,6 +1153,12 @@ class Ipv6PrefixMatchExactLength(Enum):
     """
 
     match_exact_length = Enum.YLeaf(1, "match-exact-length")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6PrefixMatchExactLength']
 
 
 class Ipv6PrefixMatchMaxLength(Enum):
@@ -1079,6 +1178,12 @@ class Ipv6PrefixMatchMaxLength(Enum):
     match_max_length = Enum.YLeaf(3, "match-max-length")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6PrefixMatchMaxLength']
+
+
 class Ipv6PrefixMatchMinLength(Enum):
     """
     Ipv6PrefixMatchMinLength (Enum Class)
@@ -1094,6 +1199,12 @@ class Ipv6PrefixMatchMinLength(Enum):
     """
 
     match_min_length = Enum.YLeaf(2, "match-min-length")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
+        return meta._meta_table['Ipv6PrefixMatchMinLength']
 
 
 

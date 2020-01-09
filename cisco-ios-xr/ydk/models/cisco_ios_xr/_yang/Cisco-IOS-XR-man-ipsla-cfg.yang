@@ -602,7 +602,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive";
         }
         type uint32 {
@@ -645,7 +645,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive' and ../thresh-type != 'average'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive and ../ThreshType != Average";
         }
         type uint32 {

@@ -1,7 +1,6 @@
 module CISCO-ENTITY-FRU-CONTROL-MIB {
   namespace "http://tail-f.com/ns/mibs/CISCO-ENTITY-FRU-CONTROL-MIB/200311240000Z";
   prefix CISCO_ENTITY_FRU_CONTROL_MIB;
-
   import ietf-yang-types {
     prefix yang;
   }
@@ -15,28 +14,211 @@ module CISCO-ENTITY-FRU-CONTROL-MIB {
     prefix ENTITY-MIB;
   }
 
-  organization
-    "Cisco Systems, Inc.";
+  organization "Cisco Systems, Inc.";
+
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2003-11-24 {
     description
       "";
+  }
+
+  container CISCO-ENTITY-FRU-CONTROL-MIB {
+    container cefcFRUPower {
+      config false;
+      leaf cefcMaxDefaultInLinePower {
+        type cefcMaxDefaultInLinePowerType;
+        default "12500";
+      }
+      leaf cefcMaxDefaultHighInLinePower {
+        type uint32;
+      }
+    }
+    container cefcMIBNotificationEnables {
+      config false;
+      leaf cefcMIBEnableStatusNotification {
+        type SNMPv2-TC:TruthValue;
+        default "false";
+      }
+    }
+    container cefcFRUPowerSupplyGroupTable {
+      config false;
+      list cefcFRUPowerSupplyGroupEntry {
+        key "entPhysicalIndex";
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcPowerRedundancyMode {
+          type PowerRedundancyType;
+        }
+        leaf cefcPowerUnits {
+          type string {
+            length "0 .. 255";
+          }
+          config false;
+        }
+        leaf cefcTotalAvailableCurrent {
+          type FRUCurrentType;
+          config false;
+        }
+        leaf cefcTotalDrawnCurrent {
+          type FRUCurrentType;
+          config false;
+        }
+        leaf cefcPowerRedundancyOperMode {
+          type PowerRedundancyType;
+          config false;
+        }
+      }
+    }
+    container cefcFRUPowerStatusTable {
+      config false;
+      list cefcFRUPowerStatusEntry {
+        key "entPhysicalIndex";
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcFRUPowerAdminStatus {
+          type PowerAdminType;
+          config false;
+        }
+        leaf cefcFRUPowerOperStatus {
+          type PowerOperType;
+          config false;
+        }
+        leaf cefcFRUCurrent {
+          type FRUCurrentType;
+          config false;
+        }
+      }
+    }
+    container cefcFRUPowerSupplyValueTable {
+      config false;
+      list cefcFRUPowerSupplyValueEntry {
+        key "entPhysicalIndex";
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcFRUTotalSystemCurrent {
+          type FRUCurrentType;
+        }
+        leaf cefcFRUDrawnSystemCurrent {
+          type FRUCurrentType;
+        }
+        leaf cefcFRUTotalInlineCurrent {
+          type FRUCurrentType;
+        }
+        leaf cefcFRUDrawnInlineCurrent {
+          type FRUCurrentType;
+        }
+      }
+    }
+    container cefcModuleTable {
+      config false;
+      list cefcModuleEntry {
+        key "entPhysicalIndex";
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcModuleAdminStatus {
+          type ModuleAdminType;
+          config false;
+        }
+        leaf cefcModuleOperStatus {
+          type ModuleOperType;
+          config false;
+        }
+        leaf cefcModuleResetReason {
+          type ModuleResetReasonType;
+          config false;
+        }
+        leaf cefcModuleStatusLastChangeTime {
+          type yang:timestamp;
+          config false;
+        }
+        leaf cefcModuleLastClearConfigTime {
+          type yang:timestamp;
+          config false;
+        }
+        leaf cefcModuleResetReasonDescription {
+          type string {
+            length "0 .. 255";
+          }
+          config false;
+        }
+        leaf cefcModuleStateChangeReasonDescr {
+          type string {
+            length "0 .. 255";
+          }
+          config false;
+        }
+        leaf cefcModuleUpTime {
+          type FRUTimeSeconds;
+          config false;
+        }
+      }
+    }
+    container cefcIntelliModuleTable {
+      config false;
+      list cefcIntelliModuleEntry {
+        key "entPhysicalIndex";
+        config false;
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcIntelliModuleIPAddrType {
+          type INET-ADDRESS-MIB:InetAddressType;
+          config false;
+        }
+        leaf cefcIntelliModuleIPAddr {
+          type INET-ADDRESS-MIB:InetAddress;
+          config false;
+        }
+      }
+    }
+    container cefcFanTrayStatusTable {
+      config false;
+      list cefcFanTrayStatusEntry {
+        key "entPhysicalIndex";
+        config false;
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcFanTrayOperStatus {
+          type cefcFanTrayOperStatusType;
+          config false;
+        }
+      }
+    }
+    container cefcPhysicalTable {
+      config false;
+      list cefcPhysicalEntry {
+        key "entPhysicalIndex";
+        config false;
+        leaf entPhysicalIndex {
+          type ENTITY-MIB:PhysicalIndex;
+        }
+        leaf cefcPhysicalStatus {
+          type cefcPhysicalStatusType;
+          config false;
+        }
+      }
+    }
   }
 
   typedef PowerRedundancyType {
@@ -309,189 +491,6 @@ module CISCO-ENTITY-FRU-CONTROL-MIB {
       }
       enum "incompatible" {
         value 4;
-      }
-    }
-  }
-
-  container CISCO-ENTITY-FRU-CONTROL-MIB {
-    container cefcFRUPower {
-      config false;
-      leaf cefcMaxDefaultInLinePower {
-        type cefcMaxDefaultInLinePowerType;
-        default "12500";
-      }
-      leaf cefcMaxDefaultHighInLinePower {
-        type uint32;
-      }
-    }
-    container cefcMIBNotificationEnables {
-      config false;
-      leaf cefcMIBEnableStatusNotification {
-        type SNMPv2-TC:TruthValue;
-        default "false";
-      }
-    }
-    container cefcFRUPowerSupplyGroupTable {
-      config false;
-      list cefcFRUPowerSupplyGroupEntry {
-        key "entPhysicalIndex";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcPowerRedundancyMode {
-          type PowerRedundancyType;
-        }
-        leaf cefcPowerUnits {
-          type string {
-            length "0 .. 255";
-          }
-          config false;
-        }
-        leaf cefcTotalAvailableCurrent {
-          type FRUCurrentType;
-          config false;
-        }
-        leaf cefcTotalDrawnCurrent {
-          type FRUCurrentType;
-          config false;
-        }
-        leaf cefcPowerRedundancyOperMode {
-          type PowerRedundancyType;
-          config false;
-        }
-      }
-    }
-    container cefcFRUPowerStatusTable {
-      config false;
-      list cefcFRUPowerStatusEntry {
-        key "entPhysicalIndex";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcFRUPowerAdminStatus {
-          type PowerAdminType;
-          config false;
-        }
-        leaf cefcFRUPowerOperStatus {
-          type PowerOperType;
-          config false;
-        }
-        leaf cefcFRUCurrent {
-          type FRUCurrentType;
-          config false;
-        }
-      }
-    }
-    container cefcFRUPowerSupplyValueTable {
-      config false;
-      list cefcFRUPowerSupplyValueEntry {
-        key "entPhysicalIndex";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcFRUTotalSystemCurrent {
-          type FRUCurrentType;
-        }
-        leaf cefcFRUDrawnSystemCurrent {
-          type FRUCurrentType;
-        }
-        leaf cefcFRUTotalInlineCurrent {
-          type FRUCurrentType;
-        }
-        leaf cefcFRUDrawnInlineCurrent {
-          type FRUCurrentType;
-        }
-      }
-    }
-    container cefcModuleTable {
-      config false;
-      list cefcModuleEntry {
-        key "entPhysicalIndex";
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcModuleAdminStatus {
-          type ModuleAdminType;
-          config false;
-        }
-        leaf cefcModuleOperStatus {
-          type ModuleOperType;
-          config false;
-        }
-        leaf cefcModuleResetReason {
-          type ModuleResetReasonType;
-          config false;
-        }
-        leaf cefcModuleStatusLastChangeTime {
-          type yang:timestamp;
-          config false;
-        }
-        leaf cefcModuleLastClearConfigTime {
-          type yang:timestamp;
-          config false;
-        }
-        leaf cefcModuleResetReasonDescription {
-          type string {
-            length "0 .. 255";
-          }
-          config false;
-        }
-        leaf cefcModuleStateChangeReasonDescr {
-          type string {
-            length "0 .. 255";
-          }
-          config false;
-        }
-        leaf cefcModuleUpTime {
-          type FRUTimeSeconds;
-          config false;
-        }
-      }
-    }
-    container cefcIntelliModuleTable {
-      config false;
-      list cefcIntelliModuleEntry {
-        key "entPhysicalIndex";
-        config false;
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcIntelliModuleIPAddrType {
-          type INET-ADDRESS-MIB:InetAddressType;
-          config false;
-        }
-        leaf cefcIntelliModuleIPAddr {
-          type INET-ADDRESS-MIB:InetAddress;
-          config false;
-        }
-      }
-    }
-    container cefcFanTrayStatusTable {
-      config false;
-      list cefcFanTrayStatusEntry {
-        key "entPhysicalIndex";
-        config false;
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcFanTrayOperStatus {
-          type cefcFanTrayOperStatusType;
-          config false;
-        }
-      }
-    }
-    container cefcPhysicalTable {
-      config false;
-      list cefcPhysicalEntry {
-        key "entPhysicalIndex";
-        config false;
-        leaf entPhysicalIndex {
-          type ENTITY-MIB:PhysicalIndex;
-        }
-        leaf cefcPhysicalStatus {
-          type cefcPhysicalStatusType;
-          config false;
-        }
       }
     }
   }

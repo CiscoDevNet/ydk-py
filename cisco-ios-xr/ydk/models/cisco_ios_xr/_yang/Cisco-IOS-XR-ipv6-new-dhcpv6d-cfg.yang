@@ -195,6 +195,25 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
            minutes)";
       }
     }
+    container rate-limit-solicit {
+      description
+        "Rate limit ingress packets";
+      leaf num-period {
+        type uint32 {
+          range "1..1000";
+        }
+        description
+          "Period in msec (Default: 200 msec)";
+      }
+      leaf num-solicit {
+        type uint32 {
+          range "0..1000";
+        }
+        description
+          "Number of Solicit packets (Default: 100, 0: No
+           limit)";
+      }
+    }
     container profiles {
       description
         "Table of Profile";

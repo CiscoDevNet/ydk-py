@@ -20,8 +20,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -68,6 +71,12 @@ class SrlgPriority(Enum):
     very_low = Enum.YLeaf(4, "very-low")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['SrlgPriority']
+
+
 class VrfAddressFamily(Enum):
     """
     VrfAddressFamily (Enum Class)
@@ -87,6 +96,12 @@ class VrfAddressFamily(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['VrfAddressFamily']
 
 
 class VrfSubAddressFamily(Enum):
@@ -116,8 +131,14 @@ class VrfSubAddressFamily(Enum):
     flow_spec = Enum.YLeaf(133, "flow-spec")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['VrfSubAddressFamily']
 
-class Vrfs(Entity):
+
+
+class Vrfs(_Entity_):
     """
     VRF configuration
     
@@ -134,7 +155,10 @@ class Vrfs(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(Vrfs, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vrfs, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vrfs"
@@ -153,7 +177,7 @@ class Vrfs(Entity):
         self._perform_setattr(Vrfs, [], name, value)
 
 
-    class Vrf(Entity):
+    class Vrf(_Entity_):
         """
         VRF configuration
         
@@ -223,7 +247,10 @@ class Vrfs(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Vrfs.Vrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vrfs.Vrf, self).__init__()
 
             self.yang_name = "vrf"
             self.yang_parent_name = "vrfs"
@@ -268,7 +295,7 @@ class Vrfs(Entity):
             self._perform_setattr(Vrfs.Vrf, ['vrf_name', 'fallback_vrf', 'remote_route_filter_disable', 'create', 'mode_big', 'description'], name, value)
 
 
-        class VpnId(Entity):
+        class VpnId(_Entity_):
             """
             VPN\-ID for the VRF
             
@@ -300,7 +327,10 @@ class Vrfs(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Vrfs.Vrf.VpnId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrfs.Vrf.VpnId, self).__init__()
 
                 self.yang_name = "vpn-id"
                 self.yang_parent_name = "vrf"
@@ -321,9 +351,13 @@ class Vrfs(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.VpnId, ['vpn_oui', 'vpn_index'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Vrfs.Vrf.VpnId']['meta_info']
 
 
-        class Afs(Entity):
+        class Afs(_Entity_):
             """
             VRF address family configuration
             
@@ -340,7 +374,10 @@ class Vrfs(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Vrfs.Vrf.Afs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrfs.Vrf.Afs, self).__init__()
 
                 self.yang_name = "afs"
                 self.yang_parent_name = "vrf"
@@ -358,7 +395,7 @@ class Vrfs(Entity):
                 self._perform_setattr(Vrfs.Vrf.Afs, [], name, value)
 
 
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 VRF address family configuration
                 
@@ -384,17 +421,17 @@ class Vrfs(Entity):
                 	VRF configuration for a particular address family
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                .. attribute:: bgp
+                
+                	BGP AF VRF config
+                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
+                
                 .. attribute:: maximum_prefix
                 
                 	Set maximum prefix limits
                 	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
                 
                 	**presence node**\: True
-                
-                .. attribute:: bgp
-                
-                	BGP AF VRF config
-                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
                 
                 
 
@@ -404,14 +441,17 @@ class Vrfs(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Vrfs.Vrf.Afs.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrfs.Vrf.Afs.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "afs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['af_name','saf_name','topology_name']
-                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp))])
+                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix))])
                     self._leafs = OrderedDict([
                         ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
                         ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
@@ -423,12 +463,12 @@ class Vrfs(Entity):
                     self.topology_name = None
                     self.create = None
 
-                    self.maximum_prefix = None
-                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
                     self.bgp = Vrfs.Vrf.Afs.Af.Bgp()
                     self.bgp.parent = self
                     self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+
+                    self.maximum_prefix = None
+                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                     self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                     self._is_frozen = True
 
@@ -436,60 +476,7 @@ class Vrfs(Entity):
                     self._perform_setattr(Vrfs.Vrf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
 
 
-                class MaximumPrefix(Entity):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\: int
-                    
-                    	**range:** 32..10000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\: int
-                    
-                    	**range:** 1..100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2017-07-31'
-
-                    def __init__(self):
-                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
-
-                        self.yang_name = "maximum-prefix"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self.is_presence_container = True
-                        self._leafs = OrderedDict([
-                            ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
-                            ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
-                        ])
-                        self.prefix_limit = None
-                        self.mid_threshold = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
-
-
-
-                class Bgp(Entity):
+                class Bgp(_Entity_):
                     """
                     BGP AF VRF config
                     
@@ -550,7 +537,10 @@ class Vrfs(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Vrfs.Vrf.Afs.Af.Bgp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrfs.Vrf.Afs.Af.Bgp, self).__init__()
 
                         self.yang_name = "bgp"
                         self.yang_parent_name = "af"
@@ -593,7 +583,7 @@ class Vrfs(Entity):
                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options', 'import_from_bridge_domain'], name, value)
 
 
-                    class ImportRouteTargets(Entity):
+                    class ImportRouteTargets(_Entity_):
                         """
                         Import Route targets
                         
@@ -610,7 +600,10 @@ class Vrfs(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
 
                             self.yang_name = "import-route-targets"
                             self.yang_parent_name = "bgp"
@@ -630,7 +623,7 @@ class Vrfs(Entity):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
 
 
-                        class RouteTargets(Entity):
+                        class RouteTargets(_Entity_):
                             """
                             Route target table
                             
@@ -647,7 +640,10 @@ class Vrfs(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
 
                                 self.yang_name = "route-targets"
                                 self.yang_parent_name = "import-route-targets"
@@ -665,7 +661,7 @@ class Vrfs(Entity):
                                 self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, [], name, value)
 
 
-                            class RouteTarget(Entity):
+                            class RouteTarget(_Entity_):
                                 """
                                 Route target
                                 
@@ -692,7 +688,10 @@ class Vrfs(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
 
                                     self.yang_name = "route-target"
                                     self.yang_parent_name = "route-targets"
@@ -714,7 +713,7 @@ class Vrfs(Entity):
                                     self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
 
 
-                                class AsOrFourByteAs(Entity):
+                                class AsOrFourByteAs(_Entity_):
                                     """
                                     as or four byte as
                                     
@@ -754,7 +753,10 @@ class Vrfs(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
 
                                         self.yang_name = "as-or-four-byte-as"
                                         self.yang_parent_name = "route-target"
@@ -778,9 +780,13 @@ class Vrfs(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                        return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs']['meta_info']
 
 
-                                class Ipv4Address(Entity):
+                                class Ipv4Address(_Entity_):
                                     """
                                     ipv4 address
                                     
@@ -813,7 +819,10 @@ class Vrfs(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                         self.yang_name = "ipv4-address"
                                         self.yang_parent_name = "route-target"
@@ -835,12 +844,28 @@ class Vrfs(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                        return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets']['meta_info']
 
 
-
-
-
-                    class ExportRouteTargets(Entity):
+                    class ExportRouteTargets(_Entity_):
                         """
                         Export Route targets
                         
@@ -857,7 +882,10 @@ class Vrfs(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
 
                             self.yang_name = "export-route-targets"
                             self.yang_parent_name = "bgp"
@@ -877,7 +905,7 @@ class Vrfs(Entity):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
 
 
-                        class RouteTargets(Entity):
+                        class RouteTargets(_Entity_):
                             """
                             Route target table
                             
@@ -894,7 +922,10 @@ class Vrfs(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
 
                                 self.yang_name = "route-targets"
                                 self.yang_parent_name = "export-route-targets"
@@ -912,7 +943,7 @@ class Vrfs(Entity):
                                 self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, [], name, value)
 
 
-                            class RouteTarget(Entity):
+                            class RouteTarget(_Entity_):
                                 """
                                 Route target
                                 
@@ -939,7 +970,10 @@ class Vrfs(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
 
                                     self.yang_name = "route-target"
                                     self.yang_parent_name = "route-targets"
@@ -961,7 +995,7 @@ class Vrfs(Entity):
                                     self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
 
 
-                                class AsOrFourByteAs(Entity):
+                                class AsOrFourByteAs(_Entity_):
                                     """
                                     as or four byte as
                                     
@@ -1001,7 +1035,10 @@ class Vrfs(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
 
                                         self.yang_name = "as-or-four-byte-as"
                                         self.yang_parent_name = "route-target"
@@ -1025,9 +1062,13 @@ class Vrfs(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                        return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs']['meta_info']
 
 
-                                class Ipv4Address(Entity):
+                                class Ipv4Address(_Entity_):
                                     """
                                     ipv4 address
                                     
@@ -1060,7 +1101,10 @@ class Vrfs(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                         self.yang_name = "ipv4-address"
                                         self.yang_parent_name = "route-target"
@@ -1082,12 +1126,28 @@ class Vrfs(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                        return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info']
 
 
-
-
-
-                    class VrfToGlobalExportRoutePolicy(Entity):
+                    class VrfToGlobalExportRoutePolicy(_Entity_):
                         """
                         Route policy for vrf to global export filtering
                         
@@ -1113,7 +1173,10 @@ class Vrfs(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
 
                             self.yang_name = "vrf-to-global-export-route-policy"
                             self.yang_parent_name = "bgp"
@@ -1134,9 +1197,13 @@ class Vrfs(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info']
 
 
-                    class ExportVrfOptions(Entity):
+                    class ExportVrfOptions(_Entity_):
                         """
                         Export VRF options
                         
@@ -1158,7 +1225,10 @@ class Vrfs(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
 
                             self.yang_name = "export-vrf-options"
                             self.yang_parent_name = "bgp"
@@ -1178,9 +1248,13 @@ class Vrfs(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions']['meta_info']
 
 
-                    class GlobalToVrfImportRoutePolicy(Entity):
+                    class GlobalToVrfImportRoutePolicy(_Entity_):
                         """
                         Route policy for global to vrf import filtering
                         
@@ -1206,7 +1280,10 @@ class Vrfs(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
 
                             self.yang_name = "global-to-vrf-import-route-policy"
                             self.yang_parent_name = "bgp"
@@ -1227,12 +1304,88 @@ class Vrfs(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 
 
+                class MaximumPrefix(_Entity_):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\: int
+                    
+                    	**range:** 32..10000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\: int
+                    
+                    	**range:** 1..100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2017-07-31'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
+
+                        self.yang_name = "maximum-prefix"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                            ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                        ])
+                        self.prefix_limit = None
+                        self.mid_threshold = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Vrfs.Vrf.Afs']['meta_info']
 
 
-
-        class MulticastHost(Entity):
+        class MulticastHost(_Entity_):
             """
             Multicast host stack configuration
             
@@ -1254,7 +1407,10 @@ class Vrfs(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vrfs.Vrf.MulticastHost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrfs.Vrf.MulticastHost, self).__init__()
 
                 self.yang_name = "multicast-host"
                 self.yang_parent_name = "vrf"
@@ -1278,7 +1434,7 @@ class Vrfs(Entity):
                 self._perform_setattr(Vrfs.Vrf.MulticastHost, [], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 IPv4 configuration
                 
@@ -1297,7 +1453,10 @@ class Vrfs(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vrfs.Vrf.MulticastHost.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrfs.Vrf.MulticastHost.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "multicast-host"
@@ -1315,9 +1474,13 @@ class Vrfs(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv4, ['interface'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Vrfs.Vrf.MulticastHost.Ipv4']['meta_info']
 
 
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 IPv6 configuration
                 
@@ -1336,7 +1499,10 @@ class Vrfs(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vrfs.Vrf.MulticastHost.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrfs.Vrf.MulticastHost.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "multicast-host"
@@ -1354,10 +1520,18 @@ class Vrfs(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv6, ['interface'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Vrfs.Vrf.MulticastHost.Ipv6']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Vrfs.Vrf.MulticastHost']['meta_info']
 
 
-
-        class BgpGlobal(Entity):
+        class BgpGlobal(_Entity_):
             """
             BGP related VRF Global config
             
@@ -1374,7 +1548,10 @@ class Vrfs(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Vrfs.Vrf.BgpGlobal, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vrfs.Vrf.BgpGlobal, self).__init__()
 
                 self.yang_name = "bgp-global"
                 self.yang_parent_name = "vrf"
@@ -1394,7 +1571,7 @@ class Vrfs(Entity):
                 self._perform_setattr(Vrfs.Vrf.BgpGlobal, [], name, value)
 
 
-            class RouteDistinguisher(Entity):
+            class RouteDistinguisher(_Entity_):
                 """
                 Route distinguisher
                 
@@ -1446,7 +1623,10 @@ class Vrfs(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
 
                     self.yang_name = "route-distinguisher"
                     self.yang_parent_name = "bgp-global"
@@ -1474,16 +1654,32 @@ class Vrfs(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Vrfs.Vrf.BgpGlobal.RouteDistinguisher']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Vrfs.Vrf.BgpGlobal']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['Vrfs.Vrf']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vrfs()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['Vrfs']['meta_info']
 
 
-class GlobalAf(Entity):
+class GlobalAf(_Entity_):
     """
     global af
     
@@ -1500,7 +1696,10 @@ class GlobalAf(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(GlobalAf, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GlobalAf, self).__init__()
         self._top_entity = None
 
         self.yang_name = "global-af"
@@ -1521,7 +1720,7 @@ class GlobalAf(Entity):
         self._perform_setattr(GlobalAf, [], name, value)
 
 
-    class Afs(Entity):
+    class Afs(_Entity_):
         """
         VRF address family configuration
         
@@ -1538,7 +1737,10 @@ class GlobalAf(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(GlobalAf.Afs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GlobalAf.Afs, self).__init__()
 
             self.yang_name = "afs"
             self.yang_parent_name = "global-af"
@@ -1557,7 +1759,7 @@ class GlobalAf(Entity):
             self._perform_setattr(GlobalAf.Afs, [], name, value)
 
 
-        class Af(Entity):
+        class Af(_Entity_):
             """
             VRF address family configuration
             
@@ -1583,17 +1785,17 @@ class GlobalAf(Entity):
             	VRF configuration for a particular address family
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            .. attribute:: bgp
+            
+            	BGP AF VRF config
+            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
+            
             .. attribute:: maximum_prefix
             
             	Set maximum prefix limits
             	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.MaximumPrefix>`
             
             	**presence node**\: True
-            
-            .. attribute:: bgp
-            
-            	BGP AF VRF config
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
             
             
 
@@ -1603,14 +1805,17 @@ class GlobalAf(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(GlobalAf.Afs.Af, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GlobalAf.Afs.Af, self).__init__()
 
                 self.yang_name = "af"
                 self.yang_parent_name = "afs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['af_name','saf_name','topology_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix))])
                 self._leafs = OrderedDict([
                     ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
                     ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
@@ -1622,12 +1827,12 @@ class GlobalAf(Entity):
                 self.topology_name = None
                 self.create = None
 
-                self.maximum_prefix = None
-                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
                 self.bgp = GlobalAf.Afs.Af.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+
+                self.maximum_prefix = None
+                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af/afs/%s" % self._segment_path()
                 self._is_frozen = True
@@ -1636,60 +1841,7 @@ class GlobalAf(Entity):
                 self._perform_setattr(GlobalAf.Afs.Af, ['af_name', 'saf_name', 'topology_name', 'create'], name, value)
 
 
-            class MaximumPrefix(Entity):
-                """
-                Set maximum prefix limits
-                
-                .. attribute:: prefix_limit
-                
-                	Set table's maximum prefix limit
-                	**type**\: int
-                
-                	**range:** 32..10000000
-                
-                	**mandatory**\: True
-                
-                .. attribute:: mid_threshold
-                
-                	Mid\-threshold (% of maximum)
-                	**type**\: int
-                
-                	**range:** 1..100
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ip-rib-cfg'
-                _revision = '2017-07-31'
-
-                def __init__(self):
-                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
-
-                    self.yang_name = "maximum-prefix"
-                    self.yang_parent_name = "af"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self.is_presence_container = True
-                    self._leafs = OrderedDict([
-                        ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
-                        ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
-                    ])
-                    self.prefix_limit = None
-                    self.mid_threshold = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
-
-
-
-            class Bgp(Entity):
+            class Bgp(_Entity_):
                 """
                 BGP AF VRF config
                 
@@ -1750,7 +1902,10 @@ class GlobalAf(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(GlobalAf.Afs.Af.Bgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalAf.Afs.Af.Bgp, self).__init__()
 
                     self.yang_name = "bgp"
                     self.yang_parent_name = "af"
@@ -1793,7 +1948,7 @@ class GlobalAf(Entity):
                     self._perform_setattr(GlobalAf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options', 'import_from_bridge_domain'], name, value)
 
 
-                class ImportRouteTargets(Entity):
+                class ImportRouteTargets(_Entity_):
                     """
                     Import Route targets
                     
@@ -1810,7 +1965,10 @@ class GlobalAf(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
 
                         self.yang_name = "import-route-targets"
                         self.yang_parent_name = "bgp"
@@ -1830,7 +1988,7 @@ class GlobalAf(Entity):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
 
 
-                    class RouteTargets(Entity):
+                    class RouteTargets(_Entity_):
                         """
                         Route target table
                         
@@ -1847,7 +2005,10 @@ class GlobalAf(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
 
                             self.yang_name = "route-targets"
                             self.yang_parent_name = "import-route-targets"
@@ -1865,7 +2026,7 @@ class GlobalAf(Entity):
                             self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, [], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget(_Entity_):
                             """
                             Route target
                             
@@ -1892,7 +2053,10 @@ class GlobalAf(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-targets"
@@ -1914,7 +2078,7 @@ class GlobalAf(Entity):
                                 self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
 
 
-                            class AsOrFourByteAs(Entity):
+                            class AsOrFourByteAs(_Entity_):
                                 """
                                 as or four byte as
                                 
@@ -1954,7 +2118,10 @@ class GlobalAf(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
 
                                     self.yang_name = "as-or-four-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -1978,9 +2145,13 @@ class GlobalAf(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs']['meta_info']
 
 
-                            class Ipv4Address(Entity):
+                            class Ipv4Address(_Entity_):
                                 """
                                 ipv4 address
                                 
@@ -2013,7 +2184,10 @@ class GlobalAf(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                     self.yang_name = "ipv4-address"
                                     self.yang_parent_name = "route-target"
@@ -2035,12 +2209,28 @@ class GlobalAf(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                return meta._meta_table['GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['GlobalAf.Afs.Af.Bgp.ImportRouteTargets']['meta_info']
 
 
-
-
-
-                class ExportRouteTargets(Entity):
+                class ExportRouteTargets(_Entity_):
                     """
                     Export Route targets
                     
@@ -2057,7 +2247,10 @@ class GlobalAf(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
 
                         self.yang_name = "export-route-targets"
                         self.yang_parent_name = "bgp"
@@ -2077,7 +2270,7 @@ class GlobalAf(Entity):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
 
 
-                    class RouteTargets(Entity):
+                    class RouteTargets(_Entity_):
                         """
                         Route target table
                         
@@ -2094,7 +2287,10 @@ class GlobalAf(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
 
                             self.yang_name = "route-targets"
                             self.yang_parent_name = "export-route-targets"
@@ -2112,7 +2308,7 @@ class GlobalAf(Entity):
                             self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, [], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget(_Entity_):
                             """
                             Route target
                             
@@ -2139,7 +2335,10 @@ class GlobalAf(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-targets"
@@ -2161,7 +2360,7 @@ class GlobalAf(Entity):
                                 self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
 
 
-                            class AsOrFourByteAs(Entity):
+                            class AsOrFourByteAs(_Entity_):
                                 """
                                 as or four byte as
                                 
@@ -2201,7 +2400,10 @@ class GlobalAf(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
 
                                     self.yang_name = "as-or-four-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -2225,9 +2427,13 @@ class GlobalAf(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs']['meta_info']
 
 
-                            class Ipv4Address(Entity):
+                            class Ipv4Address(_Entity_):
                                 """
                                 ipv4 address
                                 
@@ -2260,7 +2466,10 @@ class GlobalAf(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
 
                                     self.yang_name = "ipv4-address"
                                     self.yang_parent_name = "route-target"
@@ -2282,12 +2491,28 @@ class GlobalAf(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                    return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                                return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportRouteTargets']['meta_info']
 
 
-
-
-
-                class VrfToGlobalExportRoutePolicy(Entity):
+                class VrfToGlobalExportRoutePolicy(_Entity_):
                     """
                     Route policy for vrf to global export filtering
                     
@@ -2313,7 +2538,10 @@ class GlobalAf(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
 
                         self.yang_name = "vrf-to-global-export-route-policy"
                         self.yang_parent_name = "bgp"
@@ -2334,9 +2562,13 @@ class GlobalAf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info']
 
 
-                class ExportVrfOptions(Entity):
+                class ExportVrfOptions(_Entity_):
                     """
                     Export VRF options
                     
@@ -2358,7 +2590,10 @@ class GlobalAf(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
 
                         self.yang_name = "export-vrf-options"
                         self.yang_parent_name = "bgp"
@@ -2378,9 +2613,13 @@ class GlobalAf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['GlobalAf.Afs.Af.Bgp.ExportVrfOptions']['meta_info']
 
 
-                class GlobalToVrfImportRoutePolicy(Entity):
+                class GlobalToVrfImportRoutePolicy(_Entity_):
                     """
                     Route policy for global to vrf import filtering
                     
@@ -2406,7 +2645,10 @@ class GlobalAf(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
 
                         self.yang_name = "global-to-vrf-import-route-policy"
                         self.yang_parent_name = "bgp"
@@ -2427,17 +2669,97 @@ class GlobalAf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['GlobalAf.Afs.Af.Bgp']['meta_info']
 
 
+            class MaximumPrefix(_Entity_):
+                """
+                Set maximum prefix limits
+                
+                .. attribute:: prefix_limit
+                
+                	Set table's maximum prefix limit
+                	**type**\: int
+                
+                	**range:** 32..10000000
+                
+                	**mandatory**\: True
+                
+                .. attribute:: mid_threshold
+                
+                	Mid\-threshold (% of maximum)
+                	**type**\: int
+                
+                	**range:** 1..100
+                
+                
 
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ip-rib-cfg'
+                _revision = '2017-07-31'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
+
+                    self.yang_name = "maximum-prefix"
+                    self.yang_parent_name = "af"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                        ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                    ])
+                    self.prefix_limit = None
+                    self.mid_threshold = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['GlobalAf.Afs.Af.MaximumPrefix']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['GlobalAf.Afs.Af']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['GlobalAf.Afs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GlobalAf()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['GlobalAf']['meta_info']
 
 
-class Srlg(Entity):
+class Srlg(_Entity_):
     """
     srlg
     
@@ -2474,7 +2796,10 @@ class Srlg(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(Srlg, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Srlg, self).__init__()
         self._top_entity = None
 
         self.yang_name = "srlg"
@@ -2510,7 +2835,7 @@ class Srlg(Entity):
         self._perform_setattr(Srlg, ['enable'], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Set of interfaces configured with SRLG
         
@@ -2527,7 +2852,10 @@ class Srlg(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Srlg.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "srlg"
@@ -2546,7 +2874,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Interface configurations
             
@@ -2590,7 +2918,10 @@ class Srlg(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Srlg.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -2628,7 +2959,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
 
-            class IncludeOptical(Entity):
+            class IncludeOptical(_Entity_):
                 """
                 Include optical configuration for an interface
                 
@@ -2652,7 +2983,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.Interfaces.Interface.IncludeOptical, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Interfaces.Interface.IncludeOptical, self).__init__()
 
                     self.yang_name = "include-optical"
                     self.yang_parent_name = "interface"
@@ -2672,9 +3006,13 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, ['enable', 'priority'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.Interfaces.Interface.IncludeOptical']['meta_info']
 
 
-            class InterfaceGroup(Entity):
+            class InterfaceGroup(_Entity_):
                 """
                 Group configuration for an interface
                 
@@ -2696,7 +3034,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.Interfaces.Interface.InterfaceGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Interfaces.Interface.InterfaceGroup, self).__init__()
 
                     self.yang_name = "interface-group"
                     self.yang_parent_name = "interface"
@@ -2719,7 +3060,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, ['enable'], name, value)
 
 
-                class GroupNames(Entity):
+                class GroupNames(_Entity_):
                     """
                     Set of group name under an interface
                     
@@ -2736,7 +3077,10 @@ class Srlg(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames, self).__init__()
 
                         self.yang_name = "group-names"
                         self.yang_parent_name = "interface-group"
@@ -2754,7 +3098,7 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames, [], name, value)
 
 
-                    class GroupName(Entity):
+                    class GroupName(_Entity_):
                         """
                         Group name included under interface
                         
@@ -2787,7 +3131,10 @@ class Srlg(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, self).__init__()
 
                             self.yang_name = "group-name"
                             self.yang_parent_name = "group-names"
@@ -2809,11 +3156,23 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, ['group_name_index', 'group_name', 'srlg_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Srlg.Interfaces.Interface.InterfaceGroup.GroupNames']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.Interfaces.Interface.InterfaceGroup']['meta_info']
 
 
-
-
-            class Values(Entity):
+            class Values(_Entity_):
                 """
                 SRLG Value configuration for an interface
                 
@@ -2830,7 +3189,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.Interfaces.Interface.Values, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Interfaces.Interface.Values, self).__init__()
 
                     self.yang_name = "values"
                     self.yang_parent_name = "interface"
@@ -2848,7 +3210,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Interfaces.Interface.Values, [], name, value)
 
 
-                class Value(Entity):
+                class Value(_Entity_):
                     """
                     SRLG value data
                     
@@ -2883,7 +3245,10 @@ class Srlg(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Srlg.Interfaces.Interface.Values.Value, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Interfaces.Interface.Values.Value, self).__init__()
 
                         self.yang_name = "value"
                         self.yang_parent_name = "values"
@@ -2905,10 +3270,18 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Srlg.Interfaces.Interface.Values.Value']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.Interfaces.Interface.Values']['meta_info']
 
 
-
-            class InterfaceSrlgNames(Entity):
+            class InterfaceSrlgNames(_Entity_):
                 """
                 SRLG Name configuration for an interface
                 
@@ -2925,7 +3298,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.Interfaces.Interface.InterfaceSrlgNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Interfaces.Interface.InterfaceSrlgNames, self).__init__()
 
                     self.yang_name = "interface-srlg-names"
                     self.yang_parent_name = "interface"
@@ -2943,7 +3319,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames, [], name, value)
 
 
-                class InterfaceSrlgName(Entity):
+                class InterfaceSrlgName(_Entity_):
                     """
                     SRLG name data
                     
@@ -2962,7 +3338,10 @@ class Srlg(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
 
                         self.yang_name = "interface-srlg-name"
                         self.yang_parent_name = "interface-srlg-names"
@@ -2980,12 +3359,28 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.Interfaces.Interface.InterfaceSrlgNames']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Srlg.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['Srlg.Interfaces']['meta_info']
 
 
-
-
-
-    class SrlgNames(Entity):
+    class SrlgNames(_Entity_):
         """
         Set of SRLG name configuration
         
@@ -3002,7 +3397,10 @@ class Srlg(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Srlg.SrlgNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.SrlgNames, self).__init__()
 
             self.yang_name = "srlg-names"
             self.yang_parent_name = "srlg"
@@ -3021,7 +3419,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.SrlgNames, [], name, value)
 
 
-        class SrlgName(Entity):
+        class SrlgName(_Entity_):
             """
             SRLG name configuration
             
@@ -3049,7 +3447,10 @@ class Srlg(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Srlg.SrlgNames.SrlgName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.SrlgNames.SrlgName, self).__init__()
 
                 self.yang_name = "srlg-name"
                 self.yang_parent_name = "srlg-names"
@@ -3070,10 +3471,18 @@ class Srlg(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.SrlgNames.SrlgName, ['srlg_name', 'srlg_value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Srlg.SrlgNames.SrlgName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['Srlg.SrlgNames']['meta_info']
 
 
-
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Set of groups configured with SRLG
         
@@ -3090,7 +3499,10 @@ class Srlg(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Srlg.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "srlg"
@@ -3109,7 +3521,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Group configurations
             
@@ -3138,7 +3550,10 @@ class Srlg(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Srlg.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -3164,7 +3579,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.Groups.Group, ['group_name', 'enable'], name, value)
 
 
-            class GroupValues(Entity):
+            class GroupValues(_Entity_):
                 """
                 Set of SRLG values configured under a group
                 
@@ -3181,7 +3596,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.Groups.Group.GroupValues, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Groups.Group.GroupValues, self).__init__()
 
                     self.yang_name = "group-values"
                     self.yang_parent_name = "group"
@@ -3199,7 +3617,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Groups.Group.GroupValues, [], name, value)
 
 
-                class GroupValue(Entity):
+                class GroupValue(_Entity_):
                     """
                     Group SRLG values with attribute
                     
@@ -3234,7 +3652,10 @@ class Srlg(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Srlg.Groups.Group.GroupValues.GroupValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Groups.Group.GroupValues.GroupValue, self).__init__()
 
                         self.yang_name = "group-value"
                         self.yang_parent_name = "group-values"
@@ -3256,12 +3677,28 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Srlg.Groups.Group.GroupValues.GroupValue']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.Groups.Group.GroupValues']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Srlg.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['Srlg.Groups']['meta_info']
 
 
-
-
-
-    class InheritNodes(Entity):
+    class InheritNodes(_Entity_):
         """
         Set of inherit nodes configured with SRLG
         
@@ -3278,7 +3715,10 @@ class Srlg(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(Srlg.InheritNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.InheritNodes, self).__init__()
 
             self.yang_name = "inherit-nodes"
             self.yang_parent_name = "srlg"
@@ -3297,7 +3737,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.InheritNodes, [], name, value)
 
 
-        class InheritNode(Entity):
+        class InheritNode(_Entity_):
             """
             Inherit node configurations
             
@@ -3326,7 +3766,10 @@ class Srlg(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Srlg.InheritNodes.InheritNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.InheritNodes.InheritNode, self).__init__()
 
                 self.yang_name = "inherit-node"
                 self.yang_parent_name = "inherit-nodes"
@@ -3352,7 +3795,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'enable'], name, value)
 
 
-            class InheritNodeValues(Entity):
+            class InheritNodeValues(_Entity_):
                 """
                 Set of SRLG values configured under an inherit
                 node
@@ -3370,7 +3813,10 @@ class Srlg(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(Srlg.InheritNodes.InheritNode.InheritNodeValues, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.InheritNodes.InheritNode.InheritNodeValues, self).__init__()
 
                     self.yang_name = "inherit-node-values"
                     self.yang_parent_name = "inherit-node"
@@ -3388,7 +3834,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues, [], name, value)
 
 
-                class InheritNodeValue(Entity):
+                class InheritNodeValue(_Entity_):
                     """
                     Inherit node SRLG value with attributes
                     
@@ -3423,7 +3869,10 @@ class Srlg(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, self).__init__()
 
                         self.yang_name = "inherit-node-value"
                         self.yang_parent_name = "inherit-node-values"
@@ -3445,17 +3894,37 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, ['srlg_index', 'srlg_value', 'srlg_priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['Srlg.InheritNodes.InheritNode.InheritNodeValues']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['Srlg.InheritNodes.InheritNode']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['Srlg.InheritNodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Srlg()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['Srlg']['meta_info']
 
 
-class VrfGroups(Entity):
+class VrfGroups(_Entity_):
     """
     vrf groups
     
@@ -3472,7 +3941,10 @@ class VrfGroups(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(VrfGroups, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(VrfGroups, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vrf-groups"
@@ -3491,7 +3963,7 @@ class VrfGroups(Entity):
         self._perform_setattr(VrfGroups, [], name, value)
 
 
-    class VrfGroup(Entity):
+    class VrfGroup(_Entity_):
         """
         VRF group configuration
         
@@ -3520,7 +3992,10 @@ class VrfGroups(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(VrfGroups.VrfGroup, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VrfGroups.VrfGroup, self).__init__()
 
             self.yang_name = "vrf-group"
             self.yang_parent_name = "vrf-groups"
@@ -3546,7 +4021,7 @@ class VrfGroups(Entity):
             self._perform_setattr(VrfGroups.VrfGroup, ['vrf_group_name', 'enable'], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             Set of VRFs configured under a VRF group
             
@@ -3563,7 +4038,10 @@ class VrfGroups(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(VrfGroups.VrfGroup.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VrfGroups.VrfGroup.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "vrf-group"
@@ -3581,7 +4059,7 @@ class VrfGroups(Entity):
                 self._perform_setattr(VrfGroups.VrfGroup.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF configuration
                 
@@ -3600,7 +4078,10 @@ class VrfGroups(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(VrfGroups.VrfGroup.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VrfGroups.VrfGroup.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -3618,16 +4099,32 @@ class VrfGroups(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, ['vrf_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                    return meta._meta_table['VrfGroups.VrfGroup.Vrfs.Vrf']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                return meta._meta_table['VrfGroups.VrfGroup.Vrfs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+            return meta._meta_table['VrfGroups.VrfGroup']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = VrfGroups()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['VrfGroups']['meta_info']
 
 
-class SelectiveVrfDownload(Entity):
+class SelectiveVrfDownload(_Entity_):
     """
     selective vrf download
     
@@ -3644,7 +4141,10 @@ class SelectiveVrfDownload(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(SelectiveVrfDownload, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SelectiveVrfDownload, self).__init__()
         self._top_entity = None
 
         self.yang_name = "selective-vrf-download"
@@ -3667,5 +4167,9 @@ class SelectiveVrfDownload(Entity):
         self._top_entity = SelectiveVrfDownload()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+        return meta._meta_table['SelectiveVrfDownload']['meta_info']
 
 

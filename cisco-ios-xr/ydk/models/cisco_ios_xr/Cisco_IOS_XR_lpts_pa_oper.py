@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class LptsPa(Entity):
+class LptsPa(_Entity_):
     """
     lpts pre\-ifib data
     
@@ -47,7 +50,10 @@ class LptsPa(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(LptsPa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(LptsPa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lpts-pa"
@@ -72,7 +78,7 @@ class LptsPa(Entity):
         self._perform_setattr(LptsPa, [], name, value)
 
 
-    class EntryXr(Entity):
+    class EntryXr(_Entity_):
         """
         lpts pa bindings
         
@@ -91,7 +97,10 @@ class LptsPa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(LptsPa.EntryXr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LptsPa.EntryXr, self).__init__()
 
             self.yang_name = "entry-xr"
             self.yang_parent_name = "lpts-pa"
@@ -110,7 +119,7 @@ class LptsPa(Entity):
             self._perform_setattr(LptsPa.EntryXr, [], name, value)
 
 
-        class Entry(Entity):
+        class Entry(_Entity_):
             """
             Data for single PA Binding
             
@@ -334,7 +343,10 @@ class LptsPa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(LptsPa.EntryXr.Entry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LptsPa.EntryXr.Entry, self).__init__()
 
                 self.yang_name = "entry"
                 self.yang_parent_name = "entry-xr"
@@ -404,7 +416,7 @@ class LptsPa(Entity):
                 self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', 'location', 'client_id', 'vid', 'cookie', 'l3protocol', 'l4protocol', 'smask', 'ifs', 'ptype', 'local_ip', 'remote_ip', 'local_len', 'remote_len', 'local_port', 'remote_port', 'packet_misc', 'scope', 'client_flags', 'min_ttl', 'lazy_bindq_delay', 'ptq_delay'], name, value)
 
 
-            class Ctime(Entity):
+            class Ctime(_Entity_):
                 """
                 Creation Time
                 
@@ -434,7 +446,10 @@ class LptsPa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(LptsPa.EntryXr.Entry.Ctime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPa.EntryXr.Entry.Ctime, self).__init__()
 
                     self.yang_name = "ctime"
                     self.yang_parent_name = "entry"
@@ -454,9 +469,13 @@ class LptsPa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, ['tv_sec', 'tv_nsec'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+                    return meta._meta_table['LptsPa.EntryXr.Entry.Ctime']['meta_info']
 
 
-            class Utime(Entity):
+            class Utime(_Entity_):
                 """
                 Update Time
                 
@@ -486,7 +505,10 @@ class LptsPa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(LptsPa.EntryXr.Entry.Utime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPa.EntryXr.Entry.Utime, self).__init__()
 
                     self.yang_name = "utime"
                     self.yang_parent_name = "entry"
@@ -506,11 +528,23 @@ class LptsPa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPa.EntryXr.Entry.Utime, ['tv_sec', 'tv_nsec'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+                    return meta._meta_table['LptsPa.EntryXr.Entry.Utime']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+                return meta._meta_table['LptsPa.EntryXr.Entry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+            return meta._meta_table['LptsPa.EntryXr']['meta_info']
 
 
-
-
-    class Entries(Entity):
+    class Entries(_Entity_):
         """
         lpts pa clients
         
@@ -529,7 +563,10 @@ class LptsPa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(LptsPa.Entries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LptsPa.Entries, self).__init__()
 
             self.yang_name = "entries"
             self.yang_parent_name = "lpts-pa"
@@ -548,7 +585,7 @@ class LptsPa(Entity):
             self._perform_setattr(LptsPa.Entries, [], name, value)
 
 
-        class Entry(Entity):
+        class Entry(_Entity_):
             """
             Data for single PA Client
             
@@ -614,7 +651,10 @@ class LptsPa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(LptsPa.Entries.Entry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LptsPa.Entries.Entry, self).__init__()
 
                 self.yang_name = "entry"
                 self.yang_parent_name = "entries"
@@ -643,11 +683,23 @@ class LptsPa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(LptsPa.Entries.Entry, ['entry', 'flags', 'open_flags', 'location', 'client_id', 'times'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+                return meta._meta_table['LptsPa.Entries.Entry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+            return meta._meta_table['LptsPa.Entries']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = LptsPa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pa_oper as meta
+        return meta._meta_table['LptsPa']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -65,8 +68,14 @@ class Banner(Enum):
     prompt_timeout = Enum.YLeaf(5, "prompt-timeout")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_cfg as meta
+        return meta._meta_table['Banner']
 
-class Banners(Entity):
+
+
+class Banners(_Entity_):
     """
     Schema for Banner configuration commands
     
@@ -83,7 +92,10 @@ class Banners(Entity):
     _revision = '2016-06-16'
 
     def __init__(self):
-        super(Banners, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Banners, self).__init__()
         self._top_entity = None
 
         self.yang_name = "banners"
@@ -102,7 +114,7 @@ class Banners(Entity):
         self._perform_setattr(Banners, [], name, value)
 
 
-    class Banner(Entity):
+    class Banner(_Entity_):
         """
         Select a Banner Type
         
@@ -126,7 +138,10 @@ class Banners(Entity):
         _revision = '2016-06-16'
 
         def __init__(self):
-            super(Banners.Banner, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Banners.Banner, self).__init__()
 
             self.yang_name = "banner"
             self.yang_parent_name = "banners"
@@ -147,10 +162,18 @@ class Banners(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Banners.Banner, ['banner_name', 'banner_text'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_cfg as meta
+            return meta._meta_table['Banners.Banner']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Banners()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_cfg as meta
+        return meta._meta_table['Banners']['meta_info']
 
 

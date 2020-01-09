@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PlatformFaultManager(Entity):
+class PlatformFaultManager(_Entity_):
     """
     PFM data space
     
@@ -47,7 +50,10 @@ class PlatformFaultManager(Entity):
     _revision = '2017-03-28'
 
     def __init__(self):
-        super(PlatformFaultManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformFaultManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-fault-manager"
@@ -72,7 +78,7 @@ class PlatformFaultManager(Entity):
         self._perform_setattr(PlatformFaultManager, [], name, value)
 
 
-    class Exclude(Entity):
+    class Exclude(_Entity_):
         """
         Exclude specic hw fault 
         
@@ -91,7 +97,10 @@ class PlatformFaultManager(Entity):
         _revision = '2017-03-28'
 
         def __init__(self):
-            super(PlatformFaultManager.Exclude, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformFaultManager.Exclude, self).__init__()
 
             self.yang_name = "exclude"
             self.yang_parent_name = "platform-fault-manager"
@@ -112,7 +121,7 @@ class PlatformFaultManager(Entity):
             self._perform_setattr(PlatformFaultManager.Exclude, [], name, value)
 
 
-        class FaultType1s(Entity):
+        class FaultType1s(_Entity_):
             """
             Table of Hardware Failure Device
             
@@ -131,7 +140,10 @@ class PlatformFaultManager(Entity):
             _revision = '2017-03-28'
 
             def __init__(self):
-                super(PlatformFaultManager.Exclude.FaultType1s, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformFaultManager.Exclude.FaultType1s, self).__init__()
 
                 self.yang_name = "fault-type1s"
                 self.yang_parent_name = "exclude"
@@ -150,7 +162,7 @@ class PlatformFaultManager(Entity):
                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s, [], name, value)
 
 
-            class FaultType1(Entity):
+            class FaultType1(_Entity_):
                 """
                 Table of Hardware Failure Device
                 
@@ -185,7 +197,10 @@ class PlatformFaultManager(Entity):
                 _revision = '2017-03-28'
 
                 def __init__(self):
-                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1, self).__init__()
 
                     self.yang_name = "fault-type1"
                     self.yang_parent_name = "fault-type1s"
@@ -213,7 +228,7 @@ class PlatformFaultManager(Entity):
                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1, ['hw_fault_type1'], name, value)
 
 
-                class FaultType2s(Entity):
+                class FaultType2s(_Entity_):
                     """
                     Table of Hardware Failure Device
                     
@@ -232,7 +247,10 @@ class PlatformFaultManager(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s, self).__init__()
 
                         self.yang_name = "fault-type2s"
                         self.yang_parent_name = "fault-type1"
@@ -250,7 +268,7 @@ class PlatformFaultManager(Entity):
                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s, [], name, value)
 
 
-                    class FaultType2(Entity):
+                    class FaultType2(_Entity_):
                         """
                         Table of Hardware Failure Device
                         
@@ -285,7 +303,10 @@ class PlatformFaultManager(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2, self).__init__()
 
                             self.yang_name = "fault-type2"
                             self.yang_parent_name = "fault-type2s"
@@ -312,7 +333,7 @@ class PlatformFaultManager(Entity):
                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2, ['hw_fault_type2'], name, value)
 
 
-                        class FaultType3s(Entity):
+                        class FaultType3s(_Entity_):
                             """
                             Table of Hardware Failure Device
                             
@@ -331,7 +352,10 @@ class PlatformFaultManager(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s, self).__init__()
 
                                 self.yang_name = "fault-type3s"
                                 self.yang_parent_name = "fault-type2"
@@ -349,7 +373,7 @@ class PlatformFaultManager(Entity):
                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s, [], name, value)
 
 
-                            class FaultType3(Entity):
+                            class FaultType3(_Entity_):
                                 """
                                 Table of Hardware Failure Device
                                 
@@ -377,7 +401,10 @@ class PlatformFaultManager(Entity):
                                 _revision = '2017-03-28'
 
                                 def __init__(self):
-                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3, self).__init__()
 
                                     self.yang_name = "fault-type3"
                                     self.yang_parent_name = "fault-type3s"
@@ -400,7 +427,7 @@ class PlatformFaultManager(Entity):
                                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3, ['hw_fault_type3'], name, value)
 
 
-                                class Racks(Entity):
+                                class Racks(_Entity_):
                                     """
                                     Table of racks
                                     
@@ -419,7 +446,10 @@ class PlatformFaultManager(Entity):
                                     _revision = '2017-03-28'
 
                                     def __init__(self):
-                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks, self).__init__()
 
                                         self.yang_name = "racks"
                                         self.yang_parent_name = "fault-type3"
@@ -437,7 +467,7 @@ class PlatformFaultManager(Entity):
                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks, [], name, value)
 
 
-                                    class Rack(Entity):
+                                    class Rack(_Entity_):
                                         """
                                         Number
                                         
@@ -465,7 +495,10 @@ class PlatformFaultManager(Entity):
                                         _revision = '2017-03-28'
 
                                         def __init__(self):
-                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack, self).__init__()
 
                                             self.yang_name = "rack"
                                             self.yang_parent_name = "racks"
@@ -488,7 +521,7 @@ class PlatformFaultManager(Entity):
                                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack, ['rack'], name, value)
 
 
-                                        class Slots(Entity):
+                                        class Slots(_Entity_):
                                             """
                                             Table of slots
                                             
@@ -507,7 +540,10 @@ class PlatformFaultManager(Entity):
                                             _revision = '2017-03-28'
 
                                             def __init__(self):
-                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots, self).__init__()
 
                                                 self.yang_name = "slots"
                                                 self.yang_parent_name = "rack"
@@ -525,7 +561,7 @@ class PlatformFaultManager(Entity):
                                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots, [], name, value)
 
 
-                                            class Slot(Entity):
+                                            class Slot(_Entity_):
                                                 """
                                                 Name
                                                 
@@ -560,7 +596,10 @@ class PlatformFaultManager(Entity):
                                                 _revision = '2017-03-28'
 
                                                 def __init__(self):
-                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot, self).__init__()
 
                                                     self.yang_name = "slot"
                                                     self.yang_parent_name = "slots"
@@ -587,7 +626,7 @@ class PlatformFaultManager(Entity):
                                                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
-                                                class FaultSummary(Entity):
+                                                class FaultSummary(_Entity_):
                                                     """
                                                     Table of Hardware Summary
                                                     
@@ -635,7 +674,10 @@ class PlatformFaultManager(Entity):
                                                     _revision = '2017-03-28'
 
                                                     def __init__(self):
-                                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
 
                                                         self.yang_name = "fault-summary"
                                                         self.yang_parent_name = "slot"
@@ -659,9 +701,13 @@ class PlatformFaultManager(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.FaultSummary']['meta_info']
 
 
-                                                class HardwareFaultDevices(Entity):
+                                                class HardwareFaultDevices(_Entity_):
                                                     """
                                                     Table of Hardware Failure
                                                     
@@ -680,7 +726,10 @@ class PlatformFaultManager(Entity):
                                                     _revision = '2017-03-28'
 
                                                     def __init__(self):
-                                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
 
                                                         self.yang_name = "hardware-fault-devices"
                                                         self.yang_parent_name = "slot"
@@ -698,7 +747,7 @@ class PlatformFaultManager(Entity):
                                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
-                                                    class HardwareFaultDevice(Entity):
+                                                    class HardwareFaultDevice(_Entity_):
                                                         """
                                                         Table of Hardware Failure Device
                                                         
@@ -726,7 +775,10 @@ class PlatformFaultManager(Entity):
                                                         _revision = '2017-03-28'
 
                                                         def __init__(self):
-                                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
 
                                                             self.yang_name = "hardware-fault-device"
                                                             self.yang_parent_name = "hardware-fault-devices"
@@ -747,7 +799,7 @@ class PlatformFaultManager(Entity):
                                                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
-                                                        class HardwareFaultType(Entity):
+                                                        class HardwareFaultType(_Entity_):
                                                             """
                                                             Table of Hardware Failure Type
                                                             
@@ -828,7 +880,10 @@ class PlatformFaultManager(Entity):
                                                             _revision = '2017-03-28'
 
                                                             def __init__(self):
-                                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
 
                                                                 self.yang_name = "hardware-fault-type"
                                                                 self.yang_parent_name = "hardware-fault-device"
@@ -862,17 +917,53 @@ class PlatformFaultManager(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots.Slot']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack.Slots']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks.Rack']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3.Racks']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s.FaultType3']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.FaultType3s']['meta_info']
 
 
-
-
-
-
-
-
-
-
-                        class Racks(Entity):
+                        class Racks(_Entity_):
                             """
                             Table of racks
                             
@@ -891,7 +982,10 @@ class PlatformFaultManager(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks, self).__init__()
 
                                 self.yang_name = "racks"
                                 self.yang_parent_name = "fault-type2"
@@ -909,7 +1003,7 @@ class PlatformFaultManager(Entity):
                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks, [], name, value)
 
 
-                            class Rack(Entity):
+                            class Rack(_Entity_):
                                 """
                                 Number
                                 
@@ -937,7 +1031,10 @@ class PlatformFaultManager(Entity):
                                 _revision = '2017-03-28'
 
                                 def __init__(self):
-                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack, self).__init__()
 
                                     self.yang_name = "rack"
                                     self.yang_parent_name = "racks"
@@ -960,7 +1057,7 @@ class PlatformFaultManager(Entity):
                                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack, ['rack'], name, value)
 
 
-                                class Slots(Entity):
+                                class Slots(_Entity_):
                                     """
                                     Table of slots
                                     
@@ -979,7 +1076,10 @@ class PlatformFaultManager(Entity):
                                     _revision = '2017-03-28'
 
                                     def __init__(self):
-                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots, self).__init__()
 
                                         self.yang_name = "slots"
                                         self.yang_parent_name = "rack"
@@ -997,7 +1097,7 @@ class PlatformFaultManager(Entity):
                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots, [], name, value)
 
 
-                                    class Slot(Entity):
+                                    class Slot(_Entity_):
                                         """
                                         Name
                                         
@@ -1032,7 +1132,10 @@ class PlatformFaultManager(Entity):
                                         _revision = '2017-03-28'
 
                                         def __init__(self):
-                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot, self).__init__()
 
                                             self.yang_name = "slot"
                                             self.yang_parent_name = "slots"
@@ -1059,7 +1162,7 @@ class PlatformFaultManager(Entity):
                                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
-                                        class FaultSummary(Entity):
+                                        class FaultSummary(_Entity_):
                                             """
                                             Table of Hardware Summary
                                             
@@ -1107,7 +1210,10 @@ class PlatformFaultManager(Entity):
                                             _revision = '2017-03-28'
 
                                             def __init__(self):
-                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
 
                                                 self.yang_name = "fault-summary"
                                                 self.yang_parent_name = "slot"
@@ -1131,9 +1237,13 @@ class PlatformFaultManager(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.FaultSummary']['meta_info']
 
 
-                                        class HardwareFaultDevices(Entity):
+                                        class HardwareFaultDevices(_Entity_):
                                             """
                                             Table of Hardware Failure
                                             
@@ -1152,7 +1262,10 @@ class PlatformFaultManager(Entity):
                                             _revision = '2017-03-28'
 
                                             def __init__(self):
-                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
 
                                                 self.yang_name = "hardware-fault-devices"
                                                 self.yang_parent_name = "slot"
@@ -1170,7 +1283,7 @@ class PlatformFaultManager(Entity):
                                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
-                                            class HardwareFaultDevice(Entity):
+                                            class HardwareFaultDevice(_Entity_):
                                                 """
                                                 Table of Hardware Failure Device
                                                 
@@ -1198,7 +1311,10 @@ class PlatformFaultManager(Entity):
                                                 _revision = '2017-03-28'
 
                                                 def __init__(self):
-                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
 
                                                     self.yang_name = "hardware-fault-device"
                                                     self.yang_parent_name = "hardware-fault-devices"
@@ -1219,7 +1335,7 @@ class PlatformFaultManager(Entity):
                                                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
-                                                class HardwareFaultType(Entity):
+                                                class HardwareFaultType(_Entity_):
                                                     """
                                                     Table of Hardware Failure Type
                                                     
@@ -1300,7 +1416,10 @@ class PlatformFaultManager(Entity):
                                                     _revision = '2017-03-28'
 
                                                     def __init__(self):
-                                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
 
                                                         self.yang_name = "hardware-fault-type"
                                                         self.yang_parent_name = "hardware-fault-device"
@@ -1334,17 +1453,53 @@ class PlatformFaultManager(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots.Slot']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack.Slots']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks.Rack']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2.Racks']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s.FaultType2']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.FaultType2s']['meta_info']
 
 
-
-
-
-
-
-
-
-
-                class Racks(Entity):
+                class Racks(_Entity_):
                     """
                     Table of racks
                     
@@ -1363,7 +1518,10 @@ class PlatformFaultManager(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks, self).__init__()
 
                         self.yang_name = "racks"
                         self.yang_parent_name = "fault-type1"
@@ -1381,7 +1539,7 @@ class PlatformFaultManager(Entity):
                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks, [], name, value)
 
 
-                    class Rack(Entity):
+                    class Rack(_Entity_):
                         """
                         Number
                         
@@ -1409,7 +1567,10 @@ class PlatformFaultManager(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack, self).__init__()
 
                             self.yang_name = "rack"
                             self.yang_parent_name = "racks"
@@ -1432,7 +1593,7 @@ class PlatformFaultManager(Entity):
                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack, ['rack'], name, value)
 
 
-                        class Slots(Entity):
+                        class Slots(_Entity_):
                             """
                             Table of slots
                             
@@ -1451,7 +1612,10 @@ class PlatformFaultManager(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots, self).__init__()
 
                                 self.yang_name = "slots"
                                 self.yang_parent_name = "rack"
@@ -1469,7 +1633,7 @@ class PlatformFaultManager(Entity):
                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots, [], name, value)
 
 
-                            class Slot(Entity):
+                            class Slot(_Entity_):
                                 """
                                 Name
                                 
@@ -1504,7 +1668,10 @@ class PlatformFaultManager(Entity):
                                 _revision = '2017-03-28'
 
                                 def __init__(self):
-                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot, self).__init__()
 
                                     self.yang_name = "slot"
                                     self.yang_parent_name = "slots"
@@ -1531,7 +1698,7 @@ class PlatformFaultManager(Entity):
                                     self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
-                                class FaultSummary(Entity):
+                                class FaultSummary(_Entity_):
                                     """
                                     Table of Hardware Summary
                                     
@@ -1579,7 +1746,10 @@ class PlatformFaultManager(Entity):
                                     _revision = '2017-03-28'
 
                                     def __init__(self):
-                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
 
                                         self.yang_name = "fault-summary"
                                         self.yang_parent_name = "slot"
@@ -1603,9 +1773,13 @@ class PlatformFaultManager(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.FaultSummary']['meta_info']
 
 
-                                class HardwareFaultDevices(Entity):
+                                class HardwareFaultDevices(_Entity_):
                                     """
                                     Table of Hardware Failure
                                     
@@ -1624,7 +1798,10 @@ class PlatformFaultManager(Entity):
                                     _revision = '2017-03-28'
 
                                     def __init__(self):
-                                        super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
 
                                         self.yang_name = "hardware-fault-devices"
                                         self.yang_parent_name = "slot"
@@ -1642,7 +1819,7 @@ class PlatformFaultManager(Entity):
                                         self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
-                                    class HardwareFaultDevice(Entity):
+                                    class HardwareFaultDevice(_Entity_):
                                         """
                                         Table of Hardware Failure Device
                                         
@@ -1670,7 +1847,10 @@ class PlatformFaultManager(Entity):
                                         _revision = '2017-03-28'
 
                                         def __init__(self):
-                                            super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
 
                                             self.yang_name = "hardware-fault-device"
                                             self.yang_parent_name = "hardware-fault-devices"
@@ -1691,7 +1871,7 @@ class PlatformFaultManager(Entity):
                                             self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
-                                        class HardwareFaultType(Entity):
+                                        class HardwareFaultType(_Entity_):
                                             """
                                             Table of Hardware Failure Type
                                             
@@ -1772,7 +1952,10 @@ class PlatformFaultManager(Entity):
                                             _revision = '2017-03-28'
 
                                             def __init__(self):
-                                                super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
 
                                                 self.yang_name = "hardware-fault-type"
                                                 self.yang_parent_name = "hardware-fault-device"
@@ -1806,18 +1989,58 @@ class PlatformFaultManager(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots.Slot']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack.Slots']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                            return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks.Rack']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                        return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1.Racks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                    return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s.FaultType1']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                return meta._meta_table['PlatformFaultManager.Exclude.FaultType1s']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+            return meta._meta_table['PlatformFaultManager.Exclude']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Table of racks
         
@@ -1836,7 +2059,10 @@ class PlatformFaultManager(Entity):
         _revision = '2017-03-28'
 
         def __init__(self):
-            super(PlatformFaultManager.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformFaultManager.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "platform-fault-manager"
@@ -1855,7 +2081,7 @@ class PlatformFaultManager(Entity):
             self._perform_setattr(PlatformFaultManager.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Number
             
@@ -1883,7 +2109,10 @@ class PlatformFaultManager(Entity):
             _revision = '2017-03-28'
 
             def __init__(self):
-                super(PlatformFaultManager.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformFaultManager.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -1907,7 +2136,7 @@ class PlatformFaultManager(Entity):
                 self._perform_setattr(PlatformFaultManager.Racks.Rack, ['rack'], name, value)
 
 
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Table of slots
                 
@@ -1926,7 +2155,10 @@ class PlatformFaultManager(Entity):
                 _revision = '2017-03-28'
 
                 def __init__(self):
-                    super(PlatformFaultManager.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformFaultManager.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -1944,7 +2176,7 @@ class PlatformFaultManager(Entity):
                     self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     Name
                     
@@ -1979,7 +2211,10 @@ class PlatformFaultManager(Entity):
                     _revision = '2017-03-28'
 
                     def __init__(self):
-                        super(PlatformFaultManager.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformFaultManager.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -2006,7 +2241,7 @@ class PlatformFaultManager(Entity):
                         self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
-                    class FaultSummary(Entity):
+                    class FaultSummary(_Entity_):
                         """
                         Table of Hardware Summary
                         
@@ -2054,7 +2289,10 @@ class PlatformFaultManager(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, self).__init__()
 
                             self.yang_name = "fault-summary"
                             self.yang_parent_name = "slot"
@@ -2078,9 +2316,13 @@ class PlatformFaultManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                            return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary']['meta_info']
 
 
-                    class HardwareFaultDevices(Entity):
+                    class HardwareFaultDevices(_Entity_):
                         """
                         Table of Hardware Failure
                         
@@ -2099,7 +2341,10 @@ class PlatformFaultManager(Entity):
                         _revision = '2017-03-28'
 
                         def __init__(self):
-                            super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, self).__init__()
 
                             self.yang_name = "hardware-fault-devices"
                             self.yang_parent_name = "slot"
@@ -2117,7 +2362,7 @@ class PlatformFaultManager(Entity):
                             self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices, [], name, value)
 
 
-                        class HardwareFaultDevice(Entity):
+                        class HardwareFaultDevice(_Entity_):
                             """
                             Table of Hardware Failure Device
                             
@@ -2145,7 +2390,10 @@ class PlatformFaultManager(Entity):
                             _revision = '2017-03-28'
 
                             def __init__(self):
-                                super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, self).__init__()
 
                                 self.yang_name = "hardware-fault-device"
                                 self.yang_parent_name = "hardware-fault-devices"
@@ -2166,7 +2414,7 @@ class PlatformFaultManager(Entity):
                                 self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice, ['hw_fault_device'], name, value)
 
 
-                            class HardwareFaultType(Entity):
+                            class HardwareFaultType(_Entity_):
                                 """
                                 Table of Hardware Failure Type
                                 
@@ -2247,7 +2495,10 @@ class PlatformFaultManager(Entity):
                                 _revision = '2017-03-28'
 
                                 def __init__(self):
-                                    super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, self).__init__()
 
                                     self.yang_name = "hardware-fault-type"
                                     self.yang_parent_name = "hardware-fault-device"
@@ -2281,16 +2532,48 @@ class PlatformFaultManager(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                    return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                                return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                            return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                        return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots.Slot']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                    return meta._meta_table['PlatformFaultManager.Racks.Rack.Slots']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+                return meta._meta_table['PlatformFaultManager.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+            return meta._meta_table['PlatformFaultManager.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformFaultManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfm_oper as meta
+        return meta._meta_table['PlatformFaultManager']['meta_info']
 
 

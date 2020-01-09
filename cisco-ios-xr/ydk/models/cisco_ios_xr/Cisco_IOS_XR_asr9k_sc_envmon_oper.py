@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -23,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class EnvironmentalMonitoringCli(Entity):
+class EnvironmentalMonitoringCli(_Entity_):
     """
     Environmental Monitoring Operational data space
     
@@ -42,7 +45,10 @@ class EnvironmentalMonitoringCli(Entity):
     _revision = '2017-01-19'
 
     def __init__(self):
-        super(EnvironmentalMonitoringCli, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EnvironmentalMonitoringCli, self).__init__()
         self._top_entity = None
 
         self.yang_name = "environmental-monitoring-cli"
@@ -63,7 +69,7 @@ class EnvironmentalMonitoringCli(Entity):
         self._perform_setattr(EnvironmentalMonitoringCli, [], name, value)
 
 
-    class RackClis(Entity):
+    class RackClis(_Entity_):
         """
         Table of racks
         
@@ -82,7 +88,10 @@ class EnvironmentalMonitoringCli(Entity):
         _revision = '2017-01-19'
 
         def __init__(self):
-            super(EnvironmentalMonitoringCli.RackClis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EnvironmentalMonitoringCli.RackClis, self).__init__()
 
             self.yang_name = "rack-clis"
             self.yang_parent_name = "environmental-monitoring-cli"
@@ -101,7 +110,7 @@ class EnvironmentalMonitoringCli(Entity):
             self._perform_setattr(EnvironmentalMonitoringCli.RackClis, [], name, value)
 
 
-        class RackCli(Entity):
+        class RackCli(_Entity_):
             """
             Number
             
@@ -129,7 +138,10 @@ class EnvironmentalMonitoringCli(Entity):
             _revision = '2017-01-19'
 
             def __init__(self):
-                super(EnvironmentalMonitoringCli.RackClis.RackCli, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EnvironmentalMonitoringCli.RackClis.RackCli, self).__init__()
 
                 self.yang_name = "rack-cli"
                 self.yang_parent_name = "rack-clis"
@@ -153,7 +165,7 @@ class EnvironmentalMonitoringCli(Entity):
                 self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli, ['rack'], name, value)
 
 
-            class SlotClis(Entity):
+            class SlotClis(_Entity_):
                 """
                 Table of slots
                 
@@ -172,7 +184,10 @@ class EnvironmentalMonitoringCli(Entity):
                 _revision = '2017-01-19'
 
                 def __init__(self):
-                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis, self).__init__()
 
                     self.yang_name = "slot-clis"
                     self.yang_parent_name = "rack-cli"
@@ -190,7 +205,7 @@ class EnvironmentalMonitoringCli(Entity):
                     self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis, [], name, value)
 
 
-                class SlotCli(Entity):
+                class SlotCli(_Entity_):
                     """
                     Name
                     
@@ -218,7 +233,10 @@ class EnvironmentalMonitoringCli(Entity):
                     _revision = '2017-01-19'
 
                     def __init__(self):
-                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli, self).__init__()
 
                         self.yang_name = "slot-cli"
                         self.yang_parent_name = "slot-clis"
@@ -241,7 +259,7 @@ class EnvironmentalMonitoringCli(Entity):
                         self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli, ['slot'], name, value)
 
 
-                    class ModuleClis(Entity):
+                    class ModuleClis(_Entity_):
                         """
                         Table of modules
                         
@@ -260,7 +278,10 @@ class EnvironmentalMonitoringCli(Entity):
                         _revision = '2017-01-19'
 
                         def __init__(self):
-                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis, self).__init__()
 
                             self.yang_name = "module-clis"
                             self.yang_parent_name = "slot-cli"
@@ -278,7 +299,7 @@ class EnvironmentalMonitoringCli(Entity):
                             self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis, [], name, value)
 
 
-                        class ModuleCli(Entity):
+                        class ModuleCli(_Entity_):
                             """
                             Name
                             
@@ -313,7 +334,10 @@ class EnvironmentalMonitoringCli(Entity):
                             _revision = '2017-01-19'
 
                             def __init__(self):
-                                super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli, self).__init__()
 
                                 self.yang_name = "module-cli"
                                 self.yang_parent_name = "module-clis"
@@ -340,7 +364,7 @@ class EnvironmentalMonitoringCli(Entity):
                                 self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli, ['module'], name, value)
 
 
-                            class SensorTypeClis(Entity):
+                            class SensorTypeClis(_Entity_):
                                 """
                                 Table of sensor types
                                 
@@ -359,7 +383,10 @@ class EnvironmentalMonitoringCli(Entity):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis, self).__init__()
 
                                     self.yang_name = "sensor-type-clis"
                                     self.yang_parent_name = "module-cli"
@@ -377,7 +404,7 @@ class EnvironmentalMonitoringCli(Entity):
                                     self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis, [], name, value)
 
 
-                                class SensorTypeCli(Entity):
+                                class SensorTypeCli(_Entity_):
                                     """
                                     Type of sensor
                                     
@@ -405,7 +432,10 @@ class EnvironmentalMonitoringCli(Entity):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli, self).__init__()
 
                                         self.yang_name = "sensor-type-cli"
                                         self.yang_parent_name = "sensor-type-clis"
@@ -428,7 +458,7 @@ class EnvironmentalMonitoringCli(Entity):
                                         self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli, ['type'], name, value)
 
 
-                                    class SensorNameClis(Entity):
+                                    class SensorNameClis(_Entity_):
                                         """
                                         Table of sensors
                                         
@@ -447,7 +477,10 @@ class EnvironmentalMonitoringCli(Entity):
                                         _revision = '2017-01-19'
 
                                         def __init__(self):
-                                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis, self).__init__()
 
                                             self.yang_name = "sensor-name-clis"
                                             self.yang_parent_name = "sensor-type-cli"
@@ -465,7 +498,7 @@ class EnvironmentalMonitoringCli(Entity):
                                             self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis, [], name, value)
 
 
-                                        class SensorNameCli(Entity):
+                                        class SensorNameCli(_Entity_):
                                             """
                                             Name of sensor
                                             
@@ -509,7 +542,10 @@ class EnvironmentalMonitoringCli(Entity):
                                             _revision = '2017-01-19'
 
                                             def __init__(self):
-                                                super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli, self).__init__()
 
                                                 self.yang_name = "sensor-name-cli"
                                                 self.yang_parent_name = "sensor-name-clis"
@@ -538,7 +574,7 @@ class EnvironmentalMonitoringCli(Entity):
                                                 self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli, ['name', 'value_brief_cli'], name, value)
 
 
-                                            class ValueDetailedCli(Entity):
+                                            class ValueDetailedCli(_Entity_):
                                                 """
                                                 Detailed sensor information including
                                                 the sensor value
@@ -695,7 +731,10 @@ class EnvironmentalMonitoringCli(Entity):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli, self).__init__()
 
                                                     self.yang_name = "value-detailed-cli"
                                                     self.yang_parent_name = "sensor-name-cli"
@@ -743,9 +782,13 @@ class EnvironmentalMonitoringCli(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'average', 'minimum', 'maximum', 'interval'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                    return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ValueDetailedCli']['meta_info']
 
 
-                                            class ThresholdClis(Entity):
+                                            class ThresholdClis(_Entity_):
                                                 """
                                                 The threshold information
                                                 
@@ -764,7 +807,10 @@ class EnvironmentalMonitoringCli(Entity):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis, self).__init__()
 
                                                     self.yang_name = "threshold-clis"
                                                     self.yang_parent_name = "sensor-name-cli"
@@ -782,7 +828,7 @@ class EnvironmentalMonitoringCli(Entity):
                                                     self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis, [], name, value)
 
 
-                                                class ThresholdCli(Entity):
+                                                class ThresholdCli(_Entity_):
                                                     """
                                                     Types of thresholds
                                                     
@@ -826,7 +872,10 @@ class EnvironmentalMonitoringCli(Entity):
                                                     _revision = '2017-01-19'
 
                                                     def __init__(self):
-                                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli, self).__init__()
 
                                                         self.yang_name = "threshold-cli"
                                                         self.yang_parent_name = "threshold-clis"
@@ -853,7 +902,7 @@ class EnvironmentalMonitoringCli(Entity):
                                                         self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli, ['type', 'trap_cli', 'value_brief_cli'], name, value)
 
 
-                                                    class ValueDetailedCli(Entity):
+                                                    class ValueDetailedCli(_Entity_):
                                                         """
                                                         Detailed sensor threshold
                                                         information
@@ -907,7 +956,10 @@ class EnvironmentalMonitoringCli(Entity):
                                                         _revision = '2017-01-19'
 
                                                         def __init__(self):
-                                                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli, self).__init__()
 
                                                             self.yang_name = "value-detailed-cli"
                                                             self.yang_parent_name = "threshold-cli"
@@ -933,15 +985,43 @@ class EnvironmentalMonitoringCli(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                            return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli.ValueDetailedCli']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                        return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis.ThresholdCli']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                    return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli.ThresholdClis']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis.SensorNameCli']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                            return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli.SensorNameClis']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                        return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis.SensorTypeCli']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                    return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.SensorTypeClis']['meta_info']
 
 
-
-
-
-
-
-
-                            class PowerCli(Entity):
+                            class PowerCli(_Entity_):
                                 """
                                 Module Power Draw
                                 
@@ -960,7 +1040,10 @@ class EnvironmentalMonitoringCli(Entity):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli, self).__init__()
 
                                     self.yang_name = "power-cli"
                                     self.yang_parent_name = "module-cli"
@@ -980,7 +1063,7 @@ class EnvironmentalMonitoringCli(Entity):
                                     self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli, [], name, value)
 
 
-                                class PowerBagCli(Entity):
+                                class PowerBagCli(_Entity_):
                                     """
                                     Detailed power bag information
                                     
@@ -1082,7 +1165,10 @@ class EnvironmentalMonitoringCli(Entity):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli, self).__init__()
 
                                         self.yang_name = "power-bag-cli"
                                         self.yang_parent_name = "power-cli"
@@ -1118,21 +1204,57 @@ class EnvironmentalMonitoringCli(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                        return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli.PowerBagCli']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                    return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli.PowerCli']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis.ModuleCli']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                            return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli.ModuleClis']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                        return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis.SlotCli']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                    return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli.SlotClis']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                return meta._meta_table['EnvironmentalMonitoringCli.RackClis.RackCli']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+            return meta._meta_table['EnvironmentalMonitoringCli.RackClis']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EnvironmentalMonitoringCli()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+        return meta._meta_table['EnvironmentalMonitoringCli']['meta_info']
 
 
-class EnvironmentalMonitoring(Entity):
+class EnvironmentalMonitoring(_Entity_):
     """
     environmental monitoring
     
@@ -1151,7 +1273,10 @@ class EnvironmentalMonitoring(Entity):
     _revision = '2017-01-19'
 
     def __init__(self):
-        super(EnvironmentalMonitoring, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EnvironmentalMonitoring, self).__init__()
         self._top_entity = None
 
         self.yang_name = "environmental-monitoring"
@@ -1172,7 +1297,7 @@ class EnvironmentalMonitoring(Entity):
         self._perform_setattr(EnvironmentalMonitoring, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Table of racks
         
@@ -1191,7 +1316,10 @@ class EnvironmentalMonitoring(Entity):
         _revision = '2017-01-19'
 
         def __init__(self):
-            super(EnvironmentalMonitoring.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EnvironmentalMonitoring.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "environmental-monitoring"
@@ -1210,7 +1338,7 @@ class EnvironmentalMonitoring(Entity):
             self._perform_setattr(EnvironmentalMonitoring.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Number
             
@@ -1238,7 +1366,10 @@ class EnvironmentalMonitoring(Entity):
             _revision = '2017-01-19'
 
             def __init__(self):
-                super(EnvironmentalMonitoring.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EnvironmentalMonitoring.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -1262,7 +1393,7 @@ class EnvironmentalMonitoring(Entity):
                 self._perform_setattr(EnvironmentalMonitoring.Racks.Rack, ['rack'], name, value)
 
 
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Table of slots
                 
@@ -1281,7 +1412,10 @@ class EnvironmentalMonitoring(Entity):
                 _revision = '2017-01-19'
 
                 def __init__(self):
-                    super(EnvironmentalMonitoring.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EnvironmentalMonitoring.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -1299,7 +1433,7 @@ class EnvironmentalMonitoring(Entity):
                     self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     Name
                     
@@ -1327,7 +1461,10 @@ class EnvironmentalMonitoring(Entity):
                     _revision = '2017-01-19'
 
                     def __init__(self):
-                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -1350,7 +1487,7 @@ class EnvironmentalMonitoring(Entity):
                         self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, ['slot'], name, value)
 
 
-                    class Modules(Entity):
+                    class Modules(_Entity_):
                         """
                         Table of modules
                         
@@ -1369,7 +1506,10 @@ class EnvironmentalMonitoring(Entity):
                         _revision = '2017-01-19'
 
                         def __init__(self):
-                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, self).__init__()
 
                             self.yang_name = "modules"
                             self.yang_parent_name = "slot"
@@ -1387,7 +1527,7 @@ class EnvironmentalMonitoring(Entity):
                             self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, [], name, value)
 
 
-                        class Module(Entity):
+                        class Module(_Entity_):
                             """
                             Name
                             
@@ -1422,7 +1562,10 @@ class EnvironmentalMonitoring(Entity):
                             _revision = '2017-01-19'
 
                             def __init__(self):
-                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, self).__init__()
 
                                 self.yang_name = "module"
                                 self.yang_parent_name = "modules"
@@ -1449,7 +1592,7 @@ class EnvironmentalMonitoring(Entity):
                                 self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, ['module'], name, value)
 
 
-                            class Power(Entity):
+                            class Power(_Entity_):
                                 """
                                 Module Power Draw
                                 
@@ -1468,7 +1611,10 @@ class EnvironmentalMonitoring(Entity):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power, self).__init__()
 
                                     self.yang_name = "power"
                                     self.yang_parent_name = "module"
@@ -1488,7 +1634,7 @@ class EnvironmentalMonitoring(Entity):
                                     self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power, [], name, value)
 
 
-                                class PowerBag(Entity):
+                                class PowerBag(_Entity_):
                                     """
                                     Detailed power bag information
                                     
@@ -1590,7 +1736,10 @@ class EnvironmentalMonitoring(Entity):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, self).__init__()
 
                                         self.yang_name = "power-bag"
                                         self.yang_parent_name = "power"
@@ -1626,10 +1775,18 @@ class EnvironmentalMonitoring(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, ['power_value', 'power_max_value', 'power_unit_multiplier', 'power_accuracy', 'power_measure_caliber', 'power_current_type', 'power_origin', 'power_admin_state', 'power_oper_state', 'power_state_enter_reason'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power']['meta_info']
 
 
-
-                            class SensorTypes(Entity):
+                            class SensorTypes(_Entity_):
                                 """
                                 Table of sensor types
                                 
@@ -1648,7 +1805,10 @@ class EnvironmentalMonitoring(Entity):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, self).__init__()
 
                                     self.yang_name = "sensor-types"
                                     self.yang_parent_name = "module"
@@ -1666,7 +1826,7 @@ class EnvironmentalMonitoring(Entity):
                                     self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, [], name, value)
 
 
-                                class SensorType(Entity):
+                                class SensorType(_Entity_):
                                     """
                                     Type of sensor
                                     
@@ -1694,7 +1854,10 @@ class EnvironmentalMonitoring(Entity):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, self).__init__()
 
                                         self.yang_name = "sensor-type"
                                         self.yang_parent_name = "sensor-types"
@@ -1717,7 +1880,7 @@ class EnvironmentalMonitoring(Entity):
                                         self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, ['type'], name, value)
 
 
-                                    class SensorNames(Entity):
+                                    class SensorNames(_Entity_):
                                         """
                                         Table of sensors
                                         
@@ -1736,7 +1899,10 @@ class EnvironmentalMonitoring(Entity):
                                         _revision = '2017-01-19'
 
                                         def __init__(self):
-                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, self).__init__()
 
                                             self.yang_name = "sensor-names"
                                             self.yang_parent_name = "sensor-type"
@@ -1754,7 +1920,7 @@ class EnvironmentalMonitoring(Entity):
                                             self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, [], name, value)
 
 
-                                        class SensorName(Entity):
+                                        class SensorName(_Entity_):
                                             """
                                             Name of sensor
                                             
@@ -1798,7 +1964,10 @@ class EnvironmentalMonitoring(Entity):
                                             _revision = '2017-01-19'
 
                                             def __init__(self):
-                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, self).__init__()
 
                                                 self.yang_name = "sensor-name"
                                                 self.yang_parent_name = "sensor-names"
@@ -1827,7 +1996,7 @@ class EnvironmentalMonitoring(Entity):
                                                 self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, ['name', 'value_brief'], name, value)
 
 
-                                            class Thresholds(Entity):
+                                            class Thresholds(_Entity_):
                                                 """
                                                 The threshold information
                                                 
@@ -1846,7 +2015,10 @@ class EnvironmentalMonitoring(Entity):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, self).__init__()
 
                                                     self.yang_name = "thresholds"
                                                     self.yang_parent_name = "sensor-name"
@@ -1864,7 +2036,7 @@ class EnvironmentalMonitoring(Entity):
                                                     self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, [], name, value)
 
 
-                                                class Threshold(Entity):
+                                                class Threshold(_Entity_):
                                                     """
                                                     Types of thresholds
                                                     
@@ -1908,7 +2080,10 @@ class EnvironmentalMonitoring(Entity):
                                                     _revision = '2017-01-19'
 
                                                     def __init__(self):
-                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, self).__init__()
 
                                                         self.yang_name = "threshold"
                                                         self.yang_parent_name = "thresholds"
@@ -1935,7 +2110,7 @@ class EnvironmentalMonitoring(Entity):
                                                         self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, ['type', 'trap', 'value_brief'], name, value)
 
 
-                                                    class ValueDetailed(Entity):
+                                                    class ValueDetailed(_Entity_):
                                                         """
                                                         Detailed sensor threshold
                                                         information
@@ -1989,7 +2164,10 @@ class EnvironmentalMonitoring(Entity):
                                                         _revision = '2017-01-19'
 
                                                         def __init__(self):
-                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, self).__init__()
 
                                                             self.yang_name = "value-detailed"
                                                             self.yang_parent_name = "threshold"
@@ -2015,11 +2193,23 @@ class EnvironmentalMonitoring(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, ['threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds']['meta_info']
 
 
-
-
-                                            class ValueDetailed(Entity):
+                                            class ValueDetailed(_Entity_):
                                                 """
                                                 Detailed sensor information including
                                                 the sensor value
@@ -2176,7 +2366,10 @@ class EnvironmentalMonitoring(Entity):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, self).__init__()
 
                                                     self.yang_name = "value-detailed"
                                                     self.yang_parent_name = "sensor-name"
@@ -2224,20 +2417,68 @@ class EnvironmentalMonitoring(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, ['field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'average', 'minimum', 'maximum', 'interval'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed']['meta_info']
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName']['meta_info']
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+            return meta._meta_table['EnvironmentalMonitoring.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EnvironmentalMonitoring()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
+        return meta._meta_table['EnvironmentalMonitoring']['meta_info']
 
 

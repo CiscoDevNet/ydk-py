@@ -7,8 +7,11 @@ Copyright(c) 2015\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ENTITYSTATEMIB(Entity):
+class ENTITYSTATEMIB(_Entity_):
     """
     
     
@@ -36,7 +39,10 @@ class ENTITYSTATEMIB(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(ENTITYSTATEMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ENTITYSTATEMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ENTITY-STATE-MIB"
@@ -57,7 +63,7 @@ class ENTITYSTATEMIB(Entity):
         self._perform_setattr(ENTITYSTATEMIB, [], name, value)
 
 
-    class EntStateTable(Entity):
+    class EntStateTable(_Entity_):
         """
         
         
@@ -76,7 +82,10 @@ class ENTITYSTATEMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYSTATEMIB.EntStateTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYSTATEMIB.EntStateTable, self).__init__()
 
             self.yang_name = "entStateTable"
             self.yang_parent_name = "ENTITY-STATE-MIB"
@@ -95,7 +104,7 @@ class ENTITYSTATEMIB(Entity):
             self._perform_setattr(ENTITYSTATEMIB.EntStateTable, [], name, value)
 
 
-        class EntStateEntry(Entity):
+        class EntStateEntry(_Entity_):
             """
             
             
@@ -160,7 +169,10 @@ class ENTITYSTATEMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYSTATEMIB.EntStateTable.EntStateEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYSTATEMIB.EntStateTable.EntStateEntry, self).__init__()
 
                 self.yang_name = "entStateEntry"
                 self.yang_parent_name = "entStateTable"
@@ -191,11 +203,23 @@ class ENTITYSTATEMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYSTATEMIB.EntStateTable.EntStateEntry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_mib as meta
+                return meta._meta_table['ENTITYSTATEMIB.EntStateTable.EntStateEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_mib as meta
+            return meta._meta_table['ENTITYSTATEMIB.EntStateTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ENTITYSTATEMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_mib as meta
+        return meta._meta_table['ENTITYSTATEMIB']['meta_info']
 
 

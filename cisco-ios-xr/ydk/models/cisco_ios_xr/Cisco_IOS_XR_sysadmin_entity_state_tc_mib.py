@@ -7,8 +7,11 @@ Copyright(c) 2015\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class EntityAdminState(Enum):
     unlocked = Enum.YLeaf(4, "unlocked")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_tc_mib as meta
+        return meta._meta_table['EntityAdminState']
+
+
 class EntityOperState(Enum):
     """
     EntityOperState (Enum Class)
@@ -60,6 +69,12 @@ class EntityOperState(Enum):
     enabled = Enum.YLeaf(3, "enabled")
 
     testing = Enum.YLeaf(4, "testing")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_tc_mib as meta
+        return meta._meta_table['EntityOperState']
 
 
 class EntityStandbyStatus(Enum):
@@ -85,6 +100,12 @@ class EntityStandbyStatus(Enum):
     providingService = Enum.YLeaf(4, "providingService")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_tc_mib as meta
+        return meta._meta_table['EntityStandbyStatus']
+
+
 class EntityUsageState(Enum):
     """
     EntityUsageState (Enum Class)
@@ -106,6 +127,12 @@ class EntityUsageState(Enum):
     active = Enum.YLeaf(3, "active")
 
     busy = Enum.YLeaf(4, "busy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_state_tc_mib as meta
+        return meta._meta_table['EntityUsageState']
 
 
 

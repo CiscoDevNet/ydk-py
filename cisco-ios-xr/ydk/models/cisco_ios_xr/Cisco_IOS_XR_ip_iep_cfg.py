@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class IpIepHop(Enum):
     next_label = Enum.YLeaf(6, "next-label")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+        return meta._meta_table['IpIepHop']
+
+
 class IpIepNum(Enum):
     """
     IpIepNum (Enum Class)
@@ -78,6 +87,12 @@ class IpIepNum(Enum):
     unnumbered = Enum.YLeaf(1, "unnumbered")
 
     numbered = Enum.YLeaf(2, "numbered")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+        return meta._meta_table['IpIepNum']
 
 
 class IpIepPath(Enum):
@@ -101,8 +116,14 @@ class IpIepPath(Enum):
     name = Enum.YLeaf(2, "name")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+        return meta._meta_table['IpIepPath']
 
-class IpExplicitPaths(Entity):
+
+
+class IpExplicitPaths(_Entity_):
     """
     IP Explicit Path config data
     
@@ -119,7 +140,10 @@ class IpExplicitPaths(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(IpExplicitPaths, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpExplicitPaths, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-explicit-paths"
@@ -140,7 +164,7 @@ class IpExplicitPaths(Entity):
         self._perform_setattr(IpExplicitPaths, [], name, value)
 
 
-    class Paths(Entity):
+    class Paths(_Entity_):
         """
         A list of explicit paths
         
@@ -157,7 +181,10 @@ class IpExplicitPaths(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(IpExplicitPaths.Paths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpExplicitPaths.Paths, self).__init__()
 
             self.yang_name = "paths"
             self.yang_parent_name = "ip-explicit-paths"
@@ -176,7 +203,7 @@ class IpExplicitPaths(Entity):
             self._perform_setattr(IpExplicitPaths.Paths, [], name, value)
 
 
-        class Path(Entity):
+        class Path(_Entity_):
             """
             Config data for a specific explicit path
             
@@ -203,7 +230,10 @@ class IpExplicitPaths(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(IpExplicitPaths.Paths.Path, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpExplicitPaths.Paths.Path, self).__init__()
 
                 self.yang_name = "path"
                 self.yang_parent_name = "paths"
@@ -226,7 +256,7 @@ class IpExplicitPaths(Entity):
                 self._perform_setattr(IpExplicitPaths.Paths.Path, ['type'], name, value)
 
 
-            class Name(Entity):
+            class Name(_Entity_):
                 """
                 name
                 
@@ -255,7 +285,10 @@ class IpExplicitPaths(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(IpExplicitPaths.Paths.Path.Name, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpExplicitPaths.Paths.Path.Name, self).__init__()
 
                     self.yang_name = "name"
                     self.yang_parent_name = "path"
@@ -280,7 +313,7 @@ class IpExplicitPaths(Entity):
                     self._perform_setattr(IpExplicitPaths.Paths.Path.Name, ['name', 'disable'], name, value)
 
 
-                class Hops(Entity):
+                class Hops(_Entity_):
                     """
                     List of Hops
                     
@@ -297,7 +330,10 @@ class IpExplicitPaths(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(IpExplicitPaths.Paths.Path.Name.Hops, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpExplicitPaths.Paths.Path.Name.Hops, self).__init__()
 
                         self.yang_name = "hops"
                         self.yang_parent_name = "name"
@@ -315,7 +351,7 @@ class IpExplicitPaths(Entity):
                         self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops, [], name, value)
 
 
-                    class Hop(Entity):
+                    class Hop(_Entity_):
                         """
                         Hop Information
                         
@@ -373,7 +409,10 @@ class IpExplicitPaths(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__init__()
 
                             self.yang_name = "hop"
                             self.yang_parent_name = "hops"
@@ -401,11 +440,23 @@ class IpExplicitPaths(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                            return meta._meta_table['IpExplicitPaths.Paths.Path.Name.Hops.Hop']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                        return meta._meta_table['IpExplicitPaths.Paths.Path.Name.Hops']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                    return meta._meta_table['IpExplicitPaths.Paths.Path.Name']['meta_info']
 
 
-
-
-            class Identifier(Entity):
+            class Identifier(_Entity_):
                 """
                 identifier
                 
@@ -434,7 +485,10 @@ class IpExplicitPaths(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
 
                     self.yang_name = "identifier"
                     self.yang_parent_name = "path"
@@ -459,7 +513,7 @@ class IpExplicitPaths(Entity):
                     self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier, ['id', 'disable'], name, value)
 
 
-                class Hops(Entity):
+                class Hops(_Entity_):
                     """
                     List of Hops
                     
@@ -476,7 +530,10 @@ class IpExplicitPaths(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
 
                         self.yang_name = "hops"
                         self.yang_parent_name = "identifier"
@@ -494,7 +551,7 @@ class IpExplicitPaths(Entity):
                         self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops, [], name, value)
 
 
-                    class Hop(Entity):
+                    class Hop(_Entity_):
                         """
                         Hop Information
                         
@@ -552,7 +609,10 @@ class IpExplicitPaths(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
 
                             self.yang_name = "hop"
                             self.yang_parent_name = "hops"
@@ -580,14 +640,38 @@ class IpExplicitPaths(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                            return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier.Hops.Hop']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                        return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier.Hops']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                    return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+                return meta._meta_table['IpExplicitPaths.Paths.Path']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+            return meta._meta_table['IpExplicitPaths.Paths']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpExplicitPaths()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
+        return meta._meta_table['IpExplicitPaths']['meta_info']
 
 

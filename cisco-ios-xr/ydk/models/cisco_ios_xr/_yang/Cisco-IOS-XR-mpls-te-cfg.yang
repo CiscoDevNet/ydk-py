@@ -43,6 +43,14 @@ module Cisco-IOS-XR-mpls-te-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-16 {
+    description
+      "Added PCE redundancy PCC-centric model support.";
+  }
+  revision 2019-09-30 {
+    description
+      "extra leaves in mpls.traffic-eng.attribute-set.auto-backup.logging.events.lsp-status";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -3162,15 +3170,24 @@ module Cisco-IOS-XR-mpls-te-cfg {
       container pce {
         description
           "PCE config";
+        container delegation {
+          description
+            "PCE Delegation config";
+          leaf enable {
+            type empty;
+            description
+              "Enable PCE Delegation";
+          }
+          leaf reopt {
+            type empty;
+            description
+              "Enable Reopt for PCE delegated Tunnel";
+          }
+        }
         leaf enable {
           type empty;
           description
             "Always set to true";
-        }
-        leaf delegation {
-          type empty;
-          description
-            "Enable PCE Delegation";
         }
       }
       uses FORWARD-CLASS;
@@ -3536,10 +3553,335 @@ module Cisco-IOS-XR-mpls-te-cfg {
             "Hold Priority";
         }
       }
-      container new-style-affinities {
+      container new-style-affinity-affinity-types {
         description
           "P2MP tunnel new style affinity attributes table";
-        list new-style-affinity {
+        list new-style-affinity-affinity-type {
+          key "affinity-type";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1 {
+          key "affinity-type affinity1";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2 {
+          key "affinity-type affinity1 affinity2";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3 {
+          key "affinity-type affinity1 affinity2 affinity3";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+          leaf affinity5 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fifth affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5 affinity6";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+          leaf affinity5 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fifth affinity";
+          }
+          leaf affinity6 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the sixth affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5 affinity6 affinity7";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+          leaf affinity5 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fifth affinity";
+          }
+          leaf affinity6 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the sixth affinity";
+          }
+          leaf affinity7 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the seventh affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5 affinity6 affinity7 affinity8";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+          leaf affinity5 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fifth affinity";
+          }
+          leaf affinity6 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the sixth affinity";
+          }
+          leaf affinity7 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the seventh affinity";
+          }
+          leaf affinity8 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the eighth affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9 {
+          key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5 affinity6 affinity7 affinity8 affinity9";
+          description
+            "Tunnel new style affinity attribute";
+          leaf affinity-type {
+            type Mpls-te-tunnel-affinity;
+            description
+              "The type of the affinity entry";
+          }
+          leaf affinity1 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the first affinity";
+          }
+          leaf affinity2 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the second affinity";
+          }
+          leaf affinity3 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the third affinity";
+          }
+          leaf affinity4 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fourth affinity";
+          }
+          leaf affinity5 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the fifth affinity";
+          }
+          leaf affinity6 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the sixth affinity";
+          }
+          leaf affinity7 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the seventh affinity";
+          }
+          leaf affinity8 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the eighth affinity";
+          }
+          leaf affinity9 {
+            type xr:Cisco-ios-xr-string;
+            description
+              "The name of the nineth affinity";
+          }
+        }
+        list new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10 {
           key "affinity-type affinity1 affinity2 affinity3 affinity4 affinity5 affinity6 affinity7 affinity8 affinity9 affinity10";
           description
             "Tunnel new style affinity attribute";
@@ -5119,6 +5461,17 @@ module Cisco-IOS-XR-mpls-te-cfg {
                  default is 180 seconds";
             }
           }
+          container redundancy {
+            description
+              "Configure PCE (Path Computation Element)
+               redundancy";
+            leaf pcc-centric {
+              type empty;
+              description
+                "Enable PCC (Path Computation Client) centric
+                 model";
+            }
+          }
           leaf fast-repair {
             type empty;
             description
@@ -6417,7 +6770,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf bitrate {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or 
+                  "../SignalledBandwidthType = ODUflexCBR or
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =
@@ -6432,7 +6785,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             leaf od-uflex-framing-type {
               when "../signalled-bandwidth-type = 'od-uflex-cbr' or ../signalled-bandwidth-type = 'od-uflex-gfp-resize' or ../signalled-bandwidth-type = 'od-uflex-gfp-not-resize'" {
                 description
-                  "../SignalledBandwidthType = ODUflexCBR or 
+                  "../SignalledBandwidthType = ODUflexCBR or
                    ../SignalledBandwidthType =
                    ODUflexGFPResize or .
                    ./SignalledBandwidthType =

@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -49,6 +52,12 @@ class EfpPayloadEtype(Enum):
     payload_ethertype_pppoe = Enum.YLeaf(2, "payload-ethertype-pppoe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EfpPayloadEtype']
+
+
 class EfpTagEtype(Enum):
     """
     EfpTagEtype (Enum Class)
@@ -74,6 +83,12 @@ class EfpTagEtype(Enum):
     dot1q = Enum.YLeaf(33024, "dot1q")
 
     dot1ad = Enum.YLeaf(34984, "dot1ad")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EfpTagEtype']
 
 
 class EfpTagPriority(Enum):
@@ -139,6 +154,12 @@ class EfpTagPriority(Enum):
     priority_any = Enum.YLeaf(8, "priority-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EfpTagPriority']
+
+
 class EthCapsUcastMacMode(Enum):
     """
     EthCapsUcastMacMode (Enum Class)
@@ -158,6 +179,12 @@ class EthCapsUcastMacMode(Enum):
     reserved = Enum.YLeaf(0, "reserved")
 
     permit = Enum.YLeaf(1, "permit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EthCapsUcastMacMode']
 
 
 class EthFiltering(Enum):
@@ -193,6 +220,12 @@ class EthFiltering(Enum):
     dot1ad_filtering = Enum.YLeaf(2, "dot1ad-filtering")
 
     two_port_mac_relay_filtering = Enum.YLeaf(3, "two-port-mac-relay-filtering")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EthFiltering']
 
 
 class ImStateEnum(Enum):
@@ -318,6 +351,12 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['ImStateEnum']
+
+
 class VlanEncaps(Enum):
     """
     VlanEncaps (Enum Class)
@@ -387,6 +426,12 @@ class VlanEncaps(Enum):
     dot1ad_any = Enum.YLeaf(9, "dot1ad-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['VlanEncaps']
+
+
 class VlanQinqOuterEtype(Enum):
     """
     VlanQinqOuterEtype (Enum Class)
@@ -414,6 +459,12 @@ class VlanQinqOuterEtype(Enum):
     ether_type9200 = Enum.YLeaf(37376, "ether-type9200")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['VlanQinqOuterEtype']
+
+
 class VlanService(Enum):
     """
     VlanService (Enum Class)
@@ -433,6 +484,12 @@ class VlanService(Enum):
     vlan_service_l2 = Enum.YLeaf(1, "vlan-service-l2")
 
     vlan_service_l3 = Enum.YLeaf(2, "vlan-service-l3")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['VlanService']
 
 
 class VlanSwitchedMode(Enum):
@@ -462,8 +519,14 @@ class VlanSwitchedMode(Enum):
     access_port = Enum.YLeaf(2, "access-port")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['VlanSwitchedMode']
 
-class MacAccounting(Entity):
+
+
+class MacAccounting(_Entity_):
     """
     MAC accounting operational data
     
@@ -482,7 +545,10 @@ class MacAccounting(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MacAccounting, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MacAccounting, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mac-accounting"
@@ -503,7 +569,7 @@ class MacAccounting(Entity):
         self._perform_setattr(MacAccounting, [], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         MAC accounting interface table in MIB
         lexicographic order
@@ -523,7 +589,10 @@ class MacAccounting(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MacAccounting.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MacAccounting.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "mac-accounting"
@@ -542,7 +611,7 @@ class MacAccounting(Entity):
             self._perform_setattr(MacAccounting.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Operational data and statistics for an
             interface configured with MAC accounting
@@ -586,7 +655,10 @@ class MacAccounting(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MacAccounting.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MacAccounting.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -613,7 +685,7 @@ class MacAccounting(Entity):
                 self._perform_setattr(MacAccounting.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 MAC accounting state for the interface
                 
@@ -666,7 +738,10 @@ class MacAccounting(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MacAccounting.Interfaces.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MacAccounting.Interfaces.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -692,9 +767,13 @@ class MacAccounting(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.State, ['is_ingress_enabled', 'is_egress_enabled', 'number_available_ingress', 'number_available_egress', 'number_available_on_node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['MacAccounting.Interfaces.Interface.State']['meta_info']
 
 
-            class IngressStatistic(Entity):
+            class IngressStatistic(_Entity_):
                 """
                 Ingress MAC accounting statistics
                 
@@ -735,7 +814,10 @@ class MacAccounting(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MacAccounting.Interfaces.Interface.IngressStatistic, self).__init__()
 
                     self.yang_name = "ingress-statistic"
                     self.yang_parent_name = "interface"
@@ -757,9 +839,13 @@ class MacAccounting(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['MacAccounting.Interfaces.Interface.IngressStatistic']['meta_info']
 
 
-            class EgressStatistic(Entity):
+            class EgressStatistic(_Entity_):
                 """
                 Egress MAC accounting statistics
                 
@@ -800,7 +886,10 @@ class MacAccounting(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MacAccounting.Interfaces.Interface.EgressStatistic, self).__init__()
 
                     self.yang_name = "egress-statistic"
                     self.yang_parent_name = "interface"
@@ -822,16 +911,32 @@ class MacAccounting(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['MacAccounting.Interfaces.Interface.EgressStatistic']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                return meta._meta_table['MacAccounting.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+            return meta._meta_table['MacAccounting.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MacAccounting()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['MacAccounting']['meta_info']
 
 
-class Vlan(Entity):
+class Vlan(_Entity_):
     """
     vlan
     
@@ -850,7 +955,10 @@ class Vlan(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Vlan, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vlan, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vlan"
@@ -871,7 +979,7 @@ class Vlan(Entity):
         self._perform_setattr(Vlan, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node VLAN operational data
         
@@ -890,7 +998,10 @@ class Vlan(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Vlan.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vlan.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "vlan"
@@ -909,7 +1020,7 @@ class Vlan(Entity):
             self._perform_setattr(Vlan.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The VLAN operational data for a particular node
             
@@ -951,7 +1062,10 @@ class Vlan(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vlan.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlan.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -983,7 +1097,7 @@ class Vlan(Entity):
                 self._perform_setattr(Vlan.Nodes.Node, ['node_id'], name, value)
 
 
-            class Trunks(Entity):
+            class Trunks(_Entity_):
                 """
                 VLAN trunk table (specific to this node)
                 
@@ -1002,7 +1116,10 @@ class Vlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vlan.Nodes.Node.Trunks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vlan.Nodes.Node.Trunks, self).__init__()
 
                     self.yang_name = "trunks"
                     self.yang_parent_name = "node"
@@ -1020,7 +1137,7 @@ class Vlan(Entity):
                     self._perform_setattr(Vlan.Nodes.Node.Trunks, [], name, value)
 
 
-                class Trunk(Entity):
+                class Trunk(_Entity_):
                     """
                     Operational data for trunk interfaces
                     configured with VLANs
@@ -1120,7 +1237,10 @@ class Vlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vlan.Nodes.Node.Trunks.Trunk, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vlan.Nodes.Node.Trunks.Trunk, self).__init__()
 
                         self.yang_name = "trunk"
                         self.yang_parent_name = "trunks"
@@ -1165,7 +1285,7 @@ class Vlan(Entity):
                         self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'interface_xr', 'state', 'mtu', 'qinq_outer_ether_type', 'dot1ad_count', 'untagged_interface', 'mac_filtering'], name, value)
 
 
-                    class Layer2SubInterfaces(Entity):
+                    class Layer2SubInterfaces(_Entity_):
                         """
                         Layer 2 Transport Subinterfaces
                         
@@ -1229,7 +1349,10 @@ class Vlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, self).__init__()
 
                             self.yang_name = "layer2-sub-interfaces"
                             self.yang_parent_name = "trunk"
@@ -1260,7 +1383,7 @@ class Vlan(Entity):
                             self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'qin_any_count', 'untagged_count'], name, value)
 
 
-                        class StateCounters(Entity):
+                        class StateCounters(_Entity_):
                             """
                             Numbers of subinterfaces up, down or
                             administratively shut down
@@ -1300,7 +1423,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, self).__init__()
 
                                 self.yang_name = "state-counters"
                                 self.yang_parent_name = "layer2-sub-interfaces"
@@ -1322,10 +1448,18 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces']['meta_info']
 
 
-
-                    class Layer3SubInterfaces(Entity):
+                    class Layer3SubInterfaces(_Entity_):
                         """
                         Layer 3 Terminated Subinterfaces
                         
@@ -1389,7 +1523,10 @@ class Vlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, self).__init__()
 
                             self.yang_name = "layer3-sub-interfaces"
                             self.yang_parent_name = "trunk"
@@ -1420,7 +1557,7 @@ class Vlan(Entity):
                             self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'untagged_count', 'native_vlan'], name, value)
 
 
-                        class StateCounters(Entity):
+                        class StateCounters(_Entity_):
                             """
                             Numbers of subinterfaces up, down or
                             administratively shut down
@@ -1460,7 +1597,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, self).__init__()
 
                                 self.yang_name = "state-counters"
                                 self.yang_parent_name = "layer3-sub-interfaces"
@@ -1482,10 +1622,18 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces']['meta_info']
 
 
-
-                    class VlanSwitched(Entity):
+                    class VlanSwitched(_Entity_):
                         """
                         VLAN\-Switched information
                         
@@ -1520,7 +1668,10 @@ class Vlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, self).__init__()
 
                             self.yang_name = "vlan-switched"
                             self.yang_parent_name = "trunk"
@@ -1545,7 +1696,7 @@ class Vlan(Entity):
                             self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, ['mode', 'access_vlan'], name, value)
 
 
-                        class TrunkVlanRanges(Entity):
+                        class TrunkVlanRanges(_Entity_):
                             """
                             VLAN\-Switched Trunk VLAN ranges
                             
@@ -1633,7 +1784,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, self).__init__()
 
                                 self.yang_name = "trunk-vlan-ranges"
                                 self.yang_parent_name = "vlan-switched"
@@ -1671,7 +1825,7 @@ class Vlan(Entity):
                                 self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
-                            class LocalTrafficStack(Entity):
+                            class LocalTrafficStack(_Entity_):
                                 """
                                 VLAN tags for locally\-sourced traffic
                                 
@@ -1690,7 +1844,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -1708,7 +1865,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, [], name, value)
 
 
-                                class LocalTrafficTag(Entity):
+                                class LocalTrafficTag(_Entity_):
                                     """
                                     VLAN tags for locally\-sourced traffic
                                     
@@ -1736,7 +1893,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
@@ -1756,10 +1916,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack']['meta_info']
 
 
-
-                            class TagsToMatch(Entity):
+                            class TagsToMatch(_Entity_):
                                 """
                                 Tags to match on ingress packets
                                 
@@ -1792,7 +1960,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -1815,7 +1986,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
-                                class VlanRange(Entity):
+                                class VlanRange(_Entity_):
                                     """
                                     VLAN Ids to match
                                     
@@ -1845,7 +2016,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
@@ -1865,10 +2039,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch']['meta_info']
 
 
-
-                            class Pushe(Entity):
+                            class Pushe(_Entity_):
                                 """
                                 VLAN tags pushed on egress
                                 
@@ -1896,7 +2078,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
 
                                     self.yang_name = "pushe"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -1916,13 +2101,33 @@ class Vlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                        return meta._meta_table['Vlan.Nodes.Node.Trunks.Trunk']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['Vlan.Nodes.Node.Trunks']['meta_info']
 
 
-
-
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 VLAN interface table (specific to this node)
                 
@@ -1941,7 +2146,10 @@ class Vlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vlan.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vlan.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -1959,7 +2167,7 @@ class Vlan(Entity):
                     self._perform_setattr(Vlan.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Operational data for a sub\-interface
                     configured with VLANs
@@ -2038,7 +2246,10 @@ class Vlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vlan.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vlan.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2073,7 +2284,7 @@ class Vlan(Entity):
                         self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
-                    class EncapsulationDetails(Entity):
+                    class EncapsulationDetails(_Entity_):
                         """
                         Encapsulation type and tag stack
                         
@@ -2167,7 +2378,10 @@ class Vlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, self).__init__()
 
                             self.yang_name = "encapsulation-details"
                             self.yang_parent_name = "interface"
@@ -2210,7 +2424,7 @@ class Vlan(Entity):
                             self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
-                        class Stack(Entity):
+                        class Stack(_Entity_):
                             """
                             Stack value
                             
@@ -2240,7 +2454,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, self).__init__()
 
                                 self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -2260,9 +2477,13 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack']['meta_info']
 
 
-                        class ServiceInstanceDetails(Entity):
+                        class ServiceInstanceDetails(_Entity_):
                             """
                             Service Instance encapsulation
                             
@@ -2350,7 +2571,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
 
                                 self.yang_name = "service-instance-details"
                                 self.yang_parent_name = "encapsulation-details"
@@ -2388,7 +2612,7 @@ class Vlan(Entity):
                                 self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
-                            class LocalTrafficStack(Entity):
+                            class LocalTrafficStack(_Entity_):
                                 """
                                 VLAN tags for locally\-sourced traffic
                                 
@@ -2407,7 +2631,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "service-instance-details"
@@ -2425,7 +2652,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
 
 
-                                class LocalTrafficTag(Entity):
+                                class LocalTrafficTag(_Entity_):
                                     """
                                     VLAN tags for locally\-sourced traffic
                                     
@@ -2453,7 +2680,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
@@ -2473,10 +2703,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
 
 
-
-                            class TagsToMatch(Entity):
+                            class TagsToMatch(_Entity_):
                                 """
                                 Tags to match on ingress packets
                                 
@@ -2509,7 +2747,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "service-instance-details"
@@ -2532,7 +2773,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
-                                class VlanRange(Entity):
+                                class VlanRange(_Entity_):
                                     """
                                     VLAN Ids to match
                                     
@@ -2562,7 +2803,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
@@ -2582,10 +2826,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
 
 
-
-                            class Pushe(Entity):
+                            class Pushe(_Entity_):
                                 """
                                 VLAN tags pushed on egress
                                 
@@ -2613,7 +2865,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
 
                                     self.yang_name = "pushe"
                                     self.yang_parent_name = "service-instance-details"
@@ -2633,10 +2888,18 @@ class Vlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 
 
-
-                        class Dot1adDot1qStack(Entity):
+                        class Dot1adDot1qStack(_Entity_):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -2666,7 +2929,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
 
                                 self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -2686,12 +2952,28 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                        return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['Vlan.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-
-            class TagAllocations(Entity):
+            class TagAllocations(_Entity_):
                 """
                 VLAN tag allocation table (specific to this
                 node)
@@ -2711,7 +2993,10 @@ class Vlan(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vlan.Nodes.Node.TagAllocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vlan.Nodes.Node.TagAllocations, self).__init__()
 
                     self.yang_name = "tag-allocations"
                     self.yang_parent_name = "node"
@@ -2729,7 +3014,7 @@ class Vlan(Entity):
                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations, [], name, value)
 
 
-                class TagAllocation(Entity):
+                class TagAllocation(_Entity_):
                     """
                     Operational data for a sub\-interface
                     configured with VLANs
@@ -2830,7 +3115,10 @@ class Vlan(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation, self).__init__()
 
                         self.yang_name = "tag-allocation"
                         self.yang_parent_name = "tag-allocations"
@@ -2869,7 +3157,7 @@ class Vlan(Entity):
                         self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
-                    class EncapsulationDetails(Entity):
+                    class EncapsulationDetails(_Entity_):
                         """
                         Encapsulation type and tag stack
                         
@@ -2963,7 +3251,10 @@ class Vlan(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, self).__init__()
 
                             self.yang_name = "encapsulation-details"
                             self.yang_parent_name = "tag-allocation"
@@ -3006,7 +3297,7 @@ class Vlan(Entity):
                             self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
-                        class Stack(Entity):
+                        class Stack(_Entity_):
                             """
                             Stack value
                             
@@ -3036,7 +3327,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, self).__init__()
 
                                 self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -3056,9 +3350,13 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack']['meta_info']
 
 
-                        class ServiceInstanceDetails(Entity):
+                        class ServiceInstanceDetails(_Entity_):
                             """
                             Service Instance encapsulation
                             
@@ -3146,7 +3444,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
 
                                 self.yang_name = "service-instance-details"
                                 self.yang_parent_name = "encapsulation-details"
@@ -3184,7 +3485,7 @@ class Vlan(Entity):
                                 self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
-                            class LocalTrafficStack(Entity):
+                            class LocalTrafficStack(_Entity_):
                                 """
                                 VLAN tags for locally\-sourced traffic
                                 
@@ -3203,7 +3504,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "service-instance-details"
@@ -3221,7 +3525,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
 
 
-                                class LocalTrafficTag(Entity):
+                                class LocalTrafficTag(_Entity_):
                                     """
                                     VLAN tags for locally\-sourced traffic
                                     
@@ -3249,7 +3553,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
@@ -3269,10 +3576,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
 
 
-
-                            class TagsToMatch(Entity):
+                            class TagsToMatch(_Entity_):
                                 """
                                 Tags to match on ingress packets
                                 
@@ -3305,7 +3620,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "service-instance-details"
@@ -3328,7 +3646,7 @@ class Vlan(Entity):
                                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
-                                class VlanRange(Entity):
+                                class VlanRange(_Entity_):
                                     """
                                     VLAN Ids to match
                                     
@@ -3358,7 +3676,10 @@ class Vlan(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
@@ -3378,10 +3699,18 @@ class Vlan(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                        return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
 
 
-
-                            class Pushe(Entity):
+                            class Pushe(_Entity_):
                                 """
                                 VLAN tags pushed on egress
                                 
@@ -3409,7 +3738,10 @@ class Vlan(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
 
                                     self.yang_name = "pushe"
                                     self.yang_parent_name = "service-instance-details"
@@ -3429,10 +3761,18 @@ class Vlan(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                    return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 
 
-
-                        class Dot1adDot1qStack(Entity):
+                        class Dot1adDot1qStack(_Entity_):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -3462,7 +3802,10 @@ class Vlan(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
 
                                 self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -3482,19 +3825,47 @@ class Vlan(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                                return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                        return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['Vlan.Nodes.Node.TagAllocations']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                return meta._meta_table['Vlan.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+            return meta._meta_table['Vlan.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vlan()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['Vlan']['meta_info']
 
 
-class EthernetEncapsulation(Entity):
+class EthernetEncapsulation(_Entity_):
     """
     ethernet encapsulation
     
@@ -3513,7 +3884,10 @@ class EthernetEncapsulation(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(EthernetEncapsulation, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EthernetEncapsulation, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ethernet-encapsulation"
@@ -3534,7 +3908,7 @@ class EthernetEncapsulation(Entity):
         self._perform_setattr(EthernetEncapsulation, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node Ethernet encapsulation operational data
         
@@ -3553,7 +3927,10 @@ class EthernetEncapsulation(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EthernetEncapsulation.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetEncapsulation.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ethernet-encapsulation"
@@ -3572,7 +3949,7 @@ class EthernetEncapsulation(Entity):
             self._perform_setattr(EthernetEncapsulation.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The Ethernet encaps operational data for a
             particular node
@@ -3601,7 +3978,10 @@ class EthernetEncapsulation(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EthernetEncapsulation.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetEncapsulation.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -3625,7 +4005,7 @@ class EthernetEncapsulation(Entity):
                 self._perform_setattr(EthernetEncapsulation.Nodes.Node, ['node_name'], name, value)
 
 
-            class UnicastMacFilters(Entity):
+            class UnicastMacFilters(_Entity_):
                 """
                 Unicast MAC filter table (specific to this
                 node)
@@ -3645,7 +4025,10 @@ class EthernetEncapsulation(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, self).__init__()
 
                     self.yang_name = "unicast-mac-filters"
                     self.yang_parent_name = "node"
@@ -3663,7 +4046,7 @@ class EthernetEncapsulation(Entity):
                     self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, [], name, value)
 
 
-                class UnicastMacFilter(Entity):
+                class UnicastMacFilter(_Entity_):
                     """
                     Operational data for interface with MAC
                     filters configured
@@ -3692,7 +4075,10 @@ class EthernetEncapsulation(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, self).__init__()
 
                         self.yang_name = "unicast-mac-filter"
                         self.yang_parent_name = "unicast-mac-filters"
@@ -3713,7 +4099,7 @@ class EthernetEncapsulation(Entity):
                         self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, ['interface_name'], name, value)
 
 
-                    class UnicastFilter(Entity):
+                    class UnicastFilter(_Entity_):
                         """
                         Unicast MAC filter information
                         
@@ -3741,7 +4127,10 @@ class EthernetEncapsulation(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, self).__init__()
 
                             self.yang_name = "unicast-filter"
                             self.yang_parent_name = "unicast-mac-filter"
@@ -3761,14 +4150,38 @@ class EthernetEncapsulation(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, ['mac_address', 'mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                            return meta._meta_table['EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                        return meta._meta_table['EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                    return meta._meta_table['EthernetEncapsulation.Nodes.Node.UnicastMacFilters']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+                return meta._meta_table['EthernetEncapsulation.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+            return meta._meta_table['EthernetEncapsulation.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EthernetEncapsulation()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
+        return meta._meta_table['EthernetEncapsulation']['meta_info']
 
 

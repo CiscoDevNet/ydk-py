@@ -2,6 +2,9 @@ module SNMP-MPD-MIB {
   namespace "http://tail-f.com/ns/mibs/SNMP-MPD-MIB/200210140000Z";
   prefix SNMP_MPD_MIB;
 
+  tailf:id "";
+  tailf:snmp-mib-module-name "SNMP-MPD-MIB";
+
   import ietf-yang-types {
     prefix yang;
   }
@@ -13,8 +16,6 @@ module SNMP-MPD-MIB {
     description
       "";
   }
-  tailf:id "";
-  tailf:snmp-mib-module-name "SNMP-MPD-MIB";
 
   container SNMP-MPD-MIB {
     config false;
@@ -22,18 +23,18 @@ module SNMP-MPD-MIB {
       tailf:snmp-oid "1.3.6.1.6.3.11.2.1";
       leaf snmpUnknownSecurityModels {
         type yang:counter32;
-        config false;
         tailf:snmp-oid "1.3.6.1.6.3.11.2.1.1";
+        config false;
       }
       leaf snmpInvalidMsgs {
         type yang:counter32;
-        config false;
         tailf:snmp-oid "1.3.6.1.6.3.11.2.1.2";
+        config false;
       }
       leaf snmpUnknownPDUHandlers {
         type yang:counter32;
-        config false;
         tailf:snmp-oid "1.3.6.1.6.3.11.2.1.3";
+        config false;
       }
     }
   }

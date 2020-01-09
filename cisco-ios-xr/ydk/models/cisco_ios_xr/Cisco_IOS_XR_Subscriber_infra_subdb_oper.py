@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -89,6 +92,12 @@ class SessionState(Enum):
     sync = Enum.YLeaf(11, "sync")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+        return meta._meta_table['SessionState']
+
+
 class SubdbObjectTypeData(Enum):
     """
     SubdbObjectTypeData (Enum Class)
@@ -128,8 +137,14 @@ class SubdbObjectTypeData(Enum):
     ip_subscriber = Enum.YLeaf(5, "ip-subscriber")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+        return meta._meta_table['SubdbObjectTypeData']
 
-class SubscriberDatabase(Entity):
+
+
+class SubscriberDatabase(_Entity_):
     """
     Subscriber database operational data
     
@@ -148,7 +163,10 @@ class SubscriberDatabase(Entity):
     _revision = '2018-09-28'
 
     def __init__(self):
-        super(SubscriberDatabase, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberDatabase, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-database"
@@ -169,7 +187,7 @@ class SubscriberDatabase(Entity):
         self._perform_setattr(SubscriberDatabase, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which subscriber data is
         collected
@@ -189,7 +207,10 @@ class SubscriberDatabase(Entity):
         _revision = '2018-09-28'
 
         def __init__(self):
-            super(SubscriberDatabase.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberDatabase.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "subscriber-database"
@@ -208,7 +229,7 @@ class SubscriberDatabase(Entity):
             self._perform_setattr(SubscriberDatabase.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber data for a particular node
             
@@ -257,7 +278,10 @@ class SubscriberDatabase(Entity):
             _revision = '2018-09-28'
 
             def __init__(self):
-                super(SubscriberDatabase.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberDatabase.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -293,7 +317,7 @@ class SubscriberDatabase(Entity):
                 self._perform_setattr(SubscriberDatabase.Nodes.Node, ['node_name'], name, value)
 
 
-            class SubdbAssoc(Entity):
+            class SubdbAssoc(_Entity_):
                 """
                 Subscriber data for associated templates
                 
@@ -312,7 +336,10 @@ class SubscriberDatabase(Entity):
                 _revision = '2018-09-28'
 
                 def __init__(self):
-                    super(SubscriberDatabase.Nodes.Node.SubdbAssoc, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberDatabase.Nodes.Node.SubdbAssoc, self).__init__()
 
                     self.yang_name = "subdb-assoc"
                     self.yang_parent_name = "node"
@@ -332,7 +359,7 @@ class SubscriberDatabase(Entity):
                     self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc, [], name, value)
 
 
-                class Labels(Entity):
+                class Labels(_Entity_):
                     """
                     List of associated subscriber labels
                     
@@ -351,7 +378,10 @@ class SubscriberDatabase(Entity):
                     _revision = '2018-09-28'
 
                     def __init__(self):
-                        super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels, self).__init__()
 
                         self.yang_name = "labels"
                         self.yang_parent_name = "subdb-assoc"
@@ -369,7 +399,7 @@ class SubscriberDatabase(Entity):
                         self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels, [], name, value)
 
 
-                    class Label(Entity):
+                    class Label(_Entity_):
                         """
                         Association for a given subscriber label
                         
@@ -433,7 +463,10 @@ class SubscriberDatabase(Entity):
                         _revision = '2018-09-28'
 
                         def __init__(self):
-                            super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label, self).__init__()
 
                             self.yang_name = "label"
                             self.yang_parent_name = "labels"
@@ -464,7 +497,7 @@ class SubscriberDatabase(Entity):
                             self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label, ['subscriber_label', 'session_id', 'interface_name', 'associations', 'varlist_id'], name, value)
 
 
-                        class Template(Entity):
+                        class Template(_Entity_):
                             """
                             Subdb template
                             
@@ -483,7 +516,10 @@ class SubscriberDatabase(Entity):
                             _revision = '2018-09-28'
 
                             def __init__(self):
-                                super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template, self).__init__()
 
                                 self.yang_name = "template"
                                 self.yang_parent_name = "label"
@@ -501,7 +537,7 @@ class SubscriberDatabase(Entity):
                                 self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template, [], name, value)
 
 
-                            class AssociatedTemplate(Entity):
+                            class AssociatedTemplate(_Entity_):
                                 """
                                 Associated templates
                                 
@@ -538,7 +574,10 @@ class SubscriberDatabase(Entity):
                                 _revision = '2018-09-28'
 
                                 def __init__(self):
-                                    super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate, self).__init__()
 
                                     self.yang_name = "associated-template"
                                     self.yang_parent_name = "template"
@@ -560,13 +599,33 @@ class SubscriberDatabase(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                                    return meta._meta_table['SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template.AssociatedTemplate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                                return meta._meta_table['SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label.Template']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                            return meta._meta_table['SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels.Label']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                        return meta._meta_table['SubscriberDatabase.Nodes.Node.SubdbAssoc.Labels']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                    return meta._meta_table['SubscriberDatabase.Nodes.Node.SubdbAssoc']['meta_info']
 
 
-
-
-
-
-            class Association(Entity):
+            class Association(_Entity_):
                 """
                 Subscriber data for associated templates
                 
@@ -585,7 +644,10 @@ class SubscriberDatabase(Entity):
                 _revision = '2018-09-28'
 
                 def __init__(self):
-                    super(SubscriberDatabase.Nodes.Node.Association, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberDatabase.Nodes.Node.Association, self).__init__()
 
                     self.yang_name = "association"
                     self.yang_parent_name = "node"
@@ -605,7 +667,7 @@ class SubscriberDatabase(Entity):
                     self._perform_setattr(SubscriberDatabase.Nodes.Node.Association, [], name, value)
 
 
-                class Labels(Entity):
+                class Labels(_Entity_):
                     """
                     List of associated subscriber labels
                     
@@ -624,7 +686,10 @@ class SubscriberDatabase(Entity):
                     _revision = '2018-09-28'
 
                     def __init__(self):
-                        super(SubscriberDatabase.Nodes.Node.Association.Labels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberDatabase.Nodes.Node.Association.Labels, self).__init__()
 
                         self.yang_name = "labels"
                         self.yang_parent_name = "association"
@@ -642,7 +707,7 @@ class SubscriberDatabase(Entity):
                         self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels, [], name, value)
 
 
-                    class Label(Entity):
+                    class Label(_Entity_):
                         """
                         Association for a given subscriber label
                         
@@ -706,7 +771,10 @@ class SubscriberDatabase(Entity):
                         _revision = '2018-09-28'
 
                         def __init__(self):
-                            super(SubscriberDatabase.Nodes.Node.Association.Labels.Label, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberDatabase.Nodes.Node.Association.Labels.Label, self).__init__()
 
                             self.yang_name = "label"
                             self.yang_parent_name = "labels"
@@ -737,7 +805,7 @@ class SubscriberDatabase(Entity):
                             self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', 'session_id', 'interface_name', 'associations', 'varlist_id'], name, value)
 
 
-                        class Template(Entity):
+                        class Template(_Entity_):
                             """
                             Subdb template
                             
@@ -756,7 +824,10 @@ class SubscriberDatabase(Entity):
                             _revision = '2018-09-28'
 
                             def __init__(self):
-                                super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template, self).__init__()
 
                                 self.yang_name = "template"
                                 self.yang_parent_name = "label"
@@ -774,7 +845,7 @@ class SubscriberDatabase(Entity):
                                 self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template, [], name, value)
 
 
-                            class AssociatedTemplate(Entity):
+                            class AssociatedTemplate(_Entity_):
                                 """
                                 Associated templates
                                 
@@ -811,7 +882,10 @@ class SubscriberDatabase(Entity):
                                 _revision = '2018-09-28'
 
                                 def __init__(self):
-                                    super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, self).__init__()
 
                                     self.yang_name = "associated-template"
                                     self.yang_parent_name = "template"
@@ -833,13 +907,33 @@ class SubscriberDatabase(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                                    return meta._meta_table['SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                                return meta._meta_table['SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                            return meta._meta_table['SubscriberDatabase.Nodes.Node.Association.Labels.Label']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                        return meta._meta_table['SubscriberDatabase.Nodes.Node.Association.Labels']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                    return meta._meta_table['SubscriberDatabase.Nodes.Node.Association']['meta_info']
 
 
-
-
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Subscriber data for associated templates
                 
@@ -950,7 +1044,10 @@ class SubscriberDatabase(Entity):
                 _revision = '2018-09-28'
 
                 def __init__(self):
-                    super(SubscriberDatabase.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberDatabase.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -988,9 +1085,13 @@ class SubscriberDatabase(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberDatabase.Nodes.Node.Summary, ['assoc_db_entries', 'assoc_db_associations', 'derived_db_entries', 'config_db_entries', 'interface_db_entries', 'num_ipsub_dhcp', 'num_ipsub_inband', 'num_pppoe', 'subdb_obj_counts_by_type', 'num_subscribers_in_state', 'num_transitions_through_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                    return meta._meta_table['SubscriberDatabase.Nodes.Node.Summary']['meta_info']
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Subscriber management session information
                 
@@ -1009,7 +1110,10 @@ class SubscriberDatabase(Entity):
                 _revision = '2018-09-28'
 
                 def __init__(self):
-                    super(SubscriberDatabase.Nodes.Node.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberDatabase.Nodes.Node.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "node"
@@ -1029,7 +1133,7 @@ class SubscriberDatabase(Entity):
                     self._perform_setattr(SubscriberDatabase.Nodes.Node.Session, [], name, value)
 
 
-                class Labels(Entity):
+                class Labels(_Entity_):
                     """
                     Subscriber management list of subscriber
                     labels
@@ -1049,7 +1153,10 @@ class SubscriberDatabase(Entity):
                     _revision = '2018-09-28'
 
                     def __init__(self):
-                        super(SubscriberDatabase.Nodes.Node.Session.Labels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberDatabase.Nodes.Node.Session.Labels, self).__init__()
 
                         self.yang_name = "labels"
                         self.yang_parent_name = "session"
@@ -1067,7 +1174,7 @@ class SubscriberDatabase(Entity):
                         self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels, [], name, value)
 
 
-                    class Label(Entity):
+                    class Label(_Entity_):
                         """
                         Session information for a subscriber label
                         
@@ -1240,7 +1347,10 @@ class SubscriberDatabase(Entity):
                         _revision = '2018-09-28'
 
                         def __init__(self):
-                            super(SubscriberDatabase.Nodes.Node.Session.Labels.Label, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberDatabase.Nodes.Node.Session.Labels.Label, self).__init__()
 
                             self.yang_name = "label"
                             self.yang_parent_name = "labels"
@@ -1298,14 +1408,38 @@ class SubscriberDatabase(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', 'session_state', 'activate_request_id', 'transaction_id', 'produce_done_request_id', 'destroy_req_received', 'destroy_request_id', 'is_config_changed', 'is_creator_gone', 'is_delete_notify_done', 'add_modify_done', 'is_rollback_needed', 'is_rollback_in_progress', 'is_server_restart_apply', 'is_rollback_performed', 'repl_pending', 'activate_timer_running', 'apply_timer_running', 'event_queue_size', 'restarts', 'template_interface_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                            return meta._meta_table['SubscriberDatabase.Nodes.Node.Session.Labels.Label']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                        return meta._meta_table['SubscriberDatabase.Nodes.Node.Session.Labels']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                    return meta._meta_table['SubscriberDatabase.Nodes.Node.Session']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+                return meta._meta_table['SubscriberDatabase.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+            return meta._meta_table['SubscriberDatabase.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberDatabase()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Subscriber_infra_subdb_oper as meta
+        return meta._meta_table['SubscriberDatabase']['meta_info']
 
 

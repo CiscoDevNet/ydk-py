@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class RebootHistory(Entity):
+class RebootHistory(_Entity_):
     """
     Reboot History information
     
@@ -40,7 +43,10 @@ class RebootHistory(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(RebootHistory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RebootHistory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "reboot-history"
@@ -59,7 +65,7 @@ class RebootHistory(Entity):
         self._perform_setattr(RebootHistory, [], name, value)
 
 
-    class Node(Entity):
+    class Node(_Entity_):
         """
         Node ID
         
@@ -87,7 +93,10 @@ class RebootHistory(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(RebootHistory.Node, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RebootHistory.Node, self).__init__()
 
             self.yang_name = "node"
             self.yang_parent_name = "reboot-history"
@@ -109,7 +118,7 @@ class RebootHistory(Entity):
             self._perform_setattr(RebootHistory.Node, ['node_name'], name, value)
 
 
-        class RebootHistory_(Entity):
+        class RebootHistory_(_Entity_):
             """
             Last Reboots
             
@@ -153,7 +162,10 @@ class RebootHistory(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(RebootHistory.Node.RebootHistory_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RebootHistory.Node.RebootHistory_, self).__init__()
 
                 self.yang_name = "reboot-history"
                 self.yang_parent_name = "node"
@@ -177,11 +189,23 @@ class RebootHistory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RebootHistory.Node.RebootHistory_, ['no', 'time', 'cause_code', 'reason'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_reboot_history_oper as meta
+                return meta._meta_table['RebootHistory.Node.RebootHistory_']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_reboot_history_oper as meta
+            return meta._meta_table['RebootHistory.Node']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RebootHistory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_reboot_history_oper as meta
+        return meta._meta_table['RebootHistory']['meta_info']
 
 

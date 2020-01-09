@@ -7,8 +7,11 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class RollBackConfigurationLast(Entity):
+class RollBackConfigurationLast(_Entity_):
     """
     Rollback last <n> commits made
     
@@ -34,7 +37,10 @@ class RollBackConfigurationLast(Entity):
     _revision = '2016-04-17'
 
     def __init__(self):
-        super(RollBackConfigurationLast, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RollBackConfigurationLast, self).__init__()
         self._top_entity = None
 
         self.yang_name = "roll-back-configuration-last"
@@ -52,7 +58,7 @@ class RollBackConfigurationLast(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -97,7 +103,10 @@ class RollBackConfigurationLast(Entity):
         _revision = '2016-04-17'
 
         def __init__(self):
-            super(RollBackConfigurationLast.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RollBackConfigurationLast.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "roll-back-configuration-last"
@@ -124,14 +133,22 @@ class RollBackConfigurationLast(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationLast.Input, ['count', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+            return meta._meta_table['RollBackConfigurationLast.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationLast()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+        return meta._meta_table['RollBackConfigurationLast']['meta_info']
 
 
-class RollBackConfigurationTo(Entity):
+class RollBackConfigurationTo(_Entity_):
     """
     Rollback up to (and including) a specific commit
     
@@ -148,7 +165,10 @@ class RollBackConfigurationTo(Entity):
     _revision = '2016-04-17'
 
     def __init__(self):
-        super(RollBackConfigurationTo, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RollBackConfigurationTo, self).__init__()
         self._top_entity = None
 
         self.yang_name = "roll-back-configuration-to"
@@ -166,7 +186,7 @@ class RollBackConfigurationTo(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -209,7 +229,10 @@ class RollBackConfigurationTo(Entity):
         _revision = '2016-04-17'
 
         def __init__(self):
-            super(RollBackConfigurationTo.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RollBackConfigurationTo.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "roll-back-configuration-to"
@@ -236,14 +259,22 @@ class RollBackConfigurationTo(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationTo.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+            return meta._meta_table['RollBackConfigurationTo.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationTo()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+        return meta._meta_table['RollBackConfigurationTo']['meta_info']
 
 
-class RollBackConfigurationToExclude(Entity):
+class RollBackConfigurationToExclude(_Entity_):
     """
     Rollback up to (and excluding) a specific commit
     
@@ -260,7 +291,10 @@ class RollBackConfigurationToExclude(Entity):
     _revision = '2016-04-17'
 
     def __init__(self):
-        super(RollBackConfigurationToExclude, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RollBackConfigurationToExclude, self).__init__()
         self._top_entity = None
 
         self.yang_name = "roll-back-configuration-to-exclude"
@@ -278,7 +312,7 @@ class RollBackConfigurationToExclude(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -321,7 +355,10 @@ class RollBackConfigurationToExclude(Entity):
         _revision = '2016-04-17'
 
         def __init__(self):
-            super(RollBackConfigurationToExclude.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RollBackConfigurationToExclude.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "roll-back-configuration-to-exclude"
@@ -348,14 +385,22 @@ class RollBackConfigurationToExclude(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationToExclude.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+            return meta._meta_table['RollBackConfigurationToExclude.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationToExclude()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+        return meta._meta_table['RollBackConfigurationToExclude']['meta_info']
 
 
-class RollBackConfiguration(Entity):
+class RollBackConfiguration(_Entity_):
     """
     Rollback a specific commit
     
@@ -372,7 +417,10 @@ class RollBackConfiguration(Entity):
     _revision = '2016-04-17'
 
     def __init__(self):
-        super(RollBackConfiguration, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RollBackConfiguration, self).__init__()
         self._top_entity = None
 
         self.yang_name = "roll-back-configuration"
@@ -390,7 +438,7 @@ class RollBackConfiguration(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -433,7 +481,10 @@ class RollBackConfiguration(Entity):
         _revision = '2016-04-17'
 
         def __init__(self):
-            super(RollBackConfiguration.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RollBackConfiguration.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "roll-back-configuration"
@@ -460,10 +511,18 @@ class RollBackConfiguration(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfiguration.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+            return meta._meta_table['RollBackConfiguration.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RollBackConfiguration()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cfgmgr_rollback_act as meta
+        return meta._meta_table['RollBackConfiguration']['meta_info']
 
 

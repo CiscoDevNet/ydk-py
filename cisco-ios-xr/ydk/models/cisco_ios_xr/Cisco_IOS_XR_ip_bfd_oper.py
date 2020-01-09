@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class BfdAfId(Enum):
     bfd_af_id_ipv6 = Enum.YLeaf(10, "bfd-af-id-ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdAfId']
+
+
 class BfdMgmtPktDisplay(Enum):
     """
     BfdMgmtPktDisplay (Enum Class)
@@ -72,6 +81,12 @@ class BfdMgmtPktDisplay(Enum):
     bfd_mgmt_pkt_display_type_bob_mbr = Enum.YLeaf(1, "bfd-mgmt-pkt-display-type-bob-mbr")
 
     bfd_mgmt_pkt_display_type_max = Enum.YLeaf(2, "bfd-mgmt-pkt-display-type-max")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdMgmtPktDisplay']
 
 
 class BfdMgmtSessionDiag(Enum):
@@ -143,6 +158,12 @@ class BfdMgmtSessionDiag(Enum):
     bfd_mgmt_session_diag_num = Enum.YLeaf(10, "bfd-mgmt-session-diag-num")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdMgmtSessionDiag']
+
+
 class BfdMgmtSessionState(Enum):
     """
     BfdMgmtSessionState (Enum Class)
@@ -188,6 +209,12 @@ class BfdMgmtSessionState(Enum):
     bfd_mgmt_session_state_unknown = Enum.YLeaf(6, "bfd-mgmt-session-state-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdMgmtSessionState']
+
+
 class BfdMpDownloadState(Enum):
     """
     BfdMpDownloadState (Enum Class)
@@ -231,6 +258,12 @@ class BfdMpDownloadState(Enum):
     bfd_mp_download_nack = Enum.YLeaf(4, "bfd-mp-download-nack")
 
     bfd_mp_download_delete = Enum.YLeaf(5, "bfd-mp-download-delete")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdMpDownloadState']
 
 
 class BfdSession(Enum):
@@ -296,8 +329,14 @@ class BfdSession(Enum):
     ip_single_hop = Enum.YLeaf(8, "ip-single-hop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['BfdSession']
 
-class Bfd(Entity):
+
+
+class Bfd(_Entity_):
     """
     Bidirectional Forwarding Detection(BFD)
     operational data
@@ -533,13 +572,6 @@ class Bfd(Entity):
     
     	**config**\: False
     
-    .. attribute:: ipv4_single_hop_location_summaries
-    
-    	Table of summary information about IPv4 singlehop BFD sessions for location
-    	**type**\:  :py:class:`Ipv4SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries>`
-    
-    	**config**\: False
-    
     .. attribute:: ipv4bfd_mplste_head_summary_nodes
     
     	Table of summary about IPv4 TE head BFD sessions for location
@@ -593,13 +625,6 @@ class Bfd(Entity):
     
     	IPv6 multiple hop Counters
     	**type**\:  :py:class:`Ipv6MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters>`
-    
-    	**config**\: False
-    
-    .. attribute:: ipv6_single_hop_location_summaries
-    
-    	Table of summary information about BFD IPv6 singlehop sessions per location
-    	**type**\:  :py:class:`Ipv6SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries>`
     
     	**config**\: False
     
@@ -688,7 +713,10 @@ class Bfd(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Bfd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Bfd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bfd"
@@ -696,7 +724,7 @@ class Bfd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("label-session-briefs", ("label_session_briefs", Bfd.LabelSessionBriefs)), ("ipv4bf-do-mplste-tail-summary", ("ipv4bf_do_mplste_tail_summary", Bfd.Ipv4bfDoMplsteTailSummary)), ("ipv6-single-hop-counters", ("ipv6_single_hop_counters", Bfd.Ipv6SingleHopCounters)), ("counters", ("counters", Bfd.Counters)), ("client-details", ("client_details", Bfd.ClientDetails)), ("ipv4-single-hop-summary", ("ipv4_single_hop_summary", Bfd.Ipv4SingleHopSummary)), ("ipv6-single-hop-summary", ("ipv6_single_hop_summary", Bfd.Ipv6SingleHopSummary)), ("label-multi-paths", ("label_multi_paths", Bfd.LabelMultiPaths)), ("ipv4-multi-hop-session-details", ("ipv4_multi_hop_session_details", Bfd.Ipv4MultiHopSessionDetails)), ("ipv4-single-hop-session-details", ("ipv4_single_hop_session_details", Bfd.Ipv4SingleHopSessionDetails)), ("ipv4-multi-hop-session-briefs", ("ipv4_multi_hop_session_briefs", Bfd.Ipv4MultiHopSessionBriefs)), ("generic-summaries", ("generic_summaries", Bfd.GenericSummaries)), ("ipv6-single-hop-multi-paths", ("ipv6_single_hop_multi_paths", Bfd.Ipv6SingleHopMultiPaths)), ("ipv4-single-hop-node-location-summaries", ("ipv4_single_hop_node_location_summaries", Bfd.Ipv4SingleHopNodeLocationSummaries)), ("label-summary", ("label_summary", Bfd.LabelSummary)), ("ipv4bf-do-mplste-head-session-briefs", ("ipv4bf_do_mplste_head_session_briefs", Bfd.Ipv4bfDoMplsteHeadSessionBriefs)), ("ipv4bf-do-mplste-tail-session-details", ("ipv4bf_do_mplste_tail_session_details", Bfd.Ipv4bfDoMplsteTailSessionDetails)), ("ipv4-multi-hop-node-location-summaries", ("ipv4_multi_hop_node_location_summaries", Bfd.Ipv4MultiHopNodeLocationSummaries)), ("ipv4bf-do-mplste-tail-session-briefs", ("ipv4bf_do_mplste_tail_session_briefs", Bfd.Ipv4bfDoMplsteTailSessionBriefs)), ("ipv6-multi-hop-node-location-summaries", ("ipv6_multi_hop_node_location_summaries", Bfd.Ipv6MultiHopNodeLocationSummaries)), ("ipv4-multi-hop-summary", ("ipv4_multi_hop_summary", Bfd.Ipv4MultiHopSummary)), ("ipv4-single-hop-counters", ("ipv4_single_hop_counters", Bfd.Ipv4SingleHopCounters)), ("ipv6-multi-hop-session-details", ("ipv6_multi_hop_session_details", Bfd.Ipv6MultiHopSessionDetails)), ("ipv6-multi-hop-multi-paths", ("ipv6_multi_hop_multi_paths", Bfd.Ipv6MultiHopMultiPaths)), ("ipv4bf-do-mplste-head-counters", ("ipv4bf_do_mplste_head_counters", Bfd.Ipv4bfDoMplsteHeadCounters)), ("session-mibs", ("session_mibs", Bfd.SessionMibs)), ("ipv6-multi-hop-summary", ("ipv6_multi_hop_summary", Bfd.Ipv6MultiHopSummary)), ("label-summary-nodes", ("label_summary_nodes", Bfd.LabelSummaryNodes)), ("ipv6-multi-hop-session-briefs", ("ipv6_multi_hop_session_briefs", Bfd.Ipv6MultiHopSessionBriefs)), ("session-briefs", ("session_briefs", Bfd.SessionBriefs)), ("ipv6-single-hop-node-location-summaries", ("ipv6_single_hop_node_location_summaries", Bfd.Ipv6SingleHopNodeLocationSummaries)), ("summary", ("summary", Bfd.Summary)), ("ipv4bfd-mplste-tail-node-summaries", ("ipv4bfd_mplste_tail_node_summaries", Bfd.Ipv4bfdMplsteTailNodeSummaries)), ("ipv4-single-hop-location-summaries", ("ipv4_single_hop_location_summaries", Bfd.Ipv4SingleHopLocationSummaries)), ("ipv4bfd-mplste-head-summary-nodes", ("ipv4bfd_mplste_head_summary_nodes", Bfd.Ipv4bfdMplsteHeadSummaryNodes)), ("label-session-details", ("label_session_details", Bfd.LabelSessionDetails)), ("ipv6-single-hop-session-details", ("ipv6_single_hop_session_details", Bfd.Ipv6SingleHopSessionDetails)), ("ipv4-multi-hop-counters", ("ipv4_multi_hop_counters", Bfd.Ipv4MultiHopCounters)), ("session-details", ("session_details", Bfd.SessionDetails)), ("ipv4-single-hop-multi-paths", ("ipv4_single_hop_multi_paths", Bfd.Ipv4SingleHopMultiPaths)), ("ipv4-single-hop-session-briefs", ("ipv4_single_hop_session_briefs", Bfd.Ipv4SingleHopSessionBriefs)), ("ipv6-multi-hop-counters", ("ipv6_multi_hop_counters", Bfd.Ipv6MultiHopCounters)), ("ipv6-single-hop-location-summaries", ("ipv6_single_hop_location_summaries", Bfd.Ipv6SingleHopLocationSummaries)), ("label-counters", ("label_counters", Bfd.LabelCounters)), ("ipv4bf-do-mplste-head-session-details", ("ipv4bf_do_mplste_head_session_details", Bfd.Ipv4bfDoMplsteHeadSessionDetails)), ("relation-briefs", ("relation_briefs", Bfd.RelationBriefs)), ("client-briefs", ("client_briefs", Bfd.ClientBriefs)), ("ipv4bf-do-mplste-head-multi-paths", ("ipv4bf_do_mplste_head_multi_paths", Bfd.Ipv4bfDoMplsteHeadMultiPaths)), ("relation-details", ("relation_details", Bfd.RelationDetails)), ("ipv4bf-do-mplste-tail-counters", ("ipv4bf_do_mplste_tail_counters", Bfd.Ipv4bfDoMplsteTailCounters)), ("ipv6-single-hop-session-briefs", ("ipv6_single_hop_session_briefs", Bfd.Ipv6SingleHopSessionBriefs)), ("ipv4bf-do-mplste-tail-multi-paths", ("ipv4bf_do_mplste_tail_multi_paths", Bfd.Ipv4bfDoMplsteTailMultiPaths)), ("ipv4-multi-hop-multi-paths", ("ipv4_multi_hop_multi_paths", Bfd.Ipv4MultiHopMultiPaths)), ("ipv4bf-do-mplste-head-summary", ("ipv4bf_do_mplste_head_summary", Bfd.Ipv4bfDoMplsteHeadSummary))])
+        self._child_classes = OrderedDict([("label-session-briefs", ("label_session_briefs", Bfd.LabelSessionBriefs)), ("ipv4bf-do-mplste-tail-summary", ("ipv4bf_do_mplste_tail_summary", Bfd.Ipv4bfDoMplsteTailSummary)), ("ipv6-single-hop-counters", ("ipv6_single_hop_counters", Bfd.Ipv6SingleHopCounters)), ("counters", ("counters", Bfd.Counters)), ("client-details", ("client_details", Bfd.ClientDetails)), ("ipv4-single-hop-summary", ("ipv4_single_hop_summary", Bfd.Ipv4SingleHopSummary)), ("ipv6-single-hop-summary", ("ipv6_single_hop_summary", Bfd.Ipv6SingleHopSummary)), ("label-multi-paths", ("label_multi_paths", Bfd.LabelMultiPaths)), ("ipv4-multi-hop-session-details", ("ipv4_multi_hop_session_details", Bfd.Ipv4MultiHopSessionDetails)), ("ipv4-single-hop-session-details", ("ipv4_single_hop_session_details", Bfd.Ipv4SingleHopSessionDetails)), ("ipv4-multi-hop-session-briefs", ("ipv4_multi_hop_session_briefs", Bfd.Ipv4MultiHopSessionBriefs)), ("generic-summaries", ("generic_summaries", Bfd.GenericSummaries)), ("ipv6-single-hop-multi-paths", ("ipv6_single_hop_multi_paths", Bfd.Ipv6SingleHopMultiPaths)), ("ipv4-single-hop-node-location-summaries", ("ipv4_single_hop_node_location_summaries", Bfd.Ipv4SingleHopNodeLocationSummaries)), ("label-summary", ("label_summary", Bfd.LabelSummary)), ("ipv4bf-do-mplste-head-session-briefs", ("ipv4bf_do_mplste_head_session_briefs", Bfd.Ipv4bfDoMplsteHeadSessionBriefs)), ("ipv4bf-do-mplste-tail-session-details", ("ipv4bf_do_mplste_tail_session_details", Bfd.Ipv4bfDoMplsteTailSessionDetails)), ("ipv4-multi-hop-node-location-summaries", ("ipv4_multi_hop_node_location_summaries", Bfd.Ipv4MultiHopNodeLocationSummaries)), ("ipv4bf-do-mplste-tail-session-briefs", ("ipv4bf_do_mplste_tail_session_briefs", Bfd.Ipv4bfDoMplsteTailSessionBriefs)), ("ipv6-multi-hop-node-location-summaries", ("ipv6_multi_hop_node_location_summaries", Bfd.Ipv6MultiHopNodeLocationSummaries)), ("ipv4-multi-hop-summary", ("ipv4_multi_hop_summary", Bfd.Ipv4MultiHopSummary)), ("ipv4-single-hop-counters", ("ipv4_single_hop_counters", Bfd.Ipv4SingleHopCounters)), ("ipv6-multi-hop-session-details", ("ipv6_multi_hop_session_details", Bfd.Ipv6MultiHopSessionDetails)), ("ipv6-multi-hop-multi-paths", ("ipv6_multi_hop_multi_paths", Bfd.Ipv6MultiHopMultiPaths)), ("ipv4bf-do-mplste-head-counters", ("ipv4bf_do_mplste_head_counters", Bfd.Ipv4bfDoMplsteHeadCounters)), ("session-mibs", ("session_mibs", Bfd.SessionMibs)), ("ipv6-multi-hop-summary", ("ipv6_multi_hop_summary", Bfd.Ipv6MultiHopSummary)), ("label-summary-nodes", ("label_summary_nodes", Bfd.LabelSummaryNodes)), ("ipv6-multi-hop-session-briefs", ("ipv6_multi_hop_session_briefs", Bfd.Ipv6MultiHopSessionBriefs)), ("session-briefs", ("session_briefs", Bfd.SessionBriefs)), ("ipv6-single-hop-node-location-summaries", ("ipv6_single_hop_node_location_summaries", Bfd.Ipv6SingleHopNodeLocationSummaries)), ("summary", ("summary", Bfd.Summary)), ("ipv4bfd-mplste-tail-node-summaries", ("ipv4bfd_mplste_tail_node_summaries", Bfd.Ipv4bfdMplsteTailNodeSummaries)), ("ipv4bfd-mplste-head-summary-nodes", ("ipv4bfd_mplste_head_summary_nodes", Bfd.Ipv4bfdMplsteHeadSummaryNodes)), ("label-session-details", ("label_session_details", Bfd.LabelSessionDetails)), ("ipv6-single-hop-session-details", ("ipv6_single_hop_session_details", Bfd.Ipv6SingleHopSessionDetails)), ("ipv4-multi-hop-counters", ("ipv4_multi_hop_counters", Bfd.Ipv4MultiHopCounters)), ("session-details", ("session_details", Bfd.SessionDetails)), ("ipv4-single-hop-multi-paths", ("ipv4_single_hop_multi_paths", Bfd.Ipv4SingleHopMultiPaths)), ("ipv4-single-hop-session-briefs", ("ipv4_single_hop_session_briefs", Bfd.Ipv4SingleHopSessionBriefs)), ("ipv6-multi-hop-counters", ("ipv6_multi_hop_counters", Bfd.Ipv6MultiHopCounters)), ("label-counters", ("label_counters", Bfd.LabelCounters)), ("ipv4bf-do-mplste-head-session-details", ("ipv4bf_do_mplste_head_session_details", Bfd.Ipv4bfDoMplsteHeadSessionDetails)), ("relation-briefs", ("relation_briefs", Bfd.RelationBriefs)), ("client-briefs", ("client_briefs", Bfd.ClientBriefs)), ("ipv4bf-do-mplste-head-multi-paths", ("ipv4bf_do_mplste_head_multi_paths", Bfd.Ipv4bfDoMplsteHeadMultiPaths)), ("relation-details", ("relation_details", Bfd.RelationDetails)), ("ipv4bf-do-mplste-tail-counters", ("ipv4bf_do_mplste_tail_counters", Bfd.Ipv4bfDoMplsteTailCounters)), ("ipv6-single-hop-session-briefs", ("ipv6_single_hop_session_briefs", Bfd.Ipv6SingleHopSessionBriefs)), ("ipv4bf-do-mplste-tail-multi-paths", ("ipv4bf_do_mplste_tail_multi_paths", Bfd.Ipv4bfDoMplsteTailMultiPaths)), ("ipv4-multi-hop-multi-paths", ("ipv4_multi_hop_multi_paths", Bfd.Ipv4MultiHopMultiPaths)), ("ipv4bf-do-mplste-head-summary", ("ipv4bf_do_mplste_head_summary", Bfd.Ipv4bfDoMplsteHeadSummary))])
         self._leafs = OrderedDict()
 
         self.label_session_briefs = Bfd.LabelSessionBriefs()
@@ -831,10 +859,6 @@ class Bfd(Entity):
         self.ipv4bfd_mplste_tail_node_summaries.parent = self
         self._children_name_map["ipv4bfd_mplste_tail_node_summaries"] = "ipv4bfd-mplste-tail-node-summaries"
 
-        self.ipv4_single_hop_location_summaries = Bfd.Ipv4SingleHopLocationSummaries()
-        self.ipv4_single_hop_location_summaries.parent = self
-        self._children_name_map["ipv4_single_hop_location_summaries"] = "ipv4-single-hop-location-summaries"
-
         self.ipv4bfd_mplste_head_summary_nodes = Bfd.Ipv4bfdMplsteHeadSummaryNodes()
         self.ipv4bfd_mplste_head_summary_nodes.parent = self
         self._children_name_map["ipv4bfd_mplste_head_summary_nodes"] = "ipv4bfd-mplste-head-summary-nodes"
@@ -866,10 +890,6 @@ class Bfd(Entity):
         self.ipv6_multi_hop_counters = Bfd.Ipv6MultiHopCounters()
         self.ipv6_multi_hop_counters.parent = self
         self._children_name_map["ipv6_multi_hop_counters"] = "ipv6-multi-hop-counters"
-
-        self.ipv6_single_hop_location_summaries = Bfd.Ipv6SingleHopLocationSummaries()
-        self.ipv6_single_hop_location_summaries.parent = self
-        self._children_name_map["ipv6_single_hop_location_summaries"] = "ipv6-single-hop-location-summaries"
 
         self.label_counters = Bfd.LabelCounters()
         self.label_counters.parent = self
@@ -921,7 +941,7 @@ class Bfd(Entity):
         self._perform_setattr(Bfd, [], name, value)
 
 
-    class LabelSessionBriefs(Entity):
+    class LabelSessionBriefs(_Entity_):
         """
         Table of brief information about all Label BFD
         sessions in the System
@@ -941,7 +961,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelSessionBriefs, self).__init__()
 
             self.yang_name = "label-session-briefs"
             self.yang_parent_name = "bfd"
@@ -960,7 +983,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelSessionBriefs, [], name, value)
 
 
-        class LabelSessionBrief(Entity):
+        class LabelSessionBrief(_Entity_):
             """
             Brief information for a single Label BFD
             session
@@ -1046,7 +1069,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelSessionBriefs.LabelSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelSessionBriefs.LabelSessionBrief, self).__init__()
 
                 self.yang_name = "label-session-brief"
                 self.yang_parent_name = "label-session-briefs"
@@ -1084,7 +1110,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief, ['interface_name', 'incoming_label', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -1110,7 +1136,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "label-session-brief"
@@ -1135,7 +1164,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -1189,7 +1218,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -1214,9 +1246,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -1259,7 +1295,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -1282,12 +1321,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelSessionBriefs.LabelSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelSessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv4bfDoMplsteTailSummary(Entity):
+    class Ipv4bfDoMplsteTailSummary(_Entity_):
         """
         Summary information of IPv4 BFD over MPLS\-TE
         Tail
@@ -1307,7 +1362,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteTailSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteTailSummary, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-tail-summary"
             self.yang_parent_name = "bfd"
@@ -1328,7 +1386,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -1376,7 +1434,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv4bf-do-mplste-tail-summary"
@@ -1401,10 +1462,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSummary']['meta_info']
 
 
-
-    class Ipv6SingleHopCounters(Entity):
+    class Ipv6SingleHopCounters(_Entity_):
         """
         IPv6 single hop Counters
         
@@ -1423,7 +1492,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopCounters, self).__init__()
 
             self.yang_name = "ipv6-single-hop-counters"
             self.yang_parent_name = "bfd"
@@ -1444,7 +1516,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopCounters, [], name, value)
 
 
-        class Ipv6SingleHopPacketCounters(Entity):
+        class Ipv6SingleHopPacketCounters(_Entity_):
             """
             Table of IPv6 single hop Packet counters
             
@@ -1463,7 +1535,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters, self).__init__()
 
                 self.yang_name = "ipv6-single-hop-packet-counters"
                 self.yang_parent_name = "ipv6-single-hop-counters"
@@ -1482,7 +1557,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters, [], name, value)
 
 
-            class Ipv6SingleHopPacketCounter(Entity):
+            class Ipv6SingleHopPacketCounter(_Entity_):
                 """
                 Interface IPv6 single hop Packet counters
                 
@@ -1555,7 +1630,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, self).__init__()
 
                     self.yang_name = "ipv6-single-hop-packet-counter"
                     self.yang_parent_name = "ipv6-single-hop-packet-counters"
@@ -1586,11 +1664,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopCounters']['meta_info']
 
 
-
-
-    class Counters(Entity):
+    class Counters(_Entity_):
         """
         IPv4 Counters
         
@@ -1609,7 +1699,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Counters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Counters, self).__init__()
 
             self.yang_name = "counters"
             self.yang_parent_name = "bfd"
@@ -1630,7 +1723,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Counters, [], name, value)
 
 
-        class PacketCounters(Entity):
+        class PacketCounters(_Entity_):
             """
             Table of IPv4 Packet counters
             
@@ -1649,7 +1742,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Counters.PacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Counters.PacketCounters, self).__init__()
 
                 self.yang_name = "packet-counters"
                 self.yang_parent_name = "counters"
@@ -1668,7 +1764,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Counters.PacketCounters, [], name, value)
 
 
-            class PacketCounter(Entity):
+            class PacketCounter(_Entity_):
                 """
                 Interface IPv4 Packet counters
                 
@@ -1741,7 +1837,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Counters.PacketCounters.PacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Counters.PacketCounters.PacketCounter, self).__init__()
 
                     self.yang_name = "packet-counter"
                     self.yang_parent_name = "packet-counters"
@@ -1772,11 +1871,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Counters.PacketCounters.PacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Counters.PacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Counters']['meta_info']
 
 
-
-
-    class ClientDetails(Entity):
+    class ClientDetails(_Entity_):
         """
         Table of detailed information about BFD clients
         
@@ -1795,7 +1906,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.ClientDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.ClientDetails, self).__init__()
 
             self.yang_name = "client-details"
             self.yang_parent_name = "bfd"
@@ -1814,7 +1928,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.ClientDetails, [], name, value)
 
 
-        class ClientDetail(Entity):
+        class ClientDetail(_Entity_):
             """
             Detailed information of client
             
@@ -1860,7 +1974,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.ClientDetails.ClientDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.ClientDetails.ClientDetail, self).__init__()
 
                 self.yang_name = "client-detail"
                 self.yang_parent_name = "client-details"
@@ -1890,7 +2007,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.ClientDetails.ClientDetail, ['client_name', 'recreate_time'], name, value)
 
 
-            class Brief(Entity):
+            class Brief(_Entity_):
                 """
                 Brief client information
                 
@@ -1929,7 +2046,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.ClientDetails.ClientDetail.Brief, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.ClientDetails.ClientDetail.Brief, self).__init__()
 
                     self.yang_name = "brief"
                     self.yang_parent_name = "client-detail"
@@ -1951,9 +2071,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Brief, ['name_xr', 'node_id', 'session_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.ClientDetails.ClientDetail.Brief']['meta_info']
 
 
-            class Flags(Entity):
+            class Flags(_Entity_):
                 """
                 The BFD Client Flags
                 
@@ -1983,7 +2107,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.ClientDetails.ClientDetail.Flags, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.ClientDetails.ClientDetail.Flags, self).__init__()
 
                     self.yang_name = "flags"
                     self.yang_parent_name = "client-detail"
@@ -2003,11 +2130,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Flags, ['is_zombie_state', 'is_recreate_state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.ClientDetails.ClientDetail.Flags']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.ClientDetails.ClientDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.ClientDetails']['meta_info']
 
 
-
-
-    class Ipv4SingleHopSummary(Entity):
+    class Ipv4SingleHopSummary(_Entity_):
         """
         Summary information of BFD IPv4 singlehop
         sessions
@@ -2027,7 +2166,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopSummary, self).__init__()
 
             self.yang_name = "ipv4-single-hop-summary"
             self.yang_parent_name = "bfd"
@@ -2048,7 +2190,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -2096,7 +2238,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv4-single-hop-summary"
@@ -2121,10 +2266,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopSummary']['meta_info']
 
 
-
-    class Ipv6SingleHopSummary(Entity):
+    class Ipv6SingleHopSummary(_Entity_):
         """
         Summary information of BFD IPv6 singlehop
         sessions
@@ -2144,7 +2297,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopSummary, self).__init__()
 
             self.yang_name = "ipv6-single-hop-summary"
             self.yang_parent_name = "bfd"
@@ -2165,7 +2321,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -2213,7 +2369,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv6-single-hop-summary"
@@ -2238,10 +2397,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopSummary']['meta_info']
 
 
-
-    class LabelMultiPaths(Entity):
+    class LabelMultiPaths(_Entity_):
         """
         Label multipath
         
@@ -2260,7 +2427,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelMultiPaths, self).__init__()
 
             self.yang_name = "label-multi-paths"
             self.yang_parent_name = "bfd"
@@ -2279,7 +2449,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelMultiPaths, [], name, value)
 
 
-        class LabelMultiPath(Entity):
+        class LabelMultiPath(_Entity_):
             """
             Label multipath table
             
@@ -2368,7 +2538,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelMultiPaths.LabelMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelMultiPaths.LabelMultiPath, self).__init__()
 
                 self.yang_name = "label-multi-path"
                 self.yang_parent_name = "label-multi-paths"
@@ -2403,10 +2576,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelMultiPaths.LabelMultiPath, ['interface_name', 'incoming_label', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelMultiPaths.LabelMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelMultiPaths']['meta_info']
 
 
-
-    class Ipv4MultiHopSessionDetails(Entity):
+    class Ipv4MultiHopSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv4
         multihop BFD sessions in the System 
@@ -2426,7 +2607,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopSessionDetails, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-session-details"
             self.yang_parent_name = "bfd"
@@ -2445,7 +2629,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails, [], name, value)
 
 
-        class Ipv4MultiHopSessionDetail(Entity):
+        class Ipv4MultiHopSessionDetail(_Entity_):
             """
             Detailed information for a single IPv4 multihop
             BFD session
@@ -2541,7 +2725,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail, self).__init__()
 
                 self.yang_name = "ipv4-multi-hop-session-detail"
                 self.yang_parent_name = "ipv4-multi-hop-session-details"
@@ -2582,7 +2769,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail, ['source_address', 'destination_address', 'location', 'vrf_name'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -2787,7 +2974,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv4-multi-hop-session-detail"
@@ -2869,7 +3059,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -2915,7 +3105,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -2940,9 +3133,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -2998,7 +3195,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -3023,9 +3223,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -3183,7 +3387,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -3232,9 +3439,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -3392,7 +3603,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -3441,9 +3655,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -3469,7 +3687,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -3494,7 +3715,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -3548,7 +3769,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -3573,9 +3797,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -3618,7 +3846,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -3641,10 +3872,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -3710,7 +3949,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -3737,9 +3979,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -3805,7 +4051,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -3832,9 +4081,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -3900,7 +4153,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -3927,9 +4183,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -3995,7 +4255,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -4022,10 +4285,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -4051,7 +4322,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv4-multi-hop-session-detail"
@@ -4075,7 +4349,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -4109,7 +4383,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -4130,10 +4407,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -4241,7 +4526,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv4-multi-hop-session-detail"
@@ -4289,7 +4577,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -4323,7 +4611,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -4344,9 +4635,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -4380,7 +4675,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -4401,9 +4699,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -4437,7 +4739,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -4458,10 +4763,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -4522,7 +4835,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv4-multi-hop-session-detail"
@@ -4549,9 +4865,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -4602,7 +4922,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv4-multi-hop-session-detail"
@@ -4632,7 +4955,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -4678,7 +5001,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -4703,9 +5029,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -4766,7 +5096,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -4793,12 +5126,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv4SingleHopSessionDetails(Entity):
+    class Ipv4SingleHopSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv4
         singlehop BFD sessions in the System 
@@ -4818,7 +5167,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopSessionDetails, self).__init__()
 
             self.yang_name = "ipv4-single-hop-session-details"
             self.yang_parent_name = "bfd"
@@ -4837,7 +5189,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails, [], name, value)
 
 
-        class Ipv4SingleHopSessionDetail(Entity):
+        class Ipv4SingleHopSessionDetail(_Entity_):
             """
             Detailed information for a single IPv4
             singlehop BFD session
@@ -4912,7 +5264,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail, self).__init__()
 
                 self.yang_name = "ipv4-single-hop-session-detail"
                 self.yang_parent_name = "ipv4-single-hop-session-details"
@@ -4951,7 +5306,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -5156,7 +5511,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv4-single-hop-session-detail"
@@ -5238,7 +5596,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -5284,7 +5642,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -5309,9 +5670,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -5367,7 +5732,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -5392,9 +5760,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -5552,7 +5924,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -5601,9 +5976,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -5761,7 +6140,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -5810,9 +6192,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -5838,7 +6224,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -5863,7 +6252,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -5917,7 +6306,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -5942,9 +6334,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -5987,7 +6383,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -6010,10 +6409,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -6079,7 +6486,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -6106,9 +6516,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -6174,7 +6588,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -6201,9 +6618,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -6269,7 +6690,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -6296,9 +6720,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -6364,7 +6792,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -6391,10 +6822,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -6420,7 +6859,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv4-single-hop-session-detail"
@@ -6444,7 +6886,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -6478,7 +6920,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -6499,10 +6944,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -6610,7 +7063,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv4-single-hop-session-detail"
@@ -6658,7 +7114,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -6692,7 +7148,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -6713,9 +7172,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -6749,7 +7212,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -6770,9 +7236,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -6806,7 +7276,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -6827,10 +7300,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -6891,7 +7372,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv4-single-hop-session-detail"
@@ -6918,9 +7402,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -6971,7 +7459,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv4-single-hop-session-detail"
@@ -7001,7 +7492,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -7047,7 +7538,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -7072,9 +7566,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -7135,7 +7633,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -7162,12 +7663,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv4MultiHopSessionBriefs(Entity):
+    class Ipv4MultiHopSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv4
         multihop BFD sessions in the System
@@ -7187,7 +7704,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopSessionBriefs, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-session-briefs"
             self.yang_parent_name = "bfd"
@@ -7206,7 +7726,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs, [], name, value)
 
 
-        class Ipv4MultiHopSessionBrief(Entity):
+        class Ipv4MultiHopSessionBrief(_Entity_):
             """
             Brief information for a single IPv4 multihop
             BFD session
@@ -7301,7 +7821,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, self).__init__()
 
                 self.yang_name = "ipv4-multi-hop-session-brief"
                 self.yang_parent_name = "ipv4-multi-hop-session-briefs"
@@ -7341,7 +7864,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -7367,7 +7890,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv4-multi-hop-session-brief"
@@ -7392,7 +7918,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -7446,7 +7972,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -7471,9 +8000,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -7516,7 +8049,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -7539,12 +8075,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopSessionBriefs']['meta_info']
 
 
-
-
-
-    class GenericSummaries(Entity):
+    class GenericSummaries(_Entity_):
         """
         Generic summary information about BFD location
         
@@ -7563,7 +8115,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.GenericSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.GenericSummaries, self).__init__()
 
             self.yang_name = "generic-summaries"
             self.yang_parent_name = "bfd"
@@ -7582,7 +8137,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.GenericSummaries, [], name, value)
 
 
-        class GenericSummary(Entity):
+        class GenericSummary(_Entity_):
             """
             Generic summary information for bfd location
             table
@@ -7698,7 +8253,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.GenericSummaries.GenericSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.GenericSummaries.GenericSummary, self).__init__()
 
                 self.yang_name = "generic-summary"
                 self.yang_parent_name = "generic-summaries"
@@ -7737,10 +8295,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.GenericSummaries.GenericSummary, ['location', 'node_id', 'pps_allocated_value', 'ppsmp_allocated_value', 'pps_max_value', 'ppsmp_max_value', 'total_session_number', 'mp_session_number', 'max_session_number', 'pps_all_percentage', 'ppsmp_percentage'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.GenericSummaries.GenericSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.GenericSummaries']['meta_info']
 
 
-
-    class Ipv6SingleHopMultiPaths(Entity):
+    class Ipv6SingleHopMultiPaths(_Entity_):
         """
         IPv6 single hop multipath
         
@@ -7759,7 +8325,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopMultiPaths, self).__init__()
 
             self.yang_name = "ipv6-single-hop-multi-paths"
             self.yang_parent_name = "bfd"
@@ -7778,7 +8347,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths, [], name, value)
 
 
-        class Ipv6SingleHopMultiPath(Entity):
+        class Ipv6SingleHopMultiPath(_Entity_):
             """
             IPv6 single hop multipath table
             
@@ -7873,7 +8442,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, self).__init__()
 
                 self.yang_name = "ipv6-single-hop-multi-path"
                 self.yang_parent_name = "ipv6-single-hop-multi-paths"
@@ -7908,10 +8480,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, ['interface_name', 'destination_address', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopMultiPaths']['meta_info']
 
 
-
-    class Ipv4SingleHopNodeLocationSummaries(Entity):
+    class Ipv4SingleHopNodeLocationSummaries(_Entity_):
         """
         Table of summary information about BFD IPv4
         singlehop sessions per location
@@ -7931,7 +8511,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopNodeLocationSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopNodeLocationSummaries, self).__init__()
 
             self.yang_name = "ipv4-single-hop-node-location-summaries"
             self.yang_parent_name = "bfd"
@@ -7950,7 +8533,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries, [], name, value)
 
 
-        class Ipv4SingleHopNodeLocationSummary(Entity):
+        class Ipv4SingleHopNodeLocationSummary(_Entity_):
             """
             Summary information for BFD IPv4 singlehop
             sessions for location
@@ -7979,7 +8562,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary, self).__init__()
 
                 self.yang_name = "ipv4-single-hop-node-location-summary"
                 self.yang_parent_name = "ipv4-single-hop-node-location-summaries"
@@ -8003,7 +8589,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary, ['location'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -8069,7 +8655,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv4-single-hop-node-location-summary"
@@ -8097,11 +8686,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopNodeLocationSummaries']['meta_info']
 
 
-
-
-    class LabelSummary(Entity):
+    class LabelSummary(_Entity_):
         """
         Summary information of Label BFD
         
@@ -8120,7 +8721,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelSummary, self).__init__()
 
             self.yang_name = "label-summary"
             self.yang_parent_name = "bfd"
@@ -8141,7 +8745,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -8189,7 +8793,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "label-summary"
@@ -8214,10 +8821,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelSummary']['meta_info']
 
 
-
-    class Ipv4bfDoMplsteHeadSessionBriefs(Entity):
+    class Ipv4bfDoMplsteHeadSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv4 BFD
         over MPLS\-TE Head sessions in the System
@@ -8237,7 +8852,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-head-session-briefs"
             self.yang_parent_name = "bfd"
@@ -8256,7 +8874,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs, [], name, value)
 
 
-        class Ipv4bfDoMplsteHeadSessionBrief(Entity):
+        class Ipv4bfDoMplsteHeadSessionBrief(_Entity_):
             """
             Brief information for a single IPv4 BFD over
             MPLS\-TE Head session
@@ -8441,7 +9059,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-head-session-brief"
                 self.yang_parent_name = "ipv4bf-do-mplste-head-session-briefs"
@@ -8501,7 +9122,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -8527,7 +9148,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-brief"
@@ -8552,7 +9176,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -8606,7 +9230,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -8631,9 +9258,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -8676,7 +9307,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -8699,12 +9333,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv4bfDoMplsteTailSessionDetails(Entity):
+    class Ipv4bfDoMplsteTailSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv4 BFD
         over MPLS\-TE Tail sessions in the System
@@ -8724,7 +9374,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteTailSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteTailSessionDetails, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-tail-session-details"
             self.yang_parent_name = "bfd"
@@ -8743,7 +9396,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails, [], name, value)
 
 
-        class Ipv4bfDoMplsteTailSessionDetail(Entity):
+        class Ipv4bfDoMplsteTailSessionDetail(_Entity_):
             """
             Detailed information for a single IPv4 BFD over
             MPLS\-TE Tail session
@@ -8908,7 +9561,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-tail-session-detail"
                 self.yang_parent_name = "ipv4bf-do-mplste-tail-session-details"
@@ -8967,7 +9623,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -9172,7 +9828,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-detail"
@@ -9254,7 +9913,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -9300,7 +9959,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -9325,9 +9987,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -9383,7 +10049,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -9408,9 +10077,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -9568,7 +10241,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -9617,9 +10293,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -9777,7 +10457,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -9826,9 +10509,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -9854,7 +10541,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -9879,7 +10569,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -9933,7 +10623,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -9958,9 +10651,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -10003,7 +10700,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -10026,10 +10726,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -10095,7 +10803,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -10122,9 +10833,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -10190,7 +10905,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -10217,9 +10935,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -10285,7 +11007,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -10312,9 +11037,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -10380,7 +11109,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -10407,10 +11139,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -10436,7 +11176,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-detail"
@@ -10460,7 +11203,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -10494,7 +11237,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -10515,10 +11261,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -10626,7 +11380,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-detail"
@@ -10674,7 +11431,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -10708,7 +11465,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -10729,9 +11489,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -10765,7 +11529,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -10786,9 +11553,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -10822,7 +11593,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -10843,10 +11617,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -10907,7 +11689,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-detail"
@@ -10934,9 +11719,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -10987,7 +11776,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-detail"
@@ -11017,7 +11809,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -11063,7 +11855,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -11088,9 +11883,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -11151,7 +11950,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -11178,12 +11980,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv4MultiHopNodeLocationSummaries(Entity):
+    class Ipv4MultiHopNodeLocationSummaries(_Entity_):
         """
         Table of summary information about BFD IPv4
         multihop sessions per location
@@ -11203,7 +12021,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopNodeLocationSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopNodeLocationSummaries, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-node-location-summaries"
             self.yang_parent_name = "bfd"
@@ -11222,7 +12043,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries, [], name, value)
 
 
-        class Ipv4MultiHopNodeLocationSummary(Entity):
+        class Ipv4MultiHopNodeLocationSummary(_Entity_):
             """
             Summary information for BFD IPv4 multihop
             sessions for location
@@ -11251,7 +12072,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary, self).__init__()
 
                 self.yang_name = "ipv4-multi-hop-node-location-summary"
                 self.yang_parent_name = "ipv4-multi-hop-node-location-summaries"
@@ -11275,7 +12099,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary, ['location'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -11341,7 +12165,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv4-multi-hop-node-location-summary"
@@ -11369,11 +12196,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopNodeLocationSummaries']['meta_info']
 
 
-
-
-    class Ipv4bfDoMplsteTailSessionBriefs(Entity):
+    class Ipv4bfDoMplsteTailSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv4 BFD
         over MPLS\-TE Tail sessions in the System
@@ -11393,7 +12232,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteTailSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteTailSessionBriefs, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-tail-session-briefs"
             self.yang_parent_name = "bfd"
@@ -11412,7 +12254,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs, [], name, value)
 
 
-        class Ipv4bfDoMplsteTailSessionBrief(Entity):
+        class Ipv4bfDoMplsteTailSessionBrief(_Entity_):
             """
             Brief information for a single IPv4 BFD over
             MPLS\-TE session
@@ -11588,7 +12430,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-tail-session-brief"
                 self.yang_parent_name = "ipv4bf-do-mplste-tail-session-briefs"
@@ -11646,7 +12491,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -11672,7 +12517,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-session-brief"
@@ -11697,7 +12545,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -11751,7 +12599,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -11776,9 +12627,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -11821,7 +12676,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -11844,12 +12702,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailSessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv6MultiHopNodeLocationSummaries(Entity):
+    class Ipv6MultiHopNodeLocationSummaries(_Entity_):
         """
         Table of summary information about BFD IPv6
         multihop sessions per location
@@ -11869,7 +12743,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopNodeLocationSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopNodeLocationSummaries, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-node-location-summaries"
             self.yang_parent_name = "bfd"
@@ -11888,7 +12765,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries, [], name, value)
 
 
-        class Ipv6MultiHopNodeLocationSummary(Entity):
+        class Ipv6MultiHopNodeLocationSummary(_Entity_):
             """
             Summary information for BFD IPv6 multihop
             sessions for location
@@ -11917,7 +12794,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary, self).__init__()
 
                 self.yang_name = "ipv6-multi-hop-node-location-summary"
                 self.yang_parent_name = "ipv6-multi-hop-node-location-summaries"
@@ -11941,7 +12821,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary, ['location'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -12007,7 +12887,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv6-multi-hop-node-location-summary"
@@ -12035,11 +12918,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopNodeLocationSummaries']['meta_info']
 
 
-
-
-    class Ipv4MultiHopSummary(Entity):
+    class Ipv4MultiHopSummary(_Entity_):
         """
         Summary information of BFD IPv4 multihop
         sessions
@@ -12059,7 +12954,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopSummary, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-summary"
             self.yang_parent_name = "bfd"
@@ -12080,7 +12978,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -12128,7 +13026,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv4-multi-hop-summary"
@@ -12153,10 +13054,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopSummary']['meta_info']
 
 
-
-    class Ipv4SingleHopCounters(Entity):
+    class Ipv4SingleHopCounters(_Entity_):
         """
         IPv4 single hop Counters
         
@@ -12175,7 +13084,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopCounters, self).__init__()
 
             self.yang_name = "ipv4-single-hop-counters"
             self.yang_parent_name = "bfd"
@@ -12196,7 +13108,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopCounters, [], name, value)
 
 
-        class Ipv4SingleHopPacketCounters(Entity):
+        class Ipv4SingleHopPacketCounters(_Entity_):
             """
             Table of IPv4 single hop Packet counters
             
@@ -12215,7 +13127,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters, self).__init__()
 
                 self.yang_name = "ipv4-single-hop-packet-counters"
                 self.yang_parent_name = "ipv4-single-hop-counters"
@@ -12234,7 +13149,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters, [], name, value)
 
 
-            class Ipv4SingleHopPacketCounter(Entity):
+            class Ipv4SingleHopPacketCounter(_Entity_):
                 """
                 Interface IPv4 single hop Packet counters
                 
@@ -12307,7 +13222,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, self).__init__()
 
                     self.yang_name = "ipv4-single-hop-packet-counter"
                     self.yang_parent_name = "ipv4-single-hop-packet-counters"
@@ -12338,11 +13256,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopCounters']['meta_info']
 
 
-
-
-    class Ipv6MultiHopSessionDetails(Entity):
+    class Ipv6MultiHopSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv6
         multihop BFD sessions in the System 
@@ -12362,7 +13292,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopSessionDetails, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-session-details"
             self.yang_parent_name = "bfd"
@@ -12381,7 +13314,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails, [], name, value)
 
 
-        class Ipv6MultiHopSessionDetail(Entity):
+        class Ipv6MultiHopSessionDetail(_Entity_):
             """
             Detailed information for a single IPv6 multihop
             BFD session
@@ -12477,7 +13410,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail, self).__init__()
 
                 self.yang_name = "ipv6-multi-hop-session-detail"
                 self.yang_parent_name = "ipv6-multi-hop-session-details"
@@ -12518,7 +13454,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail, ['source_address', 'destination_address', 'location', 'vrf_name'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -12723,7 +13659,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv6-multi-hop-session-detail"
@@ -12805,7 +13744,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -12851,7 +13790,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -12876,9 +13818,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -12934,7 +13880,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -12959,9 +13908,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -13119,7 +14072,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -13168,9 +14124,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -13328,7 +14288,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -13377,9 +14340,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -13405,7 +14372,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -13430,7 +14400,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -13484,7 +14454,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -13509,9 +14482,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -13554,7 +14531,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -13577,10 +14557,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -13646,7 +14634,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -13673,9 +14664,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -13741,7 +14736,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -13768,9 +14766,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -13836,7 +14838,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -13863,9 +14868,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -13931,7 +14940,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -13958,10 +14970,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -13987,7 +15007,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv6-multi-hop-session-detail"
@@ -14011,7 +15034,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -14045,7 +15068,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -14066,10 +15092,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -14177,7 +15211,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv6-multi-hop-session-detail"
@@ -14225,7 +15262,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -14259,7 +15296,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -14280,9 +15320,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -14316,7 +15360,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -14337,9 +15384,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -14373,7 +15424,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -14394,10 +15448,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -14458,7 +15520,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv6-multi-hop-session-detail"
@@ -14485,9 +15550,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -14538,7 +15607,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv6-multi-hop-session-detail"
@@ -14568,7 +15640,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -14614,7 +15686,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -14639,9 +15714,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -14702,7 +15781,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -14729,12 +15811,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv6MultiHopMultiPaths(Entity):
+    class Ipv6MultiHopMultiPaths(_Entity_):
         """
         IPv6 multi hop multipath
         
@@ -14753,7 +15851,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopMultiPaths, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-multi-paths"
             self.yang_parent_name = "bfd"
@@ -14772,7 +15873,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths, [], name, value)
 
 
-        class Ipv6MultiHopMultiPath(Entity):
+        class Ipv6MultiHopMultiPath(_Entity_):
             """
             IPv6 multihop multipath table
             
@@ -14882,7 +15983,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, self).__init__()
 
                 self.yang_name = "ipv6-multi-hop-multi-path"
                 self.yang_parent_name = "ipv6-multi-hop-multi-paths"
@@ -14919,10 +16023,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopMultiPaths']['meta_info']
 
 
-
-    class Ipv4bfDoMplsteHeadCounters(Entity):
+    class Ipv4bfDoMplsteHeadCounters(_Entity_):
         """
         IPv4 BFD over MPLS\-TE Counters
         
@@ -14941,7 +16053,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteHeadCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteHeadCounters, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-head-counters"
             self.yang_parent_name = "bfd"
@@ -14962,7 +16077,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters, [], name, value)
 
 
-        class Ipv4bfDoMplsteHeadPacketCounters(Entity):
+        class Ipv4bfDoMplsteHeadPacketCounters(_Entity_):
             """
             Table of IPv4 BFD over MPLS\-TE Packet counters
             
@@ -14981,7 +16096,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-head-packet-counters"
                 self.yang_parent_name = "ipv4bf-do-mplste-head-counters"
@@ -15000,7 +16118,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters, [], name, value)
 
 
-            class Ipv4bfDoMplsteHeadPacketCounter(Entity):
+            class Ipv4bfDoMplsteHeadPacketCounter(_Entity_):
                 """
                 Interface  IPv4 BFD over MPLS\-TE Packet
                 counters
@@ -15074,7 +16192,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, self).__init__()
 
                     self.yang_name = "ipv4bf-do-mplste-head-packet-counter"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-packet-counters"
@@ -15105,11 +16226,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadCounters']['meta_info']
 
 
-
-
-    class SessionMibs(Entity):
+    class SessionMibs(_Entity_):
         """
         BFD session MIB database
         
@@ -15128,7 +16261,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.SessionMibs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.SessionMibs, self).__init__()
 
             self.yang_name = "session-mibs"
             self.yang_parent_name = "bfd"
@@ -15147,7 +16283,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.SessionMibs, [], name, value)
 
 
-        class SessionMib(Entity):
+        class SessionMib(_Entity_):
             """
             Brief information for BFD session MIB
             
@@ -15412,7 +16548,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.SessionMibs.SessionMib, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.SessionMibs.SessionMib, self).__init__()
 
                 self.yang_name = "session-mib"
                 self.yang_parent_name = "session-mibs"
@@ -15486,7 +16625,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.SessionMibs.SessionMib, ['discriminator', 'local_discriminator', 'remote_discriminator', 'sessionversion', 'session_state', 'trap_bitmap', 'pkt_in', 'pkt_out', 'last_up_time_sec', 'last_up_time_nsec', 'last_down_time_sec', 'last_down_time_nsec', 'last_io_evm_schd_time_sec', 'last_io_evm_schd_time_nsec', 'last_io_evm_schd_comp_time_sec', 'last_io_evm_schd_comp_time_nsec', 'last_down_diag', 'last_rx_down_diag', 'up_counter', 'last_time_cached', 'interface_name', 'int_handle', 'detection_multiplier', 'desired_min_tx_interval', 'required_min_rx_interval', 'required_min_rx_echo_interval'], name, value)
 
 
-            class DestAddress(Entity):
+            class DestAddress(_Entity_):
                 """
                 Session Destination address
                 
@@ -15532,7 +16671,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionMibs.SessionMib.DestAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionMibs.SessionMib.DestAddress, self).__init__()
 
                     self.yang_name = "dest-address"
                     self.yang_parent_name = "session-mib"
@@ -15556,11 +16698,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionMibs.SessionMib.DestAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionMibs.SessionMib.DestAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.SessionMibs.SessionMib']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.SessionMibs']['meta_info']
 
 
-
-
-    class Ipv6MultiHopSummary(Entity):
+    class Ipv6MultiHopSummary(_Entity_):
         """
         Summary information of BFD IPv6 multihop
         sessions
@@ -15580,7 +16734,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopSummary, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-summary"
             self.yang_parent_name = "bfd"
@@ -15601,7 +16758,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -15649,7 +16806,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv6-multi-hop-summary"
@@ -15674,10 +16834,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopSummary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopSummary']['meta_info']
 
 
-
-    class LabelSummaryNodes(Entity):
+    class LabelSummaryNodes(_Entity_):
         """
         Table of summary about Label BFD sessions for
         location
@@ -15697,7 +16865,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelSummaryNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelSummaryNodes, self).__init__()
 
             self.yang_name = "label-summary-nodes"
             self.yang_parent_name = "bfd"
@@ -15716,7 +16887,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelSummaryNodes, [], name, value)
 
 
-        class LabelSummaryNode(Entity):
+        class LabelSummaryNode(_Entity_):
             """
             Summary of Label BFD 
             
@@ -15744,7 +16915,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelSummaryNodes.LabelSummaryNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelSummaryNodes.LabelSummaryNode, self).__init__()
 
                 self.yang_name = "label-summary-node"
                 self.yang_parent_name = "label-summary-nodes"
@@ -15768,7 +16942,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode, ['location_name'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -15834,7 +17008,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "label-summary-node"
@@ -15862,11 +17039,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelSummaryNodes.LabelSummaryNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelSummaryNodes']['meta_info']
 
 
-
-
-    class Ipv6MultiHopSessionBriefs(Entity):
+    class Ipv6MultiHopSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv6
         multihop BFD sessions in the System
@@ -15886,7 +17075,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopSessionBriefs, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-session-briefs"
             self.yang_parent_name = "bfd"
@@ -15905,7 +17097,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs, [], name, value)
 
 
-        class Ipv6MultiHopSessionBrief(Entity):
+        class Ipv6MultiHopSessionBrief(_Entity_):
             """
             Brief information for a single IPv6 multihop
             BFD session
@@ -16012,7 +17204,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, self).__init__()
 
                 self.yang_name = "ipv6-multi-hop-session-brief"
                 self.yang_parent_name = "ipv6-multi-hop-session-briefs"
@@ -16052,7 +17247,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -16078,7 +17273,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv6-multi-hop-session-brief"
@@ -16103,7 +17301,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -16157,7 +17355,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -16182,9 +17383,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -16227,7 +17432,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -16250,12 +17458,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopSessionBriefs']['meta_info']
 
 
-
-
-
-    class SessionBriefs(Entity):
+    class SessionBriefs(_Entity_):
         """
         Table of brief information about singlehop IPv4
         BFD sessions in the System
@@ -16275,7 +17499,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.SessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.SessionBriefs, self).__init__()
 
             self.yang_name = "session-briefs"
             self.yang_parent_name = "bfd"
@@ -16294,7 +17521,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.SessionBriefs, [], name, value)
 
 
-        class SessionBrief(Entity):
+        class SessionBrief(_Entity_):
             """
             Brief information for a single IPv4 singlehop
             BFD session
@@ -16380,7 +17607,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.SessionBriefs.SessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.SessionBriefs.SessionBrief, self).__init__()
 
                 self.yang_name = "session-brief"
                 self.yang_parent_name = "session-briefs"
@@ -16418,7 +17648,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.SessionBriefs.SessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -16444,7 +17674,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "session-brief"
@@ -16469,7 +17702,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -16523,7 +17756,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -16548,9 +17784,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -16593,7 +17833,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -16616,12 +17859,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionBriefs.SessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.SessionBriefs.SessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.SessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv6SingleHopNodeLocationSummaries(Entity):
+    class Ipv6SingleHopNodeLocationSummaries(_Entity_):
         """
         Table of summary information about BFD IPv6
         singlehop sessions per location
@@ -16641,7 +17900,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopNodeLocationSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopNodeLocationSummaries, self).__init__()
 
             self.yang_name = "ipv6-single-hop-node-location-summaries"
             self.yang_parent_name = "bfd"
@@ -16660,7 +17922,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries, [], name, value)
 
 
-        class Ipv6SingleHopNodeLocationSummary(Entity):
+        class Ipv6SingleHopNodeLocationSummary(_Entity_):
             """
             Summary information for BFD IPv6 singlehop
             sessions for location
@@ -16689,7 +17951,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary, self).__init__()
 
                 self.yang_name = "ipv6-single-hop-node-location-summary"
                 self.yang_parent_name = "ipv6-single-hop-node-location-summaries"
@@ -16713,7 +17978,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary, ['location'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -16779,7 +18044,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv6-single-hop-node-location-summary"
@@ -16807,11 +18075,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopNodeLocationSummaries']['meta_info']
 
 
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Summary information of BFD IPv4 singlehop
         sessions
@@ -16831,7 +18111,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "bfd"
@@ -16852,7 +18135,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Summary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -16900,7 +18183,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Summary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Summary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "summary"
@@ -16925,10 +18211,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Summary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Summary.SessionState']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Summary']['meta_info']
 
 
-
-    class Ipv4bfdMplsteTailNodeSummaries(Entity):
+    class Ipv4bfdMplsteTailNodeSummaries(_Entity_):
         """
         Table of summary about IPv4 TE tail BFD sessions
         for location
@@ -16948,7 +18242,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfdMplsteTailNodeSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfdMplsteTailNodeSummaries, self).__init__()
 
             self.yang_name = "ipv4bfd-mplste-tail-node-summaries"
             self.yang_parent_name = "bfd"
@@ -16967,7 +18264,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries, [], name, value)
 
 
-        class Ipv4bfdMplsteTailNodeSummary(Entity):
+        class Ipv4bfdMplsteTailNodeSummary(_Entity_):
             """
             Summary of IPv4 BFD over MPLS\-TE tail
             
@@ -16995,7 +18292,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary, self).__init__()
 
                 self.yang_name = "ipv4bfd-mplste-tail-node-summary"
                 self.yang_parent_name = "ipv4bfd-mplste-tail-node-summaries"
@@ -17019,7 +18319,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary, ['location_name'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -17085,7 +18385,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv4bfd-mplste-tail-node-summary"
@@ -17113,201 +18416,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfdMplsteTailNodeSummaries']['meta_info']
 
 
-
-
-    class Ipv4SingleHopLocationSummaries(Entity):
-        """
-        Table of summary information about IPv4
-        singlehop BFD sessions for location
-        
-        .. attribute:: ipv4_single_hop_location_summary
-        
-        	Summary information for BFD IPv4 singlehop sessions for location
-        	**type**\: list of  		 :py:class:`Ipv4SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'ip-bfd-oper'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Bfd.Ipv4SingleHopLocationSummaries, self).__init__()
-
-            self.yang_name = "ipv4-single-hop-location-summaries"
-            self.yang_parent_name = "bfd"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("ipv4-single-hop-location-summary", ("ipv4_single_hop_location_summary", Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary))])
-            self._leafs = OrderedDict()
-
-            self.ipv4_single_hop_location_summary = YList(self)
-            self._segment_path = lambda: "ipv4-single-hop-location-summaries"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries, [], name, value)
-
-
-        class Ipv4SingleHopLocationSummary(Entity):
-            """
-            Summary information for BFD IPv4 singlehop
-            sessions for location
-            
-            .. attribute:: location_name  (key)
-            
-            	Location Name
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            	**config**\: False
-            
-            .. attribute:: session_state
-            
-            	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'ip-bfd-oper'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary, self).__init__()
-
-                self.yang_name = "ipv4-single-hop-location-summary"
-                self.yang_parent_name = "ipv4-single-hop-location-summaries"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = ['location_name']
-                self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState))])
-                self._leafs = OrderedDict([
-                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
-                ])
-                self.location_name = None
-
-                self.session_state = Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState()
-                self.session_state.parent = self
-                self._children_name_map["session_state"] = "session-state"
-                self._segment_path = lambda: "ipv4-single-hop-location-summary" + "[location-name='" + str(self.location_name) + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-location-summaries/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary, ['location_name'], name, value)
-
-
-            class SessionState(Entity):
-                """
-                Statistics of states for sessions
-                
-                .. attribute:: total_count
-                
-                	Number of sessions in database
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: up_count
-                
-                	Number of sessions in up state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: down_count
-                
-                	Number of sessions in down state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: unknown_count
-                
-                	Number of sessions in unknown state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: retry_count
-                
-                	Number of sessions in retry state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: standby_count
-                
-                	Number of sessions in standby state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'ip-bfd-oper'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, self).__init__()
-
-                    self.yang_name = "session-state"
-                    self.yang_parent_name = "ipv4-single-hop-location-summary"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
-                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
-                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
-                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
-                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
-                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
-                    ])
-                    self.total_count = None
-                    self.up_count = None
-                    self.down_count = None
-                    self.unknown_count = None
-                    self.retry_count = None
-                    self.standby_count = None
-                    self._segment_path = lambda: "session-state"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
-
-
-
-
-
-    class Ipv4bfdMplsteHeadSummaryNodes(Entity):
+    class Ipv4bfdMplsteHeadSummaryNodes(_Entity_):
         """
         Table of summary about IPv4 TE head BFD sessions
         for location
@@ -17327,7 +18452,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfdMplsteHeadSummaryNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfdMplsteHeadSummaryNodes, self).__init__()
 
             self.yang_name = "ipv4bfd-mplste-head-summary-nodes"
             self.yang_parent_name = "bfd"
@@ -17346,7 +18474,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes, [], name, value)
 
 
-        class Ipv4bfdMplsteHeadSummaryNode(Entity):
+        class Ipv4bfdMplsteHeadSummaryNode(_Entity_):
             """
             Summary of IPv4 BFD over MPLS\-TE head
             
@@ -17374,7 +18502,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode, self).__init__()
 
                 self.yang_name = "ipv4bfd-mplste-head-summary-node"
                 self.yang_parent_name = "ipv4bfd-mplste-head-summary-nodes"
@@ -17398,7 +18529,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode, ['location_name'], name, value)
 
 
-            class SessionState(Entity):
+            class SessionState(_Entity_):
                 """
                 Statistics of states for sessions
                 
@@ -17464,7 +18595,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, self).__init__()
 
                     self.yang_name = "session-state"
                     self.yang_parent_name = "ipv4bfd-mplste-head-summary-node"
@@ -17492,11 +18626,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfdMplsteHeadSummaryNodes']['meta_info']
 
 
-
-
-    class LabelSessionDetails(Entity):
+    class LabelSessionDetails(_Entity_):
         """
         Table of detailed information about all Label
         BFD sessions in the System 
@@ -17516,7 +18662,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelSessionDetails, self).__init__()
 
             self.yang_name = "label-session-details"
             self.yang_parent_name = "bfd"
@@ -17535,7 +18684,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelSessionDetails, [], name, value)
 
 
-        class LabelSessionDetail(Entity):
+        class LabelSessionDetail(_Entity_):
             """
             Detailed information for a single BFD session
             
@@ -17609,7 +18758,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelSessionDetails.LabelSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelSessionDetails.LabelSessionDetail, self).__init__()
 
                 self.yang_name = "label-session-detail"
                 self.yang_parent_name = "label-session-details"
@@ -17648,7 +18800,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail, ['interface_name', 'incoming_label', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -17853,7 +19005,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "label-session-detail"
@@ -17935,7 +19090,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -17981,7 +19136,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -18006,9 +19164,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -18064,7 +19226,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -18089,9 +19254,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -18249,7 +19418,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -18298,9 +19470,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -18458,7 +19634,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -18507,9 +19686,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -18535,7 +19718,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -18560,7 +19746,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -18614,7 +19800,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -18639,9 +19828,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -18684,7 +19877,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -18707,10 +19903,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -18776,7 +19980,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -18803,9 +20010,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -18871,7 +20082,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -18898,9 +20112,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -18966,7 +20184,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -18993,9 +20214,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -19061,7 +20286,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -19088,10 +20316,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -19117,7 +20353,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "label-session-detail"
@@ -19141,7 +20380,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -19175,7 +20414,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -19196,10 +20438,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -19307,7 +20557,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "label-session-detail"
@@ -19355,7 +20608,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -19389,7 +20642,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -19410,9 +20666,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -19446,7 +20706,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -19467,9 +20730,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -19503,7 +20770,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -19524,10 +20794,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -19588,7 +20866,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "label-session-detail"
@@ -19615,9 +20896,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -19668,7 +20953,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "label-session-detail"
@@ -19698,7 +20986,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -19744,7 +21032,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -19769,9 +21060,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -19832,7 +21127,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -19859,12 +21157,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv6SingleHopSessionDetails(Entity):
+    class Ipv6SingleHopSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv6
         singlehop BFD sessions in the System 
@@ -19884,7 +21198,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopSessionDetails, self).__init__()
 
             self.yang_name = "ipv6-single-hop-session-details"
             self.yang_parent_name = "bfd"
@@ -19903,7 +21220,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails, [], name, value)
 
 
-        class Ipv6SingleHopSessionDetail(Entity):
+        class Ipv6SingleHopSessionDetail(_Entity_):
             """
             Detailed information for a single IPv6
             singlehop BFD session
@@ -19984,7 +21301,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail, self).__init__()
 
                 self.yang_name = "ipv6-single-hop-session-detail"
                 self.yang_parent_name = "ipv6-single-hop-session-details"
@@ -20023,7 +21343,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -20228,7 +21548,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv6-single-hop-session-detail"
@@ -20310,7 +21633,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -20356,7 +21679,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -20381,9 +21707,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -20439,7 +21769,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -20464,9 +21797,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -20624,7 +21961,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -20673,9 +22013,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -20833,7 +22177,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -20882,9 +22229,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -20910,7 +22261,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -20935,7 +22289,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -20989,7 +22343,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -21014,9 +22371,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -21059,7 +22420,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -21082,10 +22446,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -21151,7 +22523,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -21178,9 +22553,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -21246,7 +22625,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -21273,9 +22655,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -21341,7 +22727,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -21368,9 +22757,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -21436,7 +22829,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -21463,10 +22859,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -21492,7 +22896,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv6-single-hop-session-detail"
@@ -21516,7 +22923,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -21550,7 +22957,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -21571,10 +22981,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -21682,7 +23100,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv6-single-hop-session-detail"
@@ -21730,7 +23151,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -21764,7 +23185,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -21785,9 +23209,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -21821,7 +23249,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -21842,9 +23273,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -21878,7 +23313,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -21899,10 +23337,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -21963,7 +23409,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv6-single-hop-session-detail"
@@ -21990,9 +23439,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -22043,7 +23496,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv6-single-hop-session-detail"
@@ -22073,7 +23529,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -22119,7 +23575,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -22144,9 +23603,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -22207,7 +23670,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -22234,12 +23700,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv4MultiHopCounters(Entity):
+    class Ipv4MultiHopCounters(_Entity_):
         """
         IPv4 multiple hop Counters
         
@@ -22258,7 +23740,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopCounters, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-counters"
             self.yang_parent_name = "bfd"
@@ -22279,7 +23764,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopCounters, [], name, value)
 
 
-        class Ipv4MultiHopPacketCounters(Entity):
+        class Ipv4MultiHopPacketCounters(_Entity_):
             """
             Table of IPv4 multiple hop Packet counters
             
@@ -22298,7 +23783,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters, self).__init__()
 
                 self.yang_name = "ipv4-multi-hop-packet-counters"
                 self.yang_parent_name = "ipv4-multi-hop-counters"
@@ -22317,7 +23805,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters, [], name, value)
 
 
-            class Ipv4MultiHopPacketCounter(Entity):
+            class Ipv4MultiHopPacketCounter(_Entity_):
                 """
                 IPv4 multiple hop Packet counters
                 
@@ -22420,7 +23908,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, self).__init__()
 
                     self.yang_name = "ipv4-multi-hop-packet-counter"
                     self.yang_parent_name = "ipv4-multi-hop-packet-counters"
@@ -22455,11 +23946,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopCounters']['meta_info']
 
 
-
-
-    class SessionDetails(Entity):
+    class SessionDetails(_Entity_):
         """
         Table of detailed information about IPv4
         singlehop BFD sessions in the System 
@@ -22479,7 +23982,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.SessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.SessionDetails, self).__init__()
 
             self.yang_name = "session-details"
             self.yang_parent_name = "bfd"
@@ -22498,7 +24004,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.SessionDetails, [], name, value)
 
 
-        class SessionDetail(Entity):
+        class SessionDetail(_Entity_):
             """
             Detailed information for a single IPv4
             singlehop BFD session
@@ -22573,7 +24079,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.SessionDetails.SessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.SessionDetails.SessionDetail, self).__init__()
 
                 self.yang_name = "session-detail"
                 self.yang_parent_name = "session-details"
@@ -22612,7 +24121,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.SessionDetails.SessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -22817,7 +24326,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionDetails.SessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionDetails.SessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "session-detail"
@@ -22899,7 +24411,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -22945,7 +24457,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -22970,9 +24485,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -23028,7 +24547,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -23053,9 +24575,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -23213,7 +24739,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -23262,9 +24791,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -23422,7 +24955,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -23471,9 +25007,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -23499,7 +25039,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -23524,7 +25067,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -23578,7 +25121,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -23603,9 +25149,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -23648,7 +25198,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -23671,10 +25224,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -23740,7 +25301,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -23767,9 +25331,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -23835,7 +25403,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -23862,9 +25433,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -23930,7 +25505,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -23957,9 +25535,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -24025,7 +25607,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -24052,10 +25637,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -24081,7 +25674,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionDetails.SessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionDetails.SessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "session-detail"
@@ -24105,7 +25701,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -24139,7 +25735,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -24160,10 +25759,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionDetails.SessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -24271,7 +25878,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionDetails.SessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionDetails.SessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "session-detail"
@@ -24319,7 +25929,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -24353,7 +25963,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -24374,9 +25987,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -24410,7 +26027,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -24431,9 +26051,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -24467,7 +26091,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -24488,10 +26115,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionDetails.SessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -24552,7 +26187,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionDetails.SessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionDetails.SessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "session-detail"
@@ -24579,9 +26217,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionDetails.SessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -24632,7 +26274,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.SessionDetails.SessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.SessionDetails.SessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "session-detail"
@@ -24662,7 +26307,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -24708,7 +26353,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -24733,9 +26381,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -24796,7 +26448,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -24823,12 +26478,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.SessionDetails.SessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.SessionDetails']['meta_info']
 
 
-
-
-
-    class Ipv4SingleHopMultiPaths(Entity):
+    class Ipv4SingleHopMultiPaths(_Entity_):
         """
         IPv4 single hop multipath
         
@@ -24847,7 +26518,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopMultiPaths, self).__init__()
 
             self.yang_name = "ipv4-single-hop-multi-paths"
             self.yang_parent_name = "bfd"
@@ -24866,7 +26540,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths, [], name, value)
 
 
-        class Ipv4SingleHopMultiPath(Entity):
+        class Ipv4SingleHopMultiPath(_Entity_):
             """
             IPv4 single hop multipath table
             
@@ -24955,7 +26629,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, self).__init__()
 
                 self.yang_name = "ipv4-single-hop-multi-path"
                 self.yang_parent_name = "ipv4-single-hop-multi-paths"
@@ -24990,10 +26667,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, ['interface_name', 'destination_address', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopMultiPaths']['meta_info']
 
 
-
-    class Ipv4SingleHopSessionBriefs(Entity):
+    class Ipv4SingleHopSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv4
         singlehop BFD sessions in the System
@@ -25013,7 +26698,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4SingleHopSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4SingleHopSessionBriefs, self).__init__()
 
             self.yang_name = "ipv4-single-hop-session-briefs"
             self.yang_parent_name = "bfd"
@@ -25032,7 +26720,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs, [], name, value)
 
 
-        class Ipv4SingleHopSessionBrief(Entity):
+        class Ipv4SingleHopSessionBrief(_Entity_):
             """
             Brief information for a single IPv4 singlehop
             BFD session
@@ -25118,7 +26806,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, self).__init__()
 
                 self.yang_name = "ipv4-single-hop-session-brief"
                 self.yang_parent_name = "ipv4-single-hop-session-briefs"
@@ -25156,7 +26847,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -25182,7 +26873,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv4-single-hop-session-brief"
@@ -25207,7 +26901,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -25261,7 +26955,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -25286,9 +26983,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -25331,7 +27032,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -25354,12 +27058,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv6MultiHopCounters(Entity):
+    class Ipv6MultiHopCounters(_Entity_):
         """
         IPv6 multiple hop Counters
         
@@ -25378,7 +27098,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6MultiHopCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6MultiHopCounters, self).__init__()
 
             self.yang_name = "ipv6-multi-hop-counters"
             self.yang_parent_name = "bfd"
@@ -25399,7 +27122,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6MultiHopCounters, [], name, value)
 
 
-        class Ipv6MultiHopPacketCounters(Entity):
+        class Ipv6MultiHopPacketCounters(_Entity_):
             """
             Table of IPv6 multiple hop Packet counters
             
@@ -25418,7 +27141,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters, self).__init__()
 
                 self.yang_name = "ipv6-multi-hop-packet-counters"
                 self.yang_parent_name = "ipv6-multi-hop-counters"
@@ -25437,7 +27163,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters, [], name, value)
 
 
-            class Ipv6MultiHopPacketCounter(Entity):
+            class Ipv6MultiHopPacketCounter(_Entity_):
                 """
                 IPv4 multiple hop Packet counters
                 
@@ -25540,7 +27266,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, self).__init__()
 
                     self.yang_name = "ipv6-multi-hop-packet-counter"
                     self.yang_parent_name = "ipv6-multi-hop-packet-counters"
@@ -25575,201 +27304,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopCounters']['meta_info']
 
 
-
-
-    class Ipv6SingleHopLocationSummaries(Entity):
-        """
-        Table of summary information about BFD IPv6
-        singlehop sessions per location
-        
-        .. attribute:: ipv6_single_hop_location_summary
-        
-        	Summary information for BFD IPv6 singlehop sessions for location
-        	**type**\: list of  		 :py:class:`Ipv6SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'ip-bfd-oper'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Bfd.Ipv6SingleHopLocationSummaries, self).__init__()
-
-            self.yang_name = "ipv6-single-hop-location-summaries"
-            self.yang_parent_name = "bfd"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("ipv6-single-hop-location-summary", ("ipv6_single_hop_location_summary", Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary))])
-            self._leafs = OrderedDict()
-
-            self.ipv6_single_hop_location_summary = YList(self)
-            self._segment_path = lambda: "ipv6-single-hop-location-summaries"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries, [], name, value)
-
-
-        class Ipv6SingleHopLocationSummary(Entity):
-            """
-            Summary information for BFD IPv6 singlehop
-            sessions for location
-            
-            .. attribute:: location_name  (key)
-            
-            	Location Name
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            	**config**\: False
-            
-            .. attribute:: session_state
-            
-            	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'ip-bfd-oper'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary, self).__init__()
-
-                self.yang_name = "ipv6-single-hop-location-summary"
-                self.yang_parent_name = "ipv6-single-hop-location-summaries"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = ['location_name']
-                self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState))])
-                self._leafs = OrderedDict([
-                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
-                ])
-                self.location_name = None
-
-                self.session_state = Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState()
-                self.session_state.parent = self
-                self._children_name_map["session_state"] = "session-state"
-                self._segment_path = lambda: "ipv6-single-hop-location-summary" + "[location-name='" + str(self.location_name) + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-location-summaries/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary, ['location_name'], name, value)
-
-
-            class SessionState(Entity):
-                """
-                Statistics of states for sessions
-                
-                .. attribute:: total_count
-                
-                	Number of sessions in database
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: up_count
-                
-                	Number of sessions in up state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: down_count
-                
-                	Number of sessions in down state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: unknown_count
-                
-                	Number of sessions in unknown state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: retry_count
-                
-                	Number of sessions in retry state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: standby_count
-                
-                	Number of sessions in standby state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'ip-bfd-oper'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, self).__init__()
-
-                    self.yang_name = "session-state"
-                    self.yang_parent_name = "ipv6-single-hop-location-summary"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
-                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
-                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
-                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
-                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
-                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
-                    ])
-                    self.total_count = None
-                    self.up_count = None
-                    self.down_count = None
-                    self.unknown_count = None
-                    self.retry_count = None
-                    self.standby_count = None
-                    self._segment_path = lambda: "session-state"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, ['total_count', 'up_count', 'down_count', 'unknown_count', 'retry_count', 'standby_count'], name, value)
-
-
-
-
-
-    class LabelCounters(Entity):
+    class LabelCounters(_Entity_):
         """
         Label Counters
         
@@ -25788,7 +27339,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.LabelCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.LabelCounters, self).__init__()
 
             self.yang_name = "label-counters"
             self.yang_parent_name = "bfd"
@@ -25809,7 +27363,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.LabelCounters, [], name, value)
 
 
-        class LabelPacketCounters(Entity):
+        class LabelPacketCounters(_Entity_):
             """
             Table of Label Packet counters
             
@@ -25828,7 +27382,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.LabelCounters.LabelPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.LabelCounters.LabelPacketCounters, self).__init__()
 
                 self.yang_name = "label-packet-counters"
                 self.yang_parent_name = "label-counters"
@@ -25847,7 +27404,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters, [], name, value)
 
 
-            class LabelPacketCounter(Entity):
+            class LabelPacketCounter(_Entity_):
                 """
                 Interface Label Packet counters
                 
@@ -25920,7 +27477,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, self).__init__()
 
                     self.yang_name = "label-packet-counter"
                     self.yang_parent_name = "label-packet-counters"
@@ -25951,11 +27511,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, ['interface_name', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.LabelCounters.LabelPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.LabelCounters']['meta_info']
 
 
-
-
-    class Ipv4bfDoMplsteHeadSessionDetails(Entity):
+    class Ipv4bfDoMplsteHeadSessionDetails(_Entity_):
         """
         Table of detailed information about all IPv4 BFD
         over MPLS\-TE Head sessions in the System
@@ -25975,7 +27547,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteHeadSessionDetails, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-head-session-details"
             self.yang_parent_name = "bfd"
@@ -25994,7 +27569,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails, [], name, value)
 
 
-        class Ipv4bfDoMplsteHeadSessionDetail(Entity):
+        class Ipv4bfDoMplsteHeadSessionDetail(_Entity_):
             """
             Detailed information for a single IPv4 BFD over
             MPLS\-TE head session
@@ -26168,7 +27743,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-head-session-detail"
                 self.yang_parent_name = "ipv4bf-do-mplste-head-session-details"
@@ -26229,7 +27807,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location'], name, value)
 
 
-            class StatusInformation(Entity):
+            class StatusInformation(_Entity_):
                 """
                 Session status information
                 
@@ -26434,7 +28012,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, self).__init__()
 
                     self.yang_name = "status-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-detail"
@@ -26516,7 +28097,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, ['sessiontype', 'session_subtype', 'state', 'local_discriminator', 'remote_discriminator', 'to_up_state_count', 'desired_minimum_echo_transmit_interval', 'remote_negotiated_interval', 'latency_number', 'latency_minimum', 'latency_maximum', 'latency_average', 'node_id', 'internal_label'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -26562,7 +28143,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "status-information"
@@ -26587,9 +28171,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress']['meta_info']
 
 
-                class LastStateChange(Entity):
+                class LastStateChange(_Entity_):
                     """
                     Time since last state change
                     
@@ -26645,7 +28233,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, self).__init__()
 
                         self.yang_name = "last-state-change"
                         self.yang_parent_name = "status-information"
@@ -26670,9 +28261,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, ['days', 'hours', 'minutes', 'seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange']['meta_info']
 
 
-                class TransmitPacket(Entity):
+                class TransmitPacket(_Entity_):
                     """
                     Transmit Packet
                     
@@ -26830,7 +28425,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, self).__init__()
 
                         self.yang_name = "transmit-packet"
                         self.yang_parent_name = "status-information"
@@ -26879,9 +28477,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket']['meta_info']
 
 
-                class ReceivePacket(Entity):
+                class ReceivePacket(_Entity_):
                     """
                     Receive Packet
                     
@@ -27039,7 +28641,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, self).__init__()
 
                         self.yang_name = "receive-packet"
                         self.yang_parent_name = "status-information"
@@ -27088,9 +28693,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, ['version', 'diagnostic', 'ihear_you', 'state', 'demand', 'poll', 'final', 'control_plane_independent', 'authentication_present', 'detection_multiplier', 'length', 'my_discriminator', 'your_discriminator', 'desired_minimum_transmit_interval', 'required_minimum_receive_interval', 'required_minimum_echo_receive_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket']['meta_info']
 
 
-                class StatusBriefInformation(Entity):
+                class StatusBriefInformation(_Entity_):
                     """
                     Brief Status Information
                     
@@ -27116,7 +28725,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation, self).__init__()
 
                         self.yang_name = "status-brief-information"
                         self.yang_parent_name = "status-information"
@@ -27141,7 +28753,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
 
 
-                    class AsyncIntervalMultiplier(Entity):
+                    class AsyncIntervalMultiplier(_Entity_):
                         """
                         Async Interval and Detect Multiplier Information
                         
@@ -27195,7 +28807,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                             self.yang_name = "async-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -27220,9 +28835,13 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                    class EchoIntervalMultiplier(Entity):
+                    class EchoIntervalMultiplier(_Entity_):
                         """
                         Echo Interval and Detect Multiplier Information
                         
@@ -27265,7 +28884,10 @@ class Bfd(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                             self.yang_name = "echo-interval-multiplier"
                             self.yang_parent_name = "status-brief-information"
@@ -27288,10 +28910,18 @@ class Bfd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation']['meta_info']
 
 
-
-                class AsyncTransmitStatistics(Entity):
+                class AsyncTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Transmitted (in milli\-seconds)
@@ -27357,7 +28987,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, self).__init__()
 
                         self.yang_name = "async-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -27384,9 +29017,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics']['meta_info']
 
 
-                class AsyncReceiveStatistics(Entity):
+                class AsyncReceiveStatistics(_Entity_):
                     """
                     Statistics of Interval between Async Packets
                     Received (in milli\-seconds)
@@ -27452,7 +29089,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, self).__init__()
 
                         self.yang_name = "async-receive-statistics"
                         self.yang_parent_name = "status-information"
@@ -27479,9 +29119,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics']['meta_info']
 
 
-                class EchoTransmitStatistics(Entity):
+                class EchoTransmitStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Transmitted (in milli\-seconds)
@@ -27547,7 +29191,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, self).__init__()
 
                         self.yang_name = "echo-transmit-statistics"
                         self.yang_parent_name = "status-information"
@@ -27574,9 +29221,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics']['meta_info']
 
 
-                class EchoReceivedStatistics(Entity):
+                class EchoReceivedStatistics(_Entity_):
                     """
                     Statistics of Interval between Echo Packets
                     Received (in milli\-seconds)
@@ -27642,7 +29293,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, self).__init__()
 
                         self.yang_name = "echo-received-statistics"
                         self.yang_parent_name = "status-information"
@@ -27669,10 +29323,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, ['number', 'minimum', 'maximum', 'average', 'last'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation']['meta_info']
 
 
-
-            class MpDownloadState(Entity):
+            class MpDownloadState(_Entity_):
                 """
                 MP Dowload State
                 
@@ -27698,7 +29360,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, self).__init__()
 
                     self.yang_name = "mp-download-state"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-detail"
@@ -27722,7 +29387,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, ['mp_download_state'], name, value)
 
 
-                class ChangeTime(Entity):
+                class ChangeTime(_Entity_):
                     """
                     Change time
                     
@@ -27756,7 +29421,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, self).__init__()
 
                         self.yang_name = "change-time"
                         self.yang_parent_name = "mp-download-state"
@@ -27777,10 +29445,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState']['meta_info']
 
 
-
-            class LspPingInfo(Entity):
+            class LspPingInfo(_Entity_):
                 """
                 LSP Ping Info
                 
@@ -27888,7 +29564,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, self).__init__()
 
                     self.yang_name = "lsp-ping-info"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-detail"
@@ -27936,7 +29615,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, ['lsp_ping_tx_count', 'lsp_ping_tx_error_count', 'lsp_ping_tx_last_rc', 'lsp_ping_tx_last_error_rc', 'lsp_ping_rx_last_discr', 'lsp_ping_rx_count', 'lsp_ping_rx_last_code', 'lsp_ping_rx_last_subcode', 'lsp_ping_rx_last_output'], name, value)
 
 
-                class LspPingTxLastTime(Entity):
+                class LspPingTxLastTime(_Entity_):
                     """
                     LSP Ping last sent time
                     
@@ -27970,7 +29649,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -27991,9 +29673,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime']['meta_info']
 
 
-                class LspPingTxLastErrorTime(Entity):
+                class LspPingTxLastErrorTime(_Entity_):
                     """
                     LSP Ping last error time
                     
@@ -28027,7 +29713,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, self).__init__()
 
                         self.yang_name = "lsp-ping-tx-last-error-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -28048,9 +29737,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime']['meta_info']
 
 
-                class LspPingRxLastTime(Entity):
+                class LspPingRxLastTime(_Entity_):
                     """
                     LSP Ping last received time
                     
@@ -28084,7 +29777,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, self).__init__()
 
                         self.yang_name = "lsp-ping-rx-last-time"
                         self.yang_parent_name = "lsp-ping-info"
@@ -28105,10 +29801,18 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo']['meta_info']
 
 
-
-            class OwnerInformation(Entity):
+            class OwnerInformation(_Entity_):
                 """
                 Client applications owning the session
                 
@@ -28169,7 +29873,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, self).__init__()
 
                     self.yang_name = "owner-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-detail"
@@ -28196,9 +29903,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -28249,7 +29960,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "ipv4bf-do-mplste-head-session-detail"
@@ -28279,7 +29993,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -28325,7 +30039,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -28350,9 +30067,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -28413,7 +30134,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -28440,12 +30164,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSessionDetails']['meta_info']
 
 
-
-
-
-    class RelationBriefs(Entity):
+    class RelationBriefs(_Entity_):
         """
         Table of brief information about all BFD
         relations in the System
@@ -28465,7 +30205,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.RelationBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.RelationBriefs, self).__init__()
 
             self.yang_name = "relation-briefs"
             self.yang_parent_name = "bfd"
@@ -28484,7 +30227,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.RelationBriefs, [], name, value)
 
 
-        class RelationBrief(Entity):
+        class RelationBrief(_Entity_):
             """
             Brief information for relation of a single BFD
             session
@@ -28535,7 +30278,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.RelationBriefs.RelationBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.RelationBriefs.RelationBrief, self).__init__()
 
                 self.yang_name = "relation-brief"
                 self.yang_parent_name = "relation-briefs"
@@ -28561,7 +30307,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.RelationBriefs.RelationBrief, ['interface_name', 'destination_address', 'state'], name, value)
 
 
-            class LinkInformation(Entity):
+            class LinkInformation(_Entity_):
                 """
                 Brief Member Link Information
                 
@@ -28589,7 +30335,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.RelationBriefs.RelationBrief.LinkInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.RelationBriefs.RelationBrief.LinkInformation, self).__init__()
 
                     self.yang_name = "link-information"
                     self.yang_parent_name = "relation-brief"
@@ -28610,11 +30359,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.RelationBriefs.RelationBrief.LinkInformation, ['state', 'interface_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.RelationBriefs.RelationBrief.LinkInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.RelationBriefs.RelationBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.RelationBriefs']['meta_info']
 
 
-
-
-    class ClientBriefs(Entity):
+    class ClientBriefs(_Entity_):
         """
         Table of Brief information about BFD clients
         
@@ -28633,7 +30394,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.ClientBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.ClientBriefs, self).__init__()
 
             self.yang_name = "client-briefs"
             self.yang_parent_name = "bfd"
@@ -28652,7 +30416,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.ClientBriefs, [], name, value)
 
 
-        class ClientBrief(Entity):
+        class ClientBrief(_Entity_):
             """
             Brief information of client
             
@@ -28700,7 +30464,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.ClientBriefs.ClientBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.ClientBriefs.ClientBrief, self).__init__()
 
                 self.yang_name = "client-brief"
                 self.yang_parent_name = "client-briefs"
@@ -28725,10 +30492,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.ClientBriefs.ClientBrief, ['name', 'name_xr', 'node_id', 'session_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.ClientBriefs.ClientBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.ClientBriefs']['meta_info']
 
 
-
-    class Ipv4bfDoMplsteHeadMultiPaths(Entity):
+    class Ipv4bfDoMplsteHeadMultiPaths(_Entity_):
         """
         IPv4 BFD over MPLS\-TE Head multipath
         
@@ -28747,7 +30522,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteHeadMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteHeadMultiPaths, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-head-multi-paths"
             self.yang_parent_name = "bfd"
@@ -28766,7 +30544,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths, [], name, value)
 
 
-        class Ipv4bfDoMplsteHeadMultiPath(Entity):
+        class Ipv4bfDoMplsteHeadMultiPath(_Entity_):
             """
             Label multipath table
             
@@ -28954,7 +30732,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-head-multi-path"
                 self.yang_parent_name = "ipv4bf-do-mplste-head-multi-paths"
@@ -29011,10 +30792,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadMultiPaths']['meta_info']
 
 
-
-    class RelationDetails(Entity):
+    class RelationDetails(_Entity_):
         """
         Table of detail information about all BFD
         relations in the System
@@ -29034,7 +30823,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.RelationDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.RelationDetails, self).__init__()
 
             self.yang_name = "relation-details"
             self.yang_parent_name = "bfd"
@@ -29053,7 +30845,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.RelationDetails, [], name, value)
 
 
-        class RelationDetail(Entity):
+        class RelationDetail(_Entity_):
             """
             Detail information for relation of a single BFD
             session
@@ -29120,7 +30912,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.RelationDetails.RelationDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.RelationDetails.RelationDetail, self).__init__()
 
                 self.yang_name = "relation-detail"
                 self.yang_parent_name = "relation-details"
@@ -29149,7 +30944,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.RelationDetails.RelationDetail, ['interface_name', 'destination_address', 'state', 'local_discriminator'], name, value)
 
 
-            class LinkInformation(Entity):
+            class LinkInformation(_Entity_):
                 """
                 Detail Member Link Information
                 
@@ -29186,7 +30981,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.RelationDetails.RelationDetail.LinkInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.RelationDetails.RelationDetail.LinkInformation, self).__init__()
 
                     self.yang_name = "link-information"
                     self.yang_parent_name = "relation-detail"
@@ -29209,9 +31007,13 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.RelationDetails.RelationDetail.LinkInformation, ['state', 'interface_name', 'local_discriminator'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.RelationDetails.RelationDetail.LinkInformation']['meta_info']
 
 
-            class AssociationInformation(Entity):
+            class AssociationInformation(_Entity_):
                 """
                 Association session information
                 
@@ -29262,7 +31064,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.RelationDetails.RelationDetail.AssociationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.RelationDetails.RelationDetail.AssociationInformation, self).__init__()
 
                     self.yang_name = "association-information"
                     self.yang_parent_name = "relation-detail"
@@ -29292,7 +31097,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation, ['interface_name', 'sessiontype', 'local_discriminator'], name, value)
 
 
-                class IpDestinationAddress(Entity):
+                class IpDestinationAddress(_Entity_):
                     """
                     IPv4/v6 dest address
                     
@@ -29338,7 +31143,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, self).__init__()
 
                         self.yang_name = "ip-destination-address"
                         self.yang_parent_name = "association-information"
@@ -29363,9 +31171,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress']['meta_info']
 
 
-                class OwnerInformation(Entity):
+                class OwnerInformation(_Entity_):
                     """
                     Client applications owning the session
                     
@@ -29426,7 +31238,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, self).__init__()
 
                         self.yang_name = "owner-information"
                         self.yang_parent_name = "association-information"
@@ -29453,12 +31268,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, ['interval', 'detection_multiplier', 'adjusted_interval', 'adjusted_detection_multiplier', 'name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.RelationDetails.RelationDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.RelationDetails']['meta_info']
 
 
-
-
-
-    class Ipv4bfDoMplsteTailCounters(Entity):
+    class Ipv4bfDoMplsteTailCounters(_Entity_):
         """
         IPv4 BFD over MPLS\-TE Counters
         
@@ -29477,7 +31308,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteTailCounters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteTailCounters, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-tail-counters"
             self.yang_parent_name = "bfd"
@@ -29498,7 +31332,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters, [], name, value)
 
 
-        class Ipv4bfDoMplsteTailPacketCounters(Entity):
+        class Ipv4bfDoMplsteTailPacketCounters(_Entity_):
             """
             Table of IPv4 BFD over MPLS\-TE Packet counters
             
@@ -29517,7 +31351,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-tail-packet-counters"
                 self.yang_parent_name = "ipv4bf-do-mplste-tail-counters"
@@ -29536,7 +31373,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters, [], name, value)
 
 
-            class Ipv4bfDoMplsteTailPacketCounter(Entity):
+            class Ipv4bfDoMplsteTailPacketCounter(_Entity_):
                 """
                 Interface  IPv4 BFD over MPLS\-TE Packet
                 counters
@@ -29709,7 +31546,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, self).__init__()
 
                     self.yang_name = "ipv4bf-do-mplste-tail-packet-counter"
                     self.yang_parent_name = "ipv4bf-do-mplste-tail-packet-counters"
@@ -29762,11 +31602,23 @@ class Bfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'hello_transmit_count', 'hello_receive_count', 'echo_transmit_count', 'echo_receive_count', 'display_type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailCounters']['meta_info']
 
 
-
-
-    class Ipv6SingleHopSessionBriefs(Entity):
+    class Ipv6SingleHopSessionBriefs(_Entity_):
         """
         Table of brief information about all IPv6
         singlehop BFD sessions in the System
@@ -29786,7 +31638,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv6SingleHopSessionBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv6SingleHopSessionBriefs, self).__init__()
 
             self.yang_name = "ipv6-single-hop-session-briefs"
             self.yang_parent_name = "bfd"
@@ -29805,7 +31660,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs, [], name, value)
 
 
-        class Ipv6SingleHopSessionBrief(Entity):
+        class Ipv6SingleHopSessionBrief(_Entity_):
             """
             Brief information for a single IPv6 singlehop
             BFD session
@@ -29897,7 +31752,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, self).__init__()
 
                 self.yang_name = "ipv6-single-hop-session-brief"
                 self.yang_parent_name = "ipv6-single-hop-session-briefs"
@@ -29935,7 +31793,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', 'node_id', 'state', 'session_type', 'session_subtype', 'session_flags'], name, value)
 
 
-            class StatusBriefInformation(Entity):
+            class StatusBriefInformation(_Entity_):
                 """
                 Brief Status Information
                 
@@ -29961,7 +31819,10 @@ class Bfd(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation, self).__init__()
 
                     self.yang_name = "status-brief-information"
                     self.yang_parent_name = "ipv6-single-hop-session-brief"
@@ -29986,7 +31847,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation, [], name, value)
 
 
-                class AsyncIntervalMultiplier(Entity):
+                class AsyncIntervalMultiplier(_Entity_):
                     """
                     Async Interval and Detect Multiplier Information
                     
@@ -30040,7 +31901,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, self).__init__()
 
                         self.yang_name = "async-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -30065,9 +31929,13 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, ['negotiated_remote_transmit_interval', 'negotiated_local_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier']['meta_info']
 
 
-                class EchoIntervalMultiplier(Entity):
+                class EchoIntervalMultiplier(_Entity_):
                     """
                     Echo Interval and Detect Multiplier Information
                     
@@ -30110,7 +31978,10 @@ class Bfd(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, self).__init__()
 
                         self.yang_name = "echo-interval-multiplier"
                         self.yang_parent_name = "status-brief-information"
@@ -30133,12 +32004,28 @@ class Bfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, ['negotiated_transmit_interval', 'detection_time', 'detection_multiplier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                        return meta._meta_table['Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6SingleHopSessionBriefs']['meta_info']
 
 
-
-
-
-    class Ipv4bfDoMplsteTailMultiPaths(Entity):
+    class Ipv4bfDoMplsteTailMultiPaths(_Entity_):
         """
         IPv4 BFD over MPLS\-TE Tail multipath
         
@@ -30157,7 +32044,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteTailMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteTailMultiPaths, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-tail-multi-paths"
             self.yang_parent_name = "bfd"
@@ -30176,7 +32066,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths, [], name, value)
 
 
-        class Ipv4bfDoMplsteTailMultiPath(Entity):
+        class Ipv4bfDoMplsteTailMultiPath(_Entity_):
             """
             Label multipath table
             
@@ -30355,7 +32245,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, self).__init__()
 
                 self.yang_name = "ipv4bf-do-mplste-tail-multi-path"
                 self.yang_parent_name = "ipv4bf-do-mplste-tail-multi-paths"
@@ -30410,10 +32303,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteTailMultiPaths']['meta_info']
 
 
-
-    class Ipv4MultiHopMultiPaths(Entity):
+    class Ipv4MultiHopMultiPaths(_Entity_):
         """
         IPv4 multi\-hop multipath
         
@@ -30432,7 +32333,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4MultiHopMultiPaths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4MultiHopMultiPaths, self).__init__()
 
             self.yang_name = "ipv4-multi-hop-multi-paths"
             self.yang_parent_name = "bfd"
@@ -30451,7 +32355,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths, [], name, value)
 
 
-        class Ipv4MultiHopMultiPath(Entity):
+        class Ipv4MultiHopMultiPath(_Entity_):
             """
             IPv4 multi hop multipath table
             
@@ -30561,7 +32465,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, self).__init__()
 
                 self.yang_name = "ipv4-multi-hop-multi-path"
                 self.yang_parent_name = "ipv4-multi-hop-multi-paths"
@@ -30598,10 +32505,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', 'session_subtype', 'state', 'local_discriminator', 'node_id', 'incoming_label_xr', 'session_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4MultiHopMultiPaths']['meta_info']
 
 
-
-    class Ipv4bfDoMplsteHeadSummary(Entity):
+    class Ipv4bfDoMplsteHeadSummary(_Entity_):
         """
         Summary information of IPv4 BFD over MPLS\-TE
         Head
@@ -30621,7 +32536,10 @@ class Bfd(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Bfd.Ipv4bfDoMplsteHeadSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Ipv4bfDoMplsteHeadSummary, self).__init__()
 
             self.yang_name = "ipv4bf-do-mplste-head-summary"
             self.yang_parent_name = "bfd"
@@ -30642,7 +32560,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary, [], name, value)
 
 
-        class SessionState(Entity):
+        class SessionState(_Entity_):
             """
             Statistics of states for sessions
             
@@ -30690,7 +32608,10 @@ class Bfd(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, self).__init__()
 
                 self.yang_name = "session-state"
                 self.yang_parent_name = "ipv4bf-do-mplste-head-summary"
@@ -30715,11 +32636,23 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, ['total_count', 'down_count', 'up_count', 'unknown_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSummary.SessionState']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv4bfDoMplsteHeadSummary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Bfd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+        return meta._meta_table['Bfd']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class IpslaLspGrpPathStatusEnum(Enum):
     ipsla_lsp_grp_path_status_pending = Enum.YLeaf(4, "ipsla-lsp-grp-path-status-pending")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaLspGrpPathStatusEnum']
+
+
 class IpslaLspGrpStatusEnum(Enum):
     """
     IpslaLspGrpStatusEnum (Enum Class)
@@ -98,6 +107,12 @@ class IpslaLspGrpStatusEnum(Enum):
     ipsla_lsp_grp_status_pending = Enum.YLeaf(5, "ipsla-lsp-grp-status-pending")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaLspGrpStatusEnum']
+
+
 class IpslaMplsAddDeleteEnum(Enum):
     """
     IpslaMplsAddDeleteEnum (Enum Class)
@@ -117,6 +132,12 @@ class IpslaMplsAddDeleteEnum(Enum):
     ipsla_mpls_add_delete_add_q = Enum.YLeaf(1, "ipsla-mpls-add-delete-add-q")
 
     ipsla_mpls_add_delete_delete_q = Enum.YLeaf(2, "ipsla-mpls-add-delete-delete-q")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaMplsAddDeleteEnum']
 
 
 class IpslaMplsLpdDiscoveryModeEnum(Enum):
@@ -158,6 +179,12 @@ class IpslaMplsLpdDiscoveryModeEnum(Enum):
     ipsla_mpls_lpd_rediscovery_complete = Enum.YLeaf(4, "ipsla-mpls-lpd-rediscovery-complete")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaMplsLpdDiscoveryModeEnum']
+
+
 class IpslaMplsLpdPathDiscoveryStatus(Enum):
     """
     IpslaMplsLpdPathDiscoveryStatus (Enum Class)
@@ -189,6 +216,12 @@ class IpslaMplsLpdPathDiscoveryStatus(Enum):
     ipsla_mpls_lpd_path_discovery_broken = Enum.YLeaf(2, "ipsla-mpls-lpd-path-discovery-broken")
 
     ipsla_mpls_lpd_path_discovery_unexplorable = Enum.YLeaf(3, "ipsla-mpls-lpd-path-discovery-unexplorable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaMplsLpdPathDiscoveryStatus']
 
 
 class IpslaMplsLpdRetCode(Enum):
@@ -250,6 +283,12 @@ class IpslaMplsLpdRetCode(Enum):
     ipsla_mpls_lpd_ret_code_ok = Enum.YLeaf(8, "ipsla-mpls-lpd-ret-code-ok")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaMplsLpdRetCode']
+
+
 class IpslaOperStateEnum(Enum):
     """
     IpslaOperStateEnum (Enum Class)
@@ -275,6 +314,12 @@ class IpslaOperStateEnum(Enum):
     ipsla_oper_state_pending = Enum.YLeaf(1, "ipsla-oper-state-pending")
 
     ipsla_oper_state_active = Enum.YLeaf(2, "ipsla-oper-state-active")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaOperStateEnum']
 
 
 class IpslaRetCode(Enum):
@@ -586,6 +631,12 @@ class IpslaRetCode(Enum):
     ipsla_ret_code_max = Enum.YLeaf(49, "ipsla-ret-code-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaRetCode']
+
+
 class IpslaTargetTypeEnum(Enum):
     """
     IpslaTargetTypeEnum (Enum Class)
@@ -623,6 +674,12 @@ class IpslaTargetTypeEnum(Enum):
     ipv4_pseudowire_target_type = Enum.YLeaf(4, "ipv4-pseudowire-target-type")
 
     ipv6_address_target_type = Enum.YLeaf(5, "ipv6-address-target-type")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['IpslaTargetTypeEnum']
 
 
 class OpTypeEnum(Enum):
@@ -682,6 +739,12 @@ class OpTypeEnum(Enum):
     mpls_lsp_group = Enum.YLeaf(128, "mpls-lsp-group")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['OpTypeEnum']
+
+
 class SlaOpTypes(Enum):
     """
     SlaOpTypes (Enum Class)
@@ -739,8 +802,14 @@ class SlaOpTypes(Enum):
     oper_mpls_lsp_group = Enum.YLeaf(128, "oper-mpls-lsp-group")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['SlaOpTypes']
 
-class Ipsla(Entity):
+
+
+class Ipsla(_Entity_):
     """
     IPSLA operational data
     
@@ -780,7 +849,10 @@ class Ipsla(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ipsla, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipsla, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipsla"
@@ -813,7 +885,7 @@ class Ipsla(Entity):
         self._perform_setattr(Ipsla, [], name, value)
 
 
-    class MplsData(Entity):
+    class MplsData(_Entity_):
         """
         MPLS operational data
         
@@ -839,7 +911,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.MplsData, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.MplsData, self).__init__()
 
             self.yang_name = "mpls-data"
             self.yang_parent_name = "ipsla"
@@ -864,7 +939,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.MplsData, [], name, value)
 
 
-        class LspMonitors(Entity):
+        class LspMonitors(_Entity_):
             """
             List of MPLS LSP Monitor instances
             
@@ -883,7 +958,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsData.LspMonitors, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsData.LspMonitors, self).__init__()
 
                 self.yang_name = "lsp-monitors"
                 self.yang_parent_name = "mpls-data"
@@ -902,7 +980,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsData.LspMonitors, [], name, value)
 
 
-            class LspMonitor(Entity):
+            class LspMonitor(_Entity_):
                 """
                 Operational data for MPLS LSP Monitor
                 
@@ -944,7 +1022,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.MplsData.LspMonitors.LspMonitor, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.MplsData.LspMonitors.LspMonitor, self).__init__()
 
                     self.yang_name = "lsp-monitor"
                     self.yang_parent_name = "lsp-monitors"
@@ -976,7 +1057,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor, ['monitor_id'], name, value)
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state of MPLS LSP Monitor
                     
@@ -1032,7 +1113,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsData.LspMonitors.LspMonitor.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsData.LspMonitors.LspMonitor.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "lsp-monitor"
@@ -1056,9 +1140,13 @@ class Ipsla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, ['scan_remaining', 'delete_scan_remaining', 'rediscovery_remaining', 'lpd_compeletion_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.State']['meta_info']
 
 
-                class Operations(Entity):
+                class Operations(_Entity_):
                     """
                     List of operations in MPLS LSP Monitor
                     
@@ -1077,7 +1165,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations, self).__init__()
 
                         self.yang_name = "operations"
                         self.yang_parent_name = "lsp-monitor"
@@ -1095,7 +1186,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations, [], name, value)
 
 
-                    class Operation(Entity):
+                    class Operation(_Entity_):
                         """
                         Operation created in MPLS LSP Monitor
                         
@@ -1130,7 +1221,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation, self).__init__()
 
                             self.yang_name = "operation"
                             self.yang_parent_name = "operations"
@@ -1157,7 +1251,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation, ['operation_id'], name, value)
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state of the created operation
                             
@@ -1203,7 +1297,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "operation"
@@ -1227,9 +1324,13 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, ['target_address', 'target_mask', 'group_status', 'operation_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State']['meta_info']
 
 
-                        class LpdPaths(Entity):
+                        class LpdPaths(_Entity_):
                             """
                             List of LPD paths in MPLS LPD group
                             operation
@@ -1249,7 +1350,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths, self).__init__()
 
                                 self.yang_name = "lpd-paths"
                                 self.yang_parent_name = "operation"
@@ -1267,7 +1371,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths, [], name, value)
 
 
-                            class LpdPath(Entity):
+                            class LpdPath(_Entity_):
                                 """
                                 Operational state of LPD path in MPLS LSP
                                 Group operation
@@ -1339,7 +1443,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, self).__init__()
 
                                     self.yang_name = "lpd-path"
                                     self.yang_parent_name = "lpd-paths"
@@ -1372,7 +1479,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', 'path_status', 'operation_time', 'response_time', 'success_count', 'failure_count'], name, value)
 
 
-                                class PathId(Entity):
+                                class PathId(_Entity_):
                                     """
                                     LPD path identifier
                                     
@@ -1420,7 +1527,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, self).__init__()
 
                                         self.yang_name = "path-id"
                                         self.yang_parent_name = "lpd-path"
@@ -1444,13 +1554,33 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.Operations']['meta_info']
 
 
-
-
-
-
-                class ScanQueues(Entity):
+                class ScanQueues(_Entity_):
                     """
                     List of Scan Queue entries in MPLS LSP
                     Monitor
@@ -1470,7 +1600,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues, self).__init__()
 
                         self.yang_name = "scan-queues"
                         self.yang_parent_name = "lsp-monitor"
@@ -1488,7 +1621,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues, [], name, value)
 
 
-                    class ScanQueue(Entity):
+                    class ScanQueue(_Entity_):
                         """
                         Provider Edge(PE) addition or deletion
                         requests in Scan Queue
@@ -1535,7 +1668,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, self).__init__()
 
                             self.yang_name = "scan-queue"
                             self.yang_parent_name = "scan-queues"
@@ -1559,12 +1695,28 @@ class Ipsla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', 'target_address', 'target_mask', 'entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                    return meta._meta_table['Ipsla.MplsData.LspMonitors.LspMonitor']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                return meta._meta_table['Ipsla.MplsData.LspMonitors']['meta_info']
 
 
-
-
-
-        class Discovery(Entity):
+        class Discovery(_Entity_):
             """
             Provider Edge(PE) discovery operational data
             
@@ -1583,7 +1735,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.MplsData.Discovery, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.MplsData.Discovery, self).__init__()
 
                 self.yang_name = "discovery"
                 self.yang_parent_name = "mpls-data"
@@ -1604,7 +1759,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsData.Discovery, [], name, value)
 
 
-            class Vpn(Entity):
+            class Vpn(_Entity_):
                 """
                 L3 VPN PE discovery operational data
                 
@@ -1630,7 +1785,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.MplsData.Discovery.Vpn, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.MplsData.Discovery.Vpn, self).__init__()
 
                     self.yang_name = "vpn"
                     self.yang_parent_name = "discovery"
@@ -1655,7 +1813,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.MplsData.Discovery.Vpn, [], name, value)
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state of PE discovery
                     
@@ -1678,7 +1836,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsData.Discovery.Vpn.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsData.Discovery.Vpn.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "vpn"
@@ -1697,9 +1858,13 @@ class Ipsla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, ['refresh_remaining'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.State']['meta_info']
 
 
-                class Nexthops(Entity):
+                class Nexthops(_Entity_):
                     """
                     List of nexthop addresses for remote PE
                     routers
@@ -1719,7 +1884,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.MplsData.Discovery.Vpn.Nexthops, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.MplsData.Discovery.Vpn.Nexthops, self).__init__()
 
                         self.yang_name = "nexthops"
                         self.yang_parent_name = "vpn"
@@ -1738,7 +1906,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops, [], name, value)
 
 
-                    class Nexthop(Entity):
+                    class Nexthop(_Entity_):
                         """
                         Nexthop address for remote PE router
                         
@@ -1773,7 +1941,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop, self).__init__()
 
                             self.yang_name = "nexthop"
                             self.yang_parent_name = "nexthops"
@@ -1801,7 +1972,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop, ['address'], name, value)
 
 
-                        class Vrfs(Entity):
+                        class Vrfs(_Entity_):
                             """
                             List of VRFs for the nexthop address
                             
@@ -1820,7 +1991,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs, self).__init__()
 
                                 self.yang_name = "vrfs"
                                 self.yang_parent_name = "nexthop"
@@ -1838,7 +2012,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs, [], name, value)
 
 
-                            class Vrf(Entity):
+                            class Vrf(_Entity_):
                                 """
                                 VRF information of the nexthop address
                                 
@@ -1868,7 +2042,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, self).__init__()
 
                                     self.yang_name = "vrf"
                                     self.yang_parent_name = "vrfs"
@@ -1888,10 +2065,18 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', 'prefix_count'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs']['meta_info']
 
 
-
-                        class Prefix(Entity):
+                        class Prefix(_Entity_):
                             """
                             Prefix of the nexthop address
                             
@@ -1921,7 +2106,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, self).__init__()
 
                                 self.yang_name = "prefix"
                                 self.yang_parent_name = "nexthop"
@@ -1941,14 +2129,38 @@ class Ipsla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, ['target_address', 'target_mask'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.MplsData.Discovery.Vpn.Nexthops']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                    return meta._meta_table['Ipsla.MplsData.Discovery.Vpn']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                return meta._meta_table['Ipsla.MplsData.Discovery']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+            return meta._meta_table['Ipsla.MplsData']['meta_info']
 
 
-
-
-
-
-
-    class Responder(Entity):
+    class Responder(_Entity_):
         """
         Data from responder probe handling
         
@@ -1967,7 +2179,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.Responder, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.Responder, self).__init__()
 
             self.yang_name = "responder"
             self.yang_parent_name = "ipsla"
@@ -1988,7 +2203,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.Responder, [], name, value)
 
 
-        class Ports(Entity):
+        class Ports(_Entity_):
             """
             Statistics maintained by responder
             
@@ -2007,7 +2222,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.Responder.Ports, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.Responder.Ports, self).__init__()
 
                 self.yang_name = "ports"
                 self.yang_parent_name = "responder"
@@ -2026,7 +2244,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Responder.Ports, [], name, value)
 
 
-            class Port(Entity):
+            class Port(_Entity_):
                 """
                 Port data
                 
@@ -2154,7 +2372,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.Responder.Ports.Port, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.Responder.Ports.Port, self).__init__()
 
                     self.yang_name = "port"
                     self.yang_parent_name = "ports"
@@ -2200,7 +2421,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', 'port_xr', 'local_address', 'num_probes', 'ctrl_probes', 'permanent', 'discard_on', 'pd_time_stamp_failed', 'is_ipsla', 'drop_counter', 'socket', 'local_ipv6_address', 'family'], name, value)
 
 
-                class Sender(Entity):
+                class Sender(_Entity_):
                     """
                     List of senders
                     
@@ -2248,7 +2469,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.Responder.Ports.Port.Sender, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.Responder.Ports.Port.Sender, self).__init__()
 
                         self.yang_name = "sender"
                         self.yang_parent_name = "port"
@@ -2272,12 +2496,28 @@ class Ipsla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, ['ip_address', 'port', 'last_recv_time', 'ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.Responder.Ports.Port.Sender']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                    return meta._meta_table['Ipsla.Responder.Ports.Port']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                return meta._meta_table['Ipsla.Responder.Ports']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+            return meta._meta_table['Ipsla.Responder']['meta_info']
 
 
-
-
-
-    class OperationData(Entity):
+    class OperationData(_Entity_):
         """
         Operations data
         
@@ -2296,7 +2536,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.OperationData, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.OperationData, self).__init__()
 
             self.yang_name = "operation-data"
             self.yang_parent_name = "ipsla"
@@ -2317,7 +2560,7 @@ class Ipsla(Entity):
             self._perform_setattr(Ipsla.OperationData, [], name, value)
 
 
-        class Operations(Entity):
+        class Operations(_Entity_):
             """
             Configured operations
             
@@ -2336,7 +2579,10 @@ class Ipsla(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipsla.OperationData.Operations, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipsla.OperationData.Operations, self).__init__()
 
                 self.yang_name = "operations"
                 self.yang_parent_name = "operation-data"
@@ -2355,7 +2601,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.OperationData.Operations, [], name, value)
 
 
-            class Operation(Entity):
+            class Operation(_Entity_):
                 """
                 Operational data for an operation
                 
@@ -2404,7 +2650,10 @@ class Ipsla(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipsla.OperationData.Operations.Operation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipsla.OperationData.Operations.Operation, self).__init__()
 
                     self.yang_name = "operation"
                     self.yang_parent_name = "operations"
@@ -2440,7 +2689,7 @@ class Ipsla(Entity):
                     self._perform_setattr(Ipsla.OperationData.Operations.Operation, ['operation_id'], name, value)
 
 
-                class Common(Entity):
+                class Common(_Entity_):
                     """
                     Common data for all operation types
                     
@@ -2459,7 +2708,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.OperationData.Operations.Operation.Common, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.OperationData.Operations.Operation.Common, self).__init__()
 
                         self.yang_name = "common"
                         self.yang_parent_name = "operation"
@@ -2479,7 +2731,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common, [], name, value)
 
 
-                    class OperationalState(Entity):
+                    class OperationalState(_Entity_):
                         """
                         Operational state for an operation
                         
@@ -2606,7 +2858,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.Common.OperationalState, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.Common.OperationalState, self).__init__()
 
                             self.yang_name = "operational-state"
                             self.yang_parent_name = "common"
@@ -2648,10 +2903,18 @@ class Ipsla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, ['modification_time', 'start_time', 'attempt_count', 'skipped_count', 'life_remaining', 'frequency', 'recurring', 'operational_state', 'flags', 'local_port', 'unexpected_packets', 'unexpected_control_packets', 'operation_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Common.OperationalState']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Common']['meta_info']
 
 
-
-                class Lpd(Entity):
+                class Lpd(_Entity_):
                     """
                     LPD operational data of MPLS LSP group
                     operation
@@ -2678,7 +2941,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.OperationData.Operations.Operation.Lpd, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.OperationData.Operations.Operation.Lpd, self).__init__()
 
                         self.yang_name = "lpd"
                         self.yang_parent_name = "operation"
@@ -2702,7 +2968,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd, [], name, value)
 
 
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         Statistics collected for LPD group
                         
@@ -2728,7 +2994,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "lpd"
@@ -2752,7 +3021,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics, [], name, value)
 
 
-                        class Latest(Entity):
+                        class Latest(_Entity_):
                             """
                             LPD statistics collected during the last
                             sampling cycle
@@ -2772,7 +3041,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest, self).__init__()
 
                                 self.yang_name = "latest"
                                 self.yang_parent_name = "statistics"
@@ -2792,7 +3064,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest, [], name, value)
 
 
-                            class Target(Entity):
+                            class Target(_Entity_):
                                 """
                                 Latest statistics of LPD group
                                 
@@ -2971,7 +3243,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, self).__init__()
 
                                     self.yang_name = "target"
                                     self.yang_parent_name = "latest"
@@ -3028,7 +3303,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, ['start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
 
 
-                                class TargetAddress(Entity):
+                                class TargetAddress(_Entity_):
                                     """
                                     LPD target
                                     
@@ -3086,7 +3361,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, self).__init__()
 
                                         self.yang_name = "target-address"
                                         self.yang_parent_name = "target"
@@ -3121,7 +3399,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
-                                    class Ipv4PrefixTarget(Entity):
+                                    class Ipv4PrefixTarget(_Entity_):
                                         """
                                         IPv4 prefix target
                                         
@@ -3151,7 +3429,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, self).__init__()
 
                                             self.yang_name = "ipv4-prefix-target"
                                             self.yang_parent_name = "target-address"
@@ -3171,9 +3452,13 @@ class Ipsla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget']['meta_info']
 
 
-                                    class TunnelIdTarget(Entity):
+                                    class TunnelIdTarget(_Entity_):
                                         """
                                         Tunnel ID target
                                         
@@ -3194,7 +3479,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, self).__init__()
 
                                             self.yang_name = "tunnel-id-target"
                                             self.yang_parent_name = "target-address"
@@ -3212,9 +3500,13 @@ class Ipsla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget']['meta_info']
 
 
-                                    class Ipv4PseudowireTarget(Entity):
+                                    class Ipv4PseudowireTarget(_Entity_):
                                         """
                                         IPv4 pseudowire target
                                         
@@ -3244,7 +3536,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, self).__init__()
 
                                             self.yang_name = "ipv4-pseudowire-target"
                                             self.yang_parent_name = "target-address"
@@ -3264,12 +3559,28 @@ class Ipsla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest']['meta_info']
 
 
-
-
-
-                        class Aggregated(Entity):
+                        class Aggregated(_Entity_):
                             """
                             Statistics aggregated for LPD group
                             collected over time intervals
@@ -3289,7 +3600,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated, self).__init__()
 
                                 self.yang_name = "aggregated"
                                 self.yang_parent_name = "statistics"
@@ -3309,7 +3623,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated, [], name, value)
 
 
-                            class Hours(Entity):
+                            class Hours(_Entity_):
                                 """
                                 Table of LPD statistics aggregated over
                                 1\-hour intervals
@@ -3329,7 +3643,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours, self).__init__()
 
                                     self.yang_name = "hours"
                                     self.yang_parent_name = "aggregated"
@@ -3347,7 +3664,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours, [], name, value)
 
 
-                                class Hour(Entity):
+                                class Hour(_Entity_):
                                     """
                                     LPD statistics aggregated for a 1\-hour
                                     interval
@@ -3536,7 +3853,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, self).__init__()
 
                                         self.yang_name = "hour"
                                         self.yang_parent_name = "hours"
@@ -3595,7 +3915,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', 'start_time', 'return_code', 'completion_time_count', 'completion_time', 'min_completion_time', 'max_completion_time', 'sum_completion_time', 'path_count', 'min_path_count', 'max_path_count', 'ok_count', 'no_path_count', 'all_paths_broken_count', 'all_paths_unexplorable_count', 'all_paths_broken_or_unexplorable_count', 'timeout_count', 'internal_error_count', 'unknown_count'], name, value)
 
 
-                                    class TargetAddress(Entity):
+                                    class TargetAddress(_Entity_):
                                         """
                                         LPD target
                                         
@@ -3653,7 +3973,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, self).__init__()
 
                                             self.yang_name = "target-address"
                                             self.yang_parent_name = "hour"
@@ -3688,7 +4011,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
-                                        class Ipv4PrefixTarget(Entity):
+                                        class Ipv4PrefixTarget(_Entity_):
                                             """
                                             IPv4 prefix target
                                             
@@ -3718,7 +4041,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, self).__init__()
 
                                                 self.yang_name = "ipv4-prefix-target"
                                                 self.yang_parent_name = "target-address"
@@ -3738,9 +4064,13 @@ class Ipsla(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget']['meta_info']
 
 
-                                        class TunnelIdTarget(Entity):
+                                        class TunnelIdTarget(_Entity_):
                                             """
                                             Tunnel ID target
                                             
@@ -3761,7 +4091,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, self).__init__()
 
                                                 self.yang_name = "tunnel-id-target"
                                                 self.yang_parent_name = "target-address"
@@ -3779,9 +4112,13 @@ class Ipsla(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget']['meta_info']
 
 
-                                        class Ipv4PseudowireTarget(Entity):
+                                        class Ipv4PseudowireTarget(_Entity_):
                                             """
                                             IPv4 pseudowire target
                                             
@@ -3811,7 +4148,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, self).__init__()
 
                                                 self.yang_name = "ipv4-pseudowire-target"
                                                 self.yang_parent_name = "target-address"
@@ -3831,14 +4171,38 @@ class Ipsla(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Statistics']['meta_info']
 
 
-
-
-
-
-
-                    class Status(Entity):
+                    class Status(_Entity_):
                         """
                         Operational status of LPD group
                         
@@ -3864,7 +4228,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.Lpd.Status, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.Lpd.Status, self).__init__()
 
                             self.yang_name = "status"
                             self.yang_parent_name = "lpd"
@@ -3888,7 +4255,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status, [], name, value)
 
 
-                        class LpdPaths(Entity):
+                        class LpdPaths(_Entity_):
                             """
                             Operational path state in LPD group
                             
@@ -3907,7 +4274,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths, self).__init__()
 
                                 self.yang_name = "lpd-paths"
                                 self.yang_parent_name = "status"
@@ -3925,7 +4295,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths, [], name, value)
 
 
-                            class LpdPath(Entity):
+                            class LpdPath(_Entity_):
                                 """
                                 Current operational path state in LPD
                                 group
@@ -3961,7 +4331,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, self).__init__()
 
                                     self.yang_name = "lpd-path"
                                     self.yang_parent_name = "lpd-paths"
@@ -3986,7 +4359,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', 'path_status'], name, value)
 
 
-                                class PathId(Entity):
+                                class PathId(_Entity_):
                                     """
                                     LPD path identifier
                                     
@@ -4034,7 +4407,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, self).__init__()
 
                                         self.yang_name = "path-id"
                                         self.yang_parent_name = "lpd-path"
@@ -4058,11 +4434,23 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths']['meta_info']
 
 
-
-
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational status of LPD group
                             
@@ -4131,7 +4519,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "status"
@@ -4164,7 +4555,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, ['monitor_id', 'discovery_mode', 'start_time', 'return_code', 'completion_time', 'path_count'], name, value)
 
 
-                            class TargetAddress(Entity):
+                            class TargetAddress(_Entity_):
                                 """
                                 Target for LPD
                                 
@@ -4222,7 +4613,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, self).__init__()
 
                                     self.yang_name = "target-address"
                                     self.yang_parent_name = "state"
@@ -4257,7 +4651,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
-                                class Ipv4PrefixTarget(Entity):
+                                class Ipv4PrefixTarget(_Entity_):
                                     """
                                     IPv4 prefix target
                                     
@@ -4287,7 +4681,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, self).__init__()
 
                                         self.yang_name = "ipv4-prefix-target"
                                         self.yang_parent_name = "target-address"
@@ -4307,9 +4704,13 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget']['meta_info']
 
 
-                                class TunnelIdTarget(Entity):
+                                class TunnelIdTarget(_Entity_):
                                     """
                                     Tunnel ID target
                                     
@@ -4330,7 +4731,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, self).__init__()
 
                                         self.yang_name = "tunnel-id-target"
                                         self.yang_parent_name = "target-address"
@@ -4348,9 +4752,13 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget']['meta_info']
 
 
-                                class Ipv4PseudowireTarget(Entity):
+                                class Ipv4PseudowireTarget(_Entity_):
                                     """
                                     IPv4 pseudowire target
                                     
@@ -4380,7 +4788,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, self).__init__()
 
                                         self.yang_name = "ipv4-pseudowire-target"
                                         self.yang_parent_name = "target-address"
@@ -4400,13 +4811,33 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status.State']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd.Status']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Lpd']['meta_info']
 
 
-
-
-
-
-                class History(Entity):
+                class History(_Entity_):
                     """
                     Historical data for an operation
                     
@@ -4432,7 +4863,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.OperationData.Operations.Operation.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.OperationData.Operations.Operation.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "operation"
@@ -4456,7 +4890,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History, [], name, value)
 
 
-                    class Path(Entity):
+                    class Path(_Entity_):
                         """
                         Historical data with multiple hops along the
                         path
@@ -4476,7 +4910,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.History.Path, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.History.Path, self).__init__()
 
                             self.yang_name = "path"
                             self.yang_parent_name = "history"
@@ -4496,7 +4933,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path, [], name, value)
 
 
-                        class Lifes(Entity):
+                        class Lifes(_Entity_):
                             """
                             Tables of lives for an operation
                             
@@ -4515,7 +4952,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes, self).__init__()
 
                                 self.yang_name = "lifes"
                                 self.yang_parent_name = "path"
@@ -4533,7 +4973,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes, [], name, value)
 
 
-                            class Life(Entity):
+                            class Life(_Entity_):
                                 """
                                 History data for a particular life of the
                                 operation
@@ -4562,7 +5002,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life, self).__init__()
 
                                     self.yang_name = "life"
                                     self.yang_parent_name = "lifes"
@@ -4585,7 +5028,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life, ['life_index'], name, value)
 
 
-                                class Buckets(Entity):
+                                class Buckets(_Entity_):
                                     """
                                     Table of history buckets (samples) for a
                                     particular operation
@@ -4605,7 +5048,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets, self).__init__()
 
                                         self.yang_name = "buckets"
                                         self.yang_parent_name = "life"
@@ -4623,7 +5069,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets, [], name, value)
 
 
-                                    class Bucket(Entity):
+                                    class Bucket(_Entity_):
                                         """
                                         History bucket for an operation
                                         
@@ -4651,7 +5097,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket, self).__init__()
 
                                             self.yang_name = "bucket"
                                             self.yang_parent_name = "buckets"
@@ -4674,7 +5123,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket, ['bucket_index'], name, value)
 
 
-                                        class Samples(Entity):
+                                        class Samples(_Entity_):
                                             """
                                             Table of samples for a particular cycle
                                             
@@ -4693,7 +5142,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples, self).__init__()
 
                                                 self.yang_name = "samples"
                                                 self.yang_parent_name = "bucket"
@@ -4711,7 +5163,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples, [], name, value)
 
 
-                                            class Sample(Entity):
+                                            class Sample(_Entity_):
                                                 """
                                                 Data sample for particular cycle
                                                 
@@ -4766,7 +5218,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, self).__init__()
 
                                                     self.yang_name = "sample"
                                                     self.yang_parent_name = "samples"
@@ -4795,7 +5250,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', 'start_time', 'response_time', 'return_code'], name, value)
 
 
-                                                class TargetAddress(Entity):
+                                                class TargetAddress(_Entity_):
                                                     """
                                                     Target for the operation
                                                     
@@ -4853,7 +5308,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, self).__init__()
 
                                                         self.yang_name = "target-address"
                                                         self.yang_parent_name = "sample"
@@ -4888,7 +5346,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
-                                                    class Ipv4PrefixTarget(Entity):
+                                                    class Ipv4PrefixTarget(_Entity_):
                                                         """
                                                         IPv4 prefix target
                                                         
@@ -4918,7 +5376,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, self).__init__()
 
                                                             self.yang_name = "ipv4-prefix-target"
                                                             self.yang_parent_name = "target-address"
@@ -4938,9 +5399,13 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget']['meta_info']
 
 
-                                                    class TunnelIdTarget(Entity):
+                                                    class TunnelIdTarget(_Entity_):
                                                         """
                                                         Tunnel ID target
                                                         
@@ -4961,7 +5426,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, self).__init__()
 
                                                             self.yang_name = "tunnel-id-target"
                                                             self.yang_parent_name = "target-address"
@@ -4979,9 +5447,13 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget']['meta_info']
 
 
-                                                    class Ipv4PseudowireTarget(Entity):
+                                                    class Ipv4PseudowireTarget(_Entity_):
                                                         """
                                                         IPv4 pseudowire target
                                                         
@@ -5011,7 +5483,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, self).__init__()
 
                                                             self.yang_name = "ipv4-pseudowire-target"
                                                             self.yang_parent_name = "target-address"
@@ -5031,17 +5506,53 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path.Lifes']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Path']['meta_info']
 
 
-
-
-
-
-
-
-
-
-                    class Target(Entity):
+                    class Target(_Entity_):
                         """
                         Historical data for the destination node
                         
@@ -5060,7 +5571,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.History.Target, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.History.Target, self).__init__()
 
                             self.yang_name = "target"
                             self.yang_parent_name = "history"
@@ -5080,7 +5594,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target, [], name, value)
 
 
-                        class Lifes(Entity):
+                        class Lifes(_Entity_):
                             """
                             Tables of lives for an operation
                             
@@ -5099,7 +5613,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes, self).__init__()
 
                                 self.yang_name = "lifes"
                                 self.yang_parent_name = "target"
@@ -5117,7 +5634,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes, [], name, value)
 
 
-                            class Life(Entity):
+                            class Life(_Entity_):
                                 """
                                 Operational data for a particular life of
                                 the operation
@@ -5146,7 +5663,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life, self).__init__()
 
                                     self.yang_name = "life"
                                     self.yang_parent_name = "lifes"
@@ -5169,7 +5689,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life, ['life_index'], name, value)
 
 
-                                class Buckets(Entity):
+                                class Buckets(_Entity_):
                                     """
                                     Table of history buckets (samples) for a
                                     particular operation
@@ -5189,7 +5709,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets, self).__init__()
 
                                         self.yang_name = "buckets"
                                         self.yang_parent_name = "life"
@@ -5207,7 +5730,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets, [], name, value)
 
 
-                                    class Bucket(Entity):
+                                    class Bucket(_Entity_):
                                         """
                                         History bucket for an operation
                                         
@@ -5262,7 +5785,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, self).__init__()
 
                                             self.yang_name = "bucket"
                                             self.yang_parent_name = "buckets"
@@ -5291,7 +5817,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', 'start_time', 'response_time', 'return_code'], name, value)
 
 
-                                        class TargetAddress(Entity):
+                                        class TargetAddress(_Entity_):
                                             """
                                             Target for the operation
                                             
@@ -5349,7 +5875,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, self).__init__()
 
                                                 self.yang_name = "target-address"
                                                 self.yang_parent_name = "bucket"
@@ -5384,7 +5913,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, ['target_type', 'ipv4_address_target', 'ipv6_address_target'], name, value)
 
 
-                                            class Ipv4PrefixTarget(Entity):
+                                            class Ipv4PrefixTarget(_Entity_):
                                                 """
                                                 IPv4 prefix target
                                                 
@@ -5414,7 +5943,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, self).__init__()
 
                                                     self.yang_name = "ipv4-prefix-target"
                                                     self.yang_parent_name = "target-address"
@@ -5434,9 +5966,13 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, ['address', 'mask_length'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget']['meta_info']
 
 
-                                            class TunnelIdTarget(Entity):
+                                            class TunnelIdTarget(_Entity_):
                                                 """
                                                 Tunnel ID target
                                                 
@@ -5457,7 +5993,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, self).__init__()
 
                                                     self.yang_name = "tunnel-id-target"
                                                     self.yang_parent_name = "target-address"
@@ -5475,9 +6014,13 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, ['tunnel_id'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget']['meta_info']
 
 
-                                            class Ipv4PseudowireTarget(Entity):
+                                            class Ipv4PseudowireTarget(_Entity_):
                                                 """
                                                 IPv4 pseudowire target
                                                 
@@ -5507,7 +6050,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, self).__init__()
 
                                                     self.yang_name = "ipv4-pseudowire-target"
                                                     self.yang_parent_name = "target-address"
@@ -5527,16 +6073,48 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, ['address', 'virtual_circuit_id'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target.Lifes']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.History.Target']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.History']['meta_info']
 
 
-
-
-
-
-
-
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     Statistics collected for an operation
                     
@@ -5562,7 +6140,10 @@ class Ipsla(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipsla.OperationData.Operations.Operation.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipsla.OperationData.Operations.Operation.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "operation"
@@ -5586,7 +6167,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics, [], name, value)
 
 
-                    class Latest(Entity):
+                    class Latest(_Entity_):
                         """
                         Statistics collected during the last
                         sampling cycle of the operation
@@ -5620,7 +6201,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest, self).__init__()
 
                             self.yang_name = "latest"
                             self.yang_parent_name = "statistics"
@@ -5648,7 +6232,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest, [], name, value)
 
 
-                        class Target(Entity):
+                        class Target(_Entity_):
                             """
                             Latest statistics for the target node
                             
@@ -5674,7 +6258,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target, self).__init__()
 
                                 self.yang_name = "target"
                                 self.yang_parent_name = "latest"
@@ -5698,7 +6285,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target, [], name, value)
 
 
-                            class CommonStats(Entity):
+                            class CommonStats(_Entity_):
                                 """
                                 Common Stats
                                 
@@ -5870,7 +6457,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, self).__init__()
 
                                     self.yang_name = "common-stats"
                                     self.yang_parent_name = "target"
@@ -5922,9 +6512,13 @@ class Ipsla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats']['meta_info']
 
 
-                            class SpecificStats(Entity):
+                            class SpecificStats(_Entity_):
                                 """
                                 Operation Specific Stats
                                 
@@ -5957,7 +6551,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, self).__init__()
 
                                     self.yang_name = "specific-stats"
                                     self.yang_parent_name = "target"
@@ -5984,7 +6581,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, ['op_type'], name, value)
 
 
-                                class IcmpPathJitterStats(Entity):
+                                class IcmpPathJitterStats(_Entity_):
                                     """
                                     icmp path jitter stats
                                     
@@ -6239,7 +6836,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                         self.yang_name = "icmp-path-jitter-stats"
                                         self.yang_parent_name = "specific-stats"
@@ -6309,9 +6909,13 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                class UdpJitterStats(Entity):
+                                class UdpJitterStats(_Entity_):
                                     """
                                     udp jitter stats
                                     
@@ -6691,7 +7295,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, self).__init__()
 
                                         self.yang_name = "udp-jitter-stats"
                                         self.yang_parent_name = "specific-stats"
@@ -6787,11 +7394,23 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target']['meta_info']
 
 
-
-
-                        class Hops(Entity):
+                        class Hops(_Entity_):
                             """
                             Latest statistics for hops in a
                             path\-enabled operation
@@ -6811,7 +7430,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops, self).__init__()
 
                                 self.yang_name = "hops"
                                 self.yang_parent_name = "latest"
@@ -6829,7 +7451,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops, [], name, value)
 
 
-                            class Hop(Entity):
+                            class Hop(_Entity_):
                                 """
                                 Latest stats for a hop in a path\-enabled
                                 operation
@@ -6865,7 +7487,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop, self).__init__()
 
                                     self.yang_name = "hop"
                                     self.yang_parent_name = "hops"
@@ -6892,7 +7517,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop, ['hop_index'], name, value)
 
 
-                                class CommonStats(Entity):
+                                class CommonStats(_Entity_):
                                     """
                                     Common Stats
                                     
@@ -7064,7 +7689,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, self).__init__()
 
                                         self.yang_name = "common-stats"
                                         self.yang_parent_name = "hop"
@@ -7116,9 +7744,13 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats']['meta_info']
 
 
-                                class SpecificStats(Entity):
+                                class SpecificStats(_Entity_):
                                     """
                                     Operation Specific Stats
                                     
@@ -7151,7 +7783,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, self).__init__()
 
                                         self.yang_name = "specific-stats"
                                         self.yang_parent_name = "hop"
@@ -7178,7 +7813,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, ['op_type'], name, value)
 
 
-                                    class IcmpPathJitterStats(Entity):
+                                    class IcmpPathJitterStats(_Entity_):
                                         """
                                         icmp path jitter stats
                                         
@@ -7433,7 +8068,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                             self.yang_name = "icmp-path-jitter-stats"
                                             self.yang_parent_name = "specific-stats"
@@ -7503,9 +8141,13 @@ class Ipsla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                    class UdpJitterStats(Entity):
+                                    class UdpJitterStats(_Entity_):
                                         """
                                         udp jitter stats
                                         
@@ -7885,7 +8527,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, self).__init__()
 
                                             self.yang_name = "udp-jitter-stats"
                                             self.yang_parent_name = "specific-stats"
@@ -7981,12 +8626,28 @@ class Ipsla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops']['meta_info']
 
 
-
-
-
-                        class LpdPaths(Entity):
+                        class LpdPaths(_Entity_):
                             """
                             List of latest LPD paths
                             
@@ -8005,7 +8666,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths, self).__init__()
 
                                 self.yang_name = "lpd-paths"
                                 self.yang_parent_name = "latest"
@@ -8023,7 +8687,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths, [], name, value)
 
 
-                            class LpdPath(Entity):
+                            class LpdPath(_Entity_):
                                 """
                                 Latest path statistics of MPLS LSP group
                                 operation
@@ -8059,7 +8723,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, self).__init__()
 
                                     self.yang_name = "lpd-path"
                                     self.yang_parent_name = "lpd-paths"
@@ -8084,7 +8751,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
 
 
-                                class PathId(Entity):
+                                class PathId(_Entity_):
                                     """
                                     LPD path identifier
                                     
@@ -8132,7 +8799,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, self).__init__()
 
                                         self.yang_name = "path-id"
                                         self.yang_parent_name = "lpd-path"
@@ -8156,12 +8826,28 @@ class Ipsla(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Latest']['meta_info']
 
 
-
-
-
-                    class Aggregated(Entity):
+                    class Aggregated(_Entity_):
                         """
                         Statistics aggregated for data collected
                         over time intervals
@@ -8188,7 +8874,10 @@ class Ipsla(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated, self).__init__()
 
                             self.yang_name = "aggregated"
                             self.yang_parent_name = "statistics"
@@ -8212,7 +8901,7 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated, [], name, value)
 
 
-                        class EnhancedIntervals(Entity):
+                        class EnhancedIntervals(_Entity_):
                             """
                             Table of statistics aggregated over
                             enhanced intervals
@@ -8232,7 +8921,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals, self).__init__()
 
                                 self.yang_name = "enhanced-intervals"
                                 self.yang_parent_name = "aggregated"
@@ -8250,7 +8942,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals, [], name, value)
 
 
-                            class EnhancedInterval(Entity):
+                            class EnhancedInterval(_Entity_):
                                 """
                                 Statistics aggregated over an interval
                                 specified in seconds. Specified interval
@@ -8283,7 +8975,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval, self).__init__()
 
                                     self.yang_name = "enhanced-interval"
                                     self.yang_parent_name = "enhanced-intervals"
@@ -8306,7 +9001,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval, ['enhanced_interval'], name, value)
 
 
-                                class StartTimes(Entity):
+                                class StartTimes(_Entity_):
                                     """
                                     Table of start times for the intervals
                                     
@@ -8325,7 +9020,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes, self).__init__()
 
                                         self.yang_name = "start-times"
                                         self.yang_parent_name = "enhanced-interval"
@@ -8343,7 +9041,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes, [], name, value)
 
 
-                                    class StartTime(Entity):
+                                    class StartTime(_Entity_):
                                         """
                                         Statistics aggregated over an enhanced
                                         interval which starts at a specific time
@@ -8379,7 +9077,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime, self).__init__()
 
                                             self.yang_name = "start-time"
                                             self.yang_parent_name = "start-times"
@@ -8406,7 +9107,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime, ['interval_start_time'], name, value)
 
 
-                                        class CommonStats(Entity):
+                                        class CommonStats(_Entity_):
                                             """
                                             Common Stats
                                             
@@ -8578,7 +9279,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, self).__init__()
 
                                                 self.yang_name = "common-stats"
                                                 self.yang_parent_name = "start-time"
@@ -8630,9 +9334,13 @@ class Ipsla(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats']['meta_info']
 
 
-                                        class SpecificStats(Entity):
+                                        class SpecificStats(_Entity_):
                                             """
                                             Operation Specific Stats
                                             
@@ -8665,7 +9373,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, self).__init__()
 
                                                 self.yang_name = "specific-stats"
                                                 self.yang_parent_name = "start-time"
@@ -8692,7 +9403,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, ['op_type'], name, value)
 
 
-                                            class IcmpPathJitterStats(Entity):
+                                            class IcmpPathJitterStats(_Entity_):
                                                 """
                                                 icmp path jitter stats
                                                 
@@ -8947,7 +9658,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                                     self.yang_name = "icmp-path-jitter-stats"
                                                     self.yang_parent_name = "specific-stats"
@@ -9017,9 +9731,13 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                            class UdpJitterStats(Entity):
+                                            class UdpJitterStats(_Entity_):
                                                 """
                                                 udp jitter stats
                                                 
@@ -9399,7 +10117,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, self).__init__()
 
                                                     self.yang_name = "udp-jitter-stats"
                                                     self.yang_parent_name = "specific-stats"
@@ -9495,14 +10216,38 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals']['meta_info']
 
 
-
-
-
-
-
-                        class Hours(Entity):
+                        class Hours(_Entity_):
                             """
                             Table of statistics aggregated over 1\-hour
                             intervals
@@ -9522,7 +10267,10 @@ class Ipsla(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours, self).__init__()
 
                                 self.yang_name = "hours"
                                 self.yang_parent_name = "aggregated"
@@ -9540,7 +10288,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours, [], name, value)
 
 
-                            class Hour(Entity):
+                            class Hour(_Entity_):
                                 """
                                 Statistics aggregated for a 1\-hour
                                 interval
@@ -9576,7 +10324,10 @@ class Ipsla(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour, self).__init__()
 
                                     self.yang_name = "hour"
                                     self.yang_parent_name = "hours"
@@ -9603,7 +10354,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour, ['hour_index'], name, value)
 
 
-                                class Distributed(Entity):
+                                class Distributed(_Entity_):
                                     """
                                     Statistics aggregated on distribution
                                     value intervals for in 1\-hour intervals
@@ -9630,7 +10381,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed, self).__init__()
 
                                         self.yang_name = "distributed"
                                         self.yang_parent_name = "hour"
@@ -9654,7 +10408,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed, [], name, value)
 
 
-                                    class Paths(Entity):
+                                    class Paths(_Entity_):
                                         """
                                         Table of paths identified in the 1\-hour
                                         interval
@@ -9674,7 +10428,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths, self).__init__()
 
                                             self.yang_name = "paths"
                                             self.yang_parent_name = "distributed"
@@ -9692,7 +10449,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths, [], name, value)
 
 
-                                        class Path(Entity):
+                                        class Path(_Entity_):
                                             """
                                             Paths identified in a 1\-hour interval
                                             
@@ -9720,7 +10477,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path, self).__init__()
 
                                                 self.yang_name = "path"
                                                 self.yang_parent_name = "paths"
@@ -9743,7 +10503,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path, ['path_index'], name, value)
 
 
-                                            class Hops(Entity):
+                                            class Hops(_Entity_):
                                                 """
                                                 Table of hops for a particular path
                                                 
@@ -9762,7 +10522,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops, self).__init__()
 
                                                     self.yang_name = "hops"
                                                     self.yang_parent_name = "path"
@@ -9780,7 +10543,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops, [], name, value)
 
 
-                                                class Hop(Entity):
+                                                class Hop(_Entity_):
                                                     """
                                                     1\-hour aggregated statistics for a
                                                     hop in a path\-enabled operation
@@ -9809,7 +10572,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop, self).__init__()
 
                                                         self.yang_name = "hop"
                                                         self.yang_parent_name = "hops"
@@ -9832,7 +10598,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop, ['hop_index'], name, value)
 
 
-                                                    class DistributionIntervals(Entity):
+                                                    class DistributionIntervals(_Entity_):
                                                         """
                                                         Table of distribution intervals for a particular
                                                         hop
@@ -9852,7 +10618,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals, self).__init__()
 
                                                             self.yang_name = "distribution-intervals"
                                                             self.yang_parent_name = "hop"
@@ -9870,7 +10639,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals, [], name, value)
 
 
-                                                        class DistributionInterval(Entity):
+                                                        class DistributionInterval(_Entity_):
                                                             """
                                                             1\-hour aggregated statistics for a hop in a
                                                             path\-enabled operation
@@ -9906,7 +10675,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval, self).__init__()
 
                                                                 self.yang_name = "distribution-interval"
                                                                 self.yang_parent_name = "distribution-intervals"
@@ -9933,7 +10705,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval, ['distribution_index'], name, value)
 
 
-                                                            class CommonStats(Entity):
+                                                            class CommonStats(_Entity_):
                                                                 """
                                                                 Common Stats
                                                                 
@@ -10105,7 +10877,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, self).__init__()
 
                                                                     self.yang_name = "common-stats"
                                                                     self.yang_parent_name = "distribution-interval"
@@ -10157,9 +10932,13 @@ class Ipsla(Entity):
                                                                 def __setattr__(self, name, value):
                                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats']['meta_info']
 
 
-                                                            class SpecificStats(Entity):
+                                                            class SpecificStats(_Entity_):
                                                                 """
                                                                 Operation Specific Stats
                                                                 
@@ -10192,7 +10971,10 @@ class Ipsla(Entity):
                                                                 _revision = '2015-11-09'
 
                                                                 def __init__(self):
-                                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, self).__init__()
+                                                                    if sys.version_info > (3,):
+                                                                        super().__init__()
+                                                                    else:
+                                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, self).__init__()
 
                                                                     self.yang_name = "specific-stats"
                                                                     self.yang_parent_name = "distribution-interval"
@@ -10219,7 +11001,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
 
 
-                                                                class IcmpPathJitterStats(Entity):
+                                                                class IcmpPathJitterStats(_Entity_):
                                                                     """
                                                                     icmp path jitter stats
                                                                     
@@ -10474,7 +11256,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                                                         self.yang_name = "icmp-path-jitter-stats"
                                                                         self.yang_parent_name = "specific-stats"
@@ -10544,9 +11329,13 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                                                class UdpJitterStats(Entity):
+                                                                class UdpJitterStats(_Entity_):
                                                                     """
                                                                     udp jitter stats
                                                                     
@@ -10926,7 +11715,10 @@ class Ipsla(Entity):
                                                                     _revision = '2015-11-09'
 
                                                                     def __init__(self):
-                                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, self).__init__()
+                                                                        if sys.version_info > (3,):
+                                                                            super().__init__()
+                                                                        else:
+                                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, self).__init__()
 
                                                                         self.yang_name = "udp-jitter-stats"
                                                                         self.yang_parent_name = "specific-stats"
@@ -11022,16 +11814,48 @@ class Ipsla(Entity):
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats']['meta_info']
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats']['meta_info']
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths']['meta_info']
 
 
-
-
-
-
-
-
-
-                                    class Target(Entity):
+                                    class Target(_Entity_):
                                         """
                                         Distribution statistics for the target
                                         node
@@ -11051,7 +11875,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target, self).__init__()
 
                                             self.yang_name = "target"
                                             self.yang_parent_name = "distributed"
@@ -11071,7 +11898,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target, [], name, value)
 
 
-                                        class DistributionIntervals(Entity):
+                                        class DistributionIntervals(_Entity_):
                                             """
                                             Table of distribution intervals for a particular
                                             hop
@@ -11091,7 +11918,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals, self).__init__()
 
                                                 self.yang_name = "distribution-intervals"
                                                 self.yang_parent_name = "target"
@@ -11109,7 +11939,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals, [], name, value)
 
 
-                                            class DistributionInterval(Entity):
+                                            class DistributionInterval(_Entity_):
                                                 """
                                                 1\-hour aggregated statistics for a hop in a
                                                 path\-enabled operation
@@ -11145,7 +11975,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval, self).__init__()
 
                                                     self.yang_name = "distribution-interval"
                                                     self.yang_parent_name = "distribution-intervals"
@@ -11172,7 +12005,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval, ['distribution_index'], name, value)
 
 
-                                                class CommonStats(Entity):
+                                                class CommonStats(_Entity_):
                                                     """
                                                     Common Stats
                                                     
@@ -11344,7 +12177,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, self).__init__()
 
                                                         self.yang_name = "common-stats"
                                                         self.yang_parent_name = "distribution-interval"
@@ -11396,9 +12232,13 @@ class Ipsla(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats']['meta_info']
 
 
-                                                class SpecificStats(Entity):
+                                                class SpecificStats(_Entity_):
                                                     """
                                                     Operation Specific Stats
                                                     
@@ -11431,7 +12271,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, self).__init__()
 
                                                         self.yang_name = "specific-stats"
                                                         self.yang_parent_name = "distribution-interval"
@@ -11458,7 +12301,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, ['op_type'], name, value)
 
 
-                                                    class IcmpPathJitterStats(Entity):
+                                                    class IcmpPathJitterStats(_Entity_):
                                                         """
                                                         icmp path jitter stats
                                                         
@@ -11713,7 +12556,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                                             self.yang_name = "icmp-path-jitter-stats"
                                                             self.yang_parent_name = "specific-stats"
@@ -11783,9 +12629,13 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                                    class UdpJitterStats(Entity):
+                                                    class UdpJitterStats(_Entity_):
                                                         """
                                                         udp jitter stats
                                                         
@@ -12165,7 +13015,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, self).__init__()
 
                                                             self.yang_name = "udp-jitter-stats"
                                                             self.yang_parent_name = "specific-stats"
@@ -12261,14 +13114,38 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed']['meta_info']
 
 
-
-
-
-
-
-                                class NonDistributed(Entity):
+                                class NonDistributed(_Entity_):
                                     """
                                     Statistics aggregated for the total range
                                     of values in 1\-hour intervals
@@ -12302,7 +13179,10 @@ class Ipsla(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed, self).__init__()
 
                                         self.yang_name = "non-distributed"
                                         self.yang_parent_name = "hour"
@@ -12330,7 +13210,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed, [], name, value)
 
 
-                                    class Target(Entity):
+                                    class Target(_Entity_):
                                         """
                                         Total 1\-hour aggregated statistics for
                                         the target node
@@ -12357,7 +13237,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target, self).__init__()
 
                                             self.yang_name = "target"
                                             self.yang_parent_name = "non-distributed"
@@ -12381,7 +13264,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target, [], name, value)
 
 
-                                        class CommonStats(Entity):
+                                        class CommonStats(_Entity_):
                                             """
                                             Common Stats
                                             
@@ -12553,7 +13436,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, self).__init__()
 
                                                 self.yang_name = "common-stats"
                                                 self.yang_parent_name = "target"
@@ -12605,9 +13491,13 @@ class Ipsla(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats']['meta_info']
 
 
-                                        class SpecificStats(Entity):
+                                        class SpecificStats(_Entity_):
                                             """
                                             Operation Specific Stats
                                             
@@ -12640,7 +13530,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, self).__init__()
 
                                                 self.yang_name = "specific-stats"
                                                 self.yang_parent_name = "target"
@@ -12667,7 +13560,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, ['op_type'], name, value)
 
 
-                                            class IcmpPathJitterStats(Entity):
+                                            class IcmpPathJitterStats(_Entity_):
                                                 """
                                                 icmp path jitter stats
                                                 
@@ -12922,7 +13815,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                                     self.yang_name = "icmp-path-jitter-stats"
                                                     self.yang_parent_name = "specific-stats"
@@ -12992,9 +13888,13 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                            class UdpJitterStats(Entity):
+                                            class UdpJitterStats(_Entity_):
                                                 """
                                                 udp jitter stats
                                                 
@@ -13374,7 +14274,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, self).__init__()
 
                                                     self.yang_name = "udp-jitter-stats"
                                                     self.yang_parent_name = "specific-stats"
@@ -13470,11 +14373,23 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target']['meta_info']
 
 
-
-
-                                    class Paths(Entity):
+                                    class Paths(_Entity_):
                                         """
                                         Table of paths identified in the 1\-hour
                                         interval
@@ -13494,7 +14409,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths, self).__init__()
 
                                             self.yang_name = "paths"
                                             self.yang_parent_name = "non-distributed"
@@ -13512,7 +14430,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths, [], name, value)
 
 
-                                        class Path(Entity):
+                                        class Path(_Entity_):
                                             """
                                             Paths identified in a 1\-hour interval
                                             
@@ -13540,7 +14458,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path, self).__init__()
 
                                                 self.yang_name = "path"
                                                 self.yang_parent_name = "paths"
@@ -13563,7 +14484,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path, ['path_index'], name, value)
 
 
-                                            class Hops(Entity):
+                                            class Hops(_Entity_):
                                                 """
                                                 Table of hops for a particular path
                                                 
@@ -13582,7 +14503,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops, self).__init__()
 
                                                     self.yang_name = "hops"
                                                     self.yang_parent_name = "path"
@@ -13600,7 +14524,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops, [], name, value)
 
 
-                                                class Hop(Entity):
+                                                class Hop(_Entity_):
                                                     """
                                                     Total 1\-hour aggregated statistics
                                                     for a hop in a path\-enabled operation
@@ -13636,7 +14560,10 @@ class Ipsla(Entity):
                                                     _revision = '2015-11-09'
 
                                                     def __init__(self):
-                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop, self).__init__()
 
                                                         self.yang_name = "hop"
                                                         self.yang_parent_name = "hops"
@@ -13663,7 +14590,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop, ['hop_index'], name, value)
 
 
-                                                    class CommonStats(Entity):
+                                                    class CommonStats(_Entity_):
                                                         """
                                                         Common Stats
                                                         
@@ -13835,7 +14762,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, self).__init__()
 
                                                             self.yang_name = "common-stats"
                                                             self.yang_parent_name = "hop"
@@ -13887,9 +14817,13 @@ class Ipsla(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, ['operation_time', 'return_code', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'update_count', 'ok_count', 'disconnect_count', 'timeout_count', 'busy_count', 'no_connection_count', 'dropped_count', 'internal_error_count', 'sequence_error_count', 'verify_error_count'], name, value)
 
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats']['meta_info']
 
 
-                                                    class SpecificStats(Entity):
+                                                    class SpecificStats(_Entity_):
                                                         """
                                                         Operation Specific Stats
                                                         
@@ -13922,7 +14856,10 @@ class Ipsla(Entity):
                                                         _revision = '2015-11-09'
 
                                                         def __init__(self):
-                                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, self).__init__()
+                                                            if sys.version_info > (3,):
+                                                                super().__init__()
+                                                            else:
+                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, self).__init__()
 
                                                             self.yang_name = "specific-stats"
                                                             self.yang_parent_name = "hop"
@@ -13949,7 +14886,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, ['op_type'], name, value)
 
 
-                                                        class IcmpPathJitterStats(Entity):
+                                                        class IcmpPathJitterStats(_Entity_):
                                                             """
                                                             icmp path jitter stats
                                                             
@@ -14204,7 +15141,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, self).__init__()
 
                                                                 self.yang_name = "icmp-path-jitter-stats"
                                                                 self.yang_parent_name = "specific-stats"
@@ -14274,9 +15214,13 @@ class Ipsla(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, ['source_address', 'dest_address', 'hop_address', 'packet_interval', 'response_time_count', 'response_time', 'min_response_time', 'max_response_time', 'sum_response_time', 'sum2_response_time', 'packet_count', 'packet_loss_count', 'out_of_sequence_count', 'discarded_sample_count', 'verify_errors_count', 'dropped_error_count', 'jitter', 'pos_jitter_sum', 'pos_jitter_sum2', 'pos_jitter_min', 'pos_jitter_max', 'pos_jitter_count', 'neg_jitter_sum', 'neg_jitter_min', 'neg_jitter_max', 'neg_jitter_sum2', 'neg_jitter_count'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats']['meta_info']
 
 
-                                                        class UdpJitterStats(Entity):
+                                                        class UdpJitterStats(_Entity_):
                                                             """
                                                             udp jitter stats
                                                             
@@ -14656,7 +15600,10 @@ class Ipsla(Entity):
                                                             _revision = '2015-11-09'
 
                                                             def __init__(self):
-                                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, self).__init__()
+                                                                if sys.version_info > (3,):
+                                                                    super().__init__()
+                                                                else:
+                                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, self).__init__()
 
                                                                 self.yang_name = "udp-jitter-stats"
                                                                 self.yang_parent_name = "specific-stats"
@@ -14752,14 +15699,38 @@ class Ipsla(Entity):
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, ['jitter_in', 'jitter_out', 'packet_loss_sd', 'packet_loss_ds', 'packet_out_of_sequence', 'packet_mia', 'packet_skipped', 'packet_late_arrivals', 'packet_invalid_tstamp', 'internal_errors_count', 'busies_count', 'positive_sd_sum', 'positive_sd_sum2', 'positive_sd_min', 'positive_sd_max', 'positive_sd_count', 'negative_sd_sum', 'negative_sd_sum2', 'negative_sd_min', 'negative_sd_max', 'negative_sd_count', 'positive_ds_sum', 'positive_ds_sum2', 'positive_ds_min', 'positive_ds_max', 'positive_ds_count', 'negative_ds_sum', 'negative_ds_sum2', 'negative_ds_min', 'negative_ds_max', 'negative_ds_count', 'one_way_count', 'one_way_sd_min', 'one_way_sd_max', 'one_way_sd_sum', 'one_way_sd_sum2', 'one_way_ds_min', 'one_way_ds_max', 'one_way_ds_sum', 'one_way_ds_sum2'], name, value)
 
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats']['meta_info']
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats']['meta_info']
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths']['meta_info']
 
 
-
-
-
-
-
-                                    class LpdPaths(Entity):
+                                    class LpdPaths(_Entity_):
                                         """
                                         List of latest LPD paths
                                         
@@ -14778,7 +15749,10 @@ class Ipsla(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths, self).__init__()
 
                                             self.yang_name = "lpd-paths"
                                             self.yang_parent_name = "non-distributed"
@@ -14796,7 +15770,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths, [], name, value)
 
 
-                                        class LpdPath(Entity):
+                                        class LpdPath(_Entity_):
                                             """
                                             Latest path statistics of MPLS LSP
                                             group operation
@@ -14832,7 +15806,10 @@ class Ipsla(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, self).__init__()
 
                                                 self.yang_name = "lpd-path"
                                                 self.yang_parent_name = "lpd-paths"
@@ -14857,7 +15834,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', 'return_code'], name, value)
 
 
-                                            class PathId(Entity):
+                                            class PathId(_Entity_):
                                                 """
                                                 LPD path identifier
                                                 
@@ -14905,7 +15882,10 @@ class Ipsla(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, self).__init__()
 
                                                     self.yang_name = "path-id"
                                                     self.yang_parent_name = "lpd-path"
@@ -14929,19 +15909,63 @@ class Ipsla(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, ['lsp_selector', 'output_interface', 'nexthop_address', 'downstream_label'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                    return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                                return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                            return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics.Aggregated']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                        return meta._meta_table['Ipsla.OperationData.Operations.Operation.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                    return meta._meta_table['Ipsla.OperationData.Operations.Operation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+                return meta._meta_table['Ipsla.OperationData.Operations']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+            return meta._meta_table['Ipsla.OperationData']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-
-    class ApplicationInfo(Entity):
+    class ApplicationInfo(_Entity_):
         """
         IPSLA application information
         
@@ -15037,7 +16061,10 @@ class Ipsla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipsla.ApplicationInfo, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipsla.ApplicationInfo, self).__init__()
 
             self.yang_name = "application-info"
             self.yang_parent_name = "ipsla"
@@ -15074,10 +16101,18 @@ class Ipsla(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.ApplicationInfo, ['version', 'max_entries', 'entries_configured', 'active_entries', 'pending_entries', 'inactive_entries', 'configurable_probes', 'min_memory', 'hw_timestamp_disabled', 'operation_type'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+            return meta._meta_table['Ipsla.ApplicationInfo']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipsla()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ipsla_oper as meta
+        return meta._meta_table['Ipsla']['meta_info']
 
 

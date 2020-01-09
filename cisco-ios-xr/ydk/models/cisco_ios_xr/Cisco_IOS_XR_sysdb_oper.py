@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SysdbConnections(Entity):
+class SysdbConnections(_Entity_):
     """
     Sysdb health on client connections
     
@@ -41,7 +44,10 @@ class SysdbConnections(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SysdbConnections, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SysdbConnections, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sysdb-connections"
@@ -62,7 +68,7 @@ class SysdbConnections(Entity):
         self._perform_setattr(SysdbConnections, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node operational data
         
@@ -81,7 +87,10 @@ class SysdbConnections(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SysdbConnections.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SysdbConnections.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "sysdb-connections"
@@ -100,7 +109,7 @@ class SysdbConnections(Entity):
             self._perform_setattr(SysdbConnections.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Per\-node Sysdb health on connection
             
@@ -128,7 +137,10 @@ class SysdbConnections(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SysdbConnections.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SysdbConnections.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -149,15 +161,27 @@ class SysdbConnections(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SysdbConnections.Nodes.Node, ['node_name', 'connections'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysdb_oper as meta
+                return meta._meta_table['SysdbConnections.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysdb_oper as meta
+            return meta._meta_table['SysdbConnections.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SysdbConnections()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysdb_oper as meta
+        return meta._meta_table['SysdbConnections']['meta_info']
 
 
-class Sysdb(Entity):
+class Sysdb(_Entity_):
     """
     sysdb
     
@@ -197,7 +221,10 @@ class Sysdb(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Sysdb, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sysdb, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sysdb"
@@ -226,5 +253,9 @@ class Sysdb(Entity):
         self._top_entity = Sysdb()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysdb_oper as meta
+        return meta._meta_table['Sysdb']['meta_info']
 
 

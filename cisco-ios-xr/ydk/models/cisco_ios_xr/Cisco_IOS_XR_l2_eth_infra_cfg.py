@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -52,6 +55,12 @@ class EgressFiltering(Enum):
     egress_filtering_type_default = Enum.YLeaf(3, "egress-filtering-type-default")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+        return meta._meta_table['EgressFiltering']
+
+
 class Filtering(Enum):
     """
     Filtering (Enum Class)
@@ -75,6 +84,12 @@ class Filtering(Enum):
     filtering_type_dot1q = Enum.YLeaf(0, "filtering-type-dot1q")
 
     filtering_type_dot1ad = Enum.YLeaf(1, "filtering-type-dot1ad")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+        return meta._meta_table['Filtering']
 
 
 class L2ProtocolMode(Enum):
@@ -108,6 +123,12 @@ class L2ProtocolMode(Enum):
     tunnel = Enum.YLeaf(2, "tunnel")
 
     reverse_tunnel = Enum.YLeaf(3, "reverse-tunnel")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+        return meta._meta_table['L2ProtocolMode']
 
 
 class L2ProtocolName(Enum):
@@ -149,8 +170,14 @@ class L2ProtocolName(Enum):
     cpsv = Enum.YLeaf(4, "cpsv")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+        return meta._meta_table['L2ProtocolName']
 
-class EthernetFeatures(Entity):
+
+
+class EthernetFeatures(_Entity_):
     """
     Ethernet Features Configuration
     
@@ -177,7 +204,10 @@ class EthernetFeatures(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(EthernetFeatures, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EthernetFeatures, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ethernet-features"
@@ -206,7 +236,7 @@ class EthernetFeatures(Entity):
         self._perform_setattr(EthernetFeatures, [], name, value)
 
 
-    class EgressFiltering(Entity):
+    class EgressFiltering(_Entity_):
         """
         Egress Filtering Configuration
         
@@ -223,7 +253,10 @@ class EthernetFeatures(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(EthernetFeatures.EgressFiltering, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetFeatures.EgressFiltering, self).__init__()
 
             self.yang_name = "egress-filtering"
             self.yang_parent_name = "ethernet-features"
@@ -242,9 +275,13 @@ class EthernetFeatures(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetFeatures.EgressFiltering, ['egress_filtering_default_on'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+            return meta._meta_table['EthernetFeatures.EgressFiltering']['meta_info']
 
 
-    class Cfm(Entity):
+    class Cfm(_Entity_):
         """
         CFM global configuration
         
@@ -271,7 +308,10 @@ class EthernetFeatures(Entity):
         _revision = '2018-07-27'
 
         def __init__(self):
-            super(EthernetFeatures.Cfm, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetFeatures.Cfm, self).__init__()
 
             self.yang_name = "cfm"
             self.yang_parent_name = "ethernet-features"
@@ -299,7 +339,7 @@ class EthernetFeatures(Entity):
             self._perform_setattr(EthernetFeatures.Cfm, ['nv_satellite_sla_processing_disable'], name, value)
 
 
-        class TracerouteCache(Entity):
+        class TracerouteCache(_Entity_):
             """
             Traceroute Cache Configuration
             
@@ -329,7 +369,10 @@ class EthernetFeatures(Entity):
             _revision = '2018-07-27'
 
             def __init__(self):
-                super(EthernetFeatures.Cfm.TracerouteCache, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetFeatures.Cfm.TracerouteCache, self).__init__()
 
                 self.yang_name = "traceroute-cache"
                 self.yang_parent_name = "cfm"
@@ -350,9 +393,13 @@ class EthernetFeatures(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetFeatures.Cfm.TracerouteCache, ['hold_time', 'cache_size'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                return meta._meta_table['EthernetFeatures.Cfm.TracerouteCache']['meta_info']
 
 
-        class Domains(Entity):
+        class Domains(_Entity_):
             """
             Domain\-specific global configuration
             
@@ -369,7 +416,10 @@ class EthernetFeatures(Entity):
             _revision = '2018-07-27'
 
             def __init__(self):
-                super(EthernetFeatures.Cfm.Domains, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetFeatures.Cfm.Domains, self).__init__()
 
                 self.yang_name = "domains"
                 self.yang_parent_name = "cfm"
@@ -388,7 +438,7 @@ class EthernetFeatures(Entity):
                 self._perform_setattr(EthernetFeatures.Cfm.Domains, [], name, value)
 
 
-            class Domain(Entity):
+            class Domain(_Entity_):
                 """
                 Configuration for a particular Maintenance
                 Domain
@@ -418,7 +468,10 @@ class EthernetFeatures(Entity):
                 _revision = '2018-07-27'
 
                 def __init__(self):
-                    super(EthernetFeatures.Cfm.Domains.Domain, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetFeatures.Cfm.Domains.Domain, self).__init__()
 
                     self.yang_name = "domain"
                     self.yang_parent_name = "domains"
@@ -446,7 +499,7 @@ class EthernetFeatures(Entity):
                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain, ['domain'], name, value)
 
 
-                class Services(Entity):
+                class Services(_Entity_):
                     """
                     Service\-specific global configuration
                     
@@ -463,7 +516,10 @@ class EthernetFeatures(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__init__()
 
                         self.yang_name = "services"
                         self.yang_parent_name = "domain"
@@ -481,7 +537,7 @@ class EthernetFeatures(Entity):
                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services, [], name, value)
 
 
-                    class Service(Entity):
+                    class Service(_Entity_):
                         """
                         Configuration for a particular Service
                         (Maintenance Association)
@@ -594,7 +650,10 @@ class EthernetFeatures(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__init__()
 
                             self.yang_name = "service"
                             self.yang_parent_name = "services"
@@ -651,7 +710,7 @@ class EthernetFeatures(Entity):
                             self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service, ['service', 'maximum_meps', 'log_cross_check_errors', 'continuity_check_archive_hold_time', 'tags', 'log_continuity_check_state_changes', 'log_efd', 'continuity_check_auto_traceroute', 'log_continuity_check_errors', 'log_ais'], name, value)
 
 
-                        class Efd2(Entity):
+                        class Efd2(_Entity_):
                             """
                             Enable EFD to bring down ports when MEPs
                             detect errors
@@ -678,7 +737,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__init__()
 
                                 self.yang_name = "efd2"
                                 self.yang_parent_name = "service"
@@ -699,9 +761,13 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, ['enable', 'protection_switching_enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2']['meta_info']
 
 
-                        class ContinuityCheckInterval(Entity):
+                        class ContinuityCheckInterval(_Entity_):
                             """
                             Continuity Check Interval and Loss
                             Threshold.  Configuring the interval
@@ -731,7 +797,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__init__()
 
                                 self.yang_name = "continuity-check-interval"
                                 self.yang_parent_name = "service"
@@ -752,9 +821,13 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, ['ccm_interval', 'loss_threshold'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval']['meta_info']
 
 
-                        class MipAutoCreation(Entity):
+                        class MipAutoCreation(_Entity_):
                             """
                             MIP Auto\-creation Policy
                             
@@ -780,7 +853,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__init__()
 
                                 self.yang_name = "mip-auto-creation"
                                 self.yang_parent_name = "service"
@@ -801,9 +877,13 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, ['mip_policy', 'ccm_learning_enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation']['meta_info']
 
 
-                        class Ais(Entity):
+                        class Ais(_Entity_):
                             """
                             Service specific AIS configuration
                             
@@ -822,7 +902,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, self).__init__()
 
                                 self.yang_name = "ais"
                                 self.yang_parent_name = "service"
@@ -841,7 +924,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, [], name, value)
 
 
-                            class Transmission(Entity):
+                            class Transmission(_Entity_):
                                 """
                                 AIS transmission configuration
                                 
@@ -867,7 +950,10 @@ class EthernetFeatures(Entity):
                                 _revision = '2018-07-27'
 
                                 def __init__(self):
-                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__init__()
 
                                     self.yang_name = "transmission"
                                     self.yang_parent_name = "ais"
@@ -888,10 +974,18 @@ class EthernetFeatures(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, ['ais_interval', 'cos'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais']['meta_info']
 
 
-
-                        class CrossCheck(Entity):
+                        class CrossCheck(_Entity_):
                             """
                             Cross\-check configuration
                             
@@ -913,7 +1007,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__init__()
 
                                 self.yang_name = "cross-check"
                                 self.yang_parent_name = "service"
@@ -936,7 +1033,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, ['auto'], name, value)
 
 
-                            class CrossCheckMeps(Entity):
+                            class CrossCheckMeps(_Entity_):
                                 """
                                 Cross\-check MEPs
                                 
@@ -953,7 +1050,10 @@ class EthernetFeatures(Entity):
                                 _revision = '2018-07-27'
 
                                 def __init__(self):
-                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__init__()
 
                                     self.yang_name = "cross-check-meps"
                                     self.yang_parent_name = "cross-check"
@@ -971,7 +1071,7 @@ class EthernetFeatures(Entity):
                                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, [], name, value)
 
 
-                                class CrossCheckMep(Entity):
+                                class CrossCheckMep(_Entity_):
                                     """
                                     MEP ID and optional MAC Address for
                                     Cross\-check
@@ -1003,7 +1103,10 @@ class EthernetFeatures(Entity):
                                     _revision = '2018-07-27'
 
                                     def __init__(self):
-                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__init__()
 
                                         self.yang_name = "cross-check-mep"
                                         self.yang_parent_name = "cross-check-meps"
@@ -1025,11 +1128,23 @@ class EthernetFeatures(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, ['mep_id', 'enable_mac_address', 'mac_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck']['meta_info']
 
 
-
-
-                        class ServiceProperties(Entity):
+                        class ServiceProperties(_Entity_):
                             """
                             Fundamental properties of the service
                             (maintenance association)
@@ -1129,7 +1244,10 @@ class EthernetFeatures(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__init__()
 
                                 self.yang_name = "service-properties"
                                 self.yang_parent_name = "service"
@@ -1172,11 +1290,23 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, ['service_type', 'group_name', 'switching_name', 'ce_id', 'remote_ce_id', 'evi', 'short_ma_name_format', 'short_ma_name_string', 'short_ma_name_number', 'short_ma_name_oui', 'short_ma_name_vpn_index', 'short_ma_name_icc', 'short_ma_name_umc'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services']['meta_info']
 
 
-
-
-                class DomainProperties(Entity):
+                class DomainProperties(_Entity_):
                     """
                     Fundamental properties of the domain
                     
@@ -1221,7 +1351,10 @@ class EthernetFeatures(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__init__()
 
                         self.yang_name = "domain-properties"
                         self.yang_parent_name = "domain"
@@ -1247,12 +1380,28 @@ class EthernetFeatures(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, ['level', 'mdid_format', 'mdid_mac_address', 'mdid_number', 'mdid_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.DomainProperties']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                return meta._meta_table['EthernetFeatures.Cfm.Domains']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+            return meta._meta_table['EthernetFeatures.Cfm']['meta_info']
 
 
-
-
-
-    class EtherLinkOam(Entity):
+    class EtherLinkOam(_Entity_):
         """
         Ethernet Link OAM Global Configuration
         
@@ -1269,7 +1418,10 @@ class EthernetFeatures(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EthernetFeatures.EtherLinkOam, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetFeatures.EtherLinkOam, self).__init__()
 
             self.yang_name = "ether-link-oam"
             self.yang_parent_name = "ethernet-features"
@@ -1290,7 +1442,7 @@ class EthernetFeatures(Entity):
             self._perform_setattr(EthernetFeatures.EtherLinkOam, [], name, value)
 
 
-        class Profiles(Entity):
+        class Profiles(_Entity_):
             """
             Table of Ethernet Link OAM profiles
             
@@ -1307,7 +1459,10 @@ class EthernetFeatures(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EthernetFeatures.EtherLinkOam.Profiles, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetFeatures.EtherLinkOam.Profiles, self).__init__()
 
                 self.yang_name = "profiles"
                 self.yang_parent_name = "ether-link-oam"
@@ -1326,7 +1481,7 @@ class EthernetFeatures(Entity):
                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles, [], name, value)
 
 
-            class Profile(Entity):
+            class Profile(_Entity_):
                 """
                 Name of the profile
                 
@@ -1392,7 +1547,10 @@ class EthernetFeatures(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile, self).__init__()
 
                     self.yang_name = "profile"
                     self.yang_parent_name = "profiles"
@@ -1436,7 +1594,7 @@ class EthernetFeatures(Entity):
                     self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile, ['profile', 'mib_retrieval', 'udlf', 'hello_interval', 'mode', 'remote_loopback', 'timeout'], name, value)
 
 
-                class Action(Entity):
+                class Action(_Entity_):
                     """
                     Configure action parameters
                     
@@ -1498,7 +1656,10 @@ class EthernetFeatures(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, self).__init__()
 
                         self.yang_name = "action"
                         self.yang_parent_name = "profile"
@@ -1534,9 +1695,13 @@ class EthernetFeatures(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, ['dying_gasp', 'session_up', 'critical_event', 'session_down', 'discovery_timeout', 'high_threshold', 'capabilities_conflict', 'remote_loopback', 'link_fault', 'wiring_conflict'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.Action']['meta_info']
 
 
-                class RequireRemote(Entity):
+                class RequireRemote(_Entity_):
                     """
                     Configure remote requirement parameters
                     
@@ -1568,7 +1733,10 @@ class EthernetFeatures(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, self).__init__()
 
                         self.yang_name = "require-remote"
                         self.yang_parent_name = "profile"
@@ -1592,9 +1760,13 @@ class EthernetFeatures(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, ['mib_retrieval', 'mode', 'remote_loopback', 'link_monitoring'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote']['meta_info']
 
 
-                class LinkMonitoring(Entity):
+                class LinkMonitoring(_Entity_):
                     """
                     Configure link monitor parameters
                     
@@ -1631,7 +1803,10 @@ class EthernetFeatures(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, self).__init__()
 
                         self.yang_name = "link-monitoring"
                         self.yang_parent_name = "profile"
@@ -1666,7 +1841,7 @@ class EthernetFeatures(Entity):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, ['monitoring'], name, value)
 
 
-                    class SymbolPeriod(Entity):
+                    class SymbolPeriod(_Entity_):
                         """
                         Symbol\-period event configuration
                         
@@ -1690,7 +1865,10 @@ class EthernetFeatures(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, self).__init__()
 
                             self.yang_name = "symbol-period"
                             self.yang_parent_name = "link-monitoring"
@@ -1713,7 +1891,7 @@ class EthernetFeatures(Entity):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, [], name, value)
 
 
-                        class Window(Entity):
+                        class Window(_Entity_):
                             """
                             Window size configuration for symbol\-period
                             events
@@ -1751,7 +1929,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, self).__init__()
 
                                 self.yang_name = "window"
                                 self.yang_parent_name = "symbol-period"
@@ -1774,9 +1955,13 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, ['window', 'units', 'multiplier'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window']['meta_info']
 
 
-                        class Threshold(Entity):
+                        class Threshold(_Entity_):
                             """
                             Threshold configuration for symbol\-period
                             events
@@ -1824,7 +2009,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, self).__init__()
 
                                 self.yang_name = "threshold"
                                 self.yang_parent_name = "symbol-period"
@@ -1850,10 +2038,18 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info']
 
 
-
-                    class FramePeriod(Entity):
+                    class FramePeriod(_Entity_):
                         """
                         Frame\-period event configuration
                         
@@ -1877,7 +2073,10 @@ class EthernetFeatures(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, self).__init__()
 
                             self.yang_name = "frame-period"
                             self.yang_parent_name = "link-monitoring"
@@ -1900,7 +2099,7 @@ class EthernetFeatures(Entity):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, [], name, value)
 
 
-                        class Window(Entity):
+                        class Window(_Entity_):
                             """
                             Window size configuration for frame\-period
                             events
@@ -1938,7 +2137,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, self).__init__()
 
                                 self.yang_name = "window"
                                 self.yang_parent_name = "frame-period"
@@ -1961,9 +2163,13 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, ['window', 'units', 'multiplier'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window']['meta_info']
 
 
-                        class Threshold(Entity):
+                        class Threshold(_Entity_):
                             """
                             Threshold configuration for frame\-period
                             events
@@ -2011,7 +2217,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, self).__init__()
 
                                 self.yang_name = "threshold"
                                 self.yang_parent_name = "frame-period"
@@ -2037,10 +2246,18 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info']
 
 
-
-                    class FrameSeconds(Entity):
+                    class FrameSeconds(_Entity_):
                         """
                         Frame\-seconds event configuration
                         
@@ -2068,7 +2285,10 @@ class EthernetFeatures(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, self).__init__()
 
                             self.yang_name = "frame-seconds"
                             self.yang_parent_name = "link-monitoring"
@@ -2091,7 +2311,7 @@ class EthernetFeatures(Entity):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, ['window'], name, value)
 
 
-                        class Threshold(Entity):
+                        class Threshold(_Entity_):
                             """
                             Threshold configuration for frame\-seconds
                             events
@@ -2124,7 +2344,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, self).__init__()
 
                                 self.yang_name = "threshold"
                                 self.yang_parent_name = "frame-seconds"
@@ -2144,10 +2367,18 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, ['threshold_low', 'threshold_high'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds']['meta_info']
 
 
-
-                    class Frame(Entity):
+                    class Frame(_Entity_):
                         """
                         Frame event configuration
                         
@@ -2175,7 +2406,10 @@ class EthernetFeatures(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, self).__init__()
 
                             self.yang_name = "frame"
                             self.yang_parent_name = "link-monitoring"
@@ -2198,7 +2432,7 @@ class EthernetFeatures(Entity):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, ['window'], name, value)
 
 
-                        class Threshold(Entity):
+                        class Threshold(_Entity_):
                             """
                             Threshold configuration for frame events
                             
@@ -2238,7 +2472,10 @@ class EthernetFeatures(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, self).__init__()
 
                                 self.yang_name = "threshold"
                                 self.yang_parent_name = "frame"
@@ -2262,15 +2499,43 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, ['threshold_low', 'threshold_high', 'multiplier_low', 'multiplier_high'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                    return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+            return meta._meta_table['EthernetFeatures.EtherLinkOam']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EthernetFeatures()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+        return meta._meta_table['EthernetFeatures']['meta_info']
 
 

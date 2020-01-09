@@ -3,8 +3,11 @@
 This module defines status objects for monitoring of ConfD.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -13,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ConfdState(Entity):
+class ConfdState(_Entity_):
     """
     
     
@@ -137,7 +140,10 @@ class ConfdState(Entity):
     _revision = '2013-06-14'
 
     def __init__(self):
-        super(ConfdState, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ConfdState, self).__init__()
         self._top_entity = None
 
         self.yang_name = "confd-state"
@@ -230,8 +236,14 @@ class ConfdState(Entity):
         stopping = Enum.YLeaf(4, "stopping")
 
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.DaemonStatus']
 
-    class Smp(Entity):
+
+
+    class Smp(_Entity_):
         """
         
         
@@ -254,7 +266,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Smp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Smp, self).__init__()
 
             self.yang_name = "smp"
             self.yang_parent_name = "confd-state"
@@ -274,9 +289,13 @@ class ConfdState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Smp, ['number_of_threads'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Smp']['meta_info']
 
 
-    class Ha(Entity):
+    class Ha(_Entity_):
         """
         
         
@@ -325,7 +344,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Ha, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Ha, self).__init__()
 
             self.yang_name = "ha"
             self.yang_parent_name = "confd-state"
@@ -378,9 +400,19 @@ class ConfdState(Entity):
             relay_slave = Enum.YLeaf(3, "relay-slave")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Ha.Mode']
 
 
-    class LoadedDataModels(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Ha']['meta_info']
+
+
+    class LoadedDataModels(_Entity_):
         """
         
         
@@ -399,7 +431,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.LoadedDataModels, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.LoadedDataModels, self).__init__()
 
             self.yang_name = "loaded-data-models"
             self.yang_parent_name = "confd-state"
@@ -418,7 +453,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.LoadedDataModels, [], name, value)
 
 
-        class DataModel(Entity):
+        class DataModel(_Entity_):
             """
             This list contains all loaded YANG data modules.
             
@@ -480,7 +515,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.LoadedDataModels.DataModel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.LoadedDataModels.DataModel, self).__init__()
 
                 self.yang_name = "data-model"
                 self.yang_parent_name = "loaded-data-models"
@@ -540,10 +578,24 @@ class ConfdState(Entity):
                 snmp = Enum.YLeaf(4, "snmp")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.LoadedDataModels.DataModel.ExportedTo']
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.LoadedDataModels.DataModel']['meta_info']
 
-    class Netconf(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.LoadedDataModels']['meta_info']
+
+
+    class Netconf(_Entity_):
         """
         
         
@@ -564,7 +616,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Netconf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Netconf, self).__init__()
 
             self.yang_name = "netconf"
             self.yang_parent_name = "confd-state"
@@ -586,7 +641,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.Netconf, [], name, value)
 
 
-        class Listen(Entity):
+        class Listen(_Entity_):
             """
             The transport addresses the NETCONF server is listening on.
             
@@ -616,7 +671,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Netconf.Listen, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Netconf.Listen, self).__init__()
 
                 self.yang_name = "listen"
                 self.yang_parent_name = "netconf"
@@ -636,7 +694,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Netconf.Listen, [], name, value)
 
 
-            class Tcp(Entity):
+            class Tcp(_Entity_):
                 """
                 
                 
@@ -672,7 +730,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Netconf.Listen.Tcp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Netconf.Listen.Tcp, self).__init__()
 
                     self.yang_name = "tcp"
                     self.yang_parent_name = "listen"
@@ -693,9 +754,13 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Netconf.Listen.Tcp, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Netconf.Listen.Tcp']['meta_info']
 
 
-            class Ssh(Entity):
+            class Ssh(_Entity_):
                 """
                 
                 
@@ -731,7 +796,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Netconf.Listen.Ssh, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Netconf.Listen.Ssh, self).__init__()
 
                     self.yang_name = "ssh"
                     self.yang_parent_name = "listen"
@@ -752,11 +820,23 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Netconf.Listen.Ssh, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Netconf.Listen.Ssh']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Netconf.Listen']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Netconf']['meta_info']
 
 
-
-
-    class Cli(Entity):
+    class Cli(_Entity_):
         """
         
         
@@ -777,7 +857,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Cli, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Cli, self).__init__()
 
             self.yang_name = "cli"
             self.yang_parent_name = "confd-state"
@@ -799,7 +882,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.Cli, [], name, value)
 
 
-        class Listen(Entity):
+        class Listen(_Entity_):
             """
             The transport addresses the CLI server is listening on.
             
@@ -825,7 +908,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Cli.Listen, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Cli.Listen, self).__init__()
 
                 self.yang_name = "listen"
                 self.yang_parent_name = "cli"
@@ -844,7 +930,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Cli.Listen, [], name, value)
 
 
-            class Ssh(Entity):
+            class Ssh(_Entity_):
                 """
                 
                 
@@ -880,7 +966,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Cli.Listen.Ssh, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Cli.Listen.Ssh, self).__init__()
 
                     self.yang_name = "ssh"
                     self.yang_parent_name = "listen"
@@ -901,11 +990,23 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Cli.Listen.Ssh, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Cli.Listen.Ssh']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Cli.Listen']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Cli']['meta_info']
 
 
-
-
-    class Webui(Entity):
+    class Webui(_Entity_):
         """
         
         
@@ -926,7 +1027,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Webui, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Webui, self).__init__()
 
             self.yang_name = "webui"
             self.yang_parent_name = "confd-state"
@@ -948,7 +1052,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.Webui, [], name, value)
 
 
-        class Listen(Entity):
+        class Listen(_Entity_):
             """
             The transport addresses the WebUI server is listening on.
             
@@ -974,7 +1078,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Webui.Listen, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Webui.Listen, self).__init__()
 
                 self.yang_name = "listen"
                 self.yang_parent_name = "webui"
@@ -994,7 +1101,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Webui.Listen, [], name, value)
 
 
-            class Tcp(Entity):
+            class Tcp(_Entity_):
                 """
                 
                 
@@ -1030,7 +1137,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Webui.Listen.Tcp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Webui.Listen.Tcp, self).__init__()
 
                     self.yang_name = "tcp"
                     self.yang_parent_name = "listen"
@@ -1051,9 +1161,13 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Webui.Listen.Tcp, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Webui.Listen.Tcp']['meta_info']
 
 
-            class Ssl(Entity):
+            class Ssl(_Entity_):
                 """
                 
                 
@@ -1089,7 +1203,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Webui.Listen.Ssl, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Webui.Listen.Ssl, self).__init__()
 
                     self.yang_name = "ssl"
                     self.yang_parent_name = "listen"
@@ -1110,11 +1227,23 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Webui.Listen.Ssl, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Webui.Listen.Ssl']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Webui.Listen']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Webui']['meta_info']
 
 
-
-
-    class Rest(Entity):
+    class Rest(_Entity_):
         """
         
         
@@ -1135,7 +1264,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Rest, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Rest, self).__init__()
 
             self.yang_name = "rest"
             self.yang_parent_name = "confd-state"
@@ -1157,7 +1289,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.Rest, [], name, value)
 
 
-        class Listen(Entity):
+        class Listen(_Entity_):
             """
             The transport addresses the REST server is listening on.
             
@@ -1183,7 +1315,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Rest.Listen, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Rest.Listen, self).__init__()
 
                 self.yang_name = "listen"
                 self.yang_parent_name = "rest"
@@ -1203,7 +1338,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Rest.Listen, [], name, value)
 
 
-            class Tcp(Entity):
+            class Tcp(_Entity_):
                 """
                 
                 
@@ -1239,7 +1374,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Rest.Listen.Tcp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Rest.Listen.Tcp, self).__init__()
 
                     self.yang_name = "tcp"
                     self.yang_parent_name = "listen"
@@ -1260,9 +1398,13 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Rest.Listen.Tcp, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Rest.Listen.Tcp']['meta_info']
 
 
-            class Ssl(Entity):
+            class Ssl(_Entity_):
                 """
                 
                 
@@ -1298,7 +1440,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Rest.Listen.Ssl, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Rest.Listen.Ssl, self).__init__()
 
                     self.yang_name = "ssl"
                     self.yang_parent_name = "listen"
@@ -1319,11 +1464,23 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Rest.Listen.Ssl, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Rest.Listen.Ssl']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Rest.Listen']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Rest']['meta_info']
 
 
-
-
-    class Snmp(Entity):
+    class Snmp(_Entity_):
         """
         
         
@@ -1367,7 +1524,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Snmp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Snmp, self).__init__()
 
             self.yang_name = "snmp"
             self.yang_parent_name = "confd-state"
@@ -1398,7 +1558,7 @@ class ConfdState(Entity):
             self._perform_setattr(ConfdState.Snmp, ['mib', 'engine_id'], name, value)
 
 
-        class Listen(Entity):
+        class Listen(_Entity_):
             """
             The transport addresses the SNMP agent is listening on.
             
@@ -1417,7 +1577,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Snmp.Listen, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Snmp.Listen, self).__init__()
 
                 self.yang_name = "listen"
                 self.yang_parent_name = "snmp"
@@ -1436,7 +1599,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Snmp.Listen, [], name, value)
 
 
-            class Udp(Entity):
+            class Udp(_Entity_):
                 """
                 
                 
@@ -1472,7 +1635,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Snmp.Listen.Udp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Snmp.Listen.Udp, self).__init__()
 
                     self.yang_name = "udp"
                     self.yang_parent_name = "listen"
@@ -1493,10 +1659,18 @@ class ConfdState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Snmp.Listen.Udp, ['ip', 'port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Snmp.Listen.Udp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Snmp.Listen']['meta_info']
 
 
-
-        class Version(Entity):
+        class Version(_Entity_):
             """
             SNMP version used by the engine.
             
@@ -1529,7 +1703,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Snmp.Version, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Snmp.Version, self).__init__()
 
                 self.yang_name = "version"
                 self.yang_parent_name = "snmp"
@@ -1552,10 +1729,18 @@ class ConfdState(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Snmp.Version, ['v1', 'v2c', 'v3'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Snmp.Version']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Snmp']['meta_info']
 
 
-
-    class Internal(Entity):
+    class Internal(_Entity_):
         """
         
         
@@ -1581,7 +1766,10 @@ class ConfdState(Entity):
         _revision = '2013-06-14'
 
         def __init__(self):
-            super(ConfdState.Internal, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfdState.Internal, self).__init__()
 
             self.yang_name = "internal"
             self.yang_parent_name = "confd-state"
@@ -1626,8 +1814,14 @@ class ConfdState(Entity):
             operational = Enum.YLeaf(2, "operational")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Internal.DatastoreName']
 
-        class Callpoints(Entity):
+
+
+        class Callpoints(_Entity_):
             """
             
             
@@ -1713,7 +1907,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Internal.Callpoints, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Internal.Callpoints, self).__init__()
 
                 self.yang_name = "callpoints"
                 self.yang_parent_name = "internal"
@@ -1745,7 +1942,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Internal.Callpoints, [], name, value)
 
 
-            class Callpoint(Entity):
+            class Callpoint(_Entity_):
                 """
                 
                 
@@ -1799,7 +1996,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.Callpoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.Callpoint, self).__init__()
 
                     self.yang_name = "callpoint"
                     self.yang_parent_name = "callpoints"
@@ -1857,8 +2057,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -1893,7 +2099,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Callpoint.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Callpoint.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "callpoint"
@@ -1934,9 +2143,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -1976,7 +2195,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Callpoint.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Callpoint.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "callpoint"
@@ -2003,7 +2225,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -2038,7 +2260,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -2079,11 +2304,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.Callpoint']['meta_info']
 
 
-            class Validationpoint(Entity):
+            class Validationpoint(_Entity_):
                 """
                 
                 
@@ -2137,7 +2380,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.Validationpoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.Validationpoint, self).__init__()
 
                     self.yang_name = "validationpoint"
                     self.yang_parent_name = "callpoints"
@@ -2195,8 +2441,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -2231,7 +2483,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Validationpoint.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Validationpoint.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "validationpoint"
@@ -2272,9 +2527,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -2314,7 +2579,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Validationpoint.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Validationpoint.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "validationpoint"
@@ -2341,7 +2609,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -2376,7 +2644,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -2417,11 +2688,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.Validationpoint']['meta_info']
 
 
-            class Actionpoint(Entity):
+            class Actionpoint(_Entity_):
                 """
                 
                 
@@ -2475,7 +2764,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.Actionpoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.Actionpoint, self).__init__()
 
                     self.yang_name = "actionpoint"
                     self.yang_parent_name = "callpoints"
@@ -2533,8 +2825,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -2569,7 +2867,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Actionpoint.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Actionpoint.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "actionpoint"
@@ -2610,9 +2911,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -2652,7 +2963,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Actionpoint.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Actionpoint.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "actionpoint"
@@ -2679,7 +2993,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -2714,7 +3028,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -2755,11 +3072,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.Actionpoint']['meta_info']
 
 
-            class SnmpInformCallback(Entity):
+            class SnmpInformCallback(_Entity_):
                 """
                 
                 
@@ -2813,7 +3148,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.SnmpInformCallback, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.SnmpInformCallback, self).__init__()
 
                     self.yang_name = "snmp-inform-callback"
                     self.yang_parent_name = "callpoints"
@@ -2871,8 +3209,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -2907,7 +3251,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "snmp-inform-callback"
@@ -2948,9 +3295,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -2990,7 +3347,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "snmp-inform-callback"
@@ -3017,7 +3377,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -3052,7 +3412,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -3093,11 +3456,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.SnmpInformCallback']['meta_info']
 
 
-            class SnmpNotificationSubscription(Entity):
+            class SnmpNotificationSubscription(_Entity_):
                 """
                 
                 
@@ -3151,7 +3532,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, self).__init__()
 
                     self.yang_name = "snmp-notification-subscription"
                     self.yang_parent_name = "callpoints"
@@ -3209,8 +3593,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -3245,7 +3635,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "snmp-notification-subscription"
@@ -3286,9 +3679,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -3328,7 +3731,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "snmp-notification-subscription"
@@ -3355,7 +3761,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -3390,7 +3796,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -3431,11 +3840,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.SnmpNotificationSubscription']['meta_info']
 
 
-            class ErrorFormattingCallback(Entity):
+            class ErrorFormattingCallback(_Entity_):
                 """
                 
                 
@@ -3489,7 +3916,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.ErrorFormattingCallback, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.ErrorFormattingCallback, self).__init__()
 
                     self.yang_name = "error-formatting-callback"
                     self.yang_parent_name = "callpoints"
@@ -3547,8 +3977,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -3583,7 +4019,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "error-formatting-callback"
@@ -3624,9 +4063,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -3666,7 +4115,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "error-formatting-callback"
@@ -3693,7 +4145,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -3728,7 +4180,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -3769,11 +4224,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.ErrorFormattingCallback']['meta_info']
 
 
-            class Typepoint(Entity):
+            class Typepoint(_Entity_):
                 """
                 
                 
@@ -3827,7 +4300,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.Typepoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.Typepoint, self).__init__()
 
                     self.yang_name = "typepoint"
                     self.yang_parent_name = "callpoints"
@@ -3885,8 +4361,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -3921,7 +4403,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Typepoint.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Typepoint.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "typepoint"
@@ -3962,9 +4447,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -4004,7 +4499,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.Typepoint.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.Typepoint.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "typepoint"
@@ -4031,7 +4529,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -4066,7 +4564,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -4107,11 +4608,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.Typepoint']['meta_info']
 
 
-            class NotificationStreamReplay(Entity):
+            class NotificationStreamReplay(_Entity_):
                 """
                 
                 
@@ -4172,7 +4691,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.NotificationStreamReplay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.NotificationStreamReplay, self).__init__()
 
                     self.yang_name = "notification-stream-replay"
                     self.yang_parent_name = "callpoints"
@@ -4232,6 +4754,12 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Error']
+
+
                 class ReplaySupport(Enum):
                     """
                     ReplaySupport (Enum Class)
@@ -4251,8 +4779,14 @@ class ConfdState(Entity):
                     external = Enum.YLeaf(2, "external")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.ReplaySupport']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -4287,7 +4821,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "notification-stream-replay"
@@ -4328,9 +4865,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -4370,7 +4917,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "notification-stream-replay"
@@ -4397,7 +4947,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -4432,7 +4982,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -4473,11 +5026,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.NotificationStreamReplay']['meta_info']
 
 
-            class AuthenticationCallback(Entity):
+            class AuthenticationCallback(_Entity_):
                 """
                 
                 
@@ -4533,7 +5104,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.AuthenticationCallback, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.AuthenticationCallback, self).__init__()
 
                     self.yang_name = "authentication-callback"
                     self.yang_parent_name = "callpoints"
@@ -4592,8 +5166,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -4628,7 +5208,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "authentication-callback"
@@ -4670,9 +5253,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -4712,7 +5305,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "authentication-callback"
@@ -4740,7 +5336,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -4775,7 +5371,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -4817,11 +5416,29 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.AuthenticationCallback']['meta_info']
 
 
-            class AuthorizationCallbacks(Entity):
+            class AuthorizationCallbacks(_Entity_):
                 """
                 
                 
@@ -4877,7 +5494,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Callpoints.AuthorizationCallbacks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Callpoints.AuthorizationCallbacks, self).__init__()
 
                     self.yang_name = "authorization-callbacks"
                     self.yang_parent_name = "callpoints"
@@ -4936,8 +5556,14 @@ class ConfdState(Entity):
                     UNKNOWN = Enum.YLeaf(1, "UNKNOWN")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Error']
 
-                class Daemon(Entity):
+
+
+                class Daemon(_Entity_):
                     """
                     
                     
@@ -4972,7 +5598,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, self).__init__()
 
                         self.yang_name = "daemon"
                         self.yang_parent_name = "authorization-callbacks"
@@ -5014,9 +5643,19 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon.Error']
 
 
-                class Range(Entity):
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon']['meta_info']
+
+
+                class Range(_Entity_):
                     """
                     
                     
@@ -5056,7 +5695,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "authorization-callbacks"
@@ -5084,7 +5726,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, ['lower', 'upper', 'default'], name, value)
 
 
-                    class Daemon(Entity):
+                    class Daemon(_Entity_):
                         """
                         
                         
@@ -5119,7 +5761,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, self).__init__()
 
                             self.yang_name = "daemon"
                             self.yang_parent_name = "range"
@@ -5161,12 +5806,34 @@ class ConfdState(Entity):
                             PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                                return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon.Error']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Callpoints.AuthorizationCallbacks']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Internal.Callpoints']['meta_info']
 
 
-
-        class Cdb(Entity):
+        class Cdb(_Entity_):
             """
             
             
@@ -5192,7 +5859,10 @@ class ConfdState(Entity):
             _revision = '2013-06-14'
 
             def __init__(self):
-                super(ConfdState.Internal.Cdb, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfdState.Internal.Cdb, self).__init__()
 
                 self.yang_name = "cdb"
                 self.yang_parent_name = "internal"
@@ -5212,7 +5882,7 @@ class ConfdState(Entity):
                 self._perform_setattr(ConfdState.Internal.Cdb, [], name, value)
 
 
-            class Datastore(Entity):
+            class Datastore(_Entity_):
                 """
                 
                 
@@ -5318,7 +5988,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Cdb.Datastore, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Cdb.Datastore, self).__init__()
 
                     self.yang_name = "datastore"
                     self.yang_parent_name = "cdb"
@@ -5361,7 +6034,7 @@ class ConfdState(Entity):
                     self._perform_setattr(ConfdState.Internal.Cdb.Datastore, ['name', 'transaction_id', 'write_queue', 'filename', 'disk_size', 'ram_size', 'read_locks', 'write_lock_set', 'subscription_lock_set', 'waiting_for_replication_sync'], name, value)
 
 
-                class PendingSubscriptionSync(Entity):
+                class PendingSubscriptionSync(_Entity_):
                     """
                     Information pertaining to subscription notifications that have
                     been delivered to, but not yet acknowledged by, subscribing
@@ -5406,7 +6079,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, self).__init__()
 
                         self.yang_name = "pending-subscription-sync"
                         self.yang_parent_name = "datastore"
@@ -5452,8 +6128,14 @@ class ConfdState(Entity):
                         infinity = Enum.YLeaf(0, "infinity")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.TimeRemaining']
 
-                    class Notification(Entity):
+
+
+                    class Notification(_Entity_):
                         """
                         
                         
@@ -5481,7 +6163,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, self).__init__()
 
                             self.yang_name = "notification"
                             self.yang_parent_name = "pending-subscription-sync"
@@ -5501,10 +6186,18 @@ class ConfdState(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, ['client_name', 'subscription_ids'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync']['meta_info']
 
 
-
-                class PendingNotificationQueue(Entity):
+                class PendingNotificationQueue(_Entity_):
                     """
                     Queues of notifications that have been generated but not
                     yet delivered to subscribing clients. Not present for the
@@ -5525,7 +6218,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue, self).__init__()
 
                         self.yang_name = "pending-notification-queue"
                         self.yang_parent_name = "datastore"
@@ -5543,7 +6239,7 @@ class ConfdState(Entity):
                         self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue, [], name, value)
 
 
-                    class Notification(Entity):
+                    class Notification(_Entity_):
                         """
                         
                         
@@ -5580,7 +6276,10 @@ class ConfdState(Entity):
                         _revision = '2013-06-14'
 
                         def __init__(self):
-                            super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, self).__init__()
 
                             self.yang_name = "notification"
                             self.yang_parent_name = "pending-notification-queue"
@@ -5602,11 +6301,23 @@ class ConfdState(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, ['priority', 'client_name', 'subscription_ids'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Cdb.Datastore']['meta_info']
 
 
-
-
-            class Client(Entity):
+            class Client(_Entity_):
                 """
                 
                 
@@ -5664,7 +6375,10 @@ class ConfdState(Entity):
                 _revision = '2013-06-14'
 
                 def __init__(self):
-                    super(ConfdState.Internal.Cdb.Client, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfdState.Internal.Cdb.Client, self).__init__()
 
                     self.yang_name = "client"
                     self.yang_parent_name = "cdb"
@@ -5710,6 +6424,12 @@ class ConfdState(Entity):
                     pre_commit_running = Enum.YLeaf(9, "pre_commit_running")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Client.Datastore']
+
+
                 class Lock(Enum):
                     """
                     Lock (Enum Class)
@@ -5747,6 +6467,12 @@ class ConfdState(Entity):
                     pending_subscription = Enum.YLeaf(3, "pending-subscription")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Client.Lock']
+
+
                 class Type(Enum):
                     """
                     Type (Enum Class)
@@ -5780,8 +6506,14 @@ class ConfdState(Entity):
                     waiting = Enum.YLeaf(3, "waiting")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Client.Type']
 
-                class Subscription(Entity):
+
+
+                class Subscription(_Entity_):
                     """
                     
                     
@@ -5839,7 +6571,10 @@ class ConfdState(Entity):
                     _revision = '2013-06-14'
 
                     def __init__(self):
-                        super(ConfdState.Internal.Cdb.Client.Subscription, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfdState.Internal.Cdb.Client.Subscription, self).__init__()
 
                         self.yang_name = "subscription"
                         self.yang_parent_name = "client"
@@ -5887,13 +6622,39 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                            return meta._meta_table['ConfdState.Internal.Cdb.Client.Subscription.Error']
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                        return meta._meta_table['ConfdState.Internal.Cdb.Client.Subscription']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                    return meta._meta_table['ConfdState.Internal.Cdb.Client']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+                return meta._meta_table['ConfdState.Internal.Cdb']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+            return meta._meta_table['ConfdState.Internal']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ConfdState()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_confd_monitoring as meta
+        return meta._meta_table['ConfdState']['meta_info']
 
 

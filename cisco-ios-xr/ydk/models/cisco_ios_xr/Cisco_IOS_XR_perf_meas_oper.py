@@ -14,8 +14,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -134,6 +137,12 @@ class PmAdvertReason(Enum):
     link_is_down = Enum.YLeaf(14, "link-is-down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PmAdvertReason']
+
+
 class PmDelayMode(Enum):
     """
     PmDelayMode (Enum Class)
@@ -155,6 +164,12 @@ class PmDelayMode(Enum):
     delay_mode_two_way = Enum.YLeaf(1, "delay-mode-two-way")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PmDelayMode']
+
+
 class PmMeasurement(Enum):
     """
     PmMeasurement (Enum Class)
@@ -168,6 +183,12 @@ class PmMeasurement(Enum):
     """
 
     delay_measurement_type = Enum.YLeaf(0, "delay-measurement-type")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PmMeasurement']
 
 
 class PmProbeNotRunningReason(Enum):
@@ -233,6 +254,12 @@ class PmProbeNotRunningReason(Enum):
     ip_address_not_configured = Enum.YLeaf(8, "ip-address-not-configured")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PmProbeNotRunningReason']
+
+
 class PmTransport(Enum):
     """
     PmTransport (Enum Class)
@@ -260,8 +287,14 @@ class PmTransport(Enum):
     sr_policy_transport_type = Enum.YLeaf(2, "sr-policy-transport-type")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PmTransport']
 
-class PerformanceMeasurement(Entity):
+
+
+class PerformanceMeasurement(_Entity_):
     """
     Performance Measurement operational data
     
@@ -280,7 +313,10 @@ class PerformanceMeasurement(Entity):
     _revision = '2017-10-17'
 
     def __init__(self):
-        super(PerformanceMeasurement, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PerformanceMeasurement, self).__init__()
         self._top_entity = None
 
         self.yang_name = "performance-measurement"
@@ -301,7 +337,7 @@ class PerformanceMeasurement(Entity):
         self._perform_setattr(PerformanceMeasurement, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node table for node\-specific operational data
         
@@ -320,7 +356,10 @@ class PerformanceMeasurement(Entity):
         _revision = '2017-10-17'
 
         def __init__(self):
-            super(PerformanceMeasurement.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerformanceMeasurement.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "performance-measurement"
@@ -339,7 +378,7 @@ class PerformanceMeasurement(Entity):
             self._perform_setattr(PerformanceMeasurement.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -374,7 +413,10 @@ class PerformanceMeasurement(Entity):
             _revision = '2017-10-17'
 
             def __init__(self):
-                super(PerformanceMeasurement.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerformanceMeasurement.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -402,7 +444,7 @@ class PerformanceMeasurement(Entity):
                 self._perform_setattr(PerformanceMeasurement.Nodes.Node, ['node'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summary
                 
@@ -430,7 +472,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -453,7 +498,7 @@ class PerformanceMeasurement(Entity):
                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary, ['total_interfaces'], name, value)
 
 
-                class DelaySummary(Entity):
+                class DelaySummary(_Entity_):
                     """
                     Delay summary
                     
@@ -479,7 +524,10 @@ class PerformanceMeasurement(Entity):
                     _revision = '2017-10-17'
 
                     def __init__(self):
-                        super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary, self).__init__()
 
                         self.yang_name = "delay-summary"
                         self.yang_parent_name = "summary"
@@ -503,7 +551,7 @@ class PerformanceMeasurement(Entity):
                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary, [], name, value)
 
 
-                    class InterfaceDelaySummary(Entity):
+                    class InterfaceDelaySummary(_Entity_):
                         """
                         Interface delay summary
                         
@@ -538,7 +586,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary, self).__init__()
 
                             self.yang_name = "interface-delay-summary"
                             self.yang_parent_name = "delay-summary"
@@ -565,7 +616,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary, ['total_delay_sessions'], name, value)
 
 
-                        class DelayProfile(Entity):
+                        class DelayProfile(_Entity_):
                             """
                             Delay profile
                             
@@ -679,7 +730,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile, self).__init__()
 
                                 self.yang_name = "delay-profile"
                                 self.yang_parent_name = "interface-delay-summary"
@@ -719,9 +773,13 @@ class PerformanceMeasurement(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile, ['probe_interval', 'burst_interval', 'burst_count', 'delay_measurement_mode', 'periodic_advertisement_enabled', 'periodic_advertisement_interval', 'effective_periodic_advertisement_interval', 'periodic_advertisement_threshold', 'periodic_advertisement_minimum_change', 'accelerated_advertisement_threshold', 'accelerated_advertisement_minimum_change', 'accelerated_advertisement_enabled'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile']['meta_info']
 
 
-                        class DelayTransportCounters(Entity):
+                        class DelayTransportCounters(_Entity_):
                             """
                             PM delay counters for a transport types
                             
@@ -747,7 +805,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters, self).__init__()
 
                                 self.yang_name = "delay-transport-counters"
                                 self.yang_parent_name = "interface-delay-summary"
@@ -771,7 +832,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters, [], name, value)
 
 
-                            class GenericCounters(Entity):
+                            class GenericCounters(_Entity_):
                                 """
                                 Generic counters for a PM interface instance
                                 
@@ -927,7 +988,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters, self).__init__()
 
                                     self.yang_name = "generic-counters"
                                     self.yang_parent_name = "delay-transport-counters"
@@ -975,9 +1039,13 @@ class PerformanceMeasurement(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters, ['query_packets_sent', 'query_packet_sent_errors', 'query_packet_sent_error_no_ip_address', 'query_packets_received', 'received_packet_error_negative_delay', 'received_packet_error_delay_exceeds_threshold', 'received_packet_error_missing_tx_timestamp', 'received_packet_error_missing_rx_timestamp', 'received_packet_error_probe_full', 'received_packet_error_probe_not_started', 'received_packet_control_code_error', 'received_packet_control_code_notification', 'probes_started', 'probes_complete', 'probes_incomplete', 'advertisement'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters']['meta_info']
 
 
-                            class ExclusiveCounters(Entity):
+                            class ExclusiveCounters(_Entity_):
                                 """
                                 Exclusive counters for a PM interface instance
                                 
@@ -1003,7 +1071,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters, self).__init__()
 
                                     self.yang_name = "exclusive-counters"
                                     self.yang_parent_name = "delay-transport-counters"
@@ -1026,7 +1097,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters, ['type'], name, value)
 
 
-                                class InterfaceExclusiveCounters(Entity):
+                                class InterfaceExclusiveCounters(_Entity_):
                                     """
                                     Counters Exclusive for interface
                                     
@@ -1056,7 +1127,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters, self).__init__()
 
                                         self.yang_name = "interface-exclusive-counters"
                                         self.yang_parent_name = "exclusive-counters"
@@ -1076,12 +1150,28 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters, ['query_packet_sent_error_interface_down', 'query_packet_sent_error_no_mpls_caps'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary']['meta_info']
 
 
-
-
-
-                    class DelayGlobalCounters(Entity):
+                    class DelayGlobalCounters(_Entity_):
                         """
                         PM delay global counters
                         
@@ -1129,7 +1219,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters, self).__init__()
 
                             self.yang_name = "delay-global-counters"
                             self.yang_parent_name = "delay-summary"
@@ -1153,11 +1246,23 @@ class PerformanceMeasurement(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters, ['query_packets_sent', 'query_packets_received', 'received_packet_error_invalid_session_id', 'received_packet_error_no_session'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary.DelaySummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Summary']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interfaces
                 
@@ -1183,7 +1288,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -1207,7 +1315,7 @@ class PerformanceMeasurement(Entity):
                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces, [], name, value)
 
 
-                class InterfaceDetails(Entity):
+                class InterfaceDetails(_Entity_):
                     """
                     Interface detailed table
                     
@@ -1226,7 +1334,10 @@ class PerformanceMeasurement(Entity):
                     _revision = '2017-10-17'
 
                     def __init__(self):
-                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails, self).__init__()
 
                         self.yang_name = "interface-details"
                         self.yang_parent_name = "interfaces"
@@ -1244,7 +1355,7 @@ class PerformanceMeasurement(Entity):
                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails, [], name, value)
 
 
-                    class InterfaceDetail(Entity):
+                    class InterfaceDetail(_Entity_):
                         """
                         Detailed interface information
                         
@@ -1340,7 +1451,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail, self).__init__()
 
                             self.yang_name = "interface-detail"
                             self.yang_parent_name = "interface-details"
@@ -1377,7 +1491,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail, ['interface_name', 'interface_name_xr', 'interface_handle', 'interface_state', 'source_address', 'source_v6_address', 'source_mac_address', 'primary_vlan_tag', 'secondary_vlan_tag'], name, value)
 
 
-                        class DelayMeasurementSession(Entity):
+                        class DelayMeasurementSession(_Entity_):
                             """
                             Delay\-measurement sessions
                             
@@ -1472,7 +1586,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession, self).__init__()
 
                                 self.yang_name = "delay-measurement-session"
                                 self.yang_parent_name = "interface-detail"
@@ -1523,7 +1640,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession, ['session_id', 'transport_type', 'measurement_type', 'periodic_advertisement_interval_in_sec'], name, value)
 
 
-                            class CurrentProbe(Entity):
+                            class CurrentProbe(_Entity_):
                                 """
                                 Information for the current probe
                                 
@@ -1600,7 +1717,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe, self).__init__()
 
                                     self.yang_name = "current-probe"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -1633,7 +1753,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe, ['probe_start_time_stamp', 'next_probe_start_time_remaining_in_millisec', 'next_packet_sent_time_remaining_in_millisec', 'number_of_packets_sent', 'number_of_packets_received', 'probe_not_running_reason'], name, value)
 
 
-                                class ProbeResults(Entity):
+                                class ProbeResults(_Entity_):
                                     """
                                     Summarized  results of the current probe
                                     
@@ -1681,7 +1801,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults, self).__init__()
 
                                         self.yang_name = "probe-results"
                                         self.yang_parent_name = "current-probe"
@@ -1705,10 +1828,18 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe']['meta_info']
 
 
-
-                            class SessionCounters(Entity):
+                            class SessionCounters(_Entity_):
                                 """
                                 Session counters
                                 
@@ -1734,7 +1865,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters, self).__init__()
 
                                     self.yang_name = "session-counters"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -1758,7 +1892,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters, [], name, value)
 
 
-                                class GenericCounters(Entity):
+                                class GenericCounters(_Entity_):
                                     """
                                     Generic counters for a PM interface instance
                                     
@@ -1914,7 +2048,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters, self).__init__()
 
                                         self.yang_name = "generic-counters"
                                         self.yang_parent_name = "session-counters"
@@ -1962,9 +2099,13 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters, ['query_packets_sent', 'query_packet_sent_errors', 'query_packet_sent_error_no_ip_address', 'query_packets_received', 'received_packet_error_negative_delay', 'received_packet_error_delay_exceeds_threshold', 'received_packet_error_missing_tx_timestamp', 'received_packet_error_missing_rx_timestamp', 'received_packet_error_probe_full', 'received_packet_error_probe_not_started', 'received_packet_control_code_error', 'received_packet_control_code_notification', 'probes_started', 'probes_complete', 'probes_incomplete', 'advertisement'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters']['meta_info']
 
 
-                                class ExclusiveCounters(Entity):
+                                class ExclusiveCounters(_Entity_):
                                     """
                                     Exclusive counters for a PM interface instance
                                     
@@ -1990,7 +2131,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters, self).__init__()
 
                                         self.yang_name = "exclusive-counters"
                                         self.yang_parent_name = "session-counters"
@@ -2013,7 +2157,7 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters, ['type'], name, value)
 
 
-                                    class InterfaceExclusiveCounters(Entity):
+                                    class InterfaceExclusiveCounters(_Entity_):
                                         """
                                         Counters Exclusive for interface
                                         
@@ -2043,7 +2187,10 @@ class PerformanceMeasurement(Entity):
                                         _revision = '2017-10-17'
 
                                         def __init__(self):
-                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters, self).__init__()
 
                                             self.yang_name = "interface-exclusive-counters"
                                             self.yang_parent_name = "exclusive-counters"
@@ -2063,11 +2210,23 @@ class PerformanceMeasurement(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters, ['query_packet_sent_error_interface_down', 'query_packet_sent_error_no_mpls_caps'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters']['meta_info']
 
 
-
-
-                            class LastAdvertisementInformation(Entity):
+                            class LastAdvertisementInformation(_Entity_):
                                 """
                                 Last advertisement information
                                 
@@ -2104,7 +2263,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation, self).__init__()
 
                                     self.yang_name = "last-advertisement-information"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -2129,7 +2291,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation, ['time_of_advertisement', 'advertisement_reason'], name, value)
 
 
-                                class AdvertisedValues(Entity):
+                                class AdvertisedValues(_Entity_):
                                     """
                                     Advertised values
                                     
@@ -2177,7 +2339,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues, self).__init__()
 
                                         self.yang_name = "advertised-values"
                                         self.yang_parent_name = "last-advertisement-information"
@@ -2201,10 +2366,18 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation']['meta_info']
 
 
-
-                            class NextAdvertisementInformation(Entity):
+                            class NextAdvertisementInformation(_Entity_):
                                 """
                                 Next advertisement information
                                 
@@ -2241,7 +2414,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation, self).__init__()
 
                                     self.yang_name = "next-advertisement-information"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -2266,7 +2442,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation, ['advertisement_interval_probes_remaining', 'rolling_average'], name, value)
 
 
-                                class AdvertisementIntervalValues(Entity):
+                                class AdvertisementIntervalValues(_Entity_):
                                     """
                                     Advertisement interval values
                                     
@@ -2314,7 +2490,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues, self).__init__()
 
                                         self.yang_name = "advertisement-interval-values"
                                         self.yang_parent_name = "next-advertisement-information"
@@ -2338,10 +2517,18 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation']['meta_info']
 
 
-
-                            class LastNotificationControlCode(Entity):
+                            class LastNotificationControlCode(_Entity_):
                                 """
                                 Last notifcation control code received
                                 
@@ -2373,7 +2560,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode, self).__init__()
 
                                     self.yang_name = "last-notification-control-code"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -2393,9 +2583,13 @@ class PerformanceMeasurement(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode, ['control_code', 'timestamp'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode']['meta_info']
 
 
-                            class LastErrorControlCode(Entity):
+                            class LastErrorControlCode(_Entity_):
                                 """
                                 Last error control code received
                                 
@@ -2427,7 +2621,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode, self).__init__()
 
                                     self.yang_name = "last-error-control-code"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -2447,9 +2644,13 @@ class PerformanceMeasurement(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode, ['control_code', 'timestamp'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode']['meta_info']
 
 
-                            class ProbeHistory(Entity):
+                            class ProbeHistory(_Entity_):
                                 """
                                 Current probe history
                                 
@@ -2481,7 +2682,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory, self).__init__()
 
                                     self.yang_name = "probe-history"
                                     self.yang_parent_name = "delay-measurement-session"
@@ -2501,12 +2705,28 @@ class PerformanceMeasurement(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory, ['measurement_value', 'query_timestamp'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails']['meta_info']
 
 
-
-
-
-                class InterfaceDelay(Entity):
+                class InterfaceDelay(_Entity_):
                     """
                     Delay\-measurement intformation
                     
@@ -2553,7 +2773,10 @@ class PerformanceMeasurement(Entity):
                     _revision = '2017-10-17'
 
                     def __init__(self):
-                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay, self).__init__()
 
                         self.yang_name = "interface-delay"
                         self.yang_parent_name = "interfaces"
@@ -2589,7 +2812,7 @@ class PerformanceMeasurement(Entity):
                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay, [], name, value)
 
 
-                    class InterfaceLastAggregations(Entity):
+                    class InterfaceLastAggregations(_Entity_):
                         """
                         Table of last probe aggregation
                         
@@ -2608,7 +2831,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations, self).__init__()
 
                             self.yang_name = "interface-last-aggregations"
                             self.yang_parent_name = "interface-delay"
@@ -2626,7 +2852,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations, [], name, value)
 
 
-                        class InterfaceLastAggregation(Entity):
+                        class InterfaceLastAggregation(_Entity_):
                             """
                             Last probe aggregation information
                             
@@ -2654,7 +2880,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation, self).__init__()
 
                                 self.yang_name = "interface-last-aggregation"
                                 self.yang_parent_name = "interface-last-aggregations"
@@ -2677,7 +2906,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation, ['interface_name'], name, value)
 
 
-                            class LastAggregation(Entity):
+                            class LastAggregation(_Entity_):
                                 """
                                 Last probe aggregation
                                 
@@ -2714,7 +2943,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation, self).__init__()
 
                                     self.yang_name = "last-aggregation"
                                     self.yang_parent_name = "interface-last-aggregation"
@@ -2739,7 +2971,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation, ['aggregation_timestamp', 'aggregation_action'], name, value)
 
 
-                                class AggregatedProbeValues(Entity):
+                                class AggregatedProbeValues(_Entity_):
                                     """
                                     Aggregated probe values
                                     
@@ -2787,7 +3019,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues, self).__init__()
 
                                         self.yang_name = "aggregated-probe-values"
                                         self.yang_parent_name = "last-aggregation"
@@ -2811,12 +3046,28 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations']['meta_info']
 
 
-
-
-
-                    class InterfaceProbeHistories(Entity):
+                    class InterfaceProbeHistories(_Entity_):
                         """
                         Table of probe histories
                         
@@ -2835,7 +3086,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories, self).__init__()
 
                             self.yang_name = "interface-probe-histories"
                             self.yang_parent_name = "interface-delay"
@@ -2853,7 +3107,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories, [], name, value)
 
 
-                        class InterfaceProbeHistory(Entity):
+                        class InterfaceProbeHistory(_Entity_):
                             """
                             Probe history information
                             
@@ -2897,7 +3151,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory, self).__init__()
 
                                 self.yang_name = "interface-probe-history"
                                 self.yang_parent_name = "interface-probe-histories"
@@ -2922,7 +3179,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory, ['interface_name', 'interface_name_xr', 'interface_handle'], name, value)
 
 
-                            class History(Entity):
+                            class History(_Entity_):
                                 """
                                 History of previous probes
                                 
@@ -2970,7 +3227,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History, self).__init__()
 
                                     self.yang_name = "history"
                                     self.yang_parent_name = "interface-probe-history"
@@ -2997,7 +3257,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History, ['probe_start_timestamp', 'packets_sent', 'packets_received'], name, value)
 
 
-                                class ProbeValues(Entity):
+                                class ProbeValues(_Entity_):
                                     """
                                     Probe values
                                     
@@ -3045,7 +3305,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues, self).__init__()
 
                                         self.yang_name = "probe-values"
                                         self.yang_parent_name = "history"
@@ -3069,12 +3332,28 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories']['meta_info']
 
 
-
-
-
-                    class InterfaceAggregatedHistories(Entity):
+                    class InterfaceAggregatedHistories(_Entity_):
                         """
                         Table of aggregated probe histories
                         
@@ -3093,7 +3372,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories, self).__init__()
 
                             self.yang_name = "interface-aggregated-histories"
                             self.yang_parent_name = "interface-delay"
@@ -3111,7 +3393,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories, [], name, value)
 
 
-                        class InterfaceAggregatedHistory(Entity):
+                        class InterfaceAggregatedHistory(_Entity_):
                             """
                             Aggregated probe history information
                             
@@ -3155,7 +3437,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory, self).__init__()
 
                                 self.yang_name = "interface-aggregated-history"
                                 self.yang_parent_name = "interface-aggregated-histories"
@@ -3180,7 +3465,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory, ['interface_name', 'interface_name_xr', 'interface_handle'], name, value)
 
 
-                            class History(Entity):
+                            class History(_Entity_):
                                 """
                                 History of previous probe aggregations
                                 
@@ -3217,7 +3502,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History, self).__init__()
 
                                     self.yang_name = "history"
                                     self.yang_parent_name = "interface-aggregated-history"
@@ -3242,7 +3530,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History, ['aggregation_timestamp', 'aggregation_action'], name, value)
 
 
-                                class AggregatedProbeValues(Entity):
+                                class AggregatedProbeValues(_Entity_):
                                     """
                                     Aggregated probe values
                                     
@@ -3290,7 +3578,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues, self).__init__()
 
                                         self.yang_name = "aggregated-probe-values"
                                         self.yang_parent_name = "history"
@@ -3314,12 +3605,28 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories']['meta_info']
 
 
-
-
-
-                    class InterfaceLastProbes(Entity):
+                    class InterfaceLastProbes(_Entity_):
                         """
                         Table of last probes
                         
@@ -3338,7 +3645,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes, self).__init__()
 
                             self.yang_name = "interface-last-probes"
                             self.yang_parent_name = "interface-delay"
@@ -3356,7 +3666,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes, [], name, value)
 
 
-                        class InterfaceLastProbe(Entity):
+                        class InterfaceLastProbe(_Entity_):
                             """
                             Last measurement information
                             
@@ -3384,7 +3694,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe, self).__init__()
 
                                 self.yang_name = "interface-last-probe"
                                 self.yang_parent_name = "interface-last-probes"
@@ -3407,7 +3720,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe, ['interface_name'], name, value)
 
 
-                            class LastProbe(Entity):
+                            class LastProbe(_Entity_):
                                 """
                                 Last probe
                                 
@@ -3455,7 +3768,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe, self).__init__()
 
                                     self.yang_name = "last-probe"
                                     self.yang_parent_name = "interface-last-probe"
@@ -3482,7 +3798,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe, ['probe_start_timestamp', 'packets_sent', 'packets_received'], name, value)
 
 
-                                class ProbeValues(Entity):
+                                class ProbeValues(_Entity_):
                                     """
                                     Probe values
                                     
@@ -3530,7 +3846,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues, self).__init__()
 
                                         self.yang_name = "probe-values"
                                         self.yang_parent_name = "last-probe"
@@ -3554,12 +3873,28 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes']['meta_info']
 
 
-
-
-
-                    class InterfaceLastAdvertisements(Entity):
+                    class InterfaceLastAdvertisements(_Entity_):
                         """
                         Table of last advertisements
                         
@@ -3578,7 +3913,10 @@ class PerformanceMeasurement(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements, self).__init__()
 
                             self.yang_name = "interface-last-advertisements"
                             self.yang_parent_name = "interface-delay"
@@ -3596,7 +3934,7 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements, [], name, value)
 
 
-                        class InterfaceLastAdvertisement(Entity):
+                        class InterfaceLastAdvertisement(_Entity_):
                             """
                             Last advertisement information
                             
@@ -3624,7 +3962,10 @@ class PerformanceMeasurement(Entity):
                             _revision = '2017-10-17'
 
                             def __init__(self):
-                                super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement, self).__init__()
 
                                 self.yang_name = "interface-last-advertisement"
                                 self.yang_parent_name = "interface-last-advertisements"
@@ -3647,7 +3988,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement, ['interface_name'], name, value)
 
 
-                            class LastAdvertisement(Entity):
+                            class LastAdvertisement(_Entity_):
                                 """
                                 Last advertisement
                                 
@@ -3684,7 +4025,10 @@ class PerformanceMeasurement(Entity):
                                 _revision = '2017-10-17'
 
                                 def __init__(self):
-                                    super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement, self).__init__()
 
                                     self.yang_name = "last-advertisement"
                                     self.yang_parent_name = "interface-last-advertisement"
@@ -3709,7 +4053,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement, ['time_of_advertisement', 'advertisement_reason'], name, value)
 
 
-                                class AdvertisedValues(Entity):
+                                class AdvertisedValues(_Entity_):
                                     """
                                     Advertised values
                                     
@@ -3757,7 +4101,10 @@ class PerformanceMeasurement(Entity):
                                     _revision = '2017-10-17'
 
                                     def __init__(self):
-                                        super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues, self).__init__()
 
                                         self.yang_name = "advertised-values"
                                         self.yang_parent_name = "last-advertisement"
@@ -3781,21 +4128,57 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                                return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                        return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                    return meta._meta_table['PerformanceMeasurement.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                return meta._meta_table['PerformanceMeasurement.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+            return meta._meta_table['PerformanceMeasurement.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurement()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PerformanceMeasurement']['meta_info']
 
 
-class PerformanceMeasurementResponder(Entity):
+class PerformanceMeasurementResponder(_Entity_):
     """
     performance measurement responder
     
@@ -3814,7 +4197,10 @@ class PerformanceMeasurementResponder(Entity):
     _revision = '2017-10-17'
 
     def __init__(self):
-        super(PerformanceMeasurementResponder, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PerformanceMeasurementResponder, self).__init__()
         self._top_entity = None
 
         self.yang_name = "performance-measurement-responder"
@@ -3835,7 +4221,7 @@ class PerformanceMeasurementResponder(Entity):
         self._perform_setattr(PerformanceMeasurementResponder, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node table for node\-specific operational data
         
@@ -3854,7 +4240,10 @@ class PerformanceMeasurementResponder(Entity):
         _revision = '2017-10-17'
 
         def __init__(self):
-            super(PerformanceMeasurementResponder.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerformanceMeasurementResponder.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "performance-measurement-responder"
@@ -3873,7 +4262,7 @@ class PerformanceMeasurementResponder(Entity):
             self._perform_setattr(PerformanceMeasurementResponder.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -3908,7 +4297,10 @@ class PerformanceMeasurementResponder(Entity):
             _revision = '2017-10-17'
 
             def __init__(self):
-                super(PerformanceMeasurementResponder.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerformanceMeasurementResponder.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -3936,7 +4328,7 @@ class PerformanceMeasurementResponder(Entity):
                 self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node, ['node'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summary
                 
@@ -3982,7 +4374,10 @@ class PerformanceMeasurementResponder(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurementResponder.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurementResponder.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -4009,7 +4404,7 @@ class PerformanceMeasurementResponder(Entity):
                     self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary, ['total_interfaces', 'packet_rate', 'packet_rate_high_water_mark'], name, value)
 
 
-                class ResponderCounters(Entity):
+                class ResponderCounters(_Entity_):
                     """
                     Global responder counters
                     
@@ -4129,7 +4524,10 @@ class PerformanceMeasurementResponder(Entity):
                     _revision = '2017-10-17'
 
                     def __init__(self):
-                        super(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, self).__init__()
 
                         self.yang_name = "responder-counters"
                         self.yang_parent_name = "summary"
@@ -4169,10 +4567,18 @@ class PerformanceMeasurementResponder(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, ['reply_packet_sent', 'reply_packet_sent_error', 'query_packet_received', 'received_packet_error_urotlv_not_present', 'received_packet_error_invalid_source_port_number', 'received_packet_error_no_source_address', 'received_packet_error_no_return_path', 'received_packet_error_invalid_querier_control_code', 'received_packet_error_unsupported_timestamp_format', 'received_packet_error_timestamp_not_available', 'received_packet_error_unsupported_mandatory_tlv', 'received_packet_error_invalid_packet'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                        return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                    return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node.Summary']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Table of interfaces
                 
@@ -4191,7 +4597,10 @@ class PerformanceMeasurementResponder(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurementResponder.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurementResponder.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -4209,7 +4618,7 @@ class PerformanceMeasurementResponder(Entity):
                     self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Interface information
                     
@@ -4300,7 +4709,10 @@ class PerformanceMeasurementResponder(Entity):
                     _revision = '2017-10-17'
 
                     def __init__(self):
-                        super(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -4337,7 +4749,7 @@ class PerformanceMeasurementResponder(Entity):
                         self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'interface_handle', 'source_address', 'source_v6_address', 'packet_rate', 'packet_rate_high_water_mark', 'cleanup_time_remaining'], name, value)
 
 
-                    class InterfaceCounters(Entity):
+                    class InterfaceCounters(_Entity_):
                         """
                         Per interface responder counters
                         
@@ -4457,7 +4869,10 @@ class PerformanceMeasurementResponder(Entity):
                         _revision = '2017-10-17'
 
                         def __init__(self):
-                            super(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, self).__init__()
 
                             self.yang_name = "interface-counters"
                             self.yang_parent_name = "interface"
@@ -4497,14 +4912,38 @@ class PerformanceMeasurementResponder(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, ['reply_packet_sent', 'reply_packet_sent_error', 'query_packet_received', 'received_packet_error_urotlv_not_present', 'received_packet_error_invalid_source_port_number', 'received_packet_error_no_source_address', 'received_packet_error_no_return_path', 'received_packet_error_invalid_querier_control_code', 'received_packet_error_unsupported_timestamp_format', 'received_packet_error_timestamp_not_available', 'received_packet_error_unsupported_mandatory_tlv', 'received_packet_error_invalid_packet'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                            return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                        return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                    return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+                return meta._meta_table['PerformanceMeasurementResponder.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+            return meta._meta_table['PerformanceMeasurementResponder.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurementResponder()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_oper as meta
+        return meta._meta_table['PerformanceMeasurementResponder']['meta_info']
 
 

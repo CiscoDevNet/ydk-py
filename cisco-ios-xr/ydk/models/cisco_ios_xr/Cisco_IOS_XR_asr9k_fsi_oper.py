@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class FabricStats(Entity):
+class FabricStats(_Entity_):
     """
     Fabric stats operational data
     
@@ -40,7 +43,10 @@ class FabricStats(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FabricStats, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FabricStats, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fabric-stats"
@@ -61,7 +67,7 @@ class FabricStats(Entity):
         self._perform_setattr(FabricStats, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of Nodes
         
@@ -80,7 +86,10 @@ class FabricStats(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FabricStats.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FabricStats.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "fabric-stats"
@@ -99,7 +108,7 @@ class FabricStats(Entity):
             self._perform_setattr(FabricStats.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a particular node
             
@@ -127,7 +136,10 @@ class FabricStats(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FabricStats.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FabricStats.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -151,7 +163,7 @@ class FabricStats(Entity):
                 self._perform_setattr(FabricStats.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statses(Entity):
+            class Statses(_Entity_):
                 """
                 Table of stats information
                 
@@ -170,7 +182,10 @@ class FabricStats(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FabricStats.Nodes.Node.Statses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FabricStats.Nodes.Node.Statses, self).__init__()
 
                     self.yang_name = "statses"
                     self.yang_parent_name = "node"
@@ -188,7 +203,7 @@ class FabricStats(Entity):
                     self._perform_setattr(FabricStats.Nodes.Node.Statses, [], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     Stats information for a particular type
                     
@@ -232,7 +247,10 @@ class FabricStats(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FabricStats.Nodes.Node.Statses.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FabricStats.Nodes.Node.Statses.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "statses"
@@ -257,7 +275,7 @@ class FabricStats(Entity):
                         self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats, ['type', 'last_clear_time', 'stat_table_name'], name, value)
 
 
-                    class StatsTable(Entity):
+                    class StatsTable(_Entity_):
                         """
                         Array of counters 
                         
@@ -276,7 +294,10 @@ class FabricStats(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FabricStats.Nodes.Node.Statses.Stats.StatsTable, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FabricStats.Nodes.Node.Statses.Stats.StatsTable, self).__init__()
 
                             self.yang_name = "stats-table"
                             self.yang_parent_name = "stats"
@@ -294,7 +315,7 @@ class FabricStats(Entity):
                             self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable, [], name, value)
 
 
-                        class FsiStat(Entity):
+                        class FsiStat(_Entity_):
                             """
                             Stats Table
                             
@@ -322,7 +343,10 @@ class FabricStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, self).__init__()
 
                                 self.yang_name = "fsi-stat"
                                 self.yang_parent_name = "stats-table"
@@ -342,15 +366,43 @@ class FabricStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat, ['count', 'counter_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+                                return meta._meta_table['FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+                            return meta._meta_table['FabricStats.Nodes.Node.Statses.Stats.StatsTable']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+                        return meta._meta_table['FabricStats.Nodes.Node.Statses.Stats']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+                    return meta._meta_table['FabricStats.Nodes.Node.Statses']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+                return meta._meta_table['FabricStats.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+            return meta._meta_table['FabricStats.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FabricStats()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fsi_oper as meta
+        return meta._meta_table['FabricStats']['meta_info']
 
 

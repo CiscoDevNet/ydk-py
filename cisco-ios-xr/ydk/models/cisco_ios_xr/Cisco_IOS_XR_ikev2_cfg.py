@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ikev2(Entity):
+class Ikev2(_Entity_):
     """
     Internet key exchange(IKEv2) config commands
     
@@ -53,7 +56,10 @@ class Ikev2(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ikev2, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ikev2, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ikev2"
@@ -86,7 +92,7 @@ class Ikev2(Entity):
         self._perform_setattr(Ikev2, [], name, value)
 
 
-    class KeyringNames(Entity):
+    class KeyringNames(_Entity_):
         """
         IKEv2 keyring config commands
         
@@ -103,7 +109,10 @@ class Ikev2(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ikev2.KeyringNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ikev2.KeyringNames, self).__init__()
 
             self.yang_name = "keyring-names"
             self.yang_parent_name = "ikev2"
@@ -122,7 +131,7 @@ class Ikev2(Entity):
             self._perform_setattr(Ikev2.KeyringNames, [], name, value)
 
 
-        class KeyringName(Entity):
+        class KeyringName(_Entity_):
             """
             IKEv2 keyring name
             
@@ -151,7 +160,10 @@ class Ikev2(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ikev2.KeyringNames.KeyringName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ikev2.KeyringNames.KeyringName, self).__init__()
 
                 self.yang_name = "keyring-name"
                 self.yang_parent_name = "keyring-names"
@@ -177,7 +189,7 @@ class Ikev2(Entity):
                 self._perform_setattr(Ikev2.KeyringNames.KeyringName, ['name', 'keyring_sub'], name, value)
 
 
-            class PeerNames(Entity):
+            class PeerNames(_Entity_):
                 """
                 IKEv2 keyring peer config commands
                 
@@ -194,7 +206,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.KeyringNames.KeyringName.PeerNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.KeyringNames.KeyringName.PeerNames, self).__init__()
 
                     self.yang_name = "peer-names"
                     self.yang_parent_name = "keyring-name"
@@ -212,7 +227,7 @@ class Ikev2(Entity):
                     self._perform_setattr(Ikev2.KeyringNames.KeyringName.PeerNames, [], name, value)
 
 
-                class PeerName(Entity):
+                class PeerName(_Entity_):
                     """
                     IKEv2 keyring peer name
                     
@@ -246,7 +261,10 @@ class Ikev2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName, self).__init__()
 
                         self.yang_name = "peer-name"
                         self.yang_parent_name = "peer-names"
@@ -275,7 +293,7 @@ class Ikev2(Entity):
                         self._perform_setattr(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName, ['name', 'peer_sub'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP Address to identify the peer
                         
@@ -301,7 +319,10 @@ class Ikev2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "peer-name"
@@ -321,9 +342,13 @@ class Ikev2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Address, ['ip', 'subnet'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                            return meta._meta_table['Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Address']['meta_info']
 
 
-                    class Psk(Entity):
+                    class Psk(_Entity_):
                         """
                         Pre\-shared key for peer
                         
@@ -347,7 +372,10 @@ class Ikev2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk, self).__init__()
 
                             self.yang_name = "psk"
                             self.yang_parent_name = "peer-name"
@@ -370,7 +398,7 @@ class Ikev2(Entity):
                             self._perform_setattr(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk, ['both_key'], name, value)
 
 
-                        class LocalRemoteKey(Entity):
+                        class LocalRemoteKey(_Entity_):
                             """
                             Local/Remote pre\-shared key for the peer
                             
@@ -396,7 +424,10 @@ class Ikev2(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk.LocalRemoteKey, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk.LocalRemoteKey, self).__init__()
 
                                 self.yang_name = "local-remote-key"
                                 self.yang_parent_name = "psk"
@@ -416,14 +447,38 @@ class Ikev2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk.LocalRemoteKey, ['string_xr', 'string'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                                return meta._meta_table['Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk.LocalRemoteKey']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                            return meta._meta_table['Ikev2.KeyringNames.KeyringName.PeerNames.PeerName.Psk']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                        return meta._meta_table['Ikev2.KeyringNames.KeyringName.PeerNames.PeerName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.KeyringNames.KeyringName.PeerNames']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                return meta._meta_table['Ikev2.KeyringNames.KeyringName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+            return meta._meta_table['Ikev2.KeyringNames']['meta_info']
 
 
-
-
-
-
-
-    class ProfileNames(Entity):
+    class ProfileNames(_Entity_):
         """
         IKEv2 profile config commands
         
@@ -440,7 +495,10 @@ class Ikev2(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ikev2.ProfileNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ikev2.ProfileNames, self).__init__()
 
             self.yang_name = "profile-names"
             self.yang_parent_name = "ikev2"
@@ -459,7 +517,7 @@ class Ikev2(Entity):
             self._perform_setattr(Ikev2.ProfileNames, [], name, value)
 
 
-        class ProfileName(Entity):
+        class ProfileName(_Entity_):
             """
             IKEv2 profile name
             
@@ -507,7 +565,10 @@ class Ikev2(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ikev2.ProfileNames.ProfileName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ikev2.ProfileNames.ProfileName, self).__init__()
 
                 self.yang_name = "profile-name"
                 self.yang_parent_name = "profile-names"
@@ -541,7 +602,7 @@ class Ikev2(Entity):
                 self._perform_setattr(Ikev2.ProfileNames.ProfileName, ['name', 'profile_sub', 'lifetime', 'keyring_in_profile'], name, value)
 
 
-            class MatchIdentity(Entity):
+            class MatchIdentity(_Entity_):
                 """
                 Match a profile based on remote identity
                 
@@ -563,7 +624,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProfileNames.ProfileName.MatchIdentity, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProfileNames.ProfileName.MatchIdentity, self).__init__()
 
                     self.yang_name = "match-identity"
                     self.yang_parent_name = "profile-name"
@@ -586,7 +650,7 @@ class Ikev2(Entity):
                     self._perform_setattr(Ikev2.ProfileNames.ProfileName.MatchIdentity, ['any'], name, value)
 
 
-                class AddressSubs(Entity):
+                class AddressSubs(_Entity_):
                     """
                     Match a profile based on remote identity
                     address
@@ -604,7 +668,10 @@ class Ikev2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs, self).__init__()
 
                         self.yang_name = "address-subs"
                         self.yang_parent_name = "match-identity"
@@ -622,7 +689,7 @@ class Ikev2(Entity):
                         self._perform_setattr(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs, [], name, value)
 
 
-                    class AddressSub(Entity):
+                    class AddressSub(_Entity_):
                         """
                         Remote ip address for matching identity
                         
@@ -653,7 +720,10 @@ class Ikev2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs.AddressSub, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs.AddressSub, self).__init__()
 
                             self.yang_name = "address-sub"
                             self.yang_parent_name = "address-subs"
@@ -675,11 +745,23 @@ class Ikev2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs.AddressSub, ['address', 'address_sub_val', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                            return meta._meta_table['Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs.AddressSub']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                        return meta._meta_table['Ikev2.ProfileNames.ProfileName.MatchIdentity.AddressSubs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProfileNames.ProfileName.MatchIdentity']['meta_info']
 
 
-
-
-            class Dpd(Entity):
+            class Dpd(_Entity_):
                 """
                 Enable IKEv2 liveliness for peers
                 
@@ -705,7 +787,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProfileNames.ProfileName.Dpd, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProfileNames.ProfileName.Dpd, self).__init__()
 
                     self.yang_name = "dpd"
                     self.yang_parent_name = "profile-name"
@@ -725,11 +810,23 @@ class Ikev2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ikev2.ProfileNames.ProfileName.Dpd, ['interval', 'retry_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProfileNames.ProfileName.Dpd']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                return meta._meta_table['Ikev2.ProfileNames.ProfileName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+            return meta._meta_table['Ikev2.ProfileNames']['meta_info']
 
 
-
-
-    class PolicyNames(Entity):
+    class PolicyNames(_Entity_):
         """
         Configure IKEv2 policies
         
@@ -746,7 +843,10 @@ class Ikev2(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ikev2.PolicyNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ikev2.PolicyNames, self).__init__()
 
             self.yang_name = "policy-names"
             self.yang_parent_name = "ikev2"
@@ -765,7 +865,7 @@ class Ikev2(Entity):
             self._perform_setattr(Ikev2.PolicyNames, [], name, value)
 
 
-        class PolicyName(Entity):
+        class PolicyName(_Entity_):
             """
             IKEv2 policy name
             
@@ -801,7 +901,10 @@ class Ikev2(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ikev2.PolicyNames.PolicyName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ikev2.PolicyNames.PolicyName, self).__init__()
 
                 self.yang_name = "policy-name"
                 self.yang_parent_name = "policy-names"
@@ -829,7 +932,7 @@ class Ikev2(Entity):
                 self._perform_setattr(Ikev2.PolicyNames.PolicyName, ['name', 'proposal_in_policy', 'policy_sub'], name, value)
 
 
-            class AddressVals(Entity):
+            class AddressVals(_Entity_):
                 """
                 Match a policy based on address
                 
@@ -846,7 +949,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.PolicyNames.PolicyName.AddressVals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.PolicyNames.PolicyName.AddressVals, self).__init__()
 
                     self.yang_name = "address-vals"
                     self.yang_parent_name = "policy-name"
@@ -864,7 +970,7 @@ class Ikev2(Entity):
                     self._perform_setattr(Ikev2.PolicyNames.PolicyName.AddressVals, [], name, value)
 
 
-                class AddressVal(Entity):
+                class AddressVal(_Entity_):
                     """
                     local address used to match policy
                     
@@ -883,7 +989,10 @@ class Ikev2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ikev2.PolicyNames.PolicyName.AddressVals.AddressVal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ikev2.PolicyNames.PolicyName.AddressVals.AddressVal, self).__init__()
 
                         self.yang_name = "address-val"
                         self.yang_parent_name = "address-vals"
@@ -901,12 +1010,28 @@ class Ikev2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ikev2.PolicyNames.PolicyName.AddressVals.AddressVal, ['address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                        return meta._meta_table['Ikev2.PolicyNames.PolicyName.AddressVals.AddressVal']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.PolicyNames.PolicyName.AddressVals']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                return meta._meta_table['Ikev2.PolicyNames.PolicyName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+            return meta._meta_table['Ikev2.PolicyNames']['meta_info']
 
 
-
-
-
-    class ProposalNames(Entity):
+    class ProposalNames(_Entity_):
         """
         Configure IKEv2 proposals
         
@@ -923,7 +1048,10 @@ class Ikev2(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ikev2.ProposalNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ikev2.ProposalNames, self).__init__()
 
             self.yang_name = "proposal-names"
             self.yang_parent_name = "ikev2"
@@ -942,7 +1070,7 @@ class Ikev2(Entity):
             self._perform_setattr(Ikev2.ProposalNames, [], name, value)
 
 
-        class ProposalName(Entity):
+        class ProposalName(_Entity_):
             """
             IKEv2 proposal name
             
@@ -986,7 +1114,10 @@ class Ikev2(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ikev2.ProposalNames.ProposalName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ikev2.ProposalNames.ProposalName, self).__init__()
 
                 self.yang_name = "proposal-name"
                 self.yang_parent_name = "proposal-names"
@@ -1024,7 +1155,7 @@ class Ikev2(Entity):
                 self._perform_setattr(Ikev2.ProposalNames.ProposalName, ['name', 'proposal_sub'], name, value)
 
 
-            class Prfses(Entity):
+            class Prfses(_Entity_):
                 """
                 Specify one or more transforms of prf
                 
@@ -1043,7 +1174,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProposalNames.ProposalName.Prfses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProposalNames.ProposalName.Prfses, self).__init__()
 
                     self.yang_name = "prfses"
                     self.yang_parent_name = "proposal-name"
@@ -1061,9 +1195,13 @@ class Ikev2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ikev2.ProposalNames.ProposalName.Prfses, ['prfs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProposalNames.ProposalName.Prfses']['meta_info']
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 Specify one or more transforms of group
                 
@@ -1082,7 +1220,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProposalNames.ProposalName.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProposalNames.ProposalName.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "proposal-name"
@@ -1100,9 +1241,13 @@ class Ikev2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ikev2.ProposalNames.ProposalName.Groups, ['group'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProposalNames.ProposalName.Groups']['meta_info']
 
 
-            class Integrities(Entity):
+            class Integrities(_Entity_):
                 """
                 Specify one or more transforms of integrity
                 
@@ -1121,7 +1266,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProposalNames.ProposalName.Integrities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProposalNames.ProposalName.Integrities, self).__init__()
 
                     self.yang_name = "integrities"
                     self.yang_parent_name = "proposal-name"
@@ -1139,9 +1287,13 @@ class Ikev2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ikev2.ProposalNames.ProposalName.Integrities, ['integrity'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProposalNames.ProposalName.Integrities']['meta_info']
 
 
-            class Encryptions(Entity):
+            class Encryptions(_Entity_):
                 """
                 Specify one or more transforms of encryption
                 
@@ -1160,7 +1312,10 @@ class Ikev2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ikev2.ProposalNames.ProposalName.Encryptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ikev2.ProposalNames.ProposalName.Encryptions, self).__init__()
 
                     self.yang_name = "encryptions"
                     self.yang_parent_name = "proposal-name"
@@ -1178,12 +1333,28 @@ class Ikev2(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ikev2.ProposalNames.ProposalName.Encryptions, ['encryption'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                    return meta._meta_table['Ikev2.ProposalNames.ProposalName.Encryptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+                return meta._meta_table['Ikev2.ProposalNames.ProposalName']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+            return meta._meta_table['Ikev2.ProposalNames']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ikev2()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_cfg as meta
+        return meta._meta_table['Ikev2']['meta_info']
 
 

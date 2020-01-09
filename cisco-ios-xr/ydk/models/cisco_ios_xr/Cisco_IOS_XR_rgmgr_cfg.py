@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -36,8 +39,14 @@ class IccpMode(Enum):
     singleton = Enum.YLeaf(1, "singleton")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+        return meta._meta_table['IccpMode']
 
-class RedundancyGroupManager(Entity):
+
+
+class RedundancyGroupManager(_Entity_):
     """
     Redundancy Group Manager Configuration
     
@@ -64,7 +73,10 @@ class RedundancyGroupManager(Entity):
     _revision = '2017-08-01'
 
     def __init__(self):
-        super(RedundancyGroupManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RedundancyGroupManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "redundancy-group-manager"
@@ -92,7 +104,7 @@ class RedundancyGroupManager(Entity):
         self._perform_setattr(RedundancyGroupManager, ['enable'], name, value)
 
 
-    class Aps(Entity):
+    class Aps(_Entity_):
         """
         MR\-APS groups
         
@@ -114,7 +126,10 @@ class RedundancyGroupManager(Entity):
         _revision = '2017-08-01'
 
         def __init__(self):
-            super(RedundancyGroupManager.Aps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RedundancyGroupManager.Aps, self).__init__()
 
             self.yang_name = "aps"
             self.yang_parent_name = "redundancy-group-manager"
@@ -139,7 +154,7 @@ class RedundancyGroupManager(Entity):
             self._perform_setattr(RedundancyGroupManager.Aps, [], name, value)
 
 
-        class DefaultRedundancyGroup(Entity):
+        class DefaultRedundancyGroup(_Entity_):
             """
             Default SONET controller backup configuration
             
@@ -165,7 +180,10 @@ class RedundancyGroupManager(Entity):
             _revision = '2017-08-01'
 
             def __init__(self):
-                super(RedundancyGroupManager.Aps.DefaultRedundancyGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RedundancyGroupManager.Aps.DefaultRedundancyGroup, self).__init__()
 
                 self.yang_name = "default-redundancy-group"
                 self.yang_parent_name = "aps"
@@ -186,9 +204,13 @@ class RedundancyGroupManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RedundancyGroupManager.Aps.DefaultRedundancyGroup, ['next_hop_address', 'backup_interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                return meta._meta_table['RedundancyGroupManager.Aps.DefaultRedundancyGroup']['meta_info']
 
 
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             Redundancy Group Table
             
@@ -205,7 +227,10 @@ class RedundancyGroupManager(Entity):
             _revision = '2017-08-01'
 
             def __init__(self):
-                super(RedundancyGroupManager.Aps.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RedundancyGroupManager.Aps.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "aps"
@@ -224,7 +249,7 @@ class RedundancyGroupManager(Entity):
                 self._perform_setattr(RedundancyGroupManager.Aps.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 Redundancy Group Configuration
                 
@@ -248,7 +273,10 @@ class RedundancyGroupManager(Entity):
                 _revision = '2017-08-01'
 
                 def __init__(self):
-                    super(RedundancyGroupManager.Aps.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RedundancyGroupManager.Aps.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -272,7 +300,7 @@ class RedundancyGroupManager(Entity):
                     self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group, ['group_id'], name, value)
 
 
-                class Controllers(Entity):
+                class Controllers(_Entity_):
                     """
                     Controller configuration
                     
@@ -289,7 +317,10 @@ class RedundancyGroupManager(Entity):
                     _revision = '2017-08-01'
 
                     def __init__(self):
-                        super(RedundancyGroupManager.Aps.Groups.Group.Controllers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RedundancyGroupManager.Aps.Groups.Group.Controllers, self).__init__()
 
                         self.yang_name = "controllers"
                         self.yang_parent_name = "group"
@@ -307,7 +338,7 @@ class RedundancyGroupManager(Entity):
                         self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers, [], name, value)
 
 
-                    class Controller(Entity):
+                    class Controller(_Entity_):
                         """
                         none
                         
@@ -340,7 +371,10 @@ class RedundancyGroupManager(Entity):
                         _revision = '2017-08-01'
 
                         def __init__(self):
-                            super(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, self).__init__()
 
                             self.yang_name = "controller"
                             self.yang_parent_name = "controllers"
@@ -362,13 +396,33 @@ class RedundancyGroupManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, ['controller_name', 'next_hop_address', 'backup_interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                            return meta._meta_table['RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Aps.Groups.Group.Controllers']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                    return meta._meta_table['RedundancyGroupManager.Aps.Groups.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                return meta._meta_table['RedundancyGroupManager.Aps.Groups']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+            return meta._meta_table['RedundancyGroupManager.Aps']['meta_info']
 
 
-
-
-
-
-    class Iccp(Entity):
+    class Iccp(_Entity_):
         """
         ICCP configuration
         
@@ -385,7 +439,10 @@ class RedundancyGroupManager(Entity):
         _revision = '2017-08-01'
 
         def __init__(self):
-            super(RedundancyGroupManager.Iccp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RedundancyGroupManager.Iccp, self).__init__()
 
             self.yang_name = "iccp"
             self.yang_parent_name = "redundancy-group-manager"
@@ -406,7 +463,7 @@ class RedundancyGroupManager(Entity):
             self._perform_setattr(RedundancyGroupManager.Iccp, [], name, value)
 
 
-        class IccpGroups(Entity):
+        class IccpGroups(_Entity_):
             """
             Redundancy Group Table Configuration
             
@@ -423,7 +480,10 @@ class RedundancyGroupManager(Entity):
             _revision = '2017-08-01'
 
             def __init__(self):
-                super(RedundancyGroupManager.Iccp.IccpGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RedundancyGroupManager.Iccp.IccpGroups, self).__init__()
 
                 self.yang_name = "iccp-groups"
                 self.yang_parent_name = "iccp"
@@ -442,7 +502,7 @@ class RedundancyGroupManager(Entity):
                 self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups, [], name, value)
 
 
-            class IccpGroup(Entity):
+            class IccpGroup(_Entity_):
                 """
                 Redundancy Group Configuration
                 
@@ -477,15 +537,15 @@ class RedundancyGroupManager(Entity):
                 	ICCP mode
                 	**type**\:  :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
                 
-                .. attribute:: mlacp
-                
-                	Multi\-chassis Link Aggregation Control Protocol commands
-                	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
-                
                 .. attribute:: nv_satellite
                 
                 	nV Satellite configuration
                 	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
+                
+                .. attribute:: mlacp
+                
+                	Multi\-chassis Link Aggregation Control Protocol commands
+                	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
                 
                 
 
@@ -495,14 +555,17 @@ class RedundancyGroupManager(Entity):
                 _revision = '2017-08-01'
 
                 def __init__(self):
-                    super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup, self).__init__()
 
                     self.yang_name = "iccp-group"
                     self.yang_parent_name = "iccp-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['group_number']
-                    self._child_classes = OrderedDict([("backbones", ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones)), ("members", ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite))])
+                    self._child_classes = OrderedDict([("backbones", ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones)), ("members", ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp))])
                     self._leafs = OrderedDict([
                         ('group_number', (YLeaf(YType.uint32, 'group-number'), ['int'])),
                         ('isolation_recovery_delay', (YLeaf(YType.uint32, 'isolation-recovery-delay'), ['int'])),
@@ -520,13 +583,13 @@ class RedundancyGroupManager(Entity):
                     self.members.parent = self
                     self._children_name_map["members"] = "members"
 
-                    self.mlacp = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp()
-                    self.mlacp.parent = self
-                    self._children_name_map["mlacp"] = "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
-
                     self.nv_satellite = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite()
                     self.nv_satellite.parent = self
                     self._children_name_map["nv_satellite"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+
+                    self.mlacp = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp()
+                    self.mlacp.parent = self
+                    self._children_name_map["mlacp"] = "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
                     self._segment_path = lambda: "iccp-group" + "[group-number='" + str(self.group_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/%s" % self._segment_path()
                     self._is_frozen = True
@@ -535,7 +598,7 @@ class RedundancyGroupManager(Entity):
                     self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup, ['group_number', 'isolation_recovery_delay', 'mode'], name, value)
 
 
-                class Backbones(Entity):
+                class Backbones(_Entity_):
                     """
                     ICCP backbone configuration
                     
@@ -552,7 +615,10 @@ class RedundancyGroupManager(Entity):
                     _revision = '2017-08-01'
 
                     def __init__(self):
-                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones, self).__init__()
 
                         self.yang_name = "backbones"
                         self.yang_parent_name = "iccp-group"
@@ -570,7 +636,7 @@ class RedundancyGroupManager(Entity):
                         self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones, [], name, value)
 
 
-                    class Backbone(Entity):
+                    class Backbone(_Entity_):
                         """
                         ICCP backbone interface configuration
                         
@@ -589,7 +655,10 @@ class RedundancyGroupManager(Entity):
                         _revision = '2017-08-01'
 
                         def __init__(self):
-                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone, self).__init__()
 
                             self.yang_name = "backbone"
                             self.yang_parent_name = "backbones"
@@ -607,10 +676,18 @@ class RedundancyGroupManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone, ['backbone_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                            return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones']['meta_info']
 
 
-
-                class Members(Entity):
+                class Members(_Entity_):
                     """
                     ICCP member configuration
                     
@@ -627,7 +704,10 @@ class RedundancyGroupManager(Entity):
                     _revision = '2017-08-01'
 
                     def __init__(self):
-                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members, self).__init__()
 
                         self.yang_name = "members"
                         self.yang_parent_name = "iccp-group"
@@ -645,7 +725,7 @@ class RedundancyGroupManager(Entity):
                         self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members, [], name, value)
 
 
-                    class Member(Entity):
+                    class Member(_Entity_):
                         """
                         ICCP member configuration
                         
@@ -664,7 +744,10 @@ class RedundancyGroupManager(Entity):
                         _revision = '2017-08-01'
 
                         def __init__(self):
-                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member, self).__init__()
 
                             self.yang_name = "member"
                             self.yang_parent_name = "members"
@@ -682,10 +765,64 @@ class RedundancyGroupManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member, ['neighbor_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                            return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members']['meta_info']
 
 
+                class NvSatellite(_Entity_):
+                    """
+                    nV Satellite configuration
+                    
+                    .. attribute:: system_mac
+                    
+                    	Optional identifier for this system
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    
 
-                class Mlacp(Entity):
+                    """
+
+                    _prefix = 'icpe-infra-cfg'
+                    _revision = '2017-09-30'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, self).__init__()
+
+                        self.yang_name = "nv-satellite"
+                        self.yang_parent_name = "iccp-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('system_mac', (YLeaf(YType.str, 'system-mac'), ['str'])),
+                        ])
+                        self.system_mac = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, ['system_mac'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info']
+
+
+                class Mlacp(_Entity_):
                     """
                     Multi\-chassis Link Aggregation Control Protocol
                     commands
@@ -726,7 +863,10 @@ class RedundancyGroupManager(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, self).__init__()
 
                         self.yang_name = "mlacp"
                         self.yang_parent_name = "iccp-group"
@@ -750,52 +890,33 @@ class RedundancyGroupManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, ['connect_timeout', 'system_mac', 'node', 'system_priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                    return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 
-                class NvSatellite(Entity):
-                    """
-                    nV Satellite configuration
-                    
-                    .. attribute:: system_mac
-                    
-                    	Optional identifier for this system
-                    	**type**\: str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups']['meta_info']
 
-                    """
-
-                    _prefix = 'icpe-infra-cfg'
-                    _revision = '2017-09-30'
-
-                    def __init__(self):
-                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, self).__init__()
-
-                        self.yang_name = "nv-satellite"
-                        self.yang_parent_name = "iccp-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('system_mac', (YLeaf(YType.str, 'system-mac'), ['str'])),
-                        ])
-                        self.system_mac = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, ['system_mac'], name, value)
-
-
-
-
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+            return meta._meta_table['RedundancyGroupManager.Iccp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RedundancyGroupManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+        return meta._meta_table['RedundancyGroupManager']['meta_info']
 
 

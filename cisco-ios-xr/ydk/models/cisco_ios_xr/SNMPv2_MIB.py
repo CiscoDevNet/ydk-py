@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,8 +29,14 @@ class SnmpEnableAuthenTrapsType(Enum):
     disabled = Enum.YLeaf(2, "disabled")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+        return meta._meta_table['SnmpEnableAuthenTrapsType']
 
-class SNMPv2MIB(Entity):
+
+
+class SNMPv2MIB(_Entity_):
     """
     
     
@@ -59,7 +68,10 @@ class SNMPv2MIB(Entity):
     _revision = '2002-10-16'
 
     def __init__(self):
-        super(SNMPv2MIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPv2MIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMPv2-MIB"
@@ -92,7 +104,7 @@ class SNMPv2MIB(Entity):
         self._perform_setattr(SNMPv2MIB, [], name, value)
 
 
-    class System(Entity):
+    class System(_Entity_):
         """
         
         
@@ -170,7 +182,10 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.System, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPv2MIB.System, self).__init__()
 
             self.yang_name = "system"
             self.yang_parent_name = "SNMPv2-MIB"
@@ -203,9 +218,13 @@ class SNMPv2MIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.System, ['sysdescr', 'sysobjectid', 'sysuptime', 'syscontact', 'sysname', 'syslocation', 'sysservices', 'sysorlastchange'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+            return meta._meta_table['SNMPv2MIB.System']['meta_info']
 
 
-    class Snmp(Entity):
+    class Snmp(_Entity_):
         """
         
         
@@ -287,7 +306,10 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.Snmp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPv2MIB.Snmp, self).__init__()
 
             self.yang_name = "snmp"
             self.yang_parent_name = "SNMPv2-MIB"
@@ -320,9 +342,13 @@ class SNMPv2MIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.Snmp, ['snmpinpkts', 'snmpinbadversions', 'snmpinbadcommunitynames', 'snmpinbadcommunityuses', 'snmpinasnparseerrs', 'snmpenableauthentraps', 'snmpsilentdrops', 'snmpproxydrops'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+            return meta._meta_table['SNMPv2MIB.Snmp']['meta_info']
 
 
-    class SnmpSet(Entity):
+    class SnmpSet(_Entity_):
         """
         
         
@@ -343,7 +369,10 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.SnmpSet, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPv2MIB.SnmpSet, self).__init__()
 
             self.yang_name = "snmpSet"
             self.yang_parent_name = "SNMPv2-MIB"
@@ -362,9 +391,13 @@ class SNMPv2MIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.SnmpSet, ['snmpsetserialno'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+            return meta._meta_table['SNMPv2MIB.SnmpSet']['meta_info']
 
 
-    class SysORTable(Entity):
+    class SysORTable(_Entity_):
         """
         
         
@@ -381,7 +414,10 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.SysORTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPv2MIB.SysORTable, self).__init__()
 
             self.yang_name = "sysORTable"
             self.yang_parent_name = "SNMPv2-MIB"
@@ -400,7 +436,7 @@ class SNMPv2MIB(Entity):
             self._perform_setattr(SNMPv2MIB.SysORTable, [], name, value)
 
 
-        class SysOREntry(Entity):
+        class SysOREntry(_Entity_):
             """
             
             
@@ -446,7 +482,10 @@ class SNMPv2MIB(Entity):
             _revision = '2002-10-16'
 
             def __init__(self):
-                super(SNMPv2MIB.SysORTable.SysOREntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPv2MIB.SysORTable.SysOREntry, self).__init__()
 
                 self.yang_name = "sysOREntry"
                 self.yang_parent_name = "sysORTable"
@@ -471,11 +510,23 @@ class SNMPv2MIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, ['sysorindex', 'sysorid', 'sysordescr', 'sysoruptime'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+                return meta._meta_table['SNMPv2MIB.SysORTable.SysOREntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+            return meta._meta_table['SNMPv2MIB.SysORTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPv2MIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMPv2_MIB as meta
+        return meta._meta_table['SNMPv2MIB']['meta_info']
 
 

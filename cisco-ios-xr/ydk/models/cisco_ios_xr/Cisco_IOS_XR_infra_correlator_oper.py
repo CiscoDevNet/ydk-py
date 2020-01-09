@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -50,6 +53,12 @@ class AcRuleState(Enum):
     rule_applied_all = Enum.YLeaf(2, "rule-applied-all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+        return meta._meta_table['AcRuleState']
+
+
 class AlAlarmBistate(Enum):
     """
     AlAlarmBistate (Enum Class)
@@ -75,6 +84,12 @@ class AlAlarmBistate(Enum):
     active = Enum.YLeaf(1, "active")
 
     clear = Enum.YLeaf(2, "clear")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+        return meta._meta_table['AlAlarmBistate']
 
 
 class AlAlarmSeverity(Enum):
@@ -140,8 +155,14 @@ class AlAlarmSeverity(Enum):
     debugging = Enum.YLeaf(7, "debugging")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+        return meta._meta_table['AlAlarmSeverity']
 
-class Suppression(Entity):
+
+
+class Suppression(_Entity_):
     """
     Suppression operational data
     
@@ -167,7 +188,10 @@ class Suppression(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Suppression, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Suppression, self).__init__()
         self._top_entity = None
 
         self.yang_name = "suppression"
@@ -192,7 +216,7 @@ class Suppression(Entity):
         self._perform_setattr(Suppression, [], name, value)
 
 
-    class RuleSummaries(Entity):
+    class RuleSummaries(_Entity_):
         """
         Table that contains the database of suppression
         rule summary
@@ -212,7 +236,10 @@ class Suppression(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Suppression.RuleSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Suppression.RuleSummaries, self).__init__()
 
             self.yang_name = "rule-summaries"
             self.yang_parent_name = "suppression"
@@ -231,7 +258,7 @@ class Suppression(Entity):
             self._perform_setattr(Suppression.RuleSummaries, [], name, value)
 
 
-        class RuleSummary(Entity):
+        class RuleSummary(_Entity_):
             """
             One of the suppression rules
             
@@ -275,7 +302,10 @@ class Suppression(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Suppression.RuleSummaries.RuleSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Suppression.RuleSummaries.RuleSummary, self).__init__()
 
                 self.yang_name = "rule-summary"
                 self.yang_parent_name = "rule-summaries"
@@ -300,10 +330,18 @@ class Suppression(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Suppression.RuleSummaries.RuleSummary, ['rule_name', 'rule_name_xr', 'rule_state', 'suppressed_alarms_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Suppression.RuleSummaries.RuleSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Suppression.RuleSummaries']['meta_info']
 
 
-
-    class RuleDetails(Entity):
+    class RuleDetails(_Entity_):
         """
         Table that contains the database of suppression
         rule details
@@ -323,7 +361,10 @@ class Suppression(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Suppression.RuleDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Suppression.RuleDetails, self).__init__()
 
             self.yang_name = "rule-details"
             self.yang_parent_name = "suppression"
@@ -342,7 +383,7 @@ class Suppression(Entity):
             self._perform_setattr(Suppression.RuleDetails, [], name, value)
 
 
-        class RuleDetail(Entity):
+        class RuleDetail(_Entity_):
             """
             Details of one of the suppression rules
             
@@ -400,7 +441,10 @@ class Suppression(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Suppression.RuleDetails.RuleDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Suppression.RuleDetails.RuleDetail, self).__init__()
 
                 self.yang_name = "rule-detail"
                 self.yang_parent_name = "rule-details"
@@ -432,7 +476,7 @@ class Suppression(Entity):
                 self._perform_setattr(Suppression.RuleDetails.RuleDetail, ['rule_name', 'all_alarms', 'alarm_severity', 'apply_source'], name, value)
 
 
-            class RuleSummary(Entity):
+            class RuleSummary(_Entity_):
                 """
                 Rule summary, name, etc
                 
@@ -467,7 +511,10 @@ class Suppression(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Suppression.RuleDetails.RuleDetail.RuleSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Suppression.RuleDetails.RuleDetail.RuleSummary, self).__init__()
 
                     self.yang_name = "rule-summary"
                     self.yang_parent_name = "rule-detail"
@@ -489,9 +536,13 @@ class Suppression(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Suppression.RuleDetails.RuleDetail.RuleSummary, ['rule_name_xr', 'rule_state', 'suppressed_alarms_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Suppression.RuleDetails.RuleDetail.RuleSummary']['meta_info']
 
 
-            class Codes(Entity):
+            class Codes(_Entity_):
                 """
                 Message codes defining the rule.
                 
@@ -524,7 +575,10 @@ class Suppression(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Suppression.RuleDetails.RuleDetail.Codes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Suppression.RuleDetails.RuleDetail.Codes, self).__init__()
 
                     self.yang_name = "codes"
                     self.yang_parent_name = "rule-detail"
@@ -546,16 +600,32 @@ class Suppression(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Suppression.RuleDetails.RuleDetail.Codes, ['category', 'group', 'code'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Suppression.RuleDetails.RuleDetail.Codes']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Suppression.RuleDetails.RuleDetail']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Suppression.RuleDetails']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Suppression()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+        return meta._meta_table['Suppression']['meta_info']
 
 
-class Correlator(Entity):
+class Correlator(_Entity_):
     """
     correlator
     
@@ -616,7 +686,10 @@ class Correlator(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Correlator, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Correlator, self).__init__()
         self._top_entity = None
 
         self.yang_name = "correlator"
@@ -661,7 +734,7 @@ class Correlator(Entity):
         self._perform_setattr(Correlator, [], name, value)
 
 
-    class Rules(Entity):
+    class Rules(_Entity_):
         """
         Table that contains the database of correlation
         rules
@@ -681,7 +754,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.Rules, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.Rules, self).__init__()
 
             self.yang_name = "rules"
             self.yang_parent_name = "correlator"
@@ -700,7 +776,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.Rules, [], name, value)
 
 
-        class Rule(Entity):
+        class Rule(_Entity_):
             """
             One of the correlation rules
             
@@ -769,7 +845,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.Rules.Rule, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.Rules.Rule, self).__init__()
 
                 self.yang_name = "rule"
                 self.yang_parent_name = "rules"
@@ -801,7 +880,7 @@ class Correlator(Entity):
                 self._perform_setattr(Correlator.Rules.Rule, ['rule_name', 'rule_name_xr', 'timeout', 'rule_state', 'apply_location', 'apply_context'], name, value)
 
 
-            class Codes(Entity):
+            class Codes(_Entity_):
                 """
                 Message codes defining the rule.
                 
@@ -834,7 +913,10 @@ class Correlator(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Correlator.Rules.Rule.Codes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Correlator.Rules.Rule.Codes, self).__init__()
 
                     self.yang_name = "codes"
                     self.yang_parent_name = "rule"
@@ -856,11 +938,23 @@ class Correlator(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.Rules.Rule.Codes, ['category', 'group', 'code'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Correlator.Rules.Rule.Codes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.Rules.Rule']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.Rules']['meta_info']
 
 
-
-
-    class BufferStatus(Entity):
+    class BufferStatus(_Entity_):
         """
         Describes buffer utilization and parameters
         configured
@@ -891,7 +985,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.BufferStatus, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.BufferStatus, self).__init__()
 
             self.yang_name = "buffer-status"
             self.yang_parent_name = "correlator"
@@ -912,9 +1009,13 @@ class Correlator(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.BufferStatus, ['current_size', 'configured_size'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.BufferStatus']['meta_info']
 
 
-    class Alarms(Entity):
+    class Alarms(_Entity_):
         """
         Correlated alarms Table
         
@@ -933,7 +1034,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.Alarms, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.Alarms, self).__init__()
 
             self.yang_name = "alarms"
             self.yang_parent_name = "correlator"
@@ -952,7 +1056,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.Alarms, [], name, value)
 
 
-        class Alarm(Entity):
+        class Alarm(_Entity_):
             """
             One of the correlated alarms
             
@@ -994,7 +1098,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.Alarms.Alarm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.Alarms.Alarm, self).__init__()
 
                 self.yang_name = "alarm"
                 self.yang_parent_name = "alarms"
@@ -1022,7 +1129,7 @@ class Correlator(Entity):
                 self._perform_setattr(Correlator.Alarms.Alarm, ['alarm_id', 'rule_name', 'context'], name, value)
 
 
-            class AlarmInfo(Entity):
+            class AlarmInfo(_Entity_):
                 """
                 Correlated alarm information
                 
@@ -1110,7 +1217,10 @@ class Correlator(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Correlator.Alarms.Alarm.AlarmInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Correlator.Alarms.Alarm.AlarmInfo, self).__init__()
 
                     self.yang_name = "alarm-info"
                     self.yang_parent_name = "alarm"
@@ -1146,11 +1256,23 @@ class Correlator(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.Alarms.Alarm.AlarmInfo, ['source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Correlator.Alarms.Alarm.AlarmInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.Alarms.Alarm']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.Alarms']['meta_info']
 
 
-
-
-    class RuleSetSummaries(Entity):
+    class RuleSetSummaries(_Entity_):
         """
         Table that contains the ruleset summary info
         
@@ -1169,7 +1291,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.RuleSetSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.RuleSetSummaries, self).__init__()
 
             self.yang_name = "rule-set-summaries"
             self.yang_parent_name = "correlator"
@@ -1188,7 +1313,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.RuleSetSummaries, [], name, value)
 
 
-        class RuleSetSummary(Entity):
+        class RuleSetSummary(_Entity_):
             """
             Summary of one of the correlation rulesets
             
@@ -1216,7 +1341,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.RuleSetSummaries.RuleSetSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.RuleSetSummaries.RuleSetSummary, self).__init__()
 
                 self.yang_name = "rule-set-summary"
                 self.yang_parent_name = "rule-set-summaries"
@@ -1237,10 +1365,18 @@ class Correlator(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleSetSummaries.RuleSetSummary, ['rule_set_name', 'rule_set_name_xr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.RuleSetSummaries.RuleSetSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.RuleSetSummaries']['meta_info']
 
 
-
-    class RuleSetDetails(Entity):
+    class RuleSetDetails(_Entity_):
         """
         Table that contains the ruleset detail info
         
@@ -1259,7 +1395,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.RuleSetDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.RuleSetDetails, self).__init__()
 
             self.yang_name = "rule-set-details"
             self.yang_parent_name = "correlator"
@@ -1278,7 +1417,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.RuleSetDetails, [], name, value)
 
 
-        class RuleSetDetail(Entity):
+        class RuleSetDetail(_Entity_):
             """
             Detail of one of the correlation rulesets
             
@@ -1313,7 +1452,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
 
                 self.yang_name = "rule-set-detail"
                 self.yang_parent_name = "rule-set-details"
@@ -1337,7 +1479,7 @@ class Correlator(Entity):
                 self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', 'rule_set_name_xr'], name, value)
 
 
-            class Rules(Entity):
+            class Rules(_Entity_):
                 """
                 Rules contained in a ruleset
                 
@@ -1379,7 +1521,10 @@ class Correlator(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
 
                     self.yang_name = "rules"
                     self.yang_parent_name = "rule-set-detail"
@@ -1403,11 +1548,23 @@ class Correlator(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail.Rules, ['rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Correlator.RuleSetDetails.RuleSetDetail.Rules']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.RuleSetDetails.RuleSetDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.RuleSetDetails']['meta_info']
 
 
-
-
-    class RuleDetails(Entity):
+    class RuleDetails(_Entity_):
         """
         Table that contains the database of correlation
         rule details
@@ -1427,7 +1584,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.RuleDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.RuleDetails, self).__init__()
 
             self.yang_name = "rule-details"
             self.yang_parent_name = "correlator"
@@ -1446,7 +1606,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.RuleDetails, [], name, value)
 
 
-        class RuleDetail(Entity):
+        class RuleDetail(_Entity_):
             """
             Details of one of the correlation rules
             
@@ -1545,7 +1705,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.RuleDetails.RuleDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.RuleDetails.RuleDetail, self).__init__()
 
                 self.yang_name = "rule-detail"
                 self.yang_parent_name = "rule-details"
@@ -1587,7 +1750,7 @@ class Correlator(Entity):
                 self._perform_setattr(Correlator.RuleDetails.RuleDetail, ['rule_name', 'timeout', 'root_cause_timeout', 'internal', 'reissue_non_bistate', 'reparent', 'context_correlation', 'apply_location', 'apply_context'], name, value)
 
 
-            class RuleSummary(Entity):
+            class RuleSummary(_Entity_):
                 """
                 Rule summary, name, etc
                 
@@ -1629,7 +1792,10 @@ class Correlator(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
 
                     self.yang_name = "rule-summary"
                     self.yang_parent_name = "rule-detail"
@@ -1653,9 +1819,13 @@ class Correlator(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleDetails.RuleDetail.RuleSummary, ['rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Correlator.RuleDetails.RuleDetail.RuleSummary']['meta_info']
 
 
-            class Codes(Entity):
+            class Codes(_Entity_):
                 """
                 Message codes defining the rule.
                 
@@ -1688,7 +1858,10 @@ class Correlator(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Correlator.RuleDetails.RuleDetail.Codes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Correlator.RuleDetails.RuleDetail.Codes, self).__init__()
 
                     self.yang_name = "codes"
                     self.yang_parent_name = "rule-detail"
@@ -1710,11 +1883,23 @@ class Correlator(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleDetails.RuleDetail.Codes, ['category', 'group', 'code'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                    return meta._meta_table['Correlator.RuleDetails.RuleDetail.Codes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.RuleDetails.RuleDetail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.RuleDetails']['meta_info']
 
 
-
-
-    class RuleSummaries(Entity):
+    class RuleSummaries(_Entity_):
         """
         Table that contains the database of correlation
         rule summary
@@ -1734,7 +1919,10 @@ class Correlator(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Correlator.RuleSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Correlator.RuleSummaries, self).__init__()
 
             self.yang_name = "rule-summaries"
             self.yang_parent_name = "correlator"
@@ -1753,7 +1941,7 @@ class Correlator(Entity):
             self._perform_setattr(Correlator.RuleSummaries, [], name, value)
 
 
-        class RuleSummary(Entity):
+        class RuleSummary(_Entity_):
             """
             One of the correlation rules
             
@@ -1804,7 +1992,10 @@ class Correlator(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Correlator.RuleSummaries.RuleSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Correlator.RuleSummaries.RuleSummary, self).__init__()
 
                 self.yang_name = "rule-summary"
                 self.yang_parent_name = "rule-summaries"
@@ -1831,11 +2022,23 @@ class Correlator(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleSummaries.RuleSummary, ['rule_name', 'rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+                return meta._meta_table['Correlator.RuleSummaries.RuleSummary']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+            return meta._meta_table['Correlator.RuleSummaries']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Correlator()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
+        return meta._meta_table['Correlator']['meta_info']
 
 

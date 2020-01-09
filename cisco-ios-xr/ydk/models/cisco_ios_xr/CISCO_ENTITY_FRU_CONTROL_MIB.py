@@ -7,8 +7,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class CefcFanTrayOperStatusType(Enum):
     warning = Enum.YLeaf(4, "warning")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['CefcFanTrayOperStatusType']
+
+
 class CefcPhysicalStatusType(Enum):
     """
     CefcPhysicalStatusType (Enum Class)
@@ -62,6 +71,12 @@ class CefcPhysicalStatusType(Enum):
     incompatible = Enum.YLeaf(4, "incompatible")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['CefcPhysicalStatusType']
+
+
 class ModuleAdminType(Enum):
     """
     ModuleAdminType (Enum Class)
@@ -83,6 +98,12 @@ class ModuleAdminType(Enum):
     reset = Enum.YLeaf(3, "reset")
 
     outOfServiceAdmin = Enum.YLeaf(4, "outOfServiceAdmin")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['ModuleAdminType']
 
 
 class ModuleOperType(Enum):
@@ -174,6 +195,12 @@ class ModuleOperType(Enum):
     okButPowerOverCritical = Enum.YLeaf(20, "okButPowerOverCritical")
 
     updatingFPD = Enum.YLeaf(21, "updatingFPD")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['ModuleOperType']
 
 
 class ModuleResetReasonType(Enum):
@@ -275,6 +302,12 @@ class ModuleResetReasonType(Enum):
     memoryProtectionErrorReset = Enum.YLeaf(23, "memoryProtectionErrorReset")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['ModuleResetReasonType']
+
+
 class PowerAdminType(Enum):
     """
     PowerAdminType (Enum Class)
@@ -296,6 +329,12 @@ class PowerAdminType(Enum):
     inlineAuto = Enum.YLeaf(3, "inlineAuto")
 
     inlineOn = Enum.YLeaf(4, "inlineOn")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['PowerAdminType']
 
 
 class PowerOperType(Enum):
@@ -341,6 +380,12 @@ class PowerOperType(Enum):
     onButFanFail = Enum.YLeaf(9, "onButFanFail")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['PowerOperType']
+
+
 class PowerRedundancyType(Enum):
     """
     PowerRedundancyType (Enum Class)
@@ -360,8 +405,14 @@ class PowerRedundancyType(Enum):
     combined = Enum.YLeaf(3, "combined")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['PowerRedundancyType']
 
-class CISCOENTITYFRUCONTROLMIB(Entity):
+
+
+class CISCOENTITYFRUCONTROLMIB(_Entity_):
     """
     
     
@@ -436,7 +487,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
     _revision = '2003-11-24'
 
     def __init__(self):
-        super(CISCOENTITYFRUCONTROLMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CISCOENTITYFRUCONTROLMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -489,7 +543,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         self._perform_setattr(CISCOENTITYFRUCONTROLMIB, [], name, value)
 
 
-    class CefcFRUPower(Entity):
+    class CefcFRUPower(_Entity_):
         """
         
         
@@ -521,7 +575,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, self).__init__()
 
             self.yang_name = "cefcFRUPower"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -542,9 +599,13 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, ['cefcmaxdefaultinlinepower', 'cefcmaxdefaulthighinlinepower'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPower']['meta_info']
 
 
-    class CefcMIBNotificationEnables(Entity):
+    class CefcMIBNotificationEnables(_Entity_):
         """
         
         
@@ -565,7 +626,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, self).__init__()
 
             self.yang_name = "cefcMIBNotificationEnables"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -584,9 +648,13 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, ['cefcmibenablestatusnotification'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables']['meta_info']
 
 
-    class CefcFRUPowerSupplyGroupTable(Entity):
+    class CefcFRUPowerSupplyGroupTable(_Entity_):
         """
         
         
@@ -605,7 +673,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerSupplyGroupTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -624,7 +695,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, [], name, value)
 
 
-        class CefcFRUPowerSupplyGroupEntry(Entity):
+        class CefcFRUPowerSupplyGroupEntry(_Entity_):
             """
             
             
@@ -686,7 +757,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerSupplyGroupEntry"
                 self.yang_parent_name = "cefcFRUPowerSupplyGroupTable"
@@ -715,10 +789,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, ['entphysicalindex', 'cefcpowerredundancymode', 'cefcpowerunits', 'cefctotalavailablecurrent', 'cefctotaldrawncurrent', 'cefcpowerredundancyopermode'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable']['meta_info']
 
 
-
-    class CefcFRUPowerStatusTable(Entity):
+    class CefcFRUPowerStatusTable(_Entity_):
         """
         
         
@@ -737,7 +819,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerStatusTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -756,7 +841,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, [], name, value)
 
 
-        class CefcFRUPowerStatusEntry(Entity):
+        class CefcFRUPowerStatusEntry(_Entity_):
             """
             
             
@@ -800,7 +885,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerStatusEntry"
                 self.yang_parent_name = "cefcFRUPowerStatusTable"
@@ -825,10 +913,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, ['entphysicalindex', 'cefcfrupoweradminstatus', 'cefcfrupoweroperstatus', 'cefcfrucurrent'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable']['meta_info']
 
 
-
-    class CefcFRUPowerSupplyValueTable(Entity):
+    class CefcFRUPowerSupplyValueTable(_Entity_):
         """
         
         
@@ -847,7 +943,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerSupplyValueTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -866,7 +965,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, [], name, value)
 
 
-        class CefcFRUPowerSupplyValueEntry(Entity):
+        class CefcFRUPowerSupplyValueEntry(_Entity_):
             """
             
             
@@ -923,7 +1022,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerSupplyValueEntry"
                 self.yang_parent_name = "cefcFRUPowerSupplyValueTable"
@@ -950,10 +1052,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, ['entphysicalindex', 'cefcfrutotalsystemcurrent', 'cefcfrudrawnsystemcurrent', 'cefcfrutotalinlinecurrent', 'cefcfrudrawninlinecurrent'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable']['meta_info']
 
 
-
-    class CefcModuleTable(Entity):
+    class CefcModuleTable(_Entity_):
         """
         
         
@@ -972,7 +1082,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, self).__init__()
 
             self.yang_name = "cefcModuleTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -991,7 +1104,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, [], name, value)
 
 
-        class CefcModuleEntry(Entity):
+        class CefcModuleEntry(_Entity_):
             """
             
             
@@ -1078,7 +1191,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, self).__init__()
 
                 self.yang_name = "cefcModuleEntry"
                 self.yang_parent_name = "cefcModuleTable"
@@ -1113,10 +1229,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, ['entphysicalindex', 'cefcmoduleadminstatus', 'cefcmoduleoperstatus', 'cefcmoduleresetreason', 'cefcmodulestatuslastchangetime', 'cefcmodulelastclearconfigtime', 'cefcmoduleresetreasondescription', 'cefcmodulestatechangereasondescr', 'cefcmoduleuptime'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcModuleTable']['meta_info']
 
 
-
-    class CefcIntelliModuleTable(Entity):
+    class CefcIntelliModuleTable(_Entity_):
         """
         
         
@@ -1135,7 +1259,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, self).__init__()
 
             self.yang_name = "cefcIntelliModuleTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -1154,7 +1281,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, [], name, value)
 
 
-        class CefcIntelliModuleEntry(Entity):
+        class CefcIntelliModuleEntry(_Entity_):
             """
             
             
@@ -1191,7 +1318,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, self).__init__()
 
                 self.yang_name = "cefcIntelliModuleEntry"
                 self.yang_parent_name = "cefcIntelliModuleTable"
@@ -1214,10 +1344,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, ['entphysicalindex', 'cefcintellimoduleipaddrtype', 'cefcintellimoduleipaddr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable']['meta_info']
 
 
-
-    class CefcFanTrayStatusTable(Entity):
+    class CefcFanTrayStatusTable(_Entity_):
         """
         
         
@@ -1236,7 +1374,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, self).__init__()
 
             self.yang_name = "cefcFanTrayStatusTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -1255,7 +1396,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, [], name, value)
 
 
-        class CefcFanTrayStatusEntry(Entity):
+        class CefcFanTrayStatusEntry(_Entity_):
             """
             
             
@@ -1283,7 +1424,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, self).__init__()
 
                 self.yang_name = "cefcFanTrayStatusEntry"
                 self.yang_parent_name = "cefcFanTrayStatusTable"
@@ -1304,10 +1448,18 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, ['entphysicalindex', 'cefcfantrayoperstatus'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable']['meta_info']
 
 
-
-    class CefcPhysicalTable(Entity):
+    class CefcPhysicalTable(_Entity_):
         """
         
         
@@ -1326,7 +1478,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2003-11-24'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, self).__init__()
 
             self.yang_name = "cefcPhysicalTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
@@ -1345,7 +1500,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, [], name, value)
 
 
-        class CefcPhysicalEntry(Entity):
+        class CefcPhysicalEntry(_Entity_):
             """
             
             
@@ -1373,7 +1528,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2003-11-24'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, self).__init__()
 
                 self.yang_name = "cefcPhysicalEntry"
                 self.yang_parent_name = "cefcPhysicalTable"
@@ -1394,11 +1552,23 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, ['entphysicalindex', 'cefcphysicalstatus'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+                return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+            return meta._meta_table['CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CISCOENTITYFRUCONTROLMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
+        return meta._meta_table['CISCOENTITYFRUCONTROLMIB']['meta_info']
 
 

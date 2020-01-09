@@ -1,7 +1,6 @@
 module ccc {
   namespace "http://cisco.com/calvados/ccc";
   prefix ccc;
-
   import tailf-common {
     prefix tailf;
   }
@@ -9,29 +8,30 @@ module ccc {
     prefix show_trace;
   }
 
-  organization
-    "Cisco Systems, Inc.";
+  organization "Cisco Systems, Inc.";
+
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
-  description
+
+  description 
     "This module contains definitions
      for the Calvados model objects.
-     
-     Copyright (c) 2012-2018 by Cisco Systems, Inc.
-     All rights reserved.";
 
+    Copyright (c) 2012-2018 by Cisco Systems, Inc.
+     All rights reserved.";
   revision 2016-10-12 {
     description
       "Unhide commands and configs. Moved to advanced-grp";
   }
+
 
   typedef startHexOffset {
     type string;
@@ -462,8 +462,8 @@ module ccc {
     container register {
       config false;
       list register_location {
-        key "register_location";
         config false;
+        key "register_location";
         leaf register_location {
           type string;
         }
@@ -476,8 +476,8 @@ module ccc {
 
   grouping ccc-block-number-group {
     list ccc_block_number {
-      key "ccc_block_num";
       config false;
+      key "ccc_block_num";
       leaf ccc_block_num {
         type uint32;
       }
@@ -512,8 +512,8 @@ module ccc {
 
   grouping ccc-offset-group {
     list ccc_offset {
-      key "hex_offset";
       config false;
+      key "hex_offset";
       leaf hex_offset {
         type HexOffset;
       }
@@ -530,8 +530,8 @@ module ccc {
 
   grouping ccc-address-group {
     list ccc_address {
-      key "start_hex_addr end_hex_addr";
       config false;
+      key "start_hex_addr end_hex_addr";
       leaf start_hex_addr {
         type startHexOffset;
       }
@@ -866,8 +866,8 @@ module ccc {
 
   grouping version-group {
     list location {
-      key "location";
       config false;
+      key "location";
       leaf location {
         type string;
       }
@@ -877,8 +877,8 @@ module ccc {
 
   grouping cdr-number-group {
     list cdr_number {
-      key "cdr_num";
       config false;
+      key "cdr_num";
       leaf cdr_num {
         type cdrNumber;
         description
@@ -894,8 +894,8 @@ module ccc {
 
   grouping si-dump-group {
     list location {
-      key "location";
       config false;
+      key "location";
       leaf location {
         type string;
       }
@@ -905,16 +905,16 @@ module ccc {
 
   grouping si-group {
     list cdr_number {
-      key "cdr_num";
       config false;
+      key "cdr_num";
       leaf cdr_num {
         type cdrNumber;
         description
           "CDR number";
       }
       list lane {
-        key "lane_mask";
         config false;
+        key "lane_mask";
         leaf lane_mask {
           type laneMask;
           description
@@ -931,8 +931,8 @@ module ccc {
 
   grouping eye-scan-group {
     list location {
-      key "location";
       config false;
+      key "location";
       leaf location {
         type string;
       }
@@ -942,16 +942,16 @@ module ccc {
 
   grouping cdr-eye-scan-group {
     list cdr_number {
-      key "cdr_num";
       config false;
+      key "cdr_num";
       leaf cdr_num {
         type cdrNumber;
         description
           "CDR number";
       }
       list lane {
-        key "lane_mask";
         config false;
+        key "lane_mask";
         leaf lane_mask {
           type laneMask;
           description
@@ -1073,8 +1073,8 @@ module ccc {
     container tla-dump {
       config false;
       list location {
-        key "location";
         config false;
+        key "location";
         leaf location {
           type string;
         }

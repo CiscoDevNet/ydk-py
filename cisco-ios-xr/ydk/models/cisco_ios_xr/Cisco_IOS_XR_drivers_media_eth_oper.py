@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class EthCtrlrAlarmState(Enum):
     alarm_not_set = Enum.YLeaf(2, "alarm-not-set")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthCtrlrAlarmState']
+
+
 class EtherAinsStatus(Enum):
     """
     EtherAinsStatus (Enum Class)
@@ -72,6 +81,12 @@ class EtherAinsStatus(Enum):
     ains_soak_status_pending = Enum.YLeaf(1, "ains-soak-status-pending")
 
     ains_soak_status_running = Enum.YLeaf(2, "ains-soak-status-running")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherAinsStatus']
 
 
 class EtherDomAlarm(Enum):
@@ -119,6 +134,12 @@ class EtherDomAlarm(Enum):
     alarm_low = Enum.YLeaf(5, "alarm-low")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherDomAlarm']
+
+
 class EtherFlowcontrol(Enum):
     """
     EtherFlowcontrol (Enum Class)
@@ -150,6 +171,12 @@ class EtherFlowcontrol(Enum):
     ingress = Enum.YLeaf(2, "ingress")
 
     bidirectional = Enum.YLeaf(3, "bidirectional")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherFlowcontrol']
 
 
 class EtherLedState(Enum):
@@ -207,6 +234,12 @@ class EtherLedState(Enum):
     red_on = Enum.YLeaf(6, "red-on")
 
     red_flashing = Enum.YLeaf(7, "red-flashing")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherLedState']
 
 
 class EtherLinkState(Enum):
@@ -398,6 +431,12 @@ class EtherLinkState(Enum):
     shutdown = Enum.YLeaf(28, "shutdown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherLinkState']
+
+
 class EtherPfc(Enum):
     """
     EtherPfc (Enum Class)
@@ -417,6 +456,12 @@ class EtherPfc(Enum):
     no_pfc = Enum.YLeaf(0, "no-pfc")
 
     on = Enum.YLeaf(1, "on")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherPfc']
 
 
 class EtherPhyPresent(Enum):
@@ -444,6 +489,12 @@ class EtherPhyPresent(Enum):
     phy_present = Enum.YLeaf(1, "phy-present")
 
     no_information = Enum.YLeaf(2, "no-information")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherPhyPresent']
 
 
 class EthernetBertErrCnt(Enum):
@@ -483,6 +534,12 @@ class EthernetBertErrCnt(Enum):
     block_error_count = Enum.YLeaf(3, "block-error-count")
 
     ethernet_bert_err_cnt_types = Enum.YLeaf(4, "ethernet-bert-err-cnt-types")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetBertErrCnt']
 
 
 class EthernetBertPattern(Enum):
@@ -578,6 +635,12 @@ class EthernetBertPattern(Enum):
     ethernet_bert_pattern_types = Enum.YLeaf(13, "ethernet-bert-pattern-types")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetBertPattern']
+
+
 class EthernetDev(Enum):
     """
     EthernetDev (Enum Class)
@@ -629,6 +692,12 @@ class EthernetDev(Enum):
     ethernet_num_dev = Enum.YLeaf(6, "ethernet-num-dev")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetDev']
+
+
 class EthernetDevIf(Enum):
     """
     EthernetDevIf (Enum Class)
@@ -662,6 +731,12 @@ class EthernetDevIf(Enum):
     ethernet_num_dev_if = Enum.YLeaf(3, "ethernet-num-dev-if")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetDevIf']
+
+
 class EthernetDuplex(Enum):
     """
     EthernetDuplex (Enum Class)
@@ -687,6 +762,12 @@ class EthernetDuplex(Enum):
     half_duplex = Enum.YLeaf(1, "half-duplex")
 
     full_duplex = Enum.YLeaf(2, "full-duplex")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetDuplex']
 
 
 class EthernetFec(Enum):
@@ -722,6 +803,12 @@ class EthernetFec(Enum):
     base_r = Enum.YLeaf(3, "base-r")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetFec']
+
+
 class EthernetIpg(Enum):
     """
     EthernetIpg (Enum Class)
@@ -741,6 +828,12 @@ class EthernetIpg(Enum):
     standard = Enum.YLeaf(0, "standard")
 
     non_standard = Enum.YLeaf(1, "non-standard")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetIpg']
 
 
 class EthernetLoopback(Enum):
@@ -774,6 +867,12 @@ class EthernetLoopback(Enum):
     line = Enum.YLeaf(2, "line")
 
     external = Enum.YLeaf(3, "external")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetLoopback']
 
 
 class EthernetMedia(Enum):
@@ -2306,23 +2405,51 @@ class EthernetMedia(Enum):
 
     	reach)
 
-    .. data:: ethernet_1000base_2bx_d = 377
+    .. data:: ethernet_100gbase_fr = 377
+
+    	duplex single mode fiber (Far Reach/2 km)
+
+    .. data:: ethernet_1000base_2bx_d = 378
 
     	2 channel X fibre (D)
 
-    .. data:: ethernet_1000base_2bx_d_i = 378
+    .. data:: ethernet_1000base_2bx_d_i = 379
 
     	2 channel X fibre (D/I)
 
-    .. data:: ethernet_1000base_2bx_u = 379
+    .. data:: ethernet_1000base_2bx_u = 380
 
     	2 channel X fibre (U)
 
-    .. data:: ethernet_1000base_2bx_u_i = 380
+    .. data:: ethernet_1000base_2bx_u_i = 381
 
     	2 channel X fibre (U/I)
 
-    .. data:: ethernet_base_max = 381
+    .. data:: ethernet_25gbase_aoc1m = 382
+
+    	Active optical cable 1m
+
+    .. data:: ethernet_25gbase_aoc2m = 383
+
+    	Active optical cable 2m
+
+    .. data:: ethernet_25gbase_aoc3m = 384
+
+    	Active optical cable 3m
+
+    .. data:: ethernet_25gbase_aoc5m = 385
+
+    	Active optical cable 5m
+
+    .. data:: ethernet_25gbase_aoc7m = 386
+
+    	Active optical cable 7m
+
+    .. data:: ethernet_25gbase_aoc10m = 387
+
+    	Active optical cable 10m
+
+    .. data:: ethernet_base_max = 388
 
     	ethernet base max
 
@@ -3082,15 +3209,35 @@ class EthernetMedia(Enum):
 
     ethernet_100gbase_sr_bd = Enum.YLeaf(376, "ethernet-100gbase-sr-bd")
 
-    ethernet_1000base_2bx_d = Enum.YLeaf(377, "ethernet-1000base-2bx-d")
+    ethernet_100gbase_fr = Enum.YLeaf(377, "ethernet-100gbase-fr")
 
-    ethernet_1000base_2bx_d_i = Enum.YLeaf(378, "ethernet-1000base-2bx-d-i")
+    ethernet_1000base_2bx_d = Enum.YLeaf(378, "ethernet-1000base-2bx-d")
 
-    ethernet_1000base_2bx_u = Enum.YLeaf(379, "ethernet-1000base-2bx-u")
+    ethernet_1000base_2bx_d_i = Enum.YLeaf(379, "ethernet-1000base-2bx-d-i")
 
-    ethernet_1000base_2bx_u_i = Enum.YLeaf(380, "ethernet-1000base-2bx-u-i")
+    ethernet_1000base_2bx_u = Enum.YLeaf(380, "ethernet-1000base-2bx-u")
 
-    ethernet_base_max = Enum.YLeaf(381, "ethernet-base-max")
+    ethernet_1000base_2bx_u_i = Enum.YLeaf(381, "ethernet-1000base-2bx-u-i")
+
+    ethernet_25gbase_aoc1m = Enum.YLeaf(382, "ethernet-25gbase-aoc1m")
+
+    ethernet_25gbase_aoc2m = Enum.YLeaf(383, "ethernet-25gbase-aoc2m")
+
+    ethernet_25gbase_aoc3m = Enum.YLeaf(384, "ethernet-25gbase-aoc3m")
+
+    ethernet_25gbase_aoc5m = Enum.YLeaf(385, "ethernet-25gbase-aoc5m")
+
+    ethernet_25gbase_aoc7m = Enum.YLeaf(386, "ethernet-25gbase-aoc7m")
+
+    ethernet_25gbase_aoc10m = Enum.YLeaf(387, "ethernet-25gbase-aoc10m")
+
+    ethernet_base_max = Enum.YLeaf(388, "ethernet-base-max")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetMedia']
 
 
 class EthernetPortEnable(Enum):
@@ -3124,6 +3271,12 @@ class EthernetPortEnable(Enum):
     tx_enabled = Enum.YLeaf(2, "tx-enabled")
 
     enabled = Enum.YLeaf(3, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetPortEnable']
 
 
 class EthernetSpeed(Enum):
@@ -3207,8 +3360,14 @@ class EthernetSpeed(Enum):
     ethernet_speed_types_count = Enum.YLeaf(11, "ethernet-speed-types-count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetSpeed']
 
-class EthernetInterface(Entity):
+
+
+class EthernetInterface(_Entity_):
     """
     Ethernet operational data
     
@@ -3241,7 +3400,10 @@ class EthernetInterface(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EthernetInterface, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EthernetInterface, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ethernet-interface"
@@ -3270,7 +3432,7 @@ class EthernetInterface(Entity):
         self._perform_setattr(EthernetInterface, [], name, value)
 
 
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Ethernet controller statistics table
         
@@ -3289,7 +3451,10 @@ class EthernetInterface(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EthernetInterface.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetInterface.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "ethernet-interface"
@@ -3308,7 +3473,7 @@ class EthernetInterface(Entity):
             self._perform_setattr(EthernetInterface.Statistics, [], name, value)
 
 
-        class Statistic(Entity):
+        class Statistic(_Entity_):
             """
             Ethernet statistics information
             
@@ -3824,7 +3989,10 @@ class EthernetInterface(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EthernetInterface.Statistics.Statistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetInterface.Statistics.Statistic, self).__init__()
 
                 self.yang_name = "statistic"
                 self.yang_parent_name = "statistics"
@@ -3953,10 +4121,18 @@ class EthernetInterface(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'received_total_bytes', 'received_good_bytes', 'received_total_frames', 'received8021q_frames', 'received_pause_frames', 'received_unknown_opcodes', 'received_total64_octet_frames', 'received_total_octet_frames_from65_to127', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from1519_to_max', 'received_good_frames', 'received_unicast_frames', 'received_multicast_frames', 'received_broadcast_frames', 'number_of_buffer_overrun_packets_dropped', 'number_of_aborted_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'number_of_miscellaneous_packets_dropped', 'dropped_giant_packets_greaterthan_mru', 'dropped_ether_stats_undersize_pkts', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_ether_stats_fragments', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'symbol_errors', 'dropped_miscellaneous_error_packets', 'rfc2819_ether_stats_oversized_pkts', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_crc_align_errors', 'rfc3635dot3_stats_alignment_errors', 'total_bytes_transmitted', 'total_good_bytes_transmitted', 'total_frames_transmitted', 'transmitted8021q_frames', 'transmitted_total_pause_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_good_frames', 'transmitted_unicast_frames', 'transmitted_multicast_frames', 'transmitted_broadcast_frames', 'buffer_underrun_packet_drops', 'aborted_packet_drops', 'uncounted_dropped_frames', 'miscellaneous_output_errors'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                return meta._meta_table['EthernetInterface.Statistics.Statistic']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+            return meta._meta_table['EthernetInterface.Statistics']['meta_info']
 
 
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Ethernet controller info table
         
@@ -3975,7 +4151,10 @@ class EthernetInterface(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EthernetInterface.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetInterface.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "ethernet-interface"
@@ -3994,7 +4173,7 @@ class EthernetInterface(Entity):
             self._perform_setattr(EthernetInterface.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Ethernet controller information
             
@@ -4057,7 +4236,10 @@ class EthernetInterface(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EthernetInterface.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetInterface.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -4097,7 +4279,7 @@ class EthernetInterface(Entity):
                 self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', 'admin_state', 'oper_state_up'], name, value)
 
 
-            class PhyInfo(Entity):
+            class PhyInfo(_Entity_):
                 """
                 PHY information
                 
@@ -4160,7 +4342,10 @@ class EthernetInterface(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EthernetInterface.Interfaces.Interface.PhyInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetInterface.Interfaces.Interface.PhyInfo, self).__init__()
 
                     self.yang_name = "phy-info"
                     self.yang_parent_name = "interface"
@@ -4195,7 +4380,7 @@ class EthernetInterface(Entity):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback', 'holdoff_time'], name, value)
 
 
-                class PhyDetails(Entity):
+                class PhyDetails(_Entity_):
                     """
                     Details about the PHY
                     
@@ -4324,7 +4509,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, self).__init__()
 
                         self.yang_name = "phy-details"
                         self.yang_parent_name = "phy-info"
@@ -4377,7 +4565,7 @@ class EthernetInterface(Entity):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['vendor', 'vendor_part_number', 'vendor_serial_number', 'transceiver_temperature', 'transceiver_voltage', 'transceiver_tx_power', 'transceiver_rx_power', 'transceiver_tx_bias', 'optics_wavelength', 'optics_type', 'revision_number'], name, value)
 
 
-                    class LaneFieldValidity(Entity):
+                    class LaneFieldValidity(_Entity_):
                         """
                         Digital Optical Monitoring (per lane
                         information) validity
@@ -4426,7 +4614,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, self).__init__()
 
                             self.yang_name = "lane-field-validity"
                             self.yang_parent_name = "phy-details"
@@ -4450,9 +4641,13 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['wavelength_valid', 'transmit_power_valid', 'receive_power_valid', 'laser_bias_valid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity']['meta_info']
 
 
-                    class DigOptMonAlarmThresholds(Entity):
+                    class DigOptMonAlarmThresholds(_Entity_):
                         """
                         Digital Optical Monitoring alarm thresholds
                         
@@ -4651,7 +4846,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, self).__init__()
 
                             self.yang_name = "dig-opt-mon-alarm-thresholds"
                             self.yang_parent_name = "phy-details"
@@ -4712,7 +4910,7 @@ class EthernetInterface(Entity):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['transceiver_temperature_alarm_high', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_temperature_alarm_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low', 'transceiver_voltage_alarm_low', 'laser_bias_alarm_high', 'laser_bias_warning_high', 'laser_bias_warning_low', 'laser_bias_alarm_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'optical_transmit_power_alarm_low', 'optical_receive_power_alarm_high', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_receive_power_alarm_low'], name, value)
 
 
-                        class FieldValidity(Entity):
+                        class FieldValidity(_Entity_):
                             """
                             Field validity
                             
@@ -4769,7 +4967,10 @@ class EthernetInterface(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, self).__init__()
 
                                 self.yang_name = "field-validity"
                                 self.yang_parent_name = "dig-opt-mon-alarm-thresholds"
@@ -4795,10 +4996,18 @@ class EthernetInterface(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['temperature_valid', 'voltage_valid', 'laser_bias_valid', 'transmit_power_valid', 'receive_power_valid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                                return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds']['meta_info']
 
 
-
-                    class DigOptMonAlarms(Entity):
+                    class DigOptMonAlarms(_Entity_):
                         """
                         Digital Optical Monitoring alarms
                         
@@ -4845,7 +5054,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, self).__init__()
 
                             self.yang_name = "dig-opt-mon-alarms"
                             self.yang_parent_name = "phy-details"
@@ -4871,9 +5083,13 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms']['meta_info']
 
 
-                    class Lane(Entity):
+                    class Lane(_Entity_):
                         """
                         Digital Optical Monitoring (per lane
                         information)
@@ -4938,7 +5154,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, self).__init__()
 
                             self.yang_name = "lane"
                             self.yang_parent_name = "phy-details"
@@ -4969,7 +5188,7 @@ class EthernetInterface(Entity):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current', 'lane_id'], name, value)
 
 
-                        class DigOptMonAlarm(Entity):
+                        class DigOptMonAlarm(_Entity_):
                             """
                             Digital Optical Monitoring alarms
                             
@@ -5002,7 +5221,10 @@ class EthernetInterface(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, self).__init__()
 
                                 self.yang_name = "dig-opt-mon-alarm"
                                 self.yang_parent_name = "lane"
@@ -5024,11 +5246,23 @@ class EthernetInterface(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                                return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
 
 
-
-
-                class FecDetails(Entity):
+                class FecDetails(_Entity_):
                     """
                     Forward Error Correction information
                     
@@ -5065,7 +5299,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, self).__init__()
 
                         self.yang_name = "fec-details"
                         self.yang_parent_name = "phy-info"
@@ -5087,9 +5324,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['fec', 'corrected_codeword_count', 'uncorrected_codeword_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails']['meta_info']
 
 
-                class ExtendedLoopback(Entity):
+                class ExtendedLoopback(_Entity_):
                     """
                     Port operational extended loopback
                     
@@ -5117,7 +5358,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, self).__init__()
 
                         self.yang_name = "extended-loopback"
                         self.yang_parent_name = "phy-info"
@@ -5137,10 +5381,18 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                    return meta._meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
 
 
-
-            class Layer1Info(Entity):
+            class Layer1Info(_Entity_):
                 """
                 Layer 1 information
                 
@@ -5270,7 +5522,10 @@ class EthernetInterface(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EthernetInterface.Interfaces.Interface.Layer1Info, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetInterface.Interfaces.Interface.Layer1Info, self).__init__()
 
                     self.yang_name = "layer1-info"
                     self.yang_parent_name = "interface"
@@ -5333,7 +5588,7 @@ class EthernetInterface(Entity):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['link_state', 'led_state', 'speed', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'bandwidth_utilization', 'bandwidth'], name, value)
 
 
-                class Autoneg(Entity):
+                class Autoneg(_Entity_):
                     """
                     Port autonegotiation configuration settings
                     
@@ -5400,7 +5655,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, self).__init__()
 
                         self.yang_name = "autoneg"
                         self.yang_parent_name = "layer1-info"
@@ -5430,9 +5688,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'mask', 'speed', 'duplex', 'flowcontrol', 'config_override', 'fec'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg']['meta_info']
 
 
-                class CurrentAlarms(Entity):
+                class CurrentAlarms(_Entity_):
                     """
                     Current alarms
                     
@@ -5514,7 +5776,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, self).__init__()
 
                         self.yang_name = "current-alarms"
                         self.yang_parent_name = "layer1-info"
@@ -5550,9 +5815,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms']['meta_info']
 
 
-                class PreviousAlarms(Entity):
+                class PreviousAlarms(_Entity_):
                     """
                     Previous alarms
                     
@@ -5634,7 +5903,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, self).__init__()
 
                         self.yang_name = "previous-alarms"
                         self.yang_parent_name = "layer1-info"
@@ -5670,9 +5942,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms']['meta_info']
 
 
-                class ErrorCounts(Entity):
+                class ErrorCounts(_Entity_):
                     """
                     Statistics for detected errors
                     
@@ -5702,7 +5978,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, self).__init__()
 
                         self.yang_name = "error-counts"
                         self.yang_parent_name = "layer1-info"
@@ -5722,9 +6001,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['sync_header_errors', 'pcsbip_errors'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts']['meta_info']
 
 
-                class BerMonitoring(Entity):
+                class BerMonitoring(_Entity_):
                     """
                     BER monitoring details
                     
@@ -5759,7 +6042,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, self).__init__()
 
                         self.yang_name = "ber-monitoring"
                         self.yang_parent_name = "layer1-info"
@@ -5786,7 +6072,7 @@ class EthernetInterface(Entity):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, ['supported'], name, value)
 
 
-                    class Settings(Entity):
+                    class Settings(_Entity_):
                         """
                         The BER monitoring settings to be applied
                         
@@ -5843,7 +6129,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, self).__init__()
 
                             self.yang_name = "settings"
                             self.yang_parent_name = "ber-monitoring"
@@ -5869,9 +6158,13 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings']['meta_info']
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         The BER state
                         
@@ -5901,7 +6194,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ber-monitoring"
@@ -5921,10 +6217,18 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, ['sd_current_ber', 'sf_current_ber'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
 
 
-
-                class OpdMonitoring(Entity):
+                class OpdMonitoring(_Entity_):
                     """
                     OPD monitoring details
                     
@@ -5952,7 +6256,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, self).__init__()
 
                         self.yang_name = "opd-monitoring"
                         self.yang_parent_name = "layer1-info"
@@ -5975,7 +6282,7 @@ class EthernetInterface(Entity):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, ['supported'], name, value)
 
 
-                    class Settings(Entity):
+                    class Settings(_Entity_):
                         """
                         The OPD monitoring settings to be applied
                         
@@ -6005,7 +6312,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, self).__init__()
 
                             self.yang_name = "settings"
                             self.yang_parent_name = "opd-monitoring"
@@ -6025,10 +6335,18 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold_set', 'received_optical_power_degrade_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring']['meta_info']
 
 
-
-                class PfcInfo(Entity):
+                class PfcInfo(_Entity_):
                     """
                     Priority flow control information
                     
@@ -6074,7 +6392,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, self).__init__()
 
                         self.yang_name = "pfc-info"
                         self.yang_parent_name = "layer1-info"
@@ -6098,10 +6419,18 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_flowcontrol', 'priority_enabled_bitmap', 'rx_frame', 'tx_frame'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                    return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 
 
-
-            class MacInfo(Entity):
+            class MacInfo(_Entity_):
                 """
                 MAC Layer information
                 
@@ -6163,7 +6492,10 @@ class EthernetInterface(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EthernetInterface.Interfaces.Interface.MacInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetInterface.Interfaces.Interface.MacInfo, self).__init__()
 
                     self.yang_name = "mac-info"
                     self.yang_parent_name = "interface"
@@ -6196,7 +6528,7 @@ class EthernetInterface(Entity):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['mtu', 'mru', 'burned_in_mac_address', 'operational_mac_address'], name, value)
 
 
-                class UnicastMacFilters(Entity):
+                class UnicastMacFilters(_Entity_):
                     """
                     Port unicast MAC filter information
                     
@@ -6217,7 +6549,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, self).__init__()
 
                         self.yang_name = "unicast-mac-filters"
                         self.yang_parent_name = "mac-info"
@@ -6235,9 +6570,13 @@ class EthernetInterface(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters']['meta_info']
 
 
-                class MulticastMacFilters(Entity):
+                class MulticastMacFilters(_Entity_):
                     """
                     Port multicast MAC filter information
                     
@@ -6263,7 +6602,10 @@ class EthernetInterface(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, self).__init__()
 
                         self.yang_name = "multicast-mac-filters"
                         self.yang_parent_name = "mac-info"
@@ -6284,7 +6626,7 @@ class EthernetInterface(Entity):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, ['multicast_promiscuous'], name, value)
 
 
-                    class MulticastMacAddress(Entity):
+                    class MulticastMacAddress(_Entity_):
                         """
                         MAC addresses in the multicast ingress
                         destination MAC filter
@@ -6315,7 +6657,10 @@ class EthernetInterface(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, self).__init__()
 
                             self.yang_name = "multicast-mac-address"
                             self.yang_parent_name = "multicast-mac-filters"
@@ -6335,11 +6680,23 @@ class EthernetInterface(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, ['mac_address', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                    return meta._meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']
 
 
-
-
-            class TransportInfo(Entity):
+            class TransportInfo(_Entity_):
                 """
                 Transport state information
                 
@@ -6387,7 +6744,10 @@ class EthernetInterface(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EthernetInterface.Interfaces.Interface.TransportInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetInterface.Interfaces.Interface.TransportInfo, self).__init__()
 
                     self.yang_name = "transport-info"
                     self.yang_parent_name = "interface"
@@ -6411,11 +6771,23 @@ class EthernetInterface(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['maintenance_mode_enabled', 'ains_status', 'total_duration', 'remaining_duration'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                    return meta._meta_table['EthernetInterface.Interfaces.Interface.TransportInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                return meta._meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+            return meta._meta_table['EthernetInterface.Interfaces']['meta_info']
 
 
-
-
-    class Berts(Entity):
+    class Berts(_Entity_):
         """
         Ethernet controller BERT table
         
@@ -6434,7 +6806,10 @@ class EthernetInterface(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EthernetInterface.Berts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EthernetInterface.Berts, self).__init__()
 
             self.yang_name = "berts"
             self.yang_parent_name = "ethernet-interface"
@@ -6453,7 +6828,7 @@ class EthernetInterface(Entity):
             self._perform_setattr(EthernetInterface.Berts, [], name, value)
 
 
-        class Bert(Entity):
+        class Bert(_Entity_):
             """
             Ethernet BERT information
             
@@ -6501,7 +6876,10 @@ class EthernetInterface(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EthernetInterface.Berts.Bert, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EthernetInterface.Berts.Bert, self).__init__()
 
                 self.yang_name = "bert"
                 self.yang_parent_name = "berts"
@@ -6529,7 +6907,7 @@ class EthernetInterface(Entity):
                 self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'time_left', 'port_bert_interval'], name, value)
 
 
-            class BertStatus(Entity):
+            class BertStatus(_Entity_):
                 """
                 Current test status
                 
@@ -6612,7 +6990,10 @@ class EthernetInterface(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EthernetInterface.Berts.Bert.BertStatus, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EthernetInterface.Berts.Bert.BertStatus, self).__init__()
 
                     self.yang_name = "bert-status"
                     self.yang_parent_name = "bert"
@@ -6646,12 +7027,28 @@ class EthernetInterface(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'receive_count', 'transmit_count', 'receive_errors', 'error_type', 'test_pattern', 'device_under_test', 'interface_device'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                    return meta._meta_table['EthernetInterface.Berts.Bert.BertStatus']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                return meta._meta_table['EthernetInterface.Berts.Bert']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+            return meta._meta_table['EthernetInterface.Berts']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EthernetInterface()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EthernetInterface']['meta_info']
 
 

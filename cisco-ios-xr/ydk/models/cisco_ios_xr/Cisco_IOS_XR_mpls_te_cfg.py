@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -40,6 +43,12 @@ class BandwidthConstraint(Enum):
     bandwidth_constraint_maximum_allocation_model = Enum.YLeaf(1, "bandwidth-constraint-maximum-allocation-model")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['BandwidthConstraint']
+
+
 class BfdReversePath(Enum):
     """
     BfdReversePath (Enum Class)
@@ -53,6 +62,12 @@ class BfdReversePath(Enum):
     """
 
     bfd_reverse_path_binding_label = Enum.YLeaf(1, "bfd-reverse-path-binding-label")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['BfdReversePath']
 
 
 class BindingSegmentId(Enum):
@@ -74,6 +89,12 @@ class BindingSegmentId(Enum):
     any_label = Enum.YLeaf(1, "any-label")
 
     specified_label = Enum.YLeaf(2, "specified-label")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['BindingSegmentId']
 
 
 class GmplsttiMode(Enum):
@@ -103,6 +124,12 @@ class GmplsttiMode(Enum):
     tcm = Enum.YLeaf(3, "tcm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['GmplsttiMode']
+
+
 class IetfMode(Enum):
     """
     IetfMode (Enum Class)
@@ -116,6 +143,12 @@ class IetfMode(Enum):
     """
 
     standard = Enum.YLeaf(3, "standard")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['IetfMode']
 
 
 class LinkNextHop(Enum):
@@ -139,6 +172,12 @@ class LinkNextHop(Enum):
     ipv4_address = Enum.YLeaf(2, "ipv4-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['LinkNextHop']
+
+
 class MplsLcacFloodingIgp(Enum):
     """
     MplsLcacFloodingIgp (Enum Class)
@@ -152,6 +191,12 @@ class MplsLcacFloodingIgp(Enum):
     """
 
     ospf = Enum.YLeaf(0, "ospf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsLcacFloodingIgp']
 
 
 class MplsTeAffinityValue(Enum):
@@ -173,6 +218,12 @@ class MplsTeAffinityValue(Enum):
     hex_value = Enum.YLeaf(1, "hex-value")
 
     bit_position = Enum.YLeaf(2, "bit-position")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeAffinityValue']
 
 
 class MplsTeAutorouteMetric(Enum):
@@ -202,6 +253,12 @@ class MplsTeAutorouteMetric(Enum):
     constant = Enum.YLeaf(3, "constant")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeAutorouteMetric']
+
+
 class MplsTeBackupBandwidthClass(Enum):
     """
     MplsTeBackupBandwidthClass (Enum Class)
@@ -227,6 +284,12 @@ class MplsTeBackupBandwidthClass(Enum):
     class1 = Enum.YLeaf(1, "class1")
 
     any_class = Enum.YLeaf(9, "any-class")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeBackupBandwidthClass']
 
 
 class MplsTeBackupBandwidthPool(Enum):
@@ -256,6 +319,12 @@ class MplsTeBackupBandwidthPool(Enum):
     sub_pool = Enum.YLeaf(4, "sub-pool")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeBackupBandwidthPool']
+
+
 class MplsTeBandwidthDste(Enum):
     """
     MplsTeBandwidthDste (Enum Class)
@@ -275,6 +344,12 @@ class MplsTeBandwidthDste(Enum):
     standard_dste = Enum.YLeaf(0, "standard-dste")
 
     pre_standard_dste = Enum.YLeaf(1, "pre-standard-dste")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeBandwidthDste']
 
 
 class MplsTeBandwidthLimit(Enum):
@@ -298,6 +373,12 @@ class MplsTeBandwidthLimit(Enum):
     limited = Enum.YLeaf(128, "limited")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeBandwidthLimit']
+
+
 class MplsTeBfdSessionDownAction(Enum):
     """
     MplsTeBfdSessionDownAction (Enum Class)
@@ -311,6 +392,12 @@ class MplsTeBfdSessionDownAction(Enum):
     """
 
     re_setup = Enum.YLeaf(1, "re-setup")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeBfdSessionDownAction']
 
 
 class MplsTeConfigTunnel(Enum):
@@ -332,6 +419,12 @@ class MplsTeConfigTunnel(Enum):
     p2p = Enum.YLeaf(0, "p2p")
 
     p2mp = Enum.YLeaf(1, "p2mp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeConfigTunnel']
 
 
 class MplsTeIgpProtocol(Enum):
@@ -359,6 +452,12 @@ class MplsTeIgpProtocol(Enum):
     isis = Enum.YLeaf(1, "isis")
 
     ospf = Enum.YLeaf(2, "ospf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeIgpProtocol']
 
 
 class MplsTeLogFrrProtection(Enum):
@@ -400,6 +499,12 @@ class MplsTeLogFrrProtection(Enum):
     all = Enum.YLeaf(769, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeLogFrrProtection']
+
+
 class MplsTeOtnApsProtection(Enum):
     """
     MplsTeOtnApsProtection (Enum Class)
@@ -427,6 +532,12 @@ class MplsTeOtnApsProtection(Enum):
     Y_1plus1_bdir_aps = Enum.YLeaf(16, "1plus1-bdir-aps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnApsProtection']
+
+
 class MplsTeOtnApsProtectionMode(Enum):
     """
     MplsTeOtnApsProtectionMode (Enum Class)
@@ -448,6 +559,12 @@ class MplsTeOtnApsProtectionMode(Enum):
     non_revertive = Enum.YLeaf(2, "non-revertive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnApsProtectionMode']
+
+
 class MplsTeOtnApsRestorationStyle(Enum):
     """
     MplsTeOtnApsRestorationStyle (Enum Class)
@@ -467,6 +584,12 @@ class MplsTeOtnApsRestorationStyle(Enum):
     keep_failed_lsp = Enum.YLeaf(1, "keep-failed-lsp")
 
     delete_failed_lsp = Enum.YLeaf(2, "delete-failed-lsp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnApsRestorationStyle']
 
 
 class MplsTeOtnSncMode(Enum):
@@ -494,6 +617,12 @@ class MplsTeOtnSncMode(Enum):
     snc_i = Enum.YLeaf(2, "snc-i")
 
     snc_s = Enum.YLeaf(3, "snc-s")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnSncMode']
 
 
 class MplsTePathComputationMethod(Enum):
@@ -529,6 +658,12 @@ class MplsTePathComputationMethod(Enum):
     explicit = Enum.YLeaf(3, "explicit")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathComputationMethod']
+
+
 class MplsTePathDiversityConformance(Enum):
     """
     MplsTePathDiversityConformance (Enum Class)
@@ -548,6 +683,12 @@ class MplsTePathDiversityConformance(Enum):
     strict = Enum.YLeaf(0, "strict")
 
     best_effort = Enum.YLeaf(1, "best-effort")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathDiversityConformance']
 
 
 class MplsTePathOption(Enum):
@@ -593,6 +734,12 @@ class MplsTePathOption(Enum):
     no_ero = Enum.YLeaf(5, "no-ero")
 
     sr = Enum.YLeaf(6, "sr")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathOption']
 
 
 class MplsTePathOptionProperty(Enum):
@@ -642,6 +789,12 @@ class MplsTePathOptionProperty(Enum):
     sticky = Enum.YLeaf(32, "sticky")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathOptionProperty']
+
+
 class MplsTePathOptionProtection(Enum):
     """
     MplsTePathOptionProtection (Enum Class)
@@ -663,6 +816,12 @@ class MplsTePathOptionProtection(Enum):
     protecting = Enum.YLeaf(1, "protecting")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathOptionProtection']
+
+
 class MplsTePathSelectionInvalidationTimerExpire(Enum):
     """
     MplsTePathSelectionInvalidationTimerExpire (Enum Class)
@@ -682,6 +841,12 @@ class MplsTePathSelectionInvalidationTimerExpire(Enum):
     tunnel_action_tear = Enum.YLeaf(1, "tunnel-action-tear")
 
     tunnel_action_drop = Enum.YLeaf(2, "tunnel-action-drop")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpire']
 
 
 class MplsTePathSelectionMetric(Enum):
@@ -709,6 +874,12 @@ class MplsTePathSelectionMetric(Enum):
     te = Enum.YLeaf(2, "te")
 
     delay = Enum.YLeaf(4, "delay")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathSelectionMetric']
 
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
@@ -744,6 +915,12 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
     adj_protected = Enum.YLeaf(2, "adj-protected")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtection']
+
+
 class MplsTePathSelectionTiebreaker(Enum):
     """
     MplsTePathSelectionTiebreaker (Enum Class)
@@ -769,6 +946,12 @@ class MplsTePathSelectionTiebreaker(Enum):
     max_fill = Enum.YLeaf(2, "max-fill")
 
     random = Enum.YLeaf(3, "random")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathSelectionTiebreaker']
 
 
 class MplsTeSigNameOption(Enum):
@@ -798,6 +981,12 @@ class MplsTeSigNameOption(Enum):
     name = Enum.YLeaf(2, "name")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSigNameOption']
+
+
 class MplsTeSignaledLabel(Enum):
     """
     MplsTeSignaledLabel (Enum Class)
@@ -817,6 +1006,12 @@ class MplsTeSignaledLabel(Enum):
     not_set = Enum.YLeaf(0, "not-set")
 
     dwdm = Enum.YLeaf(1, "dwdm")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSignaledLabel']
 
 
 class MplsTeSwitchingCap(Enum):
@@ -844,6 +1039,12 @@ class MplsTeSwitchingCap(Enum):
     lsc = Enum.YLeaf(150, "lsc")
 
     fsc = Enum.YLeaf(200, "fsc")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSwitchingCap']
 
 
 class MplsTeSwitchingEncode(Enum):
@@ -879,6 +1080,12 @@ class MplsTeSwitchingEncode(Enum):
     sondet_sdh = Enum.YLeaf(5, "sondet-sdh")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSwitchingEncode']
+
+
 class MplsTeSwitchingEncoding(Enum):
     """
     MplsTeSwitchingEncoding (Enum Class)
@@ -906,6 +1113,12 @@ class MplsTeSwitchingEncoding(Enum):
     sondet_sdh = Enum.YLeaf(5, "sondet-sdh")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSwitchingEncoding']
+
+
 class MplsTeSwitchingIndex(Enum):
     """
     MplsTeSwitchingIndex (Enum Class)
@@ -919,6 +1132,12 @@ class MplsTeSwitchingIndex(Enum):
     """
 
     link = Enum.YLeaf(255, "link")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeSwitchingIndex']
 
 
 class MplsTeTunnelAffinity(Enum):
@@ -960,6 +1179,12 @@ class MplsTeTunnelAffinity(Enum):
     ignore = Enum.YLeaf(5, "ignore")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeTunnelAffinity']
+
+
 class MplsTeTunnelId(Enum):
     """
     MplsTeTunnelId (Enum Class)
@@ -979,6 +1204,12 @@ class MplsTeTunnelId(Enum):
     auto = Enum.YLeaf(0, "auto")
 
     explicit = Enum.YLeaf(1, "explicit")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeTunnelId']
 
 
 class MplsTebfdSession(Enum):
@@ -1008,6 +1239,12 @@ class MplsTebfdSession(Enum):
     redundant_sbfd = Enum.YLeaf(3, "redundant-sbfd")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTebfdSession']
+
+
 class MplsTesrlgExclude(Enum):
     """
     MplsTesrlgExclude (Enum Class)
@@ -1035,6 +1272,12 @@ class MplsTesrlgExclude(Enum):
     weighted = Enum.YLeaf(3, "weighted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTesrlgExclude']
+
+
 class OspfAreaMode(Enum):
     """
     OspfAreaMode (Enum Class)
@@ -1056,6 +1299,12 @@ class OspfAreaMode(Enum):
     ospfip_addr = Enum.YLeaf(1, "ospfip-addr")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OspfAreaMode']
+
+
 class OtnDestination(Enum):
     """
     OtnDestination (Enum Class)
@@ -1075,6 +1324,12 @@ class OtnDestination(Enum):
     number_ed = Enum.YLeaf(0, "number-ed")
 
     un_number_ed = Enum.YLeaf(1, "un-number-ed")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnDestination']
 
 
 class OtnPayload(Enum):
@@ -1116,6 +1371,12 @@ class OtnPayload(Enum):
     gfp_f_ext = Enum.YLeaf(70, "gfp-f-ext")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnPayload']
+
+
 class OtnProtectionSwitchLockout(Enum):
     """
     OtnProtectionSwitchLockout (Enum Class)
@@ -1135,6 +1396,12 @@ class OtnProtectionSwitchLockout(Enum):
     none = Enum.YLeaf(0, "none")
 
     working = Enum.YLeaf(1, "working")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnProtectionSwitchLockout']
 
 
 class OtnSignaledBandwidth(Enum):
@@ -1230,6 +1497,12 @@ class OtnSignaledBandwidth(Enum):
     odu3e2 = Enum.YLeaf(27, "odu3e2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnSignaledBandwidth']
+
+
 class OtnSignaledBandwidthFlexFraming(Enum):
     """
     OtnSignaledBandwidthFlexFraming (Enum Class)
@@ -1255,6 +1528,12 @@ class OtnSignaledBandwidthFlexFraming(Enum):
     framed_gfp_fixed = Enum.YLeaf(21, "framed-gfp-fixed")
 
     framed_gfp_resize = Enum.YLeaf(22, "framed-gfp-resize")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnSignaledBandwidthFlexFraming']
 
 
 class OtnStaticUni(Enum):
@@ -1284,6 +1563,12 @@ class OtnStaticUni(Enum):
     termination = Enum.YLeaf(2, "termination")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnStaticUni']
+
+
 class PathInvalidationAction(Enum):
     """
     PathInvalidationAction (Enum Class)
@@ -1303,6 +1588,12 @@ class PathInvalidationAction(Enum):
     tear = Enum.YLeaf(1, "tear")
 
     drop = Enum.YLeaf(2, "drop")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['PathInvalidationAction']
 
 
 class RoutePriorityRole(Enum):
@@ -1332,6 +1623,12 @@ class RoutePriorityRole(Enum):
     route_priority_role_middle = Enum.YLeaf(2, "route-priority-role-middle")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['RoutePriorityRole']
+
+
 class SrPrepend(Enum):
     """
     SrPrepend (Enum Class)
@@ -1359,8 +1656,14 @@ class SrPrepend(Enum):
     bgp_n_hop = Enum.YLeaf(2, "bgp-n-hop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['SrPrepend']
 
-class MplsTe(Entity):
+
+
+class MplsTe(_Entity_):
     """
     The root of MPLS TE configuration
     
@@ -1414,10 +1717,13 @@ class MplsTe(Entity):
     """
 
     _prefix = 'mpls-te-cfg'
-    _revision = '2017-09-07'
+    _revision = '2019-10-16'
 
     def __init__(self):
-        super(MplsTe, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsTe, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-te"
@@ -1469,7 +1775,7 @@ class MplsTe(Entity):
         self._perform_setattr(MplsTe, ['enable_traffic_engineering'], name, value)
 
 
-    class DiffServTrafficEngineering(Entity):
+    class DiffServTrafficEngineering(_Entity_):
         """
         Configure Diff\-Serv Traffic\-Engineering
         
@@ -1493,10 +1799,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.DiffServTrafficEngineering, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.DiffServTrafficEngineering, self).__init__()
 
             self.yang_name = "diff-serv-traffic-engineering"
             self.yang_parent_name = "mpls-te"
@@ -1522,7 +1831,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.DiffServTrafficEngineering, ['bandwidth_constraint_model', 'mode_ietf'], name, value)
 
 
-        class Classes(Entity):
+        class Classes(_Entity_):
             """
             Configure Diff\-Serv Traffic\-Engineering Classes
             
@@ -1536,10 +1845,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.DiffServTrafficEngineering.Classes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.DiffServTrafficEngineering.Classes, self).__init__()
 
                 self.yang_name = "classes"
                 self.yang_parent_name = "diff-serv-traffic-engineering"
@@ -1558,7 +1870,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes, [], name, value)
 
 
-            class Class(Entity):
+            class Class(_Entity_):
                 """
                 DSTE class number
                 
@@ -1597,10 +1909,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.DiffServTrafficEngineering.Classes.Class, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.DiffServTrafficEngineering.Classes.Class, self).__init__()
 
                     self.yang_name = "class"
                     self.yang_parent_name = "classes"
@@ -1625,11 +1940,23 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes.Class, ['class_number', 'class_type', 'class_priority', 'unused'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.DiffServTrafficEngineering.Classes.Class']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.DiffServTrafficEngineering.Classes']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.DiffServTrafficEngineering']['meta_info']
 
 
-
-
-    class NamedTunnels(Entity):
+    class NamedTunnels(_Entity_):
         """
         Configure MPLS TE tunnel
         
@@ -1648,10 +1975,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.NamedTunnels, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.NamedTunnels, self).__init__()
 
             self.yang_name = "named-tunnels"
             self.yang_parent_name = "mpls-te"
@@ -1675,7 +2005,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.NamedTunnels, ['enable'], name, value)
 
 
-        class Tunnels(Entity):
+        class Tunnels(_Entity_):
             """
             Configure MPLS TE tunnel
             
@@ -1689,10 +2019,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.NamedTunnels.Tunnels, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.NamedTunnels.Tunnels, self).__init__()
 
                 self.yang_name = "tunnels"
                 self.yang_parent_name = "named-tunnels"
@@ -1711,7 +2044,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels, [], name, value)
 
 
-            class Tunnel(Entity):
+            class Tunnel(_Entity_):
                 """
                 Configure a MPLS TE tunnel
                 
@@ -1744,10 +2077,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.NamedTunnels.Tunnels.Tunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.NamedTunnels.Tunnels.Tunnel, self).__init__()
 
                     self.yang_name = "tunnel"
                     self.yang_parent_name = "tunnels"
@@ -1776,7 +2112,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel, ['tunnel_name', 'tunnel_type'], name, value)
 
 
-                class TunnelAttributes(Entity):
+                class TunnelAttributes(_Entity_):
                     """
                     MPLS tunnel attributes
                     
@@ -1889,10 +2225,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes, self).__init__()
 
                         self.yang_name = "tunnel-attributes"
                         self.yang_parent_name = "tunnel"
@@ -1963,7 +2302,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes, ['shutdown', 'forward_class', 'destination', 'record_route', 'path_selection_metric', 'soft_preemption', 'load_share'], name, value)
 
 
-                    class PathSetups(Entity):
+                    class PathSetups(_Entity_):
                         """
                         Tunnel path setup table
                         
@@ -1977,10 +2316,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups, self).__init__()
 
                             self.yang_name = "path-setups"
                             self.yang_parent_name = "tunnel-attributes"
@@ -1998,7 +2340,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups, [], name, value)
 
 
-                        class PathSetup(Entity):
+                        class PathSetup(_Entity_):
                             """
                             Tunnel path setup
                             
@@ -2028,10 +2370,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, self).__init__()
 
                                 self.yang_name = "path-setup"
                                 self.yang_parent_name = "path-setups"
@@ -2055,7 +2400,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, ['path_setup_name', 'preference'], name, value)
 
 
-                            class PathComputation(Entity):
+                            class PathComputation(_Entity_):
                                 """
                                 Path computation method
                                 
@@ -2087,10 +2432,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, self).__init__()
 
                                     self.yang_name = "path-computation"
                                     self.yang_parent_name = "path-setup"
@@ -2113,11 +2461,23 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, ['path_computation_method', 'explicit_path_name', 'path_computation_server'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups']['meta_info']
 
 
-
-
-                    class TunnelPathSelection(Entity):
+                    class TunnelPathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -2159,10 +2519,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, self).__init__()
 
                             self.yang_name = "tunnel-path-selection"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2190,7 +2553,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, ['tiebreaker', 'path_selection_hop_limit', 'path_selection_delay_limit', 'path_selection_cost_limit'], name, value)
 
 
-                        class Invalidation(Entity):
+                        class Invalidation(_Entity_):
                             """
                             Deprecated
                             
@@ -2213,10 +2576,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, self).__init__()
 
                                 self.yang_name = "invalidation"
                                 self.yang_parent_name = "tunnel-path-selection"
@@ -2237,10 +2603,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection']['meta_info']
 
 
-
-                    class AutoBandwidth(Entity):
+                    class AutoBandwidth(_Entity_):
                         """
                         Tunnel Interface Auto\-bandwidth configuration
                         data
@@ -2321,10 +2695,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, self).__init__()
 
                             self.yang_name = "auto-bandwidth"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2369,7 +2746,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, ['underflow_enable', 'resignal_last_bandwidth_time_out', 'enabled', 'application_frequency', 'overflow_enable', 'collection_only'], name, value)
 
 
-                        class Underflow(Entity):
+                        class Underflow(_Entity_):
                             """
                             Configuring the tunnel underflow detection
                             
@@ -2411,10 +2788,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, self).__init__()
 
                                 self.yang_name = "underflow"
                                 self.yang_parent_name = "auto-bandwidth"
@@ -2437,9 +2817,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, ['underflow_threshold_percent', 'underflow_threshold_value', 'underflow_threshold_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow']['meta_info']
 
 
-                        class Overflow(Entity):
+                        class Overflow(_Entity_):
                             """
                             Configuring the tunnel overflow detection
                             
@@ -2481,10 +2865,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, self).__init__()
 
                                 self.yang_name = "overflow"
                                 self.yang_parent_name = "auto-bandwidth"
@@ -2507,9 +2894,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, ['overflow_threshold_percent', 'overflow_threshold_value', 'overflow_threshold_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow']['meta_info']
 
 
-                        class BandwidthLimits(Entity):
+                        class BandwidthLimits(_Entity_):
                             """
                             Set min/max bandwidth auto\-bw can apply on a
                             tunnel
@@ -2539,10 +2930,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, self).__init__()
 
                                 self.yang_name = "bandwidth-limits"
                                 self.yang_parent_name = "auto-bandwidth"
@@ -2563,9 +2957,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, ['bandwidth_min_limit', 'bandwidth_max_limit'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits']['meta_info']
 
 
-                        class AdjustmentThreshold(Entity):
+                        class AdjustmentThreshold(_Entity_):
                             """
                             Set the bandwidth change threshold to trigger
                             adjustment
@@ -2599,10 +2997,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, self).__init__()
 
                                 self.yang_name = "adjustment-threshold"
                                 self.yang_parent_name = "auto-bandwidth"
@@ -2623,9 +3024,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, ['adjustment_threshold_percent', 'adjustment_threshold_value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold']['meta_info']
 
 
-                        class AutoCapacity(Entity):
+                        class AutoCapacity(_Entity_):
                             """
                             Tunnel auto\-capacity configuration data
                             
@@ -2684,10 +3089,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, self).__init__()
 
                                 self.yang_name = "auto-capacity"
                                 self.yang_parent_name = "auto-bandwidth"
@@ -2715,10 +3123,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, ['nominal_bandwidth', 'enable', 'clones_minimum', 'split_bandwidth', 'merge_bandwidth', 'clones_maximum'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
 
 
-
-                    class Priority(Entity):
+                    class Priority(_Entity_):
                         """
                         Tunnel Setup and Hold Priorities
                         
@@ -2747,10 +3163,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2771,9 +3190,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority']['meta_info']
 
 
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -2802,10 +3225,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2826,9 +3252,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask']['meta_info']
 
 
-                    class ForwardingAdjacency(Entity):
+                    class ForwardingAdjacency(_Entity_):
                         """
                         Forwarding adjacency announcement to IGP
                         
@@ -2854,10 +3284,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, self).__init__()
 
                             self.yang_name = "forwarding-adjacency"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2879,9 +3312,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, ['enable', 'include_ipv6', 'hold_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency']['meta_info']
 
 
-                    class Logging(Entity):
+                    class Logging(_Entity_):
                         """
                         Log tunnel LSP messages
                         
@@ -2945,10 +3382,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "tunnel-attributes"
@@ -2986,9 +3426,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging']['meta_info']
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Tunnel bandwidth requirement
                         
@@ -3026,10 +3470,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "tunnel-attributes"
@@ -3052,9 +3499,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth']['meta_info']
 
 
-                    class Autoroute(Entity):
+                    class Autoroute(_Entity_):
                         """
                         Parameters for IGP routing over tunnel
                         
@@ -3073,10 +3524,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, self).__init__()
 
                             self.yang_name = "autoroute"
                             self.yang_parent_name = "tunnel-attributes"
@@ -3100,7 +3554,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, [], name, value)
 
 
-                        class AutorouteAnnounce(Entity):
+                        class AutorouteAnnounce(_Entity_):
                             """
                             Announce tunnel to IGP
                             
@@ -3129,10 +3583,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce, self).__init__()
 
                                 self.yang_name = "autoroute-announce"
                                 self.yang_parent_name = "autoroute"
@@ -3161,7 +3618,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce, ['enable', 'include_ipv6'], name, value)
 
 
-                            class ExcludeTraffic(Entity):
+                            class ExcludeTraffic(_Entity_):
                                 """
                                 Exclude traffic on autorouted tunnel
                                 
@@ -3175,10 +3632,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, self).__init__()
 
                                     self.yang_name = "exclude-traffic"
                                     self.yang_parent_name = "autoroute-announce"
@@ -3196,9 +3656,13 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, ['segment_routing'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic']['meta_info']
 
 
-                            class Metric(Entity):
+                            class Metric(_Entity_):
                                 """
                                 Specify MPLS tunnel metric
                                 
@@ -3233,10 +3697,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, self).__init__()
 
                                     self.yang_name = "metric"
                                     self.yang_parent_name = "autoroute-announce"
@@ -3260,10 +3727,18 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, ['metric_type', 'absolute_metric', 'relative_metric', 'constant_metric'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info']
 
 
-
-                        class Destinations(Entity):
+                        class Destinations(_Entity_):
                             """
                             Tunnel Autoroute Destination(s)
                             
@@ -3277,10 +3752,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations, self).__init__()
 
                                 self.yang_name = "destinations"
                                 self.yang_parent_name = "autoroute"
@@ -3298,7 +3776,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations, [], name, value)
 
 
-                            class Destination(Entity):
+                            class Destination(_Entity_):
                                 """
                                 Destination address to add in RIB
                                 
@@ -3314,10 +3792,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, self).__init__()
 
                                     self.yang_name = "destination"
                                     self.yang_parent_name = "destinations"
@@ -3335,11 +3816,23 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, ['destination_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
 
 
-
-
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -3403,10 +3896,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "tunnel-attributes"
@@ -3434,7 +3930,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3448,10 +3944,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3469,9 +3968,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3492,10 +3995,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3515,9 +4021,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3545,10 +4055,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3570,9 +4083,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3607,10 +4124,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3634,9 +4154,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3678,10 +4202,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3707,9 +4234,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3758,10 +4289,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3789,9 +4323,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3847,10 +4385,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3880,9 +4421,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -3945,10 +4490,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -3980,9 +4528,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -4052,10 +4604,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -4089,9 +4644,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -4168,10 +4727,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -4207,9 +4769,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -4293,10 +4859,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -4334,10 +4903,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
 
 
-
-                    class FastReroute(Entity):
+                    class FastReroute(_Entity_):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
                         
@@ -4366,10 +4943,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "tunnel-attributes"
@@ -4390,10 +4970,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
 
 
-
-                class TunnelId(Entity):
+                class TunnelId(_Entity_):
                     """
                     Set the tunnel ID
                     
@@ -4418,10 +5006,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, self).__init__()
 
                         self.yang_name = "tunnel-id"
                         self.yang_parent_name = "tunnel"
@@ -4442,12 +5033,28 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, ['tunnel_id_type', 'tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.NamedTunnels.Tunnels']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.NamedTunnels']['meta_info']
 
 
-
-
-
-    class GmplsUni(Entity):
+    class GmplsUni(_Entity_):
         """
         GMPLS\-UNI configuration
         
@@ -4466,10 +5073,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.GmplsUni, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.GmplsUni, self).__init__()
 
             self.yang_name = "gmpls-uni"
             self.yang_parent_name = "mpls-te"
@@ -4494,7 +5104,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.GmplsUni, [], name, value)
 
 
-        class Timers(Entity):
+        class Timers(_Entity_):
             """
             GMPLS\-UNI timer configuration
             
@@ -4508,10 +5118,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GmplsUni.Timers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GmplsUni.Timers, self).__init__()
 
                 self.yang_name = "timers"
                 self.yang_parent_name = "gmpls-uni"
@@ -4532,7 +5145,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GmplsUni.Timers, [], name, value)
 
 
-            class PathOptionTimers(Entity):
+            class PathOptionTimers(_Entity_):
                 """
                 GMPLS\-UNI path\-option timer configuration
                 
@@ -4546,10 +5159,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GmplsUni.Timers.PathOptionTimers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GmplsUni.Timers.PathOptionTimers, self).__init__()
 
                     self.yang_name = "path-option-timers"
                     self.yang_parent_name = "timers"
@@ -4570,7 +5186,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers, [], name, value)
 
 
-                class Holddown(Entity):
+                class Holddown(_Entity_):
                     """
                     GMPLS\-UNI path\-option holddown timer
                     configuration
@@ -4598,10 +5214,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, self).__init__()
 
                         self.yang_name = "holddown"
                         self.yang_parent_name = "path-option-timers"
@@ -4622,11 +5241,23 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, ['minimum', 'maximum'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GmplsUni.Timers.PathOptionTimers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GmplsUni.Timers']['meta_info']
 
 
-
-
-        class Controllers(Entity):
+        class Controllers(_Entity_):
             """
             GMPLS\-UNI controllers
             
@@ -4640,10 +5271,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GmplsUni.Controllers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GmplsUni.Controllers, self).__init__()
 
                 self.yang_name = "controllers"
                 self.yang_parent_name = "gmpls-uni"
@@ -4662,7 +5296,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GmplsUni.Controllers, [], name, value)
 
 
-            class Controller(Entity):
+            class Controller(_Entity_):
                 """
                 Configure a GMPLS controller
                 
@@ -4698,10 +5332,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GmplsUni.Controllers.Controller, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GmplsUni.Controllers.Controller, self).__init__()
 
                     self.yang_name = "controller"
                     self.yang_parent_name = "controllers"
@@ -4735,7 +5372,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller, ['controller_name', 'enable'], name, value)
 
 
-                class Announce(Entity):
+                class Announce(_Entity_):
                     """
                     Announce discovered tunnel properties to
                     system
@@ -4750,10 +5387,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsUni.Controllers.Controller.Announce, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsUni.Controllers.Controller.Announce, self).__init__()
 
                         self.yang_name = "announce"
                         self.yang_parent_name = "controller"
@@ -4771,9 +5411,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.Announce, ['srl_gs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.Announce']['meta_info']
 
 
-                class ControllerLogging(Entity):
+                class ControllerLogging(_Entity_):
                     """
                     Controller logging
                     
@@ -4787,10 +5431,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, self).__init__()
 
                         self.yang_name = "controller-logging"
                         self.yang_parent_name = "controller"
@@ -4808,9 +5455,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, ['discovered_srlg_change_logging'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.ControllerLogging']['meta_info']
 
 
-                class GmplsUnitunnelHead(Entity):
+                class GmplsUnitunnelHead(_Entity_):
                     """
                     GMPLS\-UNI tunnel\-head properties
                     
@@ -4872,10 +5523,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead, self).__init__()
 
                         self.yang_name = "gmpls-unitunnel-head"
                         self.yang_parent_name = "controller"
@@ -4917,7 +5571,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead, ['tunnel_id', 'enable', 'destination', 'record_route', 'signalled_name'], name, value)
 
 
-                    class PathOptions(Entity):
+                    class PathOptions(_Entity_):
                         """
                         Path\-option configuration
                         
@@ -4931,10 +5585,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions, self).__init__()
 
                             self.yang_name = "path-options"
                             self.yang_parent_name = "gmpls-unitunnel-head"
@@ -4952,7 +5609,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions, [], name, value)
 
 
-                        class PathOption(Entity):
+                        class PathOption(_Entity_):
                             """
                             A Path\-option
                             
@@ -5033,10 +5690,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, self).__init__()
 
                                 self.yang_name = "path-option"
                                 self.yang_parent_name = "path-options"
@@ -5072,10 +5732,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'xro_type', 'xro_attribute_set_name', 'lockdown', 'verbatim', 'signaled_label', 'dwdm_channel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions']['meta_info']
 
 
-
-                    class Recording(Entity):
+                    class Recording(_Entity_):
                         """
                         Tunnel property recording
                         
@@ -5089,10 +5757,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, self).__init__()
 
                             self.yang_name = "recording"
                             self.yang_parent_name = "gmpls-unitunnel-head"
@@ -5110,9 +5781,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, ['srlg'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording']['meta_info']
 
 
-                    class Logging(Entity):
+                    class Logging(_Entity_):
                         """
                         Tunnel event logging
                         
@@ -5126,10 +5801,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "gmpls-unitunnel-head"
@@ -5147,9 +5825,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, ['state_message'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging']['meta_info']
 
 
-                    class Priority(Entity):
+                    class Priority(_Entity_):
                         """
                         Tunnel Setup and Hold Priorities
                         
@@ -5178,10 +5860,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "gmpls-unitunnel-head"
@@ -5202,13 +5887,33 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GmplsUni.Controllers.Controller']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GmplsUni.Controllers']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.GmplsUni']['meta_info']
 
 
-
-
-
-
-    class GlobalAttributes(Entity):
+    class GlobalAttributes(_Entity_):
         """
         Configure MPLS TE global attributes
         
@@ -5470,10 +6175,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.GlobalAttributes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.GlobalAttributes, self).__init__()
 
             self.yang_name = "global-attributes"
             self.yang_parent_name = "mpls-te"
@@ -5603,7 +6311,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.GlobalAttributes, ['log_nsr_status', 'log_issu_status', 'reoptimize_link_up', 'reoptimize_delay_cleanup_timer', 'disable_reoptimize_affinity_failure', 'maximum_tunnels', 'link_holddown_timer', 'fault_oam', 'enable_unequal_load_balancing', 'log_tail', 'reoptimize_delay_after_frr_timer', 'auto_bandwidth_collect_frequency', 'reopt_delay_path_protect_switchover_timer', 'log_all', 'loose_path_retry_period', 'reoptimize_load_balancing', 'log_head', 'path_selection_ignore_overload', 'graceful_preemption_on_bandwidth_reduction', 'advertise_explicit_nulls', 'reoptimize_delay_install_timer', 'reoptimize_delay_after_affinity_failure_timer', 'log_frr_protection', 'reoptimize_timer_frequency', 'log_mid', 'log_preemption'], name, value)
 
 
-        class AutoTunnel(Entity):
+        class AutoTunnel(_Entity_):
             """
             Configure auto\-tunnels feature
             
@@ -5637,10 +6345,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.AutoTunnel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.AutoTunnel, self).__init__()
 
                 self.yang_name = "auto-tunnel"
                 self.yang_parent_name = "global-attributes"
@@ -5677,7 +6388,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel, [], name, value)
 
 
-            class Pcc(Entity):
+            class Pcc(_Entity_):
                 """
                 Configure auto\-tunnel PCC (Path Computation
                 Client) feature
@@ -5694,10 +6405,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.Pcc, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AutoTunnel.Pcc, self).__init__()
 
                     self.yang_name = "pcc"
                     self.yang_parent_name = "auto-tunnel"
@@ -5717,7 +6431,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc, [], name, value)
 
 
-                class TunnelRange(Entity):
+                class TunnelRange(_Entity_):
                     """
                     Configure tunnel ID range for auto\-tunnel
                     features
@@ -5747,10 +6461,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "pcc"
@@ -5772,10 +6489,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc']['meta_info']
 
 
-
-            class P2pAutoTunnel(Entity):
+            class P2pAutoTunnel(_Entity_):
                 """
                 Configure P2P auto\-tunnel feature
                 
@@ -5791,10 +6516,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, self).__init__()
 
                     self.yang_name = "p2p-auto-tunnel"
                     self.yang_parent_name = "auto-tunnel"
@@ -5814,7 +6542,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, [], name, value)
 
 
-                class TunnelRange(Entity):
+                class TunnelRange(_Entity_):
                     """
                     Configure tunnel ID range for auto\-tunnel
                     features
@@ -5844,10 +6572,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "p2p-auto-tunnel"
@@ -5869,10 +6600,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel']['meta_info']
 
 
-
-            class Backup(Entity):
+            class Backup(_Entity_):
                 """
                 Configure auto\-tunnel backup feature
                 
@@ -5898,10 +6637,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.Backup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AutoTunnel.Backup, self).__init__()
 
                     self.yang_name = "backup"
                     self.yang_parent_name = "auto-tunnel"
@@ -5928,7 +6670,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup, ['affinity_ignore'], name, value)
 
 
-                class Timers(Entity):
+                class Timers(_Entity_):
                     """
                     Configure auto\-tunnel backup timers value
                     
@@ -5942,10 +6684,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, self).__init__()
 
                         self.yang_name = "timers"
                         self.yang_parent_name = "backup"
@@ -5966,7 +6711,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, [], name, value)
 
 
-                    class Removal(Entity):
+                    class Removal(_Entity_):
                         """
                         Configure auto\-tunnel backup removal timers
                         value
@@ -5987,10 +6732,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, self).__init__()
 
                             self.yang_name = "removal"
                             self.yang_parent_name = "timers"
@@ -6009,10 +6757,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, ['unused'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers']['meta_info']
 
 
-
-                class TunnelRange(Entity):
+                class TunnelRange(_Entity_):
                     """
                     Configure tunnel ID range for auto\-tunnel
                     features
@@ -6042,10 +6798,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "backup"
@@ -6067,10 +6826,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup']['meta_info']
 
 
-
-            class Mesh(Entity):
+            class Mesh(_Entity_):
                 """
                 Configure auto\-tunnel mesh feature
                 
@@ -6096,10 +6863,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.Mesh, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AutoTunnel.Mesh, self).__init__()
 
                     self.yang_name = "mesh"
                     self.yang_parent_name = "auto-tunnel"
@@ -6127,7 +6897,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh, [], name, value)
 
 
-                class MeshGroups(Entity):
+                class MeshGroups(_Entity_):
                     """
                     Configure auto\-tunnel mesh group
                     
@@ -6141,10 +6911,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups, self).__init__()
 
                         self.yang_name = "mesh-groups"
                         self.yang_parent_name = "mesh"
@@ -6163,7 +6936,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups, [], name, value)
 
 
-                    class MeshGroup(Entity):
+                    class MeshGroup(_Entity_):
                         """
                         Auto\-mesh group identifier
                         
@@ -6203,10 +6976,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, self).__init__()
 
                             self.yang_name = "mesh-group"
                             self.yang_parent_name = "mesh-groups"
@@ -6233,10 +7009,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, ['mesh_group_id', 'destination_list', 'disable', 'attribute_set', 'one_hop'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups']['meta_info']
 
 
-
-                class Timers(Entity):
+                class Timers(_Entity_):
                     """
                     Configure auto\-tunnel backup timers value
                     
@@ -6250,10 +7034,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, self).__init__()
 
                         self.yang_name = "timers"
                         self.yang_parent_name = "mesh"
@@ -6274,7 +7061,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, [], name, value)
 
 
-                    class Removal(Entity):
+                    class Removal(_Entity_):
                         """
                         Configure auto\-tunnel backup removal timers
                         value
@@ -6295,10 +7082,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, self).__init__()
 
                             self.yang_name = "removal"
                             self.yang_parent_name = "timers"
@@ -6317,10 +7107,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, ['unused'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers']['meta_info']
 
 
-
-                class TunnelRange(Entity):
+                class TunnelRange(_Entity_):
                     """
                     Configure tunnel ID range for auto\-tunnel
                     features
@@ -6350,10 +7148,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "mesh"
@@ -6375,10 +7176,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info']
 
 
-
-            class P2mpAutoTunnel(Entity):
+            class P2mpAutoTunnel(_Entity_):
                 """
                 Configure P2MP auto\-tunnel feature
                 
@@ -6394,10 +7203,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, self).__init__()
 
                     self.yang_name = "p2mp-auto-tunnel"
                     self.yang_parent_name = "auto-tunnel"
@@ -6417,7 +7229,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, [], name, value)
 
 
-                class TunnelRange(Entity):
+                class TunnelRange(_Entity_):
                     """
                     Configure tunnel ID range for auto\-tunnel
                     features
@@ -6447,10 +7259,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, self).__init__()
 
                         self.yang_name = "tunnel-range"
                         self.yang_parent_name = "p2mp-auto-tunnel"
@@ -6472,11 +7287,23 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 
 
-
-
-        class HardwareOutOfResource(Entity):
+        class HardwareOutOfResource(_Entity_):
             """
             Configure HW OOR processing in MPLS\-TE
             
@@ -6500,10 +7327,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.HardwareOutOfResource, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.HardwareOutOfResource, self).__init__()
 
                 self.yang_name = "hardware-out-of-resource"
                 self.yang_parent_name = "global-attributes"
@@ -6532,7 +7362,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource, [], name, value)
 
 
-            class OorRedState(Entity):
+            class OorRedState(_Entity_):
                 """
                 Configuration for HW OOR Red State
                 
@@ -6582,10 +7412,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, self).__init__()
 
                     self.yang_name = "oor-red-state"
                     self.yang_parent_name = "hardware-out-of-resource"
@@ -6612,9 +7445,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState']['meta_info']
 
 
-            class OorYellowState(Entity):
+            class OorYellowState(_Entity_):
                 """
                 Configuration for HW OOR Yellow State
                 
@@ -6664,10 +7501,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, self).__init__()
 
                     self.yang_name = "oor-yellow-state"
                     self.yang_parent_name = "hardware-out-of-resource"
@@ -6694,9 +7534,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState']['meta_info']
 
 
-            class OorGreenState(Entity):
+            class OorGreenState(_Entity_):
                 """
                 Configuration for HW OOR Green State
                 
@@ -6757,10 +7601,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, self).__init__()
 
                     self.yang_name = "oor-green-state"
                     self.yang_parent_name = "hardware-out-of-resource"
@@ -6789,10 +7636,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, ['oor_recovery_duration', 'oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info']
 
 
-
-        class SecondaryRouterIds(Entity):
+        class SecondaryRouterIds(_Entity_):
             """
             Configure MPLS TE Secondary Router ID
             
@@ -6806,10 +7661,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.SecondaryRouterIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.SecondaryRouterIds, self).__init__()
 
                 self.yang_name = "secondary-router-ids"
                 self.yang_parent_name = "global-attributes"
@@ -6828,7 +7686,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.SecondaryRouterIds, [], name, value)
 
 
-            class SecondaryRouterId(Entity):
+            class SecondaryRouterId(_Entity_):
                 """
                 Secondary Router ID
                 
@@ -6844,10 +7702,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, self).__init__()
 
                     self.yang_name = "secondary-router-id"
                     self.yang_parent_name = "secondary-router-ids"
@@ -6866,10 +7727,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, ['secondary_router_id_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.SecondaryRouterIds']['meta_info']
 
 
-
-        class Srlg(Entity):
+        class Srlg(_Entity_):
             """
             Configure SRLG values and MPLS\-TE properties
             
@@ -6897,10 +7766,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.Srlg, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.Srlg, self).__init__()
 
                 self.yang_name = "srlg"
                 self.yang_parent_name = "global-attributes"
@@ -6926,7 +7798,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg, ['default_admin_weight', 'enable'], name, value)
 
 
-            class Names(Entity):
+            class Names(_Entity_):
                 """
                 Configure SRLG identified by names
                 
@@ -6940,10 +7812,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.Srlg.Names, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.Srlg.Names, self).__init__()
 
                     self.yang_name = "names"
                     self.yang_parent_name = "srlg"
@@ -6962,7 +7837,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names, [], name, value)
 
 
-                class Name(Entity):
+                class Name(_Entity_):
                     """
                     SRLG name and its MPLS\-TE properties
                     
@@ -6990,10 +7865,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.Srlg.Names.Name, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.Srlg.Names.Name, self).__init__()
 
                         self.yang_name = "name"
                         self.yang_parent_name = "names"
@@ -7019,7 +7897,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name, ['srlg_name', 'admin_weight'], name, value)
 
 
-                    class StaticSrlgMembers(Entity):
+                    class StaticSrlgMembers(_Entity_):
                         """
                         Configure static SRLG members list
                         
@@ -7033,10 +7911,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers, self).__init__()
 
                             self.yang_name = "static-srlg-members"
                             self.yang_parent_name = "name"
@@ -7054,7 +7935,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers, [], name, value)
 
 
-                        class StaticSrlgMember(Entity):
+                        class StaticSrlgMember(_Entity_):
                             """
                             A mapping of the local static SRLG member
                             
@@ -7079,10 +7960,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, self).__init__()
 
                                 self.yang_name = "static-srlg-member"
                                 self.yang_parent_name = "static-srlg-members"
@@ -7102,13 +7986,33 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, ['from_address', 'to_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.Srlg']['meta_info']
 
 
-
-
-
-
-        class Queues(Entity):
+        class Queues(_Entity_):
             """
             Configure MPLS TE route priority
             
@@ -7122,10 +8026,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.Queues, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.Queues, self).__init__()
 
                 self.yang_name = "queues"
                 self.yang_parent_name = "global-attributes"
@@ -7144,7 +8051,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.Queues, [], name, value)
 
 
-            class Queue(Entity):
+            class Queue(_Entity_):
                 """
                 Configure route priority queue value
                 
@@ -7167,10 +8074,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.Queues.Queue, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.Queues.Queue, self).__init__()
 
                     self.yang_name = "queue"
                     self.yang_parent_name = "queues"
@@ -7191,10 +8101,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.Queues.Queue, ['role', 'value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.Queues.Queue']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.Queues']['meta_info']
 
 
-
-        class Mib(Entity):
+        class Mib(_Entity_):
             """
             MPLS\-TE MIB properties
             
@@ -7208,10 +8126,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.Mib, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.Mib, self).__init__()
 
                 self.yang_name = "mib"
                 self.yang_parent_name = "global-attributes"
@@ -7230,9 +8151,13 @@ class MplsTe(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.Mib, ['midpoint_lsp_stats_collection_disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.Mib']['meta_info']
 
 
-        class AttributeSet(Entity):
+        class AttributeSet(_Entity_):
             """
             Attribute AttributeSets
             
@@ -7276,10 +8201,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.AttributeSet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.AttributeSet, self).__init__()
 
                 self.yang_name = "attribute-set"
                 self.yang_parent_name = "global-attributes"
@@ -7324,7 +8252,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet, [], name, value)
 
 
-            class PathOptionAttributes(Entity):
+            class PathOptionAttributes(_Entity_):
                 """
                 Path Option Attribute\-Set Table
                 
@@ -7338,10 +8266,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes, self).__init__()
 
                     self.yang_name = "path-option-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -7360,7 +8291,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes, [], name, value)
 
 
-                class PathOptionAttribute(Entity):
+                class PathOptionAttribute(_Entity_):
                     """
                     Path Option Attribute
                     
@@ -7412,10 +8343,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, self).__init__()
 
                         self.yang_name = "path-option-attribute"
                         self.yang_parent_name = "path-option-attributes"
@@ -7456,7 +8390,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, ['attribute_set_name'], name, value)
 
 
-                    class BfdReversePath(Entity):
+                    class BfdReversePath(_Entity_):
                         """
                         Configure BFD reverse path
                         
@@ -7481,10 +8415,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, self).__init__()
 
                             self.yang_name = "bfd-reverse-path"
                             self.yang_parent_name = "path-option-attribute"
@@ -7505,9 +8442,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, ['bfd_reverse_path_type', 'binding_label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath']['meta_info']
 
 
-                    class AttPathOptionPathSelection(Entity):
+                    class AttPathOptionPathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -7549,10 +8490,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, self).__init__()
 
                             self.yang_name = "att-path-option-path-selection"
                             self.yang_parent_name = "path-option-attribute"
@@ -7580,7 +8524,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, ['path_selection_exclude_list', 'enable', 'path_selection_delay_limit', 'path_selection_cost_limit'], name, value)
 
 
-                        class Invalidation(Entity):
+                        class Invalidation(_Entity_):
                             """
                             Deprecated
                             
@@ -7603,10 +8547,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, self).__init__()
 
                                 self.yang_name = "invalidation"
                                 self.yang_parent_name = "att-path-option-path-selection"
@@ -7627,10 +8574,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection']['meta_info']
 
 
-
-                    class Pce(Entity):
+                    class Pce(_Entity_):
                         """
                         Configure pce properties
                         
@@ -7658,10 +8613,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce, self).__init__()
 
                             self.yang_name = "pce"
                             self.yang_parent_name = "path-option-attribute"
@@ -7686,7 +8644,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce, ['enable'], name, value)
 
 
-                        class Bidirectional(Entity):
+                        class Bidirectional(_Entity_):
                             """
                             Bidirectional parameters
                             
@@ -7715,10 +8673,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, self).__init__()
 
                                 self.yang_name = "bidirectional"
                                 self.yang_parent_name = "pce"
@@ -7739,9 +8700,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional']['meta_info']
 
 
-                        class DisjointPath(Entity):
+                        class DisjointPath(_Entity_):
                             """
                             Disjoint path parameters
                             
@@ -7779,10 +8744,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, self).__init__()
 
                                 self.yang_name = "disjoint-path"
                                 self.yang_parent_name = "pce"
@@ -7805,10 +8773,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce']['meta_info']
 
 
-
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -7837,10 +8813,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "path-option-attribute"
@@ -7861,9 +8840,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask']['meta_info']
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Tunnel bandwidth requirement
                         
@@ -7901,10 +8884,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "path-option-attribute"
@@ -7927,9 +8913,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth']['meta_info']
 
 
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -7993,10 +8983,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "path-option-attribute"
@@ -8024,7 +9017,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8038,10 +9031,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8059,9 +9055,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8082,10 +9082,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8105,9 +9108,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8135,10 +9142,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8160,9 +9170,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8197,10 +9211,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8224,9 +9241,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8268,10 +9289,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8297,9 +9321,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8348,10 +9376,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8379,9 +9410,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8437,10 +9472,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8470,9 +9508,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8535,10 +9577,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8570,9 +9615,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8642,10 +9691,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8679,9 +9731,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8758,10 +9814,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8797,9 +9856,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8883,10 +9946,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -8924,12 +9990,28 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes']['meta_info']
 
 
-
-
-
-            class P2mpteAttributes(Entity):
+            class P2mpteAttributes(_Entity_):
                 """
                 P2MP\-TE Tunnel AttributeSets Table
                 
@@ -8943,10 +10025,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, self).__init__()
 
                     self.yang_name = "p2mpte-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -8965,7 +10050,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, [], name, value)
 
 
-                class P2mpteAttribute(Entity):
+                class P2mpteAttribute(_Entity_):
                     """
                     P2MP\-TE Tunnel Attribute
                     
@@ -9038,10 +10123,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, self).__init__()
 
                         self.yang_name = "p2mpte-attribute"
                         self.yang_parent_name = "p2mpte-attributes"
@@ -9089,7 +10177,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'record_route'], name, value)
 
 
-                    class Priority(Entity):
+                    class Priority(_Entity_):
                         """
                         Tunnel Setup and Hold Priorities
                         
@@ -9118,10 +10206,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -9142,9 +10233,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority']['meta_info']
 
 
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -9173,10 +10268,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -9197,9 +10295,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask']['meta_info']
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Tunnel bandwidth requirement
                         
@@ -9237,10 +10339,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -9263,9 +10368,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth']['meta_info']
 
 
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -9279,10 +10388,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -9300,9 +10412,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, ['enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection']['meta_info']
 
 
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -9366,10 +10482,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -9397,7 +10516,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9411,10 +10530,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9432,9 +10554,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9455,10 +10581,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9478,9 +10607,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9508,10 +10641,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9533,9 +10669,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9570,10 +10710,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9597,9 +10740,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9641,10 +10788,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9670,9 +10820,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9721,10 +10875,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9752,9 +10909,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9810,10 +10971,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9843,9 +11007,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -9908,10 +11076,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -9943,9 +11114,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -10015,10 +11190,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -10052,9 +11230,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -10131,10 +11313,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -10170,9 +11355,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -10256,10 +11445,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -10297,10 +11489,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
 
-
-                    class FastReroute(Entity):
+                    class FastReroute(_Entity_):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
                         
@@ -10329,10 +11529,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -10353,9 +11556,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute']['meta_info']
 
 
-                    class Logging(Entity):
+                    class Logging(_Entity_):
                         """
                         Log tunnel LSP messages
                         
@@ -10409,10 +11616,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "p2mpte-attribute"
@@ -10446,11 +11656,23 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, ['insufficient_bw_message', 'reoptimized_message', 'bandwidth_change_message', 'all', 'pcalc_failure_message', 'state_message', 'reoptimize_attempts_message', 'sub_lsp_state_message', 'reroute_messsage'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes']['meta_info']
 
 
-
-
-            class P2pTeAttributes(Entity):
+            class P2pTeAttributes(_Entity_):
                 """
                 P2P\-TE Tunnel AttributeSets Table
                 
@@ -10464,10 +11686,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, self).__init__()
 
                     self.yang_name = "p2p-te-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -10486,7 +11711,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, [], name, value)
 
 
-                class P2pTeAttribute(Entity):
+                class P2pTeAttribute(_Entity_):
                     """
                     P2P\-TE Tunnel Attribute
                     
@@ -10529,10 +11754,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, self).__init__()
 
                         self.yang_name = "p2p-te-attribute"
                         self.yang_parent_name = "p2p-te-attributes"
@@ -10571,7 +11799,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, ['attribute_set_name'], name, value)
 
 
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -10605,10 +11833,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "p2p-te-attribute"
@@ -10639,7 +11870,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, ['path_selection_metric', 'path_selection_segment_routing_adjacency_protection', 'enable'], name, value)
 
 
-                        class SegmentRoutingPrepend(Entity):
+                        class SegmentRoutingPrepend(_Entity_):
                             """
                             Deprecated
                             
@@ -10658,10 +11889,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, self).__init__()
 
                                 self.yang_name = "segment-routing-prepend"
                                 self.yang_parent_name = "path-selection"
@@ -10684,7 +11918,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, ['enable'], name, value)
 
 
-                            class Indexes(Entity):
+                            class Indexes(_Entity_):
                                 """
                                 Segment routing prepend index table
                                 
@@ -10698,10 +11932,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, self).__init__()
 
                                     self.yang_name = "indexes"
                                     self.yang_parent_name = "segment-routing-prepend"
@@ -10719,7 +11956,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, [], name, value)
 
 
-                                class Index(Entity):
+                                class Index(_Entity_):
                                     """
                                     Prepend index information
                                     
@@ -10751,10 +11988,13 @@ class MplsTe(Entity):
                                     """
 
                                     _prefix = 'mpls-te-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-16'
 
                                     def __init__(self):
-                                        super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, self).__init__()
 
                                         self.yang_name = "index"
                                         self.yang_parent_name = "indexes"
@@ -10776,11 +12016,23 @@ class MplsTe(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
 
 
-
-
-                        class Invalidation(Entity):
+                        class Invalidation(_Entity_):
                             """
                             Deprecated
                             
@@ -10805,10 +12057,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, self).__init__()
 
                                 self.yang_name = "invalidation"
                                 self.yang_parent_name = "path-selection"
@@ -10828,10 +12083,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, ['invalidation_timer', 'invalidation_timer_expire_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection']['meta_info']
 
 
-
-                    class Pce(Entity):
+                    class Pce(_Entity_):
                         """
                         Configure pce properties
                         
@@ -10859,10 +12122,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, self).__init__()
 
                             self.yang_name = "pce"
                             self.yang_parent_name = "p2p-te-attribute"
@@ -10887,7 +12153,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, ['enable'], name, value)
 
 
-                        class Bidirectional(Entity):
+                        class Bidirectional(_Entity_):
                             """
                             Bidirectional parameters
                             
@@ -10916,10 +12182,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, self).__init__()
 
                                 self.yang_name = "bidirectional"
                                 self.yang_parent_name = "pce"
@@ -10940,9 +12209,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional']['meta_info']
 
 
-                        class DisjointPath(Entity):
+                        class DisjointPath(_Entity_):
                             """
                             Disjoint path parameters
                             
@@ -10980,10 +12253,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, self).__init__()
 
                                 self.yang_name = "disjoint-path"
                                 self.yang_parent_name = "pce"
@@ -11006,10 +12282,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce']['meta_info']
 
 
-
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -11038,10 +12322,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "p2p-te-attribute"
@@ -11062,9 +12349,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask']['meta_info']
 
 
-                    class Logging(Entity):
+                    class Logging(_Entity_):
                         """
                         Log tunnel LSP messages
                         
@@ -11128,10 +12419,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, self).__init__()
 
                             self.yang_name = "logging"
                             self.yang_parent_name = "p2p-te-attribute"
@@ -11169,9 +12463,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging']['meta_info']
 
 
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -11235,10 +12533,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "p2p-te-attribute"
@@ -11266,7 +12567,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11280,10 +12581,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11301,9 +12605,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11324,10 +12632,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11347,9 +12658,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11377,10 +12692,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11402,9 +12720,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11439,10 +12761,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11466,9 +12791,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11510,10 +12839,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11539,9 +12871,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11590,10 +12926,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11621,9 +12960,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11679,10 +13022,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11712,9 +13058,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11777,10 +13127,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11812,9 +13165,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -11884,10 +13241,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -11921,9 +13281,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12000,10 +13364,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12039,9 +13406,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12125,10 +13496,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12166,12 +13540,28 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes']['meta_info']
 
 
-
-
-
-            class AutoBackupAttributes(Entity):
+            class AutoBackupAttributes(_Entity_):
                 """
                 Auto\-backup Tunnel Attribute Table
                 
@@ -12185,10 +13575,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes, self).__init__()
 
                     self.yang_name = "auto-backup-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -12207,7 +13600,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes, [], name, value)
 
 
-                class AutoBackupAttribute(Entity):
+                class AutoBackupAttribute(_Entity_):
                     """
                     Auto\-backup Tunnel Attribute
                     
@@ -12267,10 +13660,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, self).__init__()
 
                         self.yang_name = "auto-backup-attribute"
                         self.yang_parent_name = "auto-backup-attributes"
@@ -12318,7 +13714,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, ['attribute_set_name', 'record_route'], name, value)
 
 
-                    class SignalledName(Entity):
+                    class SignalledName(_Entity_):
                         """
                         Signalled name
                         
@@ -12347,10 +13743,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, self).__init__()
 
                             self.yang_name = "signalled-name"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12374,9 +13773,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, ['name', 'source_type', 'protected_interface_type', 'mp_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName']['meta_info']
 
 
-                    class AutoBackupLogging(Entity):
+                    class AutoBackupLogging(_Entity_):
                         """
                         Log tunnel LSP messages
                         
@@ -12405,10 +13808,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, self).__init__()
 
                             self.yang_name = "auto-backup-logging"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12432,9 +13838,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'state_message', 'reoptimized_message'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging']['meta_info']
 
 
-                    class Priority(Entity):
+                    class Priority(_Entity_):
                         """
                         Tunnel Setup and Hold Priorities
                         
@@ -12463,10 +13873,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12487,9 +13900,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority']['meta_info']
 
 
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -12518,10 +13935,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12542,9 +13962,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask']['meta_info']
 
 
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -12558,10 +13982,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12579,9 +14006,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, ['enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection']['meta_info']
 
 
-                    class PolicyClasses(Entity):
+                    class PolicyClasses(_Entity_):
                         """
                         Policy classes for PBTS
                         
@@ -12597,10 +14028,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, self).__init__()
 
                             self.yang_name = "policy-classes"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12618,9 +14052,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, ['policy_class'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses']['meta_info']
 
 
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -12684,10 +14122,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "auto-backup-attribute"
@@ -12715,7 +14156,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12729,10 +14170,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12750,9 +14194,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12773,10 +14221,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12796,9 +14247,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12826,10 +14281,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12851,9 +14309,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12888,10 +14350,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12915,9 +14380,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -12959,10 +14428,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -12988,9 +14460,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13039,10 +14515,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13070,9 +14549,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13128,10 +14611,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13161,9 +14647,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13226,10 +14716,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13261,9 +14754,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13333,10 +14830,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13370,9 +14870,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13449,10 +14953,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13488,9 +14995,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -13574,10 +15085,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -13615,12 +15129,28 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes']['meta_info']
 
 
-
-
-
-            class OtnPpAttributes(Entity):
+            class OtnPpAttributes(_Entity_):
                 """
                 OTN Path Protection Attributes table
                 
@@ -13634,10 +15164,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes, self).__init__()
 
                     self.yang_name = "otn-pp-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -13656,7 +15189,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes, [], name, value)
 
 
-                class OtnPpAttribute(Entity):
+                class OtnPpAttribute(_Entity_):
                     """
                     OTN Path Protection Attribute
                     
@@ -13707,10 +15240,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, self).__init__()
 
                         self.yang_name = "otn-pp-attribute"
                         self.yang_parent_name = "otn-pp-attributes"
@@ -13752,7 +15288,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, ['attribute_set_name', 'aps_protection_mode', 'aps_restoration_style', 'aps_protection_type'], name, value)
 
 
-                    class RevertScheduleNames(Entity):
+                    class RevertScheduleNames(_Entity_):
                         """
                         Specify APS revert schedule
                         
@@ -13766,10 +15302,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames, self).__init__()
 
                             self.yang_name = "revert-schedule-names"
                             self.yang_parent_name = "otn-pp-attribute"
@@ -13787,7 +15326,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames, [], name, value)
 
 
-                        class RevertScheduleName(Entity):
+                        class RevertScheduleName(_Entity_):
                             """
                             Name Identifier for revert schedule
                             
@@ -13836,10 +15375,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, self).__init__()
 
                                 self.yang_name = "revert-schedule-name"
                                 self.yang_parent_name = "revert-schedule-names"
@@ -13870,7 +15412,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, ['schedule_name', 'revert_schedule_max_tries', 'sch_name_enable', 'revert_schedule_frequency'], name, value)
 
 
-                            class ScheduleDuration(Entity):
+                            class ScheduleDuration(_Entity_):
                                 """
                                 Set duration in format hh\:mm
                                 
@@ -13899,10 +15441,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, self).__init__()
 
                                     self.yang_name = "schedule-duration"
                                     self.yang_parent_name = "revert-schedule-name"
@@ -13923,9 +15468,13 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, ['hour', 'minutes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration']['meta_info']
 
 
-                            class ScheduleDate(Entity):
+                            class ScheduleDate(_Entity_):
                                 """
                                 Set date in format hh\:mm MMM DD YYYY
                                 
@@ -13981,10 +15530,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, self).__init__()
 
                                     self.yang_name = "schedule-date"
                                     self.yang_parent_name = "revert-schedule-name"
@@ -14011,11 +15563,23 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, ['hour', 'minutes', 'month', 'day', 'year'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames']['meta_info']
 
 
-
-
-                    class SubNetworkConnectionMode(Entity):
+                    class SubNetworkConnectionMode(_Entity_):
                         """
                         Sub\-network connection mode
                         
@@ -14036,10 +15600,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, self).__init__()
 
                             self.yang_name = "sub-network-connection-mode"
                             self.yang_parent_name = "otn-pp-attribute"
@@ -14059,9 +15626,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, ['connection_mode', 'connection_monitoring_mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode']['meta_info']
 
 
-                    class Timers(Entity):
+                    class Timers(_Entity_):
                         """
                         Timers
                         
@@ -14088,10 +15659,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, self).__init__()
 
                             self.yang_name = "timers"
                             self.yang_parent_name = "otn-pp-attribute"
@@ -14111,9 +15685,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, ['aps_wait_to_restore', 'aps_hold_off'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers']['meta_info']
 
 
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -14127,10 +15705,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "otn-pp-attribute"
@@ -14148,11 +15729,23 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, ['enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes']['meta_info']
 
 
-
-
-            class AutoMeshAttributes(Entity):
+            class AutoMeshAttributes(_Entity_):
                 """
                 Auto\-mesh Tunnel AttributeSets Table
                 
@@ -14166,10 +15759,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes, self).__init__()
 
                     self.yang_name = "auto-mesh-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -14188,7 +15784,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes, [], name, value)
 
 
-                class AutoMeshAttribute(Entity):
+                class AutoMeshAttribute(_Entity_):
                     """
                     Auto\-mesh Tunnel Attribute
                     
@@ -14295,10 +15891,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, self).__init__()
 
                         self.yang_name = "auto-mesh-attribute"
                         self.yang_parent_name = "auto-mesh-attributes"
@@ -14360,7 +15959,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, ['attribute_set_name', 'autoroute_announce', 'interface_bandwidth', 'forward_class', 'record_route', 'collection_only', 'soft_preemption', 'load_share'], name, value)
 
 
-                    class AutoMeshLogging(Entity):
+                    class AutoMeshLogging(_Entity_):
                         """
                         Log tunnel LSP messages
                         
@@ -14404,10 +16003,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, self).__init__()
 
                             self.yang_name = "auto-mesh-logging"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14437,9 +16039,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging']['meta_info']
 
 
-                    class Priority(Entity):
+                    class Priority(_Entity_):
                         """
                         Tunnel Setup and Hold Priorities
                         
@@ -14468,10 +16074,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, self).__init__()
 
                             self.yang_name = "priority"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14492,9 +16101,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority']['meta_info']
 
 
-                    class AffinityMask(Entity):
+                    class AffinityMask(_Entity_):
                         """
                         Set the affinity flags and mask
                         
@@ -14523,10 +16136,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, self).__init__()
 
                             self.yang_name = "affinity-mask"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14547,9 +16163,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask']['meta_info']
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Tunnel bandwidth requirement
                         
@@ -14587,10 +16207,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14613,9 +16236,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth']['meta_info']
 
 
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -14629,10 +16256,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14650,9 +16280,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, ['enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection']['meta_info']
 
 
-                    class PolicyClasses(Entity):
+                    class PolicyClasses(_Entity_):
                         """
                         Policy classes for PBTS
                         
@@ -14668,10 +16302,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, self).__init__()
 
                             self.yang_name = "policy-classes"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14689,9 +16326,13 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, ['policy_class'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses']['meta_info']
 
 
-                    class NewStyleAffinityAffinityTypes(Entity):
+                    class NewStyleAffinityAffinityTypes(_Entity_):
                         """
                         Tunnel new style affinity attributes table
                         
@@ -14755,10 +16396,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes, self).__init__()
 
                             self.yang_name = "new-style-affinity-affinity-types"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -14786,7 +16430,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes, [], name, value)
 
 
-                        class NewStyleAffinityAffinityType(Entity):
+                        class NewStyleAffinityAffinityType(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -14800,10 +16444,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -14821,9 +16468,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -14844,10 +16495,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -14867,9 +16521,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -14897,10 +16555,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -14922,9 +16583,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -14959,10 +16624,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -14986,9 +16654,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15030,10 +16702,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15059,9 +16734,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15110,10 +16789,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15141,9 +16823,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15199,10 +16885,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15232,9 +16921,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15297,10 +16990,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15332,9 +17028,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15404,10 +17104,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15441,9 +17144,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15520,10 +17227,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15559,9 +17269,13 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
 
 
-                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(_Entity_):
                             """
                             Tunnel new style affinity attribute
                             
@@ -15645,10 +17359,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, self).__init__()
 
                                 self.yang_name = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10"
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
@@ -15686,10 +17403,18 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
 
-
-                    class FastReroute(Entity):
+                    class FastReroute(_Entity_):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
                         
@@ -15718,10 +17443,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "auto-mesh-attribute"
@@ -15742,11 +17470,23 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes']['meta_info']
 
 
-
-
-            class XroAttributes(Entity):
+            class XroAttributes(_Entity_):
                 """
                 XRO Tunnel Attributes table
                 
@@ -15760,10 +17500,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes, self).__init__()
 
                     self.yang_name = "xro-attributes"
                     self.yang_parent_name = "attribute-set"
@@ -15782,7 +17525,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes, [], name, value)
 
 
-                class XroAttribute(Entity):
+                class XroAttribute(_Entity_):
                     """
                     XRO Attribute
                     
@@ -15808,10 +17551,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, self).__init__()
 
                         self.yang_name = "xro-attribute"
                         self.yang_parent_name = "xro-attributes"
@@ -15839,7 +17585,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, ['attribute_set_name'], name, value)
 
 
-                    class PathDiversity(Entity):
+                    class PathDiversity(_Entity_):
                         """
                         Path diversity
                         
@@ -15858,10 +17604,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, self).__init__()
 
                             self.yang_name = "path-diversity"
                             self.yang_parent_name = "xro-attribute"
@@ -15885,7 +17634,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, [], name, value)
 
 
-                        class Srlgs(Entity):
+                        class Srlgs(_Entity_):
                             """
                             SRLG\-based path diversity
                             
@@ -15899,10 +17648,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs, self).__init__()
 
                                 self.yang_name = "srlgs"
                                 self.yang_parent_name = "path-diversity"
@@ -15920,7 +17672,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs, [], name, value)
 
 
-                            class Srlg(Entity):
+                            class Srlg(_Entity_):
                                 """
                                 SRLG\-based path\-diversity element
                                 
@@ -15943,10 +17695,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, self).__init__()
 
                                     self.yang_name = "srlg"
                                     self.yang_parent_name = "srlgs"
@@ -15966,10 +17721,18 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, ['srlg', 'conformance'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs']['meta_info']
 
 
-
-                        class Lsp(Entity):
+                        class Lsp(_Entity_):
                             """
                             LSP\-based path diversity
                             
@@ -15983,10 +17746,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, self).__init__()
 
                                 self.yang_name = "lsp"
                                 self.yang_parent_name = "path-diversity"
@@ -16006,7 +17772,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, [], name, value)
 
 
-                            class Fecs(Entity):
+                            class Fecs(_Entity_):
                                 """
                                 FEC LSP\-based path diversity
                                 
@@ -16020,10 +17786,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs, self).__init__()
 
                                     self.yang_name = "fecs"
                                     self.yang_parent_name = "lsp"
@@ -16041,7 +17810,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs, [], name, value)
 
 
-                                class Fec(Entity):
+                                class Fec(_Entity_):
                                     """
                                     LSP\-based path\-diversity, referenced by
                                     FEC
@@ -16093,10 +17862,13 @@ class MplsTe(Entity):
                                     """
 
                                     _prefix = 'mpls-te-cfg'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-16'
 
                                     def __init__(self):
-                                        super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, self).__init__()
 
                                         self.yang_name = "fec"
                                         self.yang_parent_name = "fecs"
@@ -16124,12 +17896,28 @@ class MplsTe(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, ['source', 'destination', 'tunnel_id', 'extended_tunnel_id', 'lsp_id', 'conformance'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity']['meta_info']
 
 
-
-
-
-                    class PathSelection(Entity):
+                    class PathSelection(_Entity_):
                         """
                         Configure path selection properties
                         
@@ -16143,10 +17931,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, self).__init__()
 
                             self.yang_name = "path-selection"
                             self.yang_parent_name = "xro-attribute"
@@ -16164,12 +17955,28 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, ['enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 
 
-
-
-
-        class BfdOverLsp(Entity):
+        class BfdOverLsp(_Entity_):
             """
             BFD over MPLS TE Global Configurations
             
@@ -16188,10 +17995,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.BfdOverLsp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.BfdOverLsp, self).__init__()
 
                 self.yang_name = "bfd-over-lsp"
                 self.yang_parent_name = "global-attributes"
@@ -16216,7 +18026,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp, [], name, value)
 
 
-            class Tail(Entity):
+            class Tail(_Entity_):
                 """
                 BFD over LSP Tail Global Configurations
                 
@@ -16239,10 +18049,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.BfdOverLsp.Tail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.BfdOverLsp.Tail, self).__init__()
 
                     self.yang_name = "tail"
                     self.yang_parent_name = "bfd-over-lsp"
@@ -16263,9 +18076,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Tail, ['multiplier', 'minimum_interval'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.BfdOverLsp.Tail']['meta_info']
 
 
-            class Head(Entity):
+            class Head(_Entity_):
                 """
                 BFD over LSP Head Global Configurations
                 
@@ -16286,10 +18103,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.BfdOverLsp.Head, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.BfdOverLsp.Head, self).__init__()
 
                     self.yang_name = "head"
                     self.yang_parent_name = "bfd-over-lsp"
@@ -16310,10 +18130,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Head, ['reopt_timeout', 'down_action'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.BfdOverLsp.Head']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.BfdOverLsp']['meta_info']
 
 
-
-        class BandwidthAccounting(Entity):
+        class BandwidthAccounting(_Entity_):
             """
             Bandwidth accounting configuration data
             
@@ -16366,10 +18194,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.BandwidthAccounting, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.BandwidthAccounting, self).__init__()
 
                 self.yang_name = "bandwidth-accounting"
                 self.yang_parent_name = "global-attributes"
@@ -16403,7 +18234,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting, ['sampling_interval', 'adjustment_factor', 'collection_type_rsvp_te', 'enable'], name, value)
 
 
-            class Application(Entity):
+            class Application(_Entity_):
                 """
                 Bandwidth accounting application configuration
                 data
@@ -16431,10 +18262,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.BandwidthAccounting.Application, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.BandwidthAccounting.Application, self).__init__()
 
                     self.yang_name = "application"
                     self.yang_parent_name = "bandwidth-accounting"
@@ -16455,9 +18289,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.Application, ['application_enforced', 'application_interval'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.BandwidthAccounting.Application']['meta_info']
 
 
-            class AccountFloodingThreshold(Entity):
+            class AccountFloodingThreshold(_Entity_):
                 """
                 This object sets the flooding threshold as
                 percentage of total link bandwidth for
@@ -16490,10 +18328,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, self).__init__()
 
                     self.yang_name = "account-flooding-threshold"
                     self.yang_parent_name = "bandwidth-accounting"
@@ -16514,10 +18355,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, ['up_threshold', 'down_threshold'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.BandwidthAccounting']['meta_info']
 
 
-
-        class PceAttributes(Entity):
+        class PceAttributes(_Entity_):
             """
             Configuration MPLS TE PCE attributes
             
@@ -16648,10 +18497,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.PceAttributes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.PceAttributes, self).__init__()
 
                 self.yang_name = "pce-attributes"
                 self.yang_parent_name = "global-attributes"
@@ -16709,7 +18561,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes, ['request_timeout', 'reoptimize_period', 'address', 'deadtimer', 'keepalive', 'keepalive_tolerance', 'peer_source_addr', 'speaker_entity_id', 'segment_routing', 'password', 'keychain', 'precedence'], name, value)
 
 
-            class PceStateful(Entity):
+            class PceStateful(_Entity_):
                 """
                 PCE Stateful
                 
@@ -16717,6 +18569,11 @@ class MplsTe(Entity):
                 
                 	Configure Stateful PCE (Path Computation Element) timers
                 	**type**\:  :py:class:`StatefulTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers>`
+                
+                .. attribute:: redundancy
+                
+                	Configure PCE (Path Computation Element) redundancy
+                	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy>`
                 
                 .. attribute:: fast_repair
                 
@@ -16758,17 +18615,20 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PceAttributes.PceStateful, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PceAttributes.PceStateful, self).__init__()
 
                     self.yang_name = "pce-stateful"
                     self.yang_parent_name = "pce-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers))])
+                    self._child_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers)), ("redundancy", ("redundancy", MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy))])
                     self._leafs = OrderedDict([
                         ('fast_repair', (YLeaf(YType.empty, 'fast-repair'), ['Empty'])),
                         ('instantiation', (YLeaf(YType.empty, 'instantiation'), ['Empty'])),
@@ -16789,6 +18649,10 @@ class MplsTe(Entity):
                     self.stateful_timers = MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers()
                     self.stateful_timers.parent = self
                     self._children_name_map["stateful_timers"] = "stateful-timers"
+
+                    self.redundancy = MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy()
+                    self.redundancy.parent = self
+                    self._children_name_map["redundancy"] = "redundancy"
                     self._segment_path = lambda: "pce-stateful"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
                     self._is_frozen = True
@@ -16797,7 +18661,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful, ['fast_repair', 'instantiation', 'cisco_extension', 'delegation', 'autoroute_announce', 'report', 'enable'], name, value)
 
 
-                class StatefulTimers(Entity):
+                class StatefulTimers(_Entity_):
                     """
                     Configure Stateful PCE (Path Computation
                     Element) timers
@@ -16829,10 +18693,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, self).__init__()
 
                         self.yang_name = "stateful-timers"
                         self.yang_parent_name = "pce-stateful"
@@ -16853,10 +18720,64 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, ['redelegation_timeout', 'state_timeout'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers']['meta_info']
 
 
+                class Redundancy(_Entity_):
+                    """
+                    Configure PCE (Path Computation Element)
+                    redundancy
+                    
+                    .. attribute:: pcc_centric
+                    
+                    	Enable PCC (Path Computation Client) centric model
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
 
-            class Timer(Entity):
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2019-10-16'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy, self).__init__()
+
+                        self.yang_name = "redundancy"
+                        self.yang_parent_name = "pce-stateful"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcc_centric', (YLeaf(YType.empty, 'pcc-centric'), ['Empty'])),
+                        ])
+                        self.pcc_centric = None
+                        self._segment_path = lambda: "redundancy"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/pce-stateful/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy, ['pcc_centric'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.PceStateful.Redundancy']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.PceStateful']['meta_info']
+
+
+            class Timer(_Entity_):
                 """
                 Configure PCE (Path Computation Element)
                 timers
@@ -16866,10 +18787,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PceAttributes.Timer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PceAttributes.Timer, self).__init__()
 
                     self.yang_name = "timer"
                     self.yang_parent_name = "pce-attributes"
@@ -16882,9 +18806,13 @@ class MplsTe(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
                     self._is_frozen = True
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.Timer']['meta_info']
 
 
-            class Peers(Entity):
+            class Peers(_Entity_):
                 """
                 Configure PCE peers
                 
@@ -16898,10 +18826,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PceAttributes.Peers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PceAttributes.Peers, self).__init__()
 
                     self.yang_name = "peers"
                     self.yang_parent_name = "pce-attributes"
@@ -16920,7 +18851,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers, [], name, value)
 
 
-                class Peer(Entity):
+                class Peer(_Entity_):
                     """
                     PCE peer
                     
@@ -16957,10 +18888,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, self).__init__()
 
                         self.yang_name = "peer"
                         self.yang_parent_name = "peers"
@@ -16985,10 +18919,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, ['pce_peer_address', 'password', 'keychain', 'precedence'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.Peers.Peer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.Peers']['meta_info']
 
 
-
-            class Logging(Entity):
+            class Logging(_Entity_):
                 """
                 Configure PCE (Path Computation Element)
                 logging feature
@@ -17003,10 +18945,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PceAttributes.Logging, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PceAttributes.Logging, self).__init__()
 
                     self.yang_name = "logging"
                     self.yang_parent_name = "pce-attributes"
@@ -17027,7 +18972,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging, [], name, value)
 
 
-                class Events(Entity):
+                class Events(_Entity_):
                     """
                     Configure logging events
                     
@@ -17041,10 +18986,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, self).__init__()
 
                         self.yang_name = "events"
                         self.yang_parent_name = "logging"
@@ -17063,11 +19011,23 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, ['peer_status'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.Logging.Events']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes.Logging']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
 
 
-
-
-        class LspOutOfResource(Entity):
+        class LspOutOfResource(_Entity_):
             """
             Configure LSP OOR attributes in MPLS\-TE
             
@@ -17086,10 +19046,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.LspOutOfResource, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.LspOutOfResource, self).__init__()
 
                 self.yang_name = "lsp-out-of-resource"
                 self.yang_parent_name = "global-attributes"
@@ -17114,7 +19077,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource, [], name, value)
 
 
-            class LspOorRedState(Entity):
+            class LspOorRedState(_Entity_):
                 """
                 Configuration for LSP OOR Red/Major State
                 
@@ -17137,10 +19100,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, self).__init__()
 
                     self.yang_name = "lsp-oor-red-state"
                     self.yang_parent_name = "lsp-out-of-resource"
@@ -17161,9 +19127,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState']['meta_info']
 
 
-            class LspOorYellowState(Entity):
+            class LspOorYellowState(_Entity_):
                 """
                 Configuration for LSP OOR Yellow/Minor State
                 
@@ -17186,10 +19156,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, self).__init__()
 
                     self.yang_name = "lsp-oor-yellow-state"
                     self.yang_parent_name = "lsp-out-of-resource"
@@ -17210,10 +19183,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource']['meta_info']
 
 
-
-        class SoftPreemption(Entity):
+        class SoftPreemption(_Entity_):
             """
             Soft preemption configuration data
             
@@ -17243,10 +19224,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.SoftPreemption, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.SoftPreemption, self).__init__()
 
                 self.yang_name = "soft-preemption"
                 self.yang_parent_name = "global-attributes"
@@ -17269,9 +19253,13 @@ class MplsTe(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.SoftPreemption, ['timeout', 'frr_rewrite', 'enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.SoftPreemption']['meta_info']
 
 
-        class FastReroute(Entity):
+        class FastReroute(_Entity_):
             """
             Configure fast reroute attributes
             
@@ -17285,10 +19273,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.FastReroute, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.FastReroute, self).__init__()
 
                 self.yang_name = "fast-reroute"
                 self.yang_parent_name = "global-attributes"
@@ -17309,7 +19300,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.FastReroute, [], name, value)
 
 
-            class Timers(Entity):
+            class Timers(_Entity_):
                 """
                 Configure fast reroute timers
                 
@@ -17336,10 +19327,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.FastReroute.Timers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.FastReroute.Timers, self).__init__()
 
                     self.yang_name = "timers"
                     self.yang_parent_name = "fast-reroute"
@@ -17360,10 +19354,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.FastReroute.Timers, ['hold_backup', 'promotion'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.FastReroute.Timers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info']
 
 
-
-        class PathSelection(Entity):
+        class PathSelection(_Entity_):
             """
             Path selection configuration
             
@@ -17421,10 +19423,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.PathSelection, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.PathSelection, self).__init__()
 
                 self.yang_name = "path-selection"
                 self.yang_parent_name = "global-attributes"
@@ -17468,7 +19473,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.PathSelection, ['cost_limit', 'tiebreaker', 'metric', 'loose_domain_match', 'delay_limit'], name, value)
 
 
-            class LooseMetrics(Entity):
+            class LooseMetrics(_Entity_):
                 """
                 Path selection Loose ERO Metric Class
                 configuration
@@ -17483,10 +19488,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics, self).__init__()
 
                     self.yang_name = "loose-metrics"
                     self.yang_parent_name = "path-selection"
@@ -17505,7 +19513,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseMetrics, [], name, value)
 
 
-                class LooseMetric(Entity):
+                class LooseMetric(_Entity_):
                     """
                     Path selection Loose ERO Metric configuration
                     
@@ -17528,10 +19536,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, self).__init__()
 
                         self.yang_name = "loose-metric"
                         self.yang_parent_name = "loose-metrics"
@@ -17552,10 +19563,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, ['class_type', 'metric_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics']['meta_info']
 
 
-
-            class Invalidation(Entity):
+            class Invalidation(_Entity_):
                 """
                 Deprecated
                 
@@ -17576,10 +19595,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PathSelection.Invalidation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PathSelection.Invalidation, self).__init__()
 
                     self.yang_name = "invalidation"
                     self.yang_parent_name = "path-selection"
@@ -17600,9 +19622,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.Invalidation']['meta_info']
 
 
-            class IgnoreOverloadRole(Entity):
+            class IgnoreOverloadRole(_Entity_):
                 """
                 Path selection to ignore overload node during
                 CSPF
@@ -17627,10 +19653,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, self).__init__()
 
                     self.yang_name = "ignore-overload-role"
                     self.yang_parent_name = "path-selection"
@@ -17653,9 +19682,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, ['head', 'mid', 'tail'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole']['meta_info']
 
 
-            class LooseAffinities(Entity):
+            class LooseAffinities(_Entity_):
                 """
                 Path selection Loose ERO Affinity Class
                 configuration
@@ -17670,10 +19703,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities, self).__init__()
 
                     self.yang_name = "loose-affinities"
                     self.yang_parent_name = "path-selection"
@@ -17692,7 +19728,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseAffinities, [], name, value)
 
 
-                class LooseAffinity(Entity):
+                class LooseAffinity(_Entity_):
                     """
                     Path selection Loose ERO Affinity
                     configuration
@@ -17723,10 +19759,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, self).__init__()
 
                         self.yang_name = "loose-affinity"
                         self.yang_parent_name = "loose-affinities"
@@ -17749,11 +19788,23 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, ['class_type', 'affinity', 'mask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
 
 
-
-
-        class AffinityMappings(Entity):
+        class AffinityMappings(_Entity_):
             """
             Affinity Mapping Table configuration
             
@@ -17767,10 +19818,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GlobalAttributes.AffinityMappings, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GlobalAttributes.AffinityMappings, self).__init__()
 
                 self.yang_name = "affinity-mappings"
                 self.yang_parent_name = "global-attributes"
@@ -17789,7 +19843,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GlobalAttributes.AffinityMappings, [], name, value)
 
 
-            class AffinityMapping(Entity):
+            class AffinityMapping(_Entity_):
                 """
                 Affinity Mapping configuration
                 
@@ -17817,10 +19871,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, self).__init__()
 
                     self.yang_name = "affinity-mapping"
                     self.yang_parent_name = "affinity-mappings"
@@ -17843,11 +19900,23 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, ['affinity_name', 'value_type', 'value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.AffinityMappings']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.GlobalAttributes']['meta_info']
 
 
-
-
-    class TransportProfile(Entity):
+    class TransportProfile(_Entity_):
         """
         MPLS transport profile configuration data
         
@@ -17890,10 +19959,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.TransportProfile, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.TransportProfile, self).__init__()
 
             self.yang_name = "transport-profile"
             self.yang_parent_name = "mpls-te"
@@ -17931,7 +20003,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.TransportProfile, ['global_id', 'node_id'], name, value)
 
 
-        class Fault(Entity):
+        class Fault(_Entity_):
             """
             Fault management
             
@@ -17967,10 +20039,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.TransportProfile.Fault, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.TransportProfile.Fault, self).__init__()
 
                 self.yang_name = "fault"
                 self.yang_parent_name = "transport-profile"
@@ -17996,7 +20071,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.TransportProfile.Fault, ['wait_to_restore_interval', 'refresh_interval'], name, value)
 
 
-            class ProtectionTrigger(Entity):
+            class ProtectionTrigger(_Entity_):
                 """
                 OAM events that trigger protection switching
                 
@@ -18020,10 +20095,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.TransportProfile.Fault.ProtectionTrigger, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.TransportProfile.Fault.ProtectionTrigger, self).__init__()
 
                     self.yang_name = "protection-trigger"
                     self.yang_parent_name = "fault"
@@ -18051,7 +20129,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger, ['ais'], name, value)
 
 
-                class Ldi(Entity):
+                class Ldi(_Entity_):
                     """
                     Protection switching due to LDI event
                     
@@ -18065,10 +20143,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, self).__init__()
 
                         self.yang_name = "ldi"
                         self.yang_parent_name = "protection-trigger"
@@ -18087,9 +20168,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, ['disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi']['meta_info']
 
 
-                class Lkr(Entity):
+                class Lkr(_Entity_):
                     """
                     Protection switching due to LKR event
                     
@@ -18103,10 +20188,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, self).__init__()
 
                         self.yang_name = "lkr"
                         self.yang_parent_name = "protection-trigger"
@@ -18125,11 +20213,23 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, ['disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.TransportProfile.Fault']['meta_info']
 
 
-
-
-        class Alarm(Entity):
+        class Alarm(_Entity_):
             """
             Alarm management
             
@@ -18159,10 +20259,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.TransportProfile.Alarm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.TransportProfile.Alarm, self).__init__()
 
                 self.yang_name = "alarm"
                 self.yang_parent_name = "transport-profile"
@@ -18188,7 +20291,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.TransportProfile.Alarm, ['soak_time', 'enable_alarm'], name, value)
 
 
-            class SuppressEvent(Entity):
+            class SuppressEvent(_Entity_):
                 """
                 Suppress all tunnel/LSP alarms
                 
@@ -18202,10 +20305,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.TransportProfile.Alarm.SuppressEvent, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.TransportProfile.Alarm.SuppressEvent, self).__init__()
 
                     self.yang_name = "suppress-event"
                     self.yang_parent_name = "alarm"
@@ -18224,10 +20330,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Alarm.SuppressEvent, ['disable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.TransportProfile.Alarm.SuppressEvent']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.TransportProfile.Alarm']['meta_info']
 
 
-
-        class Bfd(Entity):
+        class Bfd(_Entity_):
             """
             Configure BFD parameters
             
@@ -18260,10 +20374,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.TransportProfile.Bfd, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.TransportProfile.Bfd, self).__init__()
 
                 self.yang_name = "bfd"
                 self.yang_parent_name = "transport-profile"
@@ -18293,7 +20410,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.TransportProfile.Bfd, ['detection_multiplier_standby', 'detection_multiplier'], name, value)
 
 
-            class MinIntervalStandby(Entity):
+            class MinIntervalStandby(_Entity_):
                 """
                 Hello interval for standby transport profile
                 LSPs, either in milli\-seconds or in
@@ -18322,10 +20439,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.TransportProfile.Bfd.MinIntervalStandby, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.TransportProfile.Bfd.MinIntervalStandby, self).__init__()
 
                     self.yang_name = "min-interval-standby"
                     self.yang_parent_name = "bfd"
@@ -18346,9 +20466,13 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinIntervalStandby, ['interval_standby_ms', 'interval_standby_us'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.TransportProfile.Bfd.MinIntervalStandby']['meta_info']
 
 
-            class MinInterval(Entity):
+            class MinInterval(_Entity_):
                 """
                 Hello interval, either in milli\-seconds or in
                 micro\-seconds
@@ -18376,10 +20500,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.TransportProfile.Bfd.MinInterval, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.TransportProfile.Bfd.MinInterval, self).__init__()
 
                     self.yang_name = "min-interval"
                     self.yang_parent_name = "bfd"
@@ -18400,10 +20527,18 @@ class MplsTe(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinInterval, ['interval_ms', 'interval_us'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.TransportProfile.Bfd.MinInterval']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.TransportProfile.Bfd']['meta_info']
 
 
-
-        class Midpoints(Entity):
+        class Midpoints(_Entity_):
             """
             MPLS\-TP tunnel mid\-point table
             
@@ -18417,10 +20552,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.TransportProfile.Midpoints, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.TransportProfile.Midpoints, self).__init__()
 
                 self.yang_name = "midpoints"
                 self.yang_parent_name = "transport-profile"
@@ -18439,7 +20577,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.TransportProfile.Midpoints, [], name, value)
 
 
-            class Midpoint(Entity):
+            class Midpoint(_Entity_):
                 """
                 Transport profile mid\-point identifier
                 
@@ -18496,10 +20634,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.TransportProfile.Midpoints.Midpoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.TransportProfile.Midpoints.Midpoint, self).__init__()
 
                     self.yang_name = "midpoint"
                     self.yang_parent_name = "midpoints"
@@ -18539,7 +20680,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint, ['midpoint_name', 'tunnel_name', 'lsp_protect', 'lsp_id'], name, value)
 
 
-                class Source(Entity):
+                class Source(_Entity_):
                     """
                     Node identifier, tunnel identifier and
                     optional global identifier of the source of
@@ -18575,10 +20716,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Midpoints.Midpoint.Source, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Midpoints.Midpoint.Source, self).__init__()
 
                         self.yang_name = "source"
                         self.yang_parent_name = "midpoint"
@@ -18601,9 +20745,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Source, ['node_id', 'tunnel_id', 'global_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.Source']['meta_info']
 
 
-                class Destination(Entity):
+                class Destination(_Entity_):
                     """
                     Node identifier, tunnel identifier and
                     optional global identifier of the destination
@@ -18639,10 +20787,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, self).__init__()
 
                         self.yang_name = "destination"
                         self.yang_parent_name = "midpoint"
@@ -18665,9 +20816,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, ['node_id', 'tunnel_id', 'global_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.Destination']['meta_info']
 
 
-                class ForwardLsp(Entity):
+                class ForwardLsp(_Entity_):
                     """
                     Forward transport profile LSP
                     
@@ -18692,10 +20847,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp, self).__init__()
 
                         self.yang_name = "forward-lsp"
                         self.yang_parent_name = "midpoint"
@@ -18717,7 +20875,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp, ['forward_bandwidth'], name, value)
 
 
-                    class ForwardIoMap(Entity):
+                    class ForwardIoMap(_Entity_):
                         """
                         Label cross\-connect of forward transport
                         profile LSP
@@ -18754,10 +20912,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, self).__init__()
 
                             self.yang_name = "forward-io-map"
                             self.yang_parent_name = "forward-lsp"
@@ -18780,10 +20941,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, ['in_label', 'out_label', 'out_link'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp']['meta_info']
 
 
-
-                class ReverseLsp(Entity):
+                class ReverseLsp(_Entity_):
                     """
                     none
                     
@@ -18808,10 +20977,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp, self).__init__()
 
                         self.yang_name = "reverse-lsp"
                         self.yang_parent_name = "midpoint"
@@ -18833,7 +21005,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp, ['reverse_bandwidth'], name, value)
 
 
-                    class ReverseIoMap(Entity):
+                    class ReverseIoMap(_Entity_):
                         """
                         Label cross\-connect of reverse transport
                         profile LSP
@@ -18870,10 +21042,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, self).__init__()
 
                             self.yang_name = "reverse-io-map"
                             self.yang_parent_name = "reverse-lsp"
@@ -18896,13 +21071,33 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, ['in_label', 'out_label', 'out_link'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.TransportProfile.Midpoints.Midpoint']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.TransportProfile.Midpoints']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.TransportProfile']['meta_info']
 
 
-
-
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Configure MPLS TE interfaces
         
@@ -18916,10 +21111,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "mpls-te"
@@ -18938,7 +21136,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Configure an MPLS TE interface
             
@@ -18969,10 +21167,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -19004,7 +21205,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class TransportProfileLink(Entity):
+            class TransportProfileLink(_Entity_):
                 """
                 MPLS transport profile capable link
                 
@@ -19018,10 +21219,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.Interfaces.Interface.TransportProfileLink, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.Interfaces.Interface.TransportProfileLink, self).__init__()
 
                     self.yang_name = "transport-profile-link"
                     self.yang_parent_name = "interface"
@@ -19041,7 +21245,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink, [], name, value)
 
 
-                class Links(Entity):
+                class Links(_Entity_):
                     """
                     Transport profile link table
                     
@@ -19055,10 +21259,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.TransportProfileLink.Links, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.TransportProfileLink.Links, self).__init__()
 
                         self.yang_name = "links"
                         self.yang_parent_name = "transport-profile-link"
@@ -19076,7 +21283,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links, [], name, value)
 
 
-                    class Link(Entity):
+                    class Link(_Entity_):
                         """
                         Transport profile link
                         
@@ -19106,10 +21313,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, self).__init__()
 
                             self.yang_name = "link"
                             self.yang_parent_name = "links"
@@ -19131,11 +21341,23 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, ['link_id', 'next_hop_type', 'next_hop_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.TransportProfileLink.Links']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.Interfaces.Interface.TransportProfileLink']['meta_info']
 
 
-
-
-            class Lcac(Entity):
+            class Lcac(_Entity_):
                 """
                 LCAC specific MPLS interface configuration
                 
@@ -19208,10 +21430,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.Interfaces.Interface.Lcac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.Interfaces.Interface.Lcac, self).__init__()
 
                     self.yang_name = "lcac"
                     self.yang_parent_name = "interface"
@@ -19266,7 +21491,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.Interfaces.Interface.Lcac, ['bfd', 'fault_oam_lockout', 'attribute_flags', 'enable', 'admin_weight'], name, value)
 
 
-                class Switchings(Entity):
+                class Switchings(_Entity_):
                     """
                     Set the te\-link switching attributes
                     
@@ -19280,10 +21505,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.Switchings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.Switchings, self).__init__()
 
                         self.yang_name = "switchings"
                         self.yang_parent_name = "lcac"
@@ -19301,7 +21529,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings, [], name, value)
 
 
-                    class Switching(Entity):
+                    class Switching(_Entity_):
                         """
                         The te\-link switching attributes
                         
@@ -19331,10 +21559,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, self).__init__()
 
                             self.yang_name = "switching"
                             self.yang_parent_name = "switchings"
@@ -19356,10 +21587,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, ['switching_id', 'encoding', 'capability'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.Switchings.Switching']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.Switchings']['meta_info']
 
 
-
-                class FloodArea(Entity):
+                class FloodArea(_Entity_):
                     """
                     Set the IGP instance into which this
                     interface is to be flooded (GMPLS only)
@@ -19388,10 +21627,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.FloodArea, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.FloodArea, self).__init__()
 
                         self.yang_name = "flood-area"
                         self.yang_parent_name = "lcac"
@@ -19413,9 +21655,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.FloodArea, ['igp_type', 'process_name', 'area_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.FloodArea']['meta_info']
 
 
-                class AttributeNameXr(Entity):
+                class AttributeNameXr(_Entity_):
                     """
                     Set the interface attribute names
                     
@@ -19429,10 +21675,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, self).__init__()
 
                         self.yang_name = "attribute-name-xr"
                         self.yang_parent_name = "lcac"
@@ -19450,9 +21699,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, ['attribute_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.AttributeNameXr']['meta_info']
 
 
-                class AttributeNames(Entity):
+                class AttributeNames(_Entity_):
                     """
                     Attribute name table
                     
@@ -19466,10 +21719,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.AttributeNames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.AttributeNames, self).__init__()
 
                         self.yang_name = "attribute-names"
                         self.yang_parent_name = "lcac"
@@ -19487,7 +21743,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames, [], name, value)
 
 
-                    class AttributeName(Entity):
+                    class AttributeName(_Entity_):
                         """
                         Set the interface attribute names
                         
@@ -19508,10 +21764,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, self).__init__()
 
                             self.yang_name = "attribute-name"
                             self.yang_parent_name = "attribute-names"
@@ -19531,10 +21790,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, ['affinity_index', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.AttributeNames']['meta_info']
 
 
-
-                class Srlgs(Entity):
+                class Srlgs(_Entity_):
                     """
                     Configure SRLG membership for the interface
                     
@@ -19548,10 +21815,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.Srlgs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.Srlgs, self).__init__()
 
                         self.yang_name = "srlgs"
                         self.yang_parent_name = "lcac"
@@ -19569,7 +21839,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs, [], name, value)
 
 
-                    class Srlg(Entity):
+                    class Srlg(_Entity_):
                         """
                         SRLG membership number
                         
@@ -19585,10 +21855,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, self).__init__()
 
                             self.yang_name = "srlg"
                             self.yang_parent_name = "srlgs"
@@ -19606,10 +21879,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, ['srlg_number'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.Srlgs']['meta_info']
 
 
-
-                class UpThresholds(Entity):
+                class UpThresholds(_Entity_):
                     """
                     Set thresholds for increased resource
                     availability in %
@@ -19628,10 +21909,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.UpThresholds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.UpThresholds, self).__init__()
 
                         self.yang_name = "up-thresholds"
                         self.yang_parent_name = "lcac"
@@ -19649,9 +21933,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.UpThresholds, ['up_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.UpThresholds']['meta_info']
 
 
-                class DownThresholds(Entity):
+                class DownThresholds(_Entity_):
                     """
                     Set thresholds for decreased resource
                     availability in %
@@ -19670,10 +21958,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.Lcac.DownThresholds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.Lcac.DownThresholds, self).__init__()
 
                         self.yang_name = "down-thresholds"
                         self.yang_parent_name = "lcac"
@@ -19691,10 +21982,18 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.DownThresholds, ['down_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.Lcac.DownThresholds']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.Interfaces.Interface.Lcac']['meta_info']
 
 
-
-            class GlobalAttributes(Entity):
+            class GlobalAttributes(_Entity_):
                 """
                 MPLS TE global interface configuration
                 
@@ -19718,10 +22017,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.Interfaces.Interface.GlobalAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.Interfaces.Interface.GlobalAttributes, self).__init__()
 
                     self.yang_name = "global-attributes"
                     self.yang_parent_name = "interface"
@@ -19749,7 +22051,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes, [], name, value)
 
 
-                class BackupTunnels(Entity):
+                class BackupTunnels(_Entity_):
                     """
                     Configure MPLS TE backup tunnels for this
                     interface
@@ -19764,10 +22066,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels, self).__init__()
 
                         self.yang_name = "backup-tunnels"
                         self.yang_parent_name = "global-attributes"
@@ -19785,7 +22090,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels, [], name, value)
 
 
-                    class BackupTunnel(Entity):
+                    class BackupTunnel(_Entity_):
                         """
                         Tunnel name
                         
@@ -19801,10 +22106,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, self).__init__()
 
                             self.yang_name = "backup-tunnel"
                             self.yang_parent_name = "backup-tunnels"
@@ -19822,10 +22130,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, ['tunnel_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels']['meta_info']
 
 
-
-                class AutoTunnel(Entity):
+                class AutoTunnel(_Entity_):
                     """
                     Auto tunnel configuration
                     
@@ -19839,10 +22155,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, self).__init__()
 
                         self.yang_name = "auto-tunnel"
                         self.yang_parent_name = "global-attributes"
@@ -19862,7 +22181,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, [], name, value)
 
 
-                    class Backup(Entity):
+                    class Backup(_Entity_):
                         """
                         Auto tunnel backup configuration
                         
@@ -19893,10 +22212,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup, self).__init__()
 
                             self.yang_name = "backup"
                             self.yang_parent_name = "auto-tunnel"
@@ -19923,7 +22245,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup, ['enable', 'attribute_set', 'next_hop_only'], name, value)
 
 
-                        class Exclude(Entity):
+                        class Exclude(_Entity_):
                             """
                             Auto\-tunnel backup exclusion criteria
                             
@@ -19937,10 +22259,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, self).__init__()
 
                                 self.yang_name = "exclude"
                                 self.yang_parent_name = "backup"
@@ -19958,11 +22283,23 @@ class MplsTe(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, ['srlg_mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel']['meta_info']
 
 
-
-
-                class BackupPaths(Entity):
+                class BackupPaths(_Entity_):
                     """
                     Configure MPLS TE backup tunnels for this
                     interface
@@ -19977,10 +22314,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths, self).__init__()
 
                         self.yang_name = "backup-paths"
                         self.yang_parent_name = "global-attributes"
@@ -19998,7 +22338,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths, [], name, value)
 
 
-                    class BackupPath(Entity):
+                    class BackupPath(_Entity_):
                         """
                         Tunnel interface number
                         
@@ -20014,10 +22354,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, self).__init__()
 
                             self.yang_name = "backup-path"
                             self.yang_parent_name = "backup-paths"
@@ -20035,13 +22378,33 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, ['tunnel_number'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.Interfaces']['meta_info']
 
 
-
-
-
-
-    class GmplsNni(Entity):
+    class GmplsNni(_Entity_):
         """
         GMPLS\-NNI configuration
         
@@ -20070,10 +22433,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.GmplsNni, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.GmplsNni, self).__init__()
 
             self.yang_name = "gmpls-nni"
             self.yang_parent_name = "mpls-te"
@@ -20103,7 +22469,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.GmplsNni, ['path_selection_metric', 'enable_gmpls_nni'], name, value)
 
 
-        class TopologyInstances(Entity):
+        class TopologyInstances(_Entity_):
             """
             GMPLS\-NNI topology instance table
             
@@ -20117,10 +22483,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GmplsNni.TopologyInstances, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GmplsNni.TopologyInstances, self).__init__()
 
                 self.yang_name = "topology-instances"
                 self.yang_parent_name = "gmpls-nni"
@@ -20139,7 +22508,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances, [], name, value)
 
 
-            class TopologyInstance(Entity):
+            class TopologyInstance(_Entity_):
                 """
                 GMPLS\-NNI topology instance configuration
                 
@@ -20175,10 +22544,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance, self).__init__()
 
                     self.yang_name = "topology-instance"
                     self.yang_parent_name = "topology-instances"
@@ -20205,7 +22577,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance, ['ospf_area_type', 'igp_instance_name', 'igp_type'], name, value)
 
 
-                class OspfInt(Entity):
+                class OspfInt(_Entity_):
                     """
                     ospf int
                     
@@ -20226,10 +22598,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, self).__init__()
 
                         self.yang_name = "ospf-int"
                         self.yang_parent_name = "topology-instance"
@@ -20252,7 +22627,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, ['igp_area'], name, value)
 
 
-                    class Controllers(Entity):
+                    class Controllers(_Entity_):
                         """
                         GMPLS\-NNI controllers
                         
@@ -20266,10 +22641,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers, self).__init__()
 
                             self.yang_name = "controllers"
                             self.yang_parent_name = "ospf-int"
@@ -20287,7 +22665,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers, [], name, value)
 
 
-                        class Controller(Entity):
+                        class Controller(_Entity_):
                             """
                             Configure a GMPLS NNI controller
                             
@@ -20332,10 +22710,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, self).__init__()
 
                                 self.yang_name = "controller"
                                 self.yang_parent_name = "controllers"
@@ -20368,7 +22749,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
 
 
-                            class TtiMode(Entity):
+                            class TtiMode(_Entity_):
                                 """
                                 Set tandem connection monitoring for the
                                 interface
@@ -20390,10 +22771,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, self).__init__()
 
                                     self.yang_name = "tti-mode"
                                     self.yang_parent_name = "controller"
@@ -20413,9 +22797,13 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode']['meta_info']
 
 
-                            class AffinityNames(Entity):
+                            class AffinityNames(_Entity_):
                                 """
                                 Set the interface affinity names
                                 
@@ -20429,10 +22817,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, self).__init__()
 
                                     self.yang_name = "affinity-names"
                                     self.yang_parent_name = "controller"
@@ -20450,12 +22841,28 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt']['meta_info']
 
 
-
-
-
-                class OspfipAddr(Entity):
+                class OspfipAddr(_Entity_):
                     """
                     ospfip addr
                     
@@ -20476,10 +22883,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, self).__init__()
 
                         self.yang_name = "ospfip-addr"
                         self.yang_parent_name = "topology-instance"
@@ -20502,7 +22912,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, ['address'], name, value)
 
 
-                    class Controllers(Entity):
+                    class Controllers(_Entity_):
                         """
                         GMPLS\-NNI controllers
                         
@@ -20516,10 +22926,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers, self).__init__()
 
                             self.yang_name = "controllers"
                             self.yang_parent_name = "ospfip-addr"
@@ -20537,7 +22950,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers, [], name, value)
 
 
-                        class Controller(Entity):
+                        class Controller(_Entity_):
                             """
                             Configure a GMPLS NNI controller
                             
@@ -20582,10 +22995,13 @@ class MplsTe(Entity):
                             """
 
                             _prefix = 'mpls-te-cfg'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-16'
 
                             def __init__(self):
-                                super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, self).__init__()
 
                                 self.yang_name = "controller"
                                 self.yang_parent_name = "controllers"
@@ -20618,7 +23034,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
 
 
-                            class TtiMode(Entity):
+                            class TtiMode(_Entity_):
                                 """
                                 Set tandem connection monitoring for the
                                 interface
@@ -20640,10 +23056,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, self).__init__()
 
                                     self.yang_name = "tti-mode"
                                     self.yang_parent_name = "controller"
@@ -20663,9 +23082,13 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode']['meta_info']
 
 
-                            class AffinityNames(Entity):
+                            class AffinityNames(_Entity_):
                                 """
                                 Set the interface affinity names
                                 
@@ -20679,10 +23102,13 @@ class MplsTe(Entity):
                                 """
 
                                 _prefix = 'mpls-te-cfg'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-16'
 
                                 def __init__(self):
-                                    super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, self).__init__()
 
                                     self.yang_name = "affinity-names"
                                     self.yang_parent_name = "controller"
@@ -20700,14 +23126,38 @@ class MplsTe(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GmplsNni.TopologyInstances']['meta_info']
 
 
-
-
-
-
-
-        class TunnelHeads(Entity):
+        class TunnelHeads(_Entity_):
             """
             GMPLS\-NNI tunnel\-head table
             
@@ -20721,10 +23171,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.GmplsNni.TunnelHeads, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.GmplsNni.TunnelHeads, self).__init__()
 
                 self.yang_name = "tunnel-heads"
                 self.yang_parent_name = "gmpls-nni"
@@ -20743,7 +23196,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.GmplsNni.TunnelHeads, [], name, value)
 
 
-            class TunnelHead(Entity):
+            class TunnelHead(_Entity_):
                 """
                 The configuration for a GMPLS NNI tunnel
                 head\-end
@@ -20849,10 +23302,13 @@ class MplsTe(Entity):
                 """
 
                 _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
+                _revision = '2019-10-16'
 
                 def __init__(self):
-                    super(MplsTe.GmplsNni.TunnelHeads.TunnelHead, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead, self).__init__()
 
                     self.yang_name = "tunnel-head"
                     self.yang_parent_name = "tunnel-heads"
@@ -20918,7 +23374,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead, ['tunnel_id', 'enable', 'announce_srlg', 'restore_lsp_shutdown', 'current_lsp_shutdown', 'path_selection_metric', 'payload', 'standby_lsp_shutdown', 'shutdown', 'path_protection_attribute_set_profile', 'record_route', 'signalled_name'], name, value)
 
 
-                class SignalledBandwidth(Entity):
+                class SignalledBandwidth(_Entity_):
                     """
                     The existence of this configuration indicates
                     the signalled bandwidth has been set for the
@@ -20948,10 +23404,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, self).__init__()
 
                         self.yang_name = "signalled-bandwidth"
                         self.yang_parent_name = "tunnel-head"
@@ -20973,9 +23432,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, ['signalled_bandwidth_type', 'bitrate', 'od_uflex_framing_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth']['meta_info']
 
 
-                class Destination(Entity):
+                class Destination(_Entity_):
                     """
                     The existence of this configuration indicates
                     the destination has been set for the tunnel
@@ -21004,10 +23467,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, self).__init__()
 
                         self.yang_name = "destination"
                         self.yang_parent_name = "tunnel-head"
@@ -21029,9 +23495,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, ['destination', 'destination_type', 'interface_if_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination']['meta_info']
 
 
-                class ProtectionSwitching(Entity):
+                class ProtectionSwitching(_Entity_):
                     """
                     The configuration for a GMPLS NNI tunnel
                     protection switch
@@ -21046,10 +23516,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, self).__init__()
 
                         self.yang_name = "protection-switching"
                         self.yang_parent_name = "tunnel-head"
@@ -21067,9 +23540,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, ['lockout'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching']['meta_info']
 
 
-                class Logging(Entity):
+                class Logging(_Entity_):
                     """
                     Tunnel event logging
                     
@@ -21113,10 +23590,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, self).__init__()
 
                         self.yang_name = "logging"
                         self.yang_parent_name = "tunnel-head"
@@ -21146,9 +23626,13 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, ['active_lsp_message', 'homepath_state_message', 'signalling_state_message', 'path_change_message', 'static_cross_connect_message', 'tunnel_state_message', 'insufficient_bw_message'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging']['meta_info']
 
 
-                class PathOptions(Entity):
+                class PathOptions(_Entity_):
                     """
                     GMPLS NNI path options
                     
@@ -21162,10 +23646,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions, self).__init__()
 
                         self.yang_name = "path-options"
                         self.yang_parent_name = "tunnel-head"
@@ -21183,7 +23670,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions, [], name, value)
 
 
-                    class PathOption(Entity):
+                    class PathOption(_Entity_):
                         """
                         The existence of this configuration
                         indicates the path options have been set for
@@ -21258,10 +23745,13 @@ class MplsTe(Entity):
                         """
 
                         _prefix = 'mpls-te-cfg'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-16'
 
                         def __init__(self):
-                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, self).__init__()
 
                             self.yang_name = "path-option"
                             self.yang_parent_name = "path-options"
@@ -21297,10 +23787,18 @@ class MplsTe(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'affinity_attribute_set_name', 'lockdown'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions']['meta_info']
 
 
-
-                class StaticUni(Entity):
+                class StaticUni(_Entity_):
                     """
                     The existence of this configuration indicates
                     the static UNI endpoints have been set for
@@ -21335,10 +23833,13 @@ class MplsTe(Entity):
                     """
 
                     _prefix = 'mpls-te-cfg'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-16'
 
                     def __init__(self):
-                        super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, self).__init__()
 
                         self.yang_name = "static-uni"
                         self.yang_parent_name = "tunnel-head"
@@ -21362,12 +23863,28 @@ class MplsTe(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, ['ingress_controller_name', 'egress_controller_if_index', 'ingress_type', 'egress_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GmplsNni.TunnelHeads']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.GmplsNni']['meta_info']
 
 
-
-
-
-    class Lcac(Entity):
+    class Lcac(_Entity_):
         """
         LCAC specific MPLS global configuration
         
@@ -21413,10 +23930,13 @@ class MplsTe(Entity):
         """
 
         _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
+        _revision = '2019-10-16'
 
         def __init__(self):
-            super(MplsTe.Lcac, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsTe.Lcac, self).__init__()
 
             self.yang_name = "lcac"
             self.yang_parent_name = "mpls-te"
@@ -21448,7 +23968,7 @@ class MplsTe(Entity):
             self._perform_setattr(MplsTe.Lcac, ['bandwidth_hold_timer', 'delay_preempt_bundle_capacity_timer', 'periodic_flooding_timer'], name, value)
 
 
-        class Bfd(Entity):
+        class Bfd(_Entity_):
             """
             BFD configuration
             
@@ -21473,10 +23993,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.Lcac.Bfd, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.Lcac.Bfd, self).__init__()
 
                 self.yang_name = "bfd"
                 self.yang_parent_name = "lcac"
@@ -21497,9 +24020,13 @@ class MplsTe(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Lcac.Bfd, ['interval', 'detection_multiplier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.Lcac.Bfd']['meta_info']
 
 
-        class FloodingThreshold(Entity):
+        class FloodingThreshold(_Entity_):
             """
             Configure flooding threshold as percentage of
             total link bandwidth.
@@ -21527,10 +24054,13 @@ class MplsTe(Entity):
             """
 
             _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
+            _revision = '2019-10-16'
 
             def __init__(self):
-                super(MplsTe.Lcac.FloodingThreshold, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsTe.Lcac.FloodingThreshold, self).__init__()
 
                 self.yang_name = "flooding-threshold"
                 self.yang_parent_name = "lcac"
@@ -21551,11 +24081,23 @@ class MplsTe(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Lcac.FloodingThreshold, ['up_stream', 'down_stream'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.Lcac.FloodingThreshold']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.Lcac']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsTe()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTe']['meta_info']
 
 

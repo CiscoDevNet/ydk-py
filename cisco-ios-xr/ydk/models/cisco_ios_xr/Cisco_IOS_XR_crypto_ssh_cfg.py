@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ssh(Entity):
+class Ssh(_Entity_):
     """
     Secure Shell configuration
     
@@ -48,7 +51,10 @@ class Ssh(Entity):
     _revision = '2019-03-28'
 
     def __init__(self):
-        super(Ssh, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ssh, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ssh"
@@ -77,7 +83,7 @@ class Ssh(Entity):
         self._perform_setattr(Ssh, [], name, value)
 
 
-    class Client(Entity):
+    class Client(_Entity_):
         """
         Provide SSH client service
         
@@ -164,7 +170,10 @@ class Ssh(Entity):
         _revision = '2019-03-28'
 
         def __init__(self):
-            super(Ssh.Client, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh.Client, self).__init__()
 
             self.yang_name = "client"
             self.yang_parent_name = "ssh"
@@ -210,7 +219,7 @@ class Ssh(Entity):
             self._perform_setattr(Ssh.Client, ['rekey_volume', 'host_public_key', 'client_vrf', 'v2', 'tcp_window_scale', 'rekey_time', 'source_interface', 'dscp'], name, value)
 
 
-        class ClientDisable(Entity):
+        class ClientDisable(_Entity_):
             """
             disable
             
@@ -227,7 +236,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Client.ClientDisable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Client.ClientDisable, self).__init__()
 
                 self.yang_name = "client-disable"
                 self.yang_parent_name = "client"
@@ -248,7 +260,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Client.ClientDisable, [], name, value)
 
 
-            class ClientHmac(Entity):
+            class ClientHmac(_Entity_):
                 """
                 hmac
                 
@@ -267,7 +279,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Client.ClientDisable.ClientHmac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Client.ClientDisable.ClientHmac, self).__init__()
 
                     self.yang_name = "client-hmac"
                     self.yang_parent_name = "client-disable"
@@ -286,10 +301,18 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Client.ClientDisable.ClientHmac, ['client_hmac_sha1'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Client.ClientDisable.ClientHmac']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Client.ClientDisable']['meta_info']
 
 
-
-        class ClientAlgo(Entity):
+        class ClientAlgo(_Entity_):
             """
             Cisco ssh algorithms
             
@@ -297,6 +320,11 @@ class Ssh(Entity):
             
             	Key exchange algorithm
             	**type**\:  :py:class:`KeyExchanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Client.ClientAlgo.KeyExchanges>`
+            
+            .. attribute:: ciphers
+            
+            	cipher algorithm
+            	**type**\:  :py:class:`Ciphers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Client.ClientAlgo.Ciphers>`
             
             
 
@@ -306,19 +334,26 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Client.ClientAlgo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Client.ClientAlgo, self).__init__()
 
                 self.yang_name = "client-algo"
                 self.yang_parent_name = "client"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("key-exchanges", ("key_exchanges", Ssh.Client.ClientAlgo.KeyExchanges))])
+                self._child_classes = OrderedDict([("key-exchanges", ("key_exchanges", Ssh.Client.ClientAlgo.KeyExchanges)), ("ciphers", ("ciphers", Ssh.Client.ClientAlgo.Ciphers))])
                 self._leafs = OrderedDict()
 
                 self.key_exchanges = Ssh.Client.ClientAlgo.KeyExchanges()
                 self.key_exchanges.parent = self
                 self._children_name_map["key_exchanges"] = "key-exchanges"
+
+                self.ciphers = Ssh.Client.ClientAlgo.Ciphers()
+                self.ciphers.parent = self
+                self._children_name_map["ciphers"] = "ciphers"
                 self._segment_path = lambda: "client-algo"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/%s" % self._segment_path()
                 self._is_frozen = True
@@ -327,7 +362,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Client.ClientAlgo, [], name, value)
 
 
-            class KeyExchanges(Entity):
+            class KeyExchanges(_Entity_):
                 """
                 Key exchange algorithm
                 
@@ -346,7 +381,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Client.ClientAlgo.KeyExchanges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Client.ClientAlgo.KeyExchanges, self).__init__()
 
                     self.yang_name = "key-exchanges"
                     self.yang_parent_name = "client-algo"
@@ -365,10 +403,65 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Client.ClientAlgo.KeyExchanges, ['key_exchange'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Client.ClientAlgo.KeyExchanges']['meta_info']
 
 
+            class Ciphers(_Entity_):
+                """
+                cipher algorithm
+                
+                .. attribute:: cipher
+                
+                	Cipher algorithm
+                	**type**\: list of str
+                
+                	**length:** 1..32
+                
+                
 
-        class ClientEnable(Entity):
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2019-03-28'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Client.ClientAlgo.Ciphers, self).__init__()
+
+                    self.yang_name = "ciphers"
+                    self.yang_parent_name = "client-algo"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('cipher', (YLeafList(YType.str, 'cipher'), ['str'])),
+                    ])
+                    self.cipher = []
+                    self._segment_path = lambda: "ciphers"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-algo/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh.Client.ClientAlgo.Ciphers, ['cipher'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Client.ClientAlgo.Ciphers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Client.ClientAlgo']['meta_info']
+
+
+        class ClientEnable(_Entity_):
             """
             clientenable
             
@@ -385,7 +478,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Client.ClientEnable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Client.ClientEnable, self).__init__()
 
                 self.yang_name = "client-enable"
                 self.yang_parent_name = "client"
@@ -406,7 +502,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Client.ClientEnable, [], name, value)
 
 
-            class ClientCipher(Entity):
+            class ClientCipher(_Entity_):
                 """
                 Enable AES\-CBC and 3DES\_CBC for ssh client
                 
@@ -432,7 +528,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Client.ClientEnable.ClientCipher, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Client.ClientEnable.ClientCipher, self).__init__()
 
                     self.yang_name = "client-cipher"
                     self.yang_parent_name = "client-enable"
@@ -453,11 +552,23 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Client.ClientEnable.ClientCipher, ['aes_cbc', 'tripledes_cbc'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Client.ClientEnable.ClientCipher']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Client.ClientEnable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+            return meta._meta_table['Ssh.Client']['meta_info']
 
 
-
-
-    class Server(Entity):
+    class Server(_Entity_):
         """
         Provide SSH server service
         
@@ -581,7 +692,10 @@ class Ssh(Entity):
         _revision = '2019-03-28'
 
         def __init__(self):
-            super(Ssh.Server, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh.Server, self).__init__()
 
             self.yang_name = "server"
             self.yang_parent_name = "ssh"
@@ -643,7 +757,7 @@ class Ssh(Entity):
             self._perform_setattr(Ssh.Server, ['rekey_volume', 'session_limit', 'netconf', 'v2', 'tcp_window_scale', 'rekey_time', 'logging', 'rate_limit', 'timeout', 'dscp'], name, value)
 
 
-        class Disable(Entity):
+        class Disable(_Entity_):
             """
             disable
             
@@ -660,7 +774,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.Disable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.Disable, self).__init__()
 
                 self.yang_name = "disable"
                 self.yang_parent_name = "server"
@@ -681,7 +798,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Server.Disable, [], name, value)
 
 
-            class Hmac(Entity):
+            class Hmac(_Entity_):
                 """
                 hmac
                 
@@ -707,7 +824,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Server.Disable.Hmac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.Disable.Hmac, self).__init__()
 
                     self.yang_name = "hmac"
                     self.yang_parent_name = "disable"
@@ -728,10 +848,18 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.Disable.Hmac, ['hmac_sha512', 'hmac_sha1'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.Disable.Hmac']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.Disable']['meta_info']
 
 
-
-        class Enable(Entity):
+        class Enable(_Entity_):
             """
             enable
             
@@ -748,7 +876,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.Enable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.Enable, self).__init__()
 
                 self.yang_name = "enable"
                 self.yang_parent_name = "server"
@@ -769,7 +900,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Server.Enable, [], name, value)
 
 
-            class Cipher(Entity):
+            class Cipher(_Entity_):
                 """
                 Enable AES\-CBC and 3DES\-CBC ciphers
                 
@@ -795,7 +926,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Server.Enable.Cipher, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.Enable.Cipher, self).__init__()
 
                     self.yang_name = "cipher"
                     self.yang_parent_name = "enable"
@@ -816,10 +950,18 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.Enable.Cipher, ['aes_cbc', 'tripledes_cbc'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.Enable.Cipher']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.Enable']['meta_info']
 
 
-
-        class VrfTable(Entity):
+        class VrfTable(_Entity_):
             """
             Cisco sshd VRF name
             
@@ -836,7 +978,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.VrfTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.VrfTable, self).__init__()
 
                 self.yang_name = "vrf-table"
                 self.yang_parent_name = "server"
@@ -855,7 +1000,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Server.VrfTable, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 Enter VRF name
                 
@@ -895,7 +1040,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Server.VrfTable.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.VrfTable.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrf-table"
@@ -920,10 +1068,18 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.VrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.VrfTable.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.VrfTable']['meta_info']
 
 
-
-        class ServerAlgo(Entity):
+        class ServerAlgo(_Entity_):
             """
             Cisco ssh algorithms
             
@@ -931,6 +1087,11 @@ class Ssh(Entity):
             
             	Key exchange algorithm
             	**type**\:  :py:class:`KeyExchanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Server.ServerAlgo.KeyExchanges>`
+            
+            .. attribute:: ciphers
+            
+            	cipher algorithm
+            	**type**\:  :py:class:`Ciphers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Server.ServerAlgo.Ciphers>`
             
             
 
@@ -940,19 +1101,26 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.ServerAlgo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.ServerAlgo, self).__init__()
 
                 self.yang_name = "server-algo"
                 self.yang_parent_name = "server"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("key-exchanges", ("key_exchanges", Ssh.Server.ServerAlgo.KeyExchanges))])
+                self._child_classes = OrderedDict([("key-exchanges", ("key_exchanges", Ssh.Server.ServerAlgo.KeyExchanges)), ("ciphers", ("ciphers", Ssh.Server.ServerAlgo.Ciphers))])
                 self._leafs = OrderedDict()
 
                 self.key_exchanges = Ssh.Server.ServerAlgo.KeyExchanges()
                 self.key_exchanges.parent = self
                 self._children_name_map["key_exchanges"] = "key-exchanges"
+
+                self.ciphers = Ssh.Server.ServerAlgo.Ciphers()
+                self.ciphers.parent = self
+                self._children_name_map["ciphers"] = "ciphers"
                 self._segment_path = lambda: "server-algo"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
                 self._is_frozen = True
@@ -961,7 +1129,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Server.ServerAlgo, [], name, value)
 
 
-            class KeyExchanges(Entity):
+            class KeyExchanges(_Entity_):
                 """
                 Key exchange algorithm
                 
@@ -980,7 +1148,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Server.ServerAlgo.KeyExchanges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.ServerAlgo.KeyExchanges, self).__init__()
 
                     self.yang_name = "key-exchanges"
                     self.yang_parent_name = "server-algo"
@@ -999,10 +1170,65 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.ServerAlgo.KeyExchanges, ['key_exchange'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.ServerAlgo.KeyExchanges']['meta_info']
 
 
+            class Ciphers(_Entity_):
+                """
+                cipher algorithm
+                
+                .. attribute:: cipher
+                
+                	Cipher algorithm
+                	**type**\: list of str
+                
+                	**length:** 1..32
+                
+                
 
-        class Capability(Entity):
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2019-03-28'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.ServerAlgo.Ciphers, self).__init__()
+
+                    self.yang_name = "ciphers"
+                    self.yang_parent_name = "server-algo"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('cipher', (YLeafList(YType.str, 'cipher'), ['str'])),
+                    ])
+                    self.cipher = []
+                    self._segment_path = lambda: "ciphers"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/server-algo/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh.Server.ServerAlgo.Ciphers, ['cipher'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.ServerAlgo.Ciphers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.ServerAlgo']['meta_info']
+
+
+        class Capability(_Entity_):
             """
             Capability
             
@@ -1021,7 +1247,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.Capability, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.Capability, self).__init__()
 
                 self.yang_name = "capability"
                 self.yang_parent_name = "server"
@@ -1040,9 +1269,13 @@ class Ssh(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.Capability, ['netconf_xml'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.Capability']['meta_info']
 
 
-        class NetconfVrfTable(Entity):
+        class NetconfVrfTable(_Entity_):
             """
             Cisco sshd Netconf VRF name
             
@@ -1059,7 +1292,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.Server.NetconfVrfTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Server.NetconfVrfTable, self).__init__()
 
                 self.yang_name = "netconf-vrf-table"
                 self.yang_parent_name = "server"
@@ -1078,7 +1314,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Server.NetconfVrfTable, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 Enter VRF name
                 
@@ -1118,7 +1354,10 @@ class Ssh(Entity):
                 _revision = '2019-03-28'
 
                 def __init__(self):
-                    super(Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "netconf-vrf-table"
@@ -1143,11 +1382,23 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                    return meta._meta_table['Ssh.Server.NetconfVrfTable.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.Server.NetconfVrfTable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+            return meta._meta_table['Ssh.Server']['meta_info']
 
 
-
-
-    class BackupServer(Entity):
+    class BackupServer(_Entity_):
         """
         Provide SSH server service
         
@@ -1166,7 +1417,10 @@ class Ssh(Entity):
         _revision = '2019-03-28'
 
         def __init__(self):
-            super(Ssh.BackupServer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh.BackupServer, self).__init__()
 
             self.yang_name = "backup-server"
             self.yang_parent_name = "ssh"
@@ -1186,7 +1440,7 @@ class Ssh(Entity):
             self._perform_setattr(Ssh.BackupServer, [], name, value)
 
 
-        class BackupPortVrf(Entity):
+        class BackupPortVrf(_Entity_):
             """
             backup server config
             
@@ -1218,7 +1472,10 @@ class Ssh(Entity):
             _revision = '2019-03-28'
 
             def __init__(self):
-                super(Ssh.BackupServer.BackupPortVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.BackupServer.BackupPortVrf, self).__init__()
 
                 self.yang_name = "backup-port-vrf"
                 self.yang_parent_name = "backup-server"
@@ -1240,11 +1497,23 @@ class Ssh(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.BackupServer.BackupPortVrf, ['port', 'vrf_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+                return meta._meta_table['Ssh.BackupServer.BackupPortVrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+            return meta._meta_table['Ssh.BackupServer']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ssh()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_cfg as meta
+        return meta._meta_table['Ssh']['meta_info']
 
 

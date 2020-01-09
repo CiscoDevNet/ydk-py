@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -53,6 +56,12 @@ class MacsecMkaCipherSuite(Enum):
     gcm_aes_xpn_256 = Enum.YLeaf(4, "gcm-aes-xpn-256")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['MacsecMkaCipherSuite']
+
+
 class MacsecMkaConfOffset(Enum):
     """
     MacsecMkaConfOffset (Enum Class)
@@ -80,6 +89,12 @@ class MacsecMkaConfOffset(Enum):
     conf_off_set_50 = Enum.YLeaf(50, "conf-off-set-50")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['MacsecMkaConfOffset']
+
+
 class MacsecMkaPolicyException(Enum):
     """
     MacsecMkaPolicyException (Enum Class)
@@ -93,6 +108,12 @@ class MacsecMkaPolicyException(Enum):
     """
 
     lacp_in_clear = Enum.YLeaf(1, "lacp-in-clear")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['MacsecMkaPolicyException']
 
 
 class MacsecMkaSecurityPolicy(Enum):
@@ -116,8 +137,14 @@ class MacsecMkaSecurityPolicy(Enum):
     must_secure = Enum.YLeaf(1, "must-secure")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['MacsecMkaSecurityPolicy']
 
-class Macsec(Entity):
+
+
+class Macsec(_Entity_):
     """
     MACSec MKA
     
@@ -139,7 +166,10 @@ class Macsec(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Macsec, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Macsec, self).__init__()
         self._top_entity = None
 
         self.yang_name = "macsec"
@@ -163,7 +193,7 @@ class Macsec(Entity):
         self._perform_setattr(Macsec, ['shutdown'], name, value)
 
 
-    class PolicyNames(Entity):
+    class PolicyNames(_Entity_):
         """
         MACSec Policy
         
@@ -180,7 +210,10 @@ class Macsec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Macsec.PolicyNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Macsec.PolicyNames, self).__init__()
 
             self.yang_name = "policy-names"
             self.yang_parent_name = "macsec"
@@ -199,7 +232,7 @@ class Macsec(Entity):
             self._perform_setattr(Macsec.PolicyNames, [], name, value)
 
 
-        class PolicyName(Entity):
+        class PolicyName(_Entity_):
             """
             MACsec Policy Name
             
@@ -287,7 +320,10 @@ class Macsec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Macsec.PolicyNames.PolicyName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Macsec.PolicyNames.PolicyName, self).__init__()
 
                 self.yang_name = "policy-name"
                 self.yang_parent_name = "policy-names"
@@ -328,11 +364,23 @@ class Macsec(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Macsec.PolicyNames.PolicyName, ['name', 'delay_protection', 'security_policy', 'key_server_priority', 'conf_offset', 'sak_rekey_interval', 'policy_exception', 'window_size', 'cipher_suite', 'include_icv_indicator', 'sak_rekey_interval_sec', 'vlan_tags_in_clear'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+                return meta._meta_table['Macsec.PolicyNames.PolicyName']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+            return meta._meta_table['Macsec.PolicyNames']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['Macsec']['meta_info']
 
 

@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -40,6 +43,12 @@ class AaaAction(Enum):
     accept = Enum.YLeaf(1, "accept")
 
     reject = Enum.YLeaf(2, "reject")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaAction']
 
 
 class AaaAuthentication(Enum):
@@ -69,6 +78,12 @@ class AaaAuthentication(Enum):
     session_key = Enum.YLeaf(103, "session-key")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaAuthentication']
+
+
 class AaaConfig(Enum):
     """
     AaaConfig (Enum Class)
@@ -90,6 +105,12 @@ class AaaConfig(Enum):
     true = Enum.YLeaf(1, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaConfig']
+
+
 class AaaDirection(Enum):
     """
     AaaDirection (Enum Class)
@@ -109,6 +130,12 @@ class AaaDirection(Enum):
     inbound = Enum.YLeaf(0, "inbound")
 
     outbound = Enum.YLeaf(1, "outbound")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaDirection']
 
 
 class AaaDscpValue(Enum):
@@ -246,6 +273,12 @@ class AaaDscpValue(Enum):
     ef = Enum.YLeaf(46, "ef")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaDscpValue']
+
+
 class AaaSelectKey(Enum):
     """
     AaaSelectKey (Enum Class)
@@ -265,6 +298,12 @@ class AaaSelectKey(Enum):
     server_key = Enum.YLeaf(1, "server-key")
 
     session_key = Enum.YLeaf(2, "session-key")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaSelectKey']
 
 
 

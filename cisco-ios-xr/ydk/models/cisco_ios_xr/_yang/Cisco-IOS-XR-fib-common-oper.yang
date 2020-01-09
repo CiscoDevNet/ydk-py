@@ -318,6 +318,26 @@ module Cisco-IOS-XR-fib-common-oper {
     }
   }
 
+  grouping INFORMATION {
+    description
+      "Common node of vrf, forwarding";
+    list information {
+      description
+        "MPLS forwarding information";
+      leaf label-value {
+        type Mpls-label;
+        description
+          "Local label value";
+      }
+      leaf eos {
+        type Mplseos;
+        description
+          "End of stack flag";
+      }
+      uses MPLS-SH-LEAF;
+    }
+  }
+
   grouping PREFIX-TABLE {
     description
       "Common node of ipv6-unicast, ipv4-unicast";
@@ -609,99 +629,6 @@ module Cisco-IOS-XR-fib-common-oper {
                 key "vrf-name";
                 description
                   "VRF table entry";
-                container nh-info-detail-hardware-egress {
-                  description
-                    "NHInfoTable is accessed by two keys;
-                     {NHInterface,NHAddress}";
-                  container nh-info-special-detail-hardware-egress {
-                    description
-                      "Detail hardware engress info for Special
-                       nhinfo";
-                    container nh-info-special-null-detail-hardware-egress {
-                      description
-                        "Detail hardware engress info for
-                         special-null NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-punt-detail-hardware-egress {
-                      description
-                        "Detail hardware engress info for
-                         special-punt NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-discard-detail-hardware-egress {
-                      description
-                        "Detail hardware engress info for
-                         special-discard NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-drop-detail-hardware-egress {
-                      description
-                        "Detail hardware engress info for
-                         special-drop NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-local-detail-hardware-egresses {
-                    description
-                      "Local (non-remote) nhinfo";
-                    list nh-info-local-detail-hardware-egress {
-                      description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
-                        description
-                          "Interface Name";
-                      }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-remote-detail-hardware-egresses {
-                    description
-                      "Detail hardware egress info for remote
-                       NHInfo table";
-                    list nh-info-remote-detail-hardware-egress {
-                      description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
-                        description
-                          "Interface Name";
-                      }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                }
                 container ip-prefix-details {
                   description
                     "IP FIB prefix detail table";
@@ -719,93 +646,6 @@ module Cisco-IOS-XR-fib-common-oper {
                         "IP prefix length";
                     }
                     uses FIB-SH-TBL-FIB;
-                  }
-                }
-                container nh-info-detail {
-                  description
-                    "NHInfoTable is accessed by two keys;
-                     {NHInterface,NHAddress}";
-                  container nh-info-local-details {
-                    description
-                      "Local (non-remote) nhinfo";
-                    list nh-info-local-detail {
-                      description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
-                        description
-                          "Interface Name";
-                      }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-special-detail {
-                    description
-                      "Special nhinfo";
-                    container nh-info-special-punt-detail {
-                      description
-                        "Detail special-punt NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-drop-detail {
-                      description
-                        "Detail special-drop NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-null-detail {
-                      description
-                        "Detail special-null NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-discard-detail {
-                      description
-                        "Detail special-discard NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-remote-details {
-                    description
-                      "Detailed Remote NHInfo table";
-                    list nh-info-remote-detail {
-                      description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
-                        description
-                          "Interface Name";
-                      }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
-                    }
                   }
                 }
                 container summary {
@@ -861,182 +701,366 @@ module Cisco-IOS-XR-fib-common-oper {
                     uses FIB-SH-TBL-FIB;
                   }
                 }
-                container nh-info-detail-hardware-ingress {
+                container nh-info {
                   description
-                    "NHInfoTable is accessed by two keys;
-                     {NHInterface,NHAddress}";
-                  container nh-info-remote-detail-hardware-ingresses {
+                    "FIB NHInfo table";
+                  container nh-info-detail-hardware-egress {
                     description
-                      "Detailed hardware ingress info for remote
-                       NHInfo table";
-                    list nh-info-remote-detail-hardware-ingress {
+                      "NHInfoTable is accessed by two keys;
+                       {NHInterface,NHAddress}";
+                    container nh-info-special-detail-hardware-egress {
                       description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
+                        "Detail hardware engress info for Special
+                         nhinfo";
+                      container nh-info-special-null-detail-hardware-egress {
                         description
-                          "Interface Name";
+                          "Detail hardware engress info for
+                           special-null NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-proto {
-                        type Fib-protocol;
+                      container nh-info-special-punt-detail-hardware-egress {
                         description
-                          "Next-hop proto";
+                          "Detail hardware engress info for
+                           special-punt NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-pfx-length {
-                        type uint32;
+                      container nh-info-special-discard-detail-hardware-egress {
                         description
-                          "Next-hop prefix length";
+                          "Detail hardware engress info for
+                           special-discard NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
+                      container nh-info-special-drop-detail-hardware-egress {
                         description
-                          "Next-hop address in string format";
+                          "Detail hardware engress info for
+                           special-drop NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      uses FIB-SH-NHINFO;
+                    }
+                    container nh-info-local-detail-hardware-egresses {
+                      description
+                        "Local (non-remote) nhinfo";
+                      list nh-info-local-detail-hardware-egress {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
+                    }
+                    container nh-info-remote-detail-hardware-egresses {
+                      description
+                        "Detail hardware egress info for remote
+                         NHInfo table";
+                      list nh-info-remote-detail-hardware-egress {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
                     }
                   }
-                  container nh-info-local-detail-hardware-ingresses {
+                  container nh-info-detail {
                     description
-                      "Local (non-remote) nhinfo";
-                    list nh-info-local-detail-hardware-ingress {
+                      "NHInfoTable is accessed by two keys;
+                       {NHInterface,NHAddress}";
+                    container nh-info-local-details {
                       description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
+                        "Local (non-remote) nhinfo";
+                      list nh-info-local-detail {
                         description
-                          "Interface Name";
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-proto {
-                        type Fib-protocol;
+                    }
+                    container nh-info-special-detail {
+                      description
+                        "Special nhinfo";
+                      container nh-info-special-punt-detail {
                         description
-                          "Next-hop proto";
+                          "Detail special-punt NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-pfx-length {
-                        type uint32;
+                      container nh-info-special-drop-detail {
                         description
-                          "Next-hop prefix length";
+                          "Detail special-drop NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
+                      container nh-info-special-null-detail {
                         description
-                          "Next-hop address in string format";
+                          "Detail special-null NHInfo entry";
+                        uses FIB-SH-NHINFO;
                       }
-                      uses FIB-SH-NHINFO;
+                      container nh-info-special-discard-detail {
+                        description
+                          "Detail special-discard NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                    }
+                    container nh-info-remote-details {
+                      description
+                        "Detailed Remote NHInfo table";
+                      list nh-info-remote-detail {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
                     }
                   }
-                  container nh-info-special-detail-hardware-ingress {
+                  container nh-info-detail-hardware-ingress {
                     description
-                      "Special nhinfo";
-                    container nh-info-special-punt-detail-hardware-ingress {
+                      "NHInfoTable is accessed by two keys;
+                       {NHInterface,NHAddress}";
+                    container nh-info-remote-detail-hardware-ingresses {
                       description
-                        "Detail hardware ingress info for
-                         special-punt NHInfo entry";
-                      uses FIB-SH-NHINFO;
+                        "Detailed hardware ingress info for
+                         remote NHInfo table";
+                      list nh-info-remote-detail-hardware-ingress {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
                     }
-                    container nh-info-special-null-detail-hardware-ingress {
+                    container nh-info-local-detail-hardware-ingresses {
                       description
-                        "Detail hardware ingress info for
-                         special-null NHInfo entry";
-                      uses FIB-SH-NHINFO;
+                        "Local (non-remote) nhinfo";
+                      list nh-info-local-detail-hardware-ingress {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
                     }
-                    container nh-info-special-drop-detail-hardware-ingress {
+                    container nh-info-special-detail-hardware-ingress {
                       description
-                        "Detail hardware ingress info for
-                         special-drop NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-discard-detail-hardware-ingress {
-                      description
-                        "Detail hardware ingress info for
-                         special-discard NHInfo entry";
-                      uses FIB-SH-NHINFO;
+                        "Special nhinfo";
+                      container nh-info-special-punt-detail-hardware-ingress {
+                        description
+                          "Detail hardware ingress info for
+                           special-punt NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-null-detail-hardware-ingress {
+                        description
+                          "Detail hardware ingress info for
+                           special-null NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-drop-detail-hardware-ingress {
+                        description
+                          "Detail hardware ingress info for
+                           special-drop NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-discard-detail-hardware-ingress {
+                        description
+                          "Detail hardware ingress info for
+                           special-discard NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
                     }
                   }
-                }
-                container nh-info-brief {
-                  description
-                    "NHInfoTable is accessed by two keys;
-                     {NHInterface,NHAddress}";
-                  container nh-info-special-brief {
+                  container nh-info-brief {
                     description
-                      "Special nhinfo";
-                    container nh-info-special-discard-brief {
+                      "NHInfoTable is accessed by two keys;
+                       {NHInterface,NHAddress}";
+                    container nh-info-special-brief {
                       description
-                        "Brief special-discard NHInfo entry";
-                      uses FIB-SH-NHINFO;
+                        "Special nhinfo";
+                      container nh-info-special-discard-brief {
+                        description
+                          "Brief special-discard NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-null-brief {
+                        description
+                          "Brief special-null NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-punt-brief {
+                        description
+                          "Brief special-punt NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
+                      container nh-info-special-drop-brief {
+                        description
+                          "Brief special-drop NHInfo entry";
+                        uses FIB-SH-NHINFO;
+                      }
                     }
-                    container nh-info-special-null-brief {
+                    container nh-info-remote-briefs {
                       description
-                        "Brief special-null NHInfo entry";
-                      uses FIB-SH-NHINFO;
+                        "remote nhinfo";
+                      list nh-info-remote-brief {
+                        description
+                          "Detail NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
+                      }
                     }
-                    container nh-info-special-punt-brief {
+                    container nh-info-local-briefs {
                       description
-                        "Brief special-punt NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                    container nh-info-special-drop-brief {
-                      description
-                        "Brief special-drop NHInfo entry";
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-remote-briefs {
-                    description
-                      "remote nhinfo";
-                    list nh-info-remote-brief {
-                      description
-                        "Detail NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
+                        "Local (non-remote) nhinfo";
+                      list nh-info-local-brief {
                         description
-                          "Interface Name";
+                          "Brief NHinfo entry";
+                        leaf nh-interface-name {
+                          type xr:Interface-name;
+                          description
+                            "Interface Name";
+                        }
+                        leaf nh-proto {
+                          type Fib-protocol;
+                          description
+                            "Next-hop proto";
+                        }
+                        leaf nh-pfx-length {
+                          type uint32;
+                          description
+                            "Next-hop prefix length";
+                        }
+                        leaf nh-address {
+                          type xr:Cisco-ios-xr-string;
+                          description
+                            "Next-hop address in string format";
+                        }
+                        uses FIB-SH-NHINFO;
                       }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
-                    }
-                  }
-                  container nh-info-local-briefs {
-                    description
-                      "Local (non-remote) nhinfo";
-                    list nh-info-local-brief {
-                      description
-                        "Brief NHinfo entry";
-                      leaf nh-interface-name {
-                        type xr:Interface-name;
-                        description
-                          "Interface Name";
-                      }
-                      leaf nh-proto {
-                        type Fib-protocol;
-                        description
-                          "Next-hop proto";
-                      }
-                      leaf nh-pfx-length {
-                        type uint32;
-                        description
-                          "Next-hop prefix length";
-                      }
-                      leaf nh-address {
-                        type xr:Cisco-ios-xr-string;
-                        description
-                          "Next-hop address in string format";
-                      }
-                      uses FIB-SH-NHINFO;
                     }
                   }
                 }
@@ -1342,6 +1366,21 @@ module Cisco-IOS-XR-fib-common-oper {
         container label-fib {
           description
             "Labels For FIB";
+          container vrfs {
+            description
+              "Table of VRFs";
+            list vrf {
+              key "vrf-name";
+              description
+                "VRF table";
+              leaf vrf-name {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "VRF Name";
+              }
+              uses INFORMATION;
+            }
+          }
           container forwarding-details {
             description
               "MPLS Forwarding Detail table";
@@ -1361,24 +1400,10 @@ module Cisco-IOS-XR-fib-common-oper {
               uses MPLS-SH-LEAF;
             }
           }
-          container informations {
+          container forwarding {
             description
               "Forwarding filtering details";
-            list information {
-              description
-                "MPLS forwarding information";
-              leaf label-value {
-                type Mpls-label;
-                description
-                  "Local label value";
-              }
-              leaf eos {
-                type Mplseos;
-                description
-                  "End of stack flag";
-              }
-              uses MPLS-SH-LEAF;
-            }
+            uses INFORMATION;
           }
           container label-security {
             description

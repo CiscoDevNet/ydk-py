@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class WanphyAlarmRepStatus(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+        return meta._meta_table['WanphyAlarmRepStatus']
+
+
 class WanphyModeInfo(Enum):
     """
     WanphyModeInfo (Enum Class)
@@ -62,8 +71,14 @@ class WanphyModeInfo(Enum):
     wan = Enum.YLeaf(1, "wan")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+        return meta._meta_table['WanphyModeInfo']
 
-class Wanphy(Entity):
+
+
+class Wanphy(_Entity_):
     """
     WANPHY operational data
     
@@ -82,7 +97,10 @@ class Wanphy(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Wanphy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Wanphy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "wanphy"
@@ -103,7 +121,7 @@ class Wanphy(Entity):
         self._perform_setattr(Wanphy, [], name, value)
 
 
-    class Controllers(Entity):
+    class Controllers(_Entity_):
         """
         All WANPHY controller operational data
         
@@ -122,7 +140,10 @@ class Wanphy(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Wanphy.Controllers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Wanphy.Controllers, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "wanphy"
@@ -141,7 +162,7 @@ class Wanphy(Entity):
             self._perform_setattr(Wanphy.Controllers, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             WANPHY controller operational data
             
@@ -169,7 +190,10 @@ class Wanphy(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Wanphy.Controllers.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Wanphy.Controllers.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -193,7 +217,7 @@ class Wanphy(Entity):
                 self._perform_setattr(Wanphy.Controllers.Controller, ['controller_name'], name, value)
 
 
-            class Info(Entity):
+            class Info(_Entity_):
                 """
                 WANPHY controller operational data
                 
@@ -600,7 +624,10 @@ class Wanphy(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Wanphy.Controllers.Controller.Info, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Wanphy.Controllers.Controller.Info, self).__init__()
 
                     self.yang_name = "info"
                     self.yang_parent_name = "controller"
@@ -706,12 +733,28 @@ class Wanphy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Wanphy.Controllers.Controller.Info, ['admin_mode', 'port_state', 'section_lof', 'section_los', 'section_bip', 'line_ais', 'line_rdi', 'line_febe', 'line_bip', 'path_ais', 'path_rdi', 'path_febe', 'path_bip', 'path_lop', 'path_newptr', 'path_pse', 'path_nse', 'wis_alarms_ser', 'wis_alarms_felcdp', 'wis_alarms_feaisp', 'wis_alarms_wlos', 'wis_alarms_plcd', 'wis_alarms_lfebip', 'wis_alarms_pbec', 'wis_alarms_plmp', 'sf_ber_threshold', 'sd_ber_threshold', 'sf_ber_report', 'sd_ber_report', 'operational_mode', 'remote_ip', 'register_p_febe', 'register_l_fe_bip', 'register_l_bip', 'register_p_bec', 'register_s_bip', 'register_j1_rx0', 'register_j1_rx1', 'register_j1_rx2', 'register_j1_rx3', 'register_j1_rx4', 'register_j1_rx5', 'register_j1_rx6', 'register_j1_rx7', 'wanphy_poll_timer'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+                    return meta._meta_table['Wanphy.Controllers.Controller.Info']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+                return meta._meta_table['Wanphy.Controllers.Controller']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+            return meta._meta_table['Wanphy.Controllers']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Wanphy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
+        return meta._meta_table['Wanphy']['meta_info']
 
 

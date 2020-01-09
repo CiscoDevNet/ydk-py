@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class IcpeGcoOperControlReason(Enum):
     icpe_gco_oper_control_reason_none = Enum.YLeaf(4, "icpe-gco-oper-control-reason-none")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeGcoOperControlReason']
+
+
 class IcpeInstallPkgSupp(Enum):
     """
     IcpeInstallPkgSupp (Enum Class)
@@ -84,6 +93,12 @@ class IcpeInstallPkgSupp(Enum):
     icpe_install_pkg_supp_not_supported = Enum.YLeaf(1, "icpe-install-pkg-supp-not-supported")
 
     icpe_install_pkg_supp_supported = Enum.YLeaf(2, "icpe-install-pkg-supp-supported")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeInstallPkgSupp']
 
 
 class IcpeInstallSatState(Enum):
@@ -201,6 +216,12 @@ class IcpeInstallSatState(Enum):
     icpe_install_sat_state_sat_uncfgd = Enum.YLeaf(16, "icpe-install-sat-state-sat-uncfgd")
 
     icpe_install_sat_state_processing = Enum.YLeaf(17, "icpe-install-sat-state-processing")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeInstallSatState']
 
 
 class IcpeOperConflict(Enum):
@@ -440,6 +461,12 @@ class IcpeOperConflict(Enum):
     icpe_oper_conflict_multiple_mac_address = Enum.YLeaf(37, "icpe-oper-conflict-multiple-mac-address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperConflict']
+
+
 class IcpeOperDiscdLinkState(Enum):
     """
     IcpeOperDiscdLinkState (Enum Class)
@@ -471,6 +498,12 @@ class IcpeOperDiscdLinkState(Enum):
     icpe_oper_discd_link_state_configuring = Enum.YLeaf(2, "icpe-oper-discd-link-state-configuring")
 
     icpe_oper_discd_link_state_ready = Enum.YLeaf(3, "icpe-oper-discd-link-state-ready")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperDiscdLinkState']
 
 
 class IcpeOperFabricPort(Enum):
@@ -512,6 +545,12 @@ class IcpeOperFabricPort(Enum):
     icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = Enum.YLeaf(4, "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperFabricPort']
+
+
 class IcpeOperInstallState(Enum):
     """
     IcpeOperInstallState (Enum Class)
@@ -551,6 +590,12 @@ class IcpeOperInstallState(Enum):
     icpe_oper_install_state_in_progress = Enum.YLeaf(4, "icpe-oper-install-state-in-progress")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperInstallState']
+
+
 class IcpeOperMultichassisRedundancy(Enum):
     """
     IcpeOperMultichassisRedundancy (Enum Class)
@@ -576,6 +621,12 @@ class IcpeOperMultichassisRedundancy(Enum):
     icpe_oper_multi_chassis_redundancy_active = Enum.YLeaf(1, "icpe-oper-multi-chassis-redundancy-active")
 
     icpe_oper_multi_chassis_redundancy_standby = Enum.YLeaf(2, "icpe-oper-multi-chassis-redundancy-standby")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperMultichassisRedundancy']
 
 
 class IcpeOperPort(Enum):
@@ -605,6 +656,12 @@ class IcpeOperPort(Enum):
     icpe_oper_port_ten_gig_e = Enum.YLeaf(2, "icpe-oper-port-ten-gig-e")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperPort']
+
+
 class IcpeOperRefType(Enum):
     """
     IcpeOperRefType (Enum Class)
@@ -632,6 +689,12 @@ class IcpeOperRefType(Enum):
     icpe_oper_ref_type_base_image = Enum.YLeaf(2, "icpe-oper-ref-type-base-image")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperRefType']
+
+
 class IcpeOperReloadLevel(Enum):
     """
     IcpeOperReloadLevel (Enum Class)
@@ -657,6 +720,12 @@ class IcpeOperReloadLevel(Enum):
     icpe_oper_reload_level_system = Enum.YLeaf(1, "icpe-oper-reload-level-system")
 
     icpe_oper_reload_level_container = Enum.YLeaf(2, "icpe-oper-reload-level-container")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperReloadLevel']
 
 
 class IcpeOperSdacpSessState(Enum):
@@ -710,6 +779,12 @@ class IcpeOperSdacpSessState(Enum):
     icpe_oper_sdacp_sess_state_issu = Enum.YLeaf(6, "icpe-oper-sdacp-sess-state-issu")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperSdacpSessState']
+
+
 class IcpeOperTopoRemoteSource(Enum):
     """
     IcpeOperTopoRemoteSource (Enum Class)
@@ -755,6 +830,12 @@ class IcpeOperTopoRemoteSource(Enum):
     icpe_oper_topo_remote_source_direct_host = Enum.YLeaf(5, "icpe-oper-topo-remote-source-direct-host")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperTopoRemoteSource']
+
+
 class IcpeOperVerCheckState(Enum):
     """
     IcpeOperVerCheckState (Enum Class)
@@ -794,6 +875,12 @@ class IcpeOperVerCheckState(Enum):
     icpe_oper_ver_check_state_compatible_newer = Enum.YLeaf(4, "icpe-oper-ver-check-state-compatible-newer")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperVerCheckState']
+
+
 class IcpeOpmArbitrationFsmState(Enum):
     """
     IcpeOpmArbitrationFsmState (Enum Class)
@@ -825,6 +912,12 @@ class IcpeOpmArbitrationFsmState(Enum):
     icpe_opm_arbitration_fsm_state_arbitrating = Enum.YLeaf(2, "icpe-opm-arbitration-fsm-state-arbitrating")
 
     icpe_opm_arbitration_fsm_state_arbitrated = Enum.YLeaf(3, "icpe-opm-arbitration-fsm-state-arbitrated")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmArbitrationFsmState']
 
 
 class IcpeOpmAuthFsmState(Enum):
@@ -866,6 +959,12 @@ class IcpeOpmAuthFsmState(Enum):
     icpe_opm_auth_fsm_state_authed = Enum.YLeaf(4, "icpe-opm-auth-fsm-state-authed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmAuthFsmState']
+
+
 class IcpeOpmChanFsmState(Enum):
     """
     IcpeOpmChanFsmState (Enum Class)
@@ -905,6 +1004,12 @@ class IcpeOpmChanFsmState(Enum):
     icpe_opm_chan_fsm_state_open = Enum.YLeaf(4, "icpe-opm-chan-fsm-state-open")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmChanFsmState']
+
+
 class IcpeOpmController(Enum):
     """
     IcpeOpmController (Enum Class)
@@ -930,6 +1035,12 @@ class IcpeOpmController(Enum):
     icpe_opm_controller_primary = Enum.YLeaf(1, "icpe-opm-controller-primary")
 
     icpe_opm_controller_secondary = Enum.YLeaf(2, "icpe-opm-controller-secondary")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmController']
 
 
 class IcpeOpmResyncFsmState(Enum):
@@ -969,6 +1080,12 @@ class IcpeOpmResyncFsmState(Enum):
     icpe_opm_resync_fsm_state_queued = Enum.YLeaf(3, "icpe-opm-resync-fsm-state-queued")
 
     icpe_opm_resync_fsm_state_resync_req = Enum.YLeaf(4, "icpe-opm-resync-fsm-state-resync-req")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmResyncFsmState']
 
 
 class IcpeOpmSessState(Enum):
@@ -1016,6 +1133,12 @@ class IcpeOpmSessState(Enum):
     icpe_opm_sess_state_connected = Enum.YLeaf(5, "icpe-opm-sess-state-connected")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmSessState']
+
+
 class IcpeOpmSyncFsmState(Enum):
     """
     IcpeOpmSyncFsmState (Enum Class)
@@ -1041,6 +1164,12 @@ class IcpeOpmSyncFsmState(Enum):
     icpe_opm_sync_fsm_state_waiting = Enum.YLeaf(1, "icpe-opm-sync-fsm-state-waiting")
 
     icpe_opm_sync_fsm_state_whole_brain = Enum.YLeaf(2, "icpe-opm-sync-fsm-state-whole-brain")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmSyncFsmState']
 
 
 class IcpeOpmTransportState(Enum):
@@ -1100,6 +1229,12 @@ class IcpeOpmTransportState(Enum):
     icpe_opm_transport_state_connected = Enum.YLeaf(7, "icpe-opm-transport-state-connected")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpmTransportState']
+
+
 class IcpeOpticalSyncState(Enum):
     """
     IcpeOpticalSyncState (Enum Class)
@@ -1133,8 +1268,14 @@ class IcpeOpticalSyncState(Enum):
     icpe_optical_sync_state_not_connected = Enum.YLeaf(3, "icpe-optical-sync-state-not-connected")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOpticalSyncState']
 
-class NvSatellite(Entity):
+
+
+class NvSatellite(_Entity_):
     """
     Satellite operational information
     
@@ -1258,7 +1399,10 @@ class NvSatellite(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(NvSatellite, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NvSatellite, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nv-satellite"
@@ -1339,7 +1483,7 @@ class NvSatellite(Entity):
         self._perform_setattr(NvSatellite, [], name, value)
 
 
-    class ReloadOpStatuses(Entity):
+    class ReloadOpStatuses(_Entity_):
         """
         Detailed breakdown of reload status table
         
@@ -1358,7 +1502,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.ReloadOpStatuses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.ReloadOpStatuses, self).__init__()
 
             self.yang_name = "reload-op-statuses"
             self.yang_parent_name = "nv-satellite"
@@ -1377,7 +1524,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.ReloadOpStatuses, [], name, value)
 
 
-        class ReloadOpStatus(Entity):
+        class ReloadOpStatus(_Entity_):
             """
             Detailed breakdown of reload status
             
@@ -1450,7 +1597,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.ReloadOpStatuses.ReloadOpStatus, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.ReloadOpStatuses.ReloadOpStatus, self).__init__()
 
                 self.yang_name = "reload-op-status"
                 self.yang_parent_name = "reload-op-statuses"
@@ -1481,10 +1631,18 @@ class NvSatellite(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellite.ReloadOpStatuses.ReloadOpStatus, ['operation_id', 'operation_id_xr', 'satellite_range', 'sats_not_initiated', 'sats_reloading', 'sats_reloaded', 'sats_reload_failed'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.ReloadOpStatuses.ReloadOpStatus']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.ReloadOpStatuses']['meta_info']
 
 
-
-    class SdacpRedundancies(Entity):
+    class SdacpRedundancies(_Entity_):
         """
         nV Satellite Redundancy Protocol Information
         table
@@ -1504,7 +1662,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SdacpRedundancies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SdacpRedundancies, self).__init__()
 
             self.yang_name = "sdacp-redundancies"
             self.yang_parent_name = "nv-satellite"
@@ -1523,7 +1684,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SdacpRedundancies, [], name, value)
 
 
-        class SdacpRedundancy(Entity):
+        class SdacpRedundancy(_Entity_):
             """
             nV Satellite Redundancy Protocol Information
             
@@ -1625,7 +1786,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SdacpRedundancies.SdacpRedundancy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy, self).__init__()
 
                 self.yang_name = "sdacp-redundancy"
                 self.yang_parent_name = "sdacp-redundancies"
@@ -1669,7 +1833,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy, ['iccp_group', 'iccp_group_xr', 'protocol_state', 'transport_state', 'authentication_state', 'arbitration_state', 'synchronization_state', 'primacy', 'system_mac', 'isolated'], name, value)
 
 
-            class ProtocolStateTimestamp(Entity):
+            class ProtocolStateTimestamp(_Entity_):
                 """
                 Timestamp
                 
@@ -1703,7 +1867,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, self).__init__()
 
                     self.yang_name = "protocol-state-timestamp"
                     self.yang_parent_name = "sdacp-redundancy"
@@ -1723,9 +1890,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp']['meta_info']
 
 
-            class Channel(Entity):
+            class Channel(_Entity_):
                 """
                 Channels on this session table
                 
@@ -1810,7 +1981,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, self).__init__()
 
                     self.yang_name = "channel"
                     self.yang_parent_name = "sdacp-redundancy"
@@ -1849,7 +2023,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, ['channel_id', 'chan_state', 'resync_state', 'control_messages_sent', 'normal_messages_sent', 'control_messages_received', 'normal_messages_received'], name, value)
 
 
-                class ChannelStateTimestamp(Entity):
+                class ChannelStateTimestamp(_Entity_):
                     """
                     Timestamp
                     
@@ -1883,7 +2057,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, self).__init__()
 
                         self.yang_name = "channel-state-timestamp"
                         self.yang_parent_name = "channel"
@@ -1903,9 +2080,13 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp']['meta_info']
 
 
-                class ResyncStateTimestamp(Entity):
+                class ResyncStateTimestamp(_Entity_):
                     """
                     Timestamp
                     
@@ -1939,7 +2120,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, self).__init__()
 
                         self.yang_name = "resync-state-timestamp"
                         self.yang_parent_name = "channel"
@@ -1959,12 +2143,28 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SdacpRedundancies']['meta_info']
 
 
-
-
-
-    class InstallShows(Entity):
+    class InstallShows(_Entity_):
         """
         Detailed breakdown of install status table
         
@@ -1983,7 +2183,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.InstallShows, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.InstallShows, self).__init__()
 
             self.yang_name = "install-shows"
             self.yang_parent_name = "nv-satellite"
@@ -2002,7 +2205,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.InstallShows, [], name, value)
 
 
-        class InstallShow(Entity):
+        class InstallShow(_Entity_):
             """
             Detailed breakdown of install status
             
@@ -2308,7 +2511,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.InstallShows.InstallShow, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.InstallShows.InstallShow, self).__init__()
 
                 self.yang_name = "install-show"
                 self.yang_parent_name = "install-shows"
@@ -2394,7 +2600,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.InstallShows.InstallShow, ['operation_id', 'operation_id_xr', 'satellite_range', 'operation_type', 'progress_percentage', 'start_time', 'end_time', 'reference_op', 'ref_type', 'ref_name', 'ref_state', 'sats_not_initiated', 'sats_transferring', 'sats_activating', 'sats_updating', 'sats_replacing', 'sats_deactivating', 'sats_removing', 'sats_transfer_failed', 'sats_activate_failed', 'sats_update_failed', 'sats_replace_failed', 'sats_deactivate_failed', 'sats_remove_failed', 'sats_transfer_aborted', 'sats_activate_aborted', 'sats_update_aborted', 'sats_replace_aborted', 'sats_deactivate_aborted', 'sats_remove_aborted', 'sats_no_operation', 'sats_completed', 'name_string'], name, value)
 
 
-            class Satellite(Entity):
+            class Satellite(_Entity_):
                 """
                 Breakdown per satellite table
                 
@@ -2467,7 +2673,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.InstallShows.InstallShow.Satellite, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.InstallShows.InstallShow.Satellite, self).__init__()
 
                     self.yang_name = "satellite"
                     self.yang_parent_name = "install-show"
@@ -2497,11 +2706,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.InstallShows.InstallShow.Satellite, ['satellite_id', 'state', 'percentage', 'retries', 'start_time', 'end_time', 'info'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.InstallShows.InstallShow.Satellite']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.InstallShows.InstallShow']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.InstallShows']['meta_info']
 
 
-
-
-    class SatelliteStatuses(Entity):
+    class SatelliteStatuses(_Entity_):
         """
         Satellite status information table
         
@@ -2520,7 +2741,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SatelliteStatuses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SatelliteStatuses, self).__init__()
 
             self.yang_name = "satellite-statuses"
             self.yang_parent_name = "nv-satellite"
@@ -2539,7 +2763,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SatelliteStatuses, [], name, value)
 
 
-        class SatelliteStatus(Entity):
+        class SatelliteStatus(_Entity_):
             """
             Satellite status information
             
@@ -2865,7 +3089,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SatelliteStatuses.SatelliteStatus, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus, self).__init__()
 
                 self.yang_name = "satellite-status"
                 self.yang_parent_name = "satellite-statuses"
@@ -2972,7 +3199,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'type', 'ethernet_fabric_supported', 'optical_supported', 'ip_address', 'ip_address_present', 'ip_address_auto', 'ipv6_address', 'ipv6_address_present', 'vrf_name', 'vrfid', 'description', 'description_present', 'mac_address', 'mac_address_present', 'configured_serial_number', 'configured_serial_number_present', 'received_serial_number', 'received_serial_number_present', 'password', 'password_error', 'received_host_name', 'cfgd_timeout', 'timeout_warning', 'conflict_reason', 'conflict_context', 'redundancy_iccp_group', 'recovery_delay_time_left', 'host_treating_as_active', 'satellite_treating_as_active', 'sdacp_session_state', 'sdacp_session_failure_reason', 'install_state', 'remote_version'], name, value)
 
 
-            class CandidateFabricPorts(Entity):
+            class CandidateFabricPorts(_Entity_):
                 """
                 Candidate Fabric Ports on this Satellite
                 
@@ -3019,7 +3246,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, self).__init__()
 
                     self.yang_name = "candidate-fabric-ports"
                     self.yang_parent_name = "satellite-status"
@@ -3045,7 +3275,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, ['channel_up', 'out_of_sync', 'error_string'], name, value)
 
 
-                class ConfiguredPort(Entity):
+                class ConfiguredPort(_Entity_):
                     """
                     Configured Candidate Fabric Ports table
                     
@@ -3098,7 +3328,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, self).__init__()
 
                         self.yang_name = "configured-port"
                         self.yang_parent_name = "candidate-fabric-ports"
@@ -3124,9 +3357,13 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, ['port_type', 'slot', 'subslot', 'port', 'valid'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort']['meta_info']
 
 
-                class CurrentPort(Entity):
+                class CurrentPort(_Entity_):
                     """
                     Current Candidate Fabric Ports on this Satellite
                     table
@@ -3187,7 +3424,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, self).__init__()
 
                         self.yang_name = "current-port"
                         self.yang_parent_name = "candidate-fabric-ports"
@@ -3215,10 +3455,18 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, ['port_type', 'slot', 'subslot', 'port', 'permanent', 'requested'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts']['meta_info']
 
 
-
-            class OpticalStatus(Entity):
+            class OpticalStatus(_Entity_):
                 """
                 Optical Satellite Status
                 
@@ -3244,7 +3492,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, self).__init__()
 
                     self.yang_name = "optical-status"
                     self.yang_parent_name = "satellite-status"
@@ -3265,7 +3516,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, ['chassis_sync_state'], name, value)
 
 
-                class Application(Entity):
+                class Application(_Entity_):
                     """
                     Application State table
                     
@@ -3291,7 +3542,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, self).__init__()
 
                         self.yang_name = "application"
                         self.yang_parent_name = "optical-status"
@@ -3311,10 +3565,18 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, ['name', 'sync_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus']['meta_info']
 
 
-
-            class RedundancyOutOfSyncTimestamp(Entity):
+            class RedundancyOutOfSyncTimestamp(_Entity_):
                 """
                 Timestamp
                 
@@ -3348,7 +3610,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, self).__init__()
 
                     self.yang_name = "redundancy-out-of-sync-timestamp"
                     self.yang_parent_name = "satellite-status"
@@ -3368,9 +3633,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp']['meta_info']
 
 
-            class ReloadData(Entity):
+            class ReloadData(_Entity_):
                 """
                 Reload Information table
                 
@@ -3405,7 +3674,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, self).__init__()
 
                     self.yang_name = "reload-data"
                     self.yang_parent_name = "satellite-status"
@@ -3427,9 +3699,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData, ['level', 'time', 'info'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ReloadData']['meta_info']
 
 
-            class ConfiguredLink(Entity):
+            class ConfiguredLink(_Entity_):
                 """
                 Configured Links on this Satellite table
                 
@@ -3551,7 +3827,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, self).__init__()
 
                     self.yang_name = "configured-link"
                     self.yang_parent_name = "satellite-status"
@@ -3595,7 +3874,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, ['interface_handle', 'ip_address', 'ip_address_auto', 'vrf_id_present', 'vrf_id', 'minimum_preferred_links', 'number_active_links', 'min_links_satisfied', 'minimum_required_links', 'required_min_links_satisfied', 'conflict_reason', 'conflict_context'], name, value)
 
 
-                class PortRange(Entity):
+                class PortRange(_Entity_):
                     """
                     Port ranges table
                     
@@ -3664,7 +3943,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, self).__init__()
 
                         self.yang_name = "port-range"
                         self.yang_parent_name = "configured-link"
@@ -3694,9 +3976,13 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, ['slot', 'subslot', 'low_port', 'high_port', 'port_type', 'conflict_reason', 'conflict_context'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange']['meta_info']
 
 
-                class DiscoveredLink(Entity):
+                class DiscoveredLink(_Entity_):
                     """
                     Discovered Links table
                     
@@ -3738,7 +4024,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, self).__init__()
 
                         self.yang_name = "discovered-link"
                         self.yang_parent_name = "configured-link"
@@ -3762,12 +4051,28 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, ['interface_handle', 'state', 'conflict_reason', 'conflict_context'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SatelliteStatuses']['meta_info']
 
 
-
-
-
-    class SatellitePriorities(Entity):
+    class SatellitePriorities(_Entity_):
         """
         Satellite priority information table
         
@@ -3786,7 +4091,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SatellitePriorities, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SatellitePriorities, self).__init__()
 
             self.yang_name = "satellite-priorities"
             self.yang_parent_name = "nv-satellite"
@@ -3805,7 +4113,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SatellitePriorities, [], name, value)
 
 
-        class SatellitePriority(Entity):
+        class SatellitePriority(_Entity_):
             """
             Satellite priority information
             
@@ -3887,7 +4195,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SatellitePriorities.SatellitePriority, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SatellitePriorities.SatellitePriority, self).__init__()
 
                 self.yang_name = "satellite-priority"
                 self.yang_parent_name = "satellite-priorities"
@@ -3920,10 +4231,18 @@ class NvSatellite(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellite.SatellitePriorities.SatellitePriority, ['satellite_id', 'satellite_id_xr', 'rgid', 'best_path_hops', 'configured_priority', 'host_priority', 'partner_priority', 'multichassis_redundancy'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SatellitePriorities.SatellitePriority']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SatellitePriorities']['meta_info']
 
 
-
-    class SatelliteVersions(Entity):
+    class SatelliteVersions(_Entity_):
         """
         Satellite remote version information table
         
@@ -3942,7 +4261,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SatelliteVersions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SatelliteVersions, self).__init__()
 
             self.yang_name = "satellite-versions"
             self.yang_parent_name = "nv-satellite"
@@ -3961,7 +4283,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SatelliteVersions, [], name, value)
 
 
-        class SatelliteVersion(Entity):
+        class SatelliteVersion(_Entity_):
             """
             Satellite remote version information
             
@@ -4033,7 +4355,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SatelliteVersions.SatelliteVersion, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SatelliteVersions.SatelliteVersion, self).__init__()
 
                 self.yang_name = "satellite-version"
                 self.yang_parent_name = "satellite-versions"
@@ -4073,7 +4398,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion, ['satellite_id', 'satellite_id_xr', 'version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
 
-            class ActiveVersion(Entity):
+            class ActiveVersion(_Entity_):
                 """
                 Satellite active version information
                 
@@ -4106,7 +4431,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, self).__init__()
 
                     self.yang_name = "active-version"
                     self.yang_parent_name = "satellite-version"
@@ -4128,9 +4456,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion']['meta_info']
 
 
-            class TransferredVersion(Entity):
+            class TransferredVersion(_Entity_):
                 """
                 Satellite transferred version information
                 
@@ -4163,7 +4495,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, self).__init__()
 
                     self.yang_name = "transferred-version"
                     self.yang_parent_name = "satellite-version"
@@ -4185,9 +4520,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion']['meta_info']
 
 
-            class CommittedVersion(Entity):
+            class CommittedVersion(_Entity_):
                 """
                 Satellite committed version information
                 
@@ -4220,7 +4559,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, self).__init__()
 
                     self.yang_name = "committed-version"
                     self.yang_parent_name = "satellite-version"
@@ -4242,11 +4584,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, ['version_check_state', 'remote_version_present', 'remote_version'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SatelliteVersions']['meta_info']
 
 
-
-
-    class SatelliteTopologies(Entity):
+    class SatelliteTopologies(_Entity_):
         """
         Satellite Topology Information table
         
@@ -4265,7 +4619,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SatelliteTopologies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SatelliteTopologies, self).__init__()
 
             self.yang_name = "satellite-topologies"
             self.yang_parent_name = "nv-satellite"
@@ -4284,7 +4641,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SatelliteTopologies, [], name, value)
 
 
-        class SatelliteTopology(Entity):
+        class SatelliteTopology(_Entity_):
             """
             Satellite Topology Information
             
@@ -4358,7 +4715,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SatelliteTopologies.SatelliteTopology, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SatelliteTopologies.SatelliteTopology, self).__init__()
 
                 self.yang_name = "satellite-topology"
                 self.yang_parent_name = "satellite-topologies"
@@ -4391,7 +4751,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology, ['interface_name', 'interface_name_xr', 'interface_handle', 'redundancy_iccp_group', 'is_physical', 'ring_whole'], name, value)
 
 
-            class DiscoveredLink(Entity):
+            class DiscoveredLink(_Entity_):
                 """
                 Discovered Links table
                 
@@ -4426,7 +4786,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, self).__init__()
 
                     self.yang_name = "discovered-link"
                     self.yang_parent_name = "satellite-topology"
@@ -4448,9 +4811,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, ['interface_name', 'interface_handle', 'discovery_running'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink']['meta_info']
 
 
-            class Satellite(Entity):
+            class Satellite(_Entity_):
                 """
                 Satellite table
                 
@@ -4554,7 +4921,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, self).__init__()
 
                     self.yang_name = "satellite"
                     self.yang_parent_name = "satellite-topology"
@@ -4595,7 +4965,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, ['mac_address', 'configured', 'num_hops', 'type', 'satellite_id', 'received_serial_number', 'received_serial_number_present', 'vlan_id', 'display_name', 'conflict_reason', 'conflict_context'], name, value)
 
 
-                class FabricLink(Entity):
+                class FabricLink(_Entity_):
                     """
                     Local Satellite Fabric Link table
                     
@@ -4658,7 +5028,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, self).__init__()
 
                         self.yang_name = "fabric-link"
                         self.yang_parent_name = "satellite"
@@ -4689,7 +5062,7 @@ class NvSatellite(Entity):
                         self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, ['icl_id', 'interface_name', 'display_name', 'redundant', 'active', 'obsolete'], name, value)
 
 
-                    class RemoteDevice(Entity):
+                    class RemoteDevice(_Entity_):
                         """
                         Remote Device table
                         
@@ -4756,7 +5129,10 @@ class NvSatellite(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, self).__init__()
 
                             self.yang_name = "remote-device"
                             self.yang_parent_name = "fabric-link"
@@ -4786,13 +5162,33 @@ class NvSatellite(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, ['mac_address', 'source', 'remote_is_satellite', 'remote_is_local_host', 'icl_id', 'interface_handle', 'interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                            return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SatelliteTopologies']['meta_info']
 
 
-
-
-
-
-    class InstallReferenceInfo(Entity):
+    class InstallReferenceInfo(_Entity_):
         """
         Satellite Install Reference Information
         
@@ -4811,7 +5207,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.InstallReferenceInfo, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.InstallReferenceInfo, self).__init__()
 
             self.yang_name = "install-reference-info"
             self.yang_parent_name = "nv-satellite"
@@ -4832,7 +5231,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.InstallReferenceInfo, [], name, value)
 
 
-        class References(Entity):
+        class References(_Entity_):
             """
             Install Reference Information table
             
@@ -4851,7 +5250,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.InstallReferenceInfo.References, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.InstallReferenceInfo.References, self).__init__()
 
                 self.yang_name = "references"
                 self.yang_parent_name = "install-reference-info"
@@ -4870,7 +5272,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.InstallReferenceInfo.References, [], name, value)
 
 
-            class Reference(Entity):
+            class Reference(_Entity_):
                 """
                 Install Reference Information
                 
@@ -4905,7 +5307,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.InstallReferenceInfo.References.Reference, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.InstallReferenceInfo.References.Reference, self).__init__()
 
                     self.yang_name = "reference"
                     self.yang_parent_name = "references"
@@ -4928,11 +5333,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.InstallReferenceInfo.References.Reference, ['reference_name', 'reference_name_xr', 'reference_file'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.InstallReferenceInfo.References.Reference']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.InstallReferenceInfo.References']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.InstallReferenceInfo']['meta_info']
 
 
-
-
-    class InstallOpProgresses(Entity):
+    class InstallOpProgresses(_Entity_):
         """
         Current percentage of install table
         
@@ -4951,7 +5368,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.InstallOpProgresses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.InstallOpProgresses, self).__init__()
 
             self.yang_name = "install-op-progresses"
             self.yang_parent_name = "nv-satellite"
@@ -4970,7 +5390,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.InstallOpProgresses, [], name, value)
 
 
-        class InstallOpProgress(Entity):
+        class InstallOpProgress(_Entity_):
             """
             Current percentage of install
             
@@ -5020,7 +5440,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.InstallOpProgresses.InstallOpProgress, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.InstallOpProgresses.InstallOpProgress, self).__init__()
 
                 self.yang_name = "install-op-progress"
                 self.yang_parent_name = "install-op-progresses"
@@ -5045,10 +5468,18 @@ class NvSatellite(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellite.InstallOpProgresses.InstallOpProgress, ['operation_id', 'operation_id_xr', 'progress_percentage', 'satellite_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.InstallOpProgresses.InstallOpProgress']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.InstallOpProgresses']['meta_info']
 
 
-
-    class Install(Entity):
+    class Install(_Entity_):
         """
         Satellite Install Information
         
@@ -5067,7 +5498,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.Install, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.Install, self).__init__()
 
             self.yang_name = "install"
             self.yang_parent_name = "nv-satellite"
@@ -5088,7 +5522,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.Install, [], name, value)
 
 
-        class SatelliteSoftwareVersions(Entity):
+        class SatelliteSoftwareVersions(_Entity_):
             """
             Satellite Software Package Information table
             
@@ -5107,7 +5541,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.Install.SatelliteSoftwareVersions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.Install.SatelliteSoftwareVersions, self).__init__()
 
                 self.yang_name = "satellite-software-versions"
                 self.yang_parent_name = "install"
@@ -5126,7 +5563,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions, [], name, value)
 
 
-            class SatelliteSoftwareVersion(Entity):
+            class SatelliteSoftwareVersion(_Entity_):
                 """
                 Satellite Software Package Information
                 
@@ -5170,7 +5607,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, self).__init__()
 
                     self.yang_name = "satellite-software-version"
                     self.yang_parent_name = "satellite-software-versions"
@@ -5198,7 +5638,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, ['satellite_id', 'satellite_id_xr', 'package_support'], name, value)
 
 
-                class InstallPackageInfo(Entity):
+                class InstallPackageInfo(_Entity_):
                     """
                     Package Data on this Satellite
                     
@@ -5231,7 +5671,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo, self).__init__()
 
                         self.yang_name = "install-package-info"
                         self.yang_parent_name = "satellite-software-version"
@@ -5259,7 +5702,7 @@ class NvSatellite(Entity):
                         self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo, [], name, value)
 
 
-                    class ActivePackages(Entity):
+                    class ActivePackages(_Entity_):
                         """
                         Active Packages running on this Satellite
                         
@@ -5278,7 +5721,10 @@ class NvSatellite(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, self).__init__()
 
                             self.yang_name = "active-packages"
                             self.yang_parent_name = "install-package-info"
@@ -5296,7 +5742,7 @@ class NvSatellite(Entity):
                             self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, [], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             A package on this Satellite table
                             
@@ -5329,7 +5775,10 @@ class NvSatellite(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "active-packages"
@@ -5351,10 +5800,18 @@ class NvSatellite(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages']['meta_info']
 
 
-
-                    class InactivePackages(Entity):
+                    class InactivePackages(_Entity_):
                         """
                         Inactive Packages on this Satellite
                         
@@ -5373,7 +5830,10 @@ class NvSatellite(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, self).__init__()
 
                             self.yang_name = "inactive-packages"
                             self.yang_parent_name = "install-package-info"
@@ -5391,7 +5851,7 @@ class NvSatellite(Entity):
                             self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, [], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             A package on this Satellite table
                             
@@ -5424,7 +5884,10 @@ class NvSatellite(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "inactive-packages"
@@ -5446,10 +5909,18 @@ class NvSatellite(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages']['meta_info']
 
 
-
-                    class CommittedPackages(Entity):
+                    class CommittedPackages(_Entity_):
                         """
                         Committed Packages running on this Satellite
                         
@@ -5468,7 +5939,10 @@ class NvSatellite(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, self).__init__()
 
                             self.yang_name = "committed-packages"
                             self.yang_parent_name = "install-package-info"
@@ -5486,7 +5960,7 @@ class NvSatellite(Entity):
                             self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, [], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             A package on this Satellite table
                             
@@ -5519,7 +5993,10 @@ class NvSatellite(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "committed-packages"
@@ -5541,14 +6018,38 @@ class NvSatellite(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, ['name', 'version', 'is_base_image'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.Install']['meta_info']
 
 
-
-
-
-
-
-    class InstallOpStatuses(Entity):
+    class InstallOpStatuses(_Entity_):
         """
         Detailed breakdown of install status table
         
@@ -5567,7 +6068,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.InstallOpStatuses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.InstallOpStatuses, self).__init__()
 
             self.yang_name = "install-op-statuses"
             self.yang_parent_name = "nv-satellite"
@@ -5586,7 +6090,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.InstallOpStatuses, [], name, value)
 
 
-        class InstallOpStatus(Entity):
+        class InstallOpStatus(_Entity_):
             """
             Detailed breakdown of install status
             
@@ -5826,7 +6330,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.InstallOpStatuses.InstallOpStatus, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.InstallOpStatuses.InstallOpStatus, self).__init__()
 
                 self.yang_name = "install-op-status"
                 self.yang_parent_name = "install-op-statuses"
@@ -5895,10 +6402,18 @@ class NvSatellite(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellite.InstallOpStatuses.InstallOpStatus, ['operation_id', 'operation_id_xr', 'satellite_range', 'arg_is_reference', 'reference_op', 'sats_not_initiated', 'sats_transferring', 'sats_activating', 'sats_updating', 'sats_replacing', 'sats_deactivating', 'sats_removing', 'sats_transfer_failed', 'sats_activate_failed', 'sats_update_failed', 'sats_replace_failed', 'sats_deactivate_failed', 'sats_remove_failed', 'sats_transfer_aborted', 'sats_activate_aborted', 'sats_update_aborted', 'sats_replace_aborted', 'sats_deactivate_aborted', 'sats_remove_aborted', 'sats_no_operation', 'sats_completed'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.InstallOpStatuses.InstallOpStatus']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.InstallOpStatuses']['meta_info']
 
 
-
-    class InstallImageReferenceInfo(Entity):
+    class InstallImageReferenceInfo(_Entity_):
         """
         Satellite Install Image Reference Information
         
@@ -5917,7 +6432,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.InstallImageReferenceInfo, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.InstallImageReferenceInfo, self).__init__()
 
             self.yang_name = "install-image-reference-info"
             self.yang_parent_name = "nv-satellite"
@@ -5938,7 +6456,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.InstallImageReferenceInfo, [], name, value)
 
 
-        class References(Entity):
+        class References(_Entity_):
             """
             Install Reference Information table
             
@@ -5957,7 +6475,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.InstallImageReferenceInfo.References, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.InstallImageReferenceInfo.References, self).__init__()
 
                 self.yang_name = "references"
                 self.yang_parent_name = "install-image-reference-info"
@@ -5976,7 +6497,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.InstallImageReferenceInfo.References, [], name, value)
 
 
-            class Reference(Entity):
+            class Reference(_Entity_):
                 """
                 Install Reference Information
                 
@@ -6011,7 +6532,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.InstallImageReferenceInfo.References.Reference, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.InstallImageReferenceInfo.References.Reference, self).__init__()
 
                     self.yang_name = "reference"
                     self.yang_parent_name = "references"
@@ -6034,11 +6558,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.InstallImageReferenceInfo.References.Reference, ['reference_name', 'reference_name_xr', 'reference_file'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.InstallImageReferenceInfo.References.Reference']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.InstallImageReferenceInfo.References']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.InstallImageReferenceInfo']['meta_info']
 
 
-
-
-    class SatelliteProperties(Entity):
+    class SatelliteProperties(_Entity_):
         """
         ICPE GCO operational information
         
@@ -6057,7 +6593,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SatelliteProperties, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SatelliteProperties, self).__init__()
 
             self.yang_name = "satellite-properties"
             self.yang_parent_name = "nv-satellite"
@@ -6078,7 +6617,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SatelliteProperties, [], name, value)
 
 
-        class IdRanges(Entity):
+        class IdRanges(_Entity_):
             """
             Satellite ID range table
             
@@ -6097,7 +6636,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SatelliteProperties.IdRanges, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SatelliteProperties.IdRanges, self).__init__()
 
                 self.yang_name = "id-ranges"
                 self.yang_parent_name = "satellite-properties"
@@ -6116,7 +6658,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SatelliteProperties.IdRanges, [], name, value)
 
 
-            class IdRange(Entity):
+            class IdRange(_Entity_):
                 """
                 Satellite ID range
                 
@@ -6155,7 +6697,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SatelliteProperties.IdRanges.IdRange, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SatelliteProperties.IdRanges.IdRange, self).__init__()
 
                     self.yang_name = "id-range"
                     self.yang_parent_name = "id-ranges"
@@ -6178,11 +6723,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SatelliteProperties.IdRanges.IdRange, ['sat_id_range', 'min', 'max'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SatelliteProperties.IdRanges.IdRange']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SatelliteProperties.IdRanges']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SatelliteProperties']['meta_info']
 
 
-
-
-    class SdacpDiscovery2s(Entity):
+    class SdacpDiscovery2s(_Entity_):
         """
         ICPE Configured interface state information
         table
@@ -6202,7 +6759,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SdacpDiscovery2s, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SdacpDiscovery2s, self).__init__()
 
             self.yang_name = "sdacp-discovery2s"
             self.yang_parent_name = "nv-satellite"
@@ -6221,7 +6781,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SdacpDiscovery2s, [], name, value)
 
 
-        class SdacpDiscovery2(Entity):
+        class SdacpDiscovery2(_Entity_):
             """
             ICPE Configured interface state information
             
@@ -6263,7 +6823,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, self).__init__()
 
                 self.yang_name = "sdacp-discovery2"
                 self.yang_parent_name = "sdacp-discovery2s"
@@ -6288,7 +6851,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2, ['interface_name', 'interface_name_xr'], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 ICPE Discovery interface state information table
                 
@@ -6314,7 +6877,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "sdacp-discovery2"
@@ -6334,9 +6900,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface, ['interface_name', 'interface_status'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Interface']['meta_info']
 
 
-            class Satellite(Entity):
+            class Satellite(_Entity_):
                 """
                 ICPE Satellite state information table
                 
@@ -6398,7 +6968,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, self).__init__()
 
                     self.yang_name = "satellite"
                     self.yang_parent_name = "sdacp-discovery2"
@@ -6427,7 +7000,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite, ['satellite_id', 'satellite_status', 'conflict_reason', 'satellite_ip_address', 'host_ip_address'], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     ICPE Discovered satellite state information
                     table
@@ -6513,7 +7086,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "satellite"
@@ -6547,12 +7123,28 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface, ['interface_handle', 'satellite_status', 'conflict_reason', 'satellite_chassis_vendor', 'satellite_interface_id', 'satellite_interface_mac', 'satellite_chassis_mac', 'satellite_serial_id', 'satellite_module_vendor'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpDiscovery2s.SdacpDiscovery2.Satellite']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SdacpDiscovery2s.SdacpDiscovery2']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SdacpDiscovery2s']['meta_info']
 
 
-
-
-
-    class IcpeDpms(Entity):
+    class IcpeDpms(_Entity_):
         """
         ICPE DPM operational information table
         
@@ -6571,7 +7163,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.IcpeDpms, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.IcpeDpms, self).__init__()
 
             self.yang_name = "icpe-dpms"
             self.yang_parent_name = "nv-satellite"
@@ -6590,7 +7185,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.IcpeDpms, [], name, value)
 
 
-        class IcpeDpm(Entity):
+        class IcpeDpm(_Entity_):
             """
             ICPE DPM operational information
             
@@ -6749,7 +7344,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.IcpeDpms.IcpeDpm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.IcpeDpms.IcpeDpm, self).__init__()
 
                 self.yang_name = "icpe-dpm"
                 self.yang_parent_name = "icpe-dpms"
@@ -6800,7 +7398,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm, ['discovery_interface', 'discovery_interface_xr', 'discovery_interface_handle', 'discovery_interface_status', 'ident_packets_received', 'ready_packets_received', 'los_packets_received', 'invalid_packets_received', 'configuration_packets_sent', 'ack_packets_sent', 'reject_packets_sent', 'probe_packets_sent', 'host_ack_packets_received', 'host_ack_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
 
-            class Satellite(Entity):
+            class Satellite(_Entity_):
                 """
                 ICPE DPM satellite operational information table
                 
@@ -7085,7 +7683,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.IcpeDpms.IcpeDpm.Satellite, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.IcpeDpms.IcpeDpm.Satellite, self).__init__()
 
                     self.yang_name = "satellite"
                     self.yang_parent_name = "icpe-dpm"
@@ -7167,9 +7768,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.Satellite, ['satellite_id', 'satellite_interface_id', 'satellite_interface_mac', 'satellite_ip_address', 'host_ip_address', 'satellite_chassis_type', 'satellite_chassis_vendor', 'satellite_chassis_mac', 'satellite_serial_id', 'satellite_module_type', 'satellite_module_vendor', 'satellite_module_mac', 'conflict_reason', 'received_sys_mac', 'host_chassis_type', 'host_chassis_vendor', 'host_chassis_mac', 'discovery_protocol_state', 'last_imdr_state', 'current_timeout', 'is_queued_for_efd', 'is_queued_for_oc', 'ifmgr_state', 'legacy', 'deleting', 'ident_packets_received', 'ready_packets_received', 'los_packets_received', 'invalid_packets_received', 'configuration_packets_sent', 'ack_packets_sent', 'reject_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm.Satellite']['meta_info']
 
 
-            class RemoteHost(Entity):
+            class RemoteHost(_Entity_):
                 """
                 ICPE DPM remote host operational information
                 table
@@ -7254,7 +7859,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, self).__init__()
 
                     self.yang_name = "remote-host"
                     self.yang_parent_name = "icpe-dpm"
@@ -7286,11 +7894,23 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, ['host_chassis_mac', 'host_interface_mac', 'discovery_protocol_state', 'route_length', 'current_timeout', 'host_ack_packets_received', 'host_ack_packets_sent', 'secs_since_pkts_cleaned'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm.RemoteHost']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.IcpeDpms']['meta_info']
 
 
-
-
-    class SdacpControls(Entity):
+    class SdacpControls(_Entity_):
         """
         SDAC Protocol Discovery information table
         
@@ -7309,7 +7929,10 @@ class NvSatellite(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NvSatellite.SdacpControls, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellite.SdacpControls, self).__init__()
 
             self.yang_name = "sdacp-controls"
             self.yang_parent_name = "nv-satellite"
@@ -7328,7 +7951,7 @@ class NvSatellite(Entity):
             self._perform_setattr(NvSatellite.SdacpControls, [], name, value)
 
 
-        class SdacpControl(Entity):
+        class SdacpControl(_Entity_):
             """
             SDAC Protocol Discovery information
             
@@ -7418,7 +8041,10 @@ class NvSatellite(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NvSatellite.SdacpControls.SdacpControl, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellite.SdacpControls.SdacpControl, self).__init__()
 
                 self.yang_name = "sdacp-control"
                 self.yang_parent_name = "sdacp-controls"
@@ -7460,7 +8086,7 @@ class NvSatellite(Entity):
                 self._perform_setattr(NvSatellite.SdacpControls.SdacpControl, ['satellite_id', 'satellite_id_xr', 'satellite_ip_address', 'ip_address_auto', 'vrf_name', 'control_protocol_state', 'transport_error'], name, value)
 
 
-            class ProtocolStateTimestamp(Entity):
+            class ProtocolStateTimestamp(_Entity_):
                 """
                 Timestamp
                 
@@ -7494,7 +8120,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, self).__init__()
 
                     self.yang_name = "protocol-state-timestamp"
                     self.yang_parent_name = "sdacp-control"
@@ -7514,9 +8143,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp']['meta_info']
 
 
-            class TransportErrorTimestamp(Entity):
+            class TransportErrorTimestamp(_Entity_):
                 """
                 Timestamp
                 
@@ -7550,7 +8183,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, self).__init__()
 
                     self.yang_name = "transport-error-timestamp"
                     self.yang_parent_name = "sdacp-control"
@@ -7570,9 +8206,13 @@ class NvSatellite(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp']['meta_info']
 
 
-            class Channel(Entity):
+            class Channel(_Entity_):
                 """
                 Channels on satellite table
                 
@@ -7702,7 +8342,10 @@ class NvSatellite(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NvSatellite.SdacpControls.SdacpControl.Channel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellite.SdacpControls.SdacpControl.Channel, self).__init__()
 
                     self.yang_name = "channel"
                     self.yang_parent_name = "sdacp-control"
@@ -7753,7 +8396,7 @@ class NvSatellite(Entity):
                     self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel, ['channel_id', 'resync_state', 'channel_state', 'control_messages_sent', 'normal_messages_sent', 'control_messages_received', 'normal_messages_received', 'control_messages_dropped', 'normal_messages_dropped', 'secs_since_last_cleared', 'version'], name, value)
 
 
-                class Capabilities(Entity):
+                class Capabilities(_Entity_):
                     """
                     Capabilities
                     
@@ -7772,7 +8415,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, self).__init__()
 
                         self.yang_name = "capabilities"
                         self.yang_parent_name = "channel"
@@ -7790,7 +8436,7 @@ class NvSatellite(Entity):
                         self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, [], name, value)
 
 
-                    class TlVs(Entity):
+                    class TlVs(_Entity_):
                         """
                         Capability TLVs table
                         
@@ -7827,7 +8473,10 @@ class NvSatellite(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, self).__init__()
 
                             self.yang_name = "tl-vs"
                             self.yang_parent_name = "capabilities"
@@ -7849,10 +8498,18 @@ class NvSatellite(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, ['type', 'debug', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                            return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities']['meta_info']
 
 
-
-                class ResyncStateTimestamp(Entity):
+                class ResyncStateTimestamp(_Entity_):
                     """
                     Timestamp
                     
@@ -7886,7 +8543,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, self).__init__()
 
                         self.yang_name = "resync-state-timestamp"
                         self.yang_parent_name = "channel"
@@ -7906,9 +8566,13 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp']['meta_info']
 
 
-                class ChannelStateTimestamp(Entity):
+                class ChannelStateTimestamp(_Entity_):
                     """
                     Timestamp
                     
@@ -7942,7 +8606,10 @@ class NvSatellite(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, self).__init__()
 
                         self.yang_name = "channel-state-timestamp"
                         self.yang_parent_name = "channel"
@@ -7962,13 +8629,33 @@ class NvSatellite(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.SdacpControls.SdacpControl']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.SdacpControls']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NvSatellite()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['NvSatellite']['meta_info']
 
 

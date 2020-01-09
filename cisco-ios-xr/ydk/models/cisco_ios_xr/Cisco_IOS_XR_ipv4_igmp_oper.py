@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -40,6 +43,12 @@ class IgmpAfi(Enum):
     ipv4_unicast = Enum.YLeaf(0, "ipv4-unicast")
 
     ipv6_unicast = Enum.YLeaf(1, "ipv6-unicast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+        return meta._meta_table['IgmpAfi']
 
 
 class IgmpEdmProtocol(Enum):
@@ -87,6 +96,12 @@ class IgmpEdmProtocol(Enum):
     any = Enum.YLeaf(6, "any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+        return meta._meta_table['IgmpEdmProtocol']
+
+
 class IgmpssmMap(Enum):
     """
     IgmpssmMap (Enum Class)
@@ -114,8 +129,14 @@ class IgmpssmMap(Enum):
     all = Enum.YLeaf(2, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+        return meta._meta_table['IgmpssmMap']
 
-class Mld(Entity):
+
+
+class Mld(_Entity_):
     """
     MLD operational data
     
@@ -141,7 +162,10 @@ class Mld(Entity):
     _revision = '2018-01-31'
 
     def __init__(self):
-        super(Mld, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mld, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mld"
@@ -166,7 +190,7 @@ class Mld(Entity):
         self._perform_setattr(Mld, [], name, value)
 
 
-    class Standby(Entity):
+    class Standby(_Entity_):
         """
         Standby Process
         
@@ -199,7 +223,10 @@ class Mld(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Mld.Standby, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mld.Standby, self).__init__()
 
             self.yang_name = "standby"
             self.yang_parent_name = "mld"
@@ -228,7 +255,7 @@ class Mld(Entity):
             self._perform_setattr(Mld.Standby, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF Table
             
@@ -247,7 +274,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Standby.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Standby.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "standby"
@@ -266,7 +296,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Standby.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF table Names
                 
@@ -406,7 +436,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -494,7 +527,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     IGMP Summary Information
                     
@@ -599,7 +632,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "vrf"
@@ -638,7 +674,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Maximum and current groups accepted for each
                         interface
@@ -721,7 +757,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.Summary.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.Summary.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "summary"
@@ -753,10 +792,18 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.Summary.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.Summary']['meta_info']
 
 
-
-                class InterfaceStateOns(Entity):
+                class InterfaceStateOns(_Entity_):
                     """
                     IGMP Interface state on
                     
@@ -775,7 +822,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns, self).__init__()
 
                         self.yang_name = "interface-state-ons"
                         self.yang_parent_name = "vrf"
@@ -793,7 +843,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns, [], name, value)
 
 
-                    class InterfaceStateOn(Entity):
+                    class InterfaceStateOn(_Entity_):
                         """
                         IGMP Interface
                         
@@ -1241,7 +1291,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                             self.yang_name = "interface-state-on"
                             self.yang_parent_name = "interface-state-ons"
@@ -1368,7 +1421,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -1405,7 +1458,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-on"
@@ -1427,9 +1483,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -1466,7 +1526,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -1488,9 +1551,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -1527,7 +1594,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -1549,11 +1619,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOns']['meta_info']
 
 
-
-
-                class DetailGroups(Entity):
+                class DetailGroups(_Entity_):
                     """
                     IGMP Detail Group Database
                     
@@ -1572,7 +1654,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.DetailGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.DetailGroups, self).__init__()
 
                         self.yang_name = "detail-groups"
                         self.yang_parent_name = "vrf"
@@ -1590,7 +1675,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups, [], name, value)
 
 
-                    class DetailGroup(Entity):
+                    class DetailGroup(_Entity_):
                         """
                         IGMP Detail Group Entry Information
                         
@@ -1669,7 +1754,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
 
                             self.yang_name = "detail-group"
                             self.yang_parent_name = "detail-groups"
@@ -1702,7 +1790,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -1837,7 +1925,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "detail-group"
@@ -1890,7 +1981,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -1927,7 +2018,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -1949,9 +2043,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -1988,7 +2086,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -2010,9 +2111,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -2049,7 +2154,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -2071,10 +2179,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             List of sources
                             
@@ -2159,7 +2275,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "detail-group"
@@ -2196,7 +2315,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -2233,7 +2352,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "source"
@@ -2255,12 +2377,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups']['meta_info']
 
 
-
-
-
-                class NonActiveGroups(Entity):
+                class NonActiveGroups(_Entity_):
                     """
                     IGMP Non\-Active Groups Information
                     
@@ -2279,7 +2417,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.NonActiveGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.NonActiveGroups, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "vrf"
@@ -2297,7 +2438,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups, [], name, value)
 
 
-                    class NonActiveGroups_(Entity):
+                    class NonActiveGroups_(_Entity_):
                         """
                         List of non\-active groups
                         
@@ -2341,7 +2482,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                             self.yang_name = "non-active-groups"
                             self.yang_parent_name = "non-active-groups"
@@ -2370,7 +2514,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group Address
                             
@@ -2407,7 +2551,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -2429,9 +2576,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -2468,7 +2619,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -2490,11 +2644,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
 
 
-
-
-                class SsmMaps(Entity):
+                class SsmMaps(_Entity_):
                     """
                     SSM Map Table
                     
@@ -2513,7 +2679,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.SsmMaps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.SsmMaps, self).__init__()
 
                         self.yang_name = "ssm-maps"
                         self.yang_parent_name = "vrf"
@@ -2531,7 +2700,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps, [], name, value)
 
 
-                    class SsmMap(Entity):
+                    class SsmMap(_Entity_):
                         """
                         SSM Map information
                         
@@ -2590,7 +2759,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
 
                             self.yang_name = "ssm-map"
                             self.yang_parent_name = "ssm-maps"
@@ -2619,7 +2791,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -2656,7 +2828,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "ssm-map"
@@ -2678,11 +2853,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps']['meta_info']
 
 
-
-
-                class ExplicitGroups(Entity):
+                class ExplicitGroups(_Entity_):
                     """
                     IGMP Explicit Group Database
                     
@@ -2701,7 +2888,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.ExplicitGroups, self).__init__()
 
                         self.yang_name = "explicit-groups"
                         self.yang_parent_name = "vrf"
@@ -2719,7 +2909,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups, [], name, value)
 
 
-                    class ExplicitGroup(Entity):
+                    class ExplicitGroup(_Entity_):
                         """
                         IGMP Explicit Group Entry Information
                         
@@ -2802,7 +2992,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
 
                             self.yang_name = "explicit-group"
                             self.yang_parent_name = "explicit-groups"
@@ -2835,7 +3028,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -2970,7 +3163,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "explicit-group"
@@ -3023,7 +3219,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -3060,7 +3256,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -3082,9 +3281,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -3121,7 +3324,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -3143,9 +3349,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -3182,7 +3392,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -3204,10 +3417,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             List of hosts
                             
@@ -3271,7 +3492,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "explicit-group"
@@ -3302,7 +3526,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Host Address
                                 
@@ -3339,7 +3563,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "host"
@@ -3361,9 +3588,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 First 3 source addresses
                                 
@@ -3400,7 +3631,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "host"
@@ -3422,12 +3656,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups']['meta_info']
 
 
-
-
-
-                class InterfaceTable(Entity):
+                class InterfaceTable(_Entity_):
                     """
                     IGMP Interface specific Table
                     
@@ -3446,7 +3696,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.InterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.InterfaceTable, self).__init__()
 
                         self.yang_name = "interface-table"
                         self.yang_parent_name = "vrf"
@@ -3464,7 +3717,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -3912,7 +4165,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interface-table"
@@ -4039,7 +4295,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -4076,7 +4332,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -4098,9 +4357,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -4137,7 +4400,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -4159,9 +4425,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -4198,7 +4468,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -4220,11 +4493,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceTable']['meta_info']
 
 
-
-
-                class InterfaceUnicastQosAdjusts(Entity):
+                class InterfaceUnicastQosAdjusts(_Entity_):
                     """
                     IGMP Interface Unicast\-Qos\-Adjust
                     
@@ -4243,7 +4528,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjusts"
                         self.yang_parent_name = "vrf"
@@ -4261,7 +4549,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                    class InterfaceUnicastQosAdjust(Entity):
+                    class InterfaceUnicastQosAdjust(_Entity_):
                         """
                         IGMP Interface
                         
@@ -4325,7 +4613,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                             self.yang_name = "interface-unicast-qos-adjust"
                             self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -4354,7 +4645,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                        class Update(Entity):
+                        class Update(_Entity_):
                             """
                             List of updates
                             
@@ -4405,7 +4696,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                                 self.yang_name = "update"
                                 self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -4436,7 +4730,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source address
                                 
@@ -4473,7 +4767,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "update"
@@ -4495,9 +4792,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                            class GroupAddress(Entity):
+                            class GroupAddress(_Entity_):
                                 """
                                 Group address
                                 
@@ -4534,7 +4835,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                     self.yang_name = "group-address"
                                     self.yang_parent_name = "update"
@@ -4556,12 +4860,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-                class Ranges(Entity):
+                class Ranges(_Entity_):
                     """
                     Range table
                     
@@ -4580,7 +4900,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.Ranges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.Ranges, self).__init__()
 
                         self.yang_name = "ranges"
                         self.yang_parent_name = "vrf"
@@ -4598,7 +4921,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges, [], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Range information
                         
@@ -4664,7 +4987,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.Ranges.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.Ranges.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "ranges"
@@ -4695,7 +5021,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group address
                             
@@ -4732,7 +5058,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "range"
@@ -4754,11 +5083,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.Ranges.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.Ranges']['meta_info']
 
 
-
-
-                class IfrsInterfaces(Entity):
+                class IfrsInterfaces(_Entity_):
                     """
                     IGMP Interface specific
                     
@@ -4777,7 +5118,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces, self).__init__()
 
                         self.yang_name = "ifrs-interfaces"
                         self.yang_parent_name = "vrf"
@@ -4795,7 +5139,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces, [], name, value)
 
 
-                    class IfrsInterface(Entity):
+                    class IfrsInterface(_Entity_):
                         """
                         IGMP IFRS Interface
                         
@@ -4832,7 +5176,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
 
                             self.yang_name = "ifrs-interface"
                             self.yang_parent_name = "ifrs-interfaces"
@@ -4857,7 +5204,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                        class IgmpInterfaceEntry(Entity):
+                        class IgmpInterfaceEntry(_Entity_):
                             """
                             IGMP interface entry
                             
@@ -5296,7 +5643,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                                 self.yang_name = "igmp-interface-entry"
                                 self.yang_parent_name = "ifrs-interface"
@@ -5421,7 +5771,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 IP address
                                 
@@ -5458,7 +5808,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -5480,9 +5833,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                            class QuerierAddress(Entity):
+                            class QuerierAddress(_Entity_):
                                 """
                                 Address of the Querier
                                 
@@ -5519,7 +5876,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                     self.yang_name = "querier-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -5541,9 +5901,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                            class SubscriberAddress(Entity):
+                            class SubscriberAddress(_Entity_):
                                 """
                                 Address of subscriber
                                 
@@ -5580,7 +5944,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                     self.yang_name = "subscriber-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -5602,12 +5969,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaces']['meta_info']
 
 
-
-
-
-                class TrafficCounters(Entity):
+                class TrafficCounters(_Entity_):
                     """
                     IGMP Message Traffic Counters
                     
@@ -5934,7 +6317,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.TrafficCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.TrafficCounters, self).__init__()
 
                         self.yang_name = "traffic-counters"
                         self.yang_parent_name = "vrf"
@@ -6020,9 +6406,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.TrafficCounters']['meta_info']
 
 
-                class Groups(Entity):
+                class Groups(_Entity_):
                     """
                     IGMP Group Database Table
                     
@@ -6041,7 +6431,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.Groups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.Groups, self).__init__()
 
                         self.yang_name = "groups"
                         self.yang_parent_name = "vrf"
@@ -6059,7 +6452,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups, [], name, value)
 
 
-                    class Group(Entity):
+                    class Group(_Entity_):
                         """
                         IGMP Group Entry Information
                         
@@ -6218,7 +6611,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.Groups.Group, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.Groups.Group, self).__init__()
 
                             self.yang_name = "group"
                             self.yang_parent_name = "groups"
@@ -6275,7 +6671,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -6312,7 +6708,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group"
@@ -6334,9 +6733,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -6373,7 +6776,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group"
@@ -6395,9 +6801,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.Groups.Group.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -6434,7 +6844,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group"
@@ -6456,11 +6869,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.Groups.Group.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.Groups.Group']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.Groups']['meta_info']
 
 
-
-
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     IGMP Groups Summary
                     
@@ -6506,7 +6931,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "vrf"
@@ -6530,9 +6958,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.GroupSummary']['meta_info']
 
 
-                class IfrsInterfaceSummary(Entity):
+                class IfrsInterfaceSummary(_Entity_):
                     """
                     IGMP IFRS Interface summary
                     
@@ -6562,7 +6994,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
 
                         self.yang_name = "ifrs-interface-summary"
                         self.yang_parent_name = "vrf"
@@ -6582,9 +7017,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.IfrsInterfaceSummary']['meta_info']
 
 
-                class GlobalInterfaceTable(Entity):
+                class GlobalInterfaceTable(_Entity_):
                     """
                     IGMP Global Interface 
                     
@@ -6603,7 +7042,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
 
                         self.yang_name = "global-interface-table"
                         self.yang_parent_name = "vrf"
@@ -6621,7 +7063,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -7069,7 +7511,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "global-interface-table"
@@ -7196,7 +7641,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -7233,7 +7678,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -7255,9 +7703,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -7294,7 +7746,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -7316,9 +7771,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -7355,7 +7814,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -7377,11 +7839,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.GlobalInterfaceTable']['meta_info']
 
 
-
-
-                class SsmMapDetails(Entity):
+                class SsmMapDetails(_Entity_):
                     """
                     SSM Map Detail
                     
@@ -7400,7 +7874,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.SsmMapDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.SsmMapDetails, self).__init__()
 
                         self.yang_name = "ssm-map-details"
                         self.yang_parent_name = "vrf"
@@ -7418,7 +7895,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails, [], name, value)
 
 
-                    class SsmMapDetail(Entity):
+                    class SsmMapDetail(_Entity_):
                         """
                         SSM Map Detail Table information
                         
@@ -7502,7 +7979,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
 
                             self.yang_name = "ssm-map-detail"
                             self.yang_parent_name = "ssm-map-details"
@@ -7537,7 +8017,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                        class MapInfo(Entity):
+                        class MapInfo(_Entity_):
                             """
                             Basic Map Info
                             
@@ -7574,7 +8054,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                                 self.yang_name = "map-info"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -7599,7 +8082,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -7636,7 +8119,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "map-info"
@@ -7658,10 +8144,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                        class Sources(Entity):
+                        class Sources(_Entity_):
                             """
                             List of sources
                             
@@ -7698,7 +8192,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                                 self.yang_name = "sources"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -7720,11 +8217,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.SsmMapDetails']['meta_info']
 
 
-
-
-                class InterfaceStateOffs(Entity):
+                class InterfaceStateOffs(_Entity_):
                     """
                     IGMP Interface state off
                     
@@ -7743,7 +8252,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
 
                         self.yang_name = "interface-state-offs"
                         self.yang_parent_name = "vrf"
@@ -7761,7 +8273,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs, [], name, value)
 
 
-                    class InterfaceStateOff(Entity):
+                    class InterfaceStateOff(_Entity_):
                         """
                         IGMP Interface
                         
@@ -8209,7 +8721,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                             self.yang_name = "interface-state-off"
                             self.yang_parent_name = "interface-state-offs"
@@ -8336,7 +8851,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -8373,7 +8888,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-off"
@@ -8395,9 +8913,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -8434,7 +8956,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -8456,9 +8981,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -8495,7 +9024,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -8517,13 +9049,33 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Vrfs.Vrf.InterfaceStateOffs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Standby.Vrfs']['meta_info']
 
 
-
-
-
-
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Process
             
@@ -8577,7 +9129,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Standby.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Standby.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "standby"
@@ -8618,7 +9173,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Standby.Process, [], name, value)
 
 
-            class AmtSummary(Entity):
+            class AmtSummary(_Entity_):
                 """
                 MRIB RouteDB Expiry Information
                 
@@ -8750,7 +9305,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.AmtSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.AmtSummary, self).__init__()
 
                     self.yang_name = "amt-summary"
                     self.yang_parent_name = "process"
@@ -8795,9 +9353,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.AmtSummary']['meta_info']
 
 
-            class Nsr(Entity):
+            class Nsr(_Entity_):
                 """
                 NSR Information
                 
@@ -8920,7 +9482,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.Nsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.Nsr, self).__init__()
 
                     self.yang_name = "nsr"
                     self.yang_parent_name = "process"
@@ -8963,9 +9528,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.Nsr']['meta_info']
 
 
-            class AmtGateways(Entity):
+            class AmtGateways(_Entity_):
                 """
                 Table containing AMT Gateway DataBase
                 information
@@ -8985,7 +9554,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.AmtGateways, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.AmtGateways, self).__init__()
 
                     self.yang_name = "amt-gateways"
                     self.yang_parent_name = "process"
@@ -9004,7 +9576,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.Process.AmtGateways, [], name, value)
 
 
-                class AmtGateway(Entity):
+                class AmtGateway(_Entity_):
                     """
                     AMT Gateway DataBase information
                     
@@ -9112,7 +9684,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.Process.AmtGateways.AmtGateway, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.Process.AmtGateways.AmtGateway, self).__init__()
 
                         self.yang_name = "amt-gateway"
                         self.yang_parent_name = "amt-gateways"
@@ -9149,10 +9724,18 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.Process.AmtGateways.AmtGateway']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.AmtGateways']['meta_info']
 
 
-
-            class UnicastQosAdjustStats(Entity):
+            class UnicastQosAdjustStats(_Entity_):
                 """
                 IGMP Unicast\-Qos\-Adjust Statistics
                 
@@ -9304,7 +9887,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.UnicastQosAdjustStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.UnicastQosAdjustStats, self).__init__()
 
                     self.yang_name = "unicast-qos-adjust-stats"
                     self.yang_parent_name = "process"
@@ -9353,9 +9939,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.UnicastQosAdjustStats']['meta_info']
 
 
-            class BviStatistics(Entity):
+            class BviStatistics(_Entity_):
                 """
                 IGMP BVI Stats
                 
@@ -9682,7 +10272,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.BviStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.BviStatistics, self).__init__()
 
                     self.yang_name = "bvi-statistics"
                     self.yang_parent_name = "process"
@@ -9769,9 +10362,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.BviStatistics']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 NSF Information
                 
@@ -9881,7 +10478,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.Process.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.Process.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "process"
@@ -9918,10 +10518,18 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.Process.Nsf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Standby.Process']['meta_info']
 
 
-
-        class DefaultContext(Entity):
+        class DefaultContext(_Entity_):
             """
             Default Context
             
@@ -10052,7 +10660,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Standby.DefaultContext, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Standby.DefaultContext, self).__init__()
 
                 self.yang_name = "default-context"
                 self.yang_parent_name = "standby"
@@ -10137,7 +10748,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Standby.DefaultContext, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 IGMP Summary Information
                 
@@ -10242,7 +10853,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "default-context"
@@ -10282,7 +10896,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Maximum and current groups accepted for each
                     interface
@@ -10365,7 +10979,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.Summary.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.Summary.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "summary"
@@ -10398,10 +11015,18 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Standby.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.Summary.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.Summary']['meta_info']
 
 
-
-            class InterfaceStateOns(Entity):
+            class InterfaceStateOns(_Entity_):
                 """
                 IGMP Interface state on
                 
@@ -10420,7 +11045,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.InterfaceStateOns, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.InterfaceStateOns, self).__init__()
 
                     self.yang_name = "interface-state-ons"
                     self.yang_parent_name = "default-context"
@@ -10439,7 +11067,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns, [], name, value)
 
 
-                class InterfaceStateOn(Entity):
+                class InterfaceStateOn(_Entity_):
                     """
                     IGMP Interface
                     
@@ -10887,7 +11515,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                         self.yang_name = "interface-state-on"
                         self.yang_parent_name = "interface-state-ons"
@@ -11015,7 +11646,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -11052,7 +11683,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-on"
@@ -11074,9 +11708,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -11113,7 +11751,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-on"
@@ -11135,9 +11776,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -11174,7 +11819,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-on"
@@ -11196,11 +11844,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOns']['meta_info']
 
 
-
-
-            class DetailGroups(Entity):
+            class DetailGroups(_Entity_):
                 """
                 IGMP Detail Group Database
                 
@@ -11219,7 +11879,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.DetailGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.DetailGroups, self).__init__()
 
                     self.yang_name = "detail-groups"
                     self.yang_parent_name = "default-context"
@@ -11238,7 +11901,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups, [], name, value)
 
 
-                class DetailGroup(Entity):
+                class DetailGroup(_Entity_):
                     """
                     IGMP Detail Group Entry Information
                     
@@ -11317,7 +11980,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup, self).__init__()
 
                         self.yang_name = "detail-group"
                         self.yang_parent_name = "detail-groups"
@@ -11351,7 +12017,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -11486,7 +12152,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "detail-group"
@@ -11540,7 +12209,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -11577,7 +12246,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -11600,9 +12272,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -11639,7 +12315,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -11662,9 +12341,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -11701,7 +12384,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -11724,10 +12410,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         List of sources
                         
@@ -11812,7 +12506,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "detail-group"
@@ -11850,7 +12547,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -11887,7 +12584,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "source"
@@ -11910,12 +12610,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.DetailGroups']['meta_info']
 
 
-
-
-
-            class NonActiveGroups(Entity):
+            class NonActiveGroups(_Entity_):
                 """
                 IGMP Non\-Active Groups Information
                 
@@ -11934,7 +12650,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.NonActiveGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.NonActiveGroups, self).__init__()
 
                     self.yang_name = "non-active-groups"
                     self.yang_parent_name = "default-context"
@@ -11953,7 +12672,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups, [], name, value)
 
 
-                class NonActiveGroups_(Entity):
+                class NonActiveGroups_(_Entity_):
                     """
                     List of non\-active groups
                     
@@ -11997,7 +12716,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "non-active-groups"
@@ -12027,7 +12749,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                    class GroupAddress(Entity):
+                    class GroupAddress(_Entity_):
                         """
                         Group Address
                         
@@ -12064,7 +12786,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                             self.yang_name = "group-address"
                             self.yang_parent_name = "non-active-groups"
@@ -12087,9 +12812,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -12126,7 +12855,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "non-active-groups"
@@ -12149,11 +12881,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.NonActiveGroups']['meta_info']
 
 
-
-
-            class SsmMaps(Entity):
+            class SsmMaps(_Entity_):
                 """
                 SSM Map Table
                 
@@ -12172,7 +12916,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.SsmMaps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.SsmMaps, self).__init__()
 
                     self.yang_name = "ssm-maps"
                     self.yang_parent_name = "default-context"
@@ -12191,7 +12938,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps, [], name, value)
 
 
-                class SsmMap(Entity):
+                class SsmMap(_Entity_):
                     """
                     SSM Map information
                     
@@ -12250,7 +12997,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.SsmMaps.SsmMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.SsmMaps.SsmMap, self).__init__()
 
                         self.yang_name = "ssm-map"
                         self.yang_parent_name = "ssm-maps"
@@ -12280,7 +13030,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -12317,7 +13067,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "ssm-map"
@@ -12340,11 +13093,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.SsmMaps']['meta_info']
 
 
-
-
-            class ExplicitGroups(Entity):
+            class ExplicitGroups(_Entity_):
                 """
                 IGMP Explicit Group Database
                 
@@ -12363,7 +13128,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.ExplicitGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.ExplicitGroups, self).__init__()
 
                     self.yang_name = "explicit-groups"
                     self.yang_parent_name = "default-context"
@@ -12382,7 +13150,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups, [], name, value)
 
 
-                class ExplicitGroup(Entity):
+                class ExplicitGroup(_Entity_):
                     """
                     IGMP Explicit Group Entry Information
                     
@@ -12465,7 +13233,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
 
                         self.yang_name = "explicit-group"
                         self.yang_parent_name = "explicit-groups"
@@ -12499,7 +13270,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -12634,7 +13405,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "explicit-group"
@@ -12688,7 +13462,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -12725,7 +13499,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -12748,9 +13525,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -12787,7 +13568,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -12810,9 +13594,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -12849,7 +13637,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -12872,10 +13663,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         List of hosts
                         
@@ -12939,7 +13738,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "explicit-group"
@@ -12971,7 +13773,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Host Address
                             
@@ -13008,7 +13810,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "host"
@@ -13031,9 +13836,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             First 3 source addresses
                             
@@ -13070,7 +13879,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "host"
@@ -13093,12 +13905,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.ExplicitGroups']['meta_info']
 
 
-
-
-
-            class InterfaceTable(Entity):
+            class InterfaceTable(_Entity_):
                 """
                 IGMP Interface specific Table
                 
@@ -13117,7 +13945,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.InterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.InterfaceTable, self).__init__()
 
                     self.yang_name = "interface-table"
                     self.yang_parent_name = "default-context"
@@ -13136,7 +13967,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -13584,7 +14415,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.InterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.InterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-table"
@@ -13712,7 +14546,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -13749,7 +14583,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -13771,9 +14608,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -13810,7 +14651,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -13832,9 +14676,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -13871,7 +14719,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -13893,11 +14744,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.InterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.InterfaceTable']['meta_info']
 
 
-
-
-            class InterfaceUnicastQosAdjusts(Entity):
+            class InterfaceUnicastQosAdjusts(_Entity_):
                 """
                 IGMP Interface Unicast\-Qos\-Adjust
                 
@@ -13916,7 +14779,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
 
                     self.yang_name = "interface-unicast-qos-adjusts"
                     self.yang_parent_name = "default-context"
@@ -13935,7 +14801,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                class InterfaceUnicastQosAdjust(Entity):
+                class InterfaceUnicastQosAdjust(_Entity_):
                     """
                     IGMP Interface
                     
@@ -13999,7 +14865,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjust"
                         self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -14029,7 +14898,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                    class Update(Entity):
+                    class Update(_Entity_):
                         """
                         List of updates
                         
@@ -14080,7 +14949,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                             self.yang_name = "update"
                             self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -14111,7 +14983,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source address
                             
@@ -14148,7 +15020,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "update"
@@ -14170,9 +15045,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group address
                             
@@ -14209,7 +15088,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "update"
@@ -14231,12 +15113,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-            class Ranges(Entity):
+            class Ranges(_Entity_):
                 """
                 Range table
                 
@@ -14255,7 +15153,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.Ranges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.Ranges, self).__init__()
 
                     self.yang_name = "ranges"
                     self.yang_parent_name = "default-context"
@@ -14274,7 +15175,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.Ranges, [], name, value)
 
 
-                class Range(Entity):
+                class Range(_Entity_):
                     """
                     Range information
                     
@@ -14340,7 +15241,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.Ranges.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.Ranges.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "ranges"
@@ -14372,7 +15276,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group address
                         
@@ -14409,7 +15313,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "range"
@@ -14432,11 +15339,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.Ranges.Range.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.Ranges.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.Ranges']['meta_info']
 
 
-
-
-            class IfrsInterfaces(Entity):
+            class IfrsInterfaces(_Entity_):
                 """
                 IGMP Interface specific
                 
@@ -14455,7 +15374,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.IfrsInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.IfrsInterfaces, self).__init__()
 
                     self.yang_name = "ifrs-interfaces"
                     self.yang_parent_name = "default-context"
@@ -14474,7 +15396,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces, [], name, value)
 
 
-                class IfrsInterface(Entity):
+                class IfrsInterface(_Entity_):
                     """
                     IGMP IFRS Interface
                     
@@ -14511,7 +15433,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
 
                         self.yang_name = "ifrs-interface"
                         self.yang_parent_name = "ifrs-interfaces"
@@ -14537,7 +15462,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                    class IgmpInterfaceEntry(Entity):
+                    class IgmpInterfaceEntry(_Entity_):
                         """
                         IGMP interface entry
                         
@@ -14976,7 +15901,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                             self.yang_name = "igmp-interface-entry"
                             self.yang_parent_name = "ifrs-interface"
@@ -15101,7 +16029,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -15138,7 +16066,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -15160,9 +16091,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -15199,7 +16134,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -15221,9 +16159,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -15260,7 +16202,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -15282,12 +16227,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaces']['meta_info']
 
 
-
-
-
-            class TrafficCounters(Entity):
+            class TrafficCounters(_Entity_):
                 """
                 IGMP Message Traffic Counters
                 
@@ -15614,7 +16575,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.TrafficCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.TrafficCounters, self).__init__()
 
                     self.yang_name = "traffic-counters"
                     self.yang_parent_name = "default-context"
@@ -15701,9 +16665,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.TrafficCounters']['meta_info']
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 IGMP Group Database Table
                 
@@ -15722,7 +16690,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "default-context"
@@ -15741,7 +16712,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     IGMP Group Entry Information
                     
@@ -15900,7 +16871,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -15958,7 +16932,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -15995,7 +16969,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "group"
@@ -16018,9 +16995,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                    class LastReporter(Entity):
+                    class LastReporter(_Entity_):
                         """
                         Last reporter address
                         
@@ -16057,7 +17038,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.Groups.Group.LastReporter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.Groups.Group.LastReporter, self).__init__()
 
                             self.yang_name = "last-reporter"
                             self.yang_parent_name = "group"
@@ -16080,9 +17064,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.Groups.Group.LastReporter']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -16119,7 +17107,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.Groups.Group.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.Groups.Group.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "group"
@@ -16142,11 +17133,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.Groups.Group.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.Groups']['meta_info']
 
 
-
-
-            class GroupSummary(Entity):
+            class GroupSummary(_Entity_):
                 """
                 IGMP Groups Summary
                 
@@ -16192,7 +17195,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.GroupSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.GroupSummary, self).__init__()
 
                     self.yang_name = "group-summary"
                     self.yang_parent_name = "default-context"
@@ -16217,9 +17223,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.GroupSummary']['meta_info']
 
 
-            class IfrsInterfaceSummary(Entity):
+            class IfrsInterfaceSummary(_Entity_):
                 """
                 IGMP IFRS Interface summary
                 
@@ -16249,7 +17259,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.IfrsInterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.IfrsInterfaceSummary, self).__init__()
 
                     self.yang_name = "ifrs-interface-summary"
                     self.yang_parent_name = "default-context"
@@ -16270,9 +17283,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Standby.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.IfrsInterfaceSummary']['meta_info']
 
 
-            class GlobalInterfaceTable(Entity):
+            class GlobalInterfaceTable(_Entity_):
                 """
                 IGMP Global Interface 
                 
@@ -16291,7 +17308,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.GlobalInterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.GlobalInterfaceTable, self).__init__()
 
                     self.yang_name = "global-interface-table"
                     self.yang_parent_name = "default-context"
@@ -16310,7 +17330,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -16758,7 +17778,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "global-interface-table"
@@ -16886,7 +17909,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -16923,7 +17946,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -16945,9 +17971,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -16984,7 +18014,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -17006,9 +18039,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -17045,7 +18082,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -17067,11 +18107,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.GlobalInterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.GlobalInterfaceTable']['meta_info']
 
 
-
-
-            class SsmMapDetails(Entity):
+            class SsmMapDetails(_Entity_):
                 """
                 SSM Map Detail
                 
@@ -17090,7 +18142,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.SsmMapDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.SsmMapDetails, self).__init__()
 
                     self.yang_name = "ssm-map-details"
                     self.yang_parent_name = "default-context"
@@ -17109,7 +18164,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails, [], name, value)
 
 
-                class SsmMapDetail(Entity):
+                class SsmMapDetail(_Entity_):
                     """
                     SSM Map Detail Table information
                     
@@ -17193,7 +18248,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
 
                         self.yang_name = "ssm-map-detail"
                         self.yang_parent_name = "ssm-map-details"
@@ -17229,7 +18287,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                    class MapInfo(Entity):
+                    class MapInfo(_Entity_):
                         """
                         Basic Map Info
                         
@@ -17266,7 +18324,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                             self.yang_name = "map-info"
                             self.yang_parent_name = "ssm-map-detail"
@@ -17292,7 +18353,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -17329,7 +18390,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "map-info"
@@ -17352,10 +18416,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                    class Sources(Entity):
+                    class Sources(_Entity_):
                         """
                         List of sources
                         
@@ -17392,7 +18464,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                             self.yang_name = "sources"
                             self.yang_parent_name = "ssm-map-detail"
@@ -17415,11 +18490,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.SsmMapDetails']['meta_info']
 
 
-
-
-            class InterfaceStateOffs(Entity):
+            class InterfaceStateOffs(_Entity_):
                 """
                 IGMP Interface state off
                 
@@ -17438,7 +18525,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Standby.DefaultContext.InterfaceStateOffs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Standby.DefaultContext.InterfaceStateOffs, self).__init__()
 
                     self.yang_name = "interface-state-offs"
                     self.yang_parent_name = "default-context"
@@ -17457,7 +18547,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs, [], name, value)
 
 
-                class InterfaceStateOff(Entity):
+                class InterfaceStateOff(_Entity_):
                     """
                     IGMP Interface
                     
@@ -17905,7 +18995,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                         self.yang_name = "interface-state-off"
                         self.yang_parent_name = "interface-state-offs"
@@ -18033,7 +19126,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -18070,7 +19163,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-off"
@@ -18092,9 +19188,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -18131,7 +19231,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-off"
@@ -18153,9 +19256,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -18192,7 +19299,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-off"
@@ -18214,13 +19324,33 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Standby.DefaultContext.InterfaceStateOffs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Standby.DefaultContext']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+            return meta._meta_table['Mld.Standby']['meta_info']
 
 
-
-
-
-
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Active Process
         
@@ -18253,7 +19383,10 @@ class Mld(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Mld.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mld.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "mld"
@@ -18282,7 +19415,7 @@ class Mld(Entity):
             self._perform_setattr(Mld.Active, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF Table
             
@@ -18301,7 +19434,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Active.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Active.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "active"
@@ -18320,7 +19456,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Active.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF table Names
                 
@@ -18460,7 +19596,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -18548,7 +19687,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     IGMP Summary Information
                     
@@ -18653,7 +19792,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "vrf"
@@ -18692,7 +19834,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Maximum and current groups accepted for each
                         interface
@@ -18775,7 +19917,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.Summary.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.Summary.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "summary"
@@ -18807,10 +19952,18 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.Summary.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.Summary']['meta_info']
 
 
-
-                class InterfaceStateOns(Entity):
+                class InterfaceStateOns(_Entity_):
                     """
                     IGMP Interface state on
                     
@@ -18829,7 +19982,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.InterfaceStateOns, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.InterfaceStateOns, self).__init__()
 
                         self.yang_name = "interface-state-ons"
                         self.yang_parent_name = "vrf"
@@ -18847,7 +20003,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns, [], name, value)
 
 
-                    class InterfaceStateOn(Entity):
+                    class InterfaceStateOn(_Entity_):
                         """
                         IGMP Interface
                         
@@ -19295,7 +20451,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                             self.yang_name = "interface-state-on"
                             self.yang_parent_name = "interface-state-ons"
@@ -19422,7 +20581,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -19459,7 +20618,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-on"
@@ -19481,9 +20643,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -19520,7 +20686,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -19542,9 +20711,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -19581,7 +20754,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -19603,11 +20779,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOns']['meta_info']
 
 
-
-
-                class DetailGroups(Entity):
+                class DetailGroups(_Entity_):
                     """
                     IGMP Detail Group Database
                     
@@ -19626,7 +20814,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.DetailGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.DetailGroups, self).__init__()
 
                         self.yang_name = "detail-groups"
                         self.yang_parent_name = "vrf"
@@ -19644,7 +20835,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups, [], name, value)
 
 
-                    class DetailGroup(Entity):
+                    class DetailGroup(_Entity_):
                         """
                         IGMP Detail Group Entry Information
                         
@@ -19723,7 +20914,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
 
                             self.yang_name = "detail-group"
                             self.yang_parent_name = "detail-groups"
@@ -19756,7 +20950,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -19891,7 +21085,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "detail-group"
@@ -19944,7 +21141,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -19981,7 +21178,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -20003,9 +21203,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -20042,7 +21246,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -20064,9 +21271,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -20103,7 +21314,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -20125,10 +21339,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             List of sources
                             
@@ -20213,7 +21435,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "detail-group"
@@ -20250,7 +21475,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -20287,7 +21512,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "source"
@@ -20309,12 +21537,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.DetailGroups']['meta_info']
 
 
-
-
-
-                class NonActiveGroups(Entity):
+                class NonActiveGroups(_Entity_):
                     """
                     IGMP Non\-Active Groups Information
                     
@@ -20333,7 +21577,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.NonActiveGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.NonActiveGroups, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "vrf"
@@ -20351,7 +21598,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups, [], name, value)
 
 
-                    class NonActiveGroups_(Entity):
+                    class NonActiveGroups_(_Entity_):
                         """
                         List of non\-active groups
                         
@@ -20395,7 +21642,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                             self.yang_name = "non-active-groups"
                             self.yang_parent_name = "non-active-groups"
@@ -20424,7 +21674,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group Address
                             
@@ -20461,7 +21711,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -20483,9 +21736,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -20522,7 +21779,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -20544,11 +21804,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
 
 
-
-
-                class SsmMaps(Entity):
+                class SsmMaps(_Entity_):
                     """
                     SSM Map Table
                     
@@ -20567,7 +21839,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.SsmMaps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.SsmMaps, self).__init__()
 
                         self.yang_name = "ssm-maps"
                         self.yang_parent_name = "vrf"
@@ -20585,7 +21860,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps, [], name, value)
 
 
-                    class SsmMap(Entity):
+                    class SsmMap(_Entity_):
                         """
                         SSM Map information
                         
@@ -20644,7 +21919,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
 
                             self.yang_name = "ssm-map"
                             self.yang_parent_name = "ssm-maps"
@@ -20673,7 +21951,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -20710,7 +21988,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "ssm-map"
@@ -20732,11 +22013,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMaps']['meta_info']
 
 
-
-
-                class ExplicitGroups(Entity):
+                class ExplicitGroups(_Entity_):
                     """
                     IGMP Explicit Group Database
                     
@@ -20755,7 +22048,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.ExplicitGroups, self).__init__()
 
                         self.yang_name = "explicit-groups"
                         self.yang_parent_name = "vrf"
@@ -20773,7 +22069,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups, [], name, value)
 
 
-                    class ExplicitGroup(Entity):
+                    class ExplicitGroup(_Entity_):
                         """
                         IGMP Explicit Group Entry Information
                         
@@ -20856,7 +22152,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
 
                             self.yang_name = "explicit-group"
                             self.yang_parent_name = "explicit-groups"
@@ -20889,7 +22188,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -21024,7 +22323,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "explicit-group"
@@ -21077,7 +22379,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -21114,7 +22416,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -21136,9 +22441,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -21175,7 +22484,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -21197,9 +22509,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -21236,7 +22552,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -21258,10 +22577,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             List of hosts
                             
@@ -21325,7 +22652,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "explicit-group"
@@ -21356,7 +22686,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Host Address
                                 
@@ -21393,7 +22723,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "host"
@@ -21415,9 +22748,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 First 3 source addresses
                                 
@@ -21454,7 +22791,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "host"
@@ -21476,12 +22816,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups']['meta_info']
 
 
-
-
-
-                class InterfaceTable(Entity):
+                class InterfaceTable(_Entity_):
                     """
                     IGMP Interface specific Table
                     
@@ -21500,7 +22856,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.InterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.InterfaceTable, self).__init__()
 
                         self.yang_name = "interface-table"
                         self.yang_parent_name = "vrf"
@@ -21518,7 +22877,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -21966,7 +23325,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interface-table"
@@ -22093,7 +23455,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -22130,7 +23492,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -22152,9 +23517,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -22191,7 +23560,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -22213,9 +23585,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -22252,7 +23628,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -22274,11 +23653,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceTable']['meta_info']
 
 
-
-
-                class InterfaceUnicastQosAdjusts(Entity):
+                class InterfaceUnicastQosAdjusts(_Entity_):
                     """
                     IGMP Interface Unicast\-Qos\-Adjust
                     
@@ -22297,7 +23688,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjusts"
                         self.yang_parent_name = "vrf"
@@ -22315,7 +23709,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                    class InterfaceUnicastQosAdjust(Entity):
+                    class InterfaceUnicastQosAdjust(_Entity_):
                         """
                         IGMP Interface
                         
@@ -22379,7 +23773,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                             self.yang_name = "interface-unicast-qos-adjust"
                             self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -22408,7 +23805,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                        class Update(Entity):
+                        class Update(_Entity_):
                             """
                             List of updates
                             
@@ -22459,7 +23856,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                                 self.yang_name = "update"
                                 self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -22490,7 +23890,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source address
                                 
@@ -22527,7 +23927,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "update"
@@ -22549,9 +23952,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                            class GroupAddress(Entity):
+                            class GroupAddress(_Entity_):
                                 """
                                 Group address
                                 
@@ -22588,7 +23995,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                     self.yang_name = "group-address"
                                     self.yang_parent_name = "update"
@@ -22610,12 +24020,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-                class Ranges(Entity):
+                class Ranges(_Entity_):
                     """
                     Range table
                     
@@ -22634,7 +24060,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.Ranges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.Ranges, self).__init__()
 
                         self.yang_name = "ranges"
                         self.yang_parent_name = "vrf"
@@ -22652,7 +24081,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges, [], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Range information
                         
@@ -22718,7 +24147,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.Ranges.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.Ranges.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "ranges"
@@ -22749,7 +24181,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group address
                             
@@ -22786,7 +24218,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "range"
@@ -22808,11 +24243,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.Ranges.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.Ranges']['meta_info']
 
 
-
-
-                class IfrsInterfaces(Entity):
+                class IfrsInterfaces(_Entity_):
                     """
                     IGMP Interface specific
                     
@@ -22831,7 +24278,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.IfrsInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.IfrsInterfaces, self).__init__()
 
                         self.yang_name = "ifrs-interfaces"
                         self.yang_parent_name = "vrf"
@@ -22849,7 +24299,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces, [], name, value)
 
 
-                    class IfrsInterface(Entity):
+                    class IfrsInterface(_Entity_):
                         """
                         IGMP IFRS Interface
                         
@@ -22886,7 +24336,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
 
                             self.yang_name = "ifrs-interface"
                             self.yang_parent_name = "ifrs-interfaces"
@@ -22911,7 +24364,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                        class IgmpInterfaceEntry(Entity):
+                        class IgmpInterfaceEntry(_Entity_):
                             """
                             IGMP interface entry
                             
@@ -23350,7 +24803,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                                 self.yang_name = "igmp-interface-entry"
                                 self.yang_parent_name = "ifrs-interface"
@@ -23475,7 +24931,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 IP address
                                 
@@ -23512,7 +24968,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -23534,9 +24993,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                            class QuerierAddress(Entity):
+                            class QuerierAddress(_Entity_):
                                 """
                                 Address of the Querier
                                 
@@ -23573,7 +25036,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                     self.yang_name = "querier-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -23595,9 +25061,13 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                            class SubscriberAddress(Entity):
+                            class SubscriberAddress(_Entity_):
                                 """
                                 Address of subscriber
                                 
@@ -23634,7 +25104,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                     self.yang_name = "subscriber-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -23656,12 +25129,28 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaces']['meta_info']
 
 
-
-
-
-                class TrafficCounters(Entity):
+                class TrafficCounters(_Entity_):
                     """
                     IGMP Message Traffic Counters
                     
@@ -23988,7 +25477,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.TrafficCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.TrafficCounters, self).__init__()
 
                         self.yang_name = "traffic-counters"
                         self.yang_parent_name = "vrf"
@@ -24074,9 +25566,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.TrafficCounters']['meta_info']
 
 
-                class Groups(Entity):
+                class Groups(_Entity_):
                     """
                     IGMP Group Database Table
                     
@@ -24095,7 +25591,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.Groups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.Groups, self).__init__()
 
                         self.yang_name = "groups"
                         self.yang_parent_name = "vrf"
@@ -24113,7 +25612,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups, [], name, value)
 
 
-                    class Group(Entity):
+                    class Group(_Entity_):
                         """
                         IGMP Group Entry Information
                         
@@ -24272,7 +25771,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.Groups.Group, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.Groups.Group, self).__init__()
 
                             self.yang_name = "group"
                             self.yang_parent_name = "groups"
@@ -24329,7 +25831,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -24366,7 +25868,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group"
@@ -24388,9 +25893,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -24427,7 +25936,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group"
@@ -24449,9 +25961,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.Groups.Group.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -24488,7 +26004,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group"
@@ -24510,11 +26029,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.Groups.Group.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.Groups.Group']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.Groups']['meta_info']
 
 
-
-
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     IGMP Groups Summary
                     
@@ -24560,7 +26091,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "vrf"
@@ -24584,9 +26118,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.GroupSummary']['meta_info']
 
 
-                class IfrsInterfaceSummary(Entity):
+                class IfrsInterfaceSummary(_Entity_):
                     """
                     IGMP IFRS Interface summary
                     
@@ -24616,7 +26154,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
 
                         self.yang_name = "ifrs-interface-summary"
                         self.yang_parent_name = "vrf"
@@ -24636,9 +26177,13 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.IfrsInterfaceSummary']['meta_info']
 
 
-                class GlobalInterfaceTable(Entity):
+                class GlobalInterfaceTable(_Entity_):
                     """
                     IGMP Global Interface 
                     
@@ -24657,7 +26202,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
 
                         self.yang_name = "global-interface-table"
                         self.yang_parent_name = "vrf"
@@ -24675,7 +26223,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -25123,7 +26671,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "global-interface-table"
@@ -25250,7 +26801,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -25287,7 +26838,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -25309,9 +26863,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -25348,7 +26906,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -25370,9 +26931,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -25409,7 +26974,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -25431,11 +26999,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.GlobalInterfaceTable']['meta_info']
 
 
-
-
-                class SsmMapDetails(Entity):
+                class SsmMapDetails(_Entity_):
                     """
                     SSM Map Detail
                     
@@ -25454,7 +27034,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.SsmMapDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.SsmMapDetails, self).__init__()
 
                         self.yang_name = "ssm-map-details"
                         self.yang_parent_name = "vrf"
@@ -25472,7 +27055,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails, [], name, value)
 
 
-                    class SsmMapDetail(Entity):
+                    class SsmMapDetail(_Entity_):
                         """
                         SSM Map Detail Table information
                         
@@ -25556,7 +27139,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
 
                             self.yang_name = "ssm-map-detail"
                             self.yang_parent_name = "ssm-map-details"
@@ -25591,7 +27177,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                        class MapInfo(Entity):
+                        class MapInfo(_Entity_):
                             """
                             Basic Map Info
                             
@@ -25628,7 +27214,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                                 self.yang_name = "map-info"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -25653,7 +27242,7 @@ class Mld(Entity):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -25690,7 +27279,10 @@ class Mld(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "map-info"
@@ -25712,10 +27304,18 @@ class Mld(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                        class Sources(Entity):
+                        class Sources(_Entity_):
                             """
                             List of sources
                             
@@ -25752,7 +27352,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                                 self.yang_name = "sources"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -25774,11 +27377,23 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.SsmMapDetails']['meta_info']
 
 
-
-
-                class InterfaceStateOffs(Entity):
+                class InterfaceStateOffs(_Entity_):
                     """
                     IGMP Interface state off
                     
@@ -25797,7 +27412,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
 
                         self.yang_name = "interface-state-offs"
                         self.yang_parent_name = "vrf"
@@ -25815,7 +27433,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs, [], name, value)
 
 
-                    class InterfaceStateOff(Entity):
+                    class InterfaceStateOff(_Entity_):
                         """
                         IGMP Interface
                         
@@ -26263,7 +27881,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                             self.yang_name = "interface-state-off"
                             self.yang_parent_name = "interface-state-offs"
@@ -26390,7 +28011,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -26427,7 +28048,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-off"
@@ -26449,9 +28073,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -26488,7 +28116,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -26510,9 +28141,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -26549,7 +28184,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -26571,13 +28209,33 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Vrfs.Vrf.InterfaceStateOffs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Active.Vrfs']['meta_info']
 
 
-
-
-
-
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Process
             
@@ -26631,7 +28289,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Active.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Active.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "active"
@@ -26672,7 +28333,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Active.Process, [], name, value)
 
 
-            class AmtSummary(Entity):
+            class AmtSummary(_Entity_):
                 """
                 MRIB RouteDB Expiry Information
                 
@@ -26804,7 +28465,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.AmtSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.AmtSummary, self).__init__()
 
                     self.yang_name = "amt-summary"
                     self.yang_parent_name = "process"
@@ -26849,9 +28513,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.AmtSummary']['meta_info']
 
 
-            class Nsr(Entity):
+            class Nsr(_Entity_):
                 """
                 NSR Information
                 
@@ -26974,7 +28642,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.Nsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.Nsr, self).__init__()
 
                     self.yang_name = "nsr"
                     self.yang_parent_name = "process"
@@ -27017,9 +28688,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.Nsr']['meta_info']
 
 
-            class AmtGateways(Entity):
+            class AmtGateways(_Entity_):
                 """
                 Table containing AMT Gateway DataBase
                 information
@@ -27039,7 +28714,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.AmtGateways, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.AmtGateways, self).__init__()
 
                     self.yang_name = "amt-gateways"
                     self.yang_parent_name = "process"
@@ -27058,7 +28736,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.Process.AmtGateways, [], name, value)
 
 
-                class AmtGateway(Entity):
+                class AmtGateway(_Entity_):
                     """
                     AMT Gateway DataBase information
                     
@@ -27166,7 +28844,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.Process.AmtGateways.AmtGateway, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.Process.AmtGateways.AmtGateway, self).__init__()
 
                         self.yang_name = "amt-gateway"
                         self.yang_parent_name = "amt-gateways"
@@ -27203,10 +28884,18 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.Process.AmtGateways.AmtGateway']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.AmtGateways']['meta_info']
 
 
-
-            class UnicastQosAdjustStats(Entity):
+            class UnicastQosAdjustStats(_Entity_):
                 """
                 IGMP Unicast\-Qos\-Adjust Statistics
                 
@@ -27358,7 +29047,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.UnicastQosAdjustStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.UnicastQosAdjustStats, self).__init__()
 
                     self.yang_name = "unicast-qos-adjust-stats"
                     self.yang_parent_name = "process"
@@ -27407,9 +29099,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.UnicastQosAdjustStats']['meta_info']
 
 
-            class BviStatistics(Entity):
+            class BviStatistics(_Entity_):
                 """
                 IGMP BVI Stats
                 
@@ -27736,7 +29432,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.BviStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.BviStatistics, self).__init__()
 
                     self.yang_name = "bvi-statistics"
                     self.yang_parent_name = "process"
@@ -27823,9 +29522,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.BviStatistics']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 NSF Information
                 
@@ -27935,7 +29638,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.Process.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.Process.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "process"
@@ -27972,10 +29678,18 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.Process.Nsf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Active.Process']['meta_info']
 
 
-
-        class DefaultContext(Entity):
+        class DefaultContext(_Entity_):
             """
             Default Context
             
@@ -28106,7 +29820,10 @@ class Mld(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Mld.Active.DefaultContext, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mld.Active.DefaultContext, self).__init__()
 
                 self.yang_name = "default-context"
                 self.yang_parent_name = "active"
@@ -28191,7 +29908,7 @@ class Mld(Entity):
                 self._perform_setattr(Mld.Active.DefaultContext, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 IGMP Summary Information
                 
@@ -28296,7 +30013,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "default-context"
@@ -28336,7 +30056,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Maximum and current groups accepted for each
                     interface
@@ -28419,7 +30139,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.Summary.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.Summary.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "summary"
@@ -28452,10 +30175,18 @@ class Mld(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Active.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.Summary.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.Summary']['meta_info']
 
 
-
-            class InterfaceStateOns(Entity):
+            class InterfaceStateOns(_Entity_):
                 """
                 IGMP Interface state on
                 
@@ -28474,7 +30205,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.InterfaceStateOns, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.InterfaceStateOns, self).__init__()
 
                     self.yang_name = "interface-state-ons"
                     self.yang_parent_name = "default-context"
@@ -28493,7 +30227,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns, [], name, value)
 
 
-                class InterfaceStateOn(Entity):
+                class InterfaceStateOn(_Entity_):
                     """
                     IGMP Interface
                     
@@ -28941,7 +30675,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                         self.yang_name = "interface-state-on"
                         self.yang_parent_name = "interface-state-ons"
@@ -29069,7 +30806,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -29106,7 +30843,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-on"
@@ -29128,9 +30868,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -29167,7 +30911,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-on"
@@ -29189,9 +30936,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -29228,7 +30979,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-on"
@@ -29250,11 +31004,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOns']['meta_info']
 
 
-
-
-            class DetailGroups(Entity):
+            class DetailGroups(_Entity_):
                 """
                 IGMP Detail Group Database
                 
@@ -29273,7 +31039,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.DetailGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.DetailGroups, self).__init__()
 
                     self.yang_name = "detail-groups"
                     self.yang_parent_name = "default-context"
@@ -29292,7 +31061,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.DetailGroups, [], name, value)
 
 
-                class DetailGroup(Entity):
+                class DetailGroup(_Entity_):
                     """
                     IGMP Detail Group Entry Information
                     
@@ -29371,7 +31140,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.DetailGroups.DetailGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.DetailGroups.DetailGroup, self).__init__()
 
                         self.yang_name = "detail-group"
                         self.yang_parent_name = "detail-groups"
@@ -29405,7 +31177,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -29540,7 +31312,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "detail-group"
@@ -29594,7 +31369,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -29631,7 +31406,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -29654,9 +31432,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -29693,7 +31475,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -29716,9 +31501,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -29755,7 +31544,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -29778,10 +31570,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         List of sources
                         
@@ -29866,7 +31666,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "detail-group"
@@ -29904,7 +31707,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -29941,7 +31744,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "source"
@@ -29964,12 +31770,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.DetailGroups']['meta_info']
 
 
-
-
-
-            class NonActiveGroups(Entity):
+            class NonActiveGroups(_Entity_):
                 """
                 IGMP Non\-Active Groups Information
                 
@@ -29988,7 +31810,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.NonActiveGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.NonActiveGroups, self).__init__()
 
                     self.yang_name = "non-active-groups"
                     self.yang_parent_name = "default-context"
@@ -30007,7 +31832,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups, [], name, value)
 
 
-                class NonActiveGroups_(Entity):
+                class NonActiveGroups_(_Entity_):
                     """
                     List of non\-active groups
                     
@@ -30051,7 +31876,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "non-active-groups"
@@ -30081,7 +31909,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                    class GroupAddress(Entity):
+                    class GroupAddress(_Entity_):
                         """
                         Group Address
                         
@@ -30118,7 +31946,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                             self.yang_name = "group-address"
                             self.yang_parent_name = "non-active-groups"
@@ -30141,9 +31972,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -30180,7 +32015,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "non-active-groups"
@@ -30203,11 +32041,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.NonActiveGroups']['meta_info']
 
 
-
-
-            class SsmMaps(Entity):
+            class SsmMaps(_Entity_):
                 """
                 SSM Map Table
                 
@@ -30226,7 +32076,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.SsmMaps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.SsmMaps, self).__init__()
 
                     self.yang_name = "ssm-maps"
                     self.yang_parent_name = "default-context"
@@ -30245,7 +32098,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.SsmMaps, [], name, value)
 
 
-                class SsmMap(Entity):
+                class SsmMap(_Entity_):
                     """
                     SSM Map information
                     
@@ -30304,7 +32157,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.SsmMaps.SsmMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.SsmMaps.SsmMap, self).__init__()
 
                         self.yang_name = "ssm-map"
                         self.yang_parent_name = "ssm-maps"
@@ -30334,7 +32190,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -30371,7 +32227,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "ssm-map"
@@ -30394,11 +32253,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.SsmMaps.SsmMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.SsmMaps']['meta_info']
 
 
-
-
-            class ExplicitGroups(Entity):
+            class ExplicitGroups(_Entity_):
                 """
                 IGMP Explicit Group Database
                 
@@ -30417,7 +32288,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.ExplicitGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.ExplicitGroups, self).__init__()
 
                     self.yang_name = "explicit-groups"
                     self.yang_parent_name = "default-context"
@@ -30436,7 +32310,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups, [], name, value)
 
 
-                class ExplicitGroup(Entity):
+                class ExplicitGroup(_Entity_):
                     """
                     IGMP Explicit Group Entry Information
                     
@@ -30519,7 +32393,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
 
                         self.yang_name = "explicit-group"
                         self.yang_parent_name = "explicit-groups"
@@ -30553,7 +32430,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -30688,7 +32565,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "explicit-group"
@@ -30742,7 +32622,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -30779,7 +32659,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -30802,9 +32685,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -30841,7 +32728,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -30864,9 +32754,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -30903,7 +32797,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -30926,10 +32823,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         List of hosts
                         
@@ -30993,7 +32898,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "explicit-group"
@@ -31025,7 +32933,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Host Address
                             
@@ -31062,7 +32970,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "host"
@@ -31085,9 +32996,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             First 3 source addresses
                             
@@ -31124,7 +33039,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "host"
@@ -31147,12 +33065,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.ExplicitGroups']['meta_info']
 
 
-
-
-
-            class InterfaceTable(Entity):
+            class InterfaceTable(_Entity_):
                 """
                 IGMP Interface specific Table
                 
@@ -31171,7 +33105,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.InterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.InterfaceTable, self).__init__()
 
                     self.yang_name = "interface-table"
                     self.yang_parent_name = "default-context"
@@ -31190,7 +33127,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -31638,7 +33575,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.InterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.InterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-table"
@@ -31766,7 +33706,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -31803,7 +33743,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -31825,9 +33768,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -31864,7 +33811,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -31886,9 +33836,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -31925,7 +33879,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -31947,11 +33904,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.InterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.InterfaceTable']['meta_info']
 
 
-
-
-            class InterfaceUnicastQosAdjusts(Entity):
+            class InterfaceUnicastQosAdjusts(_Entity_):
                 """
                 IGMP Interface Unicast\-Qos\-Adjust
                 
@@ -31970,7 +33939,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
 
                     self.yang_name = "interface-unicast-qos-adjusts"
                     self.yang_parent_name = "default-context"
@@ -31989,7 +33961,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                class InterfaceUnicastQosAdjust(Entity):
+                class InterfaceUnicastQosAdjust(_Entity_):
                     """
                     IGMP Interface
                     
@@ -32053,7 +34025,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjust"
                         self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -32083,7 +34058,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                    class Update(Entity):
+                    class Update(_Entity_):
                         """
                         List of updates
                         
@@ -32134,7 +34109,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                             self.yang_name = "update"
                             self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -32165,7 +34143,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source address
                             
@@ -32202,7 +34180,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "update"
@@ -32224,9 +34205,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group address
                             
@@ -32263,7 +34248,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "update"
@@ -32285,12 +34273,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-            class Ranges(Entity):
+            class Ranges(_Entity_):
                 """
                 Range table
                 
@@ -32309,7 +34313,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.Ranges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.Ranges, self).__init__()
 
                     self.yang_name = "ranges"
                     self.yang_parent_name = "default-context"
@@ -32328,7 +34335,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.Ranges, [], name, value)
 
 
-                class Range(Entity):
+                class Range(_Entity_):
                     """
                     Range information
                     
@@ -32394,7 +34401,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.Ranges.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.Ranges.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "ranges"
@@ -32426,7 +34436,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group address
                         
@@ -32463,7 +34473,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "range"
@@ -32486,11 +34499,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.Ranges.Range.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.Ranges.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.Ranges']['meta_info']
 
 
-
-
-            class IfrsInterfaces(Entity):
+            class IfrsInterfaces(_Entity_):
                 """
                 IGMP Interface specific
                 
@@ -32509,7 +34534,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.IfrsInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.IfrsInterfaces, self).__init__()
 
                     self.yang_name = "ifrs-interfaces"
                     self.yang_parent_name = "default-context"
@@ -32528,7 +34556,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces, [], name, value)
 
 
-                class IfrsInterface(Entity):
+                class IfrsInterface(_Entity_):
                     """
                     IGMP IFRS Interface
                     
@@ -32565,7 +34593,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
 
                         self.yang_name = "ifrs-interface"
                         self.yang_parent_name = "ifrs-interfaces"
@@ -32591,7 +34622,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                    class IgmpInterfaceEntry(Entity):
+                    class IgmpInterfaceEntry(_Entity_):
                         """
                         IGMP interface entry
                         
@@ -33030,7 +35061,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                             self.yang_name = "igmp-interface-entry"
                             self.yang_parent_name = "ifrs-interface"
@@ -33155,7 +35189,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -33192,7 +35226,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -33214,9 +35251,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -33253,7 +35294,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -33275,9 +35319,13 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -33314,7 +35362,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -33336,12 +35387,28 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaces']['meta_info']
 
 
-
-
-
-            class TrafficCounters(Entity):
+            class TrafficCounters(_Entity_):
                 """
                 IGMP Message Traffic Counters
                 
@@ -33668,7 +35735,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.TrafficCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.TrafficCounters, self).__init__()
 
                     self.yang_name = "traffic-counters"
                     self.yang_parent_name = "default-context"
@@ -33755,9 +35825,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.TrafficCounters']['meta_info']
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 IGMP Group Database Table
                 
@@ -33776,7 +35850,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "default-context"
@@ -33795,7 +35872,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     IGMP Group Entry Information
                     
@@ -33954,7 +36031,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -34012,7 +36092,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -34049,7 +36129,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "group"
@@ -34072,9 +36155,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                    class LastReporter(Entity):
+                    class LastReporter(_Entity_):
                         """
                         Last reporter address
                         
@@ -34111,7 +36198,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.Groups.Group.LastReporter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.Groups.Group.LastReporter, self).__init__()
 
                             self.yang_name = "last-reporter"
                             self.yang_parent_name = "group"
@@ -34134,9 +36224,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.Groups.Group.LastReporter']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -34173,7 +36267,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.Groups.Group.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.Groups.Group.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "group"
@@ -34196,11 +36293,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.Groups.Group.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.Groups']['meta_info']
 
 
-
-
-            class GroupSummary(Entity):
+            class GroupSummary(_Entity_):
                 """
                 IGMP Groups Summary
                 
@@ -34246,7 +36355,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.GroupSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.GroupSummary, self).__init__()
 
                     self.yang_name = "group-summary"
                     self.yang_parent_name = "default-context"
@@ -34271,9 +36383,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.GroupSummary']['meta_info']
 
 
-            class IfrsInterfaceSummary(Entity):
+            class IfrsInterfaceSummary(_Entity_):
                 """
                 IGMP IFRS Interface summary
                 
@@ -34303,7 +36419,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.IfrsInterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.IfrsInterfaceSummary, self).__init__()
 
                     self.yang_name = "ifrs-interface-summary"
                     self.yang_parent_name = "default-context"
@@ -34324,9 +36443,13 @@ class Mld(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Active.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.IfrsInterfaceSummary']['meta_info']
 
 
-            class GlobalInterfaceTable(Entity):
+            class GlobalInterfaceTable(_Entity_):
                 """
                 IGMP Global Interface 
                 
@@ -34345,7 +36468,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.GlobalInterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.GlobalInterfaceTable, self).__init__()
 
                     self.yang_name = "global-interface-table"
                     self.yang_parent_name = "default-context"
@@ -34364,7 +36490,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -34812,7 +36938,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "global-interface-table"
@@ -34940,7 +37069,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -34977,7 +37106,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -34999,9 +37131,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -35038,7 +37174,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -35060,9 +37199,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -35099,7 +37242,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -35121,11 +37267,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.GlobalInterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.GlobalInterfaceTable']['meta_info']
 
 
-
-
-            class SsmMapDetails(Entity):
+            class SsmMapDetails(_Entity_):
                 """
                 SSM Map Detail
                 
@@ -35144,7 +37302,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.SsmMapDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.SsmMapDetails, self).__init__()
 
                     self.yang_name = "ssm-map-details"
                     self.yang_parent_name = "default-context"
@@ -35163,7 +37324,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails, [], name, value)
 
 
-                class SsmMapDetail(Entity):
+                class SsmMapDetail(_Entity_):
                     """
                     SSM Map Detail Table information
                     
@@ -35247,7 +37408,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
 
                         self.yang_name = "ssm-map-detail"
                         self.yang_parent_name = "ssm-map-details"
@@ -35283,7 +37447,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                    class MapInfo(Entity):
+                    class MapInfo(_Entity_):
                         """
                         Basic Map Info
                         
@@ -35320,7 +37484,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                             self.yang_name = "map-info"
                             self.yang_parent_name = "ssm-map-detail"
@@ -35346,7 +37513,7 @@ class Mld(Entity):
                             self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -35383,7 +37550,10 @@ class Mld(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "map-info"
@@ -35406,10 +37576,18 @@ class Mld(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                    class Sources(Entity):
+                    class Sources(_Entity_):
                         """
                         List of sources
                         
@@ -35446,7 +37624,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                             self.yang_name = "sources"
                             self.yang_parent_name = "ssm-map-detail"
@@ -35469,11 +37650,23 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.SsmMapDetails']['meta_info']
 
 
-
-
-            class InterfaceStateOffs(Entity):
+            class InterfaceStateOffs(_Entity_):
                 """
                 IGMP Interface state off
                 
@@ -35492,7 +37685,10 @@ class Mld(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Mld.Active.DefaultContext.InterfaceStateOffs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mld.Active.DefaultContext.InterfaceStateOffs, self).__init__()
 
                     self.yang_name = "interface-state-offs"
                     self.yang_parent_name = "default-context"
@@ -35511,7 +37707,7 @@ class Mld(Entity):
                     self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs, [], name, value)
 
 
-                class InterfaceStateOff(Entity):
+                class InterfaceStateOff(_Entity_):
                     """
                     IGMP Interface
                     
@@ -35959,7 +38155,10 @@ class Mld(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                         self.yang_name = "interface-state-off"
                         self.yang_parent_name = "interface-state-offs"
@@ -36087,7 +38286,7 @@ class Mld(Entity):
                         self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -36124,7 +38323,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-off"
@@ -36146,9 +38348,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -36185,7 +38391,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-off"
@@ -36207,9 +38416,13 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -36246,7 +38459,10 @@ class Mld(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-off"
@@ -36268,18 +38484,42 @@ class Mld(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Mld.Active.DefaultContext.InterfaceStateOffs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Mld.Active.DefaultContext']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+            return meta._meta_table['Mld.Active']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mld()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+        return meta._meta_table['Mld']['meta_info']
 
 
-class Igmp(Entity):
+class Igmp(_Entity_):
     """
     igmp
     
@@ -36305,7 +38545,10 @@ class Igmp(Entity):
     _revision = '2018-01-31'
 
     def __init__(self):
-        super(Igmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Igmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "igmp"
@@ -36330,7 +38573,7 @@ class Igmp(Entity):
         self._perform_setattr(Igmp, [], name, value)
 
 
-    class Standby(Entity):
+    class Standby(_Entity_):
         """
         Standby Process
         
@@ -36363,7 +38606,10 @@ class Igmp(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Igmp.Standby, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Igmp.Standby, self).__init__()
 
             self.yang_name = "standby"
             self.yang_parent_name = "igmp"
@@ -36392,7 +38638,7 @@ class Igmp(Entity):
             self._perform_setattr(Igmp.Standby, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF Table
             
@@ -36411,7 +38657,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Standby.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Standby.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "standby"
@@ -36430,7 +38679,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Standby.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF table Names
                 
@@ -36570,7 +38819,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -36658,7 +38910,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     IGMP Summary Information
                     
@@ -36763,7 +39015,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "vrf"
@@ -36802,7 +39057,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Maximum and current groups accepted for each
                         interface
@@ -36885,7 +39140,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.Summary.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.Summary.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "summary"
@@ -36917,10 +39175,18 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Summary.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Summary']['meta_info']
 
 
-
-                class InterfaceStateOns(Entity):
+                class InterfaceStateOns(_Entity_):
                     """
                     IGMP Interface state on
                     
@@ -36939,7 +39205,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns, self).__init__()
 
                         self.yang_name = "interface-state-ons"
                         self.yang_parent_name = "vrf"
@@ -36957,7 +39226,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns, [], name, value)
 
 
-                    class InterfaceStateOn(Entity):
+                    class InterfaceStateOn(_Entity_):
                         """
                         IGMP Interface
                         
@@ -37405,7 +39674,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                             self.yang_name = "interface-state-on"
                             self.yang_parent_name = "interface-state-ons"
@@ -37532,7 +39804,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -37569,7 +39841,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-on"
@@ -37591,9 +39866,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -37630,7 +39909,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -37652,9 +39934,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -37691,7 +39977,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -37713,11 +40002,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOns']['meta_info']
 
 
-
-
-                class DetailGroups(Entity):
+                class DetailGroups(_Entity_):
                     """
                     IGMP Detail Group Database
                     
@@ -37736,7 +40037,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.DetailGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.DetailGroups, self).__init__()
 
                         self.yang_name = "detail-groups"
                         self.yang_parent_name = "vrf"
@@ -37754,7 +40058,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups, [], name, value)
 
 
-                    class DetailGroup(Entity):
+                    class DetailGroup(_Entity_):
                         """
                         IGMP Detail Group Entry Information
                         
@@ -37833,7 +40137,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
 
                             self.yang_name = "detail-group"
                             self.yang_parent_name = "detail-groups"
@@ -37866,7 +40173,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -38001,7 +40308,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "detail-group"
@@ -38054,7 +40364,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -38091,7 +40401,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -38113,9 +40426,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -38152,7 +40469,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -38174,9 +40494,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -38213,7 +40537,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -38235,10 +40562,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             List of sources
                             
@@ -38323,7 +40658,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "detail-group"
@@ -38360,7 +40698,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -38397,7 +40735,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "source"
@@ -38419,12 +40760,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups']['meta_info']
 
 
-
-
-
-                class NonActiveGroups(Entity):
+                class NonActiveGroups(_Entity_):
                     """
                     IGMP Non\-Active Groups Information
                     
@@ -38443,7 +40800,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "vrf"
@@ -38461,7 +40821,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups, [], name, value)
 
 
-                    class NonActiveGroups_(Entity):
+                    class NonActiveGroups_(_Entity_):
                         """
                         List of non\-active groups
                         
@@ -38505,7 +40865,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                             self.yang_name = "non-active-groups"
                             self.yang_parent_name = "non-active-groups"
@@ -38534,7 +40897,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group Address
                             
@@ -38571,7 +40934,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -38593,9 +40959,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -38632,7 +41002,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -38654,11 +41027,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
 
 
-
-
-                class SsmMaps(Entity):
+                class SsmMaps(_Entity_):
                     """
                     SSM Map Table
                     
@@ -38677,7 +41062,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.SsmMaps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.SsmMaps, self).__init__()
 
                         self.yang_name = "ssm-maps"
                         self.yang_parent_name = "vrf"
@@ -38695,7 +41083,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps, [], name, value)
 
 
-                    class SsmMap(Entity):
+                    class SsmMap(_Entity_):
                         """
                         SSM Map information
                         
@@ -38754,7 +41142,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
 
                             self.yang_name = "ssm-map"
                             self.yang_parent_name = "ssm-maps"
@@ -38783,7 +41174,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -38820,7 +41211,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "ssm-map"
@@ -38842,11 +41236,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps']['meta_info']
 
 
-
-
-                class ExplicitGroups(Entity):
+                class ExplicitGroups(_Entity_):
                     """
                     IGMP Explicit Group Database
                     
@@ -38865,7 +41271,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups, self).__init__()
 
                         self.yang_name = "explicit-groups"
                         self.yang_parent_name = "vrf"
@@ -38883,7 +41292,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups, [], name, value)
 
 
-                    class ExplicitGroup(Entity):
+                    class ExplicitGroup(_Entity_):
                         """
                         IGMP Explicit Group Entry Information
                         
@@ -38966,7 +41375,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
 
                             self.yang_name = "explicit-group"
                             self.yang_parent_name = "explicit-groups"
@@ -38999,7 +41411,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -39134,7 +41546,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "explicit-group"
@@ -39187,7 +41602,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -39224,7 +41639,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -39246,9 +41664,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -39285,7 +41707,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -39307,9 +41732,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -39346,7 +41775,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -39368,10 +41800,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             List of hosts
                             
@@ -39435,7 +41875,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "explicit-group"
@@ -39466,7 +41909,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Host Address
                                 
@@ -39503,7 +41946,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "host"
@@ -39525,9 +41971,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 First 3 source addresses
                                 
@@ -39564,7 +42014,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "host"
@@ -39586,12 +42039,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups']['meta_info']
 
 
-
-
-
-                class InterfaceTable(Entity):
+                class InterfaceTable(_Entity_):
                     """
                     IGMP Interface specific Table
                     
@@ -39610,7 +42079,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.InterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.InterfaceTable, self).__init__()
 
                         self.yang_name = "interface-table"
                         self.yang_parent_name = "vrf"
@@ -39628,7 +42100,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -40076,7 +42548,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interface-table"
@@ -40203,7 +42678,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -40240,7 +42715,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -40262,9 +42740,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -40301,7 +42783,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -40323,9 +42808,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -40362,7 +42851,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -40384,11 +42876,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceTable']['meta_info']
 
 
-
-
-                class InterfaceUnicastQosAdjusts(Entity):
+                class InterfaceUnicastQosAdjusts(_Entity_):
                     """
                     IGMP Interface Unicast\-Qos\-Adjust
                     
@@ -40407,7 +42911,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjusts"
                         self.yang_parent_name = "vrf"
@@ -40425,7 +42932,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                    class InterfaceUnicastQosAdjust(Entity):
+                    class InterfaceUnicastQosAdjust(_Entity_):
                         """
                         IGMP Interface
                         
@@ -40489,7 +42996,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                             self.yang_name = "interface-unicast-qos-adjust"
                             self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -40518,7 +43028,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                        class Update(Entity):
+                        class Update(_Entity_):
                             """
                             List of updates
                             
@@ -40569,7 +43079,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                                 self.yang_name = "update"
                                 self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -40600,7 +43113,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source address
                                 
@@ -40637,7 +43150,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "update"
@@ -40659,9 +43175,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                            class GroupAddress(Entity):
+                            class GroupAddress(_Entity_):
                                 """
                                 Group address
                                 
@@ -40698,7 +43218,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                     self.yang_name = "group-address"
                                     self.yang_parent_name = "update"
@@ -40720,12 +43243,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-                class Ranges(Entity):
+                class Ranges(_Entity_):
                     """
                     Range table
                     
@@ -40744,7 +43283,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.Ranges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.Ranges, self).__init__()
 
                         self.yang_name = "ranges"
                         self.yang_parent_name = "vrf"
@@ -40762,7 +43304,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges, [], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Range information
                         
@@ -40828,7 +43370,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.Ranges.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.Ranges.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "ranges"
@@ -40859,7 +43404,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group address
                             
@@ -40896,7 +43441,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "range"
@@ -40918,11 +43466,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Ranges.Range.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Ranges.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Ranges']['meta_info']
 
 
-
-
-                class IfrsInterfaces(Entity):
+                class IfrsInterfaces(_Entity_):
                     """
                     IGMP Interface specific
                     
@@ -40941,7 +43501,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces, self).__init__()
 
                         self.yang_name = "ifrs-interfaces"
                         self.yang_parent_name = "vrf"
@@ -40959,7 +43522,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces, [], name, value)
 
 
-                    class IfrsInterface(Entity):
+                    class IfrsInterface(_Entity_):
                         """
                         IGMP IFRS Interface
                         
@@ -40996,7 +43559,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
 
                             self.yang_name = "ifrs-interface"
                             self.yang_parent_name = "ifrs-interfaces"
@@ -41021,7 +43587,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                        class IgmpInterfaceEntry(Entity):
+                        class IgmpInterfaceEntry(_Entity_):
                             """
                             IGMP interface entry
                             
@@ -41460,7 +44026,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                                 self.yang_name = "igmp-interface-entry"
                                 self.yang_parent_name = "ifrs-interface"
@@ -41585,7 +44154,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 IP address
                                 
@@ -41622,7 +44191,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -41644,9 +44216,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                            class QuerierAddress(Entity):
+                            class QuerierAddress(_Entity_):
                                 """
                                 Address of the Querier
                                 
@@ -41683,7 +44259,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                     self.yang_name = "querier-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -41705,9 +44284,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                            class SubscriberAddress(Entity):
+                            class SubscriberAddress(_Entity_):
                                 """
                                 Address of subscriber
                                 
@@ -41744,7 +44327,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                     self.yang_name = "subscriber-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -41766,12 +44352,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaces']['meta_info']
 
 
-
-
-
-                class TrafficCounters(Entity):
+                class TrafficCounters(_Entity_):
                     """
                     IGMP Message Traffic Counters
                     
@@ -42098,7 +44700,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.TrafficCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.TrafficCounters, self).__init__()
 
                         self.yang_name = "traffic-counters"
                         self.yang_parent_name = "vrf"
@@ -42184,9 +44789,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.TrafficCounters']['meta_info']
 
 
-                class Groups(Entity):
+                class Groups(_Entity_):
                     """
                     IGMP Group Database Table
                     
@@ -42205,7 +44814,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.Groups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.Groups, self).__init__()
 
                         self.yang_name = "groups"
                         self.yang_parent_name = "vrf"
@@ -42223,7 +44835,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups, [], name, value)
 
 
-                    class Group(Entity):
+                    class Group(_Entity_):
                         """
                         IGMP Group Entry Information
                         
@@ -42382,7 +44994,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.Groups.Group, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.Groups.Group, self).__init__()
 
                             self.yang_name = "group"
                             self.yang_parent_name = "groups"
@@ -42439,7 +45054,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -42476,7 +45091,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group"
@@ -42498,9 +45116,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -42537,7 +45159,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group"
@@ -42559,9 +45184,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Groups.Group.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -42598,7 +45227,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group"
@@ -42620,11 +45252,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Groups.Group.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Groups.Group']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.Groups']['meta_info']
 
 
-
-
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     IGMP Groups Summary
                     
@@ -42670,7 +45314,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "vrf"
@@ -42694,9 +45341,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GroupSummary']['meta_info']
 
 
-                class IfrsInterfaceSummary(Entity):
+                class IfrsInterfaceSummary(_Entity_):
                     """
                     IGMP IFRS Interface summary
                     
@@ -42726,7 +45377,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
 
                         self.yang_name = "ifrs-interface-summary"
                         self.yang_parent_name = "vrf"
@@ -42746,9 +45400,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.IfrsInterfaceSummary']['meta_info']
 
 
-                class GlobalInterfaceTable(Entity):
+                class GlobalInterfaceTable(_Entity_):
                     """
                     IGMP Global Interface 
                     
@@ -42767,7 +45425,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
 
                         self.yang_name = "global-interface-table"
                         self.yang_parent_name = "vrf"
@@ -42785,7 +45446,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -43233,7 +45894,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "global-interface-table"
@@ -43360,7 +46024,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -43397,7 +46061,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -43419,9 +46086,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -43458,7 +46129,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -43480,9 +46154,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -43519,7 +46197,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -43541,11 +46222,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.GlobalInterfaceTable']['meta_info']
 
 
-
-
-                class SsmMapDetails(Entity):
+                class SsmMapDetails(_Entity_):
                     """
                     SSM Map Detail
                     
@@ -43564,7 +46257,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails, self).__init__()
 
                         self.yang_name = "ssm-map-details"
                         self.yang_parent_name = "vrf"
@@ -43582,7 +46278,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails, [], name, value)
 
 
-                    class SsmMapDetail(Entity):
+                    class SsmMapDetail(_Entity_):
                         """
                         SSM Map Detail Table information
                         
@@ -43666,7 +46362,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
 
                             self.yang_name = "ssm-map-detail"
                             self.yang_parent_name = "ssm-map-details"
@@ -43701,7 +46400,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                        class MapInfo(Entity):
+                        class MapInfo(_Entity_):
                             """
                             Basic Map Info
                             
@@ -43738,7 +46437,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                                 self.yang_name = "map-info"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -43763,7 +46465,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -43800,7 +46502,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "map-info"
@@ -43822,10 +46527,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                        class Sources(Entity):
+                        class Sources(_Entity_):
                             """
                             List of sources
                             
@@ -43862,7 +46575,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                                 self.yang_name = "sources"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -43884,11 +46600,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.SsmMapDetails']['meta_info']
 
 
-
-
-                class InterfaceStateOffs(Entity):
+                class InterfaceStateOffs(_Entity_):
                     """
                     IGMP Interface state off
                     
@@ -43907,7 +46635,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
 
                         self.yang_name = "interface-state-offs"
                         self.yang_parent_name = "vrf"
@@ -43925,7 +46656,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs, [], name, value)
 
 
-                    class InterfaceStateOff(Entity):
+                    class InterfaceStateOff(_Entity_):
                         """
                         IGMP Interface
                         
@@ -44373,7 +47104,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                             self.yang_name = "interface-state-off"
                             self.yang_parent_name = "interface-state-offs"
@@ -44500,7 +47234,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -44537,7 +47271,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-off"
@@ -44559,9 +47296,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -44598,7 +47339,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -44620,9 +47364,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -44659,7 +47407,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -44681,13 +47432,33 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Vrfs.Vrf.InterfaceStateOffs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Standby.Vrfs']['meta_info']
 
 
-
-
-
-
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Process
             
@@ -44741,7 +47512,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Standby.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Standby.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "standby"
@@ -44782,7 +47556,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Standby.Process, [], name, value)
 
 
-            class AmtSummary(Entity):
+            class AmtSummary(_Entity_):
                 """
                 MRIB RouteDB Expiry Information
                 
@@ -44914,7 +47688,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.AmtSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.AmtSummary, self).__init__()
 
                     self.yang_name = "amt-summary"
                     self.yang_parent_name = "process"
@@ -44959,9 +47736,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.AmtSummary']['meta_info']
 
 
-            class Nsr(Entity):
+            class Nsr(_Entity_):
                 """
                 NSR Information
                 
@@ -45084,7 +47865,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.Nsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.Nsr, self).__init__()
 
                     self.yang_name = "nsr"
                     self.yang_parent_name = "process"
@@ -45127,9 +47911,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.Nsr']['meta_info']
 
 
-            class AmtGateways(Entity):
+            class AmtGateways(_Entity_):
                 """
                 Table containing AMT Gateway DataBase
                 information
@@ -45149,7 +47937,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.AmtGateways, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.AmtGateways, self).__init__()
 
                     self.yang_name = "amt-gateways"
                     self.yang_parent_name = "process"
@@ -45168,7 +47959,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.Process.AmtGateways, [], name, value)
 
 
-                class AmtGateway(Entity):
+                class AmtGateway(_Entity_):
                     """
                     AMT Gateway DataBase information
                     
@@ -45276,7 +48067,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.Process.AmtGateways.AmtGateway, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.Process.AmtGateways.AmtGateway, self).__init__()
 
                         self.yang_name = "amt-gateway"
                         self.yang_parent_name = "amt-gateways"
@@ -45313,10 +48107,18 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Standby.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.Process.AmtGateways.AmtGateway']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.AmtGateways']['meta_info']
 
 
-
-            class UnicastQosAdjustStats(Entity):
+            class UnicastQosAdjustStats(_Entity_):
                 """
                 IGMP Unicast\-Qos\-Adjust Statistics
                 
@@ -45468,7 +48270,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.UnicastQosAdjustStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.UnicastQosAdjustStats, self).__init__()
 
                     self.yang_name = "unicast-qos-adjust-stats"
                     self.yang_parent_name = "process"
@@ -45517,9 +48322,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.UnicastQosAdjustStats']['meta_info']
 
 
-            class BviStatistics(Entity):
+            class BviStatistics(_Entity_):
                 """
                 IGMP BVI Stats
                 
@@ -45846,7 +48655,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.BviStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.BviStatistics, self).__init__()
 
                     self.yang_name = "bvi-statistics"
                     self.yang_parent_name = "process"
@@ -45933,9 +48745,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.BviStatistics']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 NSF Information
                 
@@ -46045,7 +48861,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.Process.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.Process.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "process"
@@ -46082,10 +48901,18 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.Process.Nsf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Standby.Process']['meta_info']
 
 
-
-        class DefaultContext(Entity):
+        class DefaultContext(_Entity_):
             """
             Default Context
             
@@ -46216,7 +49043,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Standby.DefaultContext, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Standby.DefaultContext, self).__init__()
 
                 self.yang_name = "default-context"
                 self.yang_parent_name = "standby"
@@ -46301,7 +49131,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Standby.DefaultContext, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 IGMP Summary Information
                 
@@ -46406,7 +49236,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "default-context"
@@ -46446,7 +49279,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Maximum and current groups accepted for each
                     interface
@@ -46529,7 +49362,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.Summary.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.Summary.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "summary"
@@ -46562,10 +49398,18 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Standby.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.Summary.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.Summary']['meta_info']
 
 
-
-            class InterfaceStateOns(Entity):
+            class InterfaceStateOns(_Entity_):
                 """
                 IGMP Interface state on
                 
@@ -46584,7 +49428,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.InterfaceStateOns, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.InterfaceStateOns, self).__init__()
 
                     self.yang_name = "interface-state-ons"
                     self.yang_parent_name = "default-context"
@@ -46603,7 +49450,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns, [], name, value)
 
 
-                class InterfaceStateOn(Entity):
+                class InterfaceStateOn(_Entity_):
                     """
                     IGMP Interface
                     
@@ -47051,7 +49898,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                         self.yang_name = "interface-state-on"
                         self.yang_parent_name = "interface-state-ons"
@@ -47179,7 +50029,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -47216,7 +50066,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-on"
@@ -47238,9 +50091,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -47277,7 +50134,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-on"
@@ -47299,9 +50159,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -47338,7 +50202,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-on"
@@ -47360,11 +50227,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOns']['meta_info']
 
 
-
-
-            class DetailGroups(Entity):
+            class DetailGroups(_Entity_):
                 """
                 IGMP Detail Group Database
                 
@@ -47383,7 +50262,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.DetailGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.DetailGroups, self).__init__()
 
                     self.yang_name = "detail-groups"
                     self.yang_parent_name = "default-context"
@@ -47402,7 +50284,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups, [], name, value)
 
 
-                class DetailGroup(Entity):
+                class DetailGroup(_Entity_):
                     """
                     IGMP Detail Group Entry Information
                     
@@ -47481,7 +50363,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup, self).__init__()
 
                         self.yang_name = "detail-group"
                         self.yang_parent_name = "detail-groups"
@@ -47515,7 +50400,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -47650,7 +50535,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "detail-group"
@@ -47704,7 +50592,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -47741,7 +50629,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -47764,9 +50655,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -47803,7 +50698,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -47826,9 +50724,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -47865,7 +50767,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -47888,10 +50793,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         List of sources
                         
@@ -47976,7 +50889,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "detail-group"
@@ -48014,7 +50930,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -48051,7 +50967,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "source"
@@ -48074,12 +50993,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.DetailGroups']['meta_info']
 
 
-
-
-
-            class NonActiveGroups(Entity):
+            class NonActiveGroups(_Entity_):
                 """
                 IGMP Non\-Active Groups Information
                 
@@ -48098,7 +51033,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.NonActiveGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.NonActiveGroups, self).__init__()
 
                     self.yang_name = "non-active-groups"
                     self.yang_parent_name = "default-context"
@@ -48117,7 +51055,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups, [], name, value)
 
 
-                class NonActiveGroups_(Entity):
+                class NonActiveGroups_(_Entity_):
                     """
                     List of non\-active groups
                     
@@ -48161,7 +51099,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "non-active-groups"
@@ -48191,7 +51132,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                    class GroupAddress(Entity):
+                    class GroupAddress(_Entity_):
                         """
                         Group Address
                         
@@ -48228,7 +51169,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                             self.yang_name = "group-address"
                             self.yang_parent_name = "non-active-groups"
@@ -48251,9 +51195,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -48290,7 +51238,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "non-active-groups"
@@ -48313,11 +51264,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.NonActiveGroups']['meta_info']
 
 
-
-
-            class SsmMaps(Entity):
+            class SsmMaps(_Entity_):
                 """
                 SSM Map Table
                 
@@ -48336,7 +51299,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.SsmMaps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.SsmMaps, self).__init__()
 
                     self.yang_name = "ssm-maps"
                     self.yang_parent_name = "default-context"
@@ -48355,7 +51321,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps, [], name, value)
 
 
-                class SsmMap(Entity):
+                class SsmMap(_Entity_):
                     """
                     SSM Map information
                     
@@ -48414,7 +51380,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.SsmMaps.SsmMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.SsmMaps.SsmMap, self).__init__()
 
                         self.yang_name = "ssm-map"
                         self.yang_parent_name = "ssm-maps"
@@ -48444,7 +51413,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -48481,7 +51450,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "ssm-map"
@@ -48504,11 +51476,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.SsmMaps']['meta_info']
 
 
-
-
-            class ExplicitGroups(Entity):
+            class ExplicitGroups(_Entity_):
                 """
                 IGMP Explicit Group Database
                 
@@ -48527,7 +51511,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.ExplicitGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.ExplicitGroups, self).__init__()
 
                     self.yang_name = "explicit-groups"
                     self.yang_parent_name = "default-context"
@@ -48546,7 +51533,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups, [], name, value)
 
 
-                class ExplicitGroup(Entity):
+                class ExplicitGroup(_Entity_):
                     """
                     IGMP Explicit Group Entry Information
                     
@@ -48629,7 +51616,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
 
                         self.yang_name = "explicit-group"
                         self.yang_parent_name = "explicit-groups"
@@ -48663,7 +51653,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -48798,7 +51788,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "explicit-group"
@@ -48852,7 +51845,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -48889,7 +51882,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -48912,9 +51908,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -48951,7 +51951,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -48974,9 +51977,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -49013,7 +52020,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -49036,10 +52046,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         List of hosts
                         
@@ -49103,7 +52121,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "explicit-group"
@@ -49135,7 +52156,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Host Address
                             
@@ -49172,7 +52193,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "host"
@@ -49195,9 +52219,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             First 3 source addresses
                             
@@ -49234,7 +52262,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "host"
@@ -49257,12 +52288,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.ExplicitGroups']['meta_info']
 
 
-
-
-
-            class InterfaceTable(Entity):
+            class InterfaceTable(_Entity_):
                 """
                 IGMP Interface specific Table
                 
@@ -49281,7 +52328,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.InterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.InterfaceTable, self).__init__()
 
                     self.yang_name = "interface-table"
                     self.yang_parent_name = "default-context"
@@ -49300,7 +52350,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -49748,7 +52798,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.InterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.InterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-table"
@@ -49876,7 +52929,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -49913,7 +52966,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -49935,9 +52991,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -49974,7 +53034,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -49996,9 +53059,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -50035,7 +53102,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -50057,11 +53127,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceTable']['meta_info']
 
 
-
-
-            class InterfaceUnicastQosAdjusts(Entity):
+            class InterfaceUnicastQosAdjusts(_Entity_):
                 """
                 IGMP Interface Unicast\-Qos\-Adjust
                 
@@ -50080,7 +53162,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
 
                     self.yang_name = "interface-unicast-qos-adjusts"
                     self.yang_parent_name = "default-context"
@@ -50099,7 +53184,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                class InterfaceUnicastQosAdjust(Entity):
+                class InterfaceUnicastQosAdjust(_Entity_):
                     """
                     IGMP Interface
                     
@@ -50163,7 +53248,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjust"
                         self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -50193,7 +53281,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                    class Update(Entity):
+                    class Update(_Entity_):
                         """
                         List of updates
                         
@@ -50244,7 +53332,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                             self.yang_name = "update"
                             self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -50275,7 +53366,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source address
                             
@@ -50312,7 +53403,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "update"
@@ -50334,9 +53428,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group address
                             
@@ -50373,7 +53471,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "update"
@@ -50395,12 +53496,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-            class Ranges(Entity):
+            class Ranges(_Entity_):
                 """
                 Range table
                 
@@ -50419,7 +53536,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.Ranges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.Ranges, self).__init__()
 
                     self.yang_name = "ranges"
                     self.yang_parent_name = "default-context"
@@ -50438,7 +53558,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.Ranges, [], name, value)
 
 
-                class Range(Entity):
+                class Range(_Entity_):
                     """
                     Range information
                     
@@ -50504,7 +53624,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.Ranges.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.Ranges.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "ranges"
@@ -50536,7 +53659,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group address
                         
@@ -50573,7 +53696,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "range"
@@ -50596,11 +53722,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.Ranges.Range.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.Ranges.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.Ranges']['meta_info']
 
 
-
-
-            class IfrsInterfaces(Entity):
+            class IfrsInterfaces(_Entity_):
                 """
                 IGMP Interface specific
                 
@@ -50619,7 +53757,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.IfrsInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.IfrsInterfaces, self).__init__()
 
                     self.yang_name = "ifrs-interfaces"
                     self.yang_parent_name = "default-context"
@@ -50638,7 +53779,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces, [], name, value)
 
 
-                class IfrsInterface(Entity):
+                class IfrsInterface(_Entity_):
                     """
                     IGMP IFRS Interface
                     
@@ -50675,7 +53816,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
 
                         self.yang_name = "ifrs-interface"
                         self.yang_parent_name = "ifrs-interfaces"
@@ -50701,7 +53845,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                    class IgmpInterfaceEntry(Entity):
+                    class IgmpInterfaceEntry(_Entity_):
                         """
                         IGMP interface entry
                         
@@ -51140,7 +54284,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                             self.yang_name = "igmp-interface-entry"
                             self.yang_parent_name = "ifrs-interface"
@@ -51265,7 +54412,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -51302,7 +54449,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -51324,9 +54474,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -51363,7 +54517,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -51385,9 +54542,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -51424,7 +54585,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -51446,12 +54610,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaces']['meta_info']
 
 
-
-
-
-            class TrafficCounters(Entity):
+            class TrafficCounters(_Entity_):
                 """
                 IGMP Message Traffic Counters
                 
@@ -51778,7 +54958,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.TrafficCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.TrafficCounters, self).__init__()
 
                     self.yang_name = "traffic-counters"
                     self.yang_parent_name = "default-context"
@@ -51865,9 +55048,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.TrafficCounters']['meta_info']
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 IGMP Group Database Table
                 
@@ -51886,7 +55073,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "default-context"
@@ -51905,7 +55095,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     IGMP Group Entry Information
                     
@@ -52064,7 +55254,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -52122,7 +55315,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -52159,7 +55352,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "group"
@@ -52182,9 +55378,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                    class LastReporter(Entity):
+                    class LastReporter(_Entity_):
                         """
                         Last reporter address
                         
@@ -52221,7 +55421,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.Groups.Group.LastReporter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.Groups.Group.LastReporter, self).__init__()
 
                             self.yang_name = "last-reporter"
                             self.yang_parent_name = "group"
@@ -52244,9 +55447,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.Groups.Group.LastReporter']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -52283,7 +55490,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.Groups.Group.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.Groups.Group.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "group"
@@ -52306,11 +55516,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.Groups.Group.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.Groups']['meta_info']
 
 
-
-
-            class GroupSummary(Entity):
+            class GroupSummary(_Entity_):
                 """
                 IGMP Groups Summary
                 
@@ -52356,7 +55578,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.GroupSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.GroupSummary, self).__init__()
 
                     self.yang_name = "group-summary"
                     self.yang_parent_name = "default-context"
@@ -52381,9 +55606,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.GroupSummary']['meta_info']
 
 
-            class IfrsInterfaceSummary(Entity):
+            class IfrsInterfaceSummary(_Entity_):
                 """
                 IGMP IFRS Interface summary
                 
@@ -52413,7 +55642,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.IfrsInterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.IfrsInterfaceSummary, self).__init__()
 
                     self.yang_name = "ifrs-interface-summary"
                     self.yang_parent_name = "default-context"
@@ -52434,9 +55666,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Standby.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.IfrsInterfaceSummary']['meta_info']
 
 
-            class GlobalInterfaceTable(Entity):
+            class GlobalInterfaceTable(_Entity_):
                 """
                 IGMP Global Interface 
                 
@@ -52455,7 +55691,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.GlobalInterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.GlobalInterfaceTable, self).__init__()
 
                     self.yang_name = "global-interface-table"
                     self.yang_parent_name = "default-context"
@@ -52474,7 +55713,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -52922,7 +56161,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "global-interface-table"
@@ -53050,7 +56292,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -53087,7 +56329,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -53109,9 +56354,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -53148,7 +56397,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -53170,9 +56422,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -53209,7 +56465,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -53231,11 +56490,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.GlobalInterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.GlobalInterfaceTable']['meta_info']
 
 
-
-
-            class SsmMapDetails(Entity):
+            class SsmMapDetails(_Entity_):
                 """
                 SSM Map Detail
                 
@@ -53254,7 +56525,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.SsmMapDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.SsmMapDetails, self).__init__()
 
                     self.yang_name = "ssm-map-details"
                     self.yang_parent_name = "default-context"
@@ -53273,7 +56547,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails, [], name, value)
 
 
-                class SsmMapDetail(Entity):
+                class SsmMapDetail(_Entity_):
                     """
                     SSM Map Detail Table information
                     
@@ -53357,7 +56631,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
 
                         self.yang_name = "ssm-map-detail"
                         self.yang_parent_name = "ssm-map-details"
@@ -53393,7 +56670,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                    class MapInfo(Entity):
+                    class MapInfo(_Entity_):
                         """
                         Basic Map Info
                         
@@ -53430,7 +56707,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                             self.yang_name = "map-info"
                             self.yang_parent_name = "ssm-map-detail"
@@ -53456,7 +56736,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -53493,7 +56773,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "map-info"
@@ -53516,10 +56799,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                    class Sources(Entity):
+                    class Sources(_Entity_):
                         """
                         List of sources
                         
@@ -53556,7 +56847,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                             self.yang_name = "sources"
                             self.yang_parent_name = "ssm-map-detail"
@@ -53579,11 +56873,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.SsmMapDetails']['meta_info']
 
 
-
-
-            class InterfaceStateOffs(Entity):
+            class InterfaceStateOffs(_Entity_):
                 """
                 IGMP Interface state off
                 
@@ -53602,7 +56908,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Standby.DefaultContext.InterfaceStateOffs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Standby.DefaultContext.InterfaceStateOffs, self).__init__()
 
                     self.yang_name = "interface-state-offs"
                     self.yang_parent_name = "default-context"
@@ -53621,7 +56930,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs, [], name, value)
 
 
-                class InterfaceStateOff(Entity):
+                class InterfaceStateOff(_Entity_):
                     """
                     IGMP Interface
                     
@@ -54069,7 +57378,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                         self.yang_name = "interface-state-off"
                         self.yang_parent_name = "interface-state-offs"
@@ -54197,7 +57509,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -54234,7 +57546,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-off"
@@ -54256,9 +57571,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -54295,7 +57614,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-off"
@@ -54317,9 +57639,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -54356,7 +57682,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-off"
@@ -54378,13 +57707,33 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Standby.DefaultContext.InterfaceStateOffs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Standby.DefaultContext']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+            return meta._meta_table['Igmp.Standby']['meta_info']
 
 
-
-
-
-
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Active Process
         
@@ -54417,7 +57766,10 @@ class Igmp(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Igmp.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Igmp.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "igmp"
@@ -54446,7 +57798,7 @@ class Igmp(Entity):
             self._perform_setattr(Igmp.Active, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF Table
             
@@ -54465,7 +57817,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Active.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Active.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "active"
@@ -54484,7 +57839,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Active.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF table Names
                 
@@ -54624,7 +57979,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -54712,7 +58070,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     IGMP Summary Information
                     
@@ -54817,7 +58175,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "vrf"
@@ -54856,7 +58217,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Maximum and current groups accepted for each
                         interface
@@ -54939,7 +58300,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.Summary.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.Summary.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "summary"
@@ -54971,10 +58335,18 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.Summary.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.Summary']['meta_info']
 
 
-
-                class InterfaceStateOns(Entity):
+                class InterfaceStateOns(_Entity_):
                     """
                     IGMP Interface state on
                     
@@ -54993,7 +58365,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns, self).__init__()
 
                         self.yang_name = "interface-state-ons"
                         self.yang_parent_name = "vrf"
@@ -55011,7 +58386,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns, [], name, value)
 
 
-                    class InterfaceStateOn(Entity):
+                    class InterfaceStateOn(_Entity_):
                         """
                         IGMP Interface
                         
@@ -55459,7 +58834,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                             self.yang_name = "interface-state-on"
                             self.yang_parent_name = "interface-state-ons"
@@ -55586,7 +58964,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -55623,7 +59001,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-on"
@@ -55645,9 +59026,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -55684,7 +59069,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -55706,9 +59094,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -55745,7 +59137,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-on"
@@ -55767,11 +59162,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOns']['meta_info']
 
 
-
-
-                class DetailGroups(Entity):
+                class DetailGroups(_Entity_):
                     """
                     IGMP Detail Group Database
                     
@@ -55790,7 +59197,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.DetailGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.DetailGroups, self).__init__()
 
                         self.yang_name = "detail-groups"
                         self.yang_parent_name = "vrf"
@@ -55808,7 +59218,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups, [], name, value)
 
 
-                    class DetailGroup(Entity):
+                    class DetailGroup(_Entity_):
                         """
                         IGMP Detail Group Entry Information
                         
@@ -55887,7 +59297,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup, self).__init__()
 
                             self.yang_name = "detail-group"
                             self.yang_parent_name = "detail-groups"
@@ -55920,7 +59333,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -56055,7 +59468,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "detail-group"
@@ -56108,7 +59524,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -56145,7 +59561,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -56167,9 +59586,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -56206,7 +59629,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -56228,9 +59654,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -56267,7 +59697,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -56289,10 +59722,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                        class Source(Entity):
+                        class Source(_Entity_):
                             """
                             List of sources
                             
@@ -56377,7 +59818,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, self).__init__()
 
                                 self.yang_name = "source"
                                 self.yang_parent_name = "detail-group"
@@ -56414,7 +59858,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -56451,7 +59895,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "source"
@@ -56473,12 +59920,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups']['meta_info']
 
 
-
-
-
-                class NonActiveGroups(Entity):
+                class NonActiveGroups(_Entity_):
                     """
                     IGMP Non\-Active Groups Information
                     
@@ -56497,7 +59960,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.NonActiveGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.NonActiveGroups, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "vrf"
@@ -56515,7 +59981,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups, [], name, value)
 
 
-                    class NonActiveGroups_(Entity):
+                    class NonActiveGroups_(_Entity_):
                         """
                         List of non\-active groups
                         
@@ -56559,7 +60025,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                             self.yang_name = "non-active-groups"
                             self.yang_parent_name = "non-active-groups"
@@ -56588,7 +60057,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group Address
                             
@@ -56625,7 +60094,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -56647,9 +60119,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -56686,7 +60162,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "non-active-groups"
@@ -56708,11 +60187,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
 
 
-
-
-                class SsmMaps(Entity):
+                class SsmMaps(_Entity_):
                     """
                     SSM Map Table
                     
@@ -56731,7 +60222,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.SsmMaps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.SsmMaps, self).__init__()
 
                         self.yang_name = "ssm-maps"
                         self.yang_parent_name = "vrf"
@@ -56749,7 +60243,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps, [], name, value)
 
 
-                    class SsmMap(Entity):
+                    class SsmMap(_Entity_):
                         """
                         SSM Map information
                         
@@ -56808,7 +60302,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap, self).__init__()
 
                             self.yang_name = "ssm-map"
                             self.yang_parent_name = "ssm-maps"
@@ -56837,7 +60334,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -56874,7 +60371,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "ssm-map"
@@ -56896,11 +60396,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps']['meta_info']
 
 
-
-
-                class ExplicitGroups(Entity):
+                class ExplicitGroups(_Entity_):
                     """
                     IGMP Explicit Group Database
                     
@@ -56919,7 +60431,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.ExplicitGroups, self).__init__()
 
                         self.yang_name = "explicit-groups"
                         self.yang_parent_name = "vrf"
@@ -56937,7 +60452,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups, [], name, value)
 
 
-                    class ExplicitGroup(Entity):
+                    class ExplicitGroup(_Entity_):
                         """
                         IGMP Explicit Group Entry Information
                         
@@ -57020,7 +60535,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, self).__init__()
 
                             self.yang_name = "explicit-group"
                             self.yang_parent_name = "explicit-groups"
@@ -57053,7 +60571,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                        class GroupInfo(Entity):
+                        class GroupInfo(_Entity_):
                             """
                             Basic Group information
                             
@@ -57188,7 +60706,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                                 self.yang_name = "group-info"
                                 self.yang_parent_name = "explicit-group"
@@ -57241,7 +60762,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -57278,7 +60799,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "group-info"
@@ -57300,9 +60824,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                            class LastReporter(Entity):
+                            class LastReporter(_Entity_):
                                 """
                                 Last reporter address
                                 
@@ -57339,7 +60867,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                     self.yang_name = "last-reporter"
                                     self.yang_parent_name = "group-info"
@@ -57361,9 +60892,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source Address
                                 
@@ -57400,7 +60935,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "group-info"
@@ -57422,10 +60960,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             List of hosts
                             
@@ -57489,7 +61035,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "explicit-group"
@@ -57520,7 +61069,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Host Address
                                 
@@ -57557,7 +61106,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "host"
@@ -57579,9 +61131,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 First 3 source addresses
                                 
@@ -57618,7 +61174,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "host"
@@ -57640,12 +61199,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups']['meta_info']
 
 
-
-
-
-                class InterfaceTable(Entity):
+                class InterfaceTable(_Entity_):
                     """
                     IGMP Interface specific Table
                     
@@ -57664,7 +61239,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.InterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.InterfaceTable, self).__init__()
 
                         self.yang_name = "interface-table"
                         self.yang_parent_name = "vrf"
@@ -57682,7 +61260,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -58130,7 +61708,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interface-table"
@@ -58257,7 +61838,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -58294,7 +61875,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -58316,9 +61900,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -58355,7 +61943,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -58377,9 +61968,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -58416,7 +62011,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -58438,11 +62036,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceTable']['meta_info']
 
 
-
-
-                class InterfaceUnicastQosAdjusts(Entity):
+                class InterfaceUnicastQosAdjusts(_Entity_):
                     """
                     IGMP Interface Unicast\-Qos\-Adjust
                     
@@ -58461,7 +62071,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjusts"
                         self.yang_parent_name = "vrf"
@@ -58479,7 +62092,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                    class InterfaceUnicastQosAdjust(Entity):
+                    class InterfaceUnicastQosAdjust(_Entity_):
                         """
                         IGMP Interface
                         
@@ -58543,7 +62156,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                             self.yang_name = "interface-unicast-qos-adjust"
                             self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -58572,7 +62188,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                        class Update(Entity):
+                        class Update(_Entity_):
                             """
                             List of updates
                             
@@ -58623,7 +62239,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                                 self.yang_name = "update"
                                 self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -58654,7 +62273,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                            class SourceAddress(Entity):
+                            class SourceAddress(_Entity_):
                                 """
                                 Source address
                                 
@@ -58691,7 +62310,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                     self.yang_name = "source-address"
                                     self.yang_parent_name = "update"
@@ -58713,9 +62335,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                            class GroupAddress(Entity):
+                            class GroupAddress(_Entity_):
                                 """
                                 Group address
                                 
@@ -58752,7 +62378,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                     self.yang_name = "group-address"
                                     self.yang_parent_name = "update"
@@ -58774,12 +62403,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-                class Ranges(Entity):
+                class Ranges(_Entity_):
                     """
                     Range table
                     
@@ -58798,7 +62443,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.Ranges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.Ranges, self).__init__()
 
                         self.yang_name = "ranges"
                         self.yang_parent_name = "vrf"
@@ -58816,7 +62464,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges, [], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Range information
                         
@@ -58882,7 +62530,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.Ranges.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.Ranges.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "ranges"
@@ -58913,7 +62564,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group address
                             
@@ -58950,7 +62601,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "range"
@@ -58972,11 +62626,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.Ranges.Range.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.Ranges.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.Ranges']['meta_info']
 
 
-
-
-                class IfrsInterfaces(Entity):
+                class IfrsInterfaces(_Entity_):
                     """
                     IGMP Interface specific
                     
@@ -58995,7 +62661,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces, self).__init__()
 
                         self.yang_name = "ifrs-interfaces"
                         self.yang_parent_name = "vrf"
@@ -59013,7 +62682,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces, [], name, value)
 
 
-                    class IfrsInterface(Entity):
+                    class IfrsInterface(_Entity_):
                         """
                         IGMP IFRS Interface
                         
@@ -59050,7 +62719,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, self).__init__()
 
                             self.yang_name = "ifrs-interface"
                             self.yang_parent_name = "ifrs-interfaces"
@@ -59075,7 +62747,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                        class IgmpInterfaceEntry(Entity):
+                        class IgmpInterfaceEntry(_Entity_):
                             """
                             IGMP interface entry
                             
@@ -59514,7 +63186,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                                 self.yang_name = "igmp-interface-entry"
                                 self.yang_parent_name = "ifrs-interface"
@@ -59639,7 +63314,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 IP address
                                 
@@ -59676,7 +63351,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -59698,9 +63376,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                            class QuerierAddress(Entity):
+                            class QuerierAddress(_Entity_):
                                 """
                                 Address of the Querier
                                 
@@ -59737,7 +63419,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                     self.yang_name = "querier-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -59759,9 +63444,13 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                            class SubscriberAddress(Entity):
+                            class SubscriberAddress(_Entity_):
                                 """
                                 Address of subscriber
                                 
@@ -59798,7 +63487,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                     self.yang_name = "subscriber-address"
                                     self.yang_parent_name = "igmp-interface-entry"
@@ -59820,12 +63512,28 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaces']['meta_info']
 
 
-
-
-
-                class TrafficCounters(Entity):
+                class TrafficCounters(_Entity_):
                     """
                     IGMP Message Traffic Counters
                     
@@ -60152,7 +63860,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.TrafficCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.TrafficCounters, self).__init__()
 
                         self.yang_name = "traffic-counters"
                         self.yang_parent_name = "vrf"
@@ -60238,9 +63949,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.TrafficCounters']['meta_info']
 
 
-                class Groups(Entity):
+                class Groups(_Entity_):
                     """
                     IGMP Group Database Table
                     
@@ -60259,7 +63974,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.Groups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.Groups, self).__init__()
 
                         self.yang_name = "groups"
                         self.yang_parent_name = "vrf"
@@ -60277,7 +63995,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups, [], name, value)
 
 
-                    class Group(Entity):
+                    class Group(_Entity_):
                         """
                         IGMP Group Entry Information
                         
@@ -60436,7 +64154,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.Groups.Group, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.Groups.Group, self).__init__()
 
                             self.yang_name = "group"
                             self.yang_parent_name = "groups"
@@ -60493,7 +64214,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -60530,7 +64251,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group"
@@ -60552,9 +64276,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -60591,7 +64319,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group"
@@ -60613,9 +64344,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.Groups.Group.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -60652,7 +64387,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group"
@@ -60674,11 +64412,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.Groups.Group.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.Groups.Group']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.Groups']['meta_info']
 
 
-
-
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     IGMP Groups Summary
                     
@@ -60724,7 +64474,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "vrf"
@@ -60748,9 +64501,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.GroupSummary']['meta_info']
 
 
-                class IfrsInterfaceSummary(Entity):
+                class IfrsInterfaceSummary(_Entity_):
                     """
                     IGMP IFRS Interface summary
                     
@@ -60780,7 +64537,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary, self).__init__()
 
                         self.yang_name = "ifrs-interface-summary"
                         self.yang_parent_name = "vrf"
@@ -60800,9 +64560,13 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.IfrsInterfaceSummary']['meta_info']
 
 
-                class GlobalInterfaceTable(Entity):
+                class GlobalInterfaceTable(_Entity_):
                     """
                     IGMP Global Interface 
                     
@@ -60821,7 +64585,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable, self).__init__()
 
                         self.yang_name = "global-interface-table"
                         self.yang_parent_name = "vrf"
@@ -60839,7 +64606,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IGMP Interface
                         
@@ -61287,7 +65054,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "global-interface-table"
@@ -61414,7 +65184,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -61451,7 +65221,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -61473,9 +65246,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -61512,7 +65289,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface"
@@ -61534,9 +65314,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -61573,7 +65357,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface"
@@ -61595,11 +65382,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.GlobalInterfaceTable']['meta_info']
 
 
-
-
-                class SsmMapDetails(Entity):
+                class SsmMapDetails(_Entity_):
                     """
                     SSM Map Detail
                     
@@ -61618,7 +65417,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.SsmMapDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.SsmMapDetails, self).__init__()
 
                         self.yang_name = "ssm-map-details"
                         self.yang_parent_name = "vrf"
@@ -61636,7 +65438,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails, [], name, value)
 
 
-                    class SsmMapDetail(Entity):
+                    class SsmMapDetail(_Entity_):
                         """
                         SSM Map Detail Table information
                         
@@ -61720,7 +65522,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, self).__init__()
 
                             self.yang_name = "ssm-map-detail"
                             self.yang_parent_name = "ssm-map-details"
@@ -61755,7 +65560,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                        class MapInfo(Entity):
+                        class MapInfo(_Entity_):
                             """
                             Basic Map Info
                             
@@ -61792,7 +65597,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                                 self.yang_name = "map-info"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -61817,7 +65625,7 @@ class Igmp(Entity):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                            class GroupAddressXr(Entity):
+                            class GroupAddressXr(_Entity_):
                                 """
                                 Group Address
                                 
@@ -61854,7 +65662,10 @@ class Igmp(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                     self.yang_name = "group-address-xr"
                                     self.yang_parent_name = "map-info"
@@ -61876,10 +65687,18 @@ class Igmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                    return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                        class Sources(Entity):
+                        class Sources(_Entity_):
                             """
                             List of sources
                             
@@ -61916,7 +65735,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                                 self.yang_name = "sources"
                                 self.yang_parent_name = "ssm-map-detail"
@@ -61938,11 +65760,23 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.SsmMapDetails']['meta_info']
 
 
-
-
-                class InterfaceStateOffs(Entity):
+                class InterfaceStateOffs(_Entity_):
                     """
                     IGMP Interface state off
                     
@@ -61961,7 +65795,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs, self).__init__()
 
                         self.yang_name = "interface-state-offs"
                         self.yang_parent_name = "vrf"
@@ -61979,7 +65816,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs, [], name, value)
 
 
-                    class InterfaceStateOff(Entity):
+                    class InterfaceStateOff(_Entity_):
                         """
                         IGMP Interface
                         
@@ -62427,7 +66264,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                             self.yang_name = "interface-state-off"
                             self.yang_parent_name = "interface-state-offs"
@@ -62554,7 +66394,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -62591,7 +66431,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface-state-off"
@@ -62613,9 +66456,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -62652,7 +66499,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -62674,9 +66524,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -62713,7 +66567,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "interface-state-off"
@@ -62735,13 +66592,33 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOffs.InterfaceStateOff']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Vrfs.Vrf.InterfaceStateOffs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Active.Vrfs']['meta_info']
 
 
-
-
-
-
-        class Process(Entity):
+        class Process(_Entity_):
             """
             Process
             
@@ -62795,7 +66672,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Active.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Active.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "active"
@@ -62836,7 +66716,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Active.Process, [], name, value)
 
 
-            class AmtSummary(Entity):
+            class AmtSummary(_Entity_):
                 """
                 MRIB RouteDB Expiry Information
                 
@@ -62968,7 +66848,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.AmtSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.AmtSummary, self).__init__()
 
                     self.yang_name = "amt-summary"
                     self.yang_parent_name = "process"
@@ -63013,9 +66896,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.Process.AmtSummary, ['anycast_prefix', 'prefix_length', 'relay_address', 'mtu', 'tos', 'ttl', 'query_interval', 'gateway_count', 'max_gateway', 'tunnel_count', 'tunnel_configured_maximum', 'is_acl_configured', 'is_gateway_simulation', 'is_ou_of_resource'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.AmtSummary']['meta_info']
 
 
-            class Nsr(Entity):
+            class Nsr(_Entity_):
                 """
                 NSR Information
                 
@@ -63138,7 +67025,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.Nsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.Nsr, self).__init__()
 
                     self.yang_name = "nsr"
                     self.yang_parent_name = "process"
@@ -63181,9 +67071,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.Process.Nsr, ['state', 'partner_proc_connected', 'collab_conv_done', 'rmf_notification_done', 'last_proc', 'last_proc_connection_up', 'last_proc_connection_dn', 'last_rmf_ready', 'last_rmf_not_ready', 'count_proc_connection_up', 'count_proc_connection_dn', 'count_rmf_ready', 'count_rmf_not_ready'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.Nsr']['meta_info']
 
 
-            class AmtGateways(Entity):
+            class AmtGateways(_Entity_):
                 """
                 Table containing AMT Gateway DataBase
                 information
@@ -63203,7 +67097,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.AmtGateways, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.AmtGateways, self).__init__()
 
                     self.yang_name = "amt-gateways"
                     self.yang_parent_name = "process"
@@ -63222,7 +67119,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.Process.AmtGateways, [], name, value)
 
 
-                class AmtGateway(Entity):
+                class AmtGateway(_Entity_):
                     """
                     AMT Gateway DataBase information
                     
@@ -63330,7 +67227,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.Process.AmtGateways.AmtGateway, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.Process.AmtGateways.AmtGateway, self).__init__()
 
                         self.yang_name = "amt-gateway"
                         self.yang_parent_name = "amt-gateways"
@@ -63367,10 +67267,18 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Active.Process.AmtGateways.AmtGateway, ['gateway_address', 'port', 'amtgw', 'amt_port', 'key_len', 'amtnh', 'amt_nonce', 'idb', 'mem_upd_in', 'mem_upd_out'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.Process.AmtGateways.AmtGateway']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.AmtGateways']['meta_info']
 
 
-
-            class UnicastQosAdjustStats(Entity):
+            class UnicastQosAdjustStats(_Entity_):
                 """
                 IGMP Unicast\-Qos\-Adjust Statistics
                 
@@ -63522,7 +67430,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.UnicastQosAdjustStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.UnicastQosAdjustStats, self).__init__()
 
                     self.yang_name = "unicast-qos-adjust-stats"
                     self.yang_parent_name = "process"
@@ -63571,9 +67482,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.Process.UnicastQosAdjustStats, ['queues', 'batches', 'add_to_batches', 'delete_to_batches', 'send_success', 'send_errors', 'send_comm_errors', 'send_partial_errors', 'received_resync_requests', 'sent_resync_bulks', 'is_resync_received', 'is_resync_required', 'is_resync_start_sent', 'is_qos_s_sweeped', 'last_sweep_time', 'last_download_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.UnicastQosAdjustStats']['meta_info']
 
 
-            class BviStatistics(Entity):
+            class BviStatistics(_Entity_):
                 """
                 IGMP BVI Stats
                 
@@ -63900,7 +67815,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.BviStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.BviStatistics, self).__init__()
 
                     self.yang_name = "bvi-statistics"
                     self.yang_parent_name = "process"
@@ -63987,9 +67905,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.Process.BviStatistics, ['receive_buffers', 'release_buffers', 'send_blocks', 'release_fail_buffers', 'null_buffer_handles', 'rx_ipc_open_notif', 'rx_ipc_close_notif', 'rx_ipc_error_notif', 'rx_ipc_lwm_notif', 'rx_ipc_input_wait_notif', 'rx_ipc_send_status_notif', 'rx_ipc_publish_notif', 'rx_ipc_q_full_notif', 'rx_ipc_output_notif', 'rx_ipc_connect_notif', 'rx_igmp_packet_success', 'rx_add_mrouter_msg', 'rx_delete_mrouter_msg', 'rx_sweep_mrouter_msg', 'tx_add_mrouter_msg', 'tx_delete_mrouter_msg', 'tx_sweep_mrouter_msg', 'rx_unknown_mrouter_msg', 'tx_unknown_mrouter_msg', 'tx_buffer_errors', 'tx_buffers', 'tx_protocol_buffers', 'tx_mrouter_buffers', 'tx_unknown_buffers', 'wtx_msg_recvd', 'wtx_msg_sent', 'wtx_msg_proto_sent', 'wtx_msg_drop_dc', 'wtx_msg_drop_nomem', 'wtx_msg_freed'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.BviStatistics']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 NSF Information
                 
@@ -64099,7 +68021,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.Process.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.Process.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "process"
@@ -64136,10 +68061,18 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.Process.Nsf, ['is_multicast_nsf_active', 'multicast_nsf_timeout', 'multicast_nsf_time_left', 'respawn_count', 'last_nsf_on', 'last_nsf_off', 'last_nsf_on_min', 'last_nsf_off_min', 'last_icd_notif_recv', 'last_icd_notif_recv_min'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.Process.Nsf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Active.Process']['meta_info']
 
 
-
-        class DefaultContext(Entity):
+        class DefaultContext(_Entity_):
             """
             Default Context
             
@@ -64270,7 +68203,10 @@ class Igmp(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Igmp.Active.DefaultContext, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Igmp.Active.DefaultContext, self).__init__()
 
                 self.yang_name = "default-context"
                 self.yang_parent_name = "active"
@@ -64355,7 +68291,7 @@ class Igmp(Entity):
                 self._perform_setattr(Igmp.Active.DefaultContext, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 IGMP Summary Information
                 
@@ -64460,7 +68396,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "default-context"
@@ -64500,7 +68439,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.Summary, ['robustness', 'group_limit', 'group_count', 'is_disabled', 'supported_interfaces', 'unsupported_interfaces', 'enabled_interface_count', 'disabled_interface_count', 'tunnel_mte_config_count', 'node_low_memory'], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Maximum and current groups accepted for each
                     interface
@@ -64583,7 +68522,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.Summary.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.Summary.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "summary"
@@ -64616,10 +68558,18 @@ class Igmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Active.DefaultContext.Summary.Interface, ['interface_name', 'group_limit', 'group_count', 'parent_ifhandle', 'on_off', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.Summary.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.Summary']['meta_info']
 
 
-
-            class InterfaceStateOns(Entity):
+            class InterfaceStateOns(_Entity_):
                 """
                 IGMP Interface state on
                 
@@ -64638,7 +68588,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.InterfaceStateOns, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.InterfaceStateOns, self).__init__()
 
                     self.yang_name = "interface-state-ons"
                     self.yang_parent_name = "default-context"
@@ -64657,7 +68610,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns, [], name, value)
 
 
-                class InterfaceStateOn(Entity):
+                class InterfaceStateOn(_Entity_):
                     """
                     IGMP Interface
                     
@@ -65105,7 +69058,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, self).__init__()
 
                         self.yang_name = "interface-state-on"
                         self.yang_parent_name = "interface-state-ons"
@@ -65233,7 +69189,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -65270,7 +69226,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-on"
@@ -65292,9 +69251,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -65331,7 +69294,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-on"
@@ -65353,9 +69319,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -65392,7 +69362,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-on"
@@ -65414,11 +69387,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOns.InterfaceStateOn']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOns']['meta_info']
 
 
-
-
-            class DetailGroups(Entity):
+            class DetailGroups(_Entity_):
                 """
                 IGMP Detail Group Database
                 
@@ -65437,7 +69422,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.DetailGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.DetailGroups, self).__init__()
 
                     self.yang_name = "detail-groups"
                     self.yang_parent_name = "default-context"
@@ -65456,7 +69444,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups, [], name, value)
 
 
-                class DetailGroup(Entity):
+                class DetailGroup(_Entity_):
                     """
                     IGMP Detail Group Entry Information
                     
@@ -65535,7 +69523,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup, self).__init__()
 
                         self.yang_name = "detail-group"
                         self.yang_parent_name = "detail-groups"
@@ -65569,7 +69560,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup, ['group_address', 'interface_name', 'source_address', 'is_router_exclude_mode', 'is_host_exclude_mode'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -65704,7 +69695,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "detail-group"
@@ -65758,7 +69752,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -65795,7 +69789,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -65818,9 +69815,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -65857,7 +69858,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -65880,9 +69884,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -65919,7 +69927,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -65942,10 +69953,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info']
 
 
-
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         List of sources
                         
@@ -66030,7 +70049,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "detail-group"
@@ -66068,7 +70090,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source, ['uptime', 'expiration_time', 'is_local', 'is_remote', 'is_forward', 'is_we_report', 'flags', 'is_added'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -66105,7 +70127,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "source"
@@ -66128,12 +70153,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.DetailGroups']['meta_info']
 
 
-
-
-
-            class NonActiveGroups(Entity):
+            class NonActiveGroups(_Entity_):
                 """
                 IGMP Non\-Active Groups Information
                 
@@ -66152,7 +70193,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.NonActiveGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.NonActiveGroups, self).__init__()
 
                     self.yang_name = "non-active-groups"
                     self.yang_parent_name = "default-context"
@@ -66171,7 +70215,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups, [], name, value)
 
 
-                class NonActiveGroups_(Entity):
+                class NonActiveGroups_(_Entity_):
                     """
                     List of non\-active groups
                     
@@ -66215,7 +70259,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, self).__init__()
 
                         self.yang_name = "non-active-groups"
                         self.yang_parent_name = "non-active-groups"
@@ -66245,7 +70292,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_, ['interface', 'reason_for_non_activity'], name, value)
 
 
-                    class GroupAddress(Entity):
+                    class GroupAddress(_Entity_):
                         """
                         Group Address
                         
@@ -66282,7 +70329,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, self).__init__()
 
                             self.yang_name = "group-address"
                             self.yang_parent_name = "non-active-groups"
@@ -66305,9 +70355,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -66344,7 +70398,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "non-active-groups"
@@ -66367,11 +70424,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.NonActiveGroups']['meta_info']
 
 
-
-
-            class SsmMaps(Entity):
+            class SsmMaps(_Entity_):
                 """
                 SSM Map Table
                 
@@ -66390,7 +70459,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.SsmMaps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.SsmMaps, self).__init__()
 
                     self.yang_name = "ssm-maps"
                     self.yang_parent_name = "default-context"
@@ -66409,7 +70481,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps, [], name, value)
 
 
-                class SsmMap(Entity):
+                class SsmMap(_Entity_):
                     """
                     SSM Map information
                     
@@ -66468,7 +70540,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.SsmMaps.SsmMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.SsmMaps.SsmMap, self).__init__()
 
                         self.yang_name = "ssm-map"
                         self.yang_parent_name = "ssm-maps"
@@ -66498,7 +70573,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap, ['ssm_map_type', 'group_address', 'map_type', 'source_counts'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -66535,7 +70610,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "ssm-map"
@@ -66558,11 +70636,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.SsmMaps.SsmMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.SsmMaps']['meta_info']
 
 
-
-
-            class ExplicitGroups(Entity):
+            class ExplicitGroups(_Entity_):
                 """
                 IGMP Explicit Group Database
                 
@@ -66581,7 +70671,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.ExplicitGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.ExplicitGroups, self).__init__()
 
                     self.yang_name = "explicit-groups"
                     self.yang_parent_name = "default-context"
@@ -66600,7 +70693,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups, [], name, value)
 
 
-                class ExplicitGroup(Entity):
+                class ExplicitGroup(_Entity_):
                     """
                     IGMP Explicit Group Entry Information
                     
@@ -66683,7 +70776,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup, self).__init__()
 
                         self.yang_name = "explicit-group"
                         self.yang_parent_name = "explicit-groups"
@@ -66717,7 +70813,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup, ['group_address', 'interface_name', 'source_address', 'include_hosts', 'exclude_hosts'], name, value)
 
 
-                    class GroupInfo(Entity):
+                    class GroupInfo(_Entity_):
                         """
                         Basic Group information
                         
@@ -66852,7 +70948,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, self).__init__()
 
                             self.yang_name = "group-info"
                             self.yang_parent_name = "explicit-group"
@@ -66906,7 +71005,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo, ['interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -66943,7 +71042,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "group-info"
@@ -66966,9 +71068,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info']
 
 
-                        class LastReporter(Entity):
+                        class LastReporter(_Entity_):
                             """
                             Last reporter address
                             
@@ -67005,7 +71111,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, self).__init__()
 
                                 self.yang_name = "last-reporter"
                                 self.yang_parent_name = "group-info"
@@ -67028,9 +71137,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.LastReporter']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source Address
                             
@@ -67067,7 +71180,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "group-info"
@@ -67090,10 +71206,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
 
 
-
-                    class Host(Entity):
+                    class Host(_Entity_):
                         """
                         List of hosts
                         
@@ -67157,7 +71281,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, self).__init__()
 
                             self.yang_name = "host"
                             self.yang_parent_name = "explicit-group"
@@ -67189,7 +71316,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host, ['uptime', 'is_exclude', 'expiration_time', 'source_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Host Address
                             
@@ -67226,7 +71353,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "host"
@@ -67249,9 +71379,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.Address']['meta_info']
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             First 3 source addresses
                             
@@ -67288,7 +71422,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "host"
@@ -67311,12 +71448,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host.SourceAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.Host']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.ExplicitGroups']['meta_info']
 
 
-
-
-
-            class InterfaceTable(Entity):
+            class InterfaceTable(_Entity_):
                 """
                 IGMP Interface specific Table
                 
@@ -67335,7 +71488,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.InterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.InterfaceTable, self).__init__()
 
                     self.yang_name = "interface-table"
                     self.yang_parent_name = "default-context"
@@ -67354,7 +71510,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -67802,7 +71958,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.InterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.InterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-table"
@@ -67930,7 +72089,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -67967,7 +72126,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -67989,9 +72151,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -68028,7 +72194,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -68050,9 +72219,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -68089,7 +72262,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -68111,11 +72287,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.InterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.InterfaceTable']['meta_info']
 
 
-
-
-            class InterfaceUnicastQosAdjusts(Entity):
+            class InterfaceUnicastQosAdjusts(_Entity_):
                 """
                 IGMP Interface Unicast\-Qos\-Adjust
                 
@@ -68134,7 +72322,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts, self).__init__()
 
                     self.yang_name = "interface-unicast-qos-adjusts"
                     self.yang_parent_name = "default-context"
@@ -68153,7 +72344,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts, [], name, value)
 
 
-                class InterfaceUnicastQosAdjust(Entity):
+                class InterfaceUnicastQosAdjust(_Entity_):
                     """
                     IGMP Interface
                     
@@ -68217,7 +72408,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, self).__init__()
 
                         self.yang_name = "interface-unicast-qos-adjust"
                         self.yang_parent_name = "interface-unicast-qos-adjusts"
@@ -68247,7 +72441,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust, ['interface_name', 'is_virtual_access', 'rate', 'rate_increments', 'rate_decrements'], name, value)
 
 
-                    class Update(Entity):
+                    class Update(_Entity_):
                         """
                         List of updates
                         
@@ -68298,7 +72492,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, self).__init__()
 
                             self.yang_name = "update"
                             self.yang_parent_name = "interface-unicast-qos-adjust"
@@ -68329,7 +72526,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update, ['is_add', 'weight', 'received_time'], name, value)
 
 
-                        class SourceAddress(Entity):
+                        class SourceAddress(_Entity_):
                             """
                             Source address
                             
@@ -68366,7 +72563,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, self).__init__()
 
                                 self.yang_name = "source-address"
                                 self.yang_parent_name = "update"
@@ -68388,9 +72588,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.SourceAddress']['meta_info']
 
 
-                        class GroupAddress(Entity):
+                        class GroupAddress(_Entity_):
                             """
                             Group address
                             
@@ -68427,7 +72631,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, self).__init__()
 
                                 self.yang_name = "group-address"
                                 self.yang_parent_name = "update"
@@ -68449,12 +72656,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update.GroupAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust.Update']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts.InterfaceUnicastQosAdjust']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.InterfaceUnicastQosAdjusts']['meta_info']
 
 
-
-
-
-            class Ranges(Entity):
+            class Ranges(_Entity_):
                 """
                 Range table
                 
@@ -68473,7 +72696,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.Ranges, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.Ranges, self).__init__()
 
                     self.yang_name = "ranges"
                     self.yang_parent_name = "default-context"
@@ -68492,7 +72718,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.Ranges, [], name, value)
 
 
-                class Range(Entity):
+                class Range(_Entity_):
                     """
                     Range information
                     
@@ -68558,7 +72784,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.Ranges.Range, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.Ranges.Range, self).__init__()
 
                         self.yang_name = "range"
                         self.yang_parent_name = "ranges"
@@ -68590,7 +72819,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range, ['group_address', 'group_mask', 'prefix_length', 'protocol', 'is_stale'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group address
                         
@@ -68627,7 +72856,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "range"
@@ -68650,11 +72882,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.Ranges.Range.GroupAddressXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.Ranges.Range']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.Ranges']['meta_info']
 
 
-
-
-            class IfrsInterfaces(Entity):
+            class IfrsInterfaces(_Entity_):
                 """
                 IGMP Interface specific
                 
@@ -68673,7 +72917,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.IfrsInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.IfrsInterfaces, self).__init__()
 
                     self.yang_name = "ifrs-interfaces"
                     self.yang_parent_name = "default-context"
@@ -68692,7 +72939,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces, [], name, value)
 
 
-                class IfrsInterface(Entity):
+                class IfrsInterface(_Entity_):
                     """
                     IGMP IFRS Interface
                     
@@ -68729,7 +72976,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface, self).__init__()
 
                         self.yang_name = "ifrs-interface"
                         self.yang_parent_name = "ifrs-interfaces"
@@ -68755,7 +73005,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface, ['interface_name', 'join_group_count'], name, value)
 
 
-                    class IgmpInterfaceEntry(Entity):
+                    class IgmpInterfaceEntry(_Entity_):
                         """
                         IGMP interface entry
                         
@@ -69194,7 +73444,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, self).__init__()
 
                             self.yang_name = "igmp-interface-entry"
                             self.yang_parent_name = "ifrs-interface"
@@ -69319,7 +73572,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry, ['interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address
                             
@@ -69356,7 +73609,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -69378,9 +73634,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.Address']['meta_info']
 
 
-                        class QuerierAddress(Entity):
+                        class QuerierAddress(_Entity_):
                             """
                             Address of the Querier
                             
@@ -69417,7 +73677,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, self).__init__()
 
                                 self.yang_name = "querier-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -69439,9 +73702,13 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.QuerierAddress']['meta_info']
 
 
-                        class SubscriberAddress(Entity):
+                        class SubscriberAddress(_Entity_):
                             """
                             Address of subscriber
                             
@@ -69478,7 +73745,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, self).__init__()
 
                                 self.yang_name = "subscriber-address"
                                 self.yang_parent_name = "igmp-interface-entry"
@@ -69500,12 +73770,28 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry.SubscriberAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface.IgmpInterfaceEntry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces.IfrsInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaces']['meta_info']
 
 
-
-
-
-            class TrafficCounters(Entity):
+            class TrafficCounters(_Entity_):
                 """
                 IGMP Message Traffic Counters
                 
@@ -69832,7 +74118,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.TrafficCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.TrafficCounters, self).__init__()
 
                     self.yang_name = "traffic-counters"
                     self.yang_parent_name = "default-context"
@@ -69919,9 +74208,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.DefaultContext.TrafficCounters, ['elapsed_time', 'packets_in', 'packets_out', 'format_errors', 'packet_manager_input_errors', 'packet_manager_output_errors', 'checksum_errors', 'receive_socket_errors', 'socket_errors', 'bad_scope_errors', 'auxillary_data_length_errors', 'invalid_source_address_errors', 'no_socket_connection', 'miscellaneous_errors', 'input_queries', 'input_reports', 'input_leaves', 'input_mtrace', 'input_dvmrp', 'input_pim', 'output_queries', 'output_reports', 'output_leaves', 'output_mtrace', 'output_dvmrp', 'output_pim', 'get_packet_failure', 'output_no_parent_interface_handle', 'input_no_idb', 'input_no_vrf_in_idb', 'input_disabled_idb', 'input_martian_address', 'input_no_assigned_vrf_id', 'input_no_vrf_mtrace', 'input_no_platform_support_mtrace'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.TrafficCounters']['meta_info']
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 IGMP Group Database Table
                 
@@ -69940,7 +74233,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "default-context"
@@ -69959,7 +74255,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     IGMP Group Entry Information
                     
@@ -70118,7 +74414,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -70176,7 +74475,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group, ['group_address', 'interface_name', 'interface_name_xr', 'uptime', 'expiration_time', 'explicit_tracking_enabled', 'is_self_join', 'row_status', 'is_low_memory', 'router_filter_mode', 'older_host_version1_timer', 'older_host_version2_timer', 'is_added', 'is_suppressed'], name, value)
 
 
-                    class GroupAddressXr(Entity):
+                    class GroupAddressXr(_Entity_):
                         """
                         Group Address
                         
@@ -70213,7 +74512,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr, self).__init__()
 
                             self.yang_name = "group-address-xr"
                             self.yang_parent_name = "group"
@@ -70236,9 +74538,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.Groups.Group.GroupAddressXr']['meta_info']
 
 
-                    class LastReporter(Entity):
+                    class LastReporter(_Entity_):
                         """
                         Last reporter address
                         
@@ -70275,7 +74581,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.Groups.Group.LastReporter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.Groups.Group.LastReporter, self).__init__()
 
                             self.yang_name = "last-reporter"
                             self.yang_parent_name = "group"
@@ -70298,9 +74607,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.LastReporter, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.Groups.Group.LastReporter']['meta_info']
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source Address
                         
@@ -70337,7 +74650,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.Groups.Group.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.Groups.Group.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "group"
@@ -70360,11 +74676,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.Groups.Group.SourceAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.Groups.Group.SourceAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.Groups']['meta_info']
 
 
-
-
-            class GroupSummary(Entity):
+            class GroupSummary(_Entity_):
                 """
                 IGMP Groups Summary
                 
@@ -70410,7 +74738,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.GroupSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.GroupSummary, self).__init__()
 
                     self.yang_name = "group-summary"
                     self.yang_parent_name = "default-context"
@@ -70435,9 +74766,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.DefaultContext.GroupSummary, ['groutes', 'sg_routes', 'group_count', 'is_low_memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.GroupSummary']['meta_info']
 
 
-            class IfrsInterfaceSummary(Entity):
+            class IfrsInterfaceSummary(_Entity_):
                 """
                 IGMP IFRS Interface summary
                 
@@ -70467,7 +74802,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.IfrsInterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.IfrsInterfaceSummary, self).__init__()
 
                     self.yang_name = "ifrs-interface-summary"
                     self.yang_parent_name = "default-context"
@@ -70488,9 +74826,13 @@ class Igmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Active.DefaultContext.IfrsInterfaceSummary, ['interface_count', 'configuration_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.IfrsInterfaceSummary']['meta_info']
 
 
-            class GlobalInterfaceTable(Entity):
+            class GlobalInterfaceTable(_Entity_):
                 """
                 IGMP Global Interface 
                 
@@ -70509,7 +74851,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.GlobalInterfaceTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.GlobalInterfaceTable, self).__init__()
 
                     self.yang_name = "global-interface-table"
                     self.yang_parent_name = "default-context"
@@ -70528,7 +74873,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IGMP Interface
                     
@@ -70976,7 +75321,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "global-interface-table"
@@ -71104,7 +75452,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -71141,7 +75489,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface"
@@ -71163,9 +75514,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -71202,7 +75557,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface"
@@ -71224,9 +75582,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -71263,7 +75625,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface"
@@ -71285,11 +75650,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface.SubscriberAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.GlobalInterfaceTable.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.GlobalInterfaceTable']['meta_info']
 
 
-
-
-            class SsmMapDetails(Entity):
+            class SsmMapDetails(_Entity_):
                 """
                 SSM Map Detail
                 
@@ -71308,7 +75685,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.SsmMapDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.SsmMapDetails, self).__init__()
 
                     self.yang_name = "ssm-map-details"
                     self.yang_parent_name = "default-context"
@@ -71327,7 +75707,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails, [], name, value)
 
 
-                class SsmMapDetail(Entity):
+                class SsmMapDetail(_Entity_):
                     """
                     SSM Map Detail Table information
                     
@@ -71411,7 +75791,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail, self).__init__()
 
                         self.yang_name = "ssm-map-detail"
                         self.yang_parent_name = "ssm-map-details"
@@ -71447,7 +75830,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail, ['ssm_map_type', 'group_address', 'expiration_time', 'response_pending', 'query_interval', 'elapsed_time'], name, value)
 
 
-                    class MapInfo(Entity):
+                    class MapInfo(_Entity_):
                         """
                         Basic Map Info
                         
@@ -71484,7 +75867,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, self).__init__()
 
                             self.yang_name = "map-info"
                             self.yang_parent_name = "ssm-map-detail"
@@ -71510,7 +75896,7 @@ class Igmp(Entity):
                             self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo, ['map_type', 'source_counts'], name, value)
 
 
-                        class GroupAddressXr(Entity):
+                        class GroupAddressXr(_Entity_):
                             """
                             Group Address
                             
@@ -71547,7 +75933,10 @@ class Igmp(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, self).__init__()
 
                                 self.yang_name = "group-address-xr"
                                 self.yang_parent_name = "map-info"
@@ -71570,10 +75959,18 @@ class Igmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                                return meta._meta_table['Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo.GroupAddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.MapInfo']['meta_info']
 
 
-
-                    class Sources(Entity):
+                    class Sources(_Entity_):
                         """
                         List of sources
                         
@@ -71610,7 +76007,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, self).__init__()
 
                             self.yang_name = "sources"
                             self.yang_parent_name = "ssm-map-detail"
@@ -71633,11 +76033,23 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail.Sources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.SsmMapDetails.SsmMapDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.SsmMapDetails']['meta_info']
 
 
-
-
-            class InterfaceStateOffs(Entity):
+            class InterfaceStateOffs(_Entity_):
                 """
                 IGMP Interface state off
                 
@@ -71656,7 +76068,10 @@ class Igmp(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Igmp.Active.DefaultContext.InterfaceStateOffs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Igmp.Active.DefaultContext.InterfaceStateOffs, self).__init__()
 
                     self.yang_name = "interface-state-offs"
                     self.yang_parent_name = "default-context"
@@ -71675,7 +76090,7 @@ class Igmp(Entity):
                     self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs, [], name, value)
 
 
-                class InterfaceStateOff(Entity):
+                class InterfaceStateOff(_Entity_):
                     """
                     IGMP Interface
                     
@@ -72123,7 +76538,10 @@ class Igmp(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, self).__init__()
 
                         self.yang_name = "interface-state-off"
                         self.yang_parent_name = "interface-state-offs"
@@ -72251,7 +76669,7 @@ class Igmp(Entity):
                         self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff, ['interface_name', 'interface_name_xr', 'state', 'prefix_length', 'is_interface_up', 'is_ip_enabled', 'is_router_enabled', 'igmp_version', 'host_version', 'query_interval', 'query_timeout', 'query_maximum_response_time', 'last_member_query_interval', 'group_joins', 'group_leaves', 'is_querier', 'total_active_groups', 'robustness', 'proxy_interface', 'querier_uptime', 'las_ll_registration_count', 'las_get_address_count', 'las_update_count', 'las_ll_remove_update_count', 'las_ll_add_update_count', 'las_null_update_count', 'las_unregistration_count', 'is_las_request', 'is_las_registered', 'vrf_id', 'mte_vrf_id', 'location', 'mtu', 'vrf_state', 'is_configurationverify', 'configurationvrf_set', 'configurationvrf_error', 'configuration_mcast_vrf_set', 'configuration_mcast_vrf_error', 'is_im_state_registered', 'is_subscriber', 'subscriber_mode', 'is_identity_present', 'subscriber_id', 'parent_ifhandle', 'time_since_last_query_in_seconds', 'time_since_last_report_in_seconds', 'router_uptime_in_seconds', 'mte_tuple_count'], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         IP address
                         
@@ -72288,7 +76706,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "interface-state-off"
@@ -72310,9 +76731,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.Address']['meta_info']
 
 
-                    class QuerierAddress(Entity):
+                    class QuerierAddress(_Entity_):
                         """
                         Address of the Querier
                         
@@ -72349,7 +76774,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, self).__init__()
 
                             self.yang_name = "querier-address"
                             self.yang_parent_name = "interface-state-off"
@@ -72371,9 +76799,13 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.QuerierAddress']['meta_info']
 
 
-                    class SubscriberAddress(Entity):
+                    class SubscriberAddress(_Entity_):
                         """
                         Address of subscriber
                         
@@ -72410,7 +76842,10 @@ class Igmp(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, self).__init__()
 
                             self.yang_name = "subscriber-address"
                             self.yang_parent_name = "interface-state-off"
@@ -72432,14 +76867,38 @@ class Igmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                            return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff.SubscriberAddress']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                        return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOffs.InterfaceStateOff']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                    return meta._meta_table['Igmp.Active.DefaultContext.InterfaceStateOffs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+                return meta._meta_table['Igmp.Active.DefaultContext']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+            return meta._meta_table['Igmp.Active']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Igmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_oper as meta
+        return meta._meta_table['Igmp']['meta_info']
 
 

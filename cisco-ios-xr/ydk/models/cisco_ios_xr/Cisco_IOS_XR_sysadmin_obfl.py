@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Obfl(Entity):
+class Obfl(_Entity_):
     """
     
     
@@ -45,7 +48,10 @@ class Obfl(Entity):
     _revision = '2017-07-31'
 
     def __init__(self):
-        super(Obfl, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Obfl, self).__init__()
         self._top_entity = None
 
         self.yang_name = "obfl"
@@ -70,7 +76,7 @@ class Obfl(Entity):
         self._perform_setattr(Obfl, [], name, value)
 
 
-    class ObflMgr(Entity):
+    class ObflMgr(_Entity_):
         """
         
         
@@ -89,7 +95,10 @@ class Obfl(Entity):
         _revision = '2017-07-31'
 
         def __init__(self):
-            super(Obfl.ObflMgr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Obfl.ObflMgr, self).__init__()
 
             self.yang_name = "obfl_mgr"
             self.yang_parent_name = "obfl"
@@ -108,7 +117,7 @@ class Obfl(Entity):
             self._perform_setattr(Obfl.ObflMgr, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -134,7 +143,10 @@ class Obfl(Entity):
             _revision = '2017-07-31'
 
             def __init__(self):
-                super(Obfl.ObflMgr.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Obfl.ObflMgr.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "obfl_mgr"
@@ -156,7 +168,7 @@ class Obfl(Entity):
                 self._perform_setattr(Obfl.ObflMgr.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -182,7 +194,10 @@ class Obfl(Entity):
                 _revision = '2017-07-31'
 
                 def __init__(self):
-                    super(Obfl.ObflMgr.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Obfl.ObflMgr.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -203,7 +218,7 @@ class Obfl(Entity):
                     self._perform_setattr(Obfl.ObflMgr.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -229,7 +244,10 @@ class Obfl(Entity):
                     _revision = '2017-07-31'
 
                     def __init__(self):
-                        super(Obfl.ObflMgr.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Obfl.ObflMgr.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -250,7 +268,7 @@ class Obfl(Entity):
                         self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -269,7 +287,10 @@ class Obfl(Entity):
                         _revision = '2017-07-31'
 
                         def __init__(self):
-                            super(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -287,13 +308,33 @@ class Obfl(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                            return meta._meta_table['Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                        return meta._meta_table['Obfl.ObflMgr.Trace.Location.AllOptions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                    return meta._meta_table['Obfl.ObflMgr.Trace.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                return meta._meta_table['Obfl.ObflMgr.Trace']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+            return meta._meta_table['Obfl.ObflMgr']['meta_info']
 
 
-
-
-
-
-    class ObflShow(Entity):
+    class ObflShow(_Entity_):
         """
         
         
@@ -312,7 +353,10 @@ class Obfl(Entity):
         _revision = '2017-07-31'
 
         def __init__(self):
-            super(Obfl.ObflShow, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Obfl.ObflShow, self).__init__()
 
             self.yang_name = "obfl_show"
             self.yang_parent_name = "obfl"
@@ -331,7 +375,7 @@ class Obfl(Entity):
             self._perform_setattr(Obfl.ObflShow, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -357,7 +401,10 @@ class Obfl(Entity):
             _revision = '2017-07-31'
 
             def __init__(self):
-                super(Obfl.ObflShow.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Obfl.ObflShow.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "obfl_show"
@@ -379,7 +426,7 @@ class Obfl(Entity):
                 self._perform_setattr(Obfl.ObflShow.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -405,7 +452,10 @@ class Obfl(Entity):
                 _revision = '2017-07-31'
 
                 def __init__(self):
-                    super(Obfl.ObflShow.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Obfl.ObflShow.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -426,7 +476,7 @@ class Obfl(Entity):
                     self._perform_setattr(Obfl.ObflShow.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -452,7 +502,10 @@ class Obfl(Entity):
                     _revision = '2017-07-31'
 
                     def __init__(self):
-                        super(Obfl.ObflShow.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Obfl.ObflShow.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -473,7 +526,7 @@ class Obfl(Entity):
                         self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -492,7 +545,10 @@ class Obfl(Entity):
                         _revision = '2017-07-31'
 
                         def __init__(self):
-                            super(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -510,14 +566,38 @@ class Obfl(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                            return meta._meta_table['Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                        return meta._meta_table['Obfl.ObflShow.Trace.Location.AllOptions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                    return meta._meta_table['Obfl.ObflShow.Trace.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+                return meta._meta_table['Obfl.ObflShow.Trace']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+            return meta._meta_table['Obfl.ObflShow']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Obfl()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_obfl as meta
+        return meta._meta_table['Obfl']['meta_info']
 
 

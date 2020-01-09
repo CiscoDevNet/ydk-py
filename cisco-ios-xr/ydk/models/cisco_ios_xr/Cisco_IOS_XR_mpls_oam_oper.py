@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -137,8 +140,14 @@ class LspvBagInterfaceState(Enum):
     not_known = Enum.YLeaf(17, "not-known")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+        return meta._meta_table['LspvBagInterfaceState']
 
-class MplsOam(Entity):
+
+
+class MplsOam(_Entity_):
     """
     MPLS OAM operational data
     
@@ -171,7 +180,10 @@ class MplsOam(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MplsOam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsOam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-oam"
@@ -200,7 +212,7 @@ class MplsOam(Entity):
         self._perform_setattr(MplsOam, [], name, value)
 
 
-    class Interface(Entity):
+    class Interface(_Entity_):
         """
         MPLS OAM interface operational data
         
@@ -226,7 +238,10 @@ class MplsOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MplsOam.Interface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsOam.Interface, self).__init__()
 
             self.yang_name = "interface"
             self.yang_parent_name = "mpls-oam"
@@ -251,7 +266,7 @@ class MplsOam(Entity):
             self._perform_setattr(MplsOam.Interface, [], name, value)
 
 
-        class Briefs(Entity):
+        class Briefs(_Entity_):
             """
             MPLS OAM interface detail data
             
@@ -270,7 +285,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Interface.Briefs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Interface.Briefs, self).__init__()
 
                 self.yang_name = "briefs"
                 self.yang_parent_name = "interface"
@@ -289,7 +307,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Interface.Briefs, [], name, value)
 
 
-            class Brief(Entity):
+            class Brief(_Entity_):
                 """
                 MPLS OAM interface operational data
                 
@@ -371,7 +389,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Interface.Briefs.Brief, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Interface.Briefs.Brief, self).__init__()
 
                     self.yang_name = "brief"
                     self.yang_parent_name = "briefs"
@@ -404,10 +425,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', 'interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Interface.Briefs.Brief']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Interface.Briefs']['meta_info']
 
 
-
-        class Details(Entity):
+        class Details(_Entity_):
             """
             MPLS OAM interface detail data
             
@@ -426,7 +455,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Interface.Details, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Interface.Details, self).__init__()
 
                 self.yang_name = "details"
                 self.yang_parent_name = "interface"
@@ -445,7 +477,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Interface.Details, [], name, value)
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 MPLS OAM interface operational data
                 
@@ -480,7 +512,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Interface.Details.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Interface.Details.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "details"
@@ -508,7 +543,7 @@ class MplsOam(Entity):
                     self._perform_setattr(MplsOam.Interface.Details.Detail, ['interface_name'], name, value)
 
 
-                class InterfaceBrief(Entity):
+                class InterfaceBrief(_Entity_):
                     """
                     Interface brief
                     
@@ -581,7 +616,10 @@ class MplsOam(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MplsOam.Interface.Details.Detail.InterfaceBrief, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsOam.Interface.Details.Detail.InterfaceBrief, self).__init__()
 
                         self.yang_name = "interface-brief"
                         self.yang_parent_name = "detail"
@@ -611,9 +649,13 @@ class MplsOam(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, ['interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                        return meta._meta_table['MplsOam.Interface.Details.Detail.InterfaceBrief']['meta_info']
 
 
-                class PacketStatistics(Entity):
+                class PacketStatistics(_Entity_):
                     """
                     Packet statistics
                     
@@ -667,7 +709,10 @@ class MplsOam(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MplsOam.Interface.Details.Detail.PacketStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsOam.Interface.Details.Detail.PacketStatistics, self).__init__()
 
                         self.yang_name = "packet-statistics"
                         self.yang_parent_name = "detail"
@@ -707,7 +752,7 @@ class MplsOam(Entity):
                         self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics, [], name, value)
 
 
-                    class Received(Entity):
+                    class Received(_Entity_):
                         """
                         Packet reception counts
                         
@@ -817,7 +862,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.Received, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received, self).__init__()
 
                             self.yang_name = "received"
                             self.yang_parent_name = "packet-statistics"
@@ -889,7 +937,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received, [], name, value)
 
 
-                        class ReceivedGoodRequest(Entity):
+                        class ReceivedGoodRequest(_Entity_):
                             """
                             Received good request
                             
@@ -921,7 +969,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, self).__init__()
 
                                 self.yang_name = "received-good-request"
                                 self.yang_parent_name = "received"
@@ -941,9 +992,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest']['meta_info']
 
 
-                        class ReceivedGoodReply(Entity):
+                        class ReceivedGoodReply(_Entity_):
                             """
                             Received good reply
                             
@@ -975,7 +1030,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, self).__init__()
 
                                 self.yang_name = "received-good-reply"
                                 self.yang_parent_name = "received"
@@ -995,9 +1053,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply']['meta_info']
 
 
-                        class ReceivedUnknown(Entity):
+                        class ReceivedUnknown(_Entity_):
                             """
                             Received unknown packets
                             
@@ -1029,7 +1091,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, self).__init__()
 
                                 self.yang_name = "received-unknown"
                                 self.yang_parent_name = "received"
@@ -1049,9 +1114,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown']['meta_info']
 
 
-                        class ReceivedErrorIpHeader(Entity):
+                        class ReceivedErrorIpHeader(_Entity_):
                             """
                             IP header error
                             
@@ -1083,7 +1152,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, self).__init__()
 
                                 self.yang_name = "received-error-ip-header"
                                 self.yang_parent_name = "received"
@@ -1103,9 +1175,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader']['meta_info']
 
 
-                        class ReceivedErrorUdpHeader(Entity):
+                        class ReceivedErrorUdpHeader(_Entity_):
                             """
                             UDP header error
                             
@@ -1137,7 +1213,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, self).__init__()
 
                                 self.yang_name = "received-error-udp-header"
                                 self.yang_parent_name = "received"
@@ -1157,9 +1236,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader']['meta_info']
 
 
-                        class ReceivedErrorRunt(Entity):
+                        class ReceivedErrorRunt(_Entity_):
                             """
                             RUNT error
                             
@@ -1191,7 +1274,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, self).__init__()
 
                                 self.yang_name = "received-error-runt"
                                 self.yang_parent_name = "received"
@@ -1211,9 +1297,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt']['meta_info']
 
 
-                        class ReceivedErrorQueueFull(Entity):
+                        class ReceivedErrorQueueFull(_Entity_):
                             """
                             Dropped queue full
                             
@@ -1245,7 +1335,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, self).__init__()
 
                                 self.yang_name = "received-error-queue-full"
                                 self.yang_parent_name = "received"
@@ -1265,9 +1358,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull']['meta_info']
 
 
-                        class ReceivedErrorGeneral(Entity):
+                        class ReceivedErrorGeneral(_Entity_):
                             """
                             General error
                             
@@ -1299,7 +1396,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, self).__init__()
 
                                 self.yang_name = "received-error-general"
                                 self.yang_parent_name = "received"
@@ -1319,9 +1419,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral']['meta_info']
 
 
-                        class ReceivedErrorNoInterface(Entity):
+                        class ReceivedErrorNoInterface(_Entity_):
                             """
                             Error no Interfaces
                             
@@ -1353,7 +1457,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, self).__init__()
 
                                 self.yang_name = "received-error-no-interface"
                                 self.yang_parent_name = "received"
@@ -1373,9 +1480,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface']['meta_info']
 
 
-                        class ReceivedErrorNoMemory(Entity):
+                        class ReceivedErrorNoMemory(_Entity_):
                             """
                             Error no memory
                             
@@ -1407,7 +1518,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, self).__init__()
 
                                 self.yang_name = "received-error-no-memory"
                                 self.yang_parent_name = "received"
@@ -1427,9 +1541,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory']['meta_info']
 
 
-                        class ProtectProtocolReceivedGoodRequest(Entity):
+                        class ProtectProtocolReceivedGoodRequest(_Entity_):
                             """
                             Protect Protocol Received good request
                             
@@ -1461,7 +1579,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, self).__init__()
 
                                 self.yang_name = "protect-protocol-received-good-request"
                                 self.yang_parent_name = "received"
@@ -1481,9 +1602,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest']['meta_info']
 
 
-                        class ProtectProtocolReceivedGoodReply(Entity):
+                        class ProtectProtocolReceivedGoodReply(_Entity_):
                             """
                             Protect Protocol Received good reply
                             
@@ -1515,7 +1640,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, self).__init__()
 
                                 self.yang_name = "protect-protocol-received-good-reply"
                                 self.yang_parent_name = "received"
@@ -1535,9 +1663,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply']['meta_info']
 
 
-                        class ReceivedGoodBfdRequest(Entity):
+                        class ReceivedGoodBfdRequest(_Entity_):
                             """
                             Received Reqeust with BFD TLV
                             
@@ -1569,7 +1701,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, self).__init__()
 
                                 self.yang_name = "received-good-bfd-request"
                                 self.yang_parent_name = "received"
@@ -1589,9 +1724,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest']['meta_info']
 
 
-                        class ReceivedGoodBfdReply(Entity):
+                        class ReceivedGoodBfdReply(_Entity_):
                             """
                             Received Reply with BFD TLV
                             
@@ -1623,7 +1762,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, self).__init__()
 
                                 self.yang_name = "received-good-bfd-reply"
                                 self.yang_parent_name = "received"
@@ -1643,10 +1785,18 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Received']['meta_info']
 
 
-
-                    class Sent(Entity):
+                    class Sent(_Entity_):
                         """
                         Packet transmit counts
                         
@@ -1686,7 +1836,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent, self).__init__()
 
                             self.yang_name = "sent"
                             self.yang_parent_name = "packet-statistics"
@@ -1718,7 +1871,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent, [], name, value)
 
 
-                        class TransmitGood(Entity):
+                        class TransmitGood(_Entity_):
                             """
                             Transmit good packets
                             
@@ -1750,7 +1903,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, self).__init__()
 
                                 self.yang_name = "transmit-good"
                                 self.yang_parent_name = "sent"
@@ -1770,9 +1926,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood']['meta_info']
 
 
-                        class TransmitDrop(Entity):
+                        class TransmitDrop(_Entity_):
                             """
                             Transmit drop packets
                             
@@ -1804,7 +1964,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, self).__init__()
 
                                 self.yang_name = "transmit-drop"
                                 self.yang_parent_name = "sent"
@@ -1824,9 +1987,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop']['meta_info']
 
 
-                        class TransmitBfdGood(Entity):
+                        class TransmitBfdGood(_Entity_):
                             """
                             Transmit good BFD request packets
                             
@@ -1858,7 +2025,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, self).__init__()
 
                                 self.yang_name = "transmit-bfd-good"
                                 self.yang_parent_name = "sent"
@@ -1878,9 +2048,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood']['meta_info']
 
 
-                        class BfdNoReply(Entity):
+                        class BfdNoReply(_Entity_):
                             """
                             No Reply action for echo reqeust of BFD
                             bootstrap
@@ -1913,7 +2087,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, self).__init__()
 
                                 self.yang_name = "bfd-no-reply"
                                 self.yang_parent_name = "sent"
@@ -1933,10 +2110,18 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.Sent']['meta_info']
 
 
-
-                    class WorkingReqSent(Entity):
+                    class WorkingReqSent(_Entity_):
                         """
                         Working Request Packet transmit counts
                         
@@ -1976,7 +2161,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent, self).__init__()
 
                             self.yang_name = "working-req-sent"
                             self.yang_parent_name = "packet-statistics"
@@ -2008,7 +2196,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent, [], name, value)
 
 
-                        class TransmitGood(Entity):
+                        class TransmitGood(_Entity_):
                             """
                             Transmit good packets
                             
@@ -2040,7 +2228,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, self).__init__()
 
                                 self.yang_name = "transmit-good"
                                 self.yang_parent_name = "working-req-sent"
@@ -2060,9 +2251,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood']['meta_info']
 
 
-                        class TransmitDrop(Entity):
+                        class TransmitDrop(_Entity_):
                             """
                             Transmit drop packets
                             
@@ -2094,7 +2289,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, self).__init__()
 
                                 self.yang_name = "transmit-drop"
                                 self.yang_parent_name = "working-req-sent"
@@ -2114,9 +2312,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop']['meta_info']
 
 
-                        class TransmitBfdGood(Entity):
+                        class TransmitBfdGood(_Entity_):
                             """
                             Transmit good BFD request packets
                             
@@ -2148,7 +2350,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, self).__init__()
 
                                 self.yang_name = "transmit-bfd-good"
                                 self.yang_parent_name = "working-req-sent"
@@ -2168,9 +2373,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood']['meta_info']
 
 
-                        class BfdNoReply(Entity):
+                        class BfdNoReply(_Entity_):
                             """
                             No Reply action for echo reqeust of BFD
                             bootstrap
@@ -2203,7 +2412,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, self).__init__()
 
                                 self.yang_name = "bfd-no-reply"
                                 self.yang_parent_name = "working-req-sent"
@@ -2223,10 +2435,18 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent']['meta_info']
 
 
-
-                    class WorkingRepSent(Entity):
+                    class WorkingRepSent(_Entity_):
                         """
                         Working Reply Packet transmit counts
                         
@@ -2266,7 +2486,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent, self).__init__()
 
                             self.yang_name = "working-rep-sent"
                             self.yang_parent_name = "packet-statistics"
@@ -2298,7 +2521,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent, [], name, value)
 
 
-                        class TransmitGood(Entity):
+                        class TransmitGood(_Entity_):
                             """
                             Transmit good packets
                             
@@ -2330,7 +2553,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, self).__init__()
 
                                 self.yang_name = "transmit-good"
                                 self.yang_parent_name = "working-rep-sent"
@@ -2350,9 +2576,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood']['meta_info']
 
 
-                        class TransmitDrop(Entity):
+                        class TransmitDrop(_Entity_):
                             """
                             Transmit drop packets
                             
@@ -2384,7 +2614,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, self).__init__()
 
                                 self.yang_name = "transmit-drop"
                                 self.yang_parent_name = "working-rep-sent"
@@ -2404,9 +2637,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop']['meta_info']
 
 
-                        class TransmitBfdGood(Entity):
+                        class TransmitBfdGood(_Entity_):
                             """
                             Transmit good BFD request packets
                             
@@ -2438,7 +2675,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, self).__init__()
 
                                 self.yang_name = "transmit-bfd-good"
                                 self.yang_parent_name = "working-rep-sent"
@@ -2458,9 +2698,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood']['meta_info']
 
 
-                        class BfdNoReply(Entity):
+                        class BfdNoReply(_Entity_):
                             """
                             No Reply action for echo reqeust of BFD
                             bootstrap
@@ -2493,7 +2737,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, self).__init__()
 
                                 self.yang_name = "bfd-no-reply"
                                 self.yang_parent_name = "working-rep-sent"
@@ -2513,10 +2760,18 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent']['meta_info']
 
 
-
-                    class ProtectReqSent(Entity):
+                    class ProtectReqSent(_Entity_):
                         """
                         Protect Request Packet transmit counts
                         
@@ -2556,7 +2811,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent, self).__init__()
 
                             self.yang_name = "protect-req-sent"
                             self.yang_parent_name = "packet-statistics"
@@ -2588,7 +2846,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent, [], name, value)
 
 
-                        class TransmitGood(Entity):
+                        class TransmitGood(_Entity_):
                             """
                             Transmit good packets
                             
@@ -2620,7 +2878,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, self).__init__()
 
                                 self.yang_name = "transmit-good"
                                 self.yang_parent_name = "protect-req-sent"
@@ -2640,9 +2901,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood']['meta_info']
 
 
-                        class TransmitDrop(Entity):
+                        class TransmitDrop(_Entity_):
                             """
                             Transmit drop packets
                             
@@ -2674,7 +2939,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, self).__init__()
 
                                 self.yang_name = "transmit-drop"
                                 self.yang_parent_name = "protect-req-sent"
@@ -2694,9 +2962,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop']['meta_info']
 
 
-                        class TransmitBfdGood(Entity):
+                        class TransmitBfdGood(_Entity_):
                             """
                             Transmit good BFD request packets
                             
@@ -2728,7 +3000,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, self).__init__()
 
                                 self.yang_name = "transmit-bfd-good"
                                 self.yang_parent_name = "protect-req-sent"
@@ -2748,9 +3023,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood']['meta_info']
 
 
-                        class BfdNoReply(Entity):
+                        class BfdNoReply(_Entity_):
                             """
                             No Reply action for echo reqeust of BFD
                             bootstrap
@@ -2783,7 +3062,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, self).__init__()
 
                                 self.yang_name = "bfd-no-reply"
                                 self.yang_parent_name = "protect-req-sent"
@@ -2803,10 +3085,18 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent']['meta_info']
 
 
-
-                    class ProtectRepSent(Entity):
+                    class ProtectRepSent(_Entity_):
                         """
                         Protect Reply Packet transmit counts
                         
@@ -2846,7 +3136,10 @@ class MplsOam(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent, self).__init__()
 
                             self.yang_name = "protect-rep-sent"
                             self.yang_parent_name = "packet-statistics"
@@ -2878,7 +3171,7 @@ class MplsOam(Entity):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent, [], name, value)
 
 
-                        class TransmitGood(Entity):
+                        class TransmitGood(_Entity_):
                             """
                             Transmit good packets
                             
@@ -2910,7 +3203,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, self).__init__()
 
                                 self.yang_name = "transmit-good"
                                 self.yang_parent_name = "protect-rep-sent"
@@ -2930,9 +3226,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood']['meta_info']
 
 
-                        class TransmitDrop(Entity):
+                        class TransmitDrop(_Entity_):
                             """
                             Transmit drop packets
                             
@@ -2964,7 +3264,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, self).__init__()
 
                                 self.yang_name = "transmit-drop"
                                 self.yang_parent_name = "protect-rep-sent"
@@ -2984,9 +3287,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop']['meta_info']
 
 
-                        class TransmitBfdGood(Entity):
+                        class TransmitBfdGood(_Entity_):
                             """
                             Transmit good BFD request packets
                             
@@ -3018,7 +3325,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, self).__init__()
 
                                 self.yang_name = "transmit-bfd-good"
                                 self.yang_parent_name = "protect-rep-sent"
@@ -3038,9 +3348,13 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood']['meta_info']
 
 
-                        class BfdNoReply(Entity):
+                        class BfdNoReply(_Entity_):
                             """
                             No Reply action for echo reqeust of BFD
                             bootstrap
@@ -3073,7 +3387,10 @@ class MplsOam(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, self).__init__()
 
                                 self.yang_name = "bfd-no-reply"
                                 self.yang_parent_name = "protect-rep-sent"
@@ -3093,14 +3410,38 @@ class MplsOam(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                                return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                            return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                        return meta._meta_table['MplsOam.Interface.Details.Detail.PacketStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Interface.Details.Detail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Interface.Details']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+            return meta._meta_table['MplsOam.Interface']['meta_info']
 
 
-
-
-
-
-
-    class Packet(Entity):
+    class Packet(_Entity_):
         """
         LSPV packet counters operational data
         
@@ -3154,7 +3495,10 @@ class MplsOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MplsOam.Packet, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsOam.Packet, self).__init__()
 
             self.yang_name = "packet"
             self.yang_parent_name = "mpls-oam"
@@ -3195,7 +3539,7 @@ class MplsOam(Entity):
             self._perform_setattr(MplsOam.Packet, [], name, value)
 
 
-        class Received(Entity):
+        class Received(_Entity_):
             """
             Packet reception counts
             
@@ -3305,7 +3649,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.Received, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.Received, self).__init__()
 
                 self.yang_name = "received"
                 self.yang_parent_name = "packet"
@@ -3378,7 +3725,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.Received, [], name, value)
 
 
-            class ReceivedGoodRequest(Entity):
+            class ReceivedGoodRequest(_Entity_):
                 """
                 Received good request
                 
@@ -3410,7 +3757,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedGoodRequest, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedGoodRequest, self).__init__()
 
                     self.yang_name = "received-good-request"
                     self.yang_parent_name = "received"
@@ -3431,9 +3781,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedGoodRequest']['meta_info']
 
 
-            class ReceivedGoodReply(Entity):
+            class ReceivedGoodReply(_Entity_):
                 """
                 Received good reply
                 
@@ -3465,7 +3819,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedGoodReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedGoodReply, self).__init__()
 
                     self.yang_name = "received-good-reply"
                     self.yang_parent_name = "received"
@@ -3486,9 +3843,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedGoodReply']['meta_info']
 
 
-            class ReceivedUnknown(Entity):
+            class ReceivedUnknown(_Entity_):
                 """
                 Received unknown packets
                 
@@ -3520,7 +3881,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedUnknown, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedUnknown, self).__init__()
 
                     self.yang_name = "received-unknown"
                     self.yang_parent_name = "received"
@@ -3541,9 +3905,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedUnknown']['meta_info']
 
 
-            class ReceivedErrorIpHeader(Entity):
+            class ReceivedErrorIpHeader(_Entity_):
                 """
                 IP header error
                 
@@ -3575,7 +3943,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorIpHeader, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorIpHeader, self).__init__()
 
                     self.yang_name = "received-error-ip-header"
                     self.yang_parent_name = "received"
@@ -3596,9 +3967,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorIpHeader']['meta_info']
 
 
-            class ReceivedErrorUdpHeader(Entity):
+            class ReceivedErrorUdpHeader(_Entity_):
                 """
                 UDP header error
                 
@@ -3630,7 +4005,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorUdpHeader, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorUdpHeader, self).__init__()
 
                     self.yang_name = "received-error-udp-header"
                     self.yang_parent_name = "received"
@@ -3651,9 +4029,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorUdpHeader']['meta_info']
 
 
-            class ReceivedErrorRunt(Entity):
+            class ReceivedErrorRunt(_Entity_):
                 """
                 RUNT error
                 
@@ -3685,7 +4067,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorRunt, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorRunt, self).__init__()
 
                     self.yang_name = "received-error-runt"
                     self.yang_parent_name = "received"
@@ -3706,9 +4091,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorRunt']['meta_info']
 
 
-            class ReceivedErrorQueueFull(Entity):
+            class ReceivedErrorQueueFull(_Entity_):
                 """
                 Dropped queue full
                 
@@ -3740,7 +4129,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorQueueFull, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorQueueFull, self).__init__()
 
                     self.yang_name = "received-error-queue-full"
                     self.yang_parent_name = "received"
@@ -3761,9 +4153,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorQueueFull']['meta_info']
 
 
-            class ReceivedErrorGeneral(Entity):
+            class ReceivedErrorGeneral(_Entity_):
                 """
                 General error
                 
@@ -3795,7 +4191,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorGeneral, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorGeneral, self).__init__()
 
                     self.yang_name = "received-error-general"
                     self.yang_parent_name = "received"
@@ -3816,9 +4215,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorGeneral']['meta_info']
 
 
-            class ReceivedErrorNoInterface(Entity):
+            class ReceivedErrorNoInterface(_Entity_):
                 """
                 Error no Interfaces
                 
@@ -3850,7 +4253,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorNoInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorNoInterface, self).__init__()
 
                     self.yang_name = "received-error-no-interface"
                     self.yang_parent_name = "received"
@@ -3871,9 +4277,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorNoInterface']['meta_info']
 
 
-            class ReceivedErrorNoMemory(Entity):
+            class ReceivedErrorNoMemory(_Entity_):
                 """
                 Error no memory
                 
@@ -3905,7 +4315,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedErrorNoMemory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedErrorNoMemory, self).__init__()
 
                     self.yang_name = "received-error-no-memory"
                     self.yang_parent_name = "received"
@@ -3926,9 +4339,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedErrorNoMemory']['meta_info']
 
 
-            class ProtectProtocolReceivedGoodRequest(Entity):
+            class ProtectProtocolReceivedGoodRequest(_Entity_):
                 """
                 Protect Protocol Received good request
                 
@@ -3960,7 +4377,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, self).__init__()
 
                     self.yang_name = "protect-protocol-received-good-request"
                     self.yang_parent_name = "received"
@@ -3981,9 +4401,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest']['meta_info']
 
 
-            class ProtectProtocolReceivedGoodReply(Entity):
+            class ProtectProtocolReceivedGoodReply(_Entity_):
                 """
                 Protect Protocol Received good reply
                 
@@ -4015,7 +4439,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, self).__init__()
 
                     self.yang_name = "protect-protocol-received-good-reply"
                     self.yang_parent_name = "received"
@@ -4036,9 +4463,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply']['meta_info']
 
 
-            class ReceivedGoodBfdRequest(Entity):
+            class ReceivedGoodBfdRequest(_Entity_):
                 """
                 Received Reqeust with BFD TLV
                 
@@ -4070,7 +4501,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedGoodBfdRequest, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedGoodBfdRequest, self).__init__()
 
                     self.yang_name = "received-good-bfd-request"
                     self.yang_parent_name = "received"
@@ -4091,9 +4525,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedGoodBfdRequest']['meta_info']
 
 
-            class ReceivedGoodBfdReply(Entity):
+            class ReceivedGoodBfdReply(_Entity_):
                 """
                 Received Reply with BFD TLV
                 
@@ -4125,7 +4563,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Received.ReceivedGoodBfdReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Received.ReceivedGoodBfdReply, self).__init__()
 
                     self.yang_name = "received-good-bfd-reply"
                     self.yang_parent_name = "received"
@@ -4146,10 +4587,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Received.ReceivedGoodBfdReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.Received']['meta_info']
 
 
-
-        class Sent(Entity):
+        class Sent(_Entity_):
             """
             Packet transmit counts
             
@@ -4189,7 +4638,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.Sent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.Sent, self).__init__()
 
                 self.yang_name = "sent"
                 self.yang_parent_name = "packet"
@@ -4222,7 +4674,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.Sent, [], name, value)
 
 
-            class TransmitGood(Entity):
+            class TransmitGood(_Entity_):
                 """
                 Transmit good packets
                 
@@ -4254,7 +4706,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Sent.TransmitGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Sent.TransmitGood, self).__init__()
 
                     self.yang_name = "transmit-good"
                     self.yang_parent_name = "sent"
@@ -4275,9 +4730,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Sent.TransmitGood']['meta_info']
 
 
-            class TransmitDrop(Entity):
+            class TransmitDrop(_Entity_):
                 """
                 Transmit drop packets
                 
@@ -4309,7 +4768,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Sent.TransmitDrop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Sent.TransmitDrop, self).__init__()
 
                     self.yang_name = "transmit-drop"
                     self.yang_parent_name = "sent"
@@ -4330,9 +4792,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Sent.TransmitDrop']['meta_info']
 
 
-            class TransmitBfdGood(Entity):
+            class TransmitBfdGood(_Entity_):
                 """
                 Transmit good BFD request packets
                 
@@ -4364,7 +4830,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Sent.TransmitBfdGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Sent.TransmitBfdGood, self).__init__()
 
                     self.yang_name = "transmit-bfd-good"
                     self.yang_parent_name = "sent"
@@ -4385,9 +4854,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Sent.TransmitBfdGood']['meta_info']
 
 
-            class BfdNoReply(Entity):
+            class BfdNoReply(_Entity_):
                 """
                 No Reply action for echo reqeust of BFD
                 bootstrap
@@ -4420,7 +4893,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.Sent.BfdNoReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.Sent.BfdNoReply, self).__init__()
 
                     self.yang_name = "bfd-no-reply"
                     self.yang_parent_name = "sent"
@@ -4441,10 +4917,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.Sent.BfdNoReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.Sent']['meta_info']
 
 
-
-        class WorkingReqSent(Entity):
+        class WorkingReqSent(_Entity_):
             """
             Working Request Packet transmit counts
             
@@ -4484,7 +4968,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.WorkingReqSent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.WorkingReqSent, self).__init__()
 
                 self.yang_name = "working-req-sent"
                 self.yang_parent_name = "packet"
@@ -4517,7 +5004,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.WorkingReqSent, [], name, value)
 
 
-            class TransmitGood(Entity):
+            class TransmitGood(_Entity_):
                 """
                 Transmit good packets
                 
@@ -4549,7 +5036,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingReqSent.TransmitGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingReqSent.TransmitGood, self).__init__()
 
                     self.yang_name = "transmit-good"
                     self.yang_parent_name = "working-req-sent"
@@ -4570,9 +5060,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingReqSent.TransmitGood']['meta_info']
 
 
-            class TransmitDrop(Entity):
+            class TransmitDrop(_Entity_):
                 """
                 Transmit drop packets
                 
@@ -4604,7 +5098,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingReqSent.TransmitDrop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingReqSent.TransmitDrop, self).__init__()
 
                     self.yang_name = "transmit-drop"
                     self.yang_parent_name = "working-req-sent"
@@ -4625,9 +5122,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingReqSent.TransmitDrop']['meta_info']
 
 
-            class TransmitBfdGood(Entity):
+            class TransmitBfdGood(_Entity_):
                 """
                 Transmit good BFD request packets
                 
@@ -4659,7 +5160,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, self).__init__()
 
                     self.yang_name = "transmit-bfd-good"
                     self.yang_parent_name = "working-req-sent"
@@ -4680,9 +5184,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingReqSent.TransmitBfdGood']['meta_info']
 
 
-            class BfdNoReply(Entity):
+            class BfdNoReply(_Entity_):
                 """
                 No Reply action for echo reqeust of BFD
                 bootstrap
@@ -4715,7 +5223,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingReqSent.BfdNoReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingReqSent.BfdNoReply, self).__init__()
 
                     self.yang_name = "bfd-no-reply"
                     self.yang_parent_name = "working-req-sent"
@@ -4736,10 +5247,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingReqSent.BfdNoReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.WorkingReqSent']['meta_info']
 
 
-
-        class WorkingRepSent(Entity):
+        class WorkingRepSent(_Entity_):
             """
             Working Reply Packet transmit counts
             
@@ -4779,7 +5298,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.WorkingRepSent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.WorkingRepSent, self).__init__()
 
                 self.yang_name = "working-rep-sent"
                 self.yang_parent_name = "packet"
@@ -4812,7 +5334,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.WorkingRepSent, [], name, value)
 
 
-            class TransmitGood(Entity):
+            class TransmitGood(_Entity_):
                 """
                 Transmit good packets
                 
@@ -4844,7 +5366,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingRepSent.TransmitGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingRepSent.TransmitGood, self).__init__()
 
                     self.yang_name = "transmit-good"
                     self.yang_parent_name = "working-rep-sent"
@@ -4865,9 +5390,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingRepSent.TransmitGood']['meta_info']
 
 
-            class TransmitDrop(Entity):
+            class TransmitDrop(_Entity_):
                 """
                 Transmit drop packets
                 
@@ -4899,7 +5428,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingRepSent.TransmitDrop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingRepSent.TransmitDrop, self).__init__()
 
                     self.yang_name = "transmit-drop"
                     self.yang_parent_name = "working-rep-sent"
@@ -4920,9 +5452,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingRepSent.TransmitDrop']['meta_info']
 
 
-            class TransmitBfdGood(Entity):
+            class TransmitBfdGood(_Entity_):
                 """
                 Transmit good BFD request packets
                 
@@ -4954,7 +5490,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, self).__init__()
 
                     self.yang_name = "transmit-bfd-good"
                     self.yang_parent_name = "working-rep-sent"
@@ -4975,9 +5514,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingRepSent.TransmitBfdGood']['meta_info']
 
 
-            class BfdNoReply(Entity):
+            class BfdNoReply(_Entity_):
                 """
                 No Reply action for echo reqeust of BFD
                 bootstrap
@@ -5010,7 +5553,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.WorkingRepSent.BfdNoReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.WorkingRepSent.BfdNoReply, self).__init__()
 
                     self.yang_name = "bfd-no-reply"
                     self.yang_parent_name = "working-rep-sent"
@@ -5031,10 +5577,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.WorkingRepSent.BfdNoReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.WorkingRepSent']['meta_info']
 
 
-
-        class ProtectReqSent(Entity):
+        class ProtectReqSent(_Entity_):
             """
             Protect Request Packet transmit counts
             
@@ -5074,7 +5628,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.ProtectReqSent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.ProtectReqSent, self).__init__()
 
                 self.yang_name = "protect-req-sent"
                 self.yang_parent_name = "packet"
@@ -5107,7 +5664,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.ProtectReqSent, [], name, value)
 
 
-            class TransmitGood(Entity):
+            class TransmitGood(_Entity_):
                 """
                 Transmit good packets
                 
@@ -5139,7 +5696,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectReqSent.TransmitGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectReqSent.TransmitGood, self).__init__()
 
                     self.yang_name = "transmit-good"
                     self.yang_parent_name = "protect-req-sent"
@@ -5160,9 +5720,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectReqSent.TransmitGood']['meta_info']
 
 
-            class TransmitDrop(Entity):
+            class TransmitDrop(_Entity_):
                 """
                 Transmit drop packets
                 
@@ -5194,7 +5758,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectReqSent.TransmitDrop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectReqSent.TransmitDrop, self).__init__()
 
                     self.yang_name = "transmit-drop"
                     self.yang_parent_name = "protect-req-sent"
@@ -5215,9 +5782,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectReqSent.TransmitDrop']['meta_info']
 
 
-            class TransmitBfdGood(Entity):
+            class TransmitBfdGood(_Entity_):
                 """
                 Transmit good BFD request packets
                 
@@ -5249,7 +5820,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, self).__init__()
 
                     self.yang_name = "transmit-bfd-good"
                     self.yang_parent_name = "protect-req-sent"
@@ -5270,9 +5844,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectReqSent.TransmitBfdGood']['meta_info']
 
 
-            class BfdNoReply(Entity):
+            class BfdNoReply(_Entity_):
                 """
                 No Reply action for echo reqeust of BFD
                 bootstrap
@@ -5305,7 +5883,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectReqSent.BfdNoReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectReqSent.BfdNoReply, self).__init__()
 
                     self.yang_name = "bfd-no-reply"
                     self.yang_parent_name = "protect-req-sent"
@@ -5326,10 +5907,18 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectReqSent.BfdNoReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.ProtectReqSent']['meta_info']
 
 
-
-        class ProtectRepSent(Entity):
+        class ProtectRepSent(_Entity_):
             """
             Protect Reply Packet transmit counts
             
@@ -5369,7 +5958,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Packet.ProtectRepSent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Packet.ProtectRepSent, self).__init__()
 
                 self.yang_name = "protect-rep-sent"
                 self.yang_parent_name = "packet"
@@ -5402,7 +5994,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Packet.ProtectRepSent, [], name, value)
 
 
-            class TransmitGood(Entity):
+            class TransmitGood(_Entity_):
                 """
                 Transmit good packets
                 
@@ -5434,7 +6026,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectRepSent.TransmitGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectRepSent.TransmitGood, self).__init__()
 
                     self.yang_name = "transmit-good"
                     self.yang_parent_name = "protect-rep-sent"
@@ -5455,9 +6050,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectRepSent.TransmitGood']['meta_info']
 
 
-            class TransmitDrop(Entity):
+            class TransmitDrop(_Entity_):
                 """
                 Transmit drop packets
                 
@@ -5489,7 +6088,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectRepSent.TransmitDrop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectRepSent.TransmitDrop, self).__init__()
 
                     self.yang_name = "transmit-drop"
                     self.yang_parent_name = "protect-rep-sent"
@@ -5510,9 +6112,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectRepSent.TransmitDrop']['meta_info']
 
 
-            class TransmitBfdGood(Entity):
+            class TransmitBfdGood(_Entity_):
                 """
                 Transmit good BFD request packets
                 
@@ -5544,7 +6150,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, self).__init__()
 
                     self.yang_name = "transmit-bfd-good"
                     self.yang_parent_name = "protect-rep-sent"
@@ -5565,9 +6174,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectRepSent.TransmitBfdGood']['meta_info']
 
 
-            class BfdNoReply(Entity):
+            class BfdNoReply(_Entity_):
                 """
                 No Reply action for echo reqeust of BFD
                 bootstrap
@@ -5600,7 +6213,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Packet.ProtectRepSent.BfdNoReply, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Packet.ProtectRepSent.BfdNoReply, self).__init__()
 
                     self.yang_name = "bfd-no-reply"
                     self.yang_parent_name = "protect-rep-sent"
@@ -5621,11 +6237,23 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Packet.ProtectRepSent.BfdNoReply']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Packet.ProtectRepSent']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+            return meta._meta_table['MplsOam.Packet']['meta_info']
 
 
-
-
-    class Global(Entity):
+    class Global(_Entity_):
         """
         LSPV global counters operational data
         
@@ -5660,7 +6288,10 @@ class MplsOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MplsOam.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsOam.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "mpls-oam"
@@ -5688,7 +6319,7 @@ class MplsOam(Entity):
             self._perform_setattr(MplsOam.Global, ['total_clients'], name, value)
 
 
-        class MessageStatistics(Entity):
+        class MessageStatistics(_Entity_):
             """
             Message statistics
             
@@ -5799,7 +6430,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Global.MessageStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Global.MessageStatistics, self).__init__()
 
                 self.yang_name = "message-statistics"
                 self.yang_parent_name = "global"
@@ -5838,9 +6472,13 @@ class MplsOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Global.MessageStatistics, ['register_messages', 'unregister_messages', 'echo_submit_messages', 'echo_cancel_messages', 'get_result_messages', 'get_config_messages', 'get_response_messages', 'property_response_messages', 'property_request_messages', 'property_block_messages', 'thread_request_messages'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Global.MessageStatistics']['meta_info']
 
 
-        class CollaboratorStatistics(Entity):
+        class CollaboratorStatistics(_Entity_):
             """
             Collaborator statistics
             
@@ -5880,7 +6518,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.Global.CollaboratorStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.Global.CollaboratorStatistics, self).__init__()
 
                 self.yang_name = "collaborator-statistics"
                 self.yang_parent_name = "global"
@@ -5913,7 +6554,7 @@ class MplsOam(Entity):
                 self._perform_setattr(MplsOam.Global.CollaboratorStatistics, [], name, value)
 
 
-            class CollaboratorIParm(Entity):
+            class CollaboratorIParm(_Entity_):
                 """
                 Collaborator IPARM counts
                 
@@ -5943,7 +6584,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, self).__init__()
 
                     self.yang_name = "collaborator-i-parm"
                     self.yang_parent_name = "collaborator-statistics"
@@ -5964,9 +6608,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, ['ups', 'downs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Global.CollaboratorStatistics.CollaboratorIParm']['meta_info']
 
 
-            class CollaboratorIm(Entity):
+            class CollaboratorIm(_Entity_):
                 """
                 Collaborator IM counts
                 
@@ -5996,7 +6644,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, self).__init__()
 
                     self.yang_name = "collaborator-im"
                     self.yang_parent_name = "collaborator-statistics"
@@ -6017,9 +6668,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, ['ups', 'downs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Global.CollaboratorStatistics.CollaboratorIm']['meta_info']
 
 
-            class CollaboratorNetIo(Entity):
+            class CollaboratorNetIo(_Entity_):
                 """
                 Collaborator NetIO counts
                 
@@ -6049,7 +6704,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, self).__init__()
 
                     self.yang_name = "collaborator-net-io"
                     self.yang_parent_name = "collaborator-statistics"
@@ -6070,9 +6728,13 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, ['ups', 'downs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo']['meta_info']
 
 
-            class CollaboratorRib(Entity):
+            class CollaboratorRib(_Entity_):
                 """
                 Collaborator RIB counts
                 
@@ -6102,7 +6764,10 @@ class MplsOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, self).__init__()
 
                     self.yang_name = "collaborator-rib"
                     self.yang_parent_name = "collaborator-statistics"
@@ -6123,12 +6788,28 @@ class MplsOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, ['ups', 'downs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                    return meta._meta_table['MplsOam.Global.CollaboratorStatistics.CollaboratorRib']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+                return meta._meta_table['MplsOam.Global.CollaboratorStatistics']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+            return meta._meta_table['MplsOam.Global']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsOam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_oper as meta
+        return meta._meta_table['MplsOam']['meta_info']
 
 

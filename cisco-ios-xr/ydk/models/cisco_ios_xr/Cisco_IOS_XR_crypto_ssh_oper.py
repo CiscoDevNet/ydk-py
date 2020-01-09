@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -46,6 +49,12 @@ class Authen(Enum):
     rsa_public_key = Enum.YLeaf(1, "rsa-public-key")
 
     keyboard_interactive = Enum.YLeaf(2, "keyboard-interactive")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Authen']
 
 
 class Cipher(Enum):
@@ -135,6 +144,12 @@ class Cipher(Enum):
     aes256_gcm = Enum.YLeaf(8, "aes256-gcm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Cipher']
+
+
 class Connection(Enum):
     """
     Connection (Enum Class)
@@ -192,6 +207,12 @@ class Connection(Enum):
     netconf_xml_subsystem = Enum.YLeaf(7, "netconf-xml-subsystem")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Connection']
+
+
 class Hostkey(Enum):
     """
     Hostkey (Enum Class)
@@ -235,6 +256,12 @@ class Hostkey(Enum):
     ecdsa_sha2_nistp384 = Enum.YLeaf(3, "ecdsa-sha2-nistp384")
 
     ecdsa_sha2_nistp256 = Enum.YLeaf(4, "ecdsa-sha2-nistp256")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Hostkey']
 
 
 class KexName(Enum):
@@ -318,6 +345,12 @@ class KexName(Enum):
     password_authenticated = Enum.YLeaf(9, "password-authenticated")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['KexName']
+
+
 class Mac(Enum):
     """
     Mac (Enum Class)
@@ -373,6 +406,12 @@ class Mac(Enum):
     hmac_sha2_512 = Enum.YLeaf(3, "hmac-sha2-512")
 
     aes_gcm = Enum.YLeaf(4, "aes-gcm")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Mac']
 
 
 class States(Enum):
@@ -462,6 +501,12 @@ class States(Enum):
     session_closed = Enum.YLeaf(13, "session-closed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['States']
+
+
 class Version(Enum):
     """
     Version (Enum Class)
@@ -483,8 +528,14 @@ class Version(Enum):
     v1 = Enum.YLeaf(1, "v1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Version']
 
-class Ssh1(Entity):
+
+
+class Ssh1(_Entity_):
     """
     Crypto Secure Shell(SSH) data
     
@@ -503,7 +554,10 @@ class Ssh1(Entity):
     _revision = '2017-08-25'
 
     def __init__(self):
-        super(Ssh1, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ssh1, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ssh1"
@@ -524,7 +578,7 @@ class Ssh1(Entity):
         self._perform_setattr(Ssh1, [], name, value)
 
 
-    class Kex(Entity):
+    class Kex(_Entity_):
         """
         key exchange method data
         
@@ -543,7 +597,10 @@ class Ssh1(Entity):
         _revision = '2017-08-25'
 
         def __init__(self):
-            super(Ssh1.Kex, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh1.Kex, self).__init__()
 
             self.yang_name = "kex"
             self.yang_parent_name = "ssh1"
@@ -564,7 +621,7 @@ class Ssh1(Entity):
             self._perform_setattr(Ssh1.Kex, [], name, value)
 
 
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             Node\-specific ssh session details
             
@@ -583,7 +640,10 @@ class Ssh1(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh1.Kex.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh1.Kex.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "kex"
@@ -602,7 +662,7 @@ class Ssh1(Entity):
                 self._perform_setattr(Ssh1.Kex.Nodes, [], name, value)
 
 
-            class Node(Entity):
+            class Node(_Entity_):
                 """
                 SSH session details for a particular node
                 
@@ -637,7 +697,10 @@ class Ssh1(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh1.Kex.Nodes.Node, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh1.Kex.Nodes.Node, self).__init__()
 
                     self.yang_name = "node"
                     self.yang_parent_name = "nodes"
@@ -665,7 +728,7 @@ class Ssh1(Entity):
                     self._perform_setattr(Ssh1.Kex.Nodes.Node, ['node_name'], name, value)
 
 
-                class IncomingSessions(Entity):
+                class IncomingSessions(_Entity_):
                     """
                     List of incoming sessions
                     
@@ -684,7 +747,10 @@ class Ssh1(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__init__()
 
                         self.yang_name = "incoming-sessions"
                         self.yang_parent_name = "node"
@@ -702,7 +768,7 @@ class Ssh1(Entity):
                         self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions, [], name, value)
 
 
-                    class SessionDetailInfo(Entity):
+                    class SessionDetailInfo(_Entity_):
                         """
                         session detail info
                         
@@ -786,7 +852,10 @@ class Ssh1(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__init__()
 
                             self.yang_name = "session-detail-info"
                             self.yang_parent_name = "incoming-sessions"
@@ -825,7 +894,7 @@ class Ssh1(Entity):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                        class NextSession(Entity):
+                        class NextSession(_Entity_):
                             """
                             next session
                             
@@ -837,7 +906,10 @@ class Ssh1(Entity):
                             _revision = '2017-08-25'
 
                             def __init__(self):
-                                super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
 
                                 self.yang_name = "next-session"
                                 self.yang_parent_name = "session-detail-info"
@@ -849,11 +921,23 @@ class Ssh1(Entity):
                                 self._segment_path = lambda: "next-session"
                                 self._is_frozen = True
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                                return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo.NextSession']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions']['meta_info']
 
 
-
-
-                class OutgoingConnections(Entity):
+                class OutgoingConnections(_Entity_):
                     """
                     List of outgoing connections
                     
@@ -872,7 +956,10 @@ class Ssh1(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__init__()
 
                         self.yang_name = "outgoing-connections"
                         self.yang_parent_name = "node"
@@ -890,7 +977,7 @@ class Ssh1(Entity):
                         self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections, [], name, value)
 
 
-                    class SessionDetailInfo(Entity):
+                    class SessionDetailInfo(_Entity_):
                         """
                         session detail info
                         
@@ -974,7 +1061,10 @@ class Ssh1(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__init__()
 
                             self.yang_name = "session-detail-info"
                             self.yang_parent_name = "outgoing-connections"
@@ -1013,7 +1103,7 @@ class Ssh1(Entity):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                        class NextSession(Entity):
+                        class NextSession(_Entity_):
                             """
                             next session
                             
@@ -1025,7 +1115,10 @@ class Ssh1(Entity):
                             _revision = '2017-08-25'
 
                             def __init__(self):
-                                super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
 
                                 self.yang_name = "next-session"
                                 self.yang_parent_name = "session-detail-info"
@@ -1037,19 +1130,47 @@ class Ssh1(Entity):
                                 self._segment_path = lambda: "next-session"
                                 self._is_frozen = True
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                                return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo.NextSession']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh1.Kex.Nodes.Node']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh1.Kex.Nodes']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+            return meta._meta_table['Ssh1.Kex']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ssh1()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Ssh1']['meta_info']
 
 
-class Ssh(Entity):
+class Ssh(_Entity_):
     """
     ssh
     
@@ -1057,6 +1178,13 @@ class Ssh(Entity):
     
     	Crypto SSH session
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session>`
+    
+    	**config**\: False
+    
+    .. attribute:: server
+    
+    	SSH server parameters
+    	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Server>`
     
     	**config**\: False
     
@@ -1068,7 +1196,10 @@ class Ssh(Entity):
     _revision = '2017-08-25'
 
     def __init__(self):
-        super(Ssh, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ssh, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ssh"
@@ -1076,12 +1207,16 @@ class Ssh(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("session", ("session", Ssh.Session))])
+        self._child_classes = OrderedDict([("session", ("session", Ssh.Session)), ("server", ("server", Ssh.Server))])
         self._leafs = OrderedDict()
 
         self.session = Ssh.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
+
+        self.server = Ssh.Server()
+        self.server.parent = self
+        self._children_name_map["server"] = "server"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh"
         self._is_frozen = True
 
@@ -1089,7 +1224,7 @@ class Ssh(Entity):
         self._perform_setattr(Ssh, [], name, value)
 
 
-    class Session(Entity):
+    class Session(_Entity_):
         """
         Crypto SSH session
         
@@ -1136,7 +1271,10 @@ class Ssh(Entity):
         _revision = '2017-08-25'
 
         def __init__(self):
-            super(Ssh.Session, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "ssh"
@@ -1173,7 +1311,7 @@ class Ssh(Entity):
             self._perform_setattr(Ssh.Session, [], name, value)
 
 
-        class Rekey(Entity):
+        class Rekey(_Entity_):
             """
             SSH session rekey information
             
@@ -1199,7 +1337,10 @@ class Ssh(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh.Session.Rekey, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Session.Rekey, self).__init__()
 
                 self.yang_name = "rekey"
                 self.yang_parent_name = "session"
@@ -1224,7 +1365,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Session.Rekey, [], name, value)
 
 
-            class IncomingSessions(Entity):
+            class IncomingSessions(_Entity_):
                 """
                 List of incoming sessions
                 
@@ -1243,7 +1384,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Rekey.IncomingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Rekey.IncomingSessions, self).__init__()
 
                     self.yang_name = "incoming-sessions"
                     self.yang_parent_name = "rekey"
@@ -1262,7 +1406,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Rekey.IncomingSessions, [], name, value)
 
 
-                class SessionRekeyInfo(Entity):
+                class SessionRekeyInfo(_Entity_):
                     """
                     session rekey info
                     
@@ -1313,7 +1457,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, self).__init__()
 
                         self.yang_name = "session-rekey-info"
                         self.yang_parent_name = "incoming-sessions"
@@ -1343,7 +1490,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -1355,7 +1502,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-rekey-info"
@@ -1368,11 +1518,23 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/session-rekey-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Rekey.IncomingSessions']['meta_info']
 
 
-
-
-            class OutgoingConnections(Entity):
+            class OutgoingConnections(_Entity_):
                 """
                 List of outgoing connections
                 
@@ -1391,7 +1553,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Rekey.OutgoingConnections, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Rekey.OutgoingConnections, self).__init__()
 
                     self.yang_name = "outgoing-connections"
                     self.yang_parent_name = "rekey"
@@ -1410,7 +1575,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections, [], name, value)
 
 
-                class SessionRekeyInfo(Entity):
+                class SessionRekeyInfo(_Entity_):
                     """
                     session rekey info
                     
@@ -1461,7 +1626,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, self).__init__()
 
                         self.yang_name = "session-rekey-info"
                         self.yang_parent_name = "outgoing-connections"
@@ -1491,7 +1659,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -1503,7 +1671,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-rekey-info"
@@ -1516,12 +1687,28 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/session-rekey-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.Rekey']['meta_info']
 
 
-
-
-
-        class HistoryDetail(Entity):
+        class HistoryDetail(_Entity_):
             """
             SSH session history detail information
             
@@ -1547,7 +1734,10 @@ class Ssh(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh.Session.HistoryDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Session.HistoryDetail, self).__init__()
 
                 self.yang_name = "history-detail"
                 self.yang_parent_name = "session"
@@ -1572,7 +1762,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Session.HistoryDetail, [], name, value)
 
 
-            class IncomingSessions(Entity):
+            class IncomingSessions(_Entity_):
                 """
                 List of incoming sessions
                 
@@ -1591,7 +1781,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.HistoryDetail.IncomingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.HistoryDetail.IncomingSessions, self).__init__()
 
                     self.yang_name = "incoming-sessions"
                     self.yang_parent_name = "history-detail"
@@ -1610,7 +1803,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions, [], name, value)
 
 
-                class SessionDetailInfo(Entity):
+                class SessionDetailInfo(_Entity_):
                     """
                     session detail info
                     
@@ -1694,7 +1887,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, self).__init__()
 
                         self.yang_name = "session-detail-info"
                         self.yang_parent_name = "incoming-sessions"
@@ -1734,7 +1930,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -1746,7 +1942,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-detail-info"
@@ -1759,11 +1958,23 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/session-detail-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.HistoryDetail.IncomingSessions']['meta_info']
 
 
-
-
-            class OutgoingConnections(Entity):
+            class OutgoingConnections(_Entity_):
                 """
                 List of outgoing connections
                 
@@ -1782,7 +1993,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.HistoryDetail.OutgoingConnections, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.HistoryDetail.OutgoingConnections, self).__init__()
 
                     self.yang_name = "outgoing-connections"
                     self.yang_parent_name = "history-detail"
@@ -1801,7 +2015,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections, [], name, value)
 
 
-                class SessionDetailInfo(Entity):
+                class SessionDetailInfo(_Entity_):
                     """
                     session detail info
                     
@@ -1885,7 +2099,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, self).__init__()
 
                         self.yang_name = "session-detail-info"
                         self.yang_parent_name = "outgoing-connections"
@@ -1925,7 +2142,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -1937,7 +2154,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-detail-info"
@@ -1950,12 +2170,28 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/session-detail-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.HistoryDetail.OutgoingConnections']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.HistoryDetail']['meta_info']
 
 
-
-
-
-        class Brief(Entity):
+        class Brief(_Entity_):
             """
             SSH session brief information
             
@@ -1981,7 +2217,10 @@ class Ssh(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh.Session.Brief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Session.Brief, self).__init__()
 
                 self.yang_name = "brief"
                 self.yang_parent_name = "session"
@@ -2006,7 +2245,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Session.Brief, [], name, value)
 
 
-            class IncomingSessions(Entity):
+            class IncomingSessions(_Entity_):
                 """
                 List of incoming sessions
                 
@@ -2025,7 +2264,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Brief.IncomingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Brief.IncomingSessions, self).__init__()
 
                     self.yang_name = "incoming-sessions"
                     self.yang_parent_name = "brief"
@@ -2044,7 +2286,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Brief.IncomingSessions, [], name, value)
 
 
-                class SessionBriefInfo(Entity):
+                class SessionBriefInfo(_Entity_):
                     """
                     session brief info
                     
@@ -2123,7 +2365,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__init__()
 
                         self.yang_name = "session-brief-info"
                         self.yang_parent_name = "incoming-sessions"
@@ -2161,7 +2406,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -2173,7 +2418,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-brief-info"
@@ -2186,9 +2434,13 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/session-brief-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.NextSession']['meta_info']
 
 
-                    class McInfo(Entity):
+                    class McInfo(_Entity_):
                         """
                         List of channel info
                         
@@ -2232,7 +2484,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, self).__init__()
 
                             self.yang_name = "mc-info"
                             self.yang_parent_name = "session-brief-info"
@@ -2257,11 +2512,23 @@ class Ssh(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Brief.IncomingSessions.SessionBriefInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Brief.IncomingSessions']['meta_info']
 
 
-
-
-            class OutgoingSessions(Entity):
+            class OutgoingSessions(_Entity_):
                 """
                 List of outgoing sessions
                 
@@ -2280,7 +2547,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Brief.OutgoingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Brief.OutgoingSessions, self).__init__()
 
                     self.yang_name = "outgoing-sessions"
                     self.yang_parent_name = "brief"
@@ -2299,7 +2569,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Brief.OutgoingSessions, [], name, value)
 
 
-                class SessionBriefInfo(Entity):
+                class SessionBriefInfo(_Entity_):
                     """
                     session brief info
                     
@@ -2378,7 +2648,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__init__()
 
                         self.yang_name = "session-brief-info"
                         self.yang_parent_name = "outgoing-sessions"
@@ -2416,7 +2689,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -2428,7 +2701,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-brief-info"
@@ -2441,9 +2717,13 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/session-brief-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.NextSession']['meta_info']
 
 
-                    class McInfo(Entity):
+                    class McInfo(_Entity_):
                         """
                         List of channel info
                         
@@ -2487,7 +2767,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, self).__init__()
 
                             self.yang_name = "mc-info"
                             self.yang_parent_name = "session-brief-info"
@@ -2512,12 +2795,28 @@ class Ssh(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Brief.OutgoingSessions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.Brief']['meta_info']
 
 
-
-
-
-        class History(Entity):
+        class History(_Entity_):
             """
             SSH session history information
             
@@ -2536,7 +2835,10 @@ class Ssh(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh.Session.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Session.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "session"
@@ -2557,7 +2859,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Session.History, [], name, value)
 
 
-            class IncomingSessions(Entity):
+            class IncomingSessions(_Entity_):
                 """
                 List of incoming sessions
                 
@@ -2576,7 +2878,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.History.IncomingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.History.IncomingSessions, self).__init__()
 
                     self.yang_name = "incoming-sessions"
                     self.yang_parent_name = "history"
@@ -2595,7 +2900,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.History.IncomingSessions, [], name, value)
 
 
-                class SessionHistoryInfo(Entity):
+                class SessionHistoryInfo(_Entity_):
                     """
                     session history info
                     
@@ -2667,7 +2972,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, self).__init__()
 
                         self.yang_name = "session-history-info"
                         self.yang_parent_name = "incoming-sessions"
@@ -2703,7 +3011,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, ['session_id', 'node_name', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -2715,7 +3023,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-history-info"
@@ -2728,9 +3039,13 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/session-history-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.History.IncomingSessions.SessionHistoryInfo.NextSession']['meta_info']
 
 
-                    class McInfo(Entity):
+                    class McInfo(_Entity_):
                         """
                         List of channel info
                         
@@ -2774,7 +3089,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, self).__init__()
 
                             self.yang_name = "mc-info"
                             self.yang_parent_name = "session-history-info"
@@ -2799,12 +3117,28 @@ class Ssh(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.History.IncomingSessions.SessionHistoryInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.History.IncomingSessions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.History']['meta_info']
 
 
-
-
-
-        class Detail(Entity):
+        class Detail(_Entity_):
             """
             SSH session detail information
             
@@ -2830,7 +3164,10 @@ class Ssh(Entity):
             _revision = '2017-08-25'
 
             def __init__(self):
-                super(Ssh.Session.Detail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssh.Session.Detail, self).__init__()
 
                 self.yang_name = "detail"
                 self.yang_parent_name = "session"
@@ -2855,7 +3192,7 @@ class Ssh(Entity):
                 self._perform_setattr(Ssh.Session.Detail, [], name, value)
 
 
-            class IncomingSessions(Entity):
+            class IncomingSessions(_Entity_):
                 """
                 List of incoming sessions
                 
@@ -2874,7 +3211,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Detail.IncomingSessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Detail.IncomingSessions, self).__init__()
 
                     self.yang_name = "incoming-sessions"
                     self.yang_parent_name = "detail"
@@ -2893,7 +3233,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Detail.IncomingSessions, [], name, value)
 
 
-                class SessionDetailInfo(Entity):
+                class SessionDetailInfo(_Entity_):
                     """
                     session detail info
                     
@@ -2977,7 +3317,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__init__()
 
                         self.yang_name = "session-detail-info"
                         self.yang_parent_name = "incoming-sessions"
@@ -3017,7 +3360,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -3029,7 +3372,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-detail-info"
@@ -3042,11 +3388,23 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/session-detail-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Detail.IncomingSessions.SessionDetailInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Detail.IncomingSessions.SessionDetailInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Detail.IncomingSessions']['meta_info']
 
 
-
-
-            class OutgoingConnections(Entity):
+            class OutgoingConnections(_Entity_):
                 """
                 List of outgoing connections
                 
@@ -3065,7 +3423,10 @@ class Ssh(Entity):
                 _revision = '2017-08-25'
 
                 def __init__(self):
-                    super(Ssh.Session.Detail.OutgoingConnections, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssh.Session.Detail.OutgoingConnections, self).__init__()
 
                     self.yang_name = "outgoing-connections"
                     self.yang_parent_name = "detail"
@@ -3084,7 +3445,7 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Session.Detail.OutgoingConnections, [], name, value)
 
 
-                class SessionDetailInfo(Entity):
+                class SessionDetailInfo(_Entity_):
                     """
                     session detail info
                     
@@ -3168,7 +3529,10 @@ class Ssh(Entity):
                     _revision = '2017-08-25'
 
                     def __init__(self):
-                        super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__init__()
 
                         self.yang_name = "session-detail-info"
                         self.yang_parent_name = "outgoing-connections"
@@ -3208,7 +3572,7 @@ class Ssh(Entity):
                         self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
 
 
-                    class NextSession(Entity):
+                    class NextSession(_Entity_):
                         """
                         next session
                         
@@ -3220,7 +3584,10 @@ class Ssh(Entity):
                         _revision = '2017-08-25'
 
                         def __init__(self):
-                            super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession, self).__init__()
 
                             self.yang_name = "next-session"
                             self.yang_parent_name = "session-detail-info"
@@ -3233,14 +3600,299 @@ class Ssh(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/session-detail-info/%s" % self._segment_path()
                             self._is_frozen = True
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo.NextSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Detail.OutgoingConnections']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.Detail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+            return meta._meta_table['Ssh.Session']['meta_info']
 
 
+    class Server(_Entity_):
+        """
+        SSH server parameters
+        
+        .. attribute:: version
+        
+        	Version
+        	**type**\: str
+        
+        	**length:** 0..10
+        
+        	**config**\: False
+        
+        .. attribute:: port
+        
+        	SSH Port
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: vrf
+        
+        	Vrfs and acls
+        	**type**\: str
+        
+        	**length:** 0..500
+        
+        	**config**\: False
+        
+        .. attribute:: netconfport
+        
+        	Netconf Port
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: netconfvrf
+        
+        	Netconf vrfs and acls
+        	**type**\: str
+        
+        	**length:** 0..500
+        
+        	**config**\: False
+        
+        .. attribute:: netconfver
+        
+        	Netconf Version
+        	**type**\: str
+        
+        	**length:** 0..10
+        
+        	**config**\: False
+        
+        .. attribute:: hostkeyalgo
+        
+        	Hostkey algorithms
+        	**type**\: str
+        
+        	**length:** 0..200
+        
+        	**config**\: False
+        
+        .. attribute:: kexalgo
+        
+        	Key exchange algorithms
+        	**type**\: str
+        
+        	**length:** 0..200
+        
+        	**config**\: False
+        
+        .. attribute:: cipheralgo
+        
+        	Encryption algorithms
+        	**type**\: str
+        
+        	**length:** 0..200
+        
+        	**config**\: False
+        
+        .. attribute:: macalgo
+        
+        	Mac algorithms
+        	**type**\: str
+        
+        	**length:** 0..200
+        
+        	**config**\: False
+        
+        .. attribute:: backupserver
+        
+        	Backup SSH server
+        	**type**\: str
+        
+        	**length:** 0..100
+        
+        	**config**\: False
+        
+        .. attribute:: dscp
+        
+        	Dscp
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: ratelimit
+        
+        	ratelimit
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: sessionlimit
+        
+        	session limit
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: rekeytime
+        
+        	Rekey Time
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: rekeyvolume
+        
+        	Rekey Volume
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: windowscalefactor
+        
+        	Window scale factor
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        	**config**\: False
+        
+        .. attribute:: passwordauthen
+        
+        	Password Authentication support
+        	**type**\: bool
+        
+        	**config**\: False
+        
+        .. attribute:: keyboardinteractiveauthen
+        
+        	Pubkey Authentication support
+        	**type**\: bool
+        
+        	**config**\: False
+        
+        .. attribute:: pubkeyauthen
+        
+        	Pubkey Authentication support
+        	**type**\: bool
+        
+        	**config**\: False
+        
+        .. attribute:: certificateauthen
+        
+        	Certificate based Authentication support
+        	**type**\: bool
+        
+        	**config**\: False
+        
+        
 
+        """
 
+        _prefix = 'crypto-ssh-oper'
+        _revision = '2017-08-25'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssh.Server, self).__init__()
+
+            self.yang_name = "server"
+            self.yang_parent_name = "ssh"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                ('netconfport', (YLeaf(YType.uint32, 'netconfport'), ['int'])),
+                ('netconfvrf', (YLeaf(YType.str, 'netconfvrf'), ['str'])),
+                ('netconfver', (YLeaf(YType.str, 'netconfver'), ['str'])),
+                ('hostkeyalgo', (YLeaf(YType.str, 'hostkeyalgo'), ['str'])),
+                ('kexalgo', (YLeaf(YType.str, 'kexalgo'), ['str'])),
+                ('cipheralgo', (YLeaf(YType.str, 'cipheralgo'), ['str'])),
+                ('macalgo', (YLeaf(YType.str, 'macalgo'), ['str'])),
+                ('backupserver', (YLeaf(YType.str, 'backupserver'), ['str'])),
+                ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                ('ratelimit', (YLeaf(YType.uint32, 'ratelimit'), ['int'])),
+                ('sessionlimit', (YLeaf(YType.uint32, 'sessionlimit'), ['int'])),
+                ('rekeytime', (YLeaf(YType.uint32, 'rekeytime'), ['int'])),
+                ('rekeyvolume', (YLeaf(YType.uint32, 'rekeyvolume'), ['int'])),
+                ('windowscalefactor', (YLeaf(YType.uint32, 'windowscalefactor'), ['int'])),
+                ('passwordauthen', (YLeaf(YType.boolean, 'passwordauthen'), ['bool'])),
+                ('keyboardinteractiveauthen', (YLeaf(YType.boolean, 'keyboardinteractiveauthen'), ['bool'])),
+                ('pubkeyauthen', (YLeaf(YType.boolean, 'pubkeyauthen'), ['bool'])),
+                ('certificateauthen', (YLeaf(YType.boolean, 'certificateauthen'), ['bool'])),
+            ])
+            self.version = None
+            self.port = None
+            self.vrf = None
+            self.netconfport = None
+            self.netconfvrf = None
+            self.netconfver = None
+            self.hostkeyalgo = None
+            self.kexalgo = None
+            self.cipheralgo = None
+            self.macalgo = None
+            self.backupserver = None
+            self.dscp = None
+            self.ratelimit = None
+            self.sessionlimit = None
+            self.rekeytime = None
+            self.rekeyvolume = None
+            self.windowscalefactor = None
+            self.passwordauthen = None
+            self.keyboardinteractiveauthen = None
+            self.pubkeyauthen = None
+            self.certificateauthen = None
+            self._segment_path = lambda: "server"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ssh.Server, ['version', 'port', 'vrf', 'netconfport', 'netconfvrf', 'netconfver', 'hostkeyalgo', 'kexalgo', 'cipheralgo', 'macalgo', 'backupserver', 'dscp', 'ratelimit', 'sessionlimit', 'rekeytime', 'rekeyvolume', 'windowscalefactor', 'passwordauthen', 'keyboardinteractiveauthen', 'pubkeyauthen', 'certificateauthen'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+            return meta._meta_table['Ssh.Server']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ssh()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Ssh']['meta_info']
 
 

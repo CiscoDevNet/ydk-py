@@ -7,8 +7,11 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SnmpColdStart(Entity):
+class SnmpColdStart(_Entity_):
     """
     Generate SNMPv2\-MIB\:\:coldStart
     
@@ -29,7 +32,10 @@ class SnmpColdStart(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(SnmpColdStart, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SnmpColdStart, self).__init__()
         self._top_entity = None
 
         self.yang_name = "snmp-cold-start"
@@ -46,9 +52,13 @@ class SnmpColdStart(Entity):
         self._top_entity = SnmpColdStart()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['SnmpColdStart']['meta_info']
 
 
-class SnmpWarmStart(Entity):
+class SnmpWarmStart(_Entity_):
     """
     Generate SNMPv2\-MIB\:\:warmStart
     
@@ -60,7 +70,10 @@ class SnmpWarmStart(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(SnmpWarmStart, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SnmpWarmStart, self).__init__()
         self._top_entity = None
 
         self.yang_name = "snmp-warm-start"
@@ -77,9 +90,13 @@ class SnmpWarmStart(Entity):
         self._top_entity = SnmpWarmStart()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['SnmpWarmStart']['meta_info']
 
 
-class InterfaceLinkUp(Entity):
+class InterfaceLinkUp(_Entity_):
     """
     Generate IF\-MIB\:\:linkUp
     
@@ -96,7 +113,10 @@ class InterfaceLinkUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InterfaceLinkUp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InterfaceLinkUp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interface-link-up"
@@ -114,7 +134,7 @@ class InterfaceLinkUp(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -133,7 +153,10 @@ class InterfaceLinkUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(InterfaceLinkUp.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InterfaceLinkUp.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "interface-link-up"
@@ -152,14 +175,22 @@ class InterfaceLinkUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceLinkUp.Input, ['ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['InterfaceLinkUp.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InterfaceLinkUp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InterfaceLinkUp']['meta_info']
 
 
-class InterfaceLinkDown(Entity):
+class InterfaceLinkDown(_Entity_):
     """
     Generate IF\-MIB\:\:linkDown
     
@@ -176,7 +207,10 @@ class InterfaceLinkDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InterfaceLinkDown, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InterfaceLinkDown, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interface-link-down"
@@ -194,7 +228,7 @@ class InterfaceLinkDown(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -213,7 +247,10 @@ class InterfaceLinkDown(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(InterfaceLinkDown.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InterfaceLinkDown.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "interface-link-down"
@@ -232,14 +269,22 @@ class InterfaceLinkDown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceLinkDown.Input, ['ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['InterfaceLinkDown.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InterfaceLinkDown()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InterfaceLinkDown']['meta_info']
 
 
-class SonetSectionStatus(Entity):
+class SonetSectionStatus(_Entity_):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetSectionStatusChange
     
@@ -256,7 +301,10 @@ class SonetSectionStatus(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(SonetSectionStatus, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SonetSectionStatus, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sonet-section-status"
@@ -274,7 +322,7 @@ class SonetSectionStatus(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -293,7 +341,10 @@ class SonetSectionStatus(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(SonetSectionStatus.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SonetSectionStatus.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "sonet-section-status"
@@ -312,14 +363,22 @@ class SonetSectionStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetSectionStatus.Input, ['ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['SonetSectionStatus.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SonetSectionStatus()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['SonetSectionStatus']['meta_info']
 
 
-class SonetLineStatus(Entity):
+class SonetLineStatus(_Entity_):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetLineStatusChange
     
@@ -336,7 +395,10 @@ class SonetLineStatus(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(SonetLineStatus, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SonetLineStatus, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sonet-line-status"
@@ -354,7 +416,7 @@ class SonetLineStatus(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -373,7 +435,10 @@ class SonetLineStatus(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(SonetLineStatus.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SonetLineStatus.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "sonet-line-status"
@@ -392,14 +457,22 @@ class SonetLineStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetLineStatus.Input, ['ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['SonetLineStatus.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SonetLineStatus()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['SonetLineStatus']['meta_info']
 
 
-class SonetPathStatus(Entity):
+class SonetPathStatus(_Entity_):
     """
     Generate CISCO\-SONET\-MIB\:\:ciscoSonetPathStatusChange
     
@@ -416,7 +489,10 @@ class SonetPathStatus(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(SonetPathStatus, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SonetPathStatus, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sonet-path-status"
@@ -434,7 +510,7 @@ class SonetPathStatus(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -453,7 +529,10 @@ class SonetPathStatus(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(SonetPathStatus.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SonetPathStatus.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "sonet-path-status"
@@ -472,14 +551,22 @@ class SonetPathStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetPathStatus.Input, ['ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['SonetPathStatus.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SonetPathStatus()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['SonetPathStatus']['meta_info']
 
 
-class InfraSyslogMessageGenerated(Entity):
+class InfraSyslogMessageGenerated(_Entity_):
     """
     Generate CISCO\-SYSLOG\-MIB\:\:clogMessageGenerated
     
@@ -491,7 +578,10 @@ class InfraSyslogMessageGenerated(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraSyslogMessageGenerated, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraSyslogMessageGenerated, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-syslog-message-generated"
@@ -508,9 +598,13 @@ class InfraSyslogMessageGenerated(Entity):
         self._top_entity = InfraSyslogMessageGenerated()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraSyslogMessageGenerated']['meta_info']
 
 
-class InfraFlashDeviceInserted(Entity):
+class InfraFlashDeviceInserted(_Entity_):
     """
     Generate CISCO\-FLASH\-MIB\:\:ciscoFlashDeviceInsertedNotif
     
@@ -522,7 +616,10 @@ class InfraFlashDeviceInserted(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraFlashDeviceInserted, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraFlashDeviceInserted, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-flash-device-inserted"
@@ -539,9 +636,13 @@ class InfraFlashDeviceInserted(Entity):
         self._top_entity = InfraFlashDeviceInserted()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraFlashDeviceInserted']['meta_info']
 
 
-class InfraFlashDeviceRemoved(Entity):
+class InfraFlashDeviceRemoved(_Entity_):
     """
     Generate CISCO\-FLASH\-MIB\:\:ciscoFlashDeviceRemovedNotif
     
@@ -553,7 +654,10 @@ class InfraFlashDeviceRemoved(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraFlashDeviceRemoved, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraFlashDeviceRemoved, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-flash-device-removed"
@@ -570,9 +674,13 @@ class InfraFlashDeviceRemoved(Entity):
         self._top_entity = InfraFlashDeviceRemoved()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraFlashDeviceRemoved']['meta_info']
 
 
-class InfraRedundancyProgression(Entity):
+class InfraRedundancyProgression(_Entity_):
     """
     Generate CISCO\-RF\-MIB\:\:ciscoRFProgressionNotif
     
@@ -584,7 +692,10 @@ class InfraRedundancyProgression(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraRedundancyProgression, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraRedundancyProgression, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-redundancy-progression"
@@ -601,9 +712,13 @@ class InfraRedundancyProgression(Entity):
         self._top_entity = InfraRedundancyProgression()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraRedundancyProgression']['meta_info']
 
 
-class InfraRedundancySwitch(Entity):
+class InfraRedundancySwitch(_Entity_):
     """
     Generate CISCO\-RF\-MIB\:\:ciscoRFSwactNotif
     
@@ -615,7 +730,10 @@ class InfraRedundancySwitch(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraRedundancySwitch, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraRedundancySwitch, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-redundancy-switch"
@@ -632,9 +750,13 @@ class InfraRedundancySwitch(Entity):
         self._top_entity = InfraRedundancySwitch()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraRedundancySwitch']['meta_info']
 
 
-class InfraBridgeNewRoot(Entity):
+class InfraBridgeNewRoot(_Entity_):
     """
     Generate BRIDGE\-MIB\:\:newRoot
     
@@ -646,7 +768,10 @@ class InfraBridgeNewRoot(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraBridgeNewRoot, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraBridgeNewRoot, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-bridge-new-root"
@@ -663,9 +788,13 @@ class InfraBridgeNewRoot(Entity):
         self._top_entity = InfraBridgeNewRoot()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraBridgeNewRoot']['meta_info']
 
 
-class InfraBridgeTopologyChange(Entity):
+class InfraBridgeTopologyChange(_Entity_):
     """
     Generate BRIDGE\-MIB\:\:topologyChange
     
@@ -677,7 +806,10 @@ class InfraBridgeTopologyChange(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraBridgeTopologyChange, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraBridgeTopologyChange, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-bridge-topology-change"
@@ -694,9 +826,13 @@ class InfraBridgeTopologyChange(Entity):
         self._top_entity = InfraBridgeTopologyChange()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraBridgeTopologyChange']['meta_info']
 
 
-class InfraConfigEvent(Entity):
+class InfraConfigEvent(_Entity_):
     """
     Generate CISCO\-CONFIG\-MAN\-MIB\:\:ciscoConfigManEvent
     
@@ -708,7 +844,10 @@ class InfraConfigEvent(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraConfigEvent, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraConfigEvent, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-config-event"
@@ -725,9 +864,13 @@ class InfraConfigEvent(Entity):
         self._top_entity = InfraConfigEvent()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['InfraConfigEvent']['meta_info']
 
 
-class EntitySensorThresholdNotification(Entity):
+class EntitySensorThresholdNotification(_Entity_):
     """
     Generate CISCO\-ENTITY\-SENSOR\-MIB\:\:entSensorThresholdNotification
     
@@ -744,7 +887,10 @@ class EntitySensorThresholdNotification(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntitySensorThresholdNotification, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntitySensorThresholdNotification, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-sensor-threshold-notification"
@@ -762,7 +908,7 @@ class EntitySensorThresholdNotification(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -781,7 +927,10 @@ class EntitySensorThresholdNotification(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntitySensorThresholdNotification.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntitySensorThresholdNotification.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-sensor-threshold-notification"
@@ -800,14 +949,22 @@ class EntitySensorThresholdNotification(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntitySensorThresholdNotification.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntitySensorThresholdNotification.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntitySensorThresholdNotification()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntitySensorThresholdNotification']['meta_info']
 
 
-class EntityFruPowerStatusChangeFailed(Entity):
+class EntityFruPowerStatusChangeFailed(_Entity_):
     """
     oper status changed to failed
     
@@ -824,7 +981,10 @@ class EntityFruPowerStatusChangeFailed(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruPowerStatusChangeFailed, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruPowerStatusChangeFailed, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-power-status-change-failed"
@@ -842,7 +1002,7 @@ class EntityFruPowerStatusChangeFailed(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -861,7 +1021,10 @@ class EntityFruPowerStatusChangeFailed(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruPowerStatusChangeFailed.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruPowerStatusChangeFailed.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-power-status-change-failed"
@@ -880,14 +1043,22 @@ class EntityFruPowerStatusChangeFailed(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruPowerStatusChangeFailed.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruPowerStatusChangeFailed.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruPowerStatusChangeFailed()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruPowerStatusChangeFailed']['meta_info']
 
 
-class EntityFruModuleStatusChangeUp(Entity):
+class EntityFruModuleStatusChangeUp(_Entity_):
     """
     fu trap module status changed as ok
     
@@ -904,7 +1075,10 @@ class EntityFruModuleStatusChangeUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruModuleStatusChangeUp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruModuleStatusChangeUp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-module-status-change-up"
@@ -922,7 +1096,7 @@ class EntityFruModuleStatusChangeUp(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -941,7 +1115,10 @@ class EntityFruModuleStatusChangeUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruModuleStatusChangeUp.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruModuleStatusChangeUp.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-module-status-change-up"
@@ -960,14 +1137,22 @@ class EntityFruModuleStatusChangeUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruModuleStatusChangeUp.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruModuleStatusChangeUp.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruModuleStatusChangeUp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruModuleStatusChangeUp']['meta_info']
 
 
-class EntityFruModuleStatusChangeDown(Entity):
+class EntityFruModuleStatusChangeDown(_Entity_):
     """
     fu trap module status changed as failed
     
@@ -984,7 +1169,10 @@ class EntityFruModuleStatusChangeDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruModuleStatusChangeDown, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruModuleStatusChangeDown, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-module-status-change-down"
@@ -1002,7 +1190,7 @@ class EntityFruModuleStatusChangeDown(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1021,7 +1209,10 @@ class EntityFruModuleStatusChangeDown(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruModuleStatusChangeDown.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruModuleStatusChangeDown.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-module-status-change-down"
@@ -1040,14 +1231,22 @@ class EntityFruModuleStatusChangeDown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruModuleStatusChangeDown.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruModuleStatusChangeDown.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruModuleStatusChangeDown()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruModuleStatusChangeDown']['meta_info']
 
 
-class EntityFruFanTrayOperStatusUp(Entity):
+class EntityFruFanTrayOperStatusUp(_Entity_):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFanTrayStatusChange
     
@@ -1064,7 +1263,10 @@ class EntityFruFanTrayOperStatusUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayOperStatusUp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruFanTrayOperStatusUp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-fan-tray-oper-status-up"
@@ -1082,7 +1284,7 @@ class EntityFruFanTrayOperStatusUp(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1101,7 +1303,10 @@ class EntityFruFanTrayOperStatusUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayOperStatusUp.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruFanTrayOperStatusUp.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-fan-tray-oper-status-up"
@@ -1120,14 +1325,22 @@ class EntityFruFanTrayOperStatusUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayOperStatusUp.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruFanTrayOperStatusUp.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayOperStatusUp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruFanTrayOperStatusUp']['meta_info']
 
 
-class EntityFruFanTrayInserted(Entity):
+class EntityFruFanTrayInserted(_Entity_):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRUInserted
     
@@ -1144,7 +1357,10 @@ class EntityFruFanTrayInserted(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayInserted, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruFanTrayInserted, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-fan-tray-inserted"
@@ -1162,7 +1378,7 @@ class EntityFruFanTrayInserted(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1181,7 +1397,10 @@ class EntityFruFanTrayInserted(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayInserted.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruFanTrayInserted.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-fan-tray-inserted"
@@ -1200,14 +1419,22 @@ class EntityFruFanTrayInserted(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayInserted.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruFanTrayInserted.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayInserted()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruFanTrayInserted']['meta_info']
 
 
-class EntityFruFanTrayRemoved(Entity):
+class EntityFruFanTrayRemoved(_Entity_):
     """
     Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRURemoved
     
@@ -1224,7 +1451,10 @@ class EntityFruFanTrayRemoved(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayRemoved, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EntityFruFanTrayRemoved, self).__init__()
         self._top_entity = None
 
         self.yang_name = "entity-fru-fan-tray-removed"
@@ -1242,7 +1472,7 @@ class EntityFruFanTrayRemoved(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1261,7 +1491,10 @@ class EntityFruFanTrayRemoved(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayRemoved.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EntityFruFanTrayRemoved.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "entity-fru-fan-tray-removed"
@@ -1280,14 +1513,22 @@ class EntityFruFanTrayRemoved(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayRemoved.Input, ['entindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['EntityFruFanTrayRemoved.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayRemoved()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['EntityFruFanTrayRemoved']['meta_info']
 
 
-class PlatformHfrBundleDownedLink(Entity):
+class PlatformHfrBundleDownedLink(_Entity_):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhBundleDownedLinkNotification
     
@@ -1304,7 +1545,10 @@ class PlatformHfrBundleDownedLink(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(PlatformHfrBundleDownedLink, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformHfrBundleDownedLink, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-hfr-bundle-downed-link"
@@ -1322,7 +1566,7 @@ class PlatformHfrBundleDownedLink(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1339,7 +1583,10 @@ class PlatformHfrBundleDownedLink(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(PlatformHfrBundleDownedLink.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformHfrBundleDownedLink.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "platform-hfr-bundle-downed-link"
@@ -1358,14 +1605,22 @@ class PlatformHfrBundleDownedLink(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrBundleDownedLink.Input, ['bundle_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['PlatformHfrBundleDownedLink.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformHfrBundleDownedLink()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['PlatformHfrBundleDownedLink']['meta_info']
 
 
-class PlatformHfrBundleState(Entity):
+class PlatformHfrBundleState(_Entity_):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhBundleStateNotification
     
@@ -1382,7 +1637,10 @@ class PlatformHfrBundleState(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(PlatformHfrBundleState, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformHfrBundleState, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-hfr-bundle-state"
@@ -1400,7 +1658,7 @@ class PlatformHfrBundleState(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1417,7 +1675,10 @@ class PlatformHfrBundleState(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(PlatformHfrBundleState.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformHfrBundleState.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "platform-hfr-bundle-state"
@@ -1436,14 +1697,22 @@ class PlatformHfrBundleState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrBundleState.Input, ['bundle_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['PlatformHfrBundleState.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformHfrBundleState()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['PlatformHfrBundleState']['meta_info']
 
 
-class PlatformHfrPlaneState(Entity):
+class PlatformHfrPlaneState(_Entity_):
     """
     Generate CISCO\-FABRIC\-HFR\-MIB\:\:cfhPlaneStateNotification
     
@@ -1460,7 +1729,10 @@ class PlatformHfrPlaneState(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(PlatformHfrPlaneState, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformHfrPlaneState, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-hfr-plane-state"
@@ -1478,7 +1750,7 @@ class PlatformHfrPlaneState(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1497,7 +1769,10 @@ class PlatformHfrPlaneState(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(PlatformHfrPlaneState.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformHfrPlaneState.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "platform-hfr-plane-state"
@@ -1516,14 +1791,22 @@ class PlatformHfrPlaneState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrPlaneState.Input, ['plane_id'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['PlatformHfrPlaneState.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformHfrPlaneState()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['PlatformHfrPlaneState']['meta_info']
 
 
-class RoutingBgpEstablished(Entity):
+class RoutingBgpEstablished(_Entity_):
     """
     Generate BGP4\-MIB\:\:bglEstablishedNotification
     
@@ -1535,7 +1818,10 @@ class RoutingBgpEstablished(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingBgpEstablished, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingBgpEstablished, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-bgp-established"
@@ -1552,9 +1838,13 @@ class RoutingBgpEstablished(Entity):
         self._top_entity = RoutingBgpEstablished()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpEstablished']['meta_info']
 
 
-class RoutingBgpEstablishedRemotePeer(Entity):
+class RoutingBgpEstablishedRemotePeer(_Entity_):
     """
     Generate BGP4\-MIB\:\:bglEstablishedNotification remote peer
     
@@ -1571,7 +1861,10 @@ class RoutingBgpEstablishedRemotePeer(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingBgpEstablishedRemotePeer, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingBgpEstablishedRemotePeer, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-bgp-established-remote-peer"
@@ -1589,7 +1882,7 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1610,7 +1903,10 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingBgpEstablishedRemotePeer.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingBgpEstablishedRemotePeer.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-bgp-established-remote-peer"
@@ -1629,14 +1925,22 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingBgpEstablishedRemotePeer.Input, ['address'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingBgpEstablishedRemotePeer.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingBgpEstablishedRemotePeer()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpEstablishedRemotePeer']['meta_info']
 
 
-class RoutingBgpStateChange(Entity):
+class RoutingBgpStateChange(_Entity_):
     """
     Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition
     
@@ -1648,7 +1952,10 @@ class RoutingBgpStateChange(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingBgpStateChange, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingBgpStateChange, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-bgp-state-change"
@@ -1665,9 +1972,13 @@ class RoutingBgpStateChange(Entity):
         self._top_entity = RoutingBgpStateChange()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpStateChange']['meta_info']
 
 
-class RoutingBgpStateChangeRemotePeer(Entity):
+class RoutingBgpStateChangeRemotePeer(_Entity_):
     """
     Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition remote peer
     
@@ -1684,7 +1995,10 @@ class RoutingBgpStateChangeRemotePeer(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingBgpStateChangeRemotePeer, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingBgpStateChangeRemotePeer, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-bgp-state-change-remote-peer"
@@ -1702,7 +2016,7 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1723,7 +2037,10 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingBgpStateChangeRemotePeer.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingBgpStateChangeRemotePeer.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-bgp-state-change-remote-peer"
@@ -1742,14 +2059,22 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingBgpStateChangeRemotePeer.Input, ['address'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingBgpStateChangeRemotePeer.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingBgpStateChangeRemotePeer()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpStateChangeRemotePeer']['meta_info']
 
 
-class RoutingOspfNeighborStateChange(Entity):
+class RoutingOspfNeighborStateChange(_Entity_):
     """
     Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange
     
@@ -1761,7 +2086,10 @@ class RoutingOspfNeighborStateChange(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingOspfNeighborStateChange, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingOspfNeighborStateChange, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-ospf-neighbor-state-change"
@@ -1778,9 +2106,13 @@ class RoutingOspfNeighborStateChange(Entity):
         self._top_entity = RoutingOspfNeighborStateChange()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingOspfNeighborStateChange']['meta_info']
 
 
-class RoutingOspfNeighborStateChangeAddress(Entity):
+class RoutingOspfNeighborStateChangeAddress(_Entity_):
     """
     Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange address
     
@@ -1797,7 +2129,10 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingOspfNeighborStateChangeAddress, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingOspfNeighborStateChangeAddress, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-ospf-neighbor-state-change-address"
@@ -1815,7 +2150,7 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1845,7 +2180,10 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingOspfNeighborStateChangeAddress.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingOspfNeighborStateChangeAddress.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-ospf-neighbor-state-change-address"
@@ -1866,14 +2204,22 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingOspfNeighborStateChangeAddress.Input, ['address', 'ifindex'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingOspfNeighborStateChangeAddress.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingOspfNeighborStateChangeAddress()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingOspfNeighborStateChangeAddress']['meta_info']
 
 
-class RoutingMplsLdpSessionDown(Entity):
+class RoutingMplsLdpSessionDown(_Entity_):
     """
     Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown
     
@@ -1885,7 +2231,10 @@ class RoutingMplsLdpSessionDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsLdpSessionDown, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsLdpSessionDown, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-ldp-session-down"
@@ -1902,9 +2251,13 @@ class RoutingMplsLdpSessionDown(Entity):
         self._top_entity = RoutingMplsLdpSessionDown()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsLdpSessionDown']['meta_info']
 
 
-class RoutingMplsLdpSessionDownEntityId(Entity):
+class RoutingMplsLdpSessionDownEntityId(_Entity_):
     """
     Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown entity\-id
     
@@ -1921,7 +2274,10 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsLdpSessionDownEntityId, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsLdpSessionDownEntityId, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-ldp-session-down-entity-id"
@@ -1939,7 +2295,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1978,7 +2334,10 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsLdpSessionDownEntityId.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingMplsLdpSessionDownEntityId.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-mpls-ldp-session-down-entity-id"
@@ -2001,14 +2360,22 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsLdpSessionDownEntityId.Input, ['entity_id', 'entity_index', 'peer_id'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingMplsLdpSessionDownEntityId.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingMplsLdpSessionDownEntityId()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsLdpSessionDownEntityId']['meta_info']
 
 
-class RoutingMplsTunnelReRouted(Entity):
+class RoutingMplsTunnelReRouted(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted
     
@@ -2020,7 +2387,10 @@ class RoutingMplsTunnelReRouted(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReRouted, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelReRouted, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-re-routed"
@@ -2037,9 +2407,13 @@ class RoutingMplsTunnelReRouted(Entity):
         self._top_entity = RoutingMplsTunnelReRouted()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReRouted']['meta_info']
 
 
-class RoutingMplsTunnelReRoutedIndex(Entity):
+class RoutingMplsTunnelReRoutedIndex(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted index
     
@@ -2056,7 +2430,10 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReRoutedIndex, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelReRoutedIndex, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-re-routed-index"
@@ -2074,7 +2451,7 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -2122,7 +2499,10 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsTunnelReRoutedIndex.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingMplsTunnelReRoutedIndex.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-mpls-tunnel-re-routed-index"
@@ -2147,14 +2527,22 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelReRoutedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingMplsTunnelReRoutedIndex.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReRoutedIndex()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReRoutedIndex']['meta_info']
 
 
-class RoutingMplsTunnelReOptimized(Entity):
+class RoutingMplsTunnelReOptimized(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized
     
@@ -2166,7 +2554,10 @@ class RoutingMplsTunnelReOptimized(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReOptimized, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelReOptimized, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-re-optimized"
@@ -2183,9 +2574,13 @@ class RoutingMplsTunnelReOptimized(Entity):
         self._top_entity = RoutingMplsTunnelReOptimized()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReOptimized']['meta_info']
 
 
-class RoutingMplsTunnelReOptimizedIndex(Entity):
+class RoutingMplsTunnelReOptimizedIndex(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized index
     
@@ -2202,7 +2597,10 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReOptimizedIndex, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelReOptimizedIndex, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-re-optimized-index"
@@ -2220,7 +2618,7 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -2268,7 +2666,10 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsTunnelReOptimizedIndex.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingMplsTunnelReOptimizedIndex.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-mpls-tunnel-re-optimized-index"
@@ -2293,14 +2694,22 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelReOptimizedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingMplsTunnelReOptimizedIndex.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReOptimizedIndex()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReOptimizedIndex']['meta_info']
 
 
-class RoutingMplsTunnelDown(Entity):
+class RoutingMplsTunnelDown(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
     
@@ -2312,7 +2721,10 @@ class RoutingMplsTunnelDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelDown, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelDown, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-down"
@@ -2329,9 +2741,13 @@ class RoutingMplsTunnelDown(Entity):
         self._top_entity = RoutingMplsTunnelDown()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelDown']['meta_info']
 
 
-class RoutingMplsTunnelDownIndex(Entity):
+class RoutingMplsTunnelDownIndex(_Entity_):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown index
     
@@ -2348,7 +2764,10 @@ class RoutingMplsTunnelDownIndex(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelDownIndex, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingMplsTunnelDownIndex, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-mpls-tunnel-down-index"
@@ -2366,7 +2785,7 @@ class RoutingMplsTunnelDownIndex(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -2414,7 +2833,10 @@ class RoutingMplsTunnelDownIndex(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsTunnelDownIndex.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingMplsTunnelDownIndex.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "routing-mpls-tunnel-down-index"
@@ -2439,14 +2861,22 @@ class RoutingMplsTunnelDownIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelDownIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingMplsTunnelDownIndex.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelDownIndex()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelDownIndex']['meta_info']
 
 
-class All(Entity):
+class All(_Entity_):
     """
     generate all the supported traps
     
@@ -2458,7 +2888,10 @@ class All(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(All, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(All, self).__init__()
         self._top_entity = None
 
         self.yang_name = "all"
@@ -2475,5 +2908,9 @@ class All(Entity):
         self._top_entity = All()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['All']['meta_info']
 
 

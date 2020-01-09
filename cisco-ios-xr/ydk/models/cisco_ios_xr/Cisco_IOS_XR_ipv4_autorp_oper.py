@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class AutorpProtocolMode(Enum):
     bidirectional = Enum.YLeaf(1, "bidirectional")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+        return meta._meta_table['AutorpProtocolMode']
 
-class AutoRp(Entity):
+
+
+class AutoRp(_Entity_):
     """
     AutoRP operational data
     
@@ -68,7 +77,10 @@ class AutoRp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(AutoRp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AutoRp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "auto-rp"
@@ -93,7 +105,7 @@ class AutoRp(Entity):
         self._perform_setattr(AutoRp, [], name, value)
 
 
-    class Standby(Entity):
+    class Standby(_Entity_):
         """
         Standby Process
         
@@ -119,7 +131,10 @@ class AutoRp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AutoRp.Standby, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AutoRp.Standby, self).__init__()
 
             self.yang_name = "standby"
             self.yang_parent_name = "auto-rp"
@@ -144,7 +159,7 @@ class AutoRp(Entity):
             self._perform_setattr(AutoRp.Standby, [], name, value)
 
 
-        class CandidateRp(Entity):
+        class CandidateRp(_Entity_):
             """
             AutoRP Candidate RP
             
@@ -170,7 +185,10 @@ class AutoRp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AutoRp.Standby.CandidateRp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AutoRp.Standby.CandidateRp, self).__init__()
 
                 self.yang_name = "candidate-rp"
                 self.yang_parent_name = "standby"
@@ -195,7 +213,7 @@ class AutoRp(Entity):
                 self._perform_setattr(AutoRp.Standby.CandidateRp, [], name, value)
 
 
-            class Traffic(Entity):
+            class Traffic(_Entity_):
                 """
                 AutoRP Candidate Traffic Counters
                 
@@ -225,7 +243,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Standby.CandidateRp.Traffic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Standby.CandidateRp.Traffic, self).__init__()
 
                     self.yang_name = "traffic"
                     self.yang_parent_name = "candidate-rp"
@@ -246,9 +267,13 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.CandidateRp.Traffic']['meta_info']
 
 
-            class Rps(Entity):
+            class Rps(_Entity_):
                 """
                 AutoRP Candidate RP Table
                 
@@ -267,7 +292,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Standby.CandidateRp.Rps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Standby.CandidateRp.Rps, self).__init__()
 
                     self.yang_name = "rps"
                     self.yang_parent_name = "candidate-rp"
@@ -286,7 +314,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Standby.CandidateRp.Rps, [], name, value)
 
 
-                class Rp(Entity):
+                class Rp(_Entity_):
                     """
                     AutoRP Candidate RP Entry
                     
@@ -355,7 +383,10 @@ class AutoRp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AutoRp.Standby.CandidateRp.Rps.Rp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AutoRp.Standby.CandidateRp.Rps.Rp, self).__init__()
 
                         self.yang_name = "rp"
                         self.yang_parent_name = "rps"
@@ -386,11 +417,23 @@ class AutoRp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Standby.CandidateRp.Rps.Rp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.CandidateRp.Rps']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                return meta._meta_table['AutoRp.Standby.CandidateRp']['meta_info']
 
 
-
-
-        class MappingAgent(Entity):
+        class MappingAgent(_Entity_):
             """
             AutoRP Mapping Agent Table
             
@@ -423,7 +466,10 @@ class AutoRp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AutoRp.Standby.MappingAgent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AutoRp.Standby.MappingAgent, self).__init__()
 
                 self.yang_name = "mapping-agent"
                 self.yang_parent_name = "standby"
@@ -452,7 +498,7 @@ class AutoRp(Entity):
                 self._perform_setattr(AutoRp.Standby.MappingAgent, [], name, value)
 
 
-            class Traffic(Entity):
+            class Traffic(_Entity_):
                 """
                 AutoRP Mapping Agent Traffic Counters
                 
@@ -500,7 +546,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Standby.MappingAgent.Traffic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Standby.MappingAgent.Traffic, self).__init__()
 
                     self.yang_name = "traffic"
                     self.yang_parent_name = "mapping-agent"
@@ -525,9 +574,13 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.Traffic, ['active_sent_packets', 'standby_sent_packets', 'active_received_packets', 'standby_received_packets'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.MappingAgent.Traffic']['meta_info']
 
 
-            class RpAddresses(Entity):
+            class RpAddresses(_Entity_):
                 """
                 AutoRP Mapping Agent Table Entries
                 
@@ -546,7 +599,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Standby.MappingAgent.RpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Standby.MappingAgent.RpAddresses, self).__init__()
 
                     self.yang_name = "rp-addresses"
                     self.yang_parent_name = "mapping-agent"
@@ -565,7 +621,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses, [], name, value)
 
 
-                class RpAddress(Entity):
+                class RpAddress(_Entity_):
                     """
                     AutoRP Mapping Agent Entry
                     
@@ -622,7 +678,10 @@ class AutoRp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, self).__init__()
 
                         self.yang_name = "rp-address"
                         self.yang_parent_name = "rp-addresses"
@@ -650,7 +709,7 @@ class AutoRp(Entity):
                         self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, ['rp_address', 'rp_address_xr', 'expiry_time', 'pim_version'], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Array of ranges
                         
@@ -723,7 +782,10 @@ class AutoRp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "rp-address"
@@ -753,11 +815,23 @@ class AutoRp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, ['prefix', 'prefix_length', 'protocol_mode', 'is_advertised', 'create_type', 'check_point_object_id', 'uptime'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                            return meta._meta_table['AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Standby.MappingAgent.RpAddresses.RpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.MappingAgent.RpAddresses']['meta_info']
 
 
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 AutoRP Mapping Agent Summary Information
                 
@@ -794,7 +868,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Standby.MappingAgent.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Standby.MappingAgent.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "mapping-agent"
@@ -817,11 +894,23 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.Summary, ['is_maximum_disabled', 'cache_limit', 'cache_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.MappingAgent.Summary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                return meta._meta_table['AutoRp.Standby.MappingAgent']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+            return meta._meta_table['AutoRp.Standby']['meta_info']
 
 
-
-
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Active Process
         
@@ -847,7 +936,10 @@ class AutoRp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AutoRp.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AutoRp.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "auto-rp"
@@ -872,7 +964,7 @@ class AutoRp(Entity):
             self._perform_setattr(AutoRp.Active, [], name, value)
 
 
-        class CandidateRp(Entity):
+        class CandidateRp(_Entity_):
             """
             AutoRP Candidate RP
             
@@ -898,7 +990,10 @@ class AutoRp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AutoRp.Active.CandidateRp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AutoRp.Active.CandidateRp, self).__init__()
 
                 self.yang_name = "candidate-rp"
                 self.yang_parent_name = "active"
@@ -923,7 +1018,7 @@ class AutoRp(Entity):
                 self._perform_setattr(AutoRp.Active.CandidateRp, [], name, value)
 
 
-            class Traffic(Entity):
+            class Traffic(_Entity_):
                 """
                 AutoRP Candidate Traffic Counters
                 
@@ -953,7 +1048,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Active.CandidateRp.Traffic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Active.CandidateRp.Traffic, self).__init__()
 
                     self.yang_name = "traffic"
                     self.yang_parent_name = "candidate-rp"
@@ -974,9 +1072,13 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.CandidateRp.Traffic']['meta_info']
 
 
-            class Rps(Entity):
+            class Rps(_Entity_):
                 """
                 AutoRP Candidate RP Table
                 
@@ -995,7 +1097,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Active.CandidateRp.Rps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Active.CandidateRp.Rps, self).__init__()
 
                     self.yang_name = "rps"
                     self.yang_parent_name = "candidate-rp"
@@ -1014,7 +1119,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Active.CandidateRp.Rps, [], name, value)
 
 
-                class Rp(Entity):
+                class Rp(_Entity_):
                     """
                     AutoRP Candidate RP Entry
                     
@@ -1083,7 +1188,10 @@ class AutoRp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AutoRp.Active.CandidateRp.Rps.Rp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AutoRp.Active.CandidateRp.Rps.Rp, self).__init__()
 
                         self.yang_name = "rp"
                         self.yang_parent_name = "rps"
@@ -1114,11 +1222,23 @@ class AutoRp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Active.CandidateRp.Rps.Rp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.CandidateRp.Rps']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                return meta._meta_table['AutoRp.Active.CandidateRp']['meta_info']
 
 
-
-
-        class MappingAgent(Entity):
+        class MappingAgent(_Entity_):
             """
             AutoRP Mapping Agent Table
             
@@ -1151,7 +1271,10 @@ class AutoRp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AutoRp.Active.MappingAgent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AutoRp.Active.MappingAgent, self).__init__()
 
                 self.yang_name = "mapping-agent"
                 self.yang_parent_name = "active"
@@ -1180,7 +1303,7 @@ class AutoRp(Entity):
                 self._perform_setattr(AutoRp.Active.MappingAgent, [], name, value)
 
 
-            class Traffic(Entity):
+            class Traffic(_Entity_):
                 """
                 AutoRP Mapping Agent Traffic Counters
                 
@@ -1228,7 +1351,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Active.MappingAgent.Traffic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Active.MappingAgent.Traffic, self).__init__()
 
                     self.yang_name = "traffic"
                     self.yang_parent_name = "mapping-agent"
@@ -1253,9 +1379,13 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.MappingAgent.Traffic, ['active_sent_packets', 'standby_sent_packets', 'active_received_packets', 'standby_received_packets'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.MappingAgent.Traffic']['meta_info']
 
 
-            class RpAddresses(Entity):
+            class RpAddresses(_Entity_):
                 """
                 AutoRP Mapping Agent Table Entries
                 
@@ -1274,7 +1404,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Active.MappingAgent.RpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Active.MappingAgent.RpAddresses, self).__init__()
 
                     self.yang_name = "rp-addresses"
                     self.yang_parent_name = "mapping-agent"
@@ -1293,7 +1426,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses, [], name, value)
 
 
-                class RpAddress(Entity):
+                class RpAddress(_Entity_):
                     """
                     AutoRP Mapping Agent Entry
                     
@@ -1350,7 +1483,10 @@ class AutoRp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, self).__init__()
 
                         self.yang_name = "rp-address"
                         self.yang_parent_name = "rp-addresses"
@@ -1378,7 +1514,7 @@ class AutoRp(Entity):
                         self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, ['rp_address', 'rp_address_xr', 'expiry_time', 'pim_version'], name, value)
 
 
-                    class Range(Entity):
+                    class Range(_Entity_):
                         """
                         Array of ranges
                         
@@ -1451,7 +1587,10 @@ class AutoRp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, self).__init__()
 
                             self.yang_name = "range"
                             self.yang_parent_name = "rp-address"
@@ -1481,11 +1620,23 @@ class AutoRp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, ['prefix', 'prefix_length', 'protocol_mode', 'is_advertised', 'create_type', 'check_point_object_id', 'uptime'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                            return meta._meta_table['AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Active.MappingAgent.RpAddresses.RpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.MappingAgent.RpAddresses']['meta_info']
 
 
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 AutoRP Mapping Agent Summary Information
                 
@@ -1522,7 +1673,10 @@ class AutoRp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AutoRp.Active.MappingAgent.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AutoRp.Active.MappingAgent.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "mapping-agent"
@@ -1545,12 +1699,28 @@ class AutoRp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.MappingAgent.Summary, ['is_maximum_disabled', 'cache_limit', 'cache_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.MappingAgent.Summary']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                return meta._meta_table['AutoRp.Active.MappingAgent']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+            return meta._meta_table['AutoRp.Active']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AutoRp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+        return meta._meta_table['AutoRp']['meta_info']
 
 

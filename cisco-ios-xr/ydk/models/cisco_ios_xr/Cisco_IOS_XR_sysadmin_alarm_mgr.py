@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -55,6 +58,12 @@ class AgentStateTd(Enum):
     disconnected = Enum.YLeaf(5, "disconnected")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['AgentStateTd']
+
+
 class AgentTypeTd(Enum):
     """
     AgentTypeTd (Enum Class)
@@ -76,6 +85,12 @@ class AgentTypeTd(Enum):
     consumer = Enum.YLeaf(2, "consumer")
 
     subscriber = Enum.YLeaf(3, "subscriber")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['AgentTypeTd']
 
 
 class GroupTd(Enum):
@@ -163,6 +178,12 @@ class GroupTd(Enum):
     last = Enum.YLeaf(19, "last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['GroupTd']
+
+
 class SeverityTd(Enum):
     """
     SeverityTd (Enum Class)
@@ -196,6 +217,12 @@ class SeverityTd(Enum):
     critical = Enum.YLeaf(5, "critical")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['SeverityTd']
+
+
 class StatusTd(Enum):
     """
     StatusTd (Enum Class)
@@ -221,8 +248,14 @@ class StatusTd(Enum):
     suppress = Enum.YLeaf(3, "suppress")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['StatusTd']
 
-class AlarmMgr(Entity):
+
+
+class AlarmMgr(_Entity_):
     """
     Calvados alarms operational data model
     
@@ -255,7 +288,10 @@ class AlarmMgr(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(AlarmMgr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AlarmMgr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "alarm_mgr"
@@ -282,7 +318,7 @@ class AlarmMgr(Entity):
         self._perform_setattr(AlarmMgr, [], name, value)
 
 
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -308,7 +344,10 @@ class AlarmMgr(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(AlarmMgr.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AlarmMgr.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "alarm_mgr"
@@ -330,7 +369,7 @@ class AlarmMgr(Entity):
             self._perform_setattr(AlarmMgr.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -356,7 +395,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -377,7 +419,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -403,7 +445,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -424,7 +469,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -443,7 +488,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -461,25 +509,41 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Trace.Location.AllOptions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Trace.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+            return meta._meta_table['AlarmMgr.Trace']['meta_info']
 
 
-
-
-
-    class Brief(Entity):
+    class Brief(_Entity_):
         """
         A set of brief alarm commands
         
         .. attribute:: card
         
-        	Alarms reported at the local card as  specified by the location parameter
+        	Alarms reported at the local card as specified by the location parameter
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card>`
         
         	**config**\: False
         
         .. attribute:: rack
         
-        	Alarms reported at the rack scope    specified by the rack\-id
+        	Alarms reported at the rack scope specified by the rack\-id
         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack>`
         
         	**config**\: False
@@ -499,7 +563,10 @@ class AlarmMgr(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(AlarmMgr.Brief, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AlarmMgr.Brief, self).__init__()
 
             self.yang_name = "brief"
             self.yang_parent_name = "alarm_mgr"
@@ -528,9 +595,9 @@ class AlarmMgr(Entity):
             self._perform_setattr(AlarmMgr.Brief, [], name, value)
 
 
-        class Card(Entity):
+        class Card(_Entity_):
             """
-            Alarms reported at the local card as 
+            Alarms reported at the local card as
             specified by the location parameter
             
             .. attribute:: location
@@ -548,7 +615,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Brief.Card, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Brief.Card, self).__init__()
 
                 self.yang_name = "card"
                 self.yang_parent_name = "brief"
@@ -567,7 +637,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Brief.Card, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -609,7 +679,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Brief.Card.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Brief.Card.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "card"
@@ -633,7 +706,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Brief.Card.Location, ['locations'], name, value)
 
 
-                class Active(Entity):
+                class Active(_Entity_):
                     """
                     
                     
@@ -708,7 +781,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Card.Location.Active, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Card.Location.Active, self).__init__()
 
                         self.yang_name = "active"
                         self.yang_parent_name = "location"
@@ -742,9 +818,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Card.Location.Active']['meta_info']
 
 
-                class History(Entity):
+                class History(_Entity_):
                     """
                     
                     
@@ -826,7 +906,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Card.Location.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Card.Location.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "location"
@@ -862,9 +945,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Card.Location.History']['meta_info']
 
 
-                class Suppressed(Entity):
+                class Suppressed(_Entity_):
                     """
                     
                     
@@ -946,7 +1033,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Card.Location.Suppressed, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Card.Location.Suppressed, self).__init__()
 
                         self.yang_name = "suppressed"
                         self.yang_parent_name = "location"
@@ -982,13 +1072,25 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Card.Location.Suppressed']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Brief.Card.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Brief.Card']['meta_info']
 
 
-
-
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
-            Alarms reported at the rack scope   
+            Alarms reported at the rack scope
             specified by the rack\-id
             
             .. attribute:: rack_locations
@@ -1006,7 +1108,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Brief.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Brief.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "brief"
@@ -1025,7 +1130,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Brief.Rack, [], name, value)
 
 
-            class RackLocations(Entity):
+            class RackLocations(_Entity_):
                 """
                 
                 
@@ -1067,7 +1172,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Brief.Rack.RackLocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Brief.Rack.RackLocations, self).__init__()
 
                     self.yang_name = "rack_locations"
                     self.yang_parent_name = "rack"
@@ -1091,7 +1199,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations, ['rackid'], name, value)
 
 
-                class Active(Entity):
+                class Active(_Entity_):
                     """
                     
                     
@@ -1166,7 +1274,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Rack.RackLocations.Active, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Rack.RackLocations.Active, self).__init__()
 
                         self.yang_name = "active"
                         self.yang_parent_name = "rack_locations"
@@ -1200,9 +1311,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Rack.RackLocations.Active']['meta_info']
 
 
-                class History(Entity):
+                class History(_Entity_):
                     """
                     
                     
@@ -1284,7 +1399,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Rack.RackLocations.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Rack.RackLocations.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "rack_locations"
@@ -1320,9 +1438,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Rack.RackLocations.History']['meta_info']
 
 
-                class Suppressed(Entity):
+                class Suppressed(_Entity_):
                     """
                     
                     
@@ -1404,7 +1526,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Brief.Rack.RackLocations.Suppressed, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Brief.Rack.RackLocations.Suppressed, self).__init__()
 
                         self.yang_name = "suppressed"
                         self.yang_parent_name = "rack_locations"
@@ -1440,11 +1565,23 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Brief.Rack.RackLocations.Suppressed']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Brief.Rack.RackLocations']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Brief.Rack']['meta_info']
 
 
-
-
-        class System(Entity):
+        class System(_Entity_):
             """
             Alarms reported at the system scope
             
@@ -1477,7 +1614,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Brief.System, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Brief.System, self).__init__()
 
                 self.yang_name = "system"
                 self.yang_parent_name = "brief"
@@ -1498,7 +1638,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Brief.System, [], name, value)
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 
                 
@@ -1573,7 +1713,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Brief.System.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Brief.System.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "system"
@@ -1608,9 +1751,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Brief.System.Active']['meta_info']
 
 
-            class History(Entity):
+            class History(_Entity_):
                 """
                 
                 
@@ -1692,7 +1839,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Brief.System.History, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Brief.System.History, self).__init__()
 
                     self.yang_name = "history"
                     self.yang_parent_name = "system"
@@ -1729,9 +1879,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Brief.System.History']['meta_info']
 
 
-            class Suppressed(Entity):
+            class Suppressed(_Entity_):
                 """
                 
                 
@@ -1813,7 +1967,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Brief.System.Suppressed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Brief.System.Suppressed, self).__init__()
 
                     self.yang_name = "suppressed"
                     self.yang_parent_name = "system"
@@ -1850,31 +2007,43 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Brief.System.Suppressed']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Brief.System']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+            return meta._meta_table['AlarmMgr.Brief']['meta_info']
 
 
-
-
-    class Detail(Entity):
+    class Detail(_Entity_):
         """
         A set of detail alarm commands
         
         .. attribute:: card
         
-        	Alarms reported at the local card as  specified by the location parameter
+        	Alarms reported at the local card as specified by the location parameter
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card>`
         
         	**config**\: False
         
         .. attribute:: rack
         
-        	Alarms reported at the rack as  specified by the location parameter
+        	Alarms reported at the rack as specified by the location parameter
         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack>`
         
         	**config**\: False
         
         .. attribute:: system
         
-        	Alarms reported at the system as  specified by the location parameter
+        	Alarms reported at the system as specified by the location parameter
         	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System>`
         
         	**config**\: False
@@ -1887,7 +2056,10 @@ class AlarmMgr(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(AlarmMgr.Detail, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AlarmMgr.Detail, self).__init__()
 
             self.yang_name = "detail"
             self.yang_parent_name = "alarm_mgr"
@@ -1916,9 +2088,9 @@ class AlarmMgr(Entity):
             self._perform_setattr(AlarmMgr.Detail, [], name, value)
 
 
-        class Card(Entity):
+        class Card(_Entity_):
             """
-            Alarms reported at the local card as 
+            Alarms reported at the local card as
             specified by the location parameter
             
             .. attribute:: location
@@ -1936,7 +2108,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Detail.Card, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Detail.Card, self).__init__()
 
                 self.yang_name = "card"
                 self.yang_parent_name = "detail"
@@ -1955,7 +2130,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Detail.Card, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -2011,7 +2186,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.Card.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.Card.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "card"
@@ -2037,7 +2215,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.Card.Location, ['locations'], name, value)
 
 
-                class Active(Entity):
+                class Active(_Entity_):
                     """
                     
                     
@@ -2151,7 +2329,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Card.Location.Active, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Card.Location.Active, self).__init__()
 
                         self.yang_name = "active"
                         self.yang_parent_name = "location"
@@ -2195,9 +2376,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Card.Location.Active']['meta_info']
 
 
-                class History(Entity):
+                class History(_Entity_):
                     """
                     
                     
@@ -2311,7 +2496,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Card.Location.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Card.Location.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "location"
@@ -2355,9 +2543,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Card.Location.History']['meta_info']
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     
                     
@@ -2484,7 +2676,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Card.Location.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Card.Location.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "location"
@@ -2526,9 +2721,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Card.Location.Stats']['meta_info']
 
 
-                class Clients(Entity):
+                class Clients(_Entity_):
                     """
                     
                     
@@ -2673,7 +2872,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Card.Location.Clients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Card.Location.Clients, self).__init__()
 
                         self.yang_name = "clients"
                         self.yang_parent_name = "location"
@@ -2723,9 +2925,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Card.Location.Clients']['meta_info']
 
 
-                class Suppressed(Entity):
+                class Suppressed(_Entity_):
                     """
                     
                     
@@ -2839,7 +3045,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Card.Location.Suppressed, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Card.Location.Suppressed, self).__init__()
 
                         self.yang_name = "suppressed"
                         self.yang_parent_name = "location"
@@ -2883,13 +3092,25 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Card.Location.Suppressed']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.Card.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Detail.Card']['meta_info']
 
 
-
-
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
-            Alarms reported at the rack as 
+            Alarms reported at the rack as
             specified by the location parameter
             
             .. attribute:: rack_locations
@@ -2907,7 +3128,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Detail.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Detail.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "detail"
@@ -2926,7 +3150,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Detail.Rack, [], name, value)
 
 
-            class RackLocations(Entity):
+            class RackLocations(_Entity_):
                 """
                 
                 
@@ -2982,7 +3206,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.Rack.RackLocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.Rack.RackLocations, self).__init__()
 
                     self.yang_name = "rack_locations"
                     self.yang_parent_name = "rack"
@@ -3008,7 +3235,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations, ['rackid'], name, value)
 
 
-                class Active(Entity):
+                class Active(_Entity_):
                     """
                     
                     
@@ -3122,7 +3349,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Rack.RackLocations.Active, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Rack.RackLocations.Active, self).__init__()
 
                         self.yang_name = "active"
                         self.yang_parent_name = "rack_locations"
@@ -3166,9 +3396,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations.Active']['meta_info']
 
 
-                class History(Entity):
+                class History(_Entity_):
                     """
                     
                     
@@ -3282,7 +3516,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Rack.RackLocations.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Rack.RackLocations.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "rack_locations"
@@ -3326,9 +3563,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations.History']['meta_info']
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     
                     
@@ -3455,7 +3696,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Rack.RackLocations.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Rack.RackLocations.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "rack_locations"
@@ -3497,9 +3741,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations.Stats']['meta_info']
 
 
-                class Clients(Entity):
+                class Clients(_Entity_):
                     """
                     
                     
@@ -3644,7 +3892,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Rack.RackLocations.Clients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Rack.RackLocations.Clients, self).__init__()
 
                         self.yang_name = "clients"
                         self.yang_parent_name = "rack_locations"
@@ -3694,9 +3945,13 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations.Clients']['meta_info']
 
 
-                class Suppressed(Entity):
+                class Suppressed(_Entity_):
                     """
                     
                     
@@ -3810,7 +4065,10 @@ class AlarmMgr(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(AlarmMgr.Detail.Rack.RackLocations.Suppressed, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AlarmMgr.Detail.Rack.RackLocations.Suppressed, self).__init__()
 
                         self.yang_name = "suppressed"
                         self.yang_parent_name = "rack_locations"
@@ -3854,13 +4112,25 @@ class AlarmMgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                        return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations.Suppressed']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.Rack.RackLocations']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Detail.Rack']['meta_info']
 
 
-
-
-        class System(Entity):
+        class System(_Entity_):
             """
-            Alarms reported at the system as 
+            Alarms reported at the system as
             specified by the location parameter
             
             .. attribute:: active
@@ -3906,7 +4176,10 @@ class AlarmMgr(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(AlarmMgr.Detail.System, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AlarmMgr.Detail.System, self).__init__()
 
                 self.yang_name = "system"
                 self.yang_parent_name = "detail"
@@ -3929,7 +4202,7 @@ class AlarmMgr(Entity):
                 self._perform_setattr(AlarmMgr.Detail.System, [], name, value)
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 
                 
@@ -4043,7 +4316,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.System.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.System.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "system"
@@ -4088,9 +4364,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.System.Active']['meta_info']
 
 
-            class History(Entity):
+            class History(_Entity_):
                 """
                 
                 
@@ -4204,7 +4484,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.System.History, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.System.History, self).__init__()
 
                     self.yang_name = "history"
                     self.yang_parent_name = "system"
@@ -4249,9 +4532,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.System.History']['meta_info']
 
 
-            class Stats(Entity):
+            class Stats(_Entity_):
                 """
                 
                 
@@ -4378,7 +4665,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.System.Stats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.System.Stats, self).__init__()
 
                     self.yang_name = "stats"
                     self.yang_parent_name = "system"
@@ -4421,9 +4711,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.System.Stats']['meta_info']
 
 
-            class Clients(Entity):
+            class Clients(_Entity_):
                 """
                 
                 
@@ -4568,7 +4862,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.System.Clients, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.System.Clients, self).__init__()
 
                     self.yang_name = "clients"
                     self.yang_parent_name = "system"
@@ -4619,9 +4916,13 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.System.Clients']['meta_info']
 
 
-            class Suppressed(Entity):
+            class Suppressed(_Entity_):
                 """
                 
                 
@@ -4735,7 +5036,10 @@ class AlarmMgr(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(AlarmMgr.Detail.System.Suppressed, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AlarmMgr.Detail.System.Suppressed, self).__init__()
 
                     self.yang_name = "suppressed"
                     self.yang_parent_name = "system"
@@ -4780,12 +5084,28 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                    return meta._meta_table['AlarmMgr.Detail.System.Suppressed']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+                return meta._meta_table['AlarmMgr.Detail.System']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+            return meta._meta_table['AlarmMgr.Detail']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AlarmMgr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_alarm_mgr as meta
+        return meta._meta_table['AlarmMgr']['meta_info']
 
 

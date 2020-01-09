@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class SergAddrFamily(Enum):
     ipv6 = Enum.YLeaf(10, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+        return meta._meta_table['SergAddrFamily']
+
+
 class SessionRedundancyGroupRole(Enum):
     """
     SessionRedundancyGroupRole (Enum Class)
@@ -62,8 +71,14 @@ class SessionRedundancyGroupRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+        return meta._meta_table['SessionRedundancyGroupRole']
 
-class SessionRedundancy(Entity):
+
+
+class SessionRedundancy(_Entity_):
     """
     Session Redundancy configuration
     
@@ -116,7 +131,10 @@ class SessionRedundancy(Entity):
     _revision = '2018-01-31'
 
     def __init__(self):
-        super(SessionRedundancy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SessionRedundancy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "session-redundancy"
@@ -152,7 +170,7 @@ class SessionRedundancy(Entity):
         self._perform_setattr(SessionRedundancy, ['redundancy_disable', 'enable', 'source_interface', 'preferred_role', 'hold_timer'], name, value)
 
 
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Table of Group
         
@@ -169,7 +187,10 @@ class SessionRedundancy(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(SessionRedundancy.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancy.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "session-redundancy"
@@ -188,7 +209,7 @@ class SessionRedundancy(Entity):
             self._perform_setattr(SessionRedundancy.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Redundancy Group configuration
             
@@ -276,7 +297,10 @@ class SessionRedundancy(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(SessionRedundancy.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SessionRedundancy.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -330,7 +354,7 @@ class SessionRedundancy(Entity):
                 self._perform_setattr(SessionRedundancy.Groups.Group, ['group_id', 'core_tracking_object', 'disable_tracking_object', 'redundancy_disable', 'enable', 'description', 'access_tracking_object', 'preferred_role', 'hold_timer', 'mode_active'], name, value)
 
 
-            class Peer(Entity):
+            class Peer(_Entity_):
                 """
                 None
                 
@@ -347,7 +371,10 @@ class SessionRedundancy(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(SessionRedundancy.Groups.Group.Peer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancy.Groups.Group.Peer, self).__init__()
 
                     self.yang_name = "peer"
                     self.yang_parent_name = "group"
@@ -367,7 +394,7 @@ class SessionRedundancy(Entity):
                     self._perform_setattr(SessionRedundancy.Groups.Group.Peer, [], name, value)
 
 
-                class Ipaddress(Entity):
+                class Ipaddress(_Entity_):
                     """
                     IPv4 or IPv6 Address of SERG Peer
                     
@@ -397,7 +424,10 @@ class SessionRedundancy(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
 
                         self.yang_name = "ipaddress"
                         self.yang_parent_name = "peer"
@@ -417,10 +447,18 @@ class SessionRedundancy(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                        return meta._meta_table['SessionRedundancy.Groups.Group.Peer.Ipaddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                    return meta._meta_table['SessionRedundancy.Groups.Group.Peer']['meta_info']
 
 
-
-            class RevertiveTimer(Entity):
+            class RevertiveTimer(_Entity_):
                 """
                 None
                 
@@ -448,7 +486,10 @@ class SessionRedundancy(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__init__()
 
                     self.yang_name = "revertive-timer"
                     self.yang_parent_name = "group"
@@ -468,9 +509,13 @@ class SessionRedundancy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                    return meta._meta_table['SessionRedundancy.Groups.Group.RevertiveTimer']['meta_info']
 
 
-            class InterfaceList(Entity):
+            class InterfaceList(_Entity_):
                 """
                 List of Interfaces for this Group
                 
@@ -497,7 +542,10 @@ class SessionRedundancy(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(SessionRedundancy.Groups.Group.InterfaceList, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancy.Groups.Group.InterfaceList, self).__init__()
 
                     self.yang_name = "interface-list"
                     self.yang_parent_name = "group"
@@ -524,7 +572,7 @@ class SessionRedundancy(Entity):
                     self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList, ['enable'], name, value)
 
 
-                class InterfaceRanges(Entity):
+                class InterfaceRanges(_Entity_):
                     """
                     Table of InterfaceRange
                     
@@ -541,7 +589,10 @@ class SessionRedundancy(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
 
                         self.yang_name = "interface-ranges"
                         self.yang_parent_name = "interface-list"
@@ -559,7 +610,7 @@ class SessionRedundancy(Entity):
                         self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, [], name, value)
 
 
-                    class InterfaceRange(Entity):
+                    class InterfaceRange(_Entity_):
                         """
                         Interface for this Group
                         
@@ -606,7 +657,10 @@ class SessionRedundancy(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
 
                             self.yang_name = "interface-range"
                             self.yang_parent_name = "interface-ranges"
@@ -632,10 +686,18 @@ class SessionRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                            return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                        return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges']['meta_info']
 
 
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Table of Interface
                     
@@ -652,7 +714,10 @@ class SessionRedundancy(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "interface-list"
@@ -670,7 +735,7 @@ class SessionRedundancy(Entity):
                         self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface for this Group
                         
@@ -698,7 +763,10 @@ class SessionRedundancy(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -718,11 +786,23 @@ class SessionRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                            return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                        return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                    return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList']['meta_info']
 
 
-
-
-            class PoolList(Entity):
+            class PoolList(_Entity_):
                 """
                 List of Pool\-names for this Group
                 
@@ -744,7 +824,10 @@ class SessionRedundancy(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(SessionRedundancy.Groups.Group.PoolList, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancy.Groups.Group.PoolList, self).__init__()
 
                     self.yang_name = "pool-list"
                     self.yang_parent_name = "group"
@@ -767,7 +850,7 @@ class SessionRedundancy(Entity):
                     self._perform_setattr(SessionRedundancy.Groups.Group.PoolList, ['enable'], name, value)
 
 
-                class PoolNames(Entity):
+                class PoolNames(_Entity_):
                     """
                     Table of PoolName
                     
@@ -784,7 +867,10 @@ class SessionRedundancy(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(SessionRedundancy.Groups.Group.PoolList.PoolNames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancy.Groups.Group.PoolList.PoolNames, self).__init__()
 
                         self.yang_name = "pool-names"
                         self.yang_parent_name = "pool-list"
@@ -802,7 +888,7 @@ class SessionRedundancy(Entity):
                         self._perform_setattr(SessionRedundancy.Groups.Group.PoolList.PoolNames, [], name, value)
 
 
-                    class PoolName(Entity):
+                    class PoolName(_Entity_):
                         """
                         Address Pool Name
                         
@@ -821,7 +907,10 @@ class SessionRedundancy(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(SessionRedundancy.Groups.Group.PoolList.PoolNames.PoolName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancy.Groups.Group.PoolList.PoolNames.PoolName, self).__init__()
 
                             self.yang_name = "pool-name"
                             self.yang_parent_name = "pool-names"
@@ -839,13 +928,33 @@ class SessionRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.PoolList.PoolNames.PoolName, ['pool_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                            return meta._meta_table['SessionRedundancy.Groups.Group.PoolList.PoolNames.PoolName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                        return meta._meta_table['SessionRedundancy.Groups.Group.PoolList.PoolNames']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                    return meta._meta_table['SessionRedundancy.Groups.Group.PoolList']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+                return meta._meta_table['SessionRedundancy.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+            return meta._meta_table['SessionRedundancy.Groups']['meta_info']
 
 
-
-
-
-
-    class RevertiveTimer(Entity):
+    class RevertiveTimer(_Entity_):
         """
         None
         
@@ -873,7 +982,10 @@ class SessionRedundancy(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(SessionRedundancy.RevertiveTimer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancy.RevertiveTimer, self).__init__()
 
             self.yang_name = "revertive-timer"
             self.yang_parent_name = "session-redundancy"
@@ -894,10 +1006,18 @@ class SessionRedundancy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancy.RevertiveTimer, ['max_value', 'value'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+            return meta._meta_table['SessionRedundancy.RevertiveTimer']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
+        return meta._meta_table['SessionRedundancy']['meta_info']
 
 

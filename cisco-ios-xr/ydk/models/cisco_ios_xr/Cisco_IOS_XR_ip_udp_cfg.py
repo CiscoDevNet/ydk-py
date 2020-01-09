@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IpUdp(Entity):
+class IpUdp(_Entity_):
     """
     Global IP UDP configuration
     
@@ -58,7 +61,10 @@ class IpUdp(Entity):
     _revision = '2017-09-30'
 
     def __init__(self):
-        super(IpUdp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpUdp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-udp"
@@ -84,7 +90,7 @@ class IpUdp(Entity):
         self._perform_setattr(IpUdp, ['receive_q'], name, value)
 
 
-    class NumThread(Entity):
+    class NumThread(_Entity_):
         """
         UDP InQueue and OutQueue threads
         
@@ -116,7 +122,10 @@ class IpUdp(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(IpUdp.NumThread, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpUdp.NumThread, self).__init__()
 
             self.yang_name = "num-thread"
             self.yang_parent_name = "ip-udp"
@@ -138,9 +147,13 @@ class IpUdp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpUdp.NumThread, ['udp_in_q_threads', 'udp_out_q_threads'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
+            return meta._meta_table['IpUdp.NumThread']['meta_info']
 
 
-    class Directory(Entity):
+    class Directory(_Entity_):
         """
         UDP directory details
         
@@ -179,7 +192,10 @@ class IpUdp(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(IpUdp.Directory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpUdp.Directory, self).__init__()
 
             self.yang_name = "directory"
             self.yang_parent_name = "ip-udp"
@@ -203,10 +219,18 @@ class IpUdp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpUdp.Directory, ['directoryname', 'max_udp_debug_files', 'max_file_size_files'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
+            return meta._meta_table['IpUdp.Directory']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpUdp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
+        return meta._meta_table['IpUdp']['meta_info']
 
 

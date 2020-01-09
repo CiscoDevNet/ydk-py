@@ -173,6 +173,11 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
       description
         "PrepareCleanMessage";
     }
+    leaf error-message {
+      type string;
+      description
+        "ErrorMessage";
+    }
     list rpm {
       description
         "rpm";

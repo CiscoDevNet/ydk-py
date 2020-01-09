@@ -6,7 +6,7 @@ for the Calvados model objects.
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
-This module contains a collection of derived 
+This module contains a collection of derived
 YANG data types specific to Sysadmin.
 
 Copyright(c) 2011\-2016 by Cisco Systems, Inc.
@@ -16,8 +16,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -34,6 +37,12 @@ class Adminstate(Enum):
     """
 
     disable = Enum.YLeaf(0, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['Adminstate']
 
 
 class FabricLinkTypes(Enum):
@@ -55,6 +64,12 @@ class FabricLinkTypes(Enum):
     S3 = Enum.YLeaf(2, "S3")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['FabricLinkTypes']
+
+
 class GenericHaRole(Enum):
     """
     GenericHaRole (Enum Class)
@@ -74,6 +89,12 @@ class GenericHaRole(Enum):
     Standby = Enum.YLeaf(2, "Standby")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['GenericHaRole']
+
+
 class GenericOperStatus(Enum):
     """
     GenericOperStatus (Enum Class)
@@ -87,6 +108,12 @@ class GenericOperStatus(Enum):
     up = Enum.YLeaf(0, "up")
 
     down = Enum.YLeaf(1, "down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['GenericOperStatus']
 
 
 class GenericOperStatus_(Enum):
@@ -104,6 +131,12 @@ class GenericOperStatus_(Enum):
     down = Enum.YLeaf(1, "down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['GenericOperStatus_']
+
+
 class GenericOperStatus__(Enum):
     """
     GenericOperStatus\_\_ (Enum Class)
@@ -117,6 +150,12 @@ class GenericOperStatus__(Enum):
     up = Enum.YLeaf(0, "up")
 
     down = Enum.YLeaf(1, "down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['GenericOperStatus__']
 
 
 class RackId(Enum):
@@ -220,6 +259,12 @@ class RackId(Enum):
     B0 = Enum.YLeaf(20, "B0")
 
     B1 = Enum.YLeaf(21, "B1")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_types as meta
+        return meta._meta_table['RackId']
 
 
 

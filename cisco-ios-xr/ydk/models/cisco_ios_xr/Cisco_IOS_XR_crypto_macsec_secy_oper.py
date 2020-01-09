@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Macsec(Entity):
+class Macsec(_Entity_):
     """
     Macsec operational data
     
@@ -40,7 +43,10 @@ class Macsec(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Macsec, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Macsec, self).__init__()
         self._top_entity = None
 
         self.yang_name = "macsec"
@@ -61,7 +67,7 @@ class Macsec(Entity):
         self._perform_setattr(Macsec, [], name, value)
 
 
-    class Secy(Entity):
+    class Secy(_Entity_):
         """
         MAC Security Entity
         
@@ -80,7 +86,10 @@ class Macsec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Macsec.Secy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Macsec.Secy, self).__init__()
 
             self.yang_name = "secy"
             self.yang_parent_name = "macsec"
@@ -101,7 +110,7 @@ class Macsec(Entity):
             self._perform_setattr(Macsec.Secy, [], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             MAC Security Data
             
@@ -120,7 +129,10 @@ class Macsec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Macsec.Secy.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Macsec.Secy.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "secy"
@@ -139,7 +151,7 @@ class Macsec(Entity):
                 self._perform_setattr(Macsec.Secy.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 MAC Security Data for the Interface
                 
@@ -167,7 +179,10 @@ class Macsec(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Macsec.Secy.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Macsec.Secy.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -191,7 +206,7 @@ class Macsec(Entity):
                     self._perform_setattr(Macsec.Secy.Interfaces.Interface, ['name'], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     MACsec Stats
                     
@@ -224,7 +239,10 @@ class Macsec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Macsec.Secy.Interfaces.Interface.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Macsec.Secy.Interfaces.Interface.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "interface"
@@ -250,7 +268,7 @@ class Macsec(Entity):
                         self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats, [], name, value)
 
 
-                    class IntfStats(Entity):
+                    class IntfStats(_Entity_):
                         """
                         Interface stats
                         
@@ -370,7 +388,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Secy.Interfaces.Interface.Stats.IntfStats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Secy.Interfaces.Interface.Stats.IntfStats, self).__init__()
 
                             self.yang_name = "intf-stats"
                             self.yang_parent_name = "stats"
@@ -410,9 +431,13 @@ class Macsec(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.IntfStats, ['in_pkts_untagged', 'in_pkts_no_tag', 'in_pkts_bad_tag', 'in_pkts_unknown_sci', 'in_pkts_no_sci', 'in_pkts_overrun', 'in_octets_validated', 'in_octets_decrypted', 'out_pkts_untagged', 'out_pkts_too_long', 'out_octets_protected', 'out_octets_encrypted'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                            return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats.IntfStats']['meta_info']
 
 
-                    class TxScStats(Entity):
+                    class TxScStats(_Entity_):
                         """
                         Tx SC Stats
                         
@@ -485,7 +510,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Secy.Interfaces.Interface.Stats.TxScStats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Secy.Interfaces.Interface.Stats.TxScStats, self).__init__()
 
                             self.yang_name = "tx-sc-stats"
                             self.yang_parent_name = "stats"
@@ -516,7 +544,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.TxScStats, ['tx_sci', 'out_pkts_protected', 'out_pkts_encrypted', 'out_octets_protected', 'out_octets_encrypted', 'out_pkts_too_long'], name, value)
 
 
-                        class TxsaStat(Entity):
+                        class TxsaStat(_Entity_):
                             """
                             tx sa stats
                             
@@ -555,7 +583,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat, self).__init__()
 
                                 self.yang_name = "txsa-stat"
                                 self.yang_parent_name = "tx-sc-stats"
@@ -577,10 +608,18 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat, ['out_pkts_protected', 'out_pkts_encrypted', 'next_pn'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                                return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                            return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats.TxScStats']['meta_info']
 
 
-
-                    class RxScStats(Entity):
+                    class RxScStats(_Entity_):
                         """
                         RX SC Stats List
                         
@@ -707,7 +746,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Secy.Interfaces.Interface.Stats.RxScStats, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Secy.Interfaces.Interface.Stats.RxScStats, self).__init__()
 
                             self.yang_name = "rx-sc-stats"
                             self.yang_parent_name = "stats"
@@ -750,7 +792,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.RxScStats, ['rx_sci', 'in_pkts_unchecked', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'in_pkts_untagged_hit', 'in_octets_validated', 'in_octets_decrypted'], name, value)
 
 
-                        class RxsaStat(Entity):
+                        class RxsaStat(_Entity_):
                             """
                             rxsa stats
                             
@@ -816,7 +858,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat, self).__init__()
 
                                 self.yang_name = "rxsa-stat"
                                 self.yang_parent_name = "rx-sc-stats"
@@ -844,15 +889,43 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat, ['in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'next_pn'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                                return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                            return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats.RxScStats']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                        return meta._meta_table['Macsec.Secy.Interfaces.Interface.Stats']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                    return meta._meta_table['Macsec.Secy.Interfaces.Interface']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+                return meta._meta_table['Macsec.Secy.Interfaces']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+            return meta._meta_table['Macsec.Secy']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_secy_oper as meta
+        return meta._meta_table['Macsec']['meta_info']
 
 

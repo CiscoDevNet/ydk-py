@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -33,6 +36,12 @@ class MplsStaticAddressFamily(Enum):
     """
 
     ipv4_unicast = Enum.YLeaf(1, "ipv4-unicast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticAddressFamily']
 
 
 class MplsStaticLabelMode(Enum):
@@ -62,6 +71,12 @@ class MplsStaticLabelMode(Enum):
     lsp = Enum.YLeaf(3, "lsp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticLabelMode']
+
+
 class MplsStaticNhAddressFamily(Enum):
     """
     MplsStaticNhAddressFamily (Enum Class)
@@ -81,6 +96,12 @@ class MplsStaticNhAddressFamily(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticNhAddressFamily']
 
 
 class MplsStaticNhMode(Enum):
@@ -104,6 +125,12 @@ class MplsStaticNhMode(Enum):
     configured = Enum.YLeaf(0, "configured")
 
     resolve = Enum.YLeaf(1, "resolve")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticNhMode']
 
 
 class MplsStaticOutLabelTypes(Enum):
@@ -145,6 +172,12 @@ class MplsStaticOutLabelTypes(Enum):
     ipv6_explicit_null = Enum.YLeaf(4, "ipv6-explicit-null")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticOutLabelTypes']
+
+
 class MplsStaticPath(Enum):
     """
     MplsStaticPath (Enum Class)
@@ -164,6 +197,12 @@ class MplsStaticPath(Enum):
     pop_and_lookup = Enum.YLeaf(1, "pop-and-lookup")
 
     cross_connect = Enum.YLeaf(2, "cross-connect")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticPath']
 
 
 class MplsStaticPathRole(Enum):
@@ -193,8 +232,14 @@ class MplsStaticPathRole(Enum):
     primary_backup = Enum.YLeaf(2, "primary-backup")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticPathRole']
 
-class MplsStatic(Entity):
+
+
+class MplsStatic(_Entity_):
     """
     MPLS Static Configuration Data
     
@@ -223,7 +268,10 @@ class MplsStatic(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(MplsStatic, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsStatic, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-static"
@@ -253,7 +301,7 @@ class MplsStatic(Entity):
         self._perform_setattr(MplsStatic, [], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF table
         
@@ -270,7 +318,10 @@ class MplsStatic(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(MplsStatic.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsStatic.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "mpls-static"
@@ -289,7 +340,7 @@ class MplsStatic(Entity):
             self._perform_setattr(MplsStatic.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF Name
             
@@ -318,7 +369,10 @@ class MplsStatic(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(MplsStatic.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsStatic.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -346,7 +400,7 @@ class MplsStatic(Entity):
                 self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class LabelSwitchedPaths(Entity):
+            class LabelSwitchedPaths(_Entity_):
                 """
                 Table of the Label Switched Paths
                 
@@ -363,7 +417,10 @@ class MplsStatic(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, self).__init__()
 
                     self.yang_name = "label-switched-paths"
                     self.yang_parent_name = "vrf"
@@ -381,7 +438,7 @@ class MplsStatic(Entity):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, [], name, value)
 
 
-                class LabelSwitchedPath(Entity):
+                class LabelSwitchedPath(_Entity_):
                     """
                     Label Switched Path
                     
@@ -415,7 +472,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
 
                         self.yang_name = "label-switched-path"
                         self.yang_parent_name = "label-switched-paths"
@@ -446,7 +506,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name'], name, value)
 
 
-                    class BackupPaths(Entity):
+                    class BackupPaths(_Entity_):
                         """
                         Backup Path Parameters
                         
@@ -463,7 +523,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
 
                             self.yang_name = "backup-paths"
                             self.yang_parent_name = "label-switched-path"
@@ -481,7 +544,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path Information
                             
@@ -582,7 +645,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "backup-paths"
@@ -620,10 +686,18 @@ class MplsStatic(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths']['meta_info']
 
 
-
-                    class InLabel(Entity):
+                    class InLabel(_Entity_):
                         """
                         MPLS Static Local Label Value
                         
@@ -672,7 +746,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
 
                             self.yang_name = "in-label"
                             self.yang_parent_name = "label-switched-path"
@@ -698,9 +775,13 @@ class MplsStatic(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel']['meta_info']
 
 
-                    class Paths(Entity):
+                    class Paths(_Entity_):
                         """
                         Forward Path Parameters
                         
@@ -717,7 +798,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
 
                             self.yang_name = "paths"
                             self.yang_parent_name = "label-switched-path"
@@ -735,7 +819,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path Information
                             
@@ -836,7 +920,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "paths"
@@ -874,12 +961,28 @@ class MplsStatic(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                    return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths']['meta_info']
 
 
-
-
-
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Address Family Table
                 
@@ -896,7 +999,10 @@ class MplsStatic(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsStatic.Vrfs.Vrf.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsStatic.Vrfs.Vrf.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "vrf"
@@ -914,7 +1020,7 @@ class MplsStatic(Entity):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     Address Family
                     
@@ -941,7 +1047,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.Vrfs.Vrf.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.Vrfs.Vrf.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -968,7 +1077,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af, ['afi'], name, value)
 
 
-                    class TopLabelHash(Entity):
+                    class TopLabelHash(_Entity_):
                         """
                         Top Label Hash
                         
@@ -985,7 +1094,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash, self).__init__()
 
                             self.yang_name = "top-label-hash"
                             self.yang_parent_name = "af"
@@ -1005,7 +1117,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash, [], name, value)
 
 
-                        class LocalLabels(Entity):
+                        class LocalLabels(_Entity_):
                             """
                             Local Label
                             
@@ -1022,7 +1134,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
 
                                 self.yang_name = "local-labels"
                                 self.yang_parent_name = "top-label-hash"
@@ -1040,7 +1155,7 @@ class MplsStatic(Entity):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
 
 
-                            class LocalLabel(Entity):
+                            class LocalLabel(_Entity_):
                                 """
                                 Specify Local Label
                                 
@@ -1069,7 +1184,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
 
                                     self.yang_name = "local-label"
                                     self.yang_parent_name = "local-labels"
@@ -1096,7 +1214,7 @@ class MplsStatic(Entity):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                                class LabelType(Entity):
+                                class LabelType(_Entity_):
                                     """
                                     MPLS Static Local Label Value
                                     
@@ -1133,7 +1251,10 @@ class MplsStatic(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
 
                                         self.yang_name = "label-type"
                                         self.yang_parent_name = "local-label"
@@ -1155,9 +1276,13 @@ class MplsStatic(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                        return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType']['meta_info']
 
 
-                                class Paths(Entity):
+                                class Paths(_Entity_):
                                     """
                                     Forward Path Parameters
                                     
@@ -1174,7 +1299,10 @@ class MplsStatic(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
 
                                         self.yang_name = "paths"
                                         self.yang_parent_name = "local-label"
@@ -1192,7 +1320,7 @@ class MplsStatic(Entity):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
 
 
-                                    class Path(Entity):
+                                    class Path(_Entity_):
                                         """
                                         Path Information
                                         
@@ -1293,7 +1421,10 @@ class MplsStatic(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
 
                                             self.yang_name = "path"
                                             self.yang_parent_name = "paths"
@@ -1331,13 +1462,33 @@ class MplsStatic(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                            return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                        return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash']['meta_info']
 
 
-
-
-
-
-                    class LocalLabels(Entity):
+                    class LocalLabels(_Entity_):
                         """
                         Local Label
                         
@@ -1354,7 +1505,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, self).__init__()
 
                             self.yang_name = "local-labels"
                             self.yang_parent_name = "af"
@@ -1372,7 +1526,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, [], name, value)
 
 
-                        class LocalLabel(Entity):
+                        class LocalLabel(_Entity_):
                             """
                             Specify Local Label
                             
@@ -1401,7 +1555,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
 
                                 self.yang_name = "local-label"
                                 self.yang_parent_name = "local-labels"
@@ -1428,7 +1585,7 @@ class MplsStatic(Entity):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                            class LabelType(Entity):
+                            class LabelType(_Entity_):
                                 """
                                 MPLS Static Local Label Value
                                 
@@ -1465,7 +1622,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
 
                                     self.yang_name = "label-type"
                                     self.yang_parent_name = "local-label"
@@ -1487,9 +1647,13 @@ class MplsStatic(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType']['meta_info']
 
 
-                            class Paths(Entity):
+                            class Paths(_Entity_):
                                 """
                                 Forward Path Parameters
                                 
@@ -1506,7 +1670,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
 
                                     self.yang_name = "paths"
                                     self.yang_parent_name = "local-label"
@@ -1524,7 +1691,7 @@ class MplsStatic(Entity):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
 
 
-                                class Path(Entity):
+                                class Path(_Entity_):
                                     """
                                     Path Information
                                     
@@ -1625,7 +1792,10 @@ class MplsStatic(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
 
                                         self.yang_name = "path"
                                         self.yang_parent_name = "paths"
@@ -1663,16 +1833,48 @@ class MplsStatic(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                        return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs.Af']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Afs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                return meta._meta_table['MplsStatic.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+            return meta._meta_table['MplsStatic.Vrfs']['meta_info']
 
 
-
-
-
-
-
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         MPLS Static Interface Table
         
@@ -1689,7 +1891,10 @@ class MplsStatic(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(MplsStatic.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsStatic.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "mpls-static"
@@ -1708,7 +1913,7 @@ class MplsStatic(Entity):
             self._perform_setattr(MplsStatic.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             MPLS Static Interface Enable
             
@@ -1727,7 +1932,10 @@ class MplsStatic(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(MplsStatic.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsStatic.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -1746,10 +1954,18 @@ class MplsStatic(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Interfaces.Interface, ['interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                return meta._meta_table['MplsStatic.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+            return meta._meta_table['MplsStatic.Interfaces']['meta_info']
 
 
-
-    class DefaultVrf(Entity):
+    class DefaultVrf(_Entity_):
         """
         Default VRF
         
@@ -1771,7 +1987,10 @@ class MplsStatic(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(MplsStatic.DefaultVrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsStatic.DefaultVrf, self).__init__()
 
             self.yang_name = "default-vrf"
             self.yang_parent_name = "mpls-static"
@@ -1796,7 +2015,7 @@ class MplsStatic(Entity):
             self._perform_setattr(MplsStatic.DefaultVrf, [], name, value)
 
 
-        class LabelSwitchedPaths(Entity):
+        class LabelSwitchedPaths(_Entity_):
             """
             Table of the Label Switched Paths
             
@@ -1813,7 +2032,10 @@ class MplsStatic(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(MplsStatic.DefaultVrf.LabelSwitchedPaths, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsStatic.DefaultVrf.LabelSwitchedPaths, self).__init__()
 
                 self.yang_name = "label-switched-paths"
                 self.yang_parent_name = "default-vrf"
@@ -1832,7 +2054,7 @@ class MplsStatic(Entity):
                 self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths, [], name, value)
 
 
-            class LabelSwitchedPath(Entity):
+            class LabelSwitchedPath(_Entity_):
                 """
                 Label Switched Path
                 
@@ -1866,7 +2088,10 @@ class MplsStatic(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
 
                     self.yang_name = "label-switched-path"
                     self.yang_parent_name = "label-switched-paths"
@@ -1898,7 +2123,7 @@ class MplsStatic(Entity):
                     self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name'], name, value)
 
 
-                class BackupPaths(Entity):
+                class BackupPaths(_Entity_):
                     """
                     Backup Path Parameters
                     
@@ -1915,7 +2140,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
 
                         self.yang_name = "backup-paths"
                         self.yang_parent_name = "label-switched-path"
@@ -1933,7 +2161,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
 
 
-                    class Path(Entity):
+                    class Path(_Entity_):
                         """
                         Path Information
                         
@@ -2034,7 +2262,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
 
                             self.yang_name = "path"
                             self.yang_parent_name = "backup-paths"
@@ -2072,10 +2303,18 @@ class MplsStatic(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths']['meta_info']
 
 
-
-                class InLabel(Entity):
+                class InLabel(_Entity_):
                     """
                     MPLS Static Local Label Value
                     
@@ -2124,7 +2363,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
 
                         self.yang_name = "in-label"
                         self.yang_parent_name = "label-switched-path"
@@ -2150,9 +2392,13 @@ class MplsStatic(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel']['meta_info']
 
 
-                class Paths(Entity):
+                class Paths(_Entity_):
                     """
                     Forward Path Parameters
                     
@@ -2169,7 +2415,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
 
                         self.yang_name = "paths"
                         self.yang_parent_name = "label-switched-path"
@@ -2187,7 +2436,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
 
 
-                    class Path(Entity):
+                    class Path(_Entity_):
                         """
                         Path Information
                         
@@ -2288,7 +2537,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
 
                             self.yang_name = "path"
                             self.yang_parent_name = "paths"
@@ -2326,12 +2578,28 @@ class MplsStatic(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                    return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths']['meta_info']
 
 
-
-
-
-        class Afs(Entity):
+        class Afs(_Entity_):
             """
             Address Family Table
             
@@ -2348,7 +2616,10 @@ class MplsStatic(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(MplsStatic.DefaultVrf.Afs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsStatic.DefaultVrf.Afs, self).__init__()
 
                 self.yang_name = "afs"
                 self.yang_parent_name = "default-vrf"
@@ -2367,7 +2638,7 @@ class MplsStatic(Entity):
                 self._perform_setattr(MplsStatic.DefaultVrf.Afs, [], name, value)
 
 
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 Address Family
                 
@@ -2394,7 +2665,10 @@ class MplsStatic(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(MplsStatic.DefaultVrf.Afs.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsStatic.DefaultVrf.Afs.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "afs"
@@ -2422,7 +2696,7 @@ class MplsStatic(Entity):
                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi'], name, value)
 
 
-                class TopLabelHash(Entity):
+                class TopLabelHash(_Entity_):
                     """
                     Top Label Hash
                     
@@ -2439,7 +2713,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, self).__init__()
 
                         self.yang_name = "top-label-hash"
                         self.yang_parent_name = "af"
@@ -2459,7 +2736,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, [], name, value)
 
 
-                    class LocalLabels(Entity):
+                    class LocalLabels(_Entity_):
                         """
                         Local Label
                         
@@ -2476,7 +2753,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
 
                             self.yang_name = "local-labels"
                             self.yang_parent_name = "top-label-hash"
@@ -2494,7 +2774,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
 
 
-                        class LocalLabel(Entity):
+                        class LocalLabel(_Entity_):
                             """
                             Specify Local Label
                             
@@ -2523,7 +2803,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
 
                                 self.yang_name = "local-label"
                                 self.yang_parent_name = "local-labels"
@@ -2550,7 +2833,7 @@ class MplsStatic(Entity):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                            class LabelType(Entity):
+                            class LabelType(_Entity_):
                                 """
                                 MPLS Static Local Label Value
                                 
@@ -2587,7 +2870,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
 
                                     self.yang_name = "label-type"
                                     self.yang_parent_name = "local-label"
@@ -2609,9 +2895,13 @@ class MplsStatic(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType']['meta_info']
 
 
-                            class Paths(Entity):
+                            class Paths(_Entity_):
                                 """
                                 Forward Path Parameters
                                 
@@ -2628,7 +2918,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
 
                                     self.yang_name = "paths"
                                     self.yang_parent_name = "local-label"
@@ -2646,7 +2939,7 @@ class MplsStatic(Entity):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
 
 
-                                class Path(Entity):
+                                class Path(_Entity_):
                                     """
                                     Path Information
                                     
@@ -2747,7 +3040,10 @@ class MplsStatic(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
 
                                         self.yang_name = "path"
                                         self.yang_parent_name = "paths"
@@ -2785,13 +3081,33 @@ class MplsStatic(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                        return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash']['meta_info']
 
 
-
-
-
-
-                class LocalLabels(Entity):
+                class LocalLabels(_Entity_):
                     """
                     Local Label
                     
@@ -2808,7 +3124,10 @@ class MplsStatic(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, self).__init__()
 
                         self.yang_name = "local-labels"
                         self.yang_parent_name = "af"
@@ -2826,7 +3145,7 @@ class MplsStatic(Entity):
                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, [], name, value)
 
 
-                    class LocalLabel(Entity):
+                    class LocalLabel(_Entity_):
                         """
                         Specify Local Label
                         
@@ -2855,7 +3174,10 @@ class MplsStatic(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
 
                             self.yang_name = "local-label"
                             self.yang_parent_name = "local-labels"
@@ -2882,7 +3204,7 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                        class LabelType(Entity):
+                        class LabelType(_Entity_):
                             """
                             MPLS Static Local Label Value
                             
@@ -2919,7 +3241,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
 
                                 self.yang_name = "label-type"
                                 self.yang_parent_name = "local-label"
@@ -2941,9 +3266,13 @@ class MplsStatic(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType']['meta_info']
 
 
-                        class Paths(Entity):
+                        class Paths(_Entity_):
                             """
                             Forward Path Parameters
                             
@@ -2960,7 +3289,10 @@ class MplsStatic(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
 
                                 self.yang_name = "paths"
                                 self.yang_parent_name = "local-label"
@@ -2978,7 +3310,7 @@ class MplsStatic(Entity):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
 
 
-                            class Path(Entity):
+                            class Path(_Entity_):
                                 """
                                 Path Information
                                 
@@ -3079,7 +3411,10 @@ class MplsStatic(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
 
                                     self.yang_name = "path"
                                     self.yang_parent_name = "paths"
@@ -3117,16 +3452,48 @@ class MplsStatic(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                    return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                    return meta._meta_table['MplsStatic.DefaultVrf.Afs.Af']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                return meta._meta_table['MplsStatic.DefaultVrf.Afs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+            return meta._meta_table['MplsStatic.DefaultVrf']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsStatic()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStatic']['meta_info']
 
 

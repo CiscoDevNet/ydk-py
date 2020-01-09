@@ -33,6 +33,10 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
     description
       "Added CLI to disable hmac-sha1";
   }
+  revision 2019-03-13 {
+    description
+      "Added CLI to enable needed ciphers.";
+  }
   revision 2018-09-11 {
     description
       "Added backup ssh server schema";
@@ -124,6 +128,23 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
     }
   }
 
+  grouping CIPHER {
+    description
+      "Common node of client-algo, server-algo";
+    container ciphers {
+      description
+        "cipher algorithm";
+      leaf-list cipher {
+        type string {
+          length "1..32";
+        }
+        max-elements "9";
+        description
+          "Cipher algorithm";
+      }
+    }
+  }
+
   container ssh {
     description
       "Secure Shell configuration";
@@ -148,6 +169,7 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         description
           "Cisco ssh algorithms";
         uses KEY-EXCHANGE;
+        uses CIPHER;
       }
       container client-enable {
         description
@@ -276,6 +298,7 @@ module Cisco-IOS-XR-crypto-ssh-cfg {
         description
           "Cisco ssh algorithms";
         uses KEY-EXCHANGE;
+        uses CIPHER;
       }
       container capability {
         description

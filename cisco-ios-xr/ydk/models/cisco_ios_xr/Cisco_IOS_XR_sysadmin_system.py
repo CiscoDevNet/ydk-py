@@ -6,9 +6,9 @@ for the Calvados model objects.
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
-This module defines the system users authentication 
+This module defines the system users authentication
 credentials and virtual IP that can be modified in
-runtime. 
+runtime.
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
 All rights reserved.
@@ -17,8 +17,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -27,7 +30,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Mgmt(Entity):
+class Mgmt(_Entity_):
     """
     
     
@@ -49,7 +52,10 @@ class Mgmt(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Mgmt, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mgmt, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mgmt"
@@ -74,7 +80,7 @@ class Mgmt(Entity):
         self._perform_setattr(Mgmt, [], name, value)
 
 
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         
         
@@ -106,7 +112,10 @@ class Mgmt(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Mgmt.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mgmt.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "mgmt"
@@ -127,9 +136,13 @@ class Mgmt(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Mgmt.Ipv4, ['address', 'subnet_mask_ip'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_system as meta
+            return meta._meta_table['Mgmt.Ipv4']['meta_info']
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         
         
@@ -155,7 +168,10 @@ class Mgmt(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Mgmt.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mgmt.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "mgmt"
@@ -176,10 +192,18 @@ class Mgmt(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Mgmt.Ipv6, ['address', 'prefix'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_system as meta
+            return meta._meta_table['Mgmt.Ipv6']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mgmt()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_system as meta
+        return meta._meta_table['Mgmt']['meta_info']
 
 

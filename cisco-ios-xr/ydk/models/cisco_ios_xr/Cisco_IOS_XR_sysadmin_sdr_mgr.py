@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -43,6 +46,12 @@ class CardType(Enum):
     LC = Enum.YLeaf(1, "LC")
 
     CC = Enum.YLeaf(2, "CC")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['CardType']
 
 
 class VmReloadReason(Enum):
@@ -98,8 +107,14 @@ class VmReloadReason(Enum):
     REASON_UNKNOWN = Enum.YLeaf(10, "REASON_UNKNOWN")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['VmReloadReason']
 
-class SdrConfig(Entity):
+
+
+class SdrConfig(_Entity_):
     """
     
     
@@ -113,10 +128,13 @@ class SdrConfig(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-10-22'
+    _revision = '2019-04-12'
 
     def __init__(self):
-        super(SdrConfig, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrConfig, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-config"
@@ -135,7 +153,7 @@ class SdrConfig(Entity):
         self._perform_setattr(SdrConfig, [], name, value)
 
 
-    class Sdr(Entity):
+    class Sdr(_Entity_):
         """
         Add/Edit a Secure Domain Router by name
         
@@ -223,10 +241,13 @@ class SdrConfig(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-10-22'
+        _revision = '2019-04-12'
 
         def __init__(self):
-            super(SdrConfig.Sdr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrConfig.Sdr, self).__init__()
 
             self.yang_name = "sdr"
             self.yang_parent_name = "sdr-config"
@@ -293,6 +314,12 @@ class SdrConfig(Entity):
             disable = Enum.YLeaf(0, "disable")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Issu']
+
+
         class PairingMode(Enum):
             """
             PairingMode (Enum Class)
@@ -310,8 +337,14 @@ class SdrConfig(Entity):
             inter_rack = Enum.YLeaf(1, "inter-rack")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.PairingMode']
 
-        class Resources(Entity):
+
+
+        class Resources(_Entity_):
             """
             Edit resources for a Secure Domain Router
             
@@ -339,10 +372,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Resources, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Resources, self).__init__()
 
                 self.yang_name = "resources"
                 self.yang_parent_name = "sdr"
@@ -365,7 +401,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Resources, ['fgid', 'mgmt_ext_vlan'], name, value)
 
 
-            class CardType(Entity):
+            class CardType(_Entity_):
                 """
                 
                 
@@ -393,10 +429,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Resources.CardType, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Resources.CardType, self).__init__()
 
                     self.yang_name = "card-type"
                     self.yang_parent_name = "resources"
@@ -418,10 +457,18 @@ class SdrConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Resources.CardType, ['type', 'vm_memory', 'vm_cpu'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Resources.CardType']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Resources']['meta_info']
 
 
-
-        class Location(Entity):
+        class Location(_Entity_):
             """
             Enter list of nodes' location to add to this LR
             
@@ -444,10 +491,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "sdr"
@@ -467,9 +517,13 @@ class SdrConfig(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrConfig.Sdr.Location, ['node_location', 'slice'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Location']['meta_info']
 
 
-        class Action(Entity):
+        class Action(_Entity_):
             """
             
             
@@ -485,10 +539,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Action, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Action, self).__init__()
 
                 self.yang_name = "Action"
                 self.yang_parent_name = "sdr"
@@ -506,7 +563,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Action, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -524,10 +581,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Action.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Action.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "Action"
@@ -545,10 +605,18 @@ class SdrConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Action.Location, ['node_location'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Action.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Action']['meta_info']
 
 
-
-        class Detail(Entity):
+        class Detail(_Entity_):
             """
             
             
@@ -564,10 +632,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Detail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Detail, self).__init__()
 
                 self.yang_name = "detail"
                 self.yang_parent_name = "sdr"
@@ -585,7 +656,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Detail, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -776,10 +847,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Detail.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Detail.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "detail"
@@ -840,7 +914,7 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.Detail.Location, ['node_location', 'sdr_id', 'ip_addr', 'mac_address', 'boot_part', 'data_part', 'big_disk', 'vm_id', 'vmcpu', 'vmmemory', 'card_type', 'card_serial', 'rack_type', 'slice', 'chassis_serial', 'hw_version', 'mgmt_ext_vlan', 'state', 'start_time', 'reboot_count', 'rh_count'], name, value)
 
 
-                class RebootHist1(Entity):
+                class RebootHist1(_Entity_):
                     """
                     
                     
@@ -872,10 +946,13 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-10-22'
+                    _revision = '2019-04-12'
 
                     def __init__(self):
-                        super(SdrConfig.Sdr.Detail.Location.RebootHist1, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrConfig.Sdr.Detail.Location.RebootHist1, self).__init__()
 
                         self.yang_name = "reboot_hist1"
                         self.yang_parent_name = "location"
@@ -897,11 +974,23 @@ class SdrConfig(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SdrConfig.Sdr.Detail.Location.RebootHist1, ['count', 'time', 'reason'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                        return meta._meta_table['SdrConfig.Sdr.Detail.Location.RebootHist1']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Detail.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Detail']['meta_info']
 
 
-
-
-        class RebootHistory(Entity):
+        class RebootHistory(_Entity_):
             """
             
             
@@ -924,10 +1013,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.RebootHistory, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.RebootHistory, self).__init__()
 
                 self.yang_name = "reboot-history"
                 self.yang_parent_name = "sdr"
@@ -951,7 +1043,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.RebootHistory, [], name, value)
 
 
-            class Reverse(Entity):
+            class Reverse(_Entity_):
                 """
                 
                 
@@ -967,10 +1059,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.RebootHistory.Reverse, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.RebootHistory.Reverse, self).__init__()
 
                     self.yang_name = "reverse"
                     self.yang_parent_name = "reboot-history"
@@ -988,7 +1083,7 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.RebootHistory.Reverse, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -1031,10 +1126,13 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-10-22'
+                    _revision = '2019-04-12'
 
                     def __init__(self):
-                        super(SdrConfig.Sdr.RebootHistory.Reverse.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrConfig.Sdr.RebootHistory.Reverse.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "reverse"
@@ -1059,7 +1157,7 @@ class SdrConfig(Entity):
                         self._perform_setattr(SdrConfig.Sdr.RebootHistory.Reverse.Location, ['node_location', 'reboot_count', 'rh_count'], name, value)
 
 
-                    class RebootHist2(Entity):
+                    class RebootHist2(_Entity_):
                         """
                         
                         
@@ -1091,10 +1189,13 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-10-22'
+                        _revision = '2019-04-12'
 
                         def __init__(self):
-                            super(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, self).__init__()
 
                             self.yang_name = "reboot_hist2"
                             self.yang_parent_name = "location"
@@ -1116,11 +1217,23 @@ class SdrConfig(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, ['count', 'time', 'reason'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                            return meta._meta_table['SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                        return meta._meta_table['SdrConfig.Sdr.RebootHistory.Reverse.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.RebootHistory.Reverse']['meta_info']
 
 
-
-
-            class DefaultDisp(Entity):
+            class DefaultDisp(_Entity_):
                 """
                 
                 
@@ -1136,10 +1249,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.RebootHistory.DefaultDisp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.RebootHistory.DefaultDisp, self).__init__()
 
                     self.yang_name = "default-disp"
                     self.yang_parent_name = "reboot-history"
@@ -1157,7 +1273,7 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.RebootHistory.DefaultDisp, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -1200,10 +1316,13 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-10-22'
+                    _revision = '2019-04-12'
 
                     def __init__(self):
-                        super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "default-disp"
@@ -1228,7 +1347,7 @@ class SdrConfig(Entity):
                         self._perform_setattr(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location, ['node_location', 'reboot_count', 'rh_count'], name, value)
 
 
-                    class RebootHist2(Entity):
+                    class RebootHist2(_Entity_):
                         """
                         
                         
@@ -1260,10 +1379,13 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-10-22'
+                        _revision = '2019-04-12'
 
                         def __init__(self):
-                            super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, self).__init__()
 
                             self.yang_name = "reboot_hist2"
                             self.yang_parent_name = "location"
@@ -1285,12 +1407,28 @@ class SdrConfig(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, ['count', 'time', 'reason'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                            return meta._meta_table['SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                        return meta._meta_table['SdrConfig.Sdr.RebootHistory.DefaultDisp.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.RebootHistory.DefaultDisp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.RebootHistory']['meta_info']
 
 
-
-
-
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             
             
@@ -1306,10 +1444,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "sdr"
@@ -1327,7 +1468,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Nodes, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1415,10 +1556,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Nodes.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Nodes.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "nodes"
@@ -1452,10 +1596,18 @@ class SdrConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Nodes.Location, ['node_location', 'sdr_id', 'ip_addr', 'mac_address', 'state', 'start_time', 'reload_reason', 'reboot_count', 'rh_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Nodes.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Nodes']['meta_info']
 
 
-
-        class Pairing2(Entity):
+        class Pairing2(_Entity_):
             """
             
             
@@ -1485,10 +1637,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Pairing2, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Pairing2, self).__init__()
 
                 self.yang_name = "pairing2"
                 self.yang_parent_name = "sdr"
@@ -1513,7 +1668,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Pairing2, ['pairing_mode'], name, value)
 
 
-            class Sdrlead(Entity):
+            class Sdrlead(_Entity_):
                 """
                 
                 
@@ -1536,10 +1691,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Pairing2.Sdrlead, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Pairing2.Sdrlead, self).__init__()
 
                     self.yang_name = "sdrlead"
                     self.yang_parent_name = "pairing2"
@@ -1559,9 +1717,13 @@ class SdrConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Pairing2.Sdrlead, ['rp1', 'rp2'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Pairing2.Sdrlead']['meta_info']
 
 
-            class Pairing(Entity):
+            class Pairing(_Entity_):
                 """
                 
                 
@@ -1591,10 +1753,13 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrConfig.Sdr.Pairing2.Pairing, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrConfig.Sdr.Pairing2.Pairing, self).__init__()
 
                     self.yang_name = "pairing"
                     self.yang_parent_name = "pairing2"
@@ -1616,10 +1781,18 @@ class SdrConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Pairing2.Pairing, ['name', 'rp1', 'rp2'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrConfig.Sdr.Pairing2.Pairing']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Pairing2']['meta_info']
 
 
-
-        class Pairing(Entity):
+        class Pairing(_Entity_):
             """
             Add/Edit a RP Pairing by name
             
@@ -1653,10 +1826,13 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrConfig.Sdr.Pairing, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrConfig.Sdr.Pairing, self).__init__()
 
                 self.yang_name = "pairing"
                 self.yang_parent_name = "sdr"
@@ -1678,15 +1854,27 @@ class SdrConfig(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrConfig.Sdr.Pairing, ['name', 'rp1', 'rp2'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrConfig.Sdr.Pairing']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+            return meta._meta_table['SdrConfig.Sdr']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrConfig()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['SdrConfig']['meta_info']
 
 
-class SdrManager(Entity):
+class SdrManager(_Entity_):
     """
     
     
@@ -1702,10 +1890,13 @@ class SdrManager(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-10-22'
+    _revision = '2019-04-12'
 
     def __init__(self):
-        super(SdrManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-manager"
@@ -1726,7 +1917,7 @@ class SdrManager(Entity):
         self._perform_setattr(SdrManager, [], name, value)
 
 
-    class SdrMgr(Entity):
+    class SdrMgr(_Entity_):
         """
         
         
@@ -1742,10 +1933,13 @@ class SdrManager(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-10-22'
+        _revision = '2019-04-12'
 
         def __init__(self):
-            super(SdrManager.SdrMgr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrManager.SdrMgr, self).__init__()
 
             self.yang_name = "sdr_mgr"
             self.yang_parent_name = "sdr-manager"
@@ -1764,7 +1958,7 @@ class SdrManager(Entity):
             self._perform_setattr(SdrManager.SdrMgr, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -1787,10 +1981,13 @@ class SdrManager(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrManager.SdrMgr.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrManager.SdrMgr.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "sdr_mgr"
@@ -1812,7 +2009,7 @@ class SdrManager(Entity):
                 self._perform_setattr(SdrManager.SdrMgr.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1835,10 +2032,13 @@ class SdrManager(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrManager.SdrMgr.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrManager.SdrMgr.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -1859,7 +2059,7 @@ class SdrManager(Entity):
                     self._perform_setattr(SdrManager.SdrMgr.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -1882,10 +2082,13 @@ class SdrManager(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2018-10-22'
+                    _revision = '2019-04-12'
 
                     def __init__(self):
-                        super(SdrManager.SdrMgr.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrManager.SdrMgr.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -1906,7 +2109,7 @@ class SdrManager(Entity):
                         self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -1922,10 +2125,13 @@ class SdrManager(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2018-10-22'
+                        _revision = '2019-04-12'
 
                         def __init__(self):
-                            super(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -1943,18 +2149,42 @@ class SdrManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                            return meta._meta_table['SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                        return meta._meta_table['SdrManager.SdrMgr.Trace.Location.AllOptions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrManager.SdrMgr.Trace.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrManager.SdrMgr.Trace']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+            return meta._meta_table['SdrManager.SdrMgr']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['SdrManager']['meta_info']
 
 
-class SdrOperation(Entity):
+class SdrOperation(_Entity_):
     """
     
     
@@ -1970,10 +2200,13 @@ class SdrOperation(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-10-22'
+    _revision = '2019-04-12'
 
     def __init__(self):
-        super(SdrOperation, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrOperation, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-operation"
@@ -1992,7 +2225,7 @@ class SdrOperation(Entity):
         self._perform_setattr(SdrOperation, [], name, value)
 
 
-    class Sdr(Entity):
+    class Sdr(_Entity_):
         """
         SDR
         
@@ -2017,10 +2250,13 @@ class SdrOperation(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-10-22'
+        _revision = '2019-04-12'
 
         def __init__(self):
-            super(SdrOperation.Sdr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrOperation.Sdr, self).__init__()
 
             self.yang_name = "sdr"
             self.yang_parent_name = "sdr-operation"
@@ -2044,7 +2280,7 @@ class SdrOperation(Entity):
             self._perform_setattr(SdrOperation.Sdr, ['name'], name, value)
 
 
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             
             
@@ -2060,10 +2296,13 @@ class SdrOperation(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(SdrOperation.Sdr.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrOperation.Sdr.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "sdr"
@@ -2081,7 +2320,7 @@ class SdrOperation(Entity):
                 self._perform_setattr(SdrOperation.Sdr.Nodes, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -2120,10 +2359,13 @@ class SdrOperation(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2018-10-22'
+                _revision = '2019-04-12'
 
                 def __init__(self):
-                    super(SdrOperation.Sdr.Nodes.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrOperation.Sdr.Nodes.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "nodes"
@@ -2147,16 +2389,32 @@ class SdrOperation(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrOperation.Sdr.Nodes.Location, ['node_location', 'node_type', 'progress', 'state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                    return meta._meta_table['SdrOperation.Sdr.Nodes.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['SdrOperation.Sdr.Nodes']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+            return meta._meta_table['SdrOperation.Sdr']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrOperation()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['SdrOperation']['meta_info']
 
 
-class PrivateSdr(Entity):
+class PrivateSdr(_Entity_):
     """
     
     
@@ -2170,10 +2428,13 @@ class PrivateSdr(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2018-10-22'
+    _revision = '2019-04-12'
 
     def __init__(self):
-        super(PrivateSdr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PrivateSdr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "private-sdr"
@@ -2192,7 +2453,7 @@ class PrivateSdr(Entity):
         self._perform_setattr(PrivateSdr, [], name, value)
 
 
-    class SdrName(Entity):
+    class SdrName(_Entity_):
         """
         
         
@@ -2232,10 +2493,13 @@ class PrivateSdr(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2018-10-22'
+        _revision = '2019-04-12'
 
         def __init__(self):
-            super(PrivateSdr.SdrName, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PrivateSdr.SdrName, self).__init__()
 
             self.yang_name = "sdr-name"
             self.yang_parent_name = "private-sdr"
@@ -2263,7 +2527,7 @@ class PrivateSdr(Entity):
             self._perform_setattr(PrivateSdr.SdrName, ['name', 'id', 'lead_rack0', 'lead_rack1'], name, value)
 
 
-        class Pairing(Entity):
+        class Pairing(_Entity_):
             """
             
             
@@ -2312,10 +2576,13 @@ class PrivateSdr(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2018-10-22'
+            _revision = '2019-04-12'
 
             def __init__(self):
-                super(PrivateSdr.SdrName.Pairing, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PrivateSdr.SdrName.Pairing, self).__init__()
 
                 self.yang_name = "pairing"
                 self.yang_parent_name = "sdr-name"
@@ -2343,11 +2610,23 @@ class PrivateSdr(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PrivateSdr.SdrName.Pairing, ['num', 'second_exist', 'rp1_rack', 'rp1_slot', 'rp2_rack', 'rp2_slot'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+                return meta._meta_table['PrivateSdr.SdrName.Pairing']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+            return meta._meta_table['PrivateSdr.SdrName']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PrivateSdr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sdr_mgr as meta
+        return meta._meta_table['PrivateSdr']['meta_info']
 
 

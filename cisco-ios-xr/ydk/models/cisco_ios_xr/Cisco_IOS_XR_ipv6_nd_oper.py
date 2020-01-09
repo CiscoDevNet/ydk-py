@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class Ipv6NdBndlState(Enum):
     error = Enum.YLeaf(1, "error")
 
     wait = Enum.YLeaf(2, "wait")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdBndlState']
 
 
 class Ipv6NdMediaEncap(Enum):
@@ -134,6 +143,12 @@ class Ipv6NdMediaEncap(Enum):
     gre = Enum.YLeaf(12, "gre")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdMediaEncap']
+
+
 class Ipv6NdNeighborOrigin(Enum):
     """
     Ipv6NdNeighborOrigin (Enum Class)
@@ -159,6 +174,12 @@ class Ipv6NdNeighborOrigin(Enum):
     static = Enum.YLeaf(1, "static")
 
     dynamic = Enum.YLeaf(2, "dynamic")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdNeighborOrigin']
 
 
 class Ipv6NdShState(Enum):
@@ -212,6 +233,12 @@ class Ipv6NdShState(Enum):
     delete = Enum.YLeaf(6, "delete")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdShState']
+
+
 class Ipv6NdShVrFlags(Enum):
     """
     Ipv6NdShVrFlags (Enum Class)
@@ -231,6 +258,12 @@ class Ipv6NdShVrFlags(Enum):
     no_flags = Enum.YLeaf(0, "no-flags")
 
     final_ra = Enum.YLeaf(1, "final-ra")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdShVrFlags']
 
 
 class Ipv6NdShVrState(Enum):
@@ -260,8 +293,14 @@ class Ipv6NdShVrState(Enum):
     active = Enum.YLeaf(2, "active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NdShVrState']
 
-class Ipv6NodeDiscovery(Entity):
+
+
+class Ipv6NodeDiscovery(_Entity_):
     """
     IPv6 node discovery operational data
     
@@ -277,10 +316,13 @@ class Ipv6NodeDiscovery(Entity):
     """
 
     _prefix = 'ipv6-nd-oper'
-    _revision = '2019-02-18'
+    _revision = '2019-09-26'
 
     def __init__(self):
-        super(Ipv6NodeDiscovery, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6NodeDiscovery, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6-node-discovery"
@@ -301,7 +343,7 @@ class Ipv6NodeDiscovery(Entity):
         self._perform_setattr(Ipv6NodeDiscovery, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         IPv6 node discovery list of nodes
         
@@ -317,10 +359,13 @@ class Ipv6NodeDiscovery(Entity):
         """
 
         _prefix = 'ipv6-nd-oper'
-        _revision = '2019-02-18'
+        _revision = '2019-09-26'
 
         def __init__(self):
-            super(Ipv6NodeDiscovery.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6NodeDiscovery.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv6-node-discovery"
@@ -339,7 +384,7 @@ class Ipv6NodeDiscovery(Entity):
             self._perform_setattr(Ipv6NodeDiscovery.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IPv6 node discovery operational data for a
             particular node
@@ -407,10 +452,13 @@ class Ipv6NodeDiscovery(Entity):
             """
 
             _prefix = 'ipv6-nd-oper'
-            _revision = '2019-02-18'
+            _revision = '2019-09-26'
 
             def __init__(self):
-                super(Ipv6NodeDiscovery.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6NodeDiscovery.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -458,7 +506,7 @@ class Ipv6NodeDiscovery(Entity):
                 self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node, ['node_name'], name, value)
 
 
-            class NeighborInterfaces(Entity):
+            class NeighborInterfaces(_Entity_):
                 """
                 IPv6 node discovery list of neighbor
                 interfaces
@@ -475,10 +523,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, self).__init__()
 
                     self.yang_name = "neighbor-interfaces"
                     self.yang_parent_name = "node"
@@ -496,7 +547,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces, [], name, value)
 
 
-                class NeighborInterface(Entity):
+                class NeighborInterface(_Entity_):
                     """
                     IPv6 node discovery neighbor interface
                     
@@ -521,10 +572,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, self).__init__()
 
                         self.yang_name = "neighbor-interface"
                         self.yang_parent_name = "neighbor-interfaces"
@@ -547,7 +601,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, ['interface_name'], name, value)
 
 
-                    class HostAddresses(Entity):
+                    class HostAddresses(_Entity_):
                         """
                         IPv6 node discovery list of neighbor host
                         addresses
@@ -564,10 +618,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, self).__init__()
 
                             self.yang_name = "host-addresses"
                             self.yang_parent_name = "neighbor-interface"
@@ -585,7 +642,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses, [], name, value)
 
 
-                        class HostAddress(Entity):
+                        class HostAddress(_Entity_):
                             """
                             IPv6 Neighbor detailed information
                             
@@ -688,10 +745,13 @@ class Ipv6NodeDiscovery(Entity):
                             """
 
                             _prefix = 'ipv6-nd-oper'
-                            _revision = '2019-02-18'
+                            _revision = '2019-09-26'
 
                             def __init__(self):
-                                super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, self).__init__()
 
                                 self.yang_name = "host-address"
                                 self.yang_parent_name = "host-addresses"
@@ -734,7 +794,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'reachability_state', 'link_layer_address', 'encapsulation', 'selected_encapsulation', 'origin_encapsulation', 'interface_name', 'location', 'is_router', 'serg_flags', 'vrfid'], name, value)
 
 
-                            class LastReachedTime(Entity):
+                            class LastReachedTime(_Entity_):
                                 """
                                 Last time of reachability
                                 
@@ -754,10 +814,13 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2019-02-18'
+                                _revision = '2019-09-26'
 
                                 def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, self).__init__()
 
                                     self.yang_name = "last-reached-time"
                                     self.yang_parent_name = "host-address"
@@ -775,13 +838,33 @@ class Ipv6NodeDiscovery(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, ['seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces']['meta_info']
 
 
-
-
-
-
-            class NeighborSummary(Entity):
+            class NeighborSummary(_Entity_):
                 """
                 Summary of IPv6 Neighbors
                 
@@ -841,10 +924,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, self).__init__()
 
                     self.yang_name = "neighbor-summary"
                     self.yang_parent_name = "node"
@@ -887,7 +973,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, ['total_neighbor_entries'], name, value)
 
 
-                class Multicast(Entity):
+                class Multicast(_Entity_):
                     """
                     Multicast neighbor summary
                     
@@ -959,10 +1045,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, self).__init__()
 
                         self.yang_name = "multicast"
                         self.yang_parent_name = "neighbor-summary"
@@ -992,9 +1081,13 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast']['meta_info']
 
 
-                class Static(Entity):
+                class Static(_Entity_):
                     """
                     Static neighbor summary
                     
@@ -1066,10 +1159,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, self).__init__()
 
                         self.yang_name = "static"
                         self.yang_parent_name = "neighbor-summary"
@@ -1099,9 +1195,13 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static']['meta_info']
 
 
-                class Dynamic(Entity):
+                class Dynamic(_Entity_):
                     """
                     Dynamic neighbor summary
                     
@@ -1173,10 +1273,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, self).__init__()
 
                         self.yang_name = "dynamic"
                         self.yang_parent_name = "neighbor-summary"
@@ -1206,9 +1309,13 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic']['meta_info']
 
 
-                class Sync(Entity):
+                class Sync(_Entity_):
                     """
                     Sync neighbor summary
                     
@@ -1280,10 +1387,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync, self).__init__()
 
                         self.yang_name = "sync"
                         self.yang_parent_name = "neighbor-summary"
@@ -1313,9 +1423,13 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Sync']['meta_info']
 
 
-                class StaticSync(Entity):
+                class StaticSync(_Entity_):
                     """
                     StaticSync neighbor summary
                     
@@ -1387,10 +1501,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync, self).__init__()
 
                         self.yang_name = "static-sync"
                         self.yang_parent_name = "neighbor-summary"
@@ -1420,9 +1537,13 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.StaticSync']['meta_info']
 
 
-                class DynamicSync(Entity):
+                class DynamicSync(_Entity_):
                     """
                     DynamicSync neighbor summary
                     
@@ -1494,10 +1615,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync, self).__init__()
 
                         self.yang_name = "dynamic-sync"
                         self.yang_parent_name = "neighbor-summary"
@@ -1527,10 +1651,18 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.DynamicSync']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NeighborSummary']['meta_info']
 
 
-
-            class BundleNodes(Entity):
+            class BundleNodes(_Entity_):
                 """
                 IPv6 ND list of bundle nodes for a specific
                 node
@@ -1547,10 +1679,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, self).__init__()
 
                     self.yang_name = "bundle-nodes"
                     self.yang_parent_name = "node"
@@ -1568,7 +1703,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes, [], name, value)
 
 
-                class BundleNode(Entity):
+                class BundleNode(_Entity_):
                     """
                     IPv6 ND operational data for a specific
                     bundle node
@@ -1662,10 +1797,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, self).__init__()
 
                         self.yang_name = "bundle-node"
                         self.yang_parent_name = "bundle-nodes"
@@ -1704,7 +1842,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', 'group_id', 'process_name', 'sent_sequence_number', 'received_sequence_number', 'state', 'state_changes', 'sent_packets', 'received_packets'], name, value)
 
 
-                    class Age(Entity):
+                    class Age(_Entity_):
                         """
                         Uptime of node (secs)
                         
@@ -1724,10 +1862,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, self).__init__()
 
                             self.yang_name = "age"
                             self.yang_parent_name = "bundle-node"
@@ -1745,11 +1886,23 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, ['seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleNodes']['meta_info']
 
 
-
-
-            class BundleInterfaces(Entity):
+            class BundleInterfaces(_Entity_):
                 """
                 IPv6 ND list of bundle interfaces for a
                 specific node
@@ -1766,10 +1919,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, self).__init__()
 
                     self.yang_name = "bundle-interfaces"
                     self.yang_parent_name = "node"
@@ -1787,7 +1943,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces, [], name, value)
 
 
-                class BundleInterface(Entity):
+                class BundleInterface(_Entity_):
                     """
                     IPv6 ND operational data for a specific
                     bundler interface
@@ -1927,10 +2083,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, self).__init__()
 
                         self.yang_name = "bundle-interface"
                         self.yang_parent_name = "bundle-interfaces"
@@ -1982,7 +2141,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'parent_interface_name', 'iftype', 'mtu', 'etype', 'vlan_tag', 'mac_addr_size', 'mac_addr', 'is_interface_enabled', 'is_ipv6_enabled', 'is_mpls_enabled', 'member_link'], name, value)
 
 
-                    class NdParameters(Entity):
+                    class NdParameters(_Entity_):
                         """
                         ND interface parameters
                         
@@ -2150,10 +2309,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, self).__init__()
 
                             self.yang_name = "nd-parameters"
                             self.yang_parent_name = "bundle-interface"
@@ -2207,9 +2369,13 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, ['is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters']['meta_info']
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         IPV6 Link local address
                         
@@ -2263,10 +2429,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "bundle-interface"
@@ -2292,9 +2461,13 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress']['meta_info']
 
 
-                    class GlobalAddress(Entity):
+                    class GlobalAddress(_Entity_):
                         """
                         List of ND global addresses
                         
@@ -2348,10 +2521,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, self).__init__()
 
                             self.yang_name = "global-address"
                             self.yang_parent_name = "bundle-interface"
@@ -2377,9 +2553,13 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress']['meta_info']
 
 
-                    class MemberNode(Entity):
+                    class MemberNode(_Entity_):
                         """
                         List of member nodes
                         
@@ -2406,10 +2586,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, self).__init__()
 
                             self.yang_name = "member-node"
                             self.yang_parent_name = "bundle-interface"
@@ -2429,11 +2612,23 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, ['node_name', 'total_links'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 IPv6 node discovery list of interfaces for a
                 specific node
@@ -2450,10 +2645,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -2471,7 +2669,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IPv6  node discovery operational data for a
                     specific node and interface
@@ -2649,10 +2847,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2708,10 +2909,18 @@ class Ipv6NodeDiscovery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', 'is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.Interfaces']['meta_info']
 
 
-
-            class NdVirtualRouters(Entity):
+            class NdVirtualRouters(_Entity_):
                 """
                 IPv6 ND virtual router information for a
                 specific interface
@@ -2728,10 +2937,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, self).__init__()
 
                     self.yang_name = "nd-virtual-routers"
                     self.yang_parent_name = "node"
@@ -2749,7 +2961,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters, [], name, value)
 
 
-                class NdVirtualRouter(Entity):
+                class NdVirtualRouter(_Entity_):
                     """
                     IPv6 ND virtual  router operational data for
                     a specific interface
@@ -2823,10 +3035,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, self).__init__()
 
                         self.yang_name = "nd-virtual-router"
                         self.yang_parent_name = "nd-virtual-routers"
@@ -2861,7 +3076,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', 'link_layer_address', 'context', 'state', 'flags', 'vr_gl_addr_ct'], name, value)
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         IPV6 Link local address
                         
@@ -2915,10 +3130,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "nd-virtual-router"
@@ -2944,9 +3162,13 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress']['meta_info']
 
 
-                    class VrGlobalAddress(Entity):
+                    class VrGlobalAddress(_Entity_):
                         """
                         List of ND global addresses
                         
@@ -3000,10 +3222,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, self).__init__()
 
                             self.yang_name = "vr-global-address"
                             self.yang_parent_name = "nd-virtual-router"
@@ -3029,11 +3254,23 @@ class Ipv6NodeDiscovery(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime', 'prefix_length', 'flags'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters']['meta_info']
 
 
-
-
-            class SlaacInterfaces(Entity):
+            class SlaacInterfaces(_Entity_):
                 """
                 IPv6 ND list of SLAAC MGMT interfaces for a
                 specific node
@@ -3050,10 +3287,13 @@ class Ipv6NodeDiscovery(Entity):
                 """
 
                 _prefix = 'ipv6-nd-oper'
-                _revision = '2019-02-18'
+                _revision = '2019-09-26'
 
                 def __init__(self):
-                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, self).__init__()
 
                     self.yang_name = "slaac-interfaces"
                     self.yang_parent_name = "node"
@@ -3071,7 +3311,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces, [], name, value)
 
 
-                class SlaacInterface(Entity):
+                class SlaacInterface(_Entity_):
                     """
                     IPv6 ND operational data for a specific slaac
                     interface
@@ -3097,10 +3337,13 @@ class Ipv6NodeDiscovery(Entity):
                     """
 
                     _prefix = 'ipv6-nd-oper'
-                    _revision = '2019-02-18'
+                    _revision = '2019-09-26'
 
                     def __init__(self):
-                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, self).__init__()
 
                         self.yang_name = "slaac-interface"
                         self.yang_parent_name = "slaac-interfaces"
@@ -3123,7 +3366,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, ['interface_name'], name, value)
 
 
-                    class RouterAdvertDetail(Entity):
+                    class RouterAdvertDetail(_Entity_):
                         """
                         IPv6 ND operational data for a specific
                         slaac interface
@@ -3149,10 +3392,13 @@ class Ipv6NodeDiscovery(Entity):
                         """
 
                         _prefix = 'ipv6-nd-oper'
-                        _revision = '2019-02-18'
+                        _revision = '2019-09-26'
 
                         def __init__(self):
-                            super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, self).__init__()
 
                             self.yang_name = "router-advert-detail"
                             self.yang_parent_name = "slaac-interface"
@@ -3173,7 +3419,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, ['idb'], name, value)
 
 
-                        class Ra(Entity):
+                        class Ra(_Entity_):
                             """
                             slaac db
                             
@@ -3305,10 +3551,13 @@ class Ipv6NodeDiscovery(Entity):
                             """
 
                             _prefix = 'ipv6-nd-oper'
-                            _revision = '2019-02-18'
+                            _revision = '2019-09-26'
 
                             def __init__(self):
-                                super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, self).__init__()
 
                                 self.yang_name = "ra"
                                 self.yang_parent_name = "router-advert-detail"
@@ -3361,7 +3610,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, ['address', 'hops', 'flags', 'life_time', 'mtu', 'err_msg', 'vrf_id', 'u6_tbl_id', 'rib_protoid', 'default_router', 'reachability'], name, value)
 
 
-                            class ElapsedRaTime(Entity):
+                            class ElapsedRaTime(_Entity_):
                                 """
                                 elapsedRATime
                                 
@@ -3381,10 +3630,13 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2019-02-18'
+                                _revision = '2019-09-26'
 
                                 def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, self).__init__()
 
                                     self.yang_name = "elapsed-ra-time"
                                     self.yang_parent_name = "ra"
@@ -3402,9 +3654,13 @@ class Ipv6NodeDiscovery(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, ['seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime']['meta_info']
 
 
-                            class ReachableTime(Entity):
+                            class ReachableTime(_Entity_):
                                 """
                                 common reachabletime
                                 
@@ -3424,10 +3680,13 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2019-02-18'
+                                _revision = '2019-09-26'
 
                                 def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, self).__init__()
 
                                     self.yang_name = "reachable-time"
                                     self.yang_parent_name = "ra"
@@ -3445,9 +3704,13 @@ class Ipv6NodeDiscovery(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, ['seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime']['meta_info']
 
 
-                            class RetransTime(Entity):
+                            class RetransTime(_Entity_):
                                 """
                                 RA retransmit time
                                 
@@ -3467,10 +3730,13 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2019-02-18'
+                                _revision = '2019-09-26'
 
                                 def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, self).__init__()
 
                                     self.yang_name = "retrans-time"
                                     self.yang_parent_name = "ra"
@@ -3488,9 +3754,13 @@ class Ipv6NodeDiscovery(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, ['seconds'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime']['meta_info']
 
 
-                            class PrefixQ(Entity):
+                            class PrefixQ(_Entity_):
                                 """
                                 Prefix Queue
                                 
@@ -3562,10 +3832,13 @@ class Ipv6NodeDiscovery(Entity):
                                 """
 
                                 _prefix = 'ipv6-nd-oper'
-                                _revision = '2019-02-18'
+                                _revision = '2019-09-26'
 
                                 def __init__(self):
-                                    super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, self).__init__()
 
                                     self.yang_name = "prefix-q"
                                     self.yang_parent_name = "ra"
@@ -3595,16 +3868,48 @@ class Ipv6NodeDiscovery(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, ['prefix_address', 'eui64', 'valid_life_time', 'preferred_life_time', 'prefix_len', 'flags', 'pfx_flags'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                                return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                            return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                        return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                    return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+                return meta._meta_table['Ipv6NodeDiscovery.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+            return meta._meta_table['Ipv6NodeDiscovery.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6NodeDiscovery()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
+        return meta._meta_table['Ipv6NodeDiscovery']['meta_info']
 
 

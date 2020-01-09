@@ -17,8 +17,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -36,7 +39,7 @@ class AdminPrmConfigFeatureProfile(Enum):
 
     	Default feature profile
 
-    .. data:: l2 = 8
+    .. data:: l2 = 9
 
     	L2 feature profile
 
@@ -44,7 +47,13 @@ class AdminPrmConfigFeatureProfile(Enum):
 
     default = Enum.YLeaf(0, "default")
 
-    l2 = Enum.YLeaf(8, "l2")
+    l2 = Enum.YLeaf(9, "l2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['AdminPrmConfigFeatureProfile']
 
 
 class AdminPrmConfigInternalTcamPartProfile(Enum):
@@ -72,6 +81,12 @@ class AdminPrmConfigInternalTcamPartProfile(Enum):
     to_profile_se1 = Enum.YLeaf(1, "to-profile-se1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['AdminPrmConfigInternalTcamPartProfile']
+
+
 class AdminPrmConfigPackageBundle(Enum):
     """
     AdminPrmConfigPackageBundle (Enum Class)
@@ -82,7 +97,7 @@ class AdminPrmConfigPackageBundle(Enum):
 
     	Default Package
 
-    .. data:: services = 9
+    .. data:: services = 10
 
     	Services Package
 
@@ -90,7 +105,13 @@ class AdminPrmConfigPackageBundle(Enum):
 
     default = Enum.YLeaf(0, "default")
 
-    services = Enum.YLeaf(9, "services")
+    services = Enum.YLeaf(10, "services")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['AdminPrmConfigPackageBundle']
 
 
 class AdminPrmConfigScaleProfile(Enum):
@@ -119,15 +140,19 @@ class AdminPrmConfigScaleProfile(Enum):
 
     	BNG scale profile
 
-    .. data:: lsr = 5
+    .. data:: evpnconv = 5
+
+    	EVPN convergence scale profile
+
+    .. data:: lsr = 6
 
     	LSR scale profile
 
-    .. data:: sat = 6
+    .. data:: sat = 7
 
     	SAT scale profile
 
-    .. data:: sfp = 7
+    .. data:: sfp = 8
 
     	Single-flow perf scale profile
 
@@ -143,11 +168,19 @@ class AdminPrmConfigScaleProfile(Enum):
 
     bng = Enum.YLeaf(4, "bng")
 
-    lsr = Enum.YLeaf(5, "lsr")
+    evpnconv = Enum.YLeaf(5, "evpnconv")
 
-    sat = Enum.YLeaf(6, "sat")
+    lsr = Enum.YLeaf(6, "lsr")
 
-    sfp = Enum.YLeaf(7, "sfp")
+    sat = Enum.YLeaf(7, "sat")
+
+    sfp = Enum.YLeaf(8, "sfp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['AdminPrmConfigScaleProfile']
 
 
 class AdminPrmConfigTcamPartProfile(Enum):
@@ -189,6 +222,12 @@ class AdminPrmConfigTcamPartProfile(Enum):
     ods2_70_ods8_30 = Enum.YLeaf(4, "ods2-70-ods8-30")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['AdminPrmConfigTcamPartProfile']
+
+
 class Asr9kEfdMode(Enum):
     """
     Asr9kEfdMode (Enum Class)
@@ -208,6 +247,12 @@ class Asr9kEfdMode(Enum):
     only_outer_encap = Enum.YLeaf(0, "only-outer-encap")
 
     include_inner_encap = Enum.YLeaf(1, "include-inner-encap")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['Asr9kEfdMode']
 
 
 class Asr9kEfdOperation(Enum):
@@ -231,6 +276,12 @@ class Asr9kEfdOperation(Enum):
     greater_than_or_equal = Enum.YLeaf(3, "greater-than-or-equal")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['Asr9kEfdOperation']
+
+
 class PrmProcessorConfig(Enum):
     """
     PrmProcessorConfig (Enum Class)
@@ -250,6 +301,12 @@ class PrmProcessorConfig(Enum):
     mode_default = Enum.YLeaf(0, "mode-default")
 
     mode_full = Enum.YLeaf(1, "mode-full")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['PrmProcessorConfig']
 
 
 class PrmTcamProfile(Enum):
@@ -279,8 +336,14 @@ class PrmTcamProfile(Enum):
     profile2 = Enum.YLeaf(2, "profile2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['PrmTcamProfile']
 
-class HardwareModuleQosMode(Entity):
+
+
+class HardwareModuleQosMode(_Entity_):
     """
     QoS mode in hardware module port(s)
     
@@ -297,7 +360,10 @@ class HardwareModuleQosMode(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleQosMode, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleQosMode, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-qos-mode"
@@ -318,7 +384,7 @@ class HardwareModuleQosMode(Entity):
         self._perform_setattr(HardwareModuleQosMode, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         QoS applicable nodes
         
@@ -335,7 +401,10 @@ class HardwareModuleQosMode(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleQosMode.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleQosMode.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-qos-mode"
@@ -354,7 +423,7 @@ class HardwareModuleQosMode(Entity):
             self._perform_setattr(HardwareModuleQosMode.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A node
             
@@ -383,7 +452,10 @@ class HardwareModuleQosMode(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleQosMode.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleQosMode.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -406,15 +478,27 @@ class HardwareModuleQosMode(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleQosMode.Nodes.Node, ['node_name', 'child_shaping_disable', 'lowburst_enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleQosMode.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleQosMode.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleQosMode()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleQosMode']['meta_info']
 
 
-class HardwareModuleProcessor(Entity):
+class HardwareModuleProcessor(_Entity_):
     """
     hardware module processor
     
@@ -431,7 +515,10 @@ class HardwareModuleProcessor(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleProcessor, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleProcessor, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-processor"
@@ -452,7 +539,7 @@ class HardwareModuleProcessor(Entity):
         self._perform_setattr(HardwareModuleProcessor, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         applicable nodeTable
         
@@ -469,7 +556,10 @@ class HardwareModuleProcessor(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleProcessor.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleProcessor.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-processor"
@@ -488,7 +578,7 @@ class HardwareModuleProcessor(Entity):
             self._perform_setattr(HardwareModuleProcessor.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             applicable node
             
@@ -512,7 +602,10 @@ class HardwareModuleProcessor(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleProcessor.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleProcessor.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -533,15 +626,27 @@ class HardwareModuleProcessor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleProcessor.Nodes.Node, ['node_name', 'mode'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleProcessor.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleProcessor.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleProcessor()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleProcessor']['meta_info']
 
 
-class HardwareModuleTcpMssAdjust(Entity):
+class HardwareModuleTcpMssAdjust(_Entity_):
     """
     hardware module tcp mss adjust
     
@@ -558,7 +663,10 @@ class HardwareModuleTcpMssAdjust(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleTcpMssAdjust, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleTcpMssAdjust, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-tcp-mss-adjust"
@@ -579,7 +687,7 @@ class HardwareModuleTcpMssAdjust(Entity):
         self._perform_setattr(HardwareModuleTcpMssAdjust, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         TCP MSS Adjust applicable nodes
         
@@ -596,7 +704,10 @@ class HardwareModuleTcpMssAdjust(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleTcpMssAdjust.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleTcpMssAdjust.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-tcp-mss-adjust"
@@ -615,7 +726,7 @@ class HardwareModuleTcpMssAdjust(Entity):
             self._perform_setattr(HardwareModuleTcpMssAdjust.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A node
             
@@ -639,7 +750,10 @@ class HardwareModuleTcpMssAdjust(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleTcpMssAdjust.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleTcpMssAdjust.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -663,7 +777,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                 self._perform_setattr(HardwareModuleTcpMssAdjust.Nodes.Node, ['node_name'], name, value)
 
 
-            class Nps(Entity):
+            class Nps(_Entity_):
                 """
                 TCP MSS Adjust NPs
                 
@@ -680,7 +794,10 @@ class HardwareModuleTcpMssAdjust(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleTcpMssAdjust.Nodes.Node.Nps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleTcpMssAdjust.Nodes.Node.Nps, self).__init__()
 
                     self.yang_name = "nps"
                     self.yang_parent_name = "node"
@@ -698,7 +815,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                     self._perform_setattr(HardwareModuleTcpMssAdjust.Nodes.Node.Nps, [], name, value)
 
 
-                class Np(Entity):
+                class Np(_Entity_):
                     """
                     NP number
                     
@@ -726,7 +843,10 @@ class HardwareModuleTcpMssAdjust(Entity):
                     _revision = '2017-11-29'
 
                     def __init__(self):
-                        super(HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np, self).__init__()
 
                         self.yang_name = "np"
                         self.yang_parent_name = "nps"
@@ -746,17 +866,37 @@ class HardwareModuleTcpMssAdjust(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np, ['np_id', 'adjust_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                        return meta._meta_table['HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleTcpMssAdjust.Nodes.Node.Nps']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleTcpMssAdjust.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleTcpMssAdjust.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleTcpMssAdjust()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleTcpMssAdjust']['meta_info']
 
 
-class HardwareModuleTcam(Entity):
+class HardwareModuleTcam(_Entity_):
     """
     hardware module tcam
     
@@ -780,7 +920,10 @@ class HardwareModuleTcam(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleTcam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleTcam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-tcam"
@@ -804,7 +947,7 @@ class HardwareModuleTcam(Entity):
         self._perform_setattr(HardwareModuleTcam, ['global_profile'], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         TCAM applicable nodes
         
@@ -821,7 +964,10 @@ class HardwareModuleTcam(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleTcam.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleTcam.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-tcam"
@@ -840,7 +986,7 @@ class HardwareModuleTcam(Entity):
             self._perform_setattr(HardwareModuleTcam.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A TCAM applicable node
             
@@ -866,7 +1012,10 @@ class HardwareModuleTcam(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleTcam.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleTcam.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -887,15 +1036,27 @@ class HardwareModuleTcam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleTcam.Nodes.Node, ['node_name', 'profile'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleTcam.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleTcam.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleTcam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleTcam']['meta_info']
 
 
-class HardwareModuleProfile(Entity):
+class HardwareModuleProfile(_Entity_):
     """
     hardware module profile
     
@@ -947,7 +1108,10 @@ class HardwareModuleProfile(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleProfile, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleProfile, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-profile"
@@ -979,7 +1143,7 @@ class HardwareModuleProfile(Entity):
         self._perform_setattr(HardwareModuleProfile, ['feature', 'scale_active', 'package_bundle', 'feature_active', 'scale'], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         TCAM partition sizing applicable nodes
         
@@ -996,7 +1160,10 @@ class HardwareModuleProfile(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleProfile.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleProfile.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-profile"
@@ -1015,7 +1182,7 @@ class HardwareModuleProfile(Entity):
             self._perform_setattr(HardwareModuleProfile.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A TCAM partition sizing applicable node
             
@@ -1048,7 +1215,10 @@ class HardwareModuleProfile(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleProfile.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleProfile.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1071,15 +1241,27 @@ class HardwareModuleProfile(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleProfile.Nodes.Node, ['node_name', 'tcam_partition', 'internal_tcam_partition'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleProfile.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleProfile.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleProfile()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleProfile']['meta_info']
 
 
-class HardwareModuleEfd(Entity):
+class HardwareModuleEfd(_Entity_):
     """
     hardware module efd
     
@@ -1101,7 +1283,10 @@ class HardwareModuleEfd(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleEfd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleEfd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-efd"
@@ -1126,7 +1311,7 @@ class HardwareModuleEfd(Entity):
         self._perform_setattr(HardwareModuleEfd, [], name, value)
 
 
-    class NodeAll(Entity):
+    class NodeAll(_Entity_):
         """
         All nodes
         
@@ -1190,7 +1375,10 @@ class HardwareModuleEfd(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleEfd.NodeAll, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleEfd.NodeAll, self).__init__()
 
             self.yang_name = "node-all"
             self.yang_parent_name = "hardware-module-efd"
@@ -1230,7 +1418,7 @@ class HardwareModuleEfd(Entity):
             self._perform_setattr(HardwareModuleEfd.NodeAll, ['enable', 'mode'], name, value)
 
 
-        class VlanPriorityMask(Entity):
+        class VlanPriorityMask(_Entity_):
             """
             VLAN Priority Mask
             
@@ -1316,7 +1504,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.VlanPriorityMask, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.VlanPriorityMask, self).__init__()
 
                 self.yang_name = "vlan-priority-mask"
                 self.yang_parent_name = "node-all"
@@ -1350,9 +1541,13 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.VlanPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.VlanPriorityMask']['meta_info']
 
 
-        class IpPrecedence(Entity):
+        class IpPrecedence(_Entity_):
             """
             EFD IP parameters
             
@@ -1382,7 +1577,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.IpPrecedence, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.IpPrecedence, self).__init__()
 
                 self.yang_name = "ip-precedence"
                 self.yang_parent_name = "node-all"
@@ -1404,9 +1602,13 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.IpPrecedence, ['precedence', 'operation_'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.IpPrecedence']['meta_info']
 
 
-        class VlanCos(Entity):
+        class VlanCos(_Entity_):
             """
             EFD VLAN parameters
             
@@ -1436,7 +1638,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.VlanCos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.VlanCos, self).__init__()
 
                 self.yang_name = "vlan-cos"
                 self.yang_parent_name = "node-all"
@@ -1458,9 +1663,13 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.VlanCos, ['cos', 'operation_'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.VlanCos']['meta_info']
 
 
-        class IpPriorityMask(Entity):
+        class IpPriorityMask(_Entity_):
             """
             IP Priority Mask
             
@@ -1546,7 +1755,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.IpPriorityMask, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.IpPriorityMask, self).__init__()
 
                 self.yang_name = "ip-priority-mask"
                 self.yang_parent_name = "node-all"
@@ -1580,9 +1792,13 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.IpPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.IpPriorityMask']['meta_info']
 
 
-        class MplsPriorityMask(Entity):
+        class MplsPriorityMask(_Entity_):
             """
             MPLS Priority Mask
             
@@ -1668,7 +1884,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.MplsPriorityMask, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.MplsPriorityMask, self).__init__()
 
                 self.yang_name = "mpls-priority-mask"
                 self.yang_parent_name = "node-all"
@@ -1702,9 +1921,13 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.MplsPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.MplsPriorityMask']['meta_info']
 
 
-        class MplsExp(Entity):
+        class MplsExp(_Entity_):
             """
             EFD MPLS parameters
             
@@ -1734,7 +1957,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.NodeAll.MplsExp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.NodeAll.MplsExp, self).__init__()
 
                 self.yang_name = "mpls-exp"
                 self.yang_parent_name = "node-all"
@@ -1756,10 +1982,18 @@ class HardwareModuleEfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModuleEfd.NodeAll.MplsExp, ['exp', 'operation_'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.MplsExp']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleEfd.NodeAll']['meta_info']
 
 
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         EFD applicable nodes
         
@@ -1776,7 +2010,10 @@ class HardwareModuleEfd(Entity):
         _revision = '2017-11-29'
 
         def __init__(self):
-            super(HardwareModuleEfd.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModuleEfd.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module-efd"
@@ -1795,7 +2032,7 @@ class HardwareModuleEfd(Entity):
             self._perform_setattr(HardwareModuleEfd.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A node
             
@@ -1866,7 +2103,10 @@ class HardwareModuleEfd(Entity):
             _revision = '2017-11-29'
 
             def __init__(self):
-                super(HardwareModuleEfd.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModuleEfd.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1908,7 +2148,7 @@ class HardwareModuleEfd(Entity):
                 self._perform_setattr(HardwareModuleEfd.Nodes.Node, ['node_name', 'enable', 'mode'], name, value)
 
 
-            class VlanPriorityMask(Entity):
+            class VlanPriorityMask(_Entity_):
                 """
                 VLAN Priority Mask
                 
@@ -1994,7 +2234,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.VlanPriorityMask, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.VlanPriorityMask, self).__init__()
 
                     self.yang_name = "vlan-priority-mask"
                     self.yang_parent_name = "node"
@@ -2027,9 +2270,13 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.VlanPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.VlanPriorityMask']['meta_info']
 
 
-            class IpPrecedence(Entity):
+            class IpPrecedence(_Entity_):
                 """
                 EFD IP parameters
                 
@@ -2059,7 +2306,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.IpPrecedence, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.IpPrecedence, self).__init__()
 
                     self.yang_name = "ip-precedence"
                     self.yang_parent_name = "node"
@@ -2080,9 +2330,13 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.IpPrecedence, ['precedence', 'operation_'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.IpPrecedence']['meta_info']
 
 
-            class VlanCos(Entity):
+            class VlanCos(_Entity_):
                 """
                 EFD VLAN parameters
                 
@@ -2112,7 +2366,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.VlanCos, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.VlanCos, self).__init__()
 
                     self.yang_name = "vlan-cos"
                     self.yang_parent_name = "node"
@@ -2133,9 +2390,13 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.VlanCos, ['cos', 'operation_'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.VlanCos']['meta_info']
 
 
-            class IpPriorityMask(Entity):
+            class IpPriorityMask(_Entity_):
                 """
                 IP Priority Mask
                 
@@ -2221,7 +2482,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.IpPriorityMask, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.IpPriorityMask, self).__init__()
 
                     self.yang_name = "ip-priority-mask"
                     self.yang_parent_name = "node"
@@ -2254,9 +2518,13 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.IpPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.IpPriorityMask']['meta_info']
 
 
-            class MplsPriorityMask(Entity):
+            class MplsPriorityMask(_Entity_):
                 """
                 MPLS Priority Mask
                 
@@ -2342,7 +2610,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.MplsPriorityMask, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.MplsPriorityMask, self).__init__()
 
                     self.yang_name = "mpls-priority-mask"
                     self.yang_parent_name = "node"
@@ -2375,9 +2646,13 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.MplsPriorityMask, ['prec0', 'prec1', 'prec2', 'prec3', 'prec4', 'prec5', 'prec6', 'prec7'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.MplsPriorityMask']['meta_info']
 
 
-            class MplsExp(Entity):
+            class MplsExp(_Entity_):
                 """
                 EFD MPLS parameters
                 
@@ -2407,7 +2682,10 @@ class HardwareModuleEfd(Entity):
                 _revision = '2017-11-29'
 
                 def __init__(self):
-                    super(HardwareModuleEfd.Nodes.Node.MplsExp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModuleEfd.Nodes.Node.MplsExp, self).__init__()
 
                     self.yang_name = "mpls-exp"
                     self.yang_parent_name = "node"
@@ -2428,16 +2706,32 @@ class HardwareModuleEfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModuleEfd.Nodes.Node.MplsExp, ['exp', 'operation_'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                    return meta._meta_table['HardwareModuleEfd.Nodes.Node.MplsExp']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleEfd.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleEfd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleEfd']['meta_info']
 
 
-class HardwareModuleAllQosMode(Entity):
+class HardwareModuleAllQosMode(_Entity_):
     """
     hardware module all qos mode
     
@@ -2474,7 +2768,10 @@ class HardwareModuleAllQosMode(Entity):
     _revision = '2017-11-29'
 
     def __init__(self):
-        super(HardwareModuleAllQosMode, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModuleAllQosMode, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-all-qos-mode"
@@ -2505,5 +2802,9 @@ class HardwareModuleAllQosMode(Entity):
         self._top_entity = HardwareModuleAllQosMode()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+        return meta._meta_table['HardwareModuleAllQosMode']['meta_info']
 
 

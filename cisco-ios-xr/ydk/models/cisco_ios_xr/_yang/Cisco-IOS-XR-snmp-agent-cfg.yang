@@ -35,7 +35,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
 
   revision 2018-06-27 {
     description
-      "Error while configuring snmp-server host via netconf bug CSCvj92659.";
+      "Issue observed while configuring snmp-server host via netconf bug CSCvj92659.";
   }
   revision 2018-03-12 {
     description

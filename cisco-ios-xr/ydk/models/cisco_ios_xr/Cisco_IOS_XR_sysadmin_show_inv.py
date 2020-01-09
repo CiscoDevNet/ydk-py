@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Inventory(Entity):
+class Inventory(_Entity_):
     """
     show inventory
     
@@ -79,7 +82,10 @@ class Inventory(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(Inventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Inventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "inventory"
@@ -103,7 +109,7 @@ class Inventory(Entity):
         self._perform_setattr(Inventory, [], name, value)
 
 
-    class Location(Entity):
+    class Location(_Entity_):
         """
         
         
@@ -166,7 +172,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.Location, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Location, self).__init__()
 
             self.yang_name = "location"
             self.yang_parent_name = "inventory"
@@ -197,9 +206,13 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Location, ['loc', 'name', 'description', 'pid', 'vid', 'sn', 'index'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.Location']['meta_info']
 
 
-    class All(Entity):
+    class All(_Entity_):
         """
         
         
@@ -262,7 +275,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.All, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.All, self).__init__()
 
             self.yang_name = "all"
             self.yang_parent_name = "inventory"
@@ -293,9 +309,13 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.All, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.All']['meta_info']
 
 
-    class Chassis(Entity):
+    class Chassis(_Entity_):
         """
         
         
@@ -358,7 +378,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.Chassis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Chassis, self).__init__()
 
             self.yang_name = "chassis"
             self.yang_parent_name = "inventory"
@@ -389,9 +412,13 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Chassis, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.Chassis']['meta_info']
 
 
-    class Power(Entity):
+    class Power(_Entity_):
         """
         
         
@@ -454,7 +481,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.Power, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Power, self).__init__()
 
             self.yang_name = "power"
             self.yang_parent_name = "inventory"
@@ -485,9 +515,13 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Power, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.Power']['meta_info']
 
 
-    class Fan(Entity):
+    class Fan(_Entity_):
         """
         
         
@@ -550,7 +584,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.Fan, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Fan, self).__init__()
 
             self.yang_name = "fan"
             self.yang_parent_name = "inventory"
@@ -581,9 +618,13 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Fan, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.Fan']['meta_info']
 
 
-    class Raw(Entity):
+    class Raw(_Entity_):
         """
         
         
@@ -646,7 +687,10 @@ class Inventory(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Inventory.Raw, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Inventory.Raw, self).__init__()
 
             self.yang_name = "raw"
             self.yang_parent_name = "inventory"
@@ -677,10 +721,18 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Raw, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+            return meta._meta_table['Inventory.Raw']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Inventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_inv as meta
+        return meta._meta_table['Inventory']['meta_info']
 
 

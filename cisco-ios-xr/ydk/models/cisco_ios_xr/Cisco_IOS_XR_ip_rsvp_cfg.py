@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -51,6 +54,12 @@ class RsvpBc0(Enum):
     not_specified = Enum.YLeaf(3, "not-specified")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+        return meta._meta_table['RsvpBc0']
+
+
 class RsvpBc1(Enum):
     """
     RsvpBc1 (Enum Class)
@@ -70,6 +79,12 @@ class RsvpBc1(Enum):
     bc1 = Enum.YLeaf(1, "bc1")
 
     sub_pool = Enum.YLeaf(2, "sub-pool")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+        return meta._meta_table['RsvpBc1']
 
 
 class RsvpBwCfg(Enum):
@@ -93,6 +108,12 @@ class RsvpBwCfg(Enum):
     absolute = Enum.YLeaf(0, "absolute")
 
     percentage = Enum.YLeaf(1, "percentage")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+        return meta._meta_table['RsvpBwCfg']
 
 
 class RsvpRdm(Enum):
@@ -122,8 +143,14 @@ class RsvpRdm(Enum):
     use_default_bandwidth = Enum.YLeaf(3, "use-default-bandwidth")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+        return meta._meta_table['RsvpRdm']
 
-class Rsvp(Entity):
+
+
+class Rsvp(_Entity_):
     """
     Global RSVP configuration commands
     
@@ -167,10 +194,13 @@ class Rsvp(Entity):
     """
 
     _prefix = 'ip-rsvp-cfg'
-    _revision = '2017-05-01'
+    _revision = '2019-09-20'
 
     def __init__(self):
-        super(Rsvp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rsvp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rsvp"
@@ -215,7 +245,7 @@ class Rsvp(Entity):
         self._perform_setattr(Rsvp, [], name, value)
 
 
-    class Neighbors(Entity):
+    class Neighbors(_Entity_):
         """
         RSVP Neighbor Table
         
@@ -229,10 +259,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.Neighbors, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.Neighbors, self).__init__()
 
             self.yang_name = "neighbors"
             self.yang_parent_name = "rsvp"
@@ -251,7 +284,7 @@ class Rsvp(Entity):
             self._perform_setattr(Rsvp.Neighbors, [], name, value)
 
 
-        class Neighbor(Entity):
+        class Neighbor(_Entity_):
             """
             RSVP neighbor configuration
             
@@ -272,10 +305,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Neighbors.Neighbor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Neighbors.Neighbor, self).__init__()
 
                 self.yang_name = "neighbor"
                 self.yang_parent_name = "neighbors"
@@ -299,7 +335,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Neighbors.Neighbor, ['neighbor'], name, value)
 
 
-            class Authentication(Entity):
+            class Authentication(_Entity_):
                 """
                 Configure RSVP authentication
                 
@@ -336,10 +372,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Neighbors.Neighbor.Authentication, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Neighbors.Neighbor.Authentication, self).__init__()
 
                     self.yang_name = "authentication"
                     self.yang_parent_name = "neighbor"
@@ -363,11 +402,23 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Neighbors.Neighbor.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Neighbors.Neighbor.Authentication']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Neighbors.Neighbor']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Neighbors']['meta_info']
 
 
-
-
-    class Controllers(Entity):
+    class Controllers(_Entity_):
         """
         Controller table
         
@@ -381,10 +432,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.Controllers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.Controllers, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "rsvp"
@@ -403,7 +457,7 @@ class Rsvp(Entity):
             self._perform_setattr(Rsvp.Controllers, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             Controller configuration
             
@@ -429,10 +483,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Controllers.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Controllers.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -458,7 +515,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Controllers.Controller, ['controller_name', 'enable'], name, value)
 
 
-            class CntlSignalling(Entity):
+            class CntlSignalling(_Entity_):
                 """
                 Configure RSVP signalling parameters
                 
@@ -472,10 +529,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Controllers.Controller.CntlSignalling, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Controllers.Controller.CntlSignalling, self).__init__()
 
                     self.yang_name = "cntl-signalling"
                     self.yang_parent_name = "controller"
@@ -495,7 +555,7 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling, [], name, value)
 
 
-                class OutOfBand(Entity):
+                class OutOfBand(_Entity_):
                     """
                     Configure RSVP out\-of\-band signalling parameters
                     
@@ -522,10 +582,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, self).__init__()
 
                         self.yang_name = "out-of-band"
                         self.yang_parent_name = "cntl-signalling"
@@ -545,12 +608,28 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Controllers.Controller.CntlSignalling.OutOfBand']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Controllers.Controller.CntlSignalling']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Controllers.Controller']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Controllers']['meta_info']
 
 
-
-
-
-    class GlobalLogging(Entity):
+    class GlobalLogging(_Entity_):
         """
         Global Logging
         
@@ -569,10 +648,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.GlobalLogging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.GlobalLogging, self).__init__()
 
             self.yang_name = "global-logging"
             self.yang_parent_name = "rsvp"
@@ -593,9 +675,13 @@ class Rsvp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.GlobalLogging, ['log_nsr_status', 'log_issu_status'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.GlobalLogging']['meta_info']
 
 
-    class GlobalBandwidth(Entity):
+    class GlobalBandwidth(_Entity_):
         """
         Configure Global Bandwidth Parameters
         
@@ -609,10 +695,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.GlobalBandwidth, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.GlobalBandwidth, self).__init__()
 
             self.yang_name = "global-bandwidth"
             self.yang_parent_name = "rsvp"
@@ -633,7 +722,7 @@ class Rsvp(Entity):
             self._perform_setattr(Rsvp.GlobalBandwidth, [], name, value)
 
 
-        class DefaultInterfacePercent(Entity):
+        class DefaultInterfacePercent(_Entity_):
             """
             Configure Global RSVP signalling parameters
             
@@ -652,10 +741,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.GlobalBandwidth.DefaultInterfacePercent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.GlobalBandwidth.DefaultInterfacePercent, self).__init__()
 
                 self.yang_name = "default-interface-percent"
                 self.yang_parent_name = "global-bandwidth"
@@ -680,7 +772,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent, [], name, value)
 
 
-            class Mam(Entity):
+            class Mam(_Entity_):
                 """
                 Configure global default MAM I/F percent
                 bandwidth parameters
@@ -711,10 +803,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, self).__init__()
 
                     self.yang_name = "mam"
                     self.yang_parent_name = "default-interface-percent"
@@ -737,9 +832,13 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, ['max_res_percent', 'bc0_percent', 'bc1_percent'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam']['meta_info']
 
 
-            class Rdm(Entity):
+            class Rdm(_Entity_):
                 """
                 Configure global default RDM I/F percent
                 bandwidth parameters
@@ -763,10 +862,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, self).__init__()
 
                     self.yang_name = "rdm"
                     self.yang_parent_name = "default-interface-percent"
@@ -787,11 +889,23 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, ['bc0_percent', 'bc1_percent'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.GlobalBandwidth']['meta_info']
 
 
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Interface table
         
@@ -805,10 +919,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "rsvp"
@@ -827,7 +944,7 @@ class Rsvp(Entity):
             self._perform_setattr(Rsvp.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Interface configuration
             
@@ -858,10 +975,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -893,7 +1013,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Interfaces.Interface, ['name'], name, value)
 
 
-            class IfSignalling(Entity):
+            class IfSignalling(_Entity_):
                 """
                 Configure RSVP signalling parameters
                 
@@ -954,10 +1074,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Interfaces.Interface.IfSignalling, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Interfaces.Interface.IfSignalling, self).__init__()
 
                     self.yang_name = "if-signalling"
                     self.yang_parent_name = "interface"
@@ -996,7 +1119,7 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling, ['dscp', 'missed_messages', 'hello_graceful_restart_if_based', 'pacing', 'refresh_interval'], name, value)
 
 
-                class RefreshReduction(Entity):
+                class RefreshReduction(_Entity_):
                     """
                     Configure RSVP Refresh Reduction parameters
                     
@@ -1070,10 +1193,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__init__()
 
                         self.yang_name = "refresh-reduction"
                         self.yang_parent_name = "if-signalling"
@@ -1103,9 +1229,13 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, ['disable', 'reliable_ack_max_size', 'reliable_ack_hold_time', 'reliable_retransmit_time', 'reliable_s_refresh', 'summary_max_size', 'bundle_message_max_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction']['meta_info']
 
 
-                class IntervalRate(Entity):
+                class IntervalRate(_Entity_):
                     """
                     Configure number of messages to be sent per
                     interval
@@ -1135,10 +1265,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, self).__init__()
 
                         self.yang_name = "interval-rate"
                         self.yang_parent_name = "if-signalling"
@@ -1158,9 +1291,13 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, ['messages_per_interval', 'interval_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.IntervalRate']['meta_info']
 
 
-                class OutOfBand(Entity):
+                class OutOfBand(_Entity_):
                     """
                     Configure RSVP out\-of\-band signalling parameters
                     
@@ -1187,10 +1324,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, self).__init__()
 
                         self.yang_name = "out-of-band"
                         self.yang_parent_name = "if-signalling"
@@ -1210,10 +1350,18 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.OutOfBand']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling']['meta_info']
 
 
-
-            class Bandwidth(Entity):
+            class Bandwidth(_Entity_):
                 """
                 Configure Bandwidth
                 
@@ -1232,10 +1380,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Interfaces.Interface.Bandwidth, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Interfaces.Interface.Bandwidth, self).__init__()
 
                     self.yang_name = "bandwidth"
                     self.yang_parent_name = "interface"
@@ -1259,7 +1410,7 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth, [], name, value)
 
 
-                class Mam(Entity):
+                class Mam(_Entity_):
                     """
                     Configure MAM bandwidth parameters
                     
@@ -1303,10 +1454,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__init__()
 
                         self.yang_name = "mam"
                         self.yang_parent_name = "bandwidth"
@@ -1332,9 +1486,13 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Mam, ['max_resv_bandwidth', 'max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'bandwidth_mode'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Mam']['meta_info']
 
 
-                class Rdm(Entity):
+                class Rdm(_Entity_):
                     """
                     Configure RDM bandwidth parameters
                     
@@ -1386,10 +1544,13 @@ class Rsvp(Entity):
                     """
 
                     _prefix = 'ip-rsvp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2019-09-20'
 
                     def __init__(self):
-                        super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__init__()
 
                         self.yang_name = "rdm"
                         self.yang_parent_name = "bandwidth"
@@ -1419,10 +1580,18 @@ class Rsvp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Rdm, ['max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'rdm_keyword', 'bc0_keyword', 'bc1_keyword', 'bandwidth_mode'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Rdm']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth']['meta_info']
 
 
-
-            class Authentication(Entity):
+            class Authentication(_Entity_):
                 """
                 Configure RSVP authentication
                 
@@ -1459,10 +1628,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Interfaces.Interface.Authentication, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Interfaces.Interface.Authentication, self).__init__()
 
                     self.yang_name = "authentication"
                     self.yang_parent_name = "interface"
@@ -1486,11 +1658,23 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Interfaces.Interface.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Interfaces.Interface.Authentication']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Interfaces']['meta_info']
 
 
-
-
-    class Signalling(Entity):
+    class Signalling(_Entity_):
         """
         Configure Global RSVP signalling parameters
         
@@ -1544,10 +1728,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.Signalling, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.Signalling, self).__init__()
 
             self.yang_name = "signalling"
             self.yang_parent_name = "rsvp"
@@ -1589,7 +1776,7 @@ class Rsvp(Entity):
             self._perform_setattr(Rsvp.Signalling, ['hello_graceful_restart_misses', 'hello_graceful_restart_interval'], name, value)
 
 
-        class GlobalOutOfBand(Entity):
+        class GlobalOutOfBand(_Entity_):
             """
             Configure out\-of\-band signalling parameters
             
@@ -1605,10 +1792,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Signalling.GlobalOutOfBand, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Signalling.GlobalOutOfBand, self).__init__()
 
                 self.yang_name = "global-out-of-band"
                 self.yang_parent_name = "signalling"
@@ -1627,9 +1817,13 @@ class Rsvp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.GlobalOutOfBand, ['vrf'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.GlobalOutOfBand']['meta_info']
 
 
-        class GracefulRestart(Entity):
+        class GracefulRestart(_Entity_):
             """
             Configure RSVP Graceful\-Restart parameters
             
@@ -1670,10 +1864,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Signalling.GracefulRestart, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Signalling.GracefulRestart, self).__init__()
 
                 self.yang_name = "graceful-restart"
                 self.yang_parent_name = "signalling"
@@ -1701,7 +1898,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Signalling.GracefulRestart, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
-            class LspClassType(Entity):
+            class LspClassType(_Entity_):
                 """
                 Send LSP's ctype for recovery and suggested
                 label
@@ -1716,10 +1913,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Signalling.GracefulRestart.LspClassType, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Signalling.GracefulRestart.LspClassType, self).__init__()
 
                     self.yang_name = "lsp-class-type"
                     self.yang_parent_name = "graceful-restart"
@@ -1738,10 +1938,18 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Signalling.GracefulRestart.LspClassType, ['enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Signalling.GracefulRestart.LspClassType']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.GracefulRestart']['meta_info']
 
 
-
-        class PrefixFiltering(Entity):
+        class PrefixFiltering(_Entity_):
             """
             Configure prefix filtering parameters
             
@@ -1762,10 +1970,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Signalling.PrefixFiltering, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Signalling.PrefixFiltering, self).__init__()
 
                 self.yang_name = "prefix-filtering"
                 self.yang_parent_name = "signalling"
@@ -1789,7 +2000,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Signalling.PrefixFiltering, ['acl'], name, value)
 
 
-            class DefaultDenyAction(Entity):
+            class DefaultDenyAction(_Entity_):
                 """
                 Configure RSVP behaviour for scenarios where
                 ACL match yields a default (implicit) deny
@@ -1804,10 +2015,13 @@ class Rsvp(Entity):
                 """
 
                 _prefix = 'ip-rsvp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2019-09-20'
 
                 def __init__(self):
-                    super(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, self).__init__()
 
                     self.yang_name = "default-deny-action"
                     self.yang_parent_name = "prefix-filtering"
@@ -1826,10 +2040,18 @@ class Rsvp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, ['drop'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Signalling.PrefixFiltering.DefaultDenyAction']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.PrefixFiltering']['meta_info']
 
 
-
-        class Pesr(Entity):
+        class Pesr(_Entity_):
             """
             Sending Path Error with State\-Removal flag
             
@@ -1843,10 +2065,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Signalling.Pesr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Signalling.Pesr, self).__init__()
 
                 self.yang_name = "pesr"
                 self.yang_parent_name = "signalling"
@@ -1865,9 +2090,13 @@ class Rsvp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.Pesr, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.Pesr']['meta_info']
 
 
-        class Checksum(Entity):
+        class Checksum(_Entity_):
             """
             RSVP message checksum computation
             
@@ -1881,10 +2110,13 @@ class Rsvp(Entity):
             """
 
             _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2019-09-20'
 
             def __init__(self):
-                super(Rsvp.Signalling.Checksum, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rsvp.Signalling.Checksum, self).__init__()
 
                 self.yang_name = "checksum"
                 self.yang_parent_name = "signalling"
@@ -1903,10 +2135,18 @@ class Rsvp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.Checksum, ['disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.Checksum']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Signalling']['meta_info']
 
 
-
-    class Authentication(Entity):
+    class Authentication(_Entity_):
         """
         Configure RSVP authentication
         
@@ -1943,10 +2183,13 @@ class Rsvp(Entity):
         """
 
         _prefix = 'ip-rsvp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2019-09-20'
 
         def __init__(self):
-            super(Rsvp.Authentication, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rsvp.Authentication, self).__init__()
 
             self.yang_name = "authentication"
             self.yang_parent_name = "rsvp"
@@ -1971,10 +2214,18 @@ class Rsvp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Authentication']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rsvp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+        return meta._meta_table['Rsvp']['meta_info']
 
 

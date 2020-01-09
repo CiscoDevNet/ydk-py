@@ -6,7 +6,7 @@ module Cisco-IOS-XR-infra-xtc-oper {
     prefix inet;
   }
   include Cisco-IOS-XR-infra-xtc-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2019-10-02;
   }
 
   organization
@@ -35,6 +35,18 @@ module Cisco-IOS-XR-infra-xtc-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-02 {
+    description
+      "Added REST peer statistic information.";
+  }
+  revision 2019-09-27 {
+    description
+      "Implement new show pce lsp and show pce initiated tunnels commands for Optima";
+  }
+  revision 2019-04-17 {
+    description
+      "Various modifications to policy-related models for better compatibility with the IETF policy draft";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -576,6 +588,26 @@ module Cisco-IOS-XR-infra-xtc-oper {
           }
           uses PCE-PATH-LIST-BAG;
         }
+      }
+    }
+    container statistics-nodes {
+      description
+        "PCE REST peer statistics";
+      list statistics-node {
+        key "af";
+        description
+          "PCE REST peer statistics information";
+        leaf af {
+          type Pce-address-family;
+          description
+            "Specify Address family";
+        }
+        leaf ip {
+          type inet:ip-address-no-zone;
+          description
+            "Specify IPv4 or v6 Address";
+        }
+        uses REST-PEER-STATS-BAG;
       }
     }
     uses TUNNEL-TABLE;

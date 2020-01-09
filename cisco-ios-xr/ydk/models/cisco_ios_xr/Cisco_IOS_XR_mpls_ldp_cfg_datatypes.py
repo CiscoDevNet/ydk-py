@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -29,6 +32,12 @@ class MplsLdpDownstreamOnDemand(Enum):
     """
 
     peer_acl = Enum.YLeaf(1, "peer-acl")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
+        return meta._meta_table['MplsLdpDownstreamOnDemand']
 
 
 class MplsLdpNbrPassword(Enum):
@@ -54,6 +63,12 @@ class MplsLdpNbrPassword(Enum):
     specified = Enum.YLeaf(2, "specified")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
+        return meta._meta_table['MplsLdpNbrPassword']
+
+
 class MplsLdpRouterId(Enum):
     """
     MplsLdpRouterId (Enum Class)
@@ -67,6 +82,12 @@ class MplsLdpRouterId(Enum):
     """
 
     address = Enum.YLeaf(1, "address")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
+        return meta._meta_table['MplsLdpRouterId']
 
 
 class MplsLdpSessionProtection(Enum):
@@ -122,6 +143,12 @@ class MplsLdpSessionProtection(Enum):
     for_with_forever = Enum.YLeaf(6, "for-with-forever")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
+        return meta._meta_table['MplsLdpSessionProtection']
+
+
 class MplsLdpafName(Enum):
     """
     MplsLdpafName (Enum Class)
@@ -141,6 +168,12 @@ class MplsLdpafName(Enum):
     ipv4 = Enum.YLeaf(4, "ipv4")
 
     ipv6 = Enum.YLeaf(6, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
+        return meta._meta_table['MplsLdpafName']
 
 
 

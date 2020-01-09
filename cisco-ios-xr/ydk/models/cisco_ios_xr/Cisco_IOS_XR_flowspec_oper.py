@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class FsClient(Enum):
     test = Enum.YLeaf(4, "test")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+        return meta._meta_table['FsClient']
+
+
 class FsMgrClientState(Enum):
     """
     FsMgrClientState (Enum Class)
@@ -92,8 +101,14 @@ class FsMgrClientState(Enum):
     unconfigured = Enum.YLeaf(3, "unconfigured")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+        return meta._meta_table['FsMgrClientState']
 
-class FlowSpec(Entity):
+
+
+class FlowSpec(_Entity_):
     """
     FlowSpec information
     
@@ -126,7 +141,10 @@ class FlowSpec(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FlowSpec, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FlowSpec, self).__init__()
         self._top_entity = None
 
         self.yang_name = "flow-spec"
@@ -155,7 +173,7 @@ class FlowSpec(Entity):
         self._perform_setattr(FlowSpec, [], name, value)
 
 
-    class Clients(Entity):
+    class Clients(_Entity_):
         """
         Table of Client
         
@@ -174,7 +192,10 @@ class FlowSpec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FlowSpec.Clients, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FlowSpec.Clients, self).__init__()
 
             self.yang_name = "clients"
             self.yang_parent_name = "flow-spec"
@@ -193,7 +214,7 @@ class FlowSpec(Entity):
             self._perform_setattr(FlowSpec.Clients, [], name, value)
 
 
-        class Client(Entity):
+        class Client(_Entity_):
             """
             FlowSpec client information
             
@@ -237,7 +258,10 @@ class FlowSpec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FlowSpec.Clients.Client, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FlowSpec.Clients.Client, self).__init__()
 
                 self.yang_name = "client"
                 self.yang_parent_name = "clients"
@@ -262,10 +286,18 @@ class FlowSpec(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowSpec.Clients.Client, ['client_type', 'client_id', 'client_state', 'client_flows'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                return meta._meta_table['FlowSpec.Clients.Client']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+            return meta._meta_table['FlowSpec.Clients']['meta_info']
 
 
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         FlowSpec summary
         
@@ -295,7 +327,10 @@ class FlowSpec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FlowSpec.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FlowSpec.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "flow-spec"
@@ -316,9 +351,13 @@ class FlowSpec(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(FlowSpec.Summary, ['vrfafi_tables', 'flows'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+            return meta._meta_table['FlowSpec.Summary']['meta_info']
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         Table of VRF
         
@@ -337,7 +376,10 @@ class FlowSpec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FlowSpec.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FlowSpec.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "flow-spec"
@@ -356,7 +398,7 @@ class FlowSpec(Entity):
             self._perform_setattr(FlowSpec.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF information
             
@@ -384,7 +426,10 @@ class FlowSpec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FlowSpec.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FlowSpec.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -408,7 +453,7 @@ class FlowSpec(Entity):
                 self._perform_setattr(FlowSpec.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Table of AF
                 
@@ -427,7 +472,10 @@ class FlowSpec(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FlowSpec.Vrfs.Vrf.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FlowSpec.Vrfs.Vrf.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "vrf"
@@ -445,7 +493,7 @@ class FlowSpec(Entity):
                     self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     AFI Type (IPv4/IPv6)
                     
@@ -487,7 +535,10 @@ class FlowSpec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FlowSpec.Vrfs.Vrf.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FlowSpec.Vrfs.Vrf.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -518,7 +569,7 @@ class FlowSpec(Entity):
                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af, ['af_name'], name, value)
 
 
-                    class TableSummary(Entity):
+                    class TableSummary(_Entity_):
                         """
                         FlowSpec summary for VRF+AFI tables
                         
@@ -555,7 +606,10 @@ class FlowSpec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, self).__init__()
 
                             self.yang_name = "table-summary"
                             self.yang_parent_name = "af"
@@ -577,9 +631,13 @@ class FlowSpec(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, ['total_flows', 'service_policies', 'local_install_enabled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                            return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary']['meta_info']
 
 
-                    class Nlris(Entity):
+                    class Nlris(_Entity_):
                         """
                         Table of NLRI
                         
@@ -598,7 +656,10 @@ class FlowSpec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris, self).__init__()
 
                             self.yang_name = "nlris"
                             self.yang_parent_name = "af"
@@ -616,7 +677,7 @@ class FlowSpec(Entity):
                             self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris, [], name, value)
 
 
-                        class Nlri(Entity):
+                        class Nlri(_Entity_):
                             """
                             NLRI information (hexdump)
                             
@@ -644,7 +705,10 @@ class FlowSpec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri, self).__init__()
 
                                 self.yang_name = "nlri"
                                 self.yang_parent_name = "nlris"
@@ -667,7 +731,7 @@ class FlowSpec(Entity):
                                 self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri, ['nlri_bytes'], name, value)
 
 
-                            class FlowStatistics(Entity):
+                            class FlowStatistics(_Entity_):
                                 """
                                 Flow statistics
                                 
@@ -693,7 +757,10 @@ class FlowSpec(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics, self).__init__()
 
                                     self.yang_name = "flow-statistics"
                                     self.yang_parent_name = "nlri"
@@ -717,7 +784,7 @@ class FlowSpec(Entity):
                                     self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics, [], name, value)
 
 
-                                class Classified(Entity):
+                                class Classified(_Entity_):
                                     """
                                     Classified statistics
                                     
@@ -749,7 +816,10 @@ class FlowSpec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, self).__init__()
 
                                         self.yang_name = "classified"
                                         self.yang_parent_name = "flow-statistics"
@@ -769,9 +839,13 @@ class FlowSpec(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified']['meta_info']
 
 
-                                class Dropped(Entity):
+                                class Dropped(_Entity_):
                                     """
                                     Drop statistics
                                     
@@ -803,7 +877,10 @@ class FlowSpec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, self).__init__()
 
                                         self.yang_name = "dropped"
                                         self.yang_parent_name = "flow-statistics"
@@ -823,12 +900,28 @@ class FlowSpec(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                    return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                            return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Nlris']['meta_info']
 
 
-
-
-
-                    class Flows(Entity):
+                    class Flows(_Entity_):
                         """
                         Table of Flow
                         
@@ -847,7 +940,10 @@ class FlowSpec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows, self).__init__()
 
                             self.yang_name = "flows"
                             self.yang_parent_name = "af"
@@ -865,7 +961,7 @@ class FlowSpec(Entity):
                             self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows, [], name, value)
 
 
-                        class Flow(Entity):
+                        class Flow(_Entity_):
                             """
                             Flow notation string
                             
@@ -891,7 +987,10 @@ class FlowSpec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow, self).__init__()
 
                                 self.yang_name = "flow"
                                 self.yang_parent_name = "flows"
@@ -914,7 +1013,7 @@ class FlowSpec(Entity):
                                 self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow, ['flow_notation'], name, value)
 
 
-                            class FlowStatistics(Entity):
+                            class FlowStatistics(_Entity_):
                                 """
                                 Flow statistics
                                 
@@ -940,7 +1039,10 @@ class FlowSpec(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics, self).__init__()
 
                                     self.yang_name = "flow-statistics"
                                     self.yang_parent_name = "flow"
@@ -964,7 +1066,7 @@ class FlowSpec(Entity):
                                     self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics, [], name, value)
 
 
-                                class Classified(Entity):
+                                class Classified(_Entity_):
                                     """
                                     Classified statistics
                                     
@@ -996,7 +1098,10 @@ class FlowSpec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, self).__init__()
 
                                         self.yang_name = "classified"
                                         self.yang_parent_name = "flow-statistics"
@@ -1016,9 +1121,13 @@ class FlowSpec(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified']['meta_info']
 
 
-                                class Dropped(Entity):
+                                class Dropped(_Entity_):
                                     """
                                     Drop statistics
                                     
@@ -1050,7 +1159,10 @@ class FlowSpec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, self).__init__()
 
                                         self.yang_name = "dropped"
                                         self.yang_parent_name = "flow-statistics"
@@ -1070,17 +1182,53 @@ class FlowSpec(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                    return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                                return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                            return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.Flows']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                    return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+                return meta._meta_table['FlowSpec.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+            return meta._meta_table['FlowSpec.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FlowSpec()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_oper as meta
+        return meta._meta_table['FlowSpec']['meta_info']
 
 

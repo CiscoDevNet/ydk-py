@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class LldpL3AddrProtocol(Enum):
     ipv6 = Enum.YLeaf(1, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+        return meta._meta_table['LldpL3AddrProtocol']
 
-class Lldp(Entity):
+
+
+class Lldp(_Entity_):
     """
     Link Layer Discovery Protocol operational data
     
@@ -68,7 +77,10 @@ class Lldp(Entity):
     _revision = '2017-11-13'
 
     def __init__(self):
-        super(Lldp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lldp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lldp"
@@ -93,7 +105,7 @@ class Lldp(Entity):
         self._perform_setattr(Lldp, [], name, value)
 
 
-    class GlobalLldp(Entity):
+    class GlobalLldp(_Entity_):
         """
         Global LLDP data
         
@@ -112,7 +124,10 @@ class Lldp(Entity):
         _revision = '2017-11-13'
 
         def __init__(self):
-            super(Lldp.GlobalLldp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.GlobalLldp, self).__init__()
 
             self.yang_name = "global-lldp"
             self.yang_parent_name = "lldp"
@@ -133,7 +148,7 @@ class Lldp(Entity):
             self._perform_setattr(Lldp.GlobalLldp, [], name, value)
 
 
-        class LldpInfo(Entity):
+        class LldpInfo(_Entity_):
             """
             The LLDP Global Information of this box
             
@@ -195,7 +210,10 @@ class Lldp(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Lldp.GlobalLldp.LldpInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.GlobalLldp.LldpInfo, self).__init__()
 
                 self.yang_name = "lldp-info"
                 self.yang_parent_name = "global-lldp"
@@ -224,10 +242,18 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.GlobalLldp.LldpInfo, ['chassis_id', 'chassis_id_sub_type', 'system_name', 'timer', 'hold_time', 're_init'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                return meta._meta_table['Lldp.GlobalLldp.LldpInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+            return meta._meta_table['Lldp.GlobalLldp']['meta_info']
 
 
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node LLDP operational data
         
@@ -246,7 +272,10 @@ class Lldp(Entity):
         _revision = '2017-11-13'
 
         def __init__(self):
-            super(Lldp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "lldp"
@@ -265,7 +294,7 @@ class Lldp(Entity):
             self._perform_setattr(Lldp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The LLDP operational data for a particular node
             
@@ -307,7 +336,10 @@ class Lldp(Entity):
             _revision = '2017-11-13'
 
             def __init__(self):
-                super(Lldp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -339,7 +371,7 @@ class Lldp(Entity):
                 self._perform_setattr(Lldp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Neighbors(Entity):
+            class Neighbors(_Entity_):
                 """
                 The LLDP neighbor tables on this node
                 
@@ -372,7 +404,10 @@ class Lldp(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Lldp.Nodes.Node.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Nodes.Node.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "node"
@@ -400,7 +435,7 @@ class Lldp(Entity):
                     self._perform_setattr(Lldp.Nodes.Node.Neighbors, [], name, value)
 
 
-                class Devices(Entity):
+                class Devices(_Entity_):
                     """
                     The detailed LLDP neighbor table on this
                     device
@@ -420,7 +455,10 @@ class Lldp(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Lldp.Nodes.Node.Neighbors.Devices, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Nodes.Node.Neighbors.Devices, self).__init__()
 
                         self.yang_name = "devices"
                         self.yang_parent_name = "neighbors"
@@ -438,7 +476,7 @@ class Lldp(Entity):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices, [], name, value)
 
 
-                    class Device(Entity):
+                    class Device(_Entity_):
                         """
                         Detailed information about a LLDP neighbor
                         entry
@@ -474,7 +512,10 @@ class Lldp(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Lldp.Nodes.Node.Neighbors.Devices.Device, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Nodes.Node.Neighbors.Devices.Device, self).__init__()
 
                             self.yang_name = "device"
                             self.yang_parent_name = "devices"
@@ -497,7 +538,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device, ['device_id', 'interface_name'], name, value)
 
 
-                        class LldpNeighbor(Entity):
+                        class LldpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -594,7 +635,10 @@ class Lldp(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, self).__init__()
 
                                 self.yang_name = "lldp-neighbor"
                                 self.yang_parent_name = "device"
@@ -637,7 +681,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -741,7 +785,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -784,7 +831,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     Management Addresses
                                     
@@ -803,7 +850,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -821,7 +871,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
-                                    class LldpAddrEntry(Entity):
+                                    class LldpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -858,7 +908,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, self).__init__()
 
                                             self.yang_name = "lldp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -883,7 +936,7 @@ class Lldp(Entity):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -920,7 +973,10 @@ class Lldp(Entity):
                                             _revision = '2017-11-13'
 
                                             def __init__(self):
-                                                super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "lldp-addr-entry"
@@ -942,12 +998,28 @@ class Lldp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail']['meta_info']
 
 
-
-
-
-                            class Mib(Entity):
+                            class Mib(_Entity_):
                                 """
                                 MIB nieghbor info
                                 
@@ -1045,7 +1117,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, self).__init__()
 
                                     self.yang_name = "mib"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -1086,7 +1161,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
-                                class UnknownTlvList(Entity):
+                                class UnknownTlvList(_Entity_):
                                     """
                                     Unknown TLV list
                                     
@@ -1105,7 +1180,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
 
                                         self.yang_name = "unknown-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -1123,7 +1201,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
 
 
-                                    class LldpUnknownTlvEntry(Entity):
+                                    class LldpUnknownTlvEntry(_Entity_):
                                         """
                                         Next unknown TLV entry in list
                                         
@@ -1153,7 +1231,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-unknown-tlv-entry"
                                             self.yang_parent_name = "unknown-tlv-list"
@@ -1173,10 +1254,18 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 
 
-
-                                class OrgDefTlvList(Entity):
+                                class OrgDefTlvList(_Entity_):
                                     """
                                     Org Def TLV list
                                     
@@ -1195,7 +1284,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
 
                                         self.yang_name = "org-def-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -1213,7 +1305,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
 
 
-                                    class LldpOrgDefTlvEntry(Entity):
+                                    class LldpOrgDefTlvEntry(_Entity_):
                                         """
                                         Next Org Def TLV entry in list
                                         
@@ -1261,7 +1353,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-org-def-tlv-entry"
                                             self.yang_parent_name = "org-def-tlv-list"
@@ -1285,14 +1380,38 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices']['meta_info']
 
 
-
-
-
-
-
-                class Details(Entity):
+                class Details(_Entity_):
                     """
                     The detailed LLDP neighbor table
                     
@@ -1311,7 +1430,10 @@ class Lldp(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Lldp.Nodes.Node.Neighbors.Details, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Nodes.Node.Neighbors.Details, self).__init__()
 
                         self.yang_name = "details"
                         self.yang_parent_name = "neighbors"
@@ -1329,7 +1451,7 @@ class Lldp(Entity):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details, [], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Detailed information about a LLDP neighbor
                         entry
@@ -1365,7 +1487,10 @@ class Lldp(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Lldp.Nodes.Node.Neighbors.Details.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Nodes.Node.Neighbors.Details.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "details"
@@ -1388,7 +1513,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail, ['interface_name', 'device_id'], name, value)
 
 
-                        class LldpNeighbor(Entity):
+                        class LldpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -1485,7 +1610,10 @@ class Lldp(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, self).__init__()
 
                                 self.yang_name = "lldp-neighbor"
                                 self.yang_parent_name = "detail"
@@ -1528,7 +1656,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
-                            class Detail_(Entity):
+                            class Detail_(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -1632,7 +1760,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -1675,7 +1806,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     Management Addresses
                                     
@@ -1694,7 +1825,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -1712,7 +1846,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses, [], name, value)
 
 
-                                    class LldpAddrEntry(Entity):
+                                    class LldpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -1749,7 +1883,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, self).__init__()
 
                                             self.yang_name = "lldp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -1774,7 +1911,7 @@ class Lldp(Entity):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -1811,7 +1948,10 @@ class Lldp(Entity):
                                             _revision = '2017-11-13'
 
                                             def __init__(self):
-                                                super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "lldp-addr-entry"
@@ -1833,12 +1973,28 @@ class Lldp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_']['meta_info']
 
 
-
-
-
-                            class Mib(Entity):
+                            class Mib(_Entity_):
                                 """
                                 MIB nieghbor info
                                 
@@ -1936,7 +2092,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, self).__init__()
 
                                     self.yang_name = "mib"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -1977,7 +2136,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
-                                class UnknownTlvList(Entity):
+                                class UnknownTlvList(_Entity_):
                                     """
                                     Unknown TLV list
                                     
@@ -1996,7 +2155,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
 
                                         self.yang_name = "unknown-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -2014,7 +2176,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
 
 
-                                    class LldpUnknownTlvEntry(Entity):
+                                    class LldpUnknownTlvEntry(_Entity_):
                                         """
                                         Next unknown TLV entry in list
                                         
@@ -2044,7 +2206,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-unknown-tlv-entry"
                                             self.yang_parent_name = "unknown-tlv-list"
@@ -2064,10 +2229,18 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 
 
-
-                                class OrgDefTlvList(Entity):
+                                class OrgDefTlvList(_Entity_):
                                     """
                                     Org Def TLV list
                                     
@@ -2086,7 +2259,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
 
                                         self.yang_name = "org-def-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -2104,7 +2280,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
 
 
-                                    class LldpOrgDefTlvEntry(Entity):
+                                    class LldpOrgDefTlvEntry(_Entity_):
                                         """
                                         Next Org Def TLV entry in list
                                         
@@ -2152,7 +2328,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-org-def-tlv-entry"
                                             self.yang_parent_name = "org-def-tlv-list"
@@ -2176,14 +2355,38 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details']['meta_info']
 
 
-
-
-
-
-
-                class Summaries(Entity):
+                class Summaries(_Entity_):
                     """
                     The LLDP neighbor summary table
                     
@@ -2202,7 +2405,10 @@ class Lldp(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Lldp.Nodes.Node.Neighbors.Summaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Nodes.Node.Neighbors.Summaries, self).__init__()
 
                         self.yang_name = "summaries"
                         self.yang_parent_name = "neighbors"
@@ -2220,7 +2426,7 @@ class Lldp(Entity):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         Brief information about a LLDP neighbor
                         entry
@@ -2256,7 +2462,10 @@ class Lldp(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "summaries"
@@ -2279,7 +2488,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary, ['interface_name', 'device_id'], name, value)
 
 
-                        class LldpNeighbor(Entity):
+                        class LldpNeighbor(_Entity_):
                             """
                             Next neighbor in the list
                             
@@ -2376,7 +2585,10 @@ class Lldp(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, self).__init__()
 
                                 self.yang_name = "lldp-neighbor"
                                 self.yang_parent_name = "summary"
@@ -2419,7 +2631,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detailed neighbor info
                                 
@@ -2523,7 +2735,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -2566,7 +2781,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
 
 
-                                class NetworkAddresses(Entity):
+                                class NetworkAddresses(_Entity_):
                                     """
                                     Management Addresses
                                     
@@ -2585,7 +2800,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses, self).__init__()
 
                                         self.yang_name = "network-addresses"
                                         self.yang_parent_name = "detail"
@@ -2603,7 +2821,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses, [], name, value)
 
 
-                                    class LldpAddrEntry(Entity):
+                                    class LldpAddrEntry(_Entity_):
                                         """
                                         Next address entry in list
                                         
@@ -2640,7 +2858,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, self).__init__()
 
                                             self.yang_name = "lldp-addr-entry"
                                             self.yang_parent_name = "network-addresses"
@@ -2665,7 +2886,7 @@ class Lldp(Entity):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
-                                        class Address(Entity):
+                                        class Address(_Entity_):
                                             """
                                             Network layer address
                                             
@@ -2702,7 +2923,10 @@ class Lldp(Entity):
                                             _revision = '2017-11-13'
 
                                             def __init__(self):
-                                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, self).__init__()
 
                                                 self.yang_name = "address"
                                                 self.yang_parent_name = "lldp-addr-entry"
@@ -2724,12 +2948,28 @@ class Lldp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail']['meta_info']
 
 
-
-
-
-                            class Mib(Entity):
+                            class Mib(_Entity_):
                                 """
                                 MIB nieghbor info
                                 
@@ -2827,7 +3067,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, self).__init__()
 
                                     self.yang_name = "mib"
                                     self.yang_parent_name = "lldp-neighbor"
@@ -2868,7 +3111,7 @@ class Lldp(Entity):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
 
 
-                                class UnknownTlvList(Entity):
+                                class UnknownTlvList(_Entity_):
                                     """
                                     Unknown TLV list
                                     
@@ -2887,7 +3130,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList, self).__init__()
 
                                         self.yang_name = "unknown-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -2905,7 +3151,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
 
 
-                                    class LldpUnknownTlvEntry(Entity):
+                                    class LldpUnknownTlvEntry(_Entity_):
                                         """
                                         Next unknown TLV entry in list
                                         
@@ -2935,7 +3181,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-unknown-tlv-entry"
                                             self.yang_parent_name = "unknown-tlv-list"
@@ -2955,10 +3204,18 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 
 
-
-                                class OrgDefTlvList(Entity):
+                                class OrgDefTlvList(_Entity_):
                                     """
                                     Org Def TLV list
                                     
@@ -2977,7 +3234,10 @@ class Lldp(Entity):
                                     _revision = '2017-11-13'
 
                                     def __init__(self):
-                                        super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList, self).__init__()
 
                                         self.yang_name = "org-def-tlv-list"
                                         self.yang_parent_name = "mib"
@@ -2995,7 +3255,7 @@ class Lldp(Entity):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
 
 
-                                    class LldpOrgDefTlvEntry(Entity):
+                                    class LldpOrgDefTlvEntry(_Entity_):
                                         """
                                         Next Org Def TLV entry in list
                                         
@@ -3043,7 +3303,10 @@ class Lldp(Entity):
                                         _revision = '2017-11-13'
 
                                         def __init__(self):
-                                            super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, self).__init__()
 
                                             self.yang_name = "lldp-org-def-tlv-entry"
                                             self.yang_parent_name = "org-def-tlv-list"
@@ -3067,15 +3330,43 @@ class Lldp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                    return meta._meta_table['Lldp.Nodes.Node.Neighbors']['meta_info']
 
 
-
-
-
-
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 The table of interfaces on which LLDP is
                 running on this node
@@ -3095,7 +3386,10 @@ class Lldp(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Lldp.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -3113,7 +3407,7 @@ class Lldp(Entity):
                     self._perform_setattr(Lldp.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Operational data for an interface on which
                     LLDP is running
@@ -3215,7 +3509,10 @@ class Lldp(Entity):
                     _revision = '2017-11-13'
 
                     def __init__(self):
-                        super(Lldp.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -3256,7 +3553,7 @@ class Lldp(Entity):
                         self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'tx_enabled', 'rx_enabled', 'tx_state', 'rx_state', 'if_index', 'port_id', 'port_id_sub_type', 'port_description'], name, value)
 
 
-                    class LocalNetworkAddresses(Entity):
+                    class LocalNetworkAddresses(_Entity_):
                         """
                         Local Management Addresses
                         
@@ -3275,7 +3572,10 @@ class Lldp(Entity):
                         _revision = '2017-11-13'
 
                         def __init__(self):
-                            super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses, self).__init__()
 
                             self.yang_name = "local-network-addresses"
                             self.yang_parent_name = "interface"
@@ -3293,7 +3593,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses, [], name, value)
 
 
-                        class LldpAddrEntry(Entity):
+                        class LldpAddrEntry(_Entity_):
                             """
                             Next address entry in list
                             
@@ -3330,7 +3630,10 @@ class Lldp(Entity):
                             _revision = '2017-11-13'
 
                             def __init__(self):
-                                super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, self).__init__()
 
                                 self.yang_name = "lldp-addr-entry"
                                 self.yang_parent_name = "local-network-addresses"
@@ -3355,7 +3658,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Network layer address
                                 
@@ -3392,7 +3695,10 @@ class Lldp(Entity):
                                 _revision = '2017-11-13'
 
                                 def __init__(self):
-                                    super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "lldp-addr-entry"
@@ -3414,13 +3720,33 @@ class Lldp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                    return meta._meta_table['Lldp.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 The LLDP traffic statistics for this node
                 
@@ -3531,7 +3857,10 @@ class Lldp(Entity):
                 _revision = '2017-11-13'
 
                 def __init__(self):
-                    super(Lldp.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -3569,12 +3898,28 @@ class Lldp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Nodes.Node.Statistics, ['transmitted_packets', 'aged_out_entries', 'discarded_packets', 'bad_packets', 'received_packets', 'discarded_tl_vs', 'unrecognized_tl_vs', 'out_of_memory_errors', 'encapsulation_errors', 'queue_overflow_errors', 'table_overflow_errors'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                    return meta._meta_table['Lldp.Nodes.Node.Statistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                return meta._meta_table['Lldp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+            return meta._meta_table['Lldp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Lldp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+        return meta._meta_table['Lldp']['meta_info']
 
 

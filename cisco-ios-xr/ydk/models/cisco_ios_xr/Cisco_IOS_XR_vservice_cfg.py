@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -35,6 +38,12 @@ class SfcMetadataAlloc(Enum):
     type1 = Enum.YLeaf(1, "type1")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['SfcMetadataAlloc']
+
+
 class SfcMetadataDispositionAction(Enum):
     """
     SfcMetadataDispositionAction (Enum Class)
@@ -48,6 +57,12 @@ class SfcMetadataDispositionAction(Enum):
     """
 
     redirect_nexthop = Enum.YLeaf(1, "redirect-nexthop")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['SfcMetadataDispositionAction']
 
 
 class SfcMetadataDispositionMatch(Enum):
@@ -65,6 +80,12 @@ class SfcMetadataDispositionMatch(Enum):
     type1_dcalloc_tenant_id = Enum.YLeaf(1, "type1-dcalloc-tenant-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['SfcMetadataDispositionMatch']
+
+
 class SfcMetadataType1AllocFormat(Enum):
     """
     SfcMetadataType1AllocFormat (Enum Class)
@@ -78,6 +99,12 @@ class SfcMetadataType1AllocFormat(Enum):
     """
 
     dc_allocation = Enum.YLeaf(1, "dc-allocation")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['SfcMetadataType1AllocFormat']
 
 
 class SfcSfTransport(Enum):
@@ -95,8 +122,14 @@ class SfcSfTransport(Enum):
     vxlan_gpe = Enum.YLeaf(1, "vxlan-gpe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['SfcSfTransport']
 
-class Vservice(Entity):
+
+
+class Vservice(_Entity_):
     """
     configure vservice node
     
@@ -133,7 +166,10 @@ class Vservice(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Vservice, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vservice, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vservice"
@@ -170,7 +206,7 @@ class Vservice(Entity):
         self._perform_setattr(Vservice, [], name, value)
 
 
-    class ServiceFunctionLocator(Entity):
+    class ServiceFunctionLocator(_Entity_):
         """
         configure service function locator
         
@@ -187,7 +223,10 @@ class Vservice(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vservice.ServiceFunctionLocator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vservice.ServiceFunctionLocator, self).__init__()
 
             self.yang_name = "service-function-locator"
             self.yang_parent_name = "vservice"
@@ -208,7 +247,7 @@ class Vservice(Entity):
             self._perform_setattr(Vservice.ServiceFunctionLocator, [], name, value)
 
 
-        class Names(Entity):
+        class Names(_Entity_):
             """
             Mention the sf/sff name
             
@@ -225,7 +264,10 @@ class Vservice(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vservice.ServiceFunctionLocator.Names, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vservice.ServiceFunctionLocator.Names, self).__init__()
 
                 self.yang_name = "names"
                 self.yang_parent_name = "service-function-locator"
@@ -244,7 +286,7 @@ class Vservice(Entity):
                 self._perform_setattr(Vservice.ServiceFunctionLocator.Names, [], name, value)
 
 
-            class Name(Entity):
+            class Name(_Entity_):
                 """
                 service function name
                 
@@ -275,7 +317,10 @@ class Vservice(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vservice.ServiceFunctionLocator.Names.Name, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vservice.ServiceFunctionLocator.Names.Name, self).__init__()
 
                     self.yang_name = "name"
                     self.yang_parent_name = "names"
@@ -301,7 +346,7 @@ class Vservice(Entity):
                     self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name, ['function_name', 'locator_id'], name, value)
 
 
-                class Node(Entity):
+                class Node(_Entity_):
                     """
                     configure sff/sffl
                     
@@ -339,7 +384,10 @@ class Vservice(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__init__()
 
                         self.yang_name = "node"
                         self.yang_parent_name = "name"
@@ -363,12 +411,28 @@ class Vservice(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                        return meta._meta_table['Vservice.ServiceFunctionLocator.Names.Name.Node']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                    return meta._meta_table['Vservice.ServiceFunctionLocator.Names.Name']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                return meta._meta_table['Vservice.ServiceFunctionLocator.Names']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+            return meta._meta_table['Vservice.ServiceFunctionLocator']['meta_info']
 
 
-
-
-
-    class MetadataDispositions(Entity):
+    class MetadataDispositions(_Entity_):
         """
         Configure metadata disposition
         
@@ -385,7 +449,10 @@ class Vservice(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vservice.MetadataDispositions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vservice.MetadataDispositions, self).__init__()
 
             self.yang_name = "metadata-dispositions"
             self.yang_parent_name = "vservice"
@@ -404,7 +471,7 @@ class Vservice(Entity):
             self._perform_setattr(Vservice.MetadataDispositions, [], name, value)
 
 
-        class MetadataDisposition(Entity):
+        class MetadataDisposition(_Entity_):
             """
             metadata disposition name
             
@@ -433,7 +500,10 @@ class Vservice(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
 
                 self.yang_name = "metadata-disposition"
                 self.yang_parent_name = "metadata-dispositions"
@@ -457,7 +527,7 @@ class Vservice(Entity):
                 self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition, ['disposition_name', 'format'], name, value)
 
 
-            class MatchEntry(Entity):
+            class MatchEntry(_Entity_):
                 """
                 match entry name
                 
@@ -481,7 +551,10 @@ class Vservice(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
 
                     self.yang_name = "match-entry"
                     self.yang_parent_name = "metadata-disposition"
@@ -504,7 +577,7 @@ class Vservice(Entity):
                     self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, ['match_entry_name'], name, value)
 
 
-                class Node(Entity):
+                class Node(_Entity_):
                     """
                     configure disposition data
                     
@@ -545,7 +618,10 @@ class Vservice(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
 
                         self.yang_name = "node"
                         self.yang_parent_name = "match-entry"
@@ -571,12 +647,28 @@ class Vservice(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, ['match_type', 'action_type', 'vrf', 'nexthop_ipv4_address', 'tenant_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                        return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                    return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition.MatchEntry']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                return meta._meta_table['Vservice.MetadataDispositions.MetadataDisposition']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+            return meta._meta_table['Vservice.MetadataDispositions']['meta_info']
 
 
-
-
-
-    class ServiceFunctionForwardLocator(Entity):
+    class ServiceFunctionForwardLocator(_Entity_):
         """
         configure service function forward locator
         
@@ -593,7 +685,10 @@ class Vservice(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vservice.ServiceFunctionForwardLocator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vservice.ServiceFunctionForwardLocator, self).__init__()
 
             self.yang_name = "service-function-forward-locator"
             self.yang_parent_name = "vservice"
@@ -614,7 +709,7 @@ class Vservice(Entity):
             self._perform_setattr(Vservice.ServiceFunctionForwardLocator, [], name, value)
 
 
-        class Names(Entity):
+        class Names(_Entity_):
             """
             Mention the sf/sff name
             
@@ -631,7 +726,10 @@ class Vservice(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
 
                 self.yang_name = "names"
                 self.yang_parent_name = "service-function-forward-locator"
@@ -650,7 +748,7 @@ class Vservice(Entity):
                 self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names, [], name, value)
 
 
-            class Name(Entity):
+            class Name(_Entity_):
                 """
                 service function name
                 
@@ -681,7 +779,10 @@ class Vservice(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
 
                     self.yang_name = "name"
                     self.yang_parent_name = "names"
@@ -707,7 +808,7 @@ class Vservice(Entity):
                     self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name, ['function_name', 'locator_id'], name, value)
 
 
-                class Node(Entity):
+                class Node(_Entity_):
                     """
                     configure sff/sffl
                     
@@ -745,7 +846,10 @@ class Vservice(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
 
                         self.yang_name = "node"
                         self.yang_parent_name = "name"
@@ -769,12 +873,28 @@ class Vservice(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                        return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names.Name.Node']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                    return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names.Name']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                return meta._meta_table['Vservice.ServiceFunctionForwardLocator.Names']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+            return meta._meta_table['Vservice.ServiceFunctionForwardLocator']['meta_info']
 
 
-
-
-
-    class MetadataTemplates(Entity):
+    class MetadataTemplates(_Entity_):
         """
         configure metadata imposition
         
@@ -791,7 +911,10 @@ class Vservice(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vservice.MetadataTemplates, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vservice.MetadataTemplates, self).__init__()
 
             self.yang_name = "metadata-templates"
             self.yang_parent_name = "vservice"
@@ -810,7 +933,7 @@ class Vservice(Entity):
             self._perform_setattr(Vservice.MetadataTemplates, [], name, value)
 
 
-        class MetadataTemplate(Entity):
+        class MetadataTemplate(_Entity_):
             """
             metadata name, type and format
             
@@ -846,7 +969,10 @@ class Vservice(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
 
                 self.yang_name = "metadata-template"
                 self.yang_parent_name = "metadata-templates"
@@ -871,10 +997,18 @@ class Vservice(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.MetadataTemplates.MetadataTemplate, ['metadata_name', 'type', 'format', 'tenant_id'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                return meta._meta_table['Vservice.MetadataTemplates.MetadataTemplate']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+            return meta._meta_table['Vservice.MetadataTemplates']['meta_info']
 
 
-
-    class ServiceFunctionPath(Entity):
+    class ServiceFunctionPath(_Entity_):
         """
         service function path
         
@@ -891,7 +1025,10 @@ class Vservice(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vservice.ServiceFunctionPath, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vservice.ServiceFunctionPath, self).__init__()
 
             self.yang_name = "service-function-path"
             self.yang_parent_name = "vservice"
@@ -912,7 +1049,7 @@ class Vservice(Entity):
             self._perform_setattr(Vservice.ServiceFunctionPath, [], name, value)
 
 
-        class Paths(Entity):
+        class Paths(_Entity_):
             """
             service function path id
             
@@ -929,7 +1066,10 @@ class Vservice(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vservice.ServiceFunctionPath.Paths, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vservice.ServiceFunctionPath.Paths, self).__init__()
 
                 self.yang_name = "paths"
                 self.yang_parent_name = "service-function-path"
@@ -948,7 +1088,7 @@ class Vservice(Entity):
                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths, [], name, value)
 
 
-            class Path(Entity):
+            class Path(_Entity_):
                 """
                 specify the service function path id
                 
@@ -972,7 +1112,10 @@ class Vservice(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vservice.ServiceFunctionPath.Paths.Path, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vservice.ServiceFunctionPath.Paths.Path, self).__init__()
 
                     self.yang_name = "path"
                     self.yang_parent_name = "paths"
@@ -994,7 +1137,7 @@ class Vservice(Entity):
                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path, ['path_id'], name, value)
 
 
-                class ServiceIndex(Entity):
+                class ServiceIndex(_Entity_):
                     """
                     specify the service index
                     
@@ -1028,7 +1171,10 @@ class Vservice(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__init__()
 
                         self.yang_name = "service-index"
                         self.yang_parent_name = "path"
@@ -1059,7 +1205,7 @@ class Vservice(Entity):
                         self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, ['index'], name, value)
 
 
-                    class Terminate(Entity):
+                    class Terminate(_Entity_):
                         """
                         configure terminate
                         
@@ -1076,7 +1222,10 @@ class Vservice(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
 
                             self.yang_name = "terminate"
                             self.yang_parent_name = "service-index"
@@ -1096,7 +1245,7 @@ class Vservice(Entity):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, [], name, value)
 
 
-                        class Node(Entity):
+                        class Node(_Entity_):
                             """
                             configure default terminate action
                             
@@ -1130,7 +1279,10 @@ class Vservice(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
 
                                 self.yang_name = "node"
                                 self.yang_parent_name = "terminate"
@@ -1154,10 +1306,18 @@ class Vservice(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, ['action', 'vrf', 'nexthop_ipv4_address', 'metatdata_disposition'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate']['meta_info']
 
 
-
-                    class SffNames(Entity):
+                    class SffNames(_Entity_):
                         """
                         service function forwarder 
                         
@@ -1174,7 +1334,10 @@ class Vservice(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__init__()
 
                             self.yang_name = "sff-names"
                             self.yang_parent_name = "service-index"
@@ -1192,7 +1355,7 @@ class Vservice(Entity):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, [], name, value)
 
 
-                        class SffName(Entity):
+                        class SffName(_Entity_):
                             """
                             service function forwarder name
                             
@@ -1216,7 +1379,10 @@ class Vservice(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__init__()
 
                                 self.yang_name = "sff-name"
                                 self.yang_parent_name = "sff-names"
@@ -1239,7 +1405,7 @@ class Vservice(Entity):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, ['name'], name, value)
 
 
-                            class Node(Entity):
+                            class Node(_Entity_):
                                 """
                                 configure SFP
                                 
@@ -1261,7 +1427,10 @@ class Vservice(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__init__()
 
                                     self.yang_name = "node"
                                     self.yang_parent_name = "sff-name"
@@ -1281,11 +1450,23 @@ class Vservice(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, ['enable', 'reserved'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames']['meta_info']
 
 
-
-
-                    class SfNames(Entity):
+                    class SfNames(_Entity_):
                         """
                         service function 
                         
@@ -1302,7 +1483,10 @@ class Vservice(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
 
                             self.yang_name = "sf-names"
                             self.yang_parent_name = "service-index"
@@ -1320,7 +1504,7 @@ class Vservice(Entity):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, [], name, value)
 
 
-                        class SfName(Entity):
+                        class SfName(_Entity_):
                             """
                             service function name
                             
@@ -1344,7 +1528,10 @@ class Vservice(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
 
                                 self.yang_name = "sf-name"
                                 self.yang_parent_name = "sf-names"
@@ -1367,7 +1554,7 @@ class Vservice(Entity):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, ['name'], name, value)
 
 
-                            class Node(Entity):
+                            class Node(_Entity_):
                                 """
                                 configure SFP
                                 
@@ -1389,7 +1576,10 @@ class Vservice(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
 
                                     self.yang_name = "node"
                                     self.yang_parent_name = "sf-name"
@@ -1409,16 +1599,48 @@ class Vservice(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, ['enable', 'reserved'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                                return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                            return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                        return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                    return meta._meta_table['Vservice.ServiceFunctionPath.Paths.Path']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+                return meta._meta_table['Vservice.ServiceFunctionPath.Paths']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+            return meta._meta_table['Vservice.ServiceFunctionPath']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vservice()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_vservice_cfg as meta
+        return meta._meta_table['Vservice']['meta_info']
 
 

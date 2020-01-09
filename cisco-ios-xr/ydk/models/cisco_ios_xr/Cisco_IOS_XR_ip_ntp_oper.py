@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class ClockUpdateNode(Enum):
     clk_no_update_info = Enum.YLeaf(2, "clk-no-update-info")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['ClockUpdateNode']
+
+
 class NtpLeap(Enum):
     """
     NtpLeap (Enum Class)
@@ -78,6 +87,12 @@ class NtpLeap(Enum):
     ntp_leap_delse_cond = Enum.YLeaf(2, "ntp-leap-delse-cond")
 
     ntp_leap_not_in_sync = Enum.YLeaf(3, "ntp-leap-not-in-sync")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['NtpLeap']
 
 
 class NtpLoopFilterState(Enum):
@@ -123,6 +138,12 @@ class NtpLoopFilterState(Enum):
     ntp_loop_flt_sync = Enum.YLeaf(5, "ntp-loop-flt-sync")
 
     ntp_loop_flt_unkn = Enum.YLeaf(6, "ntp-loop-flt-unkn")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['NtpLoopFilterState']
 
 
 class NtpMode(Enum):
@@ -188,6 +209,12 @@ class NtpMode(Enum):
     ntp_mode_xcast_client = Enum.YLeaf(8, "ntp-mode-xcast-client")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['NtpMode']
+
+
 class NtpPeerStatus(Enum):
     """
     NtpPeerStatus (Enum Class)
@@ -245,8 +272,14 @@ class NtpPeerStatus(Enum):
     ntp_ctl_pst_sel_pps = Enum.YLeaf(7, "ntp-ctl-pst-sel-pps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['NtpPeerStatus']
 
-class Ntp(Entity):
+
+
+class Ntp(_Entity_):
     """
     NTP operational data
     
@@ -265,7 +298,10 @@ class Ntp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ntp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ntp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ntp"
@@ -286,7 +322,7 @@ class Ntp(Entity):
         self._perform_setattr(Ntp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific NTP operational data
         
@@ -305,7 +341,10 @@ class Ntp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ntp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ntp"
@@ -324,7 +363,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             NTP operational data for a particular node
             
@@ -366,7 +405,10 @@ class Ntp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ntp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -398,7 +440,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.Nodes.Node, ['node'], name, value)
 
 
-            class AssociationsDetail(Entity):
+            class AssociationsDetail(_Entity_):
                 """
                 NTP Associations Detail information
                 
@@ -431,7 +473,10 @@ class Ntp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ntp.Nodes.Node.AssociationsDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Nodes.Node.AssociationsDetail, self).__init__()
 
                     self.yang_name = "associations-detail"
                     self.yang_parent_name = "node"
@@ -454,7 +499,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
-                class PeerDetailInfo(Entity):
+                class PeerDetailInfo(_Entity_):
                     """
                     Peer info
                     
@@ -602,7 +647,10 @@ class Ntp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo, self).__init__()
 
                         self.yang_name = "peer-detail-info"
                         self.yang_parent_name = "associations-detail"
@@ -665,7 +713,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo, ['leap', 'peer_mode', 'poll_interval', 'is_ref_clock', 'is_authenticated', 'root_delay', 'root_dispersion', 'synch_distance', 'precision', 'version', 'filter_index', 'cast_flags'], name, value)
 
 
-                    class PeerInfoCommon(Entity):
+                    class PeerInfoCommon(_Entity_):
                         """
                         Common peer info
                         
@@ -769,7 +817,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, self).__init__()
 
                             self.yang_name = "peer-info-common"
                             self.yang_parent_name = "peer-detail-info"
@@ -809,9 +860,13 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon']['meta_info']
 
 
-                    class RefTime(Entity):
+                    class RefTime(_Entity_):
                         """
                         Reference time
                         
@@ -837,7 +892,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime, self).__init__()
 
                             self.yang_name = "ref-time"
                             self.yang_parent_name = "peer-detail-info"
@@ -861,7 +919,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime, [], name, value)
 
 
-                        class Sec(Entity):
+                        class Sec(_Entity_):
                             """
                             Second part in 64\-bit NTP timestamp
                             
@@ -882,7 +940,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec, self).__init__()
 
                                 self.yang_name = "sec"
                                 self.yang_parent_name = "ref-time"
@@ -900,9 +961,13 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec']['meta_info']
 
 
-                        class FracSecs(Entity):
+                        class FracSecs(_Entity_):
                             """
                             Fractional part in 64\-bit NTP timestamp
                             
@@ -923,7 +988,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
 
                                 self.yang_name = "frac-secs"
                                 self.yang_parent_name = "ref-time"
@@ -941,10 +1009,18 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime']['meta_info']
 
 
-
-                    class OriginateTime(Entity):
+                    class OriginateTime(_Entity_):
                         """
                         Originate timestamp
                         
@@ -970,7 +1046,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
 
                             self.yang_name = "originate-time"
                             self.yang_parent_name = "peer-detail-info"
@@ -994,7 +1073,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime, [], name, value)
 
 
-                        class Sec(Entity):
+                        class Sec(_Entity_):
                             """
                             Second part in 64\-bit NTP timestamp
                             
@@ -1015,7 +1094,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
 
                                 self.yang_name = "sec"
                                 self.yang_parent_name = "originate-time"
@@ -1033,9 +1115,13 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec']['meta_info']
 
 
-                        class FracSecs(Entity):
+                        class FracSecs(_Entity_):
                             """
                             Fractional part in 64\-bit NTP timestamp
                             
@@ -1056,7 +1142,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
 
                                 self.yang_name = "frac-secs"
                                 self.yang_parent_name = "originate-time"
@@ -1074,10 +1163,18 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime']['meta_info']
 
 
-
-                    class ReceiveTime(Entity):
+                    class ReceiveTime(_Entity_):
                         """
                         Receive timestamp
                         
@@ -1103,7 +1200,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
 
                             self.yang_name = "receive-time"
                             self.yang_parent_name = "peer-detail-info"
@@ -1127,7 +1227,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime, [], name, value)
 
 
-                        class Sec(Entity):
+                        class Sec(_Entity_):
                             """
                             Second part in 64\-bit NTP timestamp
                             
@@ -1148,7 +1248,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
 
                                 self.yang_name = "sec"
                                 self.yang_parent_name = "receive-time"
@@ -1166,9 +1269,13 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec']['meta_info']
 
 
-                        class FracSecs(Entity):
+                        class FracSecs(_Entity_):
                             """
                             Fractional part in 64\-bit NTP timestamp
                             
@@ -1189,7 +1296,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
 
                                 self.yang_name = "frac-secs"
                                 self.yang_parent_name = "receive-time"
@@ -1207,10 +1317,18 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime']['meta_info']
 
 
-
-                    class TransmitTime(Entity):
+                    class TransmitTime(_Entity_):
                         """
                         Transmit timestamp
                         
@@ -1236,7 +1354,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
 
                             self.yang_name = "transmit-time"
                             self.yang_parent_name = "peer-detail-info"
@@ -1260,7 +1381,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime, [], name, value)
 
 
-                        class Sec(Entity):
+                        class Sec(_Entity_):
                             """
                             Second part in 64\-bit NTP timestamp
                             
@@ -1281,7 +1402,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, self).__init__()
 
                                 self.yang_name = "sec"
                                 self.yang_parent_name = "transmit-time"
@@ -1299,9 +1423,13 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec']['meta_info']
 
 
-                        class FracSecs(Entity):
+                        class FracSecs(_Entity_):
                             """
                             Fractional part in 64\-bit NTP timestamp
                             
@@ -1322,7 +1450,10 @@ class Ntp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
 
                                 self.yang_name = "frac-secs"
                                 self.yang_parent_name = "transmit-time"
@@ -1340,10 +1471,18 @@ class Ntp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                                return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime']['meta_info']
 
 
-
-                    class FilterDetail(Entity):
+                    class FilterDetail(_Entity_):
                         """
                         Filter Details
                         
@@ -1376,7 +1515,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
 
                             self.yang_name = "filter-detail"
                             self.yang_parent_name = "peer-detail-info"
@@ -1398,11 +1540,23 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                        return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                    return meta._meta_table['Ntp.Nodes.Node.AssociationsDetail']['meta_info']
 
 
-
-
-            class Status(Entity):
+            class Status(_Entity_):
                 """
                 Status of NTP peer(s)
                 
@@ -1547,7 +1701,10 @@ class Ntp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ntp.Nodes.Node.Status, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Nodes.Node.Status, self).__init__()
 
                     self.yang_name = "status"
                     self.yang_parent_name = "node"
@@ -1602,7 +1759,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Nodes.Node.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update', 'is_auth_enabled'], name, value)
 
 
-                class SysRefTime(Entity):
+                class SysRefTime(_Entity_):
                     """
                     Reference time
                     
@@ -1628,7 +1785,10 @@ class Ntp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ntp.Nodes.Node.Status.SysRefTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Nodes.Node.Status.SysRefTime, self).__init__()
 
                         self.yang_name = "sys-ref-time"
                         self.yang_parent_name = "status"
@@ -1652,7 +1812,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime, [], name, value)
 
 
-                    class Sec(Entity):
+                    class Sec(_Entity_):
                         """
                         Second part in 64\-bit NTP timestamp
                         
@@ -1673,7 +1833,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.Status.SysRefTime.Sec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.Status.SysRefTime.Sec, self).__init__()
 
                             self.yang_name = "sec"
                             self.yang_parent_name = "sys-ref-time"
@@ -1691,9 +1854,13 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.Sec, ['int'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.Status.SysRefTime.Sec']['meta_info']
 
 
-                    class FracSecs(Entity):
+                    class FracSecs(_Entity_):
                         """
                         Fractional part in 64\-bit NTP timestamp
                         
@@ -1714,7 +1881,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.Status.SysRefTime.FracSecs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.Status.SysRefTime.FracSecs, self).__init__()
 
                             self.yang_name = "frac-secs"
                             self.yang_parent_name = "sys-ref-time"
@@ -1732,10 +1902,18 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime.FracSecs, ['frac'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.Status.SysRefTime.FracSecs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                        return meta._meta_table['Ntp.Nodes.Node.Status.SysRefTime']['meta_info']
 
 
-
-                class SysDrift(Entity):
+                class SysDrift(_Entity_):
                     """
                     System Drift
                     
@@ -1761,7 +1939,10 @@ class Ntp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ntp.Nodes.Node.Status.SysDrift, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Nodes.Node.Status.SysDrift, self).__init__()
 
                         self.yang_name = "sys-drift"
                         self.yang_parent_name = "status"
@@ -1785,7 +1966,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift, [], name, value)
 
 
-                    class Sec(Entity):
+                    class Sec(_Entity_):
                         """
                         Second part in 64\-bit NTP timestamp
                         
@@ -1806,7 +1987,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.Status.SysDrift.Sec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.Status.SysDrift.Sec, self).__init__()
 
                             self.yang_name = "sec"
                             self.yang_parent_name = "sys-drift"
@@ -1824,9 +2008,13 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.Sec, ['int'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.Status.SysDrift.Sec']['meta_info']
 
 
-                    class FracSecs(Entity):
+                    class FracSecs(_Entity_):
                         """
                         Fractional part in 64\-bit NTP timestamp
                         
@@ -1847,7 +2035,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.Status.SysDrift.FracSecs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.Status.SysDrift.FracSecs, self).__init__()
 
                             self.yang_name = "frac-secs"
                             self.yang_parent_name = "sys-drift"
@@ -1865,11 +2056,23 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift.FracSecs, ['frac'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.Status.SysDrift.FracSecs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                        return meta._meta_table['Ntp.Nodes.Node.Status.SysDrift']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                    return meta._meta_table['Ntp.Nodes.Node.Status']['meta_info']
 
 
-
-
-            class Associations(Entity):
+            class Associations(_Entity_):
                 """
                 NTP Associations information
                 
@@ -1902,7 +2105,10 @@ class Ntp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ntp.Nodes.Node.Associations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Nodes.Node.Associations, self).__init__()
 
                     self.yang_name = "associations"
                     self.yang_parent_name = "node"
@@ -1925,7 +2131,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Nodes.Node.Associations, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
-                class PeerSummaryInfo(Entity):
+                class PeerSummaryInfo(_Entity_):
                     """
                     Peer info
                     
@@ -1953,7 +2159,10 @@ class Ntp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ntp.Nodes.Node.Associations.PeerSummaryInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Nodes.Node.Associations.PeerSummaryInfo, self).__init__()
 
                         self.yang_name = "peer-summary-info"
                         self.yang_parent_name = "associations"
@@ -1976,7 +2185,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo, ['time_since'], name, value)
 
 
-                    class PeerInfoCommon(Entity):
+                    class PeerInfoCommon(_Entity_):
                         """
                         Common peer info
                         
@@ -2080,7 +2289,10 @@ class Ntp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon, self).__init__()
 
                             self.yang_name = "peer-info-common"
                             self.yang_parent_name = "peer-summary-info"
@@ -2120,14 +2332,38 @@ class Ntp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                            return meta._meta_table['Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                        return meta._meta_table['Ntp.Nodes.Node.Associations.PeerSummaryInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                    return meta._meta_table['Ntp.Nodes.Node.Associations']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+                return meta._meta_table['Ntp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+            return meta._meta_table['Ntp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
+        return meta._meta_table['Ntp']['meta_info']
 
 

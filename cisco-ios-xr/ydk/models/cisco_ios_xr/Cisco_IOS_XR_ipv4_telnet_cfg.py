@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ipv6Telnet(Entity):
+class Ipv6Telnet(_Entity_):
     """
     IPv6 telnet configuration
     
@@ -39,7 +42,10 @@ class Ipv6Telnet(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ipv6Telnet, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6Telnet, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6-telnet"
@@ -60,7 +66,7 @@ class Ipv6Telnet(Entity):
         self._perform_setattr(Ipv6Telnet, [], name, value)
 
 
-    class Client(Entity):
+    class Client(_Entity_):
         """
         Telnet client configuration
         
@@ -79,7 +85,10 @@ class Ipv6Telnet(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipv6Telnet.Client, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6Telnet.Client, self).__init__()
 
             self.yang_name = "client"
             self.yang_parent_name = "ipv6-telnet"
@@ -98,14 +107,22 @@ class Ipv6Telnet(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Telnet.Client, ['source_interface'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
+            return meta._meta_table['Ipv6Telnet.Client']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6Telnet()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
+        return meta._meta_table['Ipv6Telnet']['meta_info']
 
 
-class Ipv4Telnet(Entity):
+class Ipv4Telnet(_Entity_):
     """
     ipv4 telnet
     
@@ -122,7 +139,10 @@ class Ipv4Telnet(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ipv4Telnet, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4Telnet, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-telnet"
@@ -143,7 +163,7 @@ class Ipv4Telnet(Entity):
         self._perform_setattr(Ipv4Telnet, [], name, value)
 
 
-    class Client(Entity):
+    class Client(_Entity_):
         """
         Telnet client configuration
         
@@ -162,7 +182,10 @@ class Ipv4Telnet(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipv4Telnet.Client, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Telnet.Client, self).__init__()
 
             self.yang_name = "client"
             self.yang_parent_name = "ipv4-telnet"
@@ -181,10 +204,18 @@ class Ipv4Telnet(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Telnet.Client, ['source_interface'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
+            return meta._meta_table['Ipv4Telnet.Client']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4Telnet()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_cfg as meta
+        return meta._meta_table['Ipv4Telnet']['meta_info']
 
 

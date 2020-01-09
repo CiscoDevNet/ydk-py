@@ -7,8 +7,11 @@ Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Delete(Entity):
+class Delete(_Entity_):
     """
     
     
@@ -39,7 +42,10 @@ class Delete(Entity):
     _revision = '2018-01-20'
 
     def __init__(self):
-        super(Delete, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Delete, self).__init__()
         self._top_entity = None
 
         self.yang_name = "delete"
@@ -61,7 +67,7 @@ class Delete(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -90,7 +96,10 @@ class Delete(Entity):
         _revision = '2018-01-20'
 
         def __init__(self):
-            super(Delete.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Delete.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "delete"
@@ -113,9 +122,13 @@ class Delete(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Delete.Input, ['name', 'location', 'recurse'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_delete_act as meta
+            return meta._meta_table['Delete.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -132,7 +145,10 @@ class Delete(Entity):
         _revision = '2018-01-20'
 
         def __init__(self):
-            super(Delete.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Delete.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "delete"
@@ -151,10 +167,18 @@ class Delete(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Delete.Output, ['response'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_delete_act as meta
+            return meta._meta_table['Delete.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Delete()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_delete_act as meta
+        return meta._meta_table['Delete']['meta_info']
 
 

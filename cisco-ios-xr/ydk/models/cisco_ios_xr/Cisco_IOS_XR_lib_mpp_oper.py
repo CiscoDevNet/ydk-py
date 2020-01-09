@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -78,6 +81,12 @@ class MppAllow(Enum):
     all = Enum.YLeaf(7, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+        return meta._meta_table['MppAllow']
+
+
 
 class MppAfIdBase(Identity):
     """
@@ -91,11 +100,18 @@ class MppAfIdBase(Identity):
     _revision = '2017-05-01'
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:Mpp-af-id-base"):
-        super(MppAfIdBase, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MppAfIdBase, self).__init__(ns, pref, tag)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+        return meta._meta_table['MppAfIdBase']['meta_info']
 
 
-
-class ManagementPlaneProtection(Entity):
+class ManagementPlaneProtection(_Entity_):
     """
     Management Plane Protection (MPP) operational
     data
@@ -122,7 +138,10 @@ class ManagementPlaneProtection(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ManagementPlaneProtection, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ManagementPlaneProtection, self).__init__()
         self._top_entity = None
 
         self.yang_name = "management-plane-protection"
@@ -147,7 +166,7 @@ class ManagementPlaneProtection(Entity):
         self._perform_setattr(ManagementPlaneProtection, [], name, value)
 
 
-    class Outband(Entity):
+    class Outband(_Entity_):
         """
         Management Plane Protection (MPP) outband
         interface data
@@ -174,7 +193,10 @@ class ManagementPlaneProtection(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ManagementPlaneProtection.Outband, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ManagementPlaneProtection.Outband, self).__init__()
 
             self.yang_name = "outband"
             self.yang_parent_name = "management-plane-protection"
@@ -199,7 +221,7 @@ class ManagementPlaneProtection(Entity):
             self._perform_setattr(ManagementPlaneProtection.Outband, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             Outband VRF information
             
@@ -218,7 +240,10 @@ class ManagementPlaneProtection(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ManagementPlaneProtection.Outband.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ManagementPlaneProtection.Outband.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "outband"
@@ -237,9 +262,13 @@ class ManagementPlaneProtection(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, ['vrf_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                return meta._meta_table['ManagementPlaneProtection.Outband.Vrf']['meta_info']
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             List of inband/outband interfaces
             
@@ -258,7 +287,10 @@ class ManagementPlaneProtection(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ManagementPlaneProtection.Outband.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ManagementPlaneProtection.Outband.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "outband"
@@ -277,7 +309,7 @@ class ManagementPlaneProtection(Entity):
                 self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 MPP interface information
                 
@@ -303,7 +335,10 @@ class ManagementPlaneProtection(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ManagementPlaneProtection.Outband.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ManagementPlaneProtection.Outband.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -325,7 +360,7 @@ class ManagementPlaneProtection(Entity):
                     self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                class Protocol(Entity):
+                class Protocol(_Entity_):
                     """
                     MPP Interface protocols
                     
@@ -358,7 +393,10 @@ class ManagementPlaneProtection(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, self).__init__()
 
                         self.yang_name = "protocol"
                         self.yang_parent_name = "interface"
@@ -381,7 +419,7 @@ class ManagementPlaneProtection(Entity):
                         self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
 
 
-                    class PeerAddress(Entity):
+                    class PeerAddress(_Entity_):
                         """
                         List of peer addresses
                         
@@ -418,7 +456,10 @@ class ManagementPlaneProtection(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
 
                             self.yang_name = "peer-address"
                             self.yang_parent_name = "protocol"
@@ -440,13 +481,33 @@ class ManagementPlaneProtection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                            return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                        return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                    return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+            return meta._meta_table['ManagementPlaneProtection.Outband']['meta_info']
 
 
-
-
-
-
-    class Inband(Entity):
+    class Inband(_Entity_):
         """
         Management Plane Protection (MPP) inband
         interface data
@@ -466,7 +527,10 @@ class ManagementPlaneProtection(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ManagementPlaneProtection.Inband, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ManagementPlaneProtection.Inband, self).__init__()
 
             self.yang_name = "inband"
             self.yang_parent_name = "management-plane-protection"
@@ -487,7 +551,7 @@ class ManagementPlaneProtection(Entity):
             self._perform_setattr(ManagementPlaneProtection.Inband, [], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             List of inband/outband interfaces
             
@@ -506,7 +570,10 @@ class ManagementPlaneProtection(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ManagementPlaneProtection.Inband.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ManagementPlaneProtection.Inband.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "inband"
@@ -525,7 +592,7 @@ class ManagementPlaneProtection(Entity):
                 self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 MPP interface information
                 
@@ -551,7 +618,10 @@ class ManagementPlaneProtection(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ManagementPlaneProtection.Inband.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ManagementPlaneProtection.Inband.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -573,7 +643,7 @@ class ManagementPlaneProtection(Entity):
                     self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                class Protocol(Entity):
+                class Protocol(_Entity_):
                     """
                     MPP Interface protocols
                     
@@ -606,7 +676,10 @@ class ManagementPlaneProtection(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, self).__init__()
 
                         self.yang_name = "protocol"
                         self.yang_parent_name = "interface"
@@ -629,7 +702,7 @@ class ManagementPlaneProtection(Entity):
                         self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
 
 
-                    class PeerAddress(Entity):
+                    class PeerAddress(_Entity_):
                         """
                         List of peer addresses
                         
@@ -666,7 +739,10 @@ class ManagementPlaneProtection(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
 
                             self.yang_name = "peer-address"
                             self.yang_parent_name = "protocol"
@@ -688,15 +764,39 @@ class ManagementPlaneProtection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                            return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                        return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                    return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+                return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+            return meta._meta_table['ManagementPlaneProtection.Inband']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ManagementPlaneProtection()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+        return meta._meta_table['ManagementPlaneProtection']['meta_info']
 
 
 class Ipv4(MppAfIdBase):
@@ -711,8 +811,15 @@ class Ipv4(MppAfIdBase):
     _revision = '2017-05-01'
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:ipv4"):
-        super(Ipv4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv4, self).__init__(ns, pref, tag)
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+        return meta._meta_table['Ipv4']['meta_info']
 
 
 class Ipv6(MppAfIdBase):
@@ -727,7 +834,14 @@ class Ipv6(MppAfIdBase):
     _revision = '2017-05-01'
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:ipv6"):
-        super(Ipv6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(Ipv6, self).__init__(ns, pref, tag)
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
+        return meta._meta_table['Ipv6']['meta_info']
 
 

@@ -19,8 +19,11 @@ This version of this YANG module is part of RFC VVVV; see
 the RFC itself for full legal notices.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -29,7 +32,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class GetCertificate(Entity):
+class GetCertificate(_Entity_):
     """
     Query certificate.
     Returns certificate chain
@@ -55,7 +58,10 @@ class GetCertificate(Entity):
     _revision = '2017-06-08'
 
     def __init__(self):
-        super(GetCertificate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GetCertificate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "get-certificate"
@@ -77,7 +83,7 @@ class GetCertificate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -106,7 +112,10 @@ class GetCertificate(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetCertificate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetCertificate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "get-certificate"
@@ -129,9 +138,13 @@ class GetCertificate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(GetCertificate.Input, ['nonce', 'certificate_identifier', 'location'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetCertificate.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -148,7 +161,10 @@ class GetCertificate(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetCertificate.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetCertificate.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "get-certificate"
@@ -169,7 +185,7 @@ class GetCertificate(Entity):
             self._perform_setattr(GetCertificate.Output, [], name, value)
 
 
-        class GetCertificateResponse(Entity):
+        class GetCertificateResponse(_Entity_):
             """
             
             
@@ -186,7 +202,10 @@ class GetCertificate(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(GetCertificate.Output.GetCertificateResponse, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GetCertificate.Output.GetCertificateResponse, self).__init__()
 
                 self.yang_name = "get-certificate-response"
                 self.yang_parent_name = "output"
@@ -205,7 +224,7 @@ class GetCertificate(Entity):
                 self._perform_setattr(GetCertificate.Output.GetCertificateResponse, [], name, value)
 
 
-            class SystemCertificates(Entity):
+            class SystemCertificates(_Entity_):
                 """
                 Certificate data of a node in a distributed system
                 identified by the location
@@ -247,7 +266,10 @@ class GetCertificate(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(GetCertificate.Output.GetCertificateResponse.SystemCertificates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GetCertificate.Output.GetCertificateResponse.SystemCertificates, self).__init__()
 
                     self.yang_name = "system-certificates"
                     self.yang_parent_name = "get-certificate-response"
@@ -277,7 +299,7 @@ class GetCertificate(Entity):
                     self._perform_setattr(GetCertificate.Output.GetCertificateResponse.SystemCertificates, ['node_location', 'nonce', 'signature_version', 'signature'], name, value)
 
 
-                class Certificates(Entity):
+                class Certificates(_Entity_):
                     """
                     Certificates chain associated with the certificate
                     being queried
@@ -295,7 +317,10 @@ class GetCertificate(Entity):
                     _revision = '2017-06-08'
 
                     def __init__(self):
-                        super(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates, self).__init__()
 
                         self.yang_name = "certificates"
                         self.yang_parent_name = "system-certificates"
@@ -313,7 +338,7 @@ class GetCertificate(Entity):
                         self._perform_setattr(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates, [], name, value)
 
 
-                    class Certificate(Entity):
+                    class Certificate(_Entity_):
                         """
                         A X.509 certificate
                         
@@ -335,7 +360,10 @@ class GetCertificate(Entity):
                         _revision = '2017-06-08'
 
                         def __init__(self):
-                            super(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates.Certificate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates.Certificate, self).__init__()
 
                             self.yang_name = "certificate"
                             self.yang_parent_name = "certificates"
@@ -355,18 +383,42 @@ class GetCertificate(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates.Certificate, ['name', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                            return meta._meta_table['GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates.Certificate']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                        return meta._meta_table['GetCertificate.Output.GetCertificateResponse.SystemCertificates.Certificates']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                    return meta._meta_table['GetCertificate.Output.GetCertificateResponse.SystemCertificates']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                return meta._meta_table['GetCertificate.Output.GetCertificateResponse']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetCertificate.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GetCertificate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+        return meta._meta_table['GetCertificate']['meta_info']
 
 
-class AttestPlatformConfigRegisters(Entity):
+class AttestPlatformConfigRegisters(_Entity_):
     """
     Attest Platform Configuration Register(PCRs)
     
@@ -388,7 +440,10 @@ class AttestPlatformConfigRegisters(Entity):
     _revision = '2017-06-08'
 
     def __init__(self):
-        super(AttestPlatformConfigRegisters, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AttestPlatformConfigRegisters, self).__init__()
         self._top_entity = None
 
         self.yang_name = "attest-platform-config-registers"
@@ -410,7 +465,7 @@ class AttestPlatformConfigRegisters(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -446,7 +501,10 @@ class AttestPlatformConfigRegisters(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(AttestPlatformConfigRegisters.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AttestPlatformConfigRegisters.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "attest-platform-config-registers"
@@ -471,9 +529,13 @@ class AttestPlatformConfigRegisters(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(AttestPlatformConfigRegisters.Input, ['pcr_index', 'nonce', 'attestation_certificate_identifier', 'location'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['AttestPlatformConfigRegisters.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -490,7 +552,10 @@ class AttestPlatformConfigRegisters(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(AttestPlatformConfigRegisters.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AttestPlatformConfigRegisters.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "attest-platform-config-registers"
@@ -511,7 +576,7 @@ class AttestPlatformConfigRegisters(Entity):
             self._perform_setattr(AttestPlatformConfigRegisters.Output, [], name, value)
 
 
-        class PlatformConfigRegisters(Entity):
+        class PlatformConfigRegisters(_Entity_):
             """
             Attested Platform Config Register values
             
@@ -535,7 +600,10 @@ class AttestPlatformConfigRegisters(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters, self).__init__()
 
                 self.yang_name = "platform-config-registers"
                 self.yang_parent_name = "output"
@@ -557,7 +625,7 @@ class AttestPlatformConfigRegisters(Entity):
                 self._perform_setattr(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters, ['nonce'], name, value)
 
 
-            class NodeData(Entity):
+            class NodeData(_Entity_):
                 """
                 Certificate data of a node in a distributed system
                 identified by the location
@@ -597,7 +665,10 @@ class AttestPlatformConfigRegisters(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData, self).__init__()
 
                     self.yang_name = "node-data"
                     self.yang_parent_name = "platform-config-registers"
@@ -625,7 +696,7 @@ class AttestPlatformConfigRegisters(Entity):
                     self._perform_setattr(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData, ['node_location', 'up_time', 'pcr_quote', 'pcr_quote_signature'], name, value)
 
 
-                class PCR(Entity):
+                class PCR(_Entity_):
                     """
                     List of requested PCR contents
                     
@@ -651,7 +722,10 @@ class AttestPlatformConfigRegisters(Entity):
                     _revision = '2017-06-08'
 
                     def __init__(self):
-                        super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData.PCR, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData.PCR, self).__init__()
 
                         self.yang_name = "PCR"
                         self.yang_parent_name = "node-data"
@@ -671,17 +745,37 @@ class AttestPlatformConfigRegisters(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData.PCR, ['index', 'value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                        return meta._meta_table['AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData.PCR']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                    return meta._meta_table['AttestPlatformConfigRegisters.Output.PlatformConfigRegisters.NodeData']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                return meta._meta_table['AttestPlatformConfigRegisters.Output.PlatformConfigRegisters']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['AttestPlatformConfigRegisters.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AttestPlatformConfigRegisters()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+        return meta._meta_table['AttestPlatformConfigRegisters']['meta_info']
 
 
-class GetPlatformBootIntegrityEventLogs(Entity):
+class GetPlatformBootIntegrityEventLogs(_Entity_):
     """
     Get platform's boot integrity
     
@@ -703,7 +797,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
     _revision = '2017-06-08'
 
     def __init__(self):
-        super(GetPlatformBootIntegrityEventLogs, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GetPlatformBootIntegrityEventLogs, self).__init__()
         self._top_entity = None
 
         self.yang_name = "get-platform-boot-integrity-event-logs"
@@ -725,7 +822,7 @@ class GetPlatformBootIntegrityEventLogs(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -756,7 +853,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetPlatformBootIntegrityEventLogs.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetPlatformBootIntegrityEventLogs.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "get-platform-boot-integrity-event-logs"
@@ -779,9 +879,13 @@ class GetPlatformBootIntegrityEventLogs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(GetPlatformBootIntegrityEventLogs.Input, ['location', 'start_event_number', 'end_event_number'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetPlatformBootIntegrityEventLogs.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -798,7 +902,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetPlatformBootIntegrityEventLogs.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetPlatformBootIntegrityEventLogs.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "get-platform-boot-integrity-event-logs"
@@ -819,7 +926,7 @@ class GetPlatformBootIntegrityEventLogs(Entity):
             self._perform_setattr(GetPlatformBootIntegrityEventLogs.Output, [], name, value)
 
 
-        class SystemBootIntegrity(Entity):
+        class SystemBootIntegrity(_Entity_):
             """
             Boot integrity event logs
             
@@ -836,7 +943,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity, self).__init__()
 
                 self.yang_name = "system-boot-integrity"
                 self.yang_parent_name = "output"
@@ -855,7 +965,7 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                 self._perform_setattr(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity, [], name, value)
 
 
-            class NodeData(Entity):
+            class NodeData(_Entity_):
                 """
                 Boot integrity event logs of a node in a distributed system
                 identified by the location
@@ -885,7 +995,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData, self).__init__()
 
                     self.yang_name = "node-data"
                     self.yang_parent_name = "system-boot-integrity"
@@ -909,7 +1022,7 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                     self._perform_setattr(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData, ['node_location', 'up_time'], name, value)
 
 
-                class EventLog(Entity):
+                class EventLog(_Entity_):
                     """
                     Ordered list of TCG described event log
                     that extended the PCRs in the order they
@@ -961,7 +1074,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                     _revision = '2017-06-08'
 
                     def __init__(self):
-                        super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog, self).__init__()
 
                         self.yang_name = "event_log"
                         self.yang_parent_name = "node-data"
@@ -990,7 +1106,7 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                         self._perform_setattr(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog, ['event_number', 'event_type', 'pcr_index', 'event_size', 'event_data'], name, value)
 
 
-                    class DigestList(Entity):
+                    class DigestList(_Entity_):
                         """
                         Hash of event data
                         
@@ -1012,7 +1128,10 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                         _revision = '2017-06-08'
 
                         def __init__(self):
-                            super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog.DigestList, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog.DigestList, self).__init__()
 
                             self.yang_name = "digest-list"
                             self.yang_parent_name = "event_log"
@@ -1057,18 +1176,48 @@ class GetPlatformBootIntegrityEventLogs(Entity):
                             SHA512 = Enum.YLeaf(3, "SHA512")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                                return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog.DigestList.DigestHashAlgorithm']
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                            return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog.DigestList']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                        return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData.EventLog']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                    return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity.NodeData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output.SystemBootIntegrity']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetPlatformBootIntegrityEventLogs.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GetPlatformBootIntegrityEventLogs()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+        return meta._meta_table['GetPlatformBootIntegrityEventLogs']['meta_info']
 
 
-class GetPlatformImaEventLogs(Entity):
+class GetPlatformImaEventLogs(_Entity_):
     """
     Get platform IMA event logs
     
@@ -1090,7 +1239,10 @@ class GetPlatformImaEventLogs(Entity):
     _revision = '2017-06-08'
 
     def __init__(self):
-        super(GetPlatformImaEventLogs, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(GetPlatformImaEventLogs, self).__init__()
         self._top_entity = None
 
         self.yang_name = "get-platform-ima-event-logs"
@@ -1112,7 +1264,7 @@ class GetPlatformImaEventLogs(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1143,7 +1295,10 @@ class GetPlatformImaEventLogs(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetPlatformImaEventLogs.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetPlatformImaEventLogs.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "get-platform-ima-event-logs"
@@ -1166,9 +1321,13 @@ class GetPlatformImaEventLogs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(GetPlatformImaEventLogs.Input, ['location', 'start_event_number', 'end_event_number'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetPlatformImaEventLogs.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -1185,7 +1344,10 @@ class GetPlatformImaEventLogs(Entity):
         _revision = '2017-06-08'
 
         def __init__(self):
-            super(GetPlatformImaEventLogs.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(GetPlatformImaEventLogs.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "get-platform-ima-event-logs"
@@ -1206,7 +1368,7 @@ class GetPlatformImaEventLogs(Entity):
             self._perform_setattr(GetPlatformImaEventLogs.Output, [], name, value)
 
 
-        class SystemIma(Entity):
+        class SystemIma(_Entity_):
             """
             Runtime integrity measurement event logs
             
@@ -1223,7 +1385,10 @@ class GetPlatformImaEventLogs(Entity):
             _revision = '2017-06-08'
 
             def __init__(self):
-                super(GetPlatformImaEventLogs.Output.SystemIma, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(GetPlatformImaEventLogs.Output.SystemIma, self).__init__()
 
                 self.yang_name = "system-ima"
                 self.yang_parent_name = "output"
@@ -1242,7 +1407,7 @@ class GetPlatformImaEventLogs(Entity):
                 self._perform_setattr(GetPlatformImaEventLogs.Output.SystemIma, [], name, value)
 
 
-            class NodeData(Entity):
+            class NodeData(_Entity_):
                 """
                 IMA event logs of a node in a distributed system
                 identified by the location
@@ -1272,7 +1437,10 @@ class GetPlatformImaEventLogs(Entity):
                 _revision = '2017-06-08'
 
                 def __init__(self):
-                    super(GetPlatformImaEventLogs.Output.SystemIma.NodeData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(GetPlatformImaEventLogs.Output.SystemIma.NodeData, self).__init__()
 
                     self.yang_name = "node-data"
                     self.yang_parent_name = "system-ima"
@@ -1296,7 +1464,7 @@ class GetPlatformImaEventLogs(Entity):
                     self._perform_setattr(GetPlatformImaEventLogs.Output.SystemIma.NodeData, ['node_location', 'up_time'], name, value)
 
 
-                class ImaEventLog(Entity):
+                class ImaEventLog(_Entity_):
                     """
                     Ordered list of ima event logs by event\-number
                     
@@ -1352,7 +1520,10 @@ class GetPlatformImaEventLogs(Entity):
                     _revision = '2017-06-08'
 
                     def __init__(self):
-                        super(GetPlatformImaEventLogs.Output.SystemIma.NodeData.ImaEventLog, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(GetPlatformImaEventLogs.Output.SystemIma.NodeData.ImaEventLog, self).__init__()
 
                         self.yang_name = "ima-event-log"
                         self.yang_parent_name = "node-data"
@@ -1384,13 +1555,33 @@ class GetPlatformImaEventLogs(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GetPlatformImaEventLogs.Output.SystemIma.NodeData.ImaEventLog, ['event_number', 'ima_template', 'filename_hint', 'filedata_hash', 'template_hash_algorithm', 'template_hash', 'pcr_index', 'signature'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                        return meta._meta_table['GetPlatformImaEventLogs.Output.SystemIma.NodeData.ImaEventLog']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                    return meta._meta_table['GetPlatformImaEventLogs.Output.SystemIma.NodeData']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+                return meta._meta_table['GetPlatformImaEventLogs.Output.SystemIma']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+            return meta._meta_table['GetPlatformImaEventLogs.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = GetPlatformImaEventLogs()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_remote_attestation_act as meta
+        return meta._meta_table['GetPlatformImaEventLogs']['meta_info']
 
 

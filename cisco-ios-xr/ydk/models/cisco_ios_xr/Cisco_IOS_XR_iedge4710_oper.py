@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -82,6 +85,12 @@ class IedgeOperService(Enum):
     multi_template = Enum.YLeaf(7, "multi-template")
 
     max_templae = Enum.YLeaf(8, "max-templae")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgeOperService']
 
 
 class IedgeOperServiceStatus(Enum):
@@ -165,6 +174,12 @@ class IedgeOperServiceStatus(Enum):
     max = Enum.YLeaf(11, "max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgeOperServiceStatus']
+
+
 class IedgeOperSession(Enum):
     """
     IedgeOperSession (Enum Class)
@@ -202,6 +217,12 @@ class IedgeOperSession(Enum):
     ip_packet_trigger = Enum.YLeaf(3, "ip-packet-trigger")
 
     ip_packet_dhcp_trigger = Enum.YLeaf(4, "ip-packet-dhcp-trigger")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgeOperSession']
 
 
 class IedgeOperSessionState(Enum):
@@ -255,6 +276,12 @@ class IedgeOperSessionState(Enum):
     end = Enum.YLeaf(6, "end")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgeOperSessionState']
+
+
 class IedgePppSub(Enum):
     """
     IedgePppSub (Enum Class)
@@ -274,6 +301,12 @@ class IedgePppSub(Enum):
     pta = Enum.YLeaf(0, "pta")
 
     lac = Enum.YLeaf(1, "lac")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgePppSub']
 
 
 class SubscriberAddressFamilyFilterFlag(Enum):
@@ -333,6 +366,12 @@ class SubscriberAddressFamilyFilterFlag(Enum):
     lac = Enum.YLeaf(7, "lac")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['SubscriberAddressFamilyFilterFlag']
+
+
 class SubscriberAuthenStateFilterFlag(Enum):
     """
     SubscriberAuthenStateFilterFlag (Enum Class)
@@ -354,6 +393,12 @@ class SubscriberAuthenStateFilterFlag(Enum):
     authenticated = Enum.YLeaf(1, "authenticated")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['SubscriberAuthenStateFilterFlag']
+
+
 class SubscriberAuthorStateFilterFlag(Enum):
     """
     SubscriberAuthorStateFilterFlag (Enum Class)
@@ -373,6 +418,12 @@ class SubscriberAuthorStateFilterFlag(Enum):
     un_authorized = Enum.YLeaf(0, "un-authorized")
 
     authorized = Enum.YLeaf(1, "authorized")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['SubscriberAuthorStateFilterFlag']
 
 
 class SubscriberSrgOperFilterFlag(Enum):
@@ -406,6 +457,12 @@ class SubscriberSrgOperFilterFlag(Enum):
     srg_slave = Enum.YLeaf(65536, "srg-slave")
 
     srg_both = Enum.YLeaf(81920, "srg-both")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['SubscriberSrgOperFilterFlag']
 
 
 class SubscriberStateFilterFlag(Enum):
@@ -459,8 +516,14 @@ class SubscriberStateFilterFlag(Enum):
     end = Enum.YLeaf(6, "end")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['SubscriberStateFilterFlag']
 
-class Subscriber(Entity):
+
+
+class Subscriber(_Entity_):
     """
     Subscriber operational data
     
@@ -486,7 +549,10 @@ class Subscriber(Entity):
     _revision = '2018-09-20'
 
     def __init__(self):
-        super(Subscriber, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Subscriber, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber"
@@ -511,7 +577,7 @@ class Subscriber(Entity):
         self._perform_setattr(Subscriber, [], name, value)
 
 
-    class Manager(Entity):
+    class Manager(_Entity_):
         """
         Subscriber manager operational data
         
@@ -530,7 +596,10 @@ class Subscriber(Entity):
         _revision = '2018-09-20'
 
         def __init__(self):
-            super(Subscriber.Manager, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Subscriber.Manager, self).__init__()
 
             self.yang_name = "manager"
             self.yang_parent_name = "subscriber"
@@ -551,7 +620,7 @@ class Subscriber(Entity):
             self._perform_setattr(Subscriber.Manager, [], name, value)
 
 
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             Subscriber manager list of nodes
             
@@ -570,7 +639,10 @@ class Subscriber(Entity):
             _revision = '2018-09-20'
 
             def __init__(self):
-                super(Subscriber.Manager.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Subscriber.Manager.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "manager"
@@ -589,7 +661,7 @@ class Subscriber(Entity):
                 self._perform_setattr(Subscriber.Manager.Nodes, [], name, value)
 
 
-            class Node(Entity):
+            class Node(_Entity_):
                 """
                 Subscriber manager operational data for a
                 particular node
@@ -618,7 +690,10 @@ class Subscriber(Entity):
                 _revision = '2018-09-20'
 
                 def __init__(self):
-                    super(Subscriber.Manager.Nodes.Node, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Subscriber.Manager.Nodes.Node, self).__init__()
 
                     self.yang_name = "node"
                     self.yang_parent_name = "nodes"
@@ -642,7 +717,7 @@ class Subscriber(Entity):
                     self._perform_setattr(Subscriber.Manager.Nodes.Node, ['node_name'], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     Subscriber manager statistics
                     
@@ -682,7 +757,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Manager.Nodes.Node.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Manager.Nodes.Node.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "node"
@@ -714,7 +792,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics, [], name, value)
 
 
-                    class Aaa(Entity):
+                    class Aaa(_Entity_):
                         """
                         AAA statistics
                         
@@ -810,7 +888,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa, self).__init__()
 
                             self.yang_name = "aaa"
                             self.yang_parent_name = "statistics"
@@ -874,7 +955,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa, [], name, value)
 
 
-                        class AggregateAccounting(Entity):
+                        class AggregateAccounting(_Entity_):
                             """
                             Aggregate accounting statistics
                             
@@ -973,7 +1054,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, self).__init__()
 
                                 self.yang_name = "aggregate-accounting"
                                 self.yang_parent_name = "aaa"
@@ -1024,7 +1108,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
-                            class Start(Entity):
+                            class Start(_Entity_):
                                 """
                                 Start statistics
                                 
@@ -1090,7 +1174,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, self).__init__()
 
                                     self.yang_name = "start"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1118,9 +1205,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start']['meta_info']
 
 
-                            class Stop(Entity):
+                            class Stop(_Entity_):
                                 """
                                 Stop statistics
                                 
@@ -1186,7 +1277,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, self).__init__()
 
                                     self.yang_name = "stop"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1214,9 +1308,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop']['meta_info']
 
 
-                            class Interim(Entity):
+                            class Interim(_Entity_):
                                 """
                                 Interim statistics
                                 
@@ -1282,7 +1380,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, self).__init__()
 
                                     self.yang_name = "interim"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1310,9 +1411,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim']['meta_info']
 
 
-                            class PassThrough(Entity):
+                            class PassThrough(_Entity_):
                                 """
                                 Pass\-through statistics
                                 
@@ -1378,7 +1483,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, self).__init__()
 
                                     self.yang_name = "pass-through"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1406,9 +1514,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough']['meta_info']
 
 
-                            class Update(Entity):
+                            class Update(_Entity_):
                                 """
                                 Update statistics
                                 
@@ -1474,7 +1586,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, self).__init__()
 
                                     self.yang_name = "update"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1502,9 +1617,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update']['meta_info']
 
 
-                            class InterimInflight(Entity):
+                            class InterimInflight(_Entity_):
                                 """
                                 Interim inflight details
                                 
@@ -1570,7 +1689,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, self).__init__()
 
                                     self.yang_name = "interim-inflight"
                                     self.yang_parent_name = "aggregate-accounting"
@@ -1598,10 +1720,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting']['meta_info']
 
 
-
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Authentication statistics
                             
@@ -1676,7 +1806,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "aaa"
@@ -1706,9 +1839,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication']['meta_info']
 
 
-                        class AggregateMobility(Entity):
+                        class AggregateMobility(_Entity_):
                             """
                             Aggregate mobility statistics
                             
@@ -1756,7 +1893,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, self).__init__()
 
                                 self.yang_name = "aggregate-mobility"
                                 self.yang_parent_name = "aaa"
@@ -1780,9 +1920,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility']['meta_info']
 
 
-                        class AggregateAuthentication(Entity):
+                        class AggregateAuthentication(_Entity_):
                             """
                             Aggregate authentication statistics
                             
@@ -1857,7 +2001,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, self).__init__()
 
                                 self.yang_name = "aggregate-authentication"
                                 self.yang_parent_name = "aaa"
@@ -1887,9 +2034,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication']['meta_info']
 
 
-                        class AccountingStatsAll(Entity):
+                        class AccountingStatsAll(_Entity_):
                             """
                             Display all subscriber management
                             statistics
@@ -1937,7 +2088,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, self).__init__()
 
                                 self.yang_name = "accounting-stats-all"
                                 self.yang_parent_name = "aaa"
@@ -1973,7 +2127,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, [], name, value)
 
 
-                            class AccountingStatistics(Entity):
+                            class AccountingStatistics(_Entity_):
                                 """
                                 List of stats for accounting
                                 
@@ -2072,7 +2226,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, self).__init__()
 
                                     self.yang_name = "accounting-statistics"
                                     self.yang_parent_name = "accounting-stats-all"
@@ -2123,7 +2280,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
-                                class Start(Entity):
+                                class Start(_Entity_):
                                     """
                                     Start statistics
                                     
@@ -2189,7 +2346,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, self).__init__()
 
                                         self.yang_name = "start"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2217,9 +2377,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start']['meta_info']
 
 
-                                class Stop(Entity):
+                                class Stop(_Entity_):
                                     """
                                     Stop statistics
                                     
@@ -2285,7 +2449,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, self).__init__()
 
                                         self.yang_name = "stop"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2313,9 +2480,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop']['meta_info']
 
 
-                                class Interim(Entity):
+                                class Interim(_Entity_):
                                     """
                                     Interim statistics
                                     
@@ -2381,7 +2552,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, self).__init__()
 
                                         self.yang_name = "interim"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2409,9 +2583,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim']['meta_info']
 
 
-                                class PassThrough(Entity):
+                                class PassThrough(_Entity_):
                                     """
                                     Pass\-through statistics
                                     
@@ -2477,7 +2655,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
 
                                         self.yang_name = "pass-through"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2505,9 +2686,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough']['meta_info']
 
 
-                                class Update(Entity):
+                                class Update(_Entity_):
                                     """
                                     Update statistics
                                     
@@ -2573,7 +2758,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, self).__init__()
 
                                         self.yang_name = "update"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2601,9 +2789,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update']['meta_info']
 
 
-                                class InterimInflight(Entity):
+                                class InterimInflight(_Entity_):
                                     """
                                     Interim inflight details
                                     
@@ -2669,7 +2861,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
 
                                         self.yang_name = "interim-inflight"
                                         self.yang_parent_name = "accounting-statistics"
@@ -2697,10 +2892,18 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
 
 
-
-                            class AuthenticationStatistics(Entity):
+                            class AuthenticationStatistics(_Entity_):
                                 """
                                 List of stats for authentication
                                 
@@ -2775,7 +2978,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, self).__init__()
 
                                     self.yang_name = "authentication-statistics"
                                     self.yang_parent_name = "accounting-stats-all"
@@ -2805,9 +3011,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics']['meta_info']
 
 
-                            class AuthorizationStatistics(Entity):
+                            class AuthorizationStatistics(_Entity_):
                                 """
                                 List of stats for authorization
                                 
@@ -2882,7 +3092,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, self).__init__()
 
                                     self.yang_name = "authorization-statistics"
                                     self.yang_parent_name = "accounting-stats-all"
@@ -2912,9 +3125,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics']['meta_info']
 
 
-                            class ChangeOfAuthorizationStatistics(Entity):
+                            class ChangeOfAuthorizationStatistics(_Entity_):
                                 """
                                 List of stats for COA
                                 
@@ -3072,7 +3289,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
 
                                     self.yang_name = "change-of-authorization-statistics"
                                     self.yang_parent_name = "accounting-stats-all"
@@ -3141,7 +3361,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
-                                class AccountLogon(Entity):
+                                class AccountLogon(_Entity_):
                                     """
                                     Account logon request statistics
                                     
@@ -3180,7 +3400,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
 
                                         self.yang_name = "account-logon"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3202,9 +3425,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info']
 
 
-                                class AccountLogoff(Entity):
+                                class AccountLogoff(_Entity_):
                                     """
                                     Account logoff request statistics
                                     
@@ -3243,7 +3470,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
 
                                         self.yang_name = "account-logoff"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3265,9 +3495,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info']
 
 
-                                class AccountUpdate(Entity):
+                                class AccountUpdate(_Entity_):
                                     """
                                     Account update request statistics
                                     
@@ -3306,7 +3540,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
 
                                         self.yang_name = "account-update"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3328,9 +3565,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info']
 
 
-                                class SessionDisconnect(Entity):
+                                class SessionDisconnect(_Entity_):
                                     """
                                     Session disconnect request statistics
                                     
@@ -3369,7 +3610,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
 
                                         self.yang_name = "session-disconnect"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3391,9 +3635,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info']
 
 
-                                class SingleServiceLogon(Entity):
+                                class SingleServiceLogon(_Entity_):
                                     """
                                     Service logon request statistics
                                     
@@ -3432,7 +3680,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
 
                                         self.yang_name = "single-service-logon"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3454,9 +3705,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info']
 
 
-                                class SingleServiceLogoff(Entity):
+                                class SingleServiceLogoff(_Entity_):
                                     """
                                     Single Service logoff request statistics
                                     
@@ -3495,7 +3750,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
 
                                         self.yang_name = "single-service-logoff"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3517,9 +3775,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info']
 
 
-                                class SingleServiceModify(Entity):
+                                class SingleServiceModify(_Entity_):
                                     """
                                     Single Service Modify request statistics
                                     
@@ -3558,7 +3820,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
 
                                         self.yang_name = "single-service-modify"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3580,9 +3845,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info']
 
 
-                                class ServiceMulti(Entity):
+                                class ServiceMulti(_Entity_):
                                     """
                                     MA\-CoA Service request statistics
                                     
@@ -3621,7 +3890,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
 
                                         self.yang_name = "service-multi"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -3643,10 +3915,18 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
 
 
-
-                            class MobilityStatistics(Entity):
+                            class MobilityStatistics(_Entity_):
                                 """
                                 List of stats for Mobility
                                 
@@ -3694,7 +3974,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, self).__init__()
 
                                     self.yang_name = "mobility-statistics"
                                     self.yang_parent_name = "accounting-stats-all"
@@ -3718,10 +4001,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
 
 
-
-                        class ChangeOfAuthorization(Entity):
+                        class ChangeOfAuthorization(_Entity_):
                             """
                             Change of authorization (COA) statistics
                             
@@ -3879,7 +4170,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, self).__init__()
 
                                 self.yang_name = "change-of-authorization"
                                 self.yang_parent_name = "aaa"
@@ -3948,7 +4242,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
-                            class AccountLogon(Entity):
+                            class AccountLogon(_Entity_):
                                 """
                                 Account logon request statistics
                                 
@@ -3987,7 +4281,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, self).__init__()
 
                                     self.yang_name = "account-logon"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4009,9 +4306,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon']['meta_info']
 
 
-                            class AccountLogoff(Entity):
+                            class AccountLogoff(_Entity_):
                                 """
                                 Account logoff request statistics
                                 
@@ -4050,7 +4351,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, self).__init__()
 
                                     self.yang_name = "account-logoff"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4072,9 +4376,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff']['meta_info']
 
 
-                            class AccountUpdate(Entity):
+                            class AccountUpdate(_Entity_):
                                 """
                                 Account update request statistics
                                 
@@ -4113,7 +4421,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, self).__init__()
 
                                     self.yang_name = "account-update"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4135,9 +4446,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate']['meta_info']
 
 
-                            class SessionDisconnect(Entity):
+                            class SessionDisconnect(_Entity_):
                                 """
                                 Session disconnect request statistics
                                 
@@ -4176,7 +4491,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, self).__init__()
 
                                     self.yang_name = "session-disconnect"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4198,9 +4516,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect']['meta_info']
 
 
-                            class SingleServiceLogon(Entity):
+                            class SingleServiceLogon(_Entity_):
                                 """
                                 Service logon request statistics
                                 
@@ -4239,7 +4561,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, self).__init__()
 
                                     self.yang_name = "single-service-logon"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4261,9 +4586,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon']['meta_info']
 
 
-                            class SingleServiceLogoff(Entity):
+                            class SingleServiceLogoff(_Entity_):
                                 """
                                 Single Service logoff request statistics
                                 
@@ -4302,7 +4631,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, self).__init__()
 
                                     self.yang_name = "single-service-logoff"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4324,9 +4656,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff']['meta_info']
 
 
-                            class SingleServiceModify(Entity):
+                            class SingleServiceModify(_Entity_):
                                 """
                                 Single Service Modify request statistics
                                 
@@ -4365,7 +4701,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, self).__init__()
 
                                     self.yang_name = "single-service-modify"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4387,9 +4726,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify']['meta_info']
 
 
-                            class ServiceMulti(Entity):
+                            class ServiceMulti(_Entity_):
                                 """
                                 MA\-CoA Service request statistics
                                 
@@ -4428,7 +4771,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, self).__init__()
 
                                     self.yang_name = "service-multi"
                                     self.yang_parent_name = "change-of-authorization"
@@ -4450,10 +4796,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
 
 
-
-                        class Authorization(Entity):
+                        class Authorization(_Entity_):
                             """
                             Authorization statistics
                             
@@ -4528,7 +4882,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, self).__init__()
 
                                 self.yang_name = "authorization"
                                 self.yang_parent_name = "aaa"
@@ -4558,9 +4915,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization']['meta_info']
 
 
-                        class AggregateAuthorization(Entity):
+                        class AggregateAuthorization(_Entity_):
                             """
                             Aggregate authorization statistics
                             
@@ -4635,7 +4996,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, self).__init__()
 
                                 self.yang_name = "aggregate-authorization"
                                 self.yang_parent_name = "aaa"
@@ -4665,9 +5029,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization']['meta_info']
 
 
-                        class AggregateAccountingStatsAll(Entity):
+                        class AggregateAccountingStatsAll(_Entity_):
                             """
                             Display all subscriber management total
                             statistics
@@ -4715,7 +5083,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, self).__init__()
 
                                 self.yang_name = "aggregate-accounting-stats-all"
                                 self.yang_parent_name = "aaa"
@@ -4751,7 +5122,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, [], name, value)
 
 
-                            class AccountingStatistics(Entity):
+                            class AccountingStatistics(_Entity_):
                                 """
                                 List of stats for accounting
                                 
@@ -4850,7 +5221,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, self).__init__()
 
                                     self.yang_name = "accounting-statistics"
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
@@ -4901,7 +5275,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
-                                class Start(Entity):
+                                class Start(_Entity_):
                                     """
                                     Start statistics
                                     
@@ -4967,7 +5341,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, self).__init__()
 
                                         self.yang_name = "start"
                                         self.yang_parent_name = "accounting-statistics"
@@ -4995,9 +5372,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start']['meta_info']
 
 
-                                class Stop(Entity):
+                                class Stop(_Entity_):
                                     """
                                     Stop statistics
                                     
@@ -5063,7 +5444,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, self).__init__()
 
                                         self.yang_name = "stop"
                                         self.yang_parent_name = "accounting-statistics"
@@ -5091,9 +5475,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop']['meta_info']
 
 
-                                class Interim(Entity):
+                                class Interim(_Entity_):
                                     """
                                     Interim statistics
                                     
@@ -5159,7 +5547,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, self).__init__()
 
                                         self.yang_name = "interim"
                                         self.yang_parent_name = "accounting-statistics"
@@ -5187,9 +5578,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim']['meta_info']
 
 
-                                class PassThrough(Entity):
+                                class PassThrough(_Entity_):
                                     """
                                     Pass\-through statistics
                                     
@@ -5255,7 +5650,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, self).__init__()
 
                                         self.yang_name = "pass-through"
                                         self.yang_parent_name = "accounting-statistics"
@@ -5283,9 +5681,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough']['meta_info']
 
 
-                                class Update(Entity):
+                                class Update(_Entity_):
                                     """
                                     Update statistics
                                     
@@ -5351,7 +5753,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, self).__init__()
 
                                         self.yang_name = "update"
                                         self.yang_parent_name = "accounting-statistics"
@@ -5379,9 +5784,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update']['meta_info']
 
 
-                                class InterimInflight(Entity):
+                                class InterimInflight(_Entity_):
                                     """
                                     Interim inflight details
                                     
@@ -5447,7 +5856,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, self).__init__()
 
                                         self.yang_name = "interim-inflight"
                                         self.yang_parent_name = "accounting-statistics"
@@ -5475,10 +5887,18 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
 
 
-
-                            class AuthenticationStatistics(Entity):
+                            class AuthenticationStatistics(_Entity_):
                                 """
                                 List of stats for authentication
                                 
@@ -5553,7 +5973,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, self).__init__()
 
                                     self.yang_name = "authentication-statistics"
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
@@ -5583,9 +6006,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics']['meta_info']
 
 
-                            class AuthorizationStatistics(Entity):
+                            class AuthorizationStatistics(_Entity_):
                                 """
                                 List of stats for authorization
                                 
@@ -5660,7 +6087,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, self).__init__()
 
                                     self.yang_name = "authorization-statistics"
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
@@ -5690,9 +6120,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'terminated_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics']['meta_info']
 
 
-                            class ChangeOfAuthorizationStatistics(Entity):
+                            class ChangeOfAuthorizationStatistics(_Entity_):
                                 """
                                 List of stats for COA
                                 
@@ -5850,7 +6284,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, self).__init__()
 
                                     self.yang_name = "change-of-authorization-statistics"
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
@@ -5919,7 +6356,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
-                                class AccountLogon(Entity):
+                                class AccountLogon(_Entity_):
                                     """
                                     Account logon request statistics
                                     
@@ -5958,7 +6395,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, self).__init__()
 
                                         self.yang_name = "account-logon"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -5980,9 +6420,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info']
 
 
-                                class AccountLogoff(Entity):
+                                class AccountLogoff(_Entity_):
                                     """
                                     Account logoff request statistics
                                     
@@ -6021,7 +6465,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, self).__init__()
 
                                         self.yang_name = "account-logoff"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6043,9 +6490,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info']
 
 
-                                class AccountUpdate(Entity):
+                                class AccountUpdate(_Entity_):
                                     """
                                     Account update request statistics
                                     
@@ -6084,7 +6535,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, self).__init__()
 
                                         self.yang_name = "account-update"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6106,9 +6560,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info']
 
 
-                                class SessionDisconnect(Entity):
+                                class SessionDisconnect(_Entity_):
                                     """
                                     Session disconnect request statistics
                                     
@@ -6147,7 +6605,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, self).__init__()
 
                                         self.yang_name = "session-disconnect"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6169,9 +6630,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info']
 
 
-                                class SingleServiceLogon(Entity):
+                                class SingleServiceLogon(_Entity_):
                                     """
                                     Service logon request statistics
                                     
@@ -6210,7 +6675,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, self).__init__()
 
                                         self.yang_name = "single-service-logon"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6232,9 +6700,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info']
 
 
-                                class SingleServiceLogoff(Entity):
+                                class SingleServiceLogoff(_Entity_):
                                     """
                                     Single Service logoff request statistics
                                     
@@ -6273,7 +6745,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, self).__init__()
 
                                         self.yang_name = "single-service-logoff"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6295,9 +6770,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info']
 
 
-                                class SingleServiceModify(Entity):
+                                class SingleServiceModify(_Entity_):
                                     """
                                     Single Service Modify request statistics
                                     
@@ -6336,7 +6815,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, self).__init__()
 
                                         self.yang_name = "single-service-modify"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6358,9 +6840,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info']
 
 
-                                class ServiceMulti(Entity):
+                                class ServiceMulti(_Entity_):
                                     """
                                     MA\-CoA Service request statistics
                                     
@@ -6399,7 +6885,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, self).__init__()
 
                                         self.yang_name = "service-multi"
                                         self.yang_parent_name = "change-of-authorization-statistics"
@@ -6421,10 +6910,18 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
 
 
-
-                            class MobilityStatistics(Entity):
+                            class MobilityStatistics(_Entity_):
                                 """
                                 List of stats for Mobility
                                 
@@ -6472,7 +6969,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, self).__init__()
 
                                     self.yang_name = "mobility-statistics"
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
@@ -6496,10 +6996,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
 
 
-
-                        class Accounting(Entity):
+                        class Accounting(_Entity_):
                             """
                             Accounting statistics
                             
@@ -6598,7 +7106,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, self).__init__()
 
                                 self.yang_name = "accounting"
                                 self.yang_parent_name = "aaa"
@@ -6649,7 +7160,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
 
 
-                            class Start(Entity):
+                            class Start(_Entity_):
                                 """
                                 Start statistics
                                 
@@ -6715,7 +7226,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, self).__init__()
 
                                     self.yang_name = "start"
                                     self.yang_parent_name = "accounting"
@@ -6743,9 +7257,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start']['meta_info']
 
 
-                            class Stop(Entity):
+                            class Stop(_Entity_):
                                 """
                                 Stop statistics
                                 
@@ -6811,7 +7329,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, self).__init__()
 
                                     self.yang_name = "stop"
                                     self.yang_parent_name = "accounting"
@@ -6839,9 +7360,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop']['meta_info']
 
 
-                            class Interim(Entity):
+                            class Interim(_Entity_):
                                 """
                                 Interim statistics
                                 
@@ -6907,7 +7432,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, self).__init__()
 
                                     self.yang_name = "interim"
                                     self.yang_parent_name = "accounting"
@@ -6935,9 +7463,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim']['meta_info']
 
 
-                            class PassThrough(Entity):
+                            class PassThrough(_Entity_):
                                 """
                                 Pass\-through statistics
                                 
@@ -7003,7 +7535,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, self).__init__()
 
                                     self.yang_name = "pass-through"
                                     self.yang_parent_name = "accounting"
@@ -7031,9 +7566,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough']['meta_info']
 
 
-                            class Update(Entity):
+                            class Update(_Entity_):
                                 """
                                 Update statistics
                                 
@@ -7099,7 +7638,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, self).__init__()
 
                                     self.yang_name = "update"
                                     self.yang_parent_name = "accounting"
@@ -7127,9 +7669,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update']['meta_info']
 
 
-                            class InterimInflight(Entity):
+                            class InterimInflight(_Entity_):
                                 """
                                 Interim inflight details
                                 
@@ -7195,7 +7741,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, self).__init__()
 
                                     self.yang_name = "interim-inflight"
                                     self.yang_parent_name = "accounting"
@@ -7223,10 +7772,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting']['meta_info']
 
 
-
-                        class Mobility(Entity):
+                        class Mobility(_Entity_):
                             """
                             Mobility statistics
                             
@@ -7274,7 +7831,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, self).__init__()
 
                                 self.yang_name = "mobility"
                                 self.yang_parent_name = "aaa"
@@ -7298,9 +7858,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility']['meta_info']
 
 
-                        class AggregateChangeOfAuthorization(Entity):
+                        class AggregateChangeOfAuthorization(_Entity_):
                             """
                             Aggregate change of authorization (COA)
                             statistics
@@ -7459,7 +8023,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, self).__init__()
 
                                 self.yang_name = "aggregate-change-of-authorization"
                                 self.yang_parent_name = "aaa"
@@ -7528,7 +8095,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
 
 
-                            class AccountLogon(Entity):
+                            class AccountLogon(_Entity_):
                                 """
                                 Account logon request statistics
                                 
@@ -7567,7 +8134,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, self).__init__()
 
                                     self.yang_name = "account-logon"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7589,9 +8159,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon']['meta_info']
 
 
-                            class AccountLogoff(Entity):
+                            class AccountLogoff(_Entity_):
                                 """
                                 Account logoff request statistics
                                 
@@ -7630,7 +8204,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, self).__init__()
 
                                     self.yang_name = "account-logoff"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7652,9 +8229,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff']['meta_info']
 
 
-                            class AccountUpdate(Entity):
+                            class AccountUpdate(_Entity_):
                                 """
                                 Account update request statistics
                                 
@@ -7693,7 +8274,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, self).__init__()
 
                                     self.yang_name = "account-update"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7715,9 +8299,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate']['meta_info']
 
 
-                            class SessionDisconnect(Entity):
+                            class SessionDisconnect(_Entity_):
                                 """
                                 Session disconnect request statistics
                                 
@@ -7756,7 +8344,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, self).__init__()
 
                                     self.yang_name = "session-disconnect"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7778,9 +8369,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect']['meta_info']
 
 
-                            class SingleServiceLogon(Entity):
+                            class SingleServiceLogon(_Entity_):
                                 """
                                 Service logon request statistics
                                 
@@ -7819,7 +8414,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, self).__init__()
 
                                     self.yang_name = "single-service-logon"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7841,9 +8439,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon']['meta_info']
 
 
-                            class SingleServiceLogoff(Entity):
+                            class SingleServiceLogoff(_Entity_):
                                 """
                                 Single Service logoff request statistics
                                 
@@ -7882,7 +8484,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, self).__init__()
 
                                     self.yang_name = "single-service-logoff"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7904,9 +8509,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff']['meta_info']
 
 
-                            class SingleServiceModify(Entity):
+                            class SingleServiceModify(_Entity_):
                                 """
                                 Single Service Modify request statistics
                                 
@@ -7945,7 +8554,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, self).__init__()
 
                                     self.yang_name = "single-service-modify"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -7967,9 +8579,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify']['meta_info']
 
 
-                            class ServiceMulti(Entity):
+                            class ServiceMulti(_Entity_):
                                 """
                                 MA\-CoA Service request statistics
                                 
@@ -8008,7 +8624,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, self).__init__()
 
                                     self.yang_name = "service-multi"
                                     self.yang_parent_name = "aggregate-change-of-authorization"
@@ -8030,11 +8649,23 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 
 
-
-
-                    class AggregateSummary(Entity):
+                    class AggregateSummary(_Entity_):
                         """
                         Aggregate summary of statistics
                         
@@ -8217,7 +8848,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, self).__init__()
 
                             self.yang_name = "aggregate-summary"
                             self.yang_parent_name = "statistics"
@@ -8271,9 +8905,13 @@ class Subscriber(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, ['no_subscriber_control_policy_on_interface', 'no_class_match_in_start_request', 'nas_port_attribute_format_warnings', 'nas_port_id_attribute_format_warnings', 'destination_station_id_attribute_format_warnings', 'calling_station_id_attribute_format_warnings', 'username_attribute_format_warnings', 'install_user_profiles', 'user_profile_install_errors', 'user_profile_removals', 'user_profile_errors', 'sess_disc_quota_exhausts', 'sess_disc_no_quota', 'sess_disc_quota_avail', 'sess_disc_recon_ip', 'sess_disc_none_started', 'sess_disc_quota', 'sess_disc_quota_remaining', 'sess_disc_q_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary']['meta_info']
 
 
-                    class DisconnUnique(Entity):
+                    class DisconnUnique(_Entity_):
                         """
                         Disconnect Unique Summary statistics
                         
@@ -8292,7 +8930,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique, self).__init__()
 
                             self.yang_name = "disconn-unique"
                             self.yang_parent_name = "statistics"
@@ -8310,7 +8951,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique, [], name, value)
 
 
-                        class HistoryData(Entity):
+                        class HistoryData(_Entity_):
                             """
                             List of disconnect history items
                             
@@ -8354,7 +8995,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, self).__init__()
 
                                 self.yang_name = "history-data"
                                 self.yang_parent_name = "disconn-unique"
@@ -8378,10 +9022,18 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData, ['disc_reason', 'session_count', 'latest_activity', 'if_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique.HistoryData']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.DisconnUnique']['meta_info']
 
 
-
-                    class Srg(Entity):
+                    class Srg(_Entity_):
                         """
                         Geo Redundancy statistics
                         
@@ -8797,6 +9449,15 @@ class Subscriber(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: total_srg_txlist_no_add_restore_flag_set
+                        
+                        	Total No of times restore flag found set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         .. attribute:: total_srg_not_master
                         
                         	Total No of times SRG Not Master
@@ -8868,7 +9529,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Manager.Nodes.Node.Statistics.Srg, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Manager.Nodes.Node.Statistics.Srg, self).__init__()
 
                             self.yang_name = "srg"
                             self.yang_parent_name = "statistics"
@@ -8923,6 +9587,7 @@ class Subscriber(Entity):
                                 ('total_pause_count', (YLeaf(YType.uint32, 'total-pause-count'), ['int'])),
                                 ('total_resume_count', (YLeaf(YType.uint32, 'total-resume-count'), ['int'])),
                                 ('total_dont_send_to_txlist', (YLeaf(YType.uint32, 'total-dont-send-to-txlist'), ['int'])),
+                                ('total_srg_txlist_no_add_restore_flag_set', (YLeaf(YType.uint32, 'total-srg-txlist-no-add-restore-flag-set'), ['int'])),
                                 ('total_srg_not_master', (YLeaf(YType.uint32, 'total-srg-not-master'), ['int'])),
                                 ('total_master_eoms_pending', (YLeaf(YType.uint32, 'total-master-eoms-pending'), ['int'])),
                                 ('total_master_eoms_pending_cleared', (YLeaf(YType.uint32, 'total-master-eoms-pending-cleared'), ['int'])),
@@ -8977,6 +9642,7 @@ class Subscriber(Entity):
                             self.total_pause_count = None
                             self.total_resume_count = None
                             self.total_dont_send_to_txlist = None
+                            self.total_srg_txlist_no_add_restore_flag_set = None
                             self.total_srg_not_master = None
                             self.total_master_eoms_pending = None
                             self.total_master_eoms_pending_cleared = None
@@ -8988,15 +9654,35 @@ class Subscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'slave_recv_entry', 'slave_decode_fail', 'slave_create_update', 'slave_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_not_master', 'total_master_eoms_pending', 'total_master_eoms_pending_cleared', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'slave_recv_entry', 'slave_decode_fail', 'slave_create_update', 'slave_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_txlist_no_add_restore_flag_set', 'total_srg_not_master', 'total_master_eoms_pending', 'total_master_eoms_pending_cleared', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Srg']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                    return meta._meta_table['Subscriber.Manager.Nodes.Node']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                return meta._meta_table['Subscriber.Manager.Nodes']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+            return meta._meta_table['Subscriber.Manager']['meta_info']
 
 
-
-
-
-
-
-    class Session(Entity):
+    class Session(_Entity_):
         """
         Subscriber session operational data
         
@@ -9015,7 +9701,10 @@ class Subscriber(Entity):
         _revision = '2018-09-20'
 
         def __init__(self):
-            super(Subscriber.Session, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Subscriber.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "subscriber"
@@ -9036,7 +9725,7 @@ class Subscriber(Entity):
             self._perform_setattr(Subscriber.Session, [], name, value)
 
 
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             List of subscriber session supported nodes
             
@@ -9055,7 +9744,10 @@ class Subscriber(Entity):
             _revision = '2018-09-20'
 
             def __init__(self):
-                super(Subscriber.Session.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Subscriber.Session.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "session"
@@ -9074,7 +9766,7 @@ class Subscriber(Entity):
                 self._perform_setattr(Subscriber.Session.Nodes, [], name, value)
 
 
-            class Node(Entity):
+            class Node(_Entity_):
                 """
                 Subscriber session operational data for a
                 particular node
@@ -9194,7 +9886,10 @@ class Subscriber(Entity):
                 _revision = '2018-09-20'
 
                 def __init__(self):
-                    super(Subscriber.Session.Nodes.Node, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Subscriber.Session.Nodes.Node, self).__init__()
 
                     self.yang_name = "node"
                     self.yang_parent_name = "nodes"
@@ -9270,7 +9965,7 @@ class Subscriber(Entity):
                     self._perform_setattr(Subscriber.Session.Nodes.Node, ['node_name'], name, value)
 
 
-                class SrgRoles(Entity):
+                class SrgRoles(_Entity_):
                     """
                     List of subscriber session supported srg
                     roles
@@ -9290,7 +9985,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.SrgRoles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.SrgRoles, self).__init__()
 
                         self.yang_name = "srg-roles"
                         self.yang_parent_name = "node"
@@ -9308,7 +10006,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles, [], name, value)
 
 
-                    class SrgRole(Entity):
+                    class SrgRole(_Entity_):
                         """
                         Subscriber session operational data based on
                         srg role
@@ -9419,7 +10117,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole, self).__init__()
 
                             self.yang_name = "srg-role"
                             self.yang_parent_name = "srg-roles"
@@ -9490,7 +10191,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole, ['srg'], name, value)
 
 
-                        class AuthorSummaries(Entity):
+                        class AuthorSummaries(_Entity_):
                             """
                             Summary information filtered by
                             authorization state
@@ -9510,7 +10211,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries, self).__init__()
 
                                 self.yang_name = "author-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -9528,7 +10232,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries, [], name, value)
 
 
-                            class AuthorSummary(Entity):
+                            class AuthorSummary(_Entity_):
                                 """
                                 authorization summary
                                 
@@ -9561,7 +10265,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary, self).__init__()
 
                                     self.yang_name = "author-summary"
                                     self.yang_parent_name = "author-summaries"
@@ -9588,7 +10295,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary, ['author_state'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -9621,7 +10328,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "author-summary"
@@ -9649,7 +10359,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -9724,7 +10434,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -9754,9 +10467,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -9831,7 +10548,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -9861,9 +10581,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -9938,7 +10662,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -9968,10 +10695,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -10004,7 +10739,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "author-summary"
@@ -10032,7 +10770,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -10098,7 +10836,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -10126,9 +10867,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -10194,7 +10939,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -10222,9 +10970,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -10290,7 +11042,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -10318,12 +11073,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries.AuthorSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthorSummaries']['meta_info']
 
 
-
-
-
-                        class UsernameSummaries(Entity):
+                        class UsernameSummaries(_Entity_):
                             """
                             Summary information filtered by username
                             
@@ -10342,7 +11113,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries, self).__init__()
 
                                 self.yang_name = "username-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -10360,7 +11134,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries, [], name, value)
 
 
-                            class UsernameSummary(Entity):
+                            class UsernameSummary(_Entity_):
                                 """
                                 Username summary
                                 
@@ -10395,7 +11169,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary, self).__init__()
 
                                     self.yang_name = "username-summary"
                                     self.yang_parent_name = "username-summaries"
@@ -10422,7 +11199,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary, ['username'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -10455,7 +11232,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "username-summary"
@@ -10483,7 +11263,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -10558,7 +11338,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -10588,9 +11371,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -10665,7 +11452,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -10695,9 +11485,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -10772,7 +11566,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -10802,10 +11599,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -10838,7 +11643,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "username-summary"
@@ -10866,7 +11674,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -10932,7 +11740,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -10960,9 +11771,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -11028,7 +11843,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -11056,9 +11874,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -11124,7 +11946,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -11152,12 +11977,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries.UsernameSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.UsernameSummaries']['meta_info']
 
 
-
-
-
-                        class MacSummaries(Entity):
+                        class MacSummaries(_Entity_):
                             """
                             Summary information filtered by MAC address
                             
@@ -11176,7 +12017,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries, self).__init__()
 
                                 self.yang_name = "mac-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -11194,7 +12038,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries, [], name, value)
 
 
-                            class MacSummary(Entity):
+                            class MacSummary(_Entity_):
                                 """
                                 MAC address summary
                                 
@@ -11229,7 +12073,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary, self).__init__()
 
                                     self.yang_name = "mac-summary"
                                     self.yang_parent_name = "mac-summaries"
@@ -11256,7 +12103,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary, ['mac_address'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -11289,7 +12136,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "mac-summary"
@@ -11317,7 +12167,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -11392,7 +12242,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -11422,9 +12275,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -11499,7 +12356,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -11529,9 +12389,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -11606,7 +12470,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -11636,10 +12503,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -11672,7 +12547,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "mac-summary"
@@ -11700,7 +12578,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -11766,7 +12644,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -11794,9 +12675,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -11862,7 +12747,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -11890,9 +12778,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -11958,7 +12850,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -11986,12 +12881,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries.MacSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.MacSummaries']['meta_info']
 
 
-
-
-
-                        class InterfaceSummaries(Entity):
+                        class InterfaceSummaries(_Entity_):
                             """
                             Summary information filtered by interface
                             
@@ -12010,7 +12921,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries, self).__init__()
 
                                 self.yang_name = "interface-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -12028,7 +12942,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries, [], name, value)
 
 
-                            class InterfaceSummary(Entity):
+                            class InterfaceSummary(_Entity_):
                                 """
                                 Interface summary
                                 
@@ -12063,7 +12977,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary, self).__init__()
 
                                     self.yang_name = "interface-summary"
                                     self.yang_parent_name = "interface-summaries"
@@ -12090,7 +13007,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary, ['interface_name'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -12123,7 +13040,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "interface-summary"
@@ -12151,7 +13071,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -12226,7 +13146,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -12256,9 +13179,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -12333,7 +13260,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -12363,9 +13293,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -12440,7 +13374,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -12470,10 +13407,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -12506,7 +13451,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "interface-summary"
@@ -12534,7 +13482,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -12600,7 +13548,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -12628,9 +13579,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -12696,7 +13651,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -12724,9 +13682,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -12792,7 +13754,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -12820,12 +13785,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries.InterfaceSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.InterfaceSummaries']['meta_info']
 
 
-
-
-
-                        class StateSummaries(Entity):
+                        class StateSummaries(_Entity_):
                             """
                             Summary information filtered by session
                             state
@@ -12845,7 +13826,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries, self).__init__()
 
                                 self.yang_name = "state-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -12863,7 +13847,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries, [], name, value)
 
 
-                            class StateSummary(Entity):
+                            class StateSummary(_Entity_):
                                 """
                                 State summary
                                 
@@ -12896,7 +13880,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary, self).__init__()
 
                                     self.yang_name = "state-summary"
                                     self.yang_parent_name = "state-summaries"
@@ -12923,7 +13910,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary, ['state'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -12956,7 +13943,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "state-summary"
@@ -12984,7 +13974,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -13059,7 +14049,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -13089,9 +14082,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -13166,7 +14163,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -13196,9 +14196,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -13273,7 +14277,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -13303,10 +14310,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -13339,7 +14354,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "state-summary"
@@ -13367,7 +14385,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -13433,7 +14451,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -13461,9 +14482,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -13529,7 +14554,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -13557,9 +14585,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -13625,7 +14657,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -13653,12 +14688,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries.StateSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.StateSummaries']['meta_info']
 
 
-
-
-
-                        class AuthenticationSummaries(Entity):
+                        class AuthenticationSummaries(_Entity_):
                             """
                             Summary information filtered by
                             authentication state
@@ -13678,7 +14729,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries, self).__init__()
 
                                 self.yang_name = "authentication-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -13696,7 +14750,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries, [], name, value)
 
 
-                            class AuthenticationSummary(Entity):
+                            class AuthenticationSummary(_Entity_):
                                 """
                                 authentication summary
                                 
@@ -13729,7 +14783,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary, self).__init__()
 
                                     self.yang_name = "authentication-summary"
                                     self.yang_parent_name = "authentication-summaries"
@@ -13756,7 +14813,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary, ['authentication_state'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -13789,7 +14846,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "authentication-summary"
@@ -13817,7 +14877,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -13892,7 +14952,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -13922,9 +14985,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -13999,7 +15066,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -14029,9 +15099,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -14106,7 +15180,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -14136,10 +15213,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -14172,7 +15257,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "authentication-summary"
@@ -14200,7 +15288,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -14266,7 +15354,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -14294,9 +15385,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -14362,7 +15457,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -14390,9 +15488,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -14458,7 +15560,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -14486,12 +15591,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries.AuthenticationSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AuthenticationSummaries']['meta_info']
 
 
-
-
-
-                        class SubscriberSessions(Entity):
+                        class SubscriberSessions(_Entity_):
                             """
                             IP subscriber sessions
                             
@@ -14510,7 +15631,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions, self).__init__()
 
                                 self.yang_name = "subscriber-sessions"
                                 self.yang_parent_name = "srg-role"
@@ -14528,7 +15652,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions, [], name, value)
 
 
-                            class SubscriberSession(Entity):
+                            class SubscriberSession(_Entity_):
                                 """
                                 Subscriber session information
                                 
@@ -14766,6 +15890,15 @@ class Subscriber(Entity):
                                 
                                 	**config**\: False
                                 
+                                .. attribute:: accounting_stop_fail_rc
+                                
+                                	Accounting Stop Error Code for Accounting Session
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**config**\: False
+                                
                                 .. attribute:: sub_policy_data
                                 
                                 	Subscriber control policy applied to this session
@@ -14795,7 +15928,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, self).__init__()
 
                                     self.yang_name = "subscriber-session"
                                     self.yang_parent_name = "subscriber-sessions"
@@ -14833,6 +15969,7 @@ class Subscriber(Entity):
                                         ('idle_state_change_time', (YLeaf(YType.str, 'idle-state-change-time'), ['str'])),
                                         ('total_session_idle_time', (YLeaf(YType.uint32, 'total-session-idle-time'), ['int'])),
                                         ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
+                                        ('accounting_stop_fail_rc', (YLeaf(YType.uint32, 'accounting-stop-fail-rc'), ['int'])),
                                     ])
                                     self.session_id = None
                                     self.session_type = None
@@ -14863,6 +16000,7 @@ class Subscriber(Entity):
                                     self.idle_state_change_time = None
                                     self.total_session_idle_time = None
                                     self.access_interface_name = None
+                                    self.accounting_stop_fail_rc = None
 
                                     self.accounting = Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting()
                                     self.accounting.parent = self
@@ -14875,10 +16013,10 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name', 'accounting_stop_fail_rc'], name, value)
 
 
-                                class Accounting(Entity):
+                                class Accounting(_Entity_):
                                     """
                                     Accounting information
                                     
@@ -14897,7 +16035,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting, self).__init__()
 
                                         self.yang_name = "accounting"
                                         self.yang_parent_name = "subscriber-session"
@@ -14915,7 +16056,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting, [], name, value)
 
 
-                                    class AccountingSession(Entity):
+                                    class AccountingSession(_Entity_):
                                         """
                                         Accounting information
                                         
@@ -14998,6 +16139,17 @@ class Subscriber(Entity):
                                         
                                         	**units**\: second
                                         
+                                        .. attribute:: last_unsuccessful_interim_update_time_epoch
+                                        
+                                        	Time of last unsuccessful interim update in epoch\-seconds 
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
+                                        
+                                        	**units**\: second
+                                        
                                         .. attribute:: next_interim_update_attempt_time
                                         
                                         	Time of next interim update attempt (in seconds)
@@ -15064,7 +16216,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, self).__init__()
 
                                             self.yang_name = "accounting-session"
                                             self.yang_parent_name = "accounting"
@@ -15082,6 +16237,7 @@ class Subscriber(Entity):
                                                 ('is_interim_accounting_enabled', (YLeaf(YType.boolean, 'is-interim-accounting-enabled'), ['bool'])),
                                                 ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
                                                 ('last_successful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-successful-interim-update-time-epoch'), ['int'])),
+                                                ('last_unsuccessful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-unsuccessful-interim-update-time-epoch'), ['int'])),
                                                 ('next_interim_update_attempt_time', (YLeaf(YType.uint32, 'next-interim-update-attempt-time'), ['int'])),
                                                 ('last_interim_update_attempt_time_epoch', (YLeaf(YType.uint64, 'last-interim-update-attempt-time-epoch'), ['int'])),
                                                 ('sent_interim_updates', (YLeaf(YType.uint32, 'sent-interim-updates'), ['int'])),
@@ -15098,6 +16254,7 @@ class Subscriber(Entity):
                                             self.is_interim_accounting_enabled = None
                                             self.interim_interval = None
                                             self.last_successful_interim_update_time_epoch = None
+                                            self.last_unsuccessful_interim_update_time_epoch = None
                                             self.next_interim_update_attempt_time = None
                                             self.last_interim_update_attempt_time_epoch = None
                                             self.sent_interim_updates = None
@@ -15108,12 +16265,20 @@ class Subscriber(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+                                            self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'last_unsuccessful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting.AccountingSession']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.Accounting']['meta_info']
 
 
-
-
-                                class SubPolicyData(Entity):
+                                class SubPolicyData(_Entity_):
                                     """
                                     Subscriber control policy applied to this
                                     session
@@ -15133,7 +16298,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, self).__init__()
 
                                         self.yang_name = "sub-policy-data"
                                         self.yang_parent_name = "subscriber-session"
@@ -15151,9 +16319,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData, ['policy_epoch'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SubPolicyData']['meta_info']
 
 
-                                class SessionServiceInfo(Entity):
+                                class SessionServiceInfo(_Entity_):
                                     """
                                     List of subscriber services associated to this
                                     session
@@ -15210,7 +16382,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, self).__init__()
 
                                         self.yang_name = "session-service-info"
                                         self.yang_parent_name = "subscriber-session"
@@ -15238,9 +16413,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo, ['service_name', 'service_params', 'service_type', 'service_status', 'service_id', 'service_prepaid'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionServiceInfo']['meta_info']
 
 
-                                class SessionChangeOfAuthorization(Entity):
+                                class SessionChangeOfAuthorization(_Entity_):
                                     """
                                     Subscriber change of authorization information
                                     
@@ -15281,7 +16460,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, self).__init__()
 
                                         self.yang_name = "session-change-of-authorization"
                                         self.yang_parent_name = "subscriber-session"
@@ -15303,11 +16485,23 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization, ['request_acked', 'request_time_epoch', 'reply_time_epoch'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession.SessionChangeOfAuthorization']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions.SubscriberSession']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SubscriberSessions']['meta_info']
 
 
-
-
-                        class Ipv4AddressVrfSummaries(Entity):
+                        class Ipv4AddressVrfSummaries(_Entity_):
                             """
                             Summary information filtered by IPv4
                             address and VRF
@@ -15327,7 +16521,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries, self).__init__()
 
                                 self.yang_name = "ipv4-address-vrf-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -15345,7 +16542,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries, [], name, value)
 
 
-                            class Ipv4AddressVrfSummary(Entity):
+                            class Ipv4AddressVrfSummary(_Entity_):
                                 """
                                 IPv4 address and VRF summary
                                 
@@ -15389,7 +16586,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
 
                                     self.yang_name = "ipv4-address-vrf-summary"
                                     self.yang_parent_name = "ipv4-address-vrf-summaries"
@@ -15418,7 +16618,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, ['vrf_name', 'address'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -15451,7 +16651,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "ipv4-address-vrf-summary"
@@ -15479,7 +16682,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -15554,7 +16757,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -15584,9 +16790,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -15661,7 +16871,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -15691,9 +16904,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -15768,7 +16985,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -15798,10 +17018,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -15834,7 +17062,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "ipv4-address-vrf-summary"
@@ -15862,7 +17093,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -15928,7 +17159,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -15956,9 +17190,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -16024,7 +17262,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -16052,9 +17293,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -16120,7 +17365,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -16148,12 +17396,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressVrfSummaries']['meta_info']
 
 
-
-
-
-                        class SrgSummary(Entity):
+                        class SrgSummary(_Entity_):
                             """
                             Subscriber session summary information
                             
@@ -16179,7 +17443,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary, self).__init__()
 
                                 self.yang_name = "srg-summary"
                                 self.yang_parent_name = "srg-role"
@@ -16203,7 +17470,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary, [], name, value)
 
 
-                            class StateXr(Entity):
+                            class StateXr(_Entity_):
                                 """
                                 State summary
                                 
@@ -16236,7 +17503,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr, self).__init__()
 
                                     self.yang_name = "state-xr"
                                     self.yang_parent_name = "srg-summary"
@@ -16264,7 +17534,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr, [], name, value)
 
 
-                                class Pppoe(Entity):
+                                class Pppoe(_Entity_):
                                     """
                                     PPPoE summary
                                     
@@ -16339,7 +17609,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, self).__init__()
 
                                         self.yang_name = "pppoe"
                                         self.yang_parent_name = "state-xr"
@@ -16369,9 +17642,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.Pppoe']['meta_info']
 
 
-                                class IpSubscriberDhcp(Entity):
+                                class IpSubscriberDhcp(_Entity_):
                                     """
                                     IP subscriber DHCP summary
                                     
@@ -16446,7 +17723,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                         self.yang_name = "ip-subscriber-dhcp"
                                         self.yang_parent_name = "state-xr"
@@ -16476,9 +17756,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                class IpSubscriberPacket(Entity):
+                                class IpSubscriberPacket(_Entity_):
                                     """
                                     IP subscriber packet summary
                                     
@@ -16553,7 +17837,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                         self.yang_name = "ip-subscriber-packet"
                                         self.yang_parent_name = "state-xr"
@@ -16583,10 +17870,18 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.StateXr']['meta_info']
 
 
-
-                            class AddressFamilyXr(Entity):
+                            class AddressFamilyXr(_Entity_):
                                 """
                                 Address family summary
                                 
@@ -16619,7 +17914,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr, self).__init__()
 
                                     self.yang_name = "address-family-xr"
                                     self.yang_parent_name = "srg-summary"
@@ -16647,7 +17945,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr, [], name, value)
 
 
-                                class Pppoe(Entity):
+                                class Pppoe(_Entity_):
                                     """
                                     PPPoE summary
                                     
@@ -16713,7 +18011,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                         self.yang_name = "pppoe"
                                         self.yang_parent_name = "address-family-xr"
@@ -16741,9 +18042,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                class IpSubscriberDhcp(Entity):
+                                class IpSubscriberDhcp(_Entity_):
                                     """
                                     IP subscriber DHCP summary
                                     
@@ -16809,7 +18114,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                         self.yang_name = "ip-subscriber-dhcp"
                                         self.yang_parent_name = "address-family-xr"
@@ -16837,9 +18145,13 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                class IpSubscriberPacket(Entity):
+                                class IpSubscriberPacket(_Entity_):
                                     """
                                     IP subscriber packet summary
                                     
@@ -16905,7 +18217,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                         self.yang_name = "ip-subscriber-packet"
                                         self.yang_parent_name = "address-family-xr"
@@ -16933,11 +18248,23 @@ class Subscriber(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary.AddressFamilyXr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.SrgSummary']['meta_info']
 
 
-
-
-                        class AccessInterfaceSummaries(Entity):
+                        class AccessInterfaceSummaries(_Entity_):
                             """
                             Summary information filtered by access
                             interface
@@ -16957,7 +18284,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries, self).__init__()
 
                                 self.yang_name = "access-interface-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -16975,7 +18305,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries, [], name, value)
 
 
-                            class AccessInterfaceSummary(Entity):
+                            class AccessInterfaceSummary(_Entity_):
                                 """
                                 Access interface summary
                                 
@@ -17010,7 +18340,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
 
                                     self.yang_name = "access-interface-summary"
                                     self.yang_parent_name = "access-interface-summaries"
@@ -17037,7 +18370,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary, ['interface_name'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -17070,7 +18403,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "access-interface-summary"
@@ -17098,7 +18434,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -17173,7 +18509,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -17203,9 +18542,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -17280,7 +18623,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -17310,9 +18656,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -17387,7 +18737,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -17417,10 +18770,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -17453,7 +18814,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "access-interface-summary"
@@ -17481,7 +18845,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -17547,7 +18911,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -17575,9 +18942,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -17643,7 +19014,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -17671,9 +19045,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -17739,7 +19117,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -17767,12 +19148,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries.AccessInterfaceSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AccessInterfaceSummaries']['meta_info']
 
 
-
-
-
-                        class AddressFamilySummaries(Entity):
+                        class AddressFamilySummaries(_Entity_):
                             """
                             Summary information filtered by address
                             family
@@ -17792,7 +19189,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries, self).__init__()
 
                                 self.yang_name = "address-family-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -17810,7 +19210,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries, [], name, value)
 
 
-                            class AddressFamilySummary(Entity):
+                            class AddressFamilySummary(_Entity_):
                                 """
                                 Address family summary
                                 
@@ -17843,7 +19243,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary, self).__init__()
 
                                     self.yang_name = "address-family-summary"
                                     self.yang_parent_name = "address-family-summaries"
@@ -17870,7 +19273,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary, ['address_family'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -17903,7 +19306,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "address-family-summary"
@@ -17931,7 +19337,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -18006,7 +19412,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -18036,9 +19445,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -18113,7 +19526,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -18143,9 +19559,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -18220,7 +19640,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -18250,10 +19673,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -18286,7 +19717,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "address-family-summary"
@@ -18314,7 +19748,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -18380,7 +19814,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -18408,9 +19845,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -18476,7 +19917,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -18504,9 +19948,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -18572,7 +20020,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -18600,12 +20051,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries.AddressFamilySummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.AddressFamilySummaries']['meta_info']
 
 
-
-
-
-                        class Ipv4AddressSummaries(Entity):
+                        class Ipv4AddressSummaries(_Entity_):
                             """
                             Summary information filtered by subscriber
                             IPv4 address
@@ -18625,7 +20092,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries, self).__init__()
 
                                 self.yang_name = "ipv4-address-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -18643,7 +20113,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries, [], name, value)
 
 
-                            class Ipv4AddressSummary(Entity):
+                            class Ipv4AddressSummary(_Entity_):
                                 """
                                 IPv4 address summary
                                 
@@ -18678,7 +20148,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
 
                                     self.yang_name = "ipv4-address-summary"
                                     self.yang_parent_name = "ipv4-address-summaries"
@@ -18705,7 +20178,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary, ['address'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -18738,7 +20211,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "ipv4-address-summary"
@@ -18766,7 +20242,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -18841,7 +20317,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -18871,9 +20350,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -18948,7 +20431,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -18978,9 +20464,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -19055,7 +20545,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -19085,10 +20578,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -19121,7 +20622,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "ipv4-address-summary"
@@ -19149,7 +20653,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -19215,7 +20719,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -19243,9 +20750,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -19311,7 +20822,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -19339,9 +20853,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -19407,7 +20925,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -19435,12 +20956,28 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries.Ipv4AddressSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.Ipv4AddressSummaries']['meta_info']
 
 
-
-
-
-                        class VrfSummaries(Entity):
+                        class VrfSummaries(_Entity_):
                             """
                             Summary information filtered by VRF
                             
@@ -19459,7 +20996,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries, self).__init__()
 
                                 self.yang_name = "vrf-summaries"
                                 self.yang_parent_name = "srg-role"
@@ -19477,7 +21017,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries, [], name, value)
 
 
-                            class VrfSummary(Entity):
+                            class VrfSummary(_Entity_):
                                 """
                                 VRF summary
                                 
@@ -19512,7 +21052,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary, self).__init__()
 
                                     self.yang_name = "vrf-summary"
                                     self.yang_parent_name = "vrf-summaries"
@@ -19539,7 +21082,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary, ['vrf_name'], name, value)
 
 
-                                class StateXr(Entity):
+                                class StateXr(_Entity_):
                                     """
                                     State summary
                                     
@@ -19572,7 +21115,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr, self).__init__()
 
                                         self.yang_name = "state-xr"
                                         self.yang_parent_name = "vrf-summary"
@@ -19600,7 +21146,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -19675,7 +21221,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "state-xr"
@@ -19705,9 +21254,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -19782,7 +21335,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "state-xr"
@@ -19812,9 +21368,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -19889,7 +21449,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "state-xr"
@@ -19919,10 +21482,18 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.StateXr']['meta_info']
 
 
-
-                                class AddressFamilyXr(Entity):
+                                class AddressFamilyXr(_Entity_):
                                     """
                                     Address family summary
                                     
@@ -19955,7 +21526,10 @@ class Subscriber(Entity):
                                     _revision = '2018-09-20'
 
                                     def __init__(self):
-                                        super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
 
                                         self.yang_name = "address-family-xr"
                                         self.yang_parent_name = "vrf-summary"
@@ -19983,7 +21557,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr, [], name, value)
 
 
-                                    class Pppoe(Entity):
+                                    class Pppoe(_Entity_):
                                         """
                                         PPPoE summary
                                         
@@ -20049,7 +21623,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                             self.yang_name = "pppoe"
                                             self.yang_parent_name = "address-family-xr"
@@ -20077,9 +21654,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                                    class IpSubscriberDhcp(Entity):
+                                    class IpSubscriberDhcp(_Entity_):
                                         """
                                         IP subscriber DHCP summary
                                         
@@ -20145,7 +21726,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                             self.yang_name = "ip-subscriber-dhcp"
                                             self.yang_parent_name = "address-family-xr"
@@ -20173,9 +21757,13 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                                    class IpSubscriberPacket(Entity):
+                                    class IpSubscriberPacket(_Entity_):
                                         """
                                         IP subscriber packet summary
                                         
@@ -20241,7 +21829,10 @@ class Subscriber(Entity):
                                         _revision = '2018-09-20'
 
                                         def __init__(self):
-                                            super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                             self.yang_name = "ip-subscriber-packet"
                                             self.yang_parent_name = "address-family-xr"
@@ -20269,14 +21860,38 @@ class Subscriber(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary.AddressFamilyXr']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries.VrfSummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole.VrfSummaries']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles.SrgRole']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.SrgRoles']['meta_info']
 
 
-
-
-
-
-
-                class AuthorSummaries(Entity):
+                class AuthorSummaries(_Entity_):
                     """
                     Summary information filtered by authorization
                     state
@@ -20296,7 +21911,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.AuthorSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.AuthorSummaries, self).__init__()
 
                         self.yang_name = "author-summaries"
                         self.yang_parent_name = "node"
@@ -20314,7 +21932,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries, [], name, value)
 
 
-                    class AuthorSummary(Entity):
+                    class AuthorSummary(_Entity_):
                         """
                         authorization summary
                         
@@ -20347,7 +21965,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, self).__init__()
 
                             self.yang_name = "author-summary"
                             self.yang_parent_name = "author-summaries"
@@ -20374,7 +21995,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, ['author_state'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -20407,7 +22028,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "author-summary"
@@ -20435,7 +22059,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -20510,7 +22134,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -20540,9 +22167,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -20617,7 +22248,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -20647,9 +22281,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -20724,7 +22362,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -20754,10 +22395,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -20790,7 +22439,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "author-summary"
@@ -20818,7 +22470,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -20884,7 +22536,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -20912,9 +22567,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -20980,7 +22639,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -21008,9 +22670,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -21076,7 +22742,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -21104,12 +22773,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.AuthorSummaries']['meta_info']
 
 
-
-
-
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Subscriber session summary information
                     
@@ -21135,7 +22820,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "node"
@@ -21159,7 +22847,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Summary, [], name, value)
 
 
-                    class StateXr(Entity):
+                    class StateXr(_Entity_):
                         """
                         State summary
                         
@@ -21192,7 +22880,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Summary.StateXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.Summary.StateXr, self).__init__()
 
                             self.yang_name = "state-xr"
                             self.yang_parent_name = "summary"
@@ -21220,7 +22911,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr, [], name, value)
 
 
-                        class Pppoe(Entity):
+                        class Pppoe(_Entity_):
                             """
                             PPPoE summary
                             
@@ -21295,7 +22986,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, self).__init__()
 
                                 self.yang_name = "pppoe"
                                 self.yang_parent_name = "state-xr"
@@ -21325,9 +23019,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe']['meta_info']
 
 
-                        class IpSubscriberDhcp(Entity):
+                        class IpSubscriberDhcp(_Entity_):
                             """
                             IP subscriber DHCP summary
                             
@@ -21402,7 +23100,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                 self.yang_name = "ip-subscriber-dhcp"
                                 self.yang_parent_name = "state-xr"
@@ -21432,9 +23133,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                        class IpSubscriberPacket(Entity):
+                        class IpSubscriberPacket(_Entity_):
                             """
                             IP subscriber packet summary
                             
@@ -21509,7 +23214,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, self).__init__()
 
                                 self.yang_name = "ip-subscriber-packet"
                                 self.yang_parent_name = "state-xr"
@@ -21539,10 +23247,18 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.StateXr']['meta_info']
 
 
-
-                    class AddressFamilyXr(Entity):
+                    class AddressFamilyXr(_Entity_):
                         """
                         Address family summary
                         
@@ -21575,7 +23291,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, self).__init__()
 
                             self.yang_name = "address-family-xr"
                             self.yang_parent_name = "summary"
@@ -21603,7 +23322,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, [], name, value)
 
 
-                        class Pppoe(Entity):
+                        class Pppoe(_Entity_):
                             """
                             PPPoE summary
                             
@@ -21669,7 +23388,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, self).__init__()
 
                                 self.yang_name = "pppoe"
                                 self.yang_parent_name = "address-family-xr"
@@ -21697,9 +23419,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                        class IpSubscriberDhcp(Entity):
+                        class IpSubscriberDhcp(_Entity_):
                             """
                             IP subscriber DHCP summary
                             
@@ -21765,7 +23491,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                 self.yang_name = "ip-subscriber-dhcp"
                                 self.yang_parent_name = "address-family-xr"
@@ -21793,9 +23522,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                        class IpSubscriberPacket(Entity):
+                        class IpSubscriberPacket(_Entity_):
                             """
                             IP subscriber packet summary
                             
@@ -21861,7 +23594,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                 self.yang_name = "ip-subscriber-packet"
                                 self.yang_parent_name = "address-family-xr"
@@ -21889,11 +23625,23 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.Summary']['meta_info']
 
 
-
-
-                class MacSummaries(Entity):
+                class MacSummaries(_Entity_):
                     """
                     Summary information filtered by MAC address
                     
@@ -21912,7 +23660,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.MacSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.MacSummaries, self).__init__()
 
                         self.yang_name = "mac-summaries"
                         self.yang_parent_name = "node"
@@ -21930,7 +23681,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries, [], name, value)
 
 
-                    class MacSummary(Entity):
+                    class MacSummary(_Entity_):
                         """
                         MAC address summary
                         
@@ -21965,7 +23716,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, self).__init__()
 
                             self.yang_name = "mac-summary"
                             self.yang_parent_name = "mac-summaries"
@@ -21992,7 +23746,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, ['mac_address'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -22025,7 +23779,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "mac-summary"
@@ -22053,7 +23810,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -22128,7 +23885,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -22158,9 +23918,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -22235,7 +23999,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -22265,9 +24032,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -22342,7 +24113,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -22372,10 +24146,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -22408,7 +24190,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "mac-summary"
@@ -22436,7 +24221,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -22502,7 +24287,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -22530,9 +24318,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -22598,7 +24390,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -22626,9 +24421,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -22694,7 +24493,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -22722,12 +24524,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries.MacSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.MacSummaries']['meta_info']
 
 
-
-
-
-                class InterfaceSummaries(Entity):
+                class InterfaceSummaries(_Entity_):
                     """
                     Summary information filtered by interface
                     
@@ -22746,7 +24564,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.InterfaceSummaries, self).__init__()
 
                         self.yang_name = "interface-summaries"
                         self.yang_parent_name = "node"
@@ -22764,7 +24585,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries, [], name, value)
 
 
-                    class InterfaceSummary(Entity):
+                    class InterfaceSummary(_Entity_):
                         """
                         Interface summary
                         
@@ -22799,7 +24620,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, self).__init__()
 
                             self.yang_name = "interface-summary"
                             self.yang_parent_name = "interface-summaries"
@@ -22826,7 +24650,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, ['interface_name'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -22859,7 +24683,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "interface-summary"
@@ -22887,7 +24714,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -22962,7 +24789,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -22992,9 +24822,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -23069,7 +24903,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -23099,9 +24936,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -23176,7 +25017,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -23206,10 +25050,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -23242,7 +25094,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "interface-summary"
@@ -23270,7 +25125,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -23336,7 +25191,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -23364,9 +25222,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -23432,7 +25294,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -23460,9 +25325,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -23528,7 +25397,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -23556,12 +25428,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.InterfaceSummaries']['meta_info']
 
 
-
-
-
-                class AuthenticationSummaries(Entity):
+                class AuthenticationSummaries(_Entity_):
                     """
                     Summary information filtered by
                     authentication state
@@ -23581,7 +25469,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.AuthenticationSummaries, self).__init__()
 
                         self.yang_name = "authentication-summaries"
                         self.yang_parent_name = "node"
@@ -23599,7 +25490,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries, [], name, value)
 
 
-                    class AuthenticationSummary(Entity):
+                    class AuthenticationSummary(_Entity_):
                         """
                         authentication summary
                         
@@ -23632,7 +25523,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, self).__init__()
 
                             self.yang_name = "authentication-summary"
                             self.yang_parent_name = "authentication-summaries"
@@ -23659,7 +25553,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, ['authentication_state'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -23692,7 +25586,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "authentication-summary"
@@ -23720,7 +25617,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -23795,7 +25692,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -23825,9 +25725,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -23902,7 +25806,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -23932,9 +25839,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -24009,7 +25920,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -24039,10 +25953,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -24075,7 +25997,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "authentication-summary"
@@ -24103,7 +26028,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -24169,7 +26094,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -24197,9 +26125,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -24265,7 +26197,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -24293,9 +26228,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -24361,7 +26300,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -24389,12 +26331,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.AuthenticationSummaries']['meta_info']
 
 
-
-
-
-                class StateSummaries(Entity):
+                class StateSummaries(_Entity_):
                     """
                     Summary information filtered by session state
                     
@@ -24413,7 +26371,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.StateSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.StateSummaries, self).__init__()
 
                         self.yang_name = "state-summaries"
                         self.yang_parent_name = "node"
@@ -24431,7 +26392,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries, [], name, value)
 
 
-                    class StateSummary(Entity):
+                    class StateSummary(_Entity_):
                         """
                         State summary
                         
@@ -24464,7 +26425,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, self).__init__()
 
                             self.yang_name = "state-summary"
                             self.yang_parent_name = "state-summaries"
@@ -24491,7 +26455,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, ['state'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -24524,7 +26488,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "state-summary"
@@ -24552,7 +26519,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -24627,7 +26594,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -24657,9 +26627,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -24734,7 +26708,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -24764,9 +26741,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -24841,7 +26822,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -24871,10 +26855,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -24907,7 +26899,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "state-summary"
@@ -24935,7 +26930,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -25001,7 +26996,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -25029,9 +27027,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -25097,7 +27099,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -25125,9 +27130,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -25193,7 +27202,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -25221,12 +27233,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries.StateSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.StateSummaries']['meta_info']
 
 
-
-
-
-                class Ipv4AddressVrfSummaries(Entity):
+                class Ipv4AddressVrfSummaries(_Entity_):
                     """
                     Summary information filtered by IPv4 address
                     and VRF
@@ -25246,7 +27274,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries, self).__init__()
 
                         self.yang_name = "ipv4-address-vrf-summaries"
                         self.yang_parent_name = "node"
@@ -25264,7 +27295,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries, [], name, value)
 
 
-                    class Ipv4AddressVrfSummary(Entity):
+                    class Ipv4AddressVrfSummary(_Entity_):
                         """
                         IPv4 address and VRF summary
                         
@@ -25308,7 +27339,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, self).__init__()
 
                             self.yang_name = "ipv4-address-vrf-summary"
                             self.yang_parent_name = "ipv4-address-vrf-summaries"
@@ -25337,7 +27371,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, ['vrf_name', 'address'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -25370,7 +27404,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "ipv4-address-vrf-summary"
@@ -25398,7 +27435,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -25473,7 +27510,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -25503,9 +27543,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -25580,7 +27624,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -25610,9 +27657,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -25687,7 +27738,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -25717,10 +27771,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -25753,7 +27815,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "ipv4-address-vrf-summary"
@@ -25781,7 +27846,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -25847,7 +27912,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -25875,9 +27943,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -25943,7 +28015,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -25971,9 +28046,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -26039,7 +28118,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -26067,12 +28149,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries']['meta_info']
 
 
-
-
-
-                class AddressFamilySummaries(Entity):
+                class AddressFamilySummaries(_Entity_):
                     """
                     Summary information filtered by address
                     family
@@ -26092,7 +28190,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.AddressFamilySummaries, self).__init__()
 
                         self.yang_name = "address-family-summaries"
                         self.yang_parent_name = "node"
@@ -26110,7 +28211,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries, [], name, value)
 
 
-                    class AddressFamilySummary(Entity):
+                    class AddressFamilySummary(_Entity_):
                         """
                         Address family summary
                         
@@ -26143,7 +28244,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, self).__init__()
 
                             self.yang_name = "address-family-summary"
                             self.yang_parent_name = "address-family-summaries"
@@ -26170,7 +28274,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, ['address_family'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -26203,7 +28307,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "address-family-summary"
@@ -26231,7 +28338,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -26306,7 +28413,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -26336,9 +28446,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -26413,7 +28527,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -26443,9 +28560,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -26520,7 +28641,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -26550,10 +28674,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -26586,7 +28718,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "address-family-summary"
@@ -26614,7 +28749,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -26680,7 +28815,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -26708,9 +28846,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -26776,7 +28918,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -26804,9 +28949,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -26872,7 +29021,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -26900,12 +29052,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.AddressFamilySummaries']['meta_info']
 
 
-
-
-
-                class UsernameSummaries(Entity):
+                class UsernameSummaries(_Entity_):
                     """
                     Summary information filtered by username
                     
@@ -26924,7 +29092,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.UsernameSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.UsernameSummaries, self).__init__()
 
                         self.yang_name = "username-summaries"
                         self.yang_parent_name = "node"
@@ -26942,7 +29113,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries, [], name, value)
 
 
-                    class UsernameSummary(Entity):
+                    class UsernameSummary(_Entity_):
                         """
                         Username summary
                         
@@ -26977,7 +29148,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, self).__init__()
 
                             self.yang_name = "username-summary"
                             self.yang_parent_name = "username-summaries"
@@ -27004,7 +29178,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, ['username'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -27037,7 +29211,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "username-summary"
@@ -27065,7 +29242,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -27140,7 +29317,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -27170,9 +29350,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -27247,7 +29431,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -27277,9 +29464,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -27354,7 +29545,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -27384,10 +29578,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -27420,7 +29622,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "username-summary"
@@ -27448,7 +29653,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -27514,7 +29719,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -27542,9 +29750,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -27610,7 +29822,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -27638,9 +29853,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -27706,7 +29925,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -27734,12 +29956,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.UsernameSummaries']['meta_info']
 
 
-
-
-
-                class AccessInterfaceSummaries(Entity):
+                class AccessInterfaceSummaries(_Entity_):
                     """
                     Summary information filtered by access
                     interface
@@ -27759,7 +29997,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries, self).__init__()
 
                         self.yang_name = "access-interface-summaries"
                         self.yang_parent_name = "node"
@@ -27777,7 +30018,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries, [], name, value)
 
 
-                    class AccessInterfaceSummary(Entity):
+                    class AccessInterfaceSummary(_Entity_):
                         """
                         Access interface summary
                         
@@ -27812,7 +30053,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, self).__init__()
 
                             self.yang_name = "access-interface-summary"
                             self.yang_parent_name = "access-interface-summaries"
@@ -27839,7 +30083,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, ['interface_name'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -27872,7 +30116,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "access-interface-summary"
@@ -27900,7 +30147,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -27975,7 +30222,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -28005,9 +30255,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -28082,7 +30336,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -28112,9 +30369,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -28189,7 +30450,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -28219,10 +30483,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -28255,7 +30527,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "access-interface-summary"
@@ -28283,7 +30558,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -28349,7 +30624,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -28377,9 +30655,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -28445,7 +30727,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -28473,9 +30758,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -28541,7 +30830,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -28569,12 +30861,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.AccessInterfaceSummaries']['meta_info']
 
 
-
-
-
-                class Ipv4AddressSummaries(Entity):
+                class Ipv4AddressSummaries(_Entity_):
                     """
                     Summary information filtered by subscriber
                     IPv4 address
@@ -28594,7 +30902,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries, self).__init__()
 
                         self.yang_name = "ipv4-address-summaries"
                         self.yang_parent_name = "node"
@@ -28612,7 +30923,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries, [], name, value)
 
 
-                    class Ipv4AddressSummary(Entity):
+                    class Ipv4AddressSummary(_Entity_):
                         """
                         IPv4 address summary
                         
@@ -28647,7 +30958,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, self).__init__()
 
                             self.yang_name = "ipv4-address-summary"
                             self.yang_parent_name = "ipv4-address-summaries"
@@ -28674,7 +30988,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, ['address'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -28707,7 +31021,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "ipv4-address-summary"
@@ -28735,7 +31052,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -28810,7 +31127,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -28840,9 +31160,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -28917,7 +31241,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -28947,9 +31274,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -29024,7 +31355,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -29054,10 +31388,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -29090,7 +31432,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "ipv4-address-summary"
@@ -29118,7 +31463,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -29184,7 +31529,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -29212,9 +31560,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -29280,7 +31632,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -29308,9 +31663,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -29376,7 +31735,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -29404,12 +31766,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.Ipv4AddressSummaries']['meta_info']
 
 
-
-
-
-                class VrfSummaries(Entity):
+                class VrfSummaries(_Entity_):
                     """
                     Summary information filtered by VRF
                     
@@ -29428,7 +31806,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.VrfSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.VrfSummaries, self).__init__()
 
                         self.yang_name = "vrf-summaries"
                         self.yang_parent_name = "node"
@@ -29446,7 +31827,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries, [], name, value)
 
 
-                    class VrfSummary(Entity):
+                    class VrfSummary(_Entity_):
                         """
                         VRF summary
                         
@@ -29481,7 +31862,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, self).__init__()
 
                             self.yang_name = "vrf-summary"
                             self.yang_parent_name = "vrf-summaries"
@@ -29508,7 +31892,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, ['vrf_name'], name, value)
 
 
-                        class StateXr(Entity):
+                        class StateXr(_Entity_):
                             """
                             State summary
                             
@@ -29541,7 +31925,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, self).__init__()
 
                                 self.yang_name = "state-xr"
                                 self.yang_parent_name = "vrf-summary"
@@ -29569,7 +31956,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -29644,7 +32031,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "state-xr"
@@ -29674,9 +32064,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -29751,7 +32145,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "state-xr"
@@ -29781,9 +32178,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -29858,7 +32259,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "state-xr"
@@ -29888,10 +32292,18 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, ['initialized_sessions', 'connecting_sessions', 'connected_sessions', 'activated_sessions', 'idle_sessions', 'disconnecting_sessions', 'end_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr']['meta_info']
 
 
-
-                        class AddressFamilyXr(Entity):
+                        class AddressFamilyXr(_Entity_):
                             """
                             Address family summary
                             
@@ -29924,7 +32336,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, self).__init__()
 
                                 self.yang_name = "address-family-xr"
                                 self.yang_parent_name = "vrf-summary"
@@ -29952,7 +32367,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, [], name, value)
 
 
-                            class Pppoe(Entity):
+                            class Pppoe(_Entity_):
                                 """
                                 PPPoE summary
                                 
@@ -30018,7 +32433,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, self).__init__()
 
                                     self.yang_name = "pppoe"
                                     self.yang_parent_name = "address-family-xr"
@@ -30046,9 +32464,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe']['meta_info']
 
 
-                            class IpSubscriberDhcp(Entity):
+                            class IpSubscriberDhcp(_Entity_):
                                 """
                                 IP subscriber DHCP summary
                                 
@@ -30114,7 +32536,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, self).__init__()
 
                                     self.yang_name = "ip-subscriber-dhcp"
                                     self.yang_parent_name = "address-family-xr"
@@ -30142,9 +32567,13 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp']['meta_info']
 
 
-                            class IpSubscriberPacket(Entity):
+                            class IpSubscriberPacket(_Entity_):
                                 """
                                 IP subscriber packet summary
                                 
@@ -30210,7 +32639,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, self).__init__()
 
                                     self.yang_name = "ip-subscriber-packet"
                                     self.yang_parent_name = "address-family-xr"
@@ -30238,12 +32670,28 @@ class Subscriber(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, ['in_progress_sessions', 'ipv4_only_sessions', 'ipv6_only_sessions', 'dual_part_up_sessions', 'dual_up_sessions', 'lac_sessions'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.VrfSummaries']['meta_info']
 
 
-
-
-
-                class Sessions(Entity):
+                class Sessions(_Entity_):
                     """
                     IP subscriber sessions
                     
@@ -30262,7 +32710,10 @@ class Subscriber(Entity):
                     _revision = '2018-09-20'
 
                     def __init__(self):
-                        super(Subscriber.Session.Nodes.Node.Sessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Subscriber.Session.Nodes.Node.Sessions, self).__init__()
 
                         self.yang_name = "sessions"
                         self.yang_parent_name = "node"
@@ -30280,7 +32731,7 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions, [], name, value)
 
 
-                    class Session_(Entity):
+                    class Session_(_Entity_):
                         """
                         Subscriber session information
                         
@@ -30518,6 +32969,15 @@ class Subscriber(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: accounting_stop_fail_rc
+                        
+                        	Accounting Stop Error Code for Accounting Session
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
                         .. attribute:: sub_policy_data
                         
                         	Subscriber control policy applied to this session
@@ -30547,7 +33007,10 @@ class Subscriber(Entity):
                         _revision = '2018-09-20'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Sessions.Session_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_, self).__init__()
 
                             self.yang_name = "session"
                             self.yang_parent_name = "sessions"
@@ -30585,6 +33048,7 @@ class Subscriber(Entity):
                                 ('idle_state_change_time', (YLeaf(YType.str, 'idle-state-change-time'), ['str'])),
                                 ('total_session_idle_time', (YLeaf(YType.uint32, 'total-session-idle-time'), ['int'])),
                                 ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
+                                ('accounting_stop_fail_rc', (YLeaf(YType.uint32, 'accounting-stop-fail-rc'), ['int'])),
                             ])
                             self.session_id = None
                             self.session_type = None
@@ -30615,6 +33079,7 @@ class Subscriber(Entity):
                             self.idle_state_change_time = None
                             self.total_session_idle_time = None
                             self.access_interface_name = None
+                            self.accounting_stop_fail_rc = None
 
                             self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting()
                             self.accounting.parent = self
@@ -30627,10 +33092,10 @@ class Subscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name'], name, value)
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time_epoch', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name', 'accounting_stop_fail_rc'], name, value)
 
 
-                        class Accounting(Entity):
+                        class Accounting(_Entity_):
                             """
                             Accounting information
                             
@@ -30649,7 +33114,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, self).__init__()
 
                                 self.yang_name = "accounting"
                                 self.yang_parent_name = "session"
@@ -30667,7 +33135,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, [], name, value)
 
 
-                            class AccountingSession(Entity):
+                            class AccountingSession(_Entity_):
                                 """
                                 Accounting information
                                 
@@ -30750,6 +33218,17 @@ class Subscriber(Entity):
                                 
                                 	**units**\: second
                                 
+                                .. attribute:: last_unsuccessful_interim_update_time_epoch
+                                
+                                	Time of last unsuccessful interim update in epoch\-seconds 
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
+                                
+                                	**units**\: second
+                                
                                 .. attribute:: next_interim_update_attempt_time
                                 
                                 	Time of next interim update attempt (in seconds)
@@ -30816,7 +33295,10 @@ class Subscriber(Entity):
                                 _revision = '2018-09-20'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, self).__init__()
 
                                     self.yang_name = "accounting-session"
                                     self.yang_parent_name = "accounting"
@@ -30834,6 +33316,7 @@ class Subscriber(Entity):
                                         ('is_interim_accounting_enabled', (YLeaf(YType.boolean, 'is-interim-accounting-enabled'), ['bool'])),
                                         ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
                                         ('last_successful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-successful-interim-update-time-epoch'), ['int'])),
+                                        ('last_unsuccessful_interim_update_time_epoch', (YLeaf(YType.uint64, 'last-unsuccessful-interim-update-time-epoch'), ['int'])),
                                         ('next_interim_update_attempt_time', (YLeaf(YType.uint32, 'next-interim-update-attempt-time'), ['int'])),
                                         ('last_interim_update_attempt_time_epoch', (YLeaf(YType.uint64, 'last-interim-update-attempt-time-epoch'), ['int'])),
                                         ('sent_interim_updates', (YLeaf(YType.uint32, 'sent-interim-updates'), ['int'])),
@@ -30850,6 +33333,7 @@ class Subscriber(Entity):
                                     self.is_interim_accounting_enabled = None
                                     self.interim_interval = None
                                     self.last_successful_interim_update_time_epoch = None
+                                    self.last_unsuccessful_interim_update_time_epoch = None
                                     self.next_interim_update_attempt_time = None
                                     self.last_interim_update_attempt_time_epoch = None
                                     self.sent_interim_updates = None
@@ -30860,12 +33344,20 @@ class Subscriber(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time_epoch', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time_epoch', 'last_unsuccessful_interim_update_time_epoch', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time_epoch', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting']['meta_info']
 
 
-
-
-                        class SubPolicyData(Entity):
+                        class SubPolicyData(_Entity_):
                             """
                             Subscriber control policy applied to this
                             session
@@ -30885,7 +33377,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, self).__init__()
 
                                 self.yang_name = "sub-policy-data"
                                 self.yang_parent_name = "session"
@@ -30903,9 +33398,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData, ['policy_epoch'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.SubPolicyData']['meta_info']
 
 
-                        class SessionServiceInfo(Entity):
+                        class SessionServiceInfo(_Entity_):
                             """
                             List of subscriber services associated to this
                             session
@@ -30962,7 +33461,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, self).__init__()
 
                                 self.yang_name = "session-service-info"
                                 self.yang_parent_name = "session"
@@ -30990,9 +33492,13 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo, ['service_name', 'service_params', 'service_type', 'service_status', 'service_id', 'service_prepaid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.SessionServiceInfo']['meta_info']
 
 
-                        class SessionChangeOfAuthorization(Entity):
+                        class SessionChangeOfAuthorization(_Entity_):
                             """
                             Subscriber change of authorization information
                             
@@ -31033,7 +33539,10 @@ class Subscriber(Entity):
                             _revision = '2018-09-20'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, self).__init__()
 
                                 self.yang_name = "session-change-of-authorization"
                                 self.yang_parent_name = "session"
@@ -31055,19 +33564,47 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, ['request_acked', 'request_time_epoch', 'reply_time_epoch'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                        return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                    return meta._meta_table['Subscriber.Session.Nodes.Node']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                return meta._meta_table['Subscriber.Session.Nodes']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+            return meta._meta_table['Subscriber.Session']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Subscriber()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['Subscriber']['meta_info']
 
 
-class IedgeLicenseManager(Entity):
+class IedgeLicenseManager(_Entity_):
     """
     iedge license manager
     
@@ -31086,7 +33623,10 @@ class IedgeLicenseManager(Entity):
     _revision = '2018-09-20'
 
     def __init__(self):
-        super(IedgeLicenseManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IedgeLicenseManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "iedge-license-manager"
@@ -31107,7 +33647,7 @@ class IedgeLicenseManager(Entity):
         self._perform_setattr(IedgeLicenseManager, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Session License Manager operational data for a
         location
@@ -31127,7 +33667,10 @@ class IedgeLicenseManager(Entity):
         _revision = '2018-09-20'
 
         def __init__(self):
-            super(IedgeLicenseManager.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IedgeLicenseManager.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "iedge-license-manager"
@@ -31146,7 +33689,7 @@ class IedgeLicenseManager(Entity):
             self._perform_setattr(IedgeLicenseManager.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Location. For example, 0/1/CPU0
             
@@ -31174,7 +33717,10 @@ class IedgeLicenseManager(Entity):
             _revision = '2018-09-20'
 
             def __init__(self):
-                super(IedgeLicenseManager.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IedgeLicenseManager.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -31198,7 +33744,7 @@ class IedgeLicenseManager(Entity):
                 self._perform_setattr(IedgeLicenseManager.Nodes.Node, ['nodeid'], name, value)
 
 
-            class IedgeLicenseManagerSummary(Entity):
+            class IedgeLicenseManagerSummary(_Entity_):
                 """
                 Display Session License Manager summary data
                 
@@ -31246,7 +33792,10 @@ class IedgeLicenseManager(Entity):
                 _revision = '2018-09-20'
 
                 def __init__(self):
-                    super(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, self).__init__()
 
                     self.yang_name = "iedge-license-manager-summary"
                     self.yang_parent_name = "node"
@@ -31270,12 +33819,28 @@ class IedgeLicenseManager(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, ['session_limit', 'session_threshold', 'session_license_count', 'session_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                    return meta._meta_table['IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                return meta._meta_table['IedgeLicenseManager.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+            return meta._meta_table['IedgeLicenseManager.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IedgeLicenseManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+        return meta._meta_table['IedgeLicenseManager']['meta_info']
 
 

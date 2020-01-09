@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,8 +48,14 @@ class PppoeInvalidSessionIdBehavior(Enum):
     log = Enum.YLeaf(1, "log")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+        return meta._meta_table['PppoeInvalidSessionIdBehavior']
 
-class PppoeCfg(Entity):
+
+
+class PppoeCfg(_Entity_):
     """
     PPPOE configuration data
     
@@ -72,10 +81,13 @@ class PppoeCfg(Entity):
     """
 
     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-    _revision = '2017-09-30'
+    _revision = '2019-10-07'
 
     def __init__(self):
-        super(PppoeCfg, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PppoeCfg, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pppoe-cfg"
@@ -101,7 +113,7 @@ class PppoeCfg(Entity):
         self._perform_setattr(PppoeCfg, ['session_id_space_flat', 'in_flight_window'], name, value)
 
 
-    class PppoeBbaGroups(Entity):
+    class PppoeBbaGroups(_Entity_):
         """
         PPPoE BBA\-Group configuration data
         
@@ -115,10 +127,13 @@ class PppoeCfg(Entity):
         """
 
         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-        _revision = '2017-09-30'
+        _revision = '2019-10-07'
 
         def __init__(self):
-            super(PppoeCfg.PppoeBbaGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PppoeCfg.PppoeBbaGroups, self).__init__()
 
             self.yang_name = "pppoe-bba-groups"
             self.yang_parent_name = "pppoe-cfg"
@@ -137,7 +152,7 @@ class PppoeCfg(Entity):
             self._perform_setattr(PppoeCfg.PppoeBbaGroups, [], name, value)
 
 
-        class PppoeBbaGroup(Entity):
+        class PppoeBbaGroup(_Entity_):
             """
             PPPoE BBA\-Group configuration data
             
@@ -170,6 +185,11 @@ class PppoeCfg(Entity):
             
             	**presence node**\: True
             
+            .. attribute:: enable_renegotiate_on_padi
+            
+            	Disconnect on padi with same host\_uniq
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: completion_timeout
             
             	PPPoE session completion timeout
@@ -199,10 +219,13 @@ class PppoeCfg(Entity):
             """
 
             _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-            _revision = '2017-09-30'
+            _revision = '2019-10-07'
 
             def __init__(self):
-                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, self).__init__()
 
                 self.yang_name = "pppoe-bba-group"
                 self.yang_parent_name = "pppoe-bba-groups"
@@ -212,12 +235,14 @@ class PppoeCfg(Entity):
                 self._child_classes = OrderedDict([("tag", ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag)), ("sessions", ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions)), ("control-packets", ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets)), ("pa-do-delay", ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay))])
                 self._leafs = OrderedDict([
                     ('bba_group', (YLeaf(YType.str, 'bba-group'), ['str'])),
+                    ('enable_renegotiate_on_padi', (YLeaf(YType.empty, 'enable-renegotiate-on-padi'), ['Empty'])),
                     ('completion_timeout', (YLeaf(YType.uint32, 'completion-timeout'), ['int'])),
                     ('invalid_session_id', (YLeaf(YType.enumeration, 'invalid-session-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg', 'PppoeInvalidSessionIdBehavior', '')])),
                     ('enable_padt_after_shut_down', (YLeaf(YType.empty, 'enable-padt-after-shut-down'), ['Empty'])),
                     ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                 ])
                 self.bba_group = None
+                self.enable_renegotiate_on_padi = None
                 self.completion_timeout = None
                 self.invalid_session_id = None
                 self.enable_padt_after_shut_down = None
@@ -242,10 +267,10 @@ class PppoeCfg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, ['bba_group', 'completion_timeout', 'invalid_session_id', 'enable_padt_after_shut_down', 'mtu'], name, value)
+                self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, ['bba_group', 'enable_renegotiate_on_padi', 'completion_timeout', 'invalid_session_id', 'enable_padt_after_shut_down', 'mtu'], name, value)
 
 
-            class Tag(Entity):
+            class Tag(_Entity_):
                 """
                 PPPoE tag configuration data
                 
@@ -286,10 +311,13 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2017-09-30'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag, self).__init__()
 
                     self.yang_name = "tag"
                     self.yang_parent_name = "pppoe-bba-group"
@@ -323,7 +351,7 @@ class PppoeCfg(Entity):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag, ['ppp_max_payload_deny', 'service_selection_disable', 'ac_name'], name, value)
 
 
-                class Padr(Entity):
+                class Padr(_Entity_):
                     """
                     PADR packets
                     
@@ -342,10 +370,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, self).__init__()
 
                         self.yang_name = "padr"
                         self.yang_parent_name = "tag"
@@ -365,9 +396,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, ['session_unique_relay_session_id', 'invalid_payload_allow'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr']['meta_info']
 
 
-                class ServiceNameConfigureds(Entity):
+                class ServiceNameConfigureds(_Entity_):
                     """
                     Service name
                     
@@ -381,10 +416,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds, self).__init__()
 
                         self.yang_name = "service-name-configureds"
                         self.yang_parent_name = "tag"
@@ -402,7 +440,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds, [], name, value)
 
 
-                    class ServiceNameConfigured(Entity):
+                    class ServiceNameConfigured(_Entity_):
                         """
                         Service name supported on this group
                         
@@ -418,10 +456,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, self).__init__()
 
                             self.yang_name = "service-name-configured"
                             self.yang_parent_name = "service-name-configureds"
@@ -439,10 +480,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, ['name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds']['meta_info']
 
 
-
-                class PppMaxPayload(Entity):
+                class PppMaxPayload(_Entity_):
                     """
                     Minimum and maximum payloads
                     
@@ -471,10 +520,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, self).__init__()
 
                         self.yang_name = "ppp-max-payload"
                         self.yang_parent_name = "tag"
@@ -495,10 +547,18 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, ['min', 'max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                    return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag']['meta_info']
 
 
-
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 PPPoE session configuration data
                 
@@ -654,10 +714,13 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2017-09-30'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "pppoe-bba-group"
@@ -736,7 +799,7 @@ class PppoeCfg(Entity):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, [], name, value)
 
 
-                class VlanThrottle(Entity):
+                class VlanThrottle(_Entity_):
                     """
                     Set VLAN (inner + outer tags) session
                     throttle
@@ -775,10 +838,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, self).__init__()
 
                         self.yang_name = "vlan-throttle"
                         self.yang_parent_name = "sessions"
@@ -801,9 +867,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle']['meta_info']
 
 
-                class InnerVlanThrottle(Entity):
+                class InnerVlanThrottle(_Entity_):
                     """
                     Set Inner VLAN session throttle
                     
@@ -841,10 +911,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, self).__init__()
 
                         self.yang_name = "inner-vlan-throttle"
                         self.yang_parent_name = "sessions"
@@ -867,9 +940,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle']['meta_info']
 
 
-                class RemoteIdLimit(Entity):
+                class RemoteIdLimit(_Entity_):
                     """
                     Set Remote ID session limit and threshold
                     
@@ -896,10 +973,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, self).__init__()
 
                         self.yang_name = "remote-id-limit"
                         self.yang_parent_name = "sessions"
@@ -920,9 +1000,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit']['meta_info']
 
 
-                class MacIwfAccessInterfaceThrottle(Entity):
+                class MacIwfAccessInterfaceThrottle(_Entity_):
                     """
                     Set per\-MAC/Access interface throttle for IWF
                     sessions
@@ -961,10 +1045,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, self).__init__()
 
                         self.yang_name = "mac-iwf-access-interface-throttle"
                         self.yang_parent_name = "sessions"
@@ -987,9 +1074,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle']['meta_info']
 
 
-                class AccessInterfaceLimit(Entity):
+                class AccessInterfaceLimit(_Entity_):
                     """
                     Set per\-access interface limit
                     
@@ -1016,10 +1107,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, self).__init__()
 
                         self.yang_name = "access-interface-limit"
                         self.yang_parent_name = "sessions"
@@ -1040,9 +1134,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit']['meta_info']
 
 
-                class MacAccessInterfaceThrottle(Entity):
+                class MacAccessInterfaceThrottle(_Entity_):
                     """
                     Set per\-MAC/Access Interface throttle
                     
@@ -1080,10 +1178,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, self).__init__()
 
                         self.yang_name = "mac-access-interface-throttle"
                         self.yang_parent_name = "sessions"
@@ -1106,9 +1207,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle']['meta_info']
 
 
-                class OuterVlanLimit(Entity):
+                class OuterVlanLimit(_Entity_):
                     """
                     Set Outer VLAN session limit and threshold
                     
@@ -1135,10 +1240,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, self).__init__()
 
                         self.yang_name = "outer-vlan-limit"
                         self.yang_parent_name = "sessions"
@@ -1159,9 +1267,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit']['meta_info']
 
 
-                class CircuitIdThrottle(Entity):
+                class CircuitIdThrottle(_Entity_):
                     """
                     Set Circuit ID session throttle
                     
@@ -1199,10 +1311,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, self).__init__()
 
                         self.yang_name = "circuit-id-throttle"
                         self.yang_parent_name = "sessions"
@@ -1225,9 +1340,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle']['meta_info']
 
 
-                class MacLimit(Entity):
+                class MacLimit(_Entity_):
                     """
                     Set per\-MAC address session limit and
                     threshold
@@ -1255,10 +1374,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, self).__init__()
 
                         self.yang_name = "mac-limit"
                         self.yang_parent_name = "sessions"
@@ -1279,9 +1401,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit']['meta_info']
 
 
-                class CircuitIdLimit(Entity):
+                class CircuitIdLimit(_Entity_):
                     """
                     Set Circuit ID session limit and threshold
                     
@@ -1308,10 +1434,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, self).__init__()
 
                         self.yang_name = "circuit-id-limit"
                         self.yang_parent_name = "sessions"
@@ -1332,9 +1461,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit']['meta_info']
 
 
-                class MacIwfLimit(Entity):
+                class MacIwfLimit(_Entity_):
                     """
                     Set per\-MAC session limit and threshold for
                     IWF sessions
@@ -1362,10 +1495,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, self).__init__()
 
                         self.yang_name = "mac-iwf-limit"
                         self.yang_parent_name = "sessions"
@@ -1386,9 +1522,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit']['meta_info']
 
 
-                class MacIwfAccessInterfaceLimit(Entity):
+                class MacIwfAccessInterfaceLimit(_Entity_):
                     """
                     Set per\-MAC access interface session limit
                     and threshold for IWF sessions
@@ -1416,10 +1556,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, self).__init__()
 
                         self.yang_name = "mac-iwf-access-interface-limit"
                         self.yang_parent_name = "sessions"
@@ -1440,9 +1583,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit']['meta_info']
 
 
-                class InnerVlanLimit(Entity):
+                class InnerVlanLimit(_Entity_):
                     """
                     Set Inner VLAN session limit and threshold
                     
@@ -1469,10 +1616,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, self).__init__()
 
                         self.yang_name = "inner-vlan-limit"
                         self.yang_parent_name = "sessions"
@@ -1493,9 +1643,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit']['meta_info']
 
 
-                class OuterVlanThrottle(Entity):
+                class OuterVlanThrottle(_Entity_):
                     """
                     Set Outer VLAN session throttle
                     
@@ -1533,10 +1687,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, self).__init__()
 
                         self.yang_name = "outer-vlan-throttle"
                         self.yang_parent_name = "sessions"
@@ -1559,9 +1716,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle']['meta_info']
 
 
-                class MacThrottle(Entity):
+                class MacThrottle(_Entity_):
                     """
                     Set per\-MAC throttle
                     
@@ -1599,10 +1760,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, self).__init__()
 
                         self.yang_name = "mac-throttle"
                         self.yang_parent_name = "sessions"
@@ -1625,9 +1789,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle']['meta_info']
 
 
-                class CircuitIdAndRemoteIdLimit(Entity):
+                class CircuitIdAndRemoteIdLimit(_Entity_):
                     """
                     Set Circuit ID and Remote ID session
                     limit/threshold
@@ -1655,10 +1823,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, self).__init__()
 
                         self.yang_name = "circuit-id-and-remote-id-limit"
                         self.yang_parent_name = "sessions"
@@ -1679,9 +1850,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit']['meta_info']
 
 
-                class VlanLimit(Entity):
+                class VlanLimit(_Entity_):
                     """
                     Set VLAN (inner + outer tags) session limit
                     and threshold
@@ -1709,10 +1884,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, self).__init__()
 
                         self.yang_name = "vlan-limit"
                         self.yang_parent_name = "sessions"
@@ -1733,9 +1911,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit']['meta_info']
 
 
-                class MacAccessInterfaceLimit(Entity):
+                class MacAccessInterfaceLimit(_Entity_):
                     """
                     Set per\-MAC access interface session limit
                     and threshold
@@ -1763,10 +1945,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, self).__init__()
 
                         self.yang_name = "mac-access-interface-limit"
                         self.yang_parent_name = "sessions"
@@ -1787,9 +1972,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit']['meta_info']
 
 
-                class RemoteIdThrottle(Entity):
+                class RemoteIdThrottle(_Entity_):
                     """
                     Set Remote ID session throttle
                     
@@ -1827,10 +2016,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, self).__init__()
 
                         self.yang_name = "remote-id-throttle"
                         self.yang_parent_name = "sessions"
@@ -1853,9 +2045,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle']['meta_info']
 
 
-                class MaxLimit(Entity):
+                class MaxLimit(_Entity_):
                     """
                     Set per\-card session limit and threshold
                     
@@ -1882,10 +2078,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, self).__init__()
 
                         self.yang_name = "max-limit"
                         self.yang_parent_name = "sessions"
@@ -1906,9 +2105,13 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, ['limit', 'threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit']['meta_info']
 
 
-                class CircuitIdAndRemoteIdThrottle(Entity):
+                class CircuitIdAndRemoteIdThrottle(_Entity_):
                     """
                     Set Circuit ID and Remote ID session throttle
                     
@@ -1946,10 +2149,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, self).__init__()
 
                         self.yang_name = "circuit-id-and-remote-id-throttle"
                         self.yang_parent_name = "sessions"
@@ -1972,10 +2178,18 @@ class PppoeCfg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                    return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions']['meta_info']
 
 
-
-            class ControlPackets(Entity):
+            class ControlPackets(_Entity_):
                 """
                 PPPoE control\-packet configuration data
                 
@@ -1991,10 +2205,13 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2017-09-30'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, self).__init__()
 
                     self.yang_name = "control-packets"
                     self.yang_parent_name = "pppoe-bba-group"
@@ -2012,9 +2229,13 @@ class PppoeCfg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, ['priority'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                    return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets']['meta_info']
 
 
-            class PaDoDelay(Entity):
+            class PaDoDelay(_Entity_):
                 """
                 PPPoE PADO delay configuration data
                 
@@ -2084,10 +2305,13 @@ class PppoeCfg(Entity):
                 """
 
                 _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2017-09-30'
+                _revision = '2019-10-07'
 
                 def __init__(self):
-                    super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay, self).__init__()
 
                     self.yang_name = "pa-do-delay"
                     self.yang_parent_name = "pppoe-bba-group"
@@ -2135,7 +2359,7 @@ class PppoeCfg(Entity):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay, ['default', 'circuit_id', 'remote_id'], name, value)
 
 
-                class RemoteIdSubstrings(Entity):
+                class RemoteIdSubstrings(_Entity_):
                     """
                     Delay the PADO response when the received
                     Remote ID contains the given string
@@ -2150,10 +2374,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings, self).__init__()
 
                         self.yang_name = "remote-id-substrings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2171,7 +2398,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings, [], name, value)
 
 
-                    class RemoteIdSubstring(Entity):
+                    class RemoteIdSubstring(_Entity_):
                         """
                         Delay the PADO response when the received
                         Remote ID contains the given string
@@ -2199,10 +2426,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, self).__init__()
 
                             self.yang_name = "remote-id-substring"
                             self.yang_parent_name = "remote-id-substrings"
@@ -2222,10 +2452,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings']['meta_info']
 
 
-
-                class RemoteIdStrings(Entity):
+                class RemoteIdStrings(_Entity_):
                     """
                     Delay the PADO response when there is an
                     exact match on the received Remote ID
@@ -2240,10 +2478,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings, self).__init__()
 
                         self.yang_name = "remote-id-strings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2261,7 +2502,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings, [], name, value)
 
 
-                    class RemoteIdString(Entity):
+                    class RemoteIdString(_Entity_):
                         """
                         Delay the PADO response when there is an
                         exact match on the received Remote ID
@@ -2289,10 +2530,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, self).__init__()
 
                             self.yang_name = "remote-id-string"
                             self.yang_parent_name = "remote-id-strings"
@@ -2312,10 +2556,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings']['meta_info']
 
 
-
-                class ServiceNameStrings(Entity):
+                class ServiceNameStrings(_Entity_):
                     """
                     Delay the PADO response when there is an
                     exact match on the received Service Name
@@ -2330,10 +2582,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings, self).__init__()
 
                         self.yang_name = "service-name-strings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2351,7 +2606,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings, [], name, value)
 
 
-                    class ServiceNameString(Entity):
+                    class ServiceNameString(_Entity_):
                         """
                         Delay the PADO response when there is an
                         exact match on the received Service Name
@@ -2379,10 +2634,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, self).__init__()
 
                             self.yang_name = "service-name-string"
                             self.yang_parent_name = "service-name-strings"
@@ -2402,10 +2660,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings']['meta_info']
 
 
-
-                class CircuitIdSubstrings(Entity):
+                class CircuitIdSubstrings(_Entity_):
                     """
                     Delay the PADO response when the received
                     Circuit ID contains the given string
@@ -2420,10 +2686,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings, self).__init__()
 
                         self.yang_name = "circuit-id-substrings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2441,7 +2710,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings, [], name, value)
 
 
-                    class CircuitIdSubstring(Entity):
+                    class CircuitIdSubstring(_Entity_):
                         """
                         Delay the PADO response when the received
                         Circuit ID contains the given string
@@ -2469,10 +2738,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, self).__init__()
 
                             self.yang_name = "circuit-id-substring"
                             self.yang_parent_name = "circuit-id-substrings"
@@ -2492,10 +2764,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings']['meta_info']
 
 
-
-                class ServiceNameSubstrings(Entity):
+                class ServiceNameSubstrings(_Entity_):
                     """
                     Delay the PADO response when the received
                     Service Name contains the given string
@@ -2510,10 +2790,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings, self).__init__()
 
                         self.yang_name = "service-name-substrings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2531,7 +2814,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings, [], name, value)
 
 
-                    class ServiceNameSubstring(Entity):
+                    class ServiceNameSubstring(_Entity_):
                         """
                         Delay the PADO response when the received
                         Service Name contains the given string
@@ -2559,10 +2842,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, self).__init__()
 
                             self.yang_name = "service-name-substring"
                             self.yang_parent_name = "service-name-substrings"
@@ -2582,10 +2868,18 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings']['meta_info']
 
 
-
-                class CircuitIdStrings(Entity):
+                class CircuitIdStrings(_Entity_):
                     """
                     Delay the PADO response when there is an
                     exact match on the received Circuit ID
@@ -2600,10 +2894,13 @@ class PppoeCfg(Entity):
                     """
 
                     _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                    _revision = '2017-09-30'
+                    _revision = '2019-10-07'
 
                     def __init__(self):
-                        super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings, self).__init__()
 
                         self.yang_name = "circuit-id-strings"
                         self.yang_parent_name = "pa-do-delay"
@@ -2621,7 +2918,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings, [], name, value)
 
 
-                    class CircuitIdString(Entity):
+                    class CircuitIdString(_Entity_):
                         """
                         Delay the PADO response when there is an
                         exact match on the received Circuit ID
@@ -2649,10 +2946,13 @@ class PppoeCfg(Entity):
                         """
 
                         _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                        _revision = '2017-09-30'
+                        _revision = '2019-10-07'
 
                         def __init__(self):
-                            super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, self).__init__()
 
                             self.yang_name = "circuit-id-string"
                             self.yang_parent_name = "circuit-id-strings"
@@ -2672,14 +2972,38 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, ['name', 'delay'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                            return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                        return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                    return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+                return meta._meta_table['PppoeCfg.PppoeBbaGroups.PppoeBbaGroup']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+            return meta._meta_table['PppoeCfg.PppoeBbaGroups']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PppoeCfg()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg as meta
+        return meta._meta_table['PppoeCfg']['meta_info']
 
 

@@ -36,6 +36,14 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-23 {
+    description
+      "LPTS Punt Policer Support.";
+  }
+  revision 2018-11-26 {
+    description
+      "LPTS Domains Support.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -43,6 +51,38 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Lpts-punt {
+    type enumeration {
+      enum "mcast" {
+        value 0;
+        description
+          "Multicast packets";
+      }
+      enum "bcast" {
+        value 1;
+        description
+          "Broadcast packets";
+      }
+      enum "arp" {
+        value 2;
+        description
+          "ARP packets";
+      }
+      enum "cdp" {
+        value 3;
+        description
+          "CDP packets";
+      }
+      enum "lacp" {
+        value 4;
+        description
+          "LACP packets";
+      }
+    }
+    description
+      "Lpts punt";
   }
 
   typedef Lpts-dynamic-flow-config {
@@ -682,6 +722,20 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
     container lpts-local {
       description
         "lpts node specific configuration commands";
+      container ipunt-policer-local {
+        presence "Indicates a ipunt-policer-local node is configured.";
+        description
+          "Node specific Pre IFIB (Internal Forwarding
+           Information Base) Configuration";
+        container punt-type-local-table {
+          description
+            "Punt Policer Table";
+          uses PUNT-TYPE;
+        }
+        uses ENABLE;
+        uses PUNT-DOMAIN-TABLE;
+        uses PUNT-POLICER-IFH;
+      }
       container ipolicer-local-tables {
         description
           "Node specific Pre IFIB (Internal Forwarding
@@ -755,6 +809,63 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
           "Node specific Pre IFIB (Internal Forwarding
            Information Base) Configuration";
         uses ENABLE;
+        uses DOMAIN-TABLE;
+        uses FLOW-TABLE;
+      }
+    }
+  }
+
+  grouping PUNT-TYPE {
+    description
+      "Common node of punt-type-table,
+       punt-type-local-table, punt-type-domain-table,
+       punt-type-interface-table";
+    list punt-type {
+      key "punt-id";
+      description
+        "Punt Protocol Type";
+      container rate {
+        presence "Indicates a rate node is configured.";
+        description
+          "Enable or Disable Punt Police and corresponding
+           Rate in PPS";
+        leaf is-enabled {
+          type boolean;
+          mandatory true;
+          description
+            "Is Punt Policer enabled";
+        }
+        leaf rate {
+          type uint32 {
+            range "0..4294967295";
+          }
+          description
+            "Configured rate value";
+        }
+      }
+      leaf punt-id {
+        type Lpts-punt;
+        description
+          "Punt Type";
+      }
+    }
+  }
+
+  grouping DOMAIN-TABLE {
+    description
+      "Common node of ipolicer, ipolicer-local";
+    container policer-domains {
+      description
+        "Policer Domain Table";
+      list policer-domain {
+        key "domain-name";
+        description
+          "Domain name";
+        leaf domain-name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Domain name";
+        }
         uses FLOW-TABLE;
       }
     }
@@ -762,7 +873,10 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
 
   grouping ENABLE {
     description
-      "Common node of ipolicer, ipolicer-local";
+      "Common node of ipolicer, ipolicer-local,
+       ipunt-policer, ipunt-policer-local, domain-name,
+       policer-domain, punt-policer-domain,
+       punt-policer-interface-name";
     leaf enable {
       type empty;
       mandatory true;
@@ -773,7 +887,8 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
 
   grouping FLOW-TABLE {
     description
-      "Common node of ipolicer, ipolicer-local";
+      "Common node of ipolicer, ipolicer-local,
+       policer-domain";
     container flows {
       description
         "Table for Flows";
@@ -807,6 +922,54 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
     }
   }
 
+  grouping PUNT-POLICER-IFH {
+    description
+      "Common node of ipunt-policer, ipunt-policer-local";
+    container punt-policer-interface-names {
+      description
+        "Punt Policer Interface";
+      list punt-policer-interface-name {
+        key "punt-interface-name";
+        description
+          "Pre-ifib Punt Policer Interface Configuration";
+        container punt-type-interface-table {
+          description
+            "Punt Policer Table";
+          uses PUNT-TYPE;
+        }
+        leaf punt-interface-name {
+          type xr:Interface-name;
+          description
+            "Interface Name";
+        }
+      }
+    }
+  }
+
+  grouping PUNT-DOMAIN-TABLE {
+    description
+      "Common node of ipunt-policer, ipunt-policer-local";
+    container punt-policer-domains {
+      description
+        "Punt Policer Domain Table";
+      list punt-policer-domain {
+        key "domain-name";
+        description
+          "Domain name";
+        container punt-type-domain-table {
+          description
+            "Punt Policer Table";
+          uses PUNT-TYPE;
+        }
+        leaf domain-name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Domain name";
+        }
+      }
+    }
+  }
+
   augment "/a1:lpts" {
     description
       "This augment extends the configuration data of
@@ -814,7 +977,7 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
     container ipolicer {
       presence "Indicates a ipolicer node is configured.";
       description
-        "Pre IFiB Configuration ";
+        "Pre IFiB Policer Configuration ";
       container acls {
         description
           "Table for ACLs";
@@ -865,7 +1028,66 @@ module Cisco-IOS-XR-lpts-pre-ifib-cfg {
         }
       }
       uses ENABLE;
+      uses DOMAIN-TABLE;
       uses FLOW-TABLE;
+    }
+  }
+  augment "/a1:lpts" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-lpts-lib-cfg'";
+    container domain-names {
+      description
+        "Pre IFiB Domains Configuration ";
+      list domain-name {
+        key "domain-name";
+        description
+          "Domain name";
+        container interface-names {
+          description
+            "Domain Interface";
+          list interface-name {
+            key "domain-interface-name";
+            description
+              "pre-ifib Domain Single interface
+               configuration";
+            leaf domain-interface-name {
+              type xr:Interface-name;
+              description
+                "Interface Name";
+            }
+            leaf domain-interface-name-xr {
+              type boolean;
+              mandatory true;
+              description
+                "Enabled or disabled";
+            }
+          }
+        }
+        leaf domain-name {
+          type xr:Cisco-ios-xr-string;
+          description
+            "Domain name";
+        }
+      }
+    }
+  }
+  augment "/a1:lpts" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-lpts-lib-cfg'";
+    container ipunt-policer {
+      presence "Indicates a ipunt-policer node is configured.";
+      description
+        "Pre IFiB Punt Policer Configuration ";
+      container punt-type-table {
+        description
+          "Punt Policer Table";
+        uses PUNT-TYPE;
+      }
+      uses ENABLE;
+      uses PUNT-DOMAIN-TABLE;
+      uses PUNT-POLICER-IFH;
     }
   }
   augment "/node:active-nodes/node:active-node" {

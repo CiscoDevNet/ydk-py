@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -57,6 +60,12 @@ class PlacementState(Enum):
     place_rack_centric = Enum.YLeaf(3, "place-rack-centric")
 
     place_dsc_tracker = Enum.YLeaf(4, "place-dsc-tracker")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+        return meta._meta_table['PlacementState']
 
 
 class ProcessState(Enum):
@@ -140,8 +149,14 @@ class ProcessState(Enum):
     unknown = Enum.YLeaf(11, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+        return meta._meta_table['ProcessState']
 
-class SystemProcess(Entity):
+
+
+class SystemProcess(_Entity_):
     """
     Process information
     
@@ -160,7 +175,10 @@ class SystemProcess(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SystemProcess, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SystemProcess, self).__init__()
         self._top_entity = None
 
         self.yang_name = "system-process"
@@ -181,7 +199,7 @@ class SystemProcess(Entity):
         self._perform_setattr(SystemProcess, [], name, value)
 
 
-    class NodeTable(Entity):
+    class NodeTable(_Entity_):
         """
         List of nodes
         
@@ -200,7 +218,10 @@ class SystemProcess(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SystemProcess.NodeTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SystemProcess.NodeTable, self).__init__()
 
             self.yang_name = "node-table"
             self.yang_parent_name = "system-process"
@@ -219,7 +240,7 @@ class SystemProcess(Entity):
             self._perform_setattr(SystemProcess.NodeTable, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Process information per node
             
@@ -324,7 +345,10 @@ class SystemProcess(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SystemProcess.NodeTable.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SystemProcess.NodeTable.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "node-table"
@@ -392,7 +416,7 @@ class SystemProcess(Entity):
                 self._perform_setattr(SystemProcess.NodeTable.Node, ['node_name'], name, value)
 
 
-            class Name(Entity):
+            class Name(_Entity_):
                 """
                 Process <WORD> information
                 
@@ -446,7 +470,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Name, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Name, self).__init__()
 
                     self.yang_name = "name"
                     self.yang_parent_name = "node"
@@ -486,7 +513,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Name, [], name, value)
 
 
-                class ProcessNameRunInfos(Entity):
+                class ProcessNameRunInfos(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -505,7 +532,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos, self).__init__()
 
                         self.yang_name = "process-name-run-infos"
                         self.yang_parent_name = "name"
@@ -523,7 +553,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos, [], name, value)
 
 
-                    class ProcessNameRunInfo(Entity):
+                    class ProcessNameRunInfo(_Entity_):
                         """
                         Process <WORD> run information
                         
@@ -775,7 +805,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo, self).__init__()
 
                             self.yang_name = "process-name-run-info"
                             self.yang_parent_name = "process-name-run-infos"
@@ -858,7 +891,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo, ['proc_name', 'job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                        class ProcCpuTime(Entity):
+                        class ProcCpuTime(_Entity_):
                             """
                             Proces cpu time
                             
@@ -891,7 +924,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.ProcCpuTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.ProcCpuTime, self).__init__()
 
                                 self.yang_name = "proc-cpu-time"
                                 self.yang_parent_name = "process-name-run-info"
@@ -913,9 +949,13 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.ProcCpuTime']['meta_info']
 
 
-                        class RegisteredItem(Entity):
+                        class RegisteredItem(_Entity_):
                             """
                             Registered Items
                             
@@ -934,7 +974,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.RegisteredItem, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.RegisteredItem, self).__init__()
 
                                 self.yang_name = "registered-item"
                                 self.yang_parent_name = "process-name-run-info"
@@ -952,11 +995,23 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.RegisteredItem, ['tuple'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo.RegisteredItem']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos.ProcessNameRunInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunInfos']['meta_info']
 
 
-
-
-                class ProcessNameInfos(Entity):
+                class ProcessNameInfos(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -975,7 +1030,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos, self).__init__()
 
                         self.yang_name = "process-name-infos"
                         self.yang_parent_name = "name"
@@ -993,7 +1051,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameInfos, [], name, value)
 
 
-                    class ProcessNameInfo(Entity):
+                    class ProcessNameInfo(_Entity_):
                         """
                         Process <WORD> information
                         
@@ -1245,7 +1303,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo, self).__init__()
 
                             self.yang_name = "process-name-info"
                             self.yang_parent_name = "process-name-infos"
@@ -1328,7 +1389,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo, ['proc_name', 'job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                        class ProcCpuTime(Entity):
+                        class ProcCpuTime(_Entity_):
                             """
                             Proces cpu time
                             
@@ -1361,7 +1422,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.ProcCpuTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.ProcCpuTime, self).__init__()
 
                                 self.yang_name = "proc-cpu-time"
                                 self.yang_parent_name = "process-name-info"
@@ -1383,9 +1447,13 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.ProcCpuTime']['meta_info']
 
 
-                        class RegisteredItem(Entity):
+                        class RegisteredItem(_Entity_):
                             """
                             Registered Items
                             
@@ -1404,7 +1472,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.RegisteredItem, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.RegisteredItem, self).__init__()
 
                                 self.yang_name = "registered-item"
                                 self.yang_parent_name = "process-name-info"
@@ -1422,11 +1493,23 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.RegisteredItem, ['tuple'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo.RegisteredItem']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameInfos.ProcessNameInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameInfos']['meta_info']
 
 
-
-
-                class ProcessNameRunDetails(Entity):
+                class ProcessNameRunDetails(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -1445,7 +1528,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails, self).__init__()
 
                         self.yang_name = "process-name-run-details"
                         self.yang_parent_name = "name"
@@ -1463,7 +1549,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails, [], name, value)
 
 
-                    class ProcessNameRunDetail(Entity):
+                    class ProcessNameRunDetail(_Entity_):
                         """
                         Process <WORD> run detail information
                         
@@ -1498,7 +1584,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail, self).__init__()
 
                             self.yang_name = "process-name-run-detail"
                             self.yang_parent_name = "process-name-run-details"
@@ -1525,7 +1614,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail, ['proc_name'], name, value)
 
 
-                        class BasicInfo(Entity):
+                        class BasicInfo(_Entity_):
                             """
                             Process Basic Info
                             
@@ -1768,7 +1857,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo, self).__init__()
 
                                 self.yang_name = "basic-info"
                                 self.yang_parent_name = "process-name-run-detail"
@@ -1849,7 +1941,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo, ['job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                            class ProcCpuTime(Entity):
+                            class ProcCpuTime(_Entity_):
                                 """
                                 Proces cpu time
                                 
@@ -1882,7 +1974,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.ProcCpuTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.ProcCpuTime, self).__init__()
 
                                     self.yang_name = "proc-cpu-time"
                                     self.yang_parent_name = "basic-info"
@@ -1904,9 +1999,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.ProcCpuTime']['meta_info']
 
 
-                            class RegisteredItem(Entity):
+                            class RegisteredItem(_Entity_):
                                 """
                                 Registered Items
                                 
@@ -1925,7 +2024,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.RegisteredItem, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.RegisteredItem, self).__init__()
 
                                     self.yang_name = "registered-item"
                                     self.yang_parent_name = "basic-info"
@@ -1943,10 +2045,18 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.RegisteredItem, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo.RegisteredItem']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.BasicInfo']['meta_info']
 
 
-
-                        class DetailInfo(Entity):
+                        class DetailInfo(_Entity_):
                             """
                             Process Detail Info
                             
@@ -2162,7 +2272,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.DetailInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.DetailInfo, self).__init__()
 
                                 self.yang_name = "detail-info"
                                 self.yang_parent_name = "process-name-run-detail"
@@ -2230,11 +2343,23 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.DetailInfo, ['running_path', 'package_path', 'job_id_link', 'group_jid', 'fail_count', 'restart_needed', 'init_process', 'last_online', 'this_pcb', 'next_pcb', 'envs', 'wait_for', 'job_id_on_rp', 'is_standby_capable', 'disable_kill', 'send_avail', 'node_event_cli_info', 'node_redundancy_state', 'role_event_cli_info', 'proc_role_state', 'standby_event_cli_info', 'cleanup_event_cli_info', 'band_ready_event_cli_info', 'lr_event_cli_info', 'plane_ready_event_cli_info', 'mdr_is_done_cli_info'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail.DetailInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails.ProcessNameRunDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunDetails']['meta_info']
 
 
-
-
-                class ProcessNameRunverboses(Entity):
+                class ProcessNameRunverboses(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -2253,7 +2378,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses, self).__init__()
 
                         self.yang_name = "process-name-runverboses"
                         self.yang_parent_name = "name"
@@ -2271,7 +2399,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses, [], name, value)
 
 
-                    class ProcessNameRunverbose(Entity):
+                    class ProcessNameRunverbose(_Entity_):
                         """
                         Process <WORD> run verbose information
                         
@@ -2313,7 +2441,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose, self).__init__()
 
                             self.yang_name = "process-name-runverbose"
                             self.yang_parent_name = "process-name-runverboses"
@@ -2344,7 +2475,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose, ['proc_name'], name, value)
 
 
-                        class BasicInfo(Entity):
+                        class BasicInfo(_Entity_):
                             """
                             Process Basic Info
                             
@@ -2587,7 +2718,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo, self).__init__()
 
                                 self.yang_name = "basic-info"
                                 self.yang_parent_name = "process-name-runverbose"
@@ -2668,7 +2802,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo, ['job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                            class ProcCpuTime(Entity):
+                            class ProcCpuTime(_Entity_):
                                 """
                                 Proces cpu time
                                 
@@ -2701,7 +2835,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.ProcCpuTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.ProcCpuTime, self).__init__()
 
                                     self.yang_name = "proc-cpu-time"
                                     self.yang_parent_name = "basic-info"
@@ -2723,9 +2860,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.ProcCpuTime']['meta_info']
 
 
-                            class RegisteredItem(Entity):
+                            class RegisteredItem(_Entity_):
                                 """
                                 Registered Items
                                 
@@ -2744,7 +2885,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.RegisteredItem, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.RegisteredItem, self).__init__()
 
                                     self.yang_name = "registered-item"
                                     self.yang_parent_name = "basic-info"
@@ -2762,10 +2906,18 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.RegisteredItem, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo.RegisteredItem']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.BasicInfo']['meta_info']
 
 
-
-                        class DetailInfo(Entity):
+                        class DetailInfo(_Entity_):
                             """
                             Process Detail Info
                             
@@ -2981,7 +3133,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.DetailInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.DetailInfo, self).__init__()
 
                                 self.yang_name = "detail-info"
                                 self.yang_parent_name = "process-name-runverbose"
@@ -3049,9 +3204,13 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.DetailInfo, ['running_path', 'package_path', 'job_id_link', 'group_jid', 'fail_count', 'restart_needed', 'init_process', 'last_online', 'this_pcb', 'next_pcb', 'envs', 'wait_for', 'job_id_on_rp', 'is_standby_capable', 'disable_kill', 'send_avail', 'node_event_cli_info', 'node_redundancy_state', 'role_event_cli_info', 'proc_role_state', 'standby_event_cli_info', 'cleanup_event_cli_info', 'band_ready_event_cli_info', 'lr_event_cli_info', 'plane_ready_event_cli_info', 'mdr_is_done_cli_info'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.DetailInfo']['meta_info']
 
 
-                        class VerboseInfo(Entity):
+                        class VerboseInfo(_Entity_):
                             """
                             Process Verbose Info
                             
@@ -3606,7 +3765,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo, self).__init__()
 
                                 self.yang_name = "verbose-info"
                                 self.yang_parent_name = "process-name-runverbose"
@@ -3744,7 +3906,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo, ['process_group', 'respawn_allowed', 'wait_for_exit', 'dynamic_tag', 'forced_stop', 'critical_process', 'hold', 'transient', 'tuple_cfgmgr', 'standby_capable', 'edm_startup', 'placement', 'skip_kill_notif', 'init_proc', 'sysdb_event', 'level_started', 'proc_avail', 'tuples_scanned', 'no_chkpt_start', 'in_shut_down', 'sm_started', 'ignore_on_sc', 'ignore_on_easy_bake', 'pre_init', 'eoi_received', 'eoi_timeout', 'avail_timeout', 'reserved_memory', 'allow_warned', 'arg_change', 'restart_on_tuple', 'boot_hold', 'reg_id', 'memory_limit', 'parent_job_id', 'tuple_index', 'dump_count', 'respawn_interval_user', 'silent_restart_count', 'critical_tier', 'exit_type', 'init_timeout', 'restart_by_cmd', 'boot_pref', 'mdr_mbi_proc', 'mdr_non_mbi_kld', 'mdr_mbi_kld', 'mdr_shut_delay', 'mdr_keep_thru', 'mdr_spoofer', 'mdr_spoofed', 'mdr_spoofed_last', 'mdr_spoofed_ready', 'mdr_pcb_check', 'mdr_kill_tier', 'mdr_kld', 'mdr_level', 'fm_restart_cnt', 'self_managed'], name, value)
 
 
-                            class Tuple(Entity):
+                            class Tuple(_Entity_):
                                 """
                                 Tuple
                                 
@@ -3763,7 +3925,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.Tuple, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.Tuple, self).__init__()
 
                                     self.yang_name = "tuple"
                                     self.yang_parent_name = "verbose-info"
@@ -3781,9 +3946,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.Tuple, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.Tuple']['meta_info']
 
 
-                            class OrigTuple(Entity):
+                            class OrigTuple(_Entity_):
                                 """
                                 Orig Tuple
                                 
@@ -3802,7 +3971,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.OrigTuple, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.OrigTuple, self).__init__()
 
                                     self.yang_name = "orig-tuple"
                                     self.yang_parent_name = "verbose-info"
@@ -3820,12 +3992,28 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.OrigTuple, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo.OrigTuple']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose.VerboseInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses.ProcessNameRunverbose']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameRunverboses']['meta_info']
 
 
-
-
-
-                class ProcessNameDetails(Entity):
+                class ProcessNameDetails(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -3844,7 +4032,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails, self).__init__()
 
                         self.yang_name = "process-name-details"
                         self.yang_parent_name = "name"
@@ -3862,7 +4053,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails, [], name, value)
 
 
-                    class ProcessNameDetail(Entity):
+                    class ProcessNameDetail(_Entity_):
                         """
                         Process <WORD> detail information
                         
@@ -3897,7 +4088,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail, self).__init__()
 
                             self.yang_name = "process-name-detail"
                             self.yang_parent_name = "process-name-details"
@@ -3924,7 +4118,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail, ['proc_name'], name, value)
 
 
-                        class BasicInfo(Entity):
+                        class BasicInfo(_Entity_):
                             """
                             Process Basic Info
                             
@@ -4167,7 +4361,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo, self).__init__()
 
                                 self.yang_name = "basic-info"
                                 self.yang_parent_name = "process-name-detail"
@@ -4248,7 +4445,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo, ['job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                            class ProcCpuTime(Entity):
+                            class ProcCpuTime(_Entity_):
                                 """
                                 Proces cpu time
                                 
@@ -4281,7 +4478,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.ProcCpuTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.ProcCpuTime, self).__init__()
 
                                     self.yang_name = "proc-cpu-time"
                                     self.yang_parent_name = "basic-info"
@@ -4303,9 +4503,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.ProcCpuTime']['meta_info']
 
 
-                            class RegisteredItem(Entity):
+                            class RegisteredItem(_Entity_):
                                 """
                                 Registered Items
                                 
@@ -4324,7 +4528,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.RegisteredItem, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.RegisteredItem, self).__init__()
 
                                     self.yang_name = "registered-item"
                                     self.yang_parent_name = "basic-info"
@@ -4342,10 +4549,18 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.RegisteredItem, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo.RegisteredItem']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.BasicInfo']['meta_info']
 
 
-
-                        class DetailInfo(Entity):
+                        class DetailInfo(_Entity_):
                             """
                             Process Detail Info
                             
@@ -4561,7 +4776,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.DetailInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.DetailInfo, self).__init__()
 
                                 self.yang_name = "detail-info"
                                 self.yang_parent_name = "process-name-detail"
@@ -4629,11 +4847,23 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.DetailInfo, ['running_path', 'package_path', 'job_id_link', 'group_jid', 'fail_count', 'restart_needed', 'init_process', 'last_online', 'this_pcb', 'next_pcb', 'envs', 'wait_for', 'job_id_on_rp', 'is_standby_capable', 'disable_kill', 'send_avail', 'node_event_cli_info', 'node_redundancy_state', 'role_event_cli_info', 'proc_role_state', 'standby_event_cli_info', 'cleanup_event_cli_info', 'band_ready_event_cli_info', 'lr_event_cli_info', 'plane_ready_event_cli_info', 'mdr_is_done_cli_info'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail.DetailInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails.ProcessNameDetail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameDetails']['meta_info']
 
 
-
-
-                class ProcessNameVerboses(Entity):
+                class ProcessNameVerboses(_Entity_):
                     """
                     Process <WORD> information
                     
@@ -4652,7 +4882,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses, self).__init__()
 
                         self.yang_name = "process-name-verboses"
                         self.yang_parent_name = "name"
@@ -4670,7 +4903,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses, [], name, value)
 
 
-                    class ProcessNameVerbose(Entity):
+                    class ProcessNameVerbose(_Entity_):
                         """
                         Process <WORD> verbose information
                         
@@ -4712,7 +4945,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose, self).__init__()
 
                             self.yang_name = "process-name-verbose"
                             self.yang_parent_name = "process-name-verboses"
@@ -4743,7 +4979,7 @@ class SystemProcess(Entity):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose, ['proc_name'], name, value)
 
 
-                        class BasicInfo(Entity):
+                        class BasicInfo(_Entity_):
                             """
                             Process Basic Info
                             
@@ -4986,7 +5222,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo, self).__init__()
 
                                 self.yang_name = "basic-info"
                                 self.yang_parent_name = "process-name-verbose"
@@ -5067,7 +5306,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo, ['job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                            class ProcCpuTime(Entity):
+                            class ProcCpuTime(_Entity_):
                                 """
                                 Proces cpu time
                                 
@@ -5100,7 +5339,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.ProcCpuTime, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.ProcCpuTime, self).__init__()
 
                                     self.yang_name = "proc-cpu-time"
                                     self.yang_parent_name = "basic-info"
@@ -5122,9 +5364,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.ProcCpuTime']['meta_info']
 
 
-                            class RegisteredItem(Entity):
+                            class RegisteredItem(_Entity_):
                                 """
                                 Registered Items
                                 
@@ -5143,7 +5389,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.RegisteredItem, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.RegisteredItem, self).__init__()
 
                                     self.yang_name = "registered-item"
                                     self.yang_parent_name = "basic-info"
@@ -5161,10 +5410,18 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.RegisteredItem, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo.RegisteredItem']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.BasicInfo']['meta_info']
 
 
-
-                        class DetailInfo(Entity):
+                        class DetailInfo(_Entity_):
                             """
                             Process Detail Info
                             
@@ -5380,7 +5637,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.DetailInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.DetailInfo, self).__init__()
 
                                 self.yang_name = "detail-info"
                                 self.yang_parent_name = "process-name-verbose"
@@ -5448,9 +5708,13 @@ class SystemProcess(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.DetailInfo, ['running_path', 'package_path', 'job_id_link', 'group_jid', 'fail_count', 'restart_needed', 'init_process', 'last_online', 'this_pcb', 'next_pcb', 'envs', 'wait_for', 'job_id_on_rp', 'is_standby_capable', 'disable_kill', 'send_avail', 'node_event_cli_info', 'node_redundancy_state', 'role_event_cli_info', 'proc_role_state', 'standby_event_cli_info', 'cleanup_event_cli_info', 'band_ready_event_cli_info', 'lr_event_cli_info', 'plane_ready_event_cli_info', 'mdr_is_done_cli_info'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.DetailInfo']['meta_info']
 
 
-                        class VerboseInfo(Entity):
+                        class VerboseInfo(_Entity_):
                             """
                             Process Verbose Info
                             
@@ -6005,7 +6269,10 @@ class SystemProcess(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo, self).__init__()
 
                                 self.yang_name = "verbose-info"
                                 self.yang_parent_name = "process-name-verbose"
@@ -6143,7 +6410,7 @@ class SystemProcess(Entity):
                                 self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo, ['process_group', 'respawn_allowed', 'wait_for_exit', 'dynamic_tag', 'forced_stop', 'critical_process', 'hold', 'transient', 'tuple_cfgmgr', 'standby_capable', 'edm_startup', 'placement', 'skip_kill_notif', 'init_proc', 'sysdb_event', 'level_started', 'proc_avail', 'tuples_scanned', 'no_chkpt_start', 'in_shut_down', 'sm_started', 'ignore_on_sc', 'ignore_on_easy_bake', 'pre_init', 'eoi_received', 'eoi_timeout', 'avail_timeout', 'reserved_memory', 'allow_warned', 'arg_change', 'restart_on_tuple', 'boot_hold', 'reg_id', 'memory_limit', 'parent_job_id', 'tuple_index', 'dump_count', 'respawn_interval_user', 'silent_restart_count', 'critical_tier', 'exit_type', 'init_timeout', 'restart_by_cmd', 'boot_pref', 'mdr_mbi_proc', 'mdr_non_mbi_kld', 'mdr_mbi_kld', 'mdr_shut_delay', 'mdr_keep_thru', 'mdr_spoofer', 'mdr_spoofed', 'mdr_spoofed_last', 'mdr_spoofed_ready', 'mdr_pcb_check', 'mdr_kill_tier', 'mdr_kld', 'mdr_level', 'fm_restart_cnt', 'self_managed'], name, value)
 
 
-                            class Tuple(Entity):
+                            class Tuple(_Entity_):
                                 """
                                 Tuple
                                 
@@ -6162,7 +6429,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.Tuple, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.Tuple, self).__init__()
 
                                     self.yang_name = "tuple"
                                     self.yang_parent_name = "verbose-info"
@@ -6180,9 +6450,13 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.Tuple, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.Tuple']['meta_info']
 
 
-                            class OrigTuple(Entity):
+                            class OrigTuple(_Entity_):
                                 """
                                 Orig Tuple
                                 
@@ -6201,7 +6475,10 @@ class SystemProcess(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.OrigTuple, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.OrigTuple, self).__init__()
 
                                     self.yang_name = "orig-tuple"
                                     self.yang_parent_name = "verbose-info"
@@ -6219,13 +6496,33 @@ class SystemProcess(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.OrigTuple, ['tuple'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                    return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo.OrigTuple']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                                return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose.VerboseInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses.ProcessNameVerbose']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Name.ProcessNameVerboses']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Name']['meta_info']
 
 
-
-
-
-
-            class Jids(Entity):
+            class Jids(_Entity_):
                 """
                 Process job id information
                 
@@ -6244,7 +6541,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Jids, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Jids, self).__init__()
 
                     self.yang_name = "jids"
                     self.yang_parent_name = "node"
@@ -6262,7 +6562,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Jids, [], name, value)
 
 
-                class Jid(Entity):
+                class Jid(_Entity_):
                     """
                     Process <jid> information
                     
@@ -6514,7 +6814,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Jids.Jid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Jids.Jid, self).__init__()
 
                         self.yang_name = "jid"
                         self.yang_parent_name = "jids"
@@ -6597,7 +6900,7 @@ class SystemProcess(Entity):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Jids.Jid, ['job_id', 'job_id_xr', 'process_id', 'process_name', 'executable', 'active_path', 'instance_id', 'args', 'version_id', 'respawn', 'respawn_count', 'last_started', 'process_state', 'last_exit_status', 'last_exit_reason', 'package_state', 'started_on_config', 'feature_name', 'tag', 'group', 'core', 'max_core', 'level', 'mandatory', 'maint_mode_proc', 'placement_state', 'start_up_path', 'memory_limit', 'ready', 'available'], name, value)
 
 
-                    class ProcCpuTime(Entity):
+                    class ProcCpuTime(_Entity_):
                         """
                         Proces cpu time
                         
@@ -6630,7 +6933,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Jids.Jid.ProcCpuTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Jids.Jid.ProcCpuTime, self).__init__()
 
                             self.yang_name = "proc-cpu-time"
                             self.yang_parent_name = "jid"
@@ -6652,9 +6958,13 @@ class SystemProcess(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Jids.Jid.ProcCpuTime, ['user', 'system', 'total'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Jids.Jid.ProcCpuTime']['meta_info']
 
 
-                    class RegisteredItem(Entity):
+                    class RegisteredItem(_Entity_):
                         """
                         Registered Items
                         
@@ -6673,7 +6983,10 @@ class SystemProcess(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(SystemProcess.NodeTable.Node.Jids.Jid.RegisteredItem, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SystemProcess.NodeTable.Node.Jids.Jid.RegisteredItem, self).__init__()
 
                             self.yang_name = "registered-item"
                             self.yang_parent_name = "jid"
@@ -6691,11 +7004,23 @@ class SystemProcess(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SystemProcess.NodeTable.Node.Jids.Jid.RegisteredItem, ['tuple'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                            return meta._meta_table['SystemProcess.NodeTable.Node.Jids.Jid.RegisteredItem']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Jids.Jid']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Jids']['meta_info']
 
 
-
-
-            class Dynamic(Entity):
+            class Dynamic(_Entity_):
                 """
                 Process Dynamic information
                 
@@ -6723,7 +7048,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Dynamic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Dynamic, self).__init__()
 
                     self.yang_name = "dynamic"
                     self.yang_parent_name = "node"
@@ -6744,7 +7072,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Dynamic, ['process_count'], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Array of processes
                     
@@ -6832,7 +7160,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Dynamic.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Dynamic.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "dynamic"
@@ -6868,10 +7199,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Dynamic.Process, ['name', 'instance_id', 'args', 'jid', 'state', 'last_started', 'respawn_count', 'placement_state', 'is_mandatory', 'is_maintenance'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Dynamic.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Dynamic']['meta_info']
 
 
-
-            class BootStalled(Entity):
+            class BootStalled(_Entity_):
                 """
                 Process Boot Stalled information
                 
@@ -6897,7 +7236,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.BootStalled, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.BootStalled, self).__init__()
 
                     self.yang_name = "boot-stalled"
                     self.yang_parent_name = "node"
@@ -6918,7 +7260,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.BootStalled, ['spawn_status'], name, value)
 
 
-                class BootHold(Entity):
+                class BootHold(_Entity_):
                     """
                     Boot hold information of the processes
                     
@@ -6955,7 +7297,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.BootStalled.BootHold, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.BootStalled.BootHold, self).__init__()
 
                         self.yang_name = "boot-hold"
                         self.yang_parent_name = "boot-stalled"
@@ -6977,10 +7322,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.BootStalled.BootHold, ['boot_held_by_name', 'instance_id', 'jid'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.BootStalled.BootHold']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.BootStalled']['meta_info']
 
 
-
-            class Processes(Entity):
+            class Processes(_Entity_):
                 """
                 Process all information
                 
@@ -7008,7 +7361,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Processes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Processes, self).__init__()
 
                     self.yang_name = "processes"
                     self.yang_parent_name = "node"
@@ -7029,7 +7385,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Processes, ['process_count'], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Array of processes
                     
@@ -7117,7 +7473,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Processes.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Processes.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "processes"
@@ -7153,10 +7512,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Processes.Process, ['name', 'instance_id', 'args', 'jid', 'state', 'last_started', 'respawn_count', 'placement_state', 'is_mandatory', 'is_maintenance'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Processes.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Processes']['meta_info']
 
 
-
-            class Startup(Entity):
+            class Startup(_Entity_):
                 """
                 Process Startup information
                 
@@ -7184,7 +7551,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Startup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Startup, self).__init__()
 
                     self.yang_name = "startup"
                     self.yang_parent_name = "node"
@@ -7205,7 +7575,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Startup, ['process_count'], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Array of processes
                     
@@ -7293,7 +7663,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Startup.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Startup.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "startup"
@@ -7329,10 +7702,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Startup.Process, ['name', 'instance_id', 'args', 'jid', 'state', 'last_started', 'respawn_count', 'placement_state', 'is_mandatory', 'is_maintenance'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Startup.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Startup']['meta_info']
 
 
-
-            class Mandatory(Entity):
+            class Mandatory(_Entity_):
                 """
                 Mandatory Process information
                 
@@ -7360,7 +7741,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Mandatory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Mandatory, self).__init__()
 
                     self.yang_name = "mandatory"
                     self.yang_parent_name = "node"
@@ -7381,7 +7765,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Mandatory, ['process_count'], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Array of processes
                     
@@ -7469,7 +7853,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Mandatory.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Mandatory.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "mandatory"
@@ -7505,10 +7892,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Mandatory.Process, ['name', 'instance_id', 'args', 'jid', 'state', 'last_started', 'respawn_count', 'placement_state', 'is_mandatory', 'is_maintenance'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Mandatory.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Mandatory']['meta_info']
 
 
-
-            class Abort(Entity):
+            class Abort(_Entity_):
                 """
                 Process Abort information
                 
@@ -7536,7 +7931,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Abort, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Abort, self).__init__()
 
                     self.yang_name = "abort"
                     self.yang_parent_name = "node"
@@ -7557,7 +7955,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Abort, ['process_abort_count'], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Array of aborted processes
                     
@@ -7599,7 +7997,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Abort.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Abort.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "abort"
@@ -7623,10 +8024,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Abort.Process, ['name', 'timebuf', 'job_id', 'is_respawned'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Abort.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Abort']['meta_info']
 
 
-
-            class Failover(Entity):
+            class Failover(_Entity_):
                 """
                 Process Failover information
                 
@@ -7722,7 +8131,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Failover, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Failover, self).__init__()
 
                     self.yang_name = "failover"
                     self.yang_parent_name = "node"
@@ -7757,7 +8169,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Failover, ['failover_log', 'critical_failover_elapsed_time', 'last_process_started', 'primary_failover_elapsed_time', 'last_primary_proc_started'], name, value)
 
 
-                class StandbyBandStatistic(Entity):
+                class StandbyBandStatistic(_Entity_):
                     """
                     Standby Band statistics
                     
@@ -7836,7 +8248,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.StandbyBandStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.StandbyBandStatistic, self).__init__()
 
                         self.yang_name = "standby-band-statistic"
                         self.yang_parent_name = "failover"
@@ -7870,9 +8285,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.StandbyBandStatistic, ['level', 'band_name', 'band_finish_time', 'band_time', 'finish_time', 'idle_percentage', 'jid', 'ready_time', 'last_process'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.StandbyBandStatistic']['meta_info']
 
 
-                class ActiveBandStatistic(Entity):
+                class ActiveBandStatistic(_Entity_):
                     """
                     Active Band statistics
                     
@@ -7951,7 +8370,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.ActiveBandStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.ActiveBandStatistic, self).__init__()
 
                         self.yang_name = "active-band-statistic"
                         self.yang_parent_name = "failover"
@@ -7985,9 +8407,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.ActiveBandStatistic, ['level', 'band_name', 'band_finish_time', 'band_time', 'finish_time', 'idle_percentage', 'jid', 'ready_time', 'last_process'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.ActiveBandStatistic']['meta_info']
 
 
-                class ActiveTsBootProc(Entity):
+                class ActiveTsBootProc(_Entity_):
                     """
                     List of booted process as per avail time
                     
@@ -8073,7 +8499,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.ActiveTsBootProc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.ActiveTsBootProc, self).__init__()
 
                         self.yang_name = "active-ts-boot-proc"
                         self.yang_parent_name = "failover"
@@ -8109,9 +8538,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.ActiveTsBootProc, ['active_time_stamp', 'go_active', 'level', 'band_name', 'job_id', 'instance_id', 'avail_time_stamp', 'avail', 'is_avail_timeout', 'process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.ActiveTsBootProc']['meta_info']
 
 
-                class StartTsBootProc(Entity):
+                class StartTsBootProc(_Entity_):
                     """
                     List of booted processes per start time
                     
@@ -8190,7 +8623,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.StartTsBootProc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.StartTsBootProc, self).__init__()
 
                         self.yang_name = "start-ts-boot-proc"
                         self.yang_parent_name = "failover"
@@ -8224,9 +8660,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.StartTsBootProc, ['start_time_stamp', 'started', 'level', 'jid', 'instance_id', 'ready_time_stamp', 'ready', 'is_eoi_timeout', 'process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.StartTsBootProc']['meta_info']
 
 
-                class PrimaryBandStatistic(Entity):
+                class PrimaryBandStatistic(_Entity_):
                     """
                     Primary Band statistics
                     
@@ -8305,7 +8745,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.PrimaryBandStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.PrimaryBandStatistic, self).__init__()
 
                         self.yang_name = "primary-band-statistic"
                         self.yang_parent_name = "failover"
@@ -8339,9 +8782,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.PrimaryBandStatistic, ['level', 'band_name', 'band_finish_time', 'band_time', 'finish_time', 'idle_percentage', 'jid', 'ready_time', 'last_process'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.PrimaryBandStatistic']['meta_info']
 
 
-                class PrimaryTsBootProc(Entity):
+                class PrimaryTsBootProc(_Entity_):
                     """
                     List of booted processes per primary time
                     
@@ -8427,7 +8874,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.PrimaryTsBootProc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.PrimaryTsBootProc, self).__init__()
 
                         self.yang_name = "primary-ts-boot-proc"
                         self.yang_parent_name = "failover"
@@ -8463,9 +8913,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.PrimaryTsBootProc, ['prim_time_stamp', 'go_primary', 'level', 'band_name', 'jid', 'instance_id', 'avail_time_stamp', 'avail', 'is_avail_timeout', 'process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.PrimaryTsBootProc']['meta_info']
 
 
-                class PrimaryStartTsBootProc(Entity):
+                class PrimaryStartTsBootProc(_Entity_):
                     """
                     List of booted process per primary start time
                     
@@ -8544,7 +8998,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Failover.PrimaryStartTsBootProc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Failover.PrimaryStartTsBootProc, self).__init__()
 
                         self.yang_name = "primary-start-ts-boot-proc"
                         self.yang_parent_name = "failover"
@@ -8578,10 +9035,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Failover.PrimaryStartTsBootProc, ['start_time_stamp', 'started', 'level', 'jid', 'instance_id', 'ready_time_stamp', 'ready', 'is_eoi_timeout', 'process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Failover.PrimaryStartTsBootProc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Failover']['meta_info']
 
 
-
-            class Boot(Entity):
+            class Boot(_Entity_):
                 """
                 Process Boot information
                 
@@ -8621,7 +9086,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Boot, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Boot, self).__init__()
 
                     self.yang_name = "boot"
                     self.yang_parent_name = "node"
@@ -8644,7 +9112,7 @@ class SystemProcess(Entity):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Boot, ['last_process_started'], name, value)
 
 
-                class StandbyBandStatistic(Entity):
+                class StandbyBandStatistic(_Entity_):
                     """
                     Standby Band statistics
                     
@@ -8723,7 +9191,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Boot.StandbyBandStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Boot.StandbyBandStatistic, self).__init__()
 
                         self.yang_name = "standby-band-statistic"
                         self.yang_parent_name = "boot"
@@ -8757,9 +9228,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Boot.StandbyBandStatistic, ['level', 'band_name', 'band_finish_time', 'band_time', 'finish_time', 'idle_percentage', 'jid', 'ready_time', 'last_process'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Boot.StandbyBandStatistic']['meta_info']
 
 
-                class ActiveBandStatistic(Entity):
+                class ActiveBandStatistic(_Entity_):
                     """
                     Active Band statistics
                     
@@ -8838,7 +9313,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Boot.ActiveBandStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Boot.ActiveBandStatistic, self).__init__()
 
                         self.yang_name = "active-band-statistic"
                         self.yang_parent_name = "boot"
@@ -8872,9 +9350,13 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Boot.ActiveBandStatistic, ['level', 'band_name', 'band_finish_time', 'band_time', 'finish_time', 'idle_percentage', 'jid', 'ready_time', 'last_process'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Boot.ActiveBandStatistic']['meta_info']
 
 
-                class BootedProcess(Entity):
+                class BootedProcess(_Entity_):
                     """
                     List of booted processes
                     
@@ -8953,7 +9435,10 @@ class SystemProcess(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SystemProcess.NodeTable.Node.Boot.BootedProcess, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SystemProcess.NodeTable.Node.Boot.BootedProcess, self).__init__()
 
                         self.yang_name = "booted-process"
                         self.yang_parent_name = "boot"
@@ -8987,10 +9472,18 @@ class SystemProcess(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SystemProcess.NodeTable.Node.Boot.BootedProcess, ['start_time_stamp', 'started', 'level', 'jid', 'instance_id', 'ready_time_stamp', 'ready', 'is_eoi_timeout', 'process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                        return meta._meta_table['SystemProcess.NodeTable.Node.Boot.BootedProcess']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Boot']['meta_info']
 
 
-
-            class Logs(Entity):
+            class Logs(_Entity_):
                 """
                 Process Log information
                 
@@ -9009,7 +9502,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Logs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Logs, self).__init__()
 
                     self.yang_name = "logs"
                     self.yang_parent_name = "node"
@@ -9027,9 +9523,13 @@ class SystemProcess(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Logs, ['log'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Logs']['meta_info']
 
 
-            class Searchpath(Entity):
+            class Searchpath(_Entity_):
                 """
                 Process Searchpath information
                 
@@ -9048,7 +9548,10 @@ class SystemProcess(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SystemProcess.NodeTable.Node.Searchpath, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SystemProcess.NodeTable.Node.Searchpath, self).__init__()
 
                     self.yang_name = "searchpath"
                     self.yang_parent_name = "node"
@@ -9066,12 +9569,28 @@ class SystemProcess(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SystemProcess.NodeTable.Node.Searchpath, ['path'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                    return meta._meta_table['SystemProcess.NodeTable.Node.Searchpath']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+                return meta._meta_table['SystemProcess.NodeTable.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+            return meta._meta_table['SystemProcess.NodeTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SystemProcess()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_oper as meta
+        return meta._meta_table['SystemProcess']['meta_info']
 
 

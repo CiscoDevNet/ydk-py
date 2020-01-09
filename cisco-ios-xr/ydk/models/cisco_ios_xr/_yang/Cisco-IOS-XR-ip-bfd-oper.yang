@@ -843,23 +843,6 @@ module Cisco-IOS-XR-ip-bfd-oper {
         uses BFD-MGMT-BFD-LOC-INFORMATION;
       }
     }
-    container ipv4-single-hop-location-summaries {
-      description
-        "Table of summary information about IPv4
-         singlehop BFD sessions for location";
-      list ipv4-single-hop-location-summary {
-        key "location-name";
-        description
-          "Summary information for BFD IPv4 singlehop
-           sessions for location";
-        leaf location-name {
-          type xr:Cisco-ios-xr-string;
-          description
-            "Location Name";
-        }
-        uses BFD-MGMT-BFD-LOC-INFORMATION;
-      }
-    }
     container ipv4bfd-mplste-head-summary-nodes {
       description
         "Table of summary about IPv4 TE head BFD sessions
@@ -1067,23 +1050,6 @@ module Cisco-IOS-XR-ip-bfd-oper {
           }
           uses BFD-MGMT-PACKET-COUNT;
         }
-      }
-    }
-    container ipv6-single-hop-location-summaries {
-      description
-        "Table of summary information about BFD IPv6
-         singlehop sessions per location";
-      list ipv6-single-hop-location-summary {
-        key "location-name";
-        description
-          "Summary information for BFD IPv6 singlehop
-           sessions for location";
-        leaf location-name {
-          type xr:Cisco-ios-xr-string;
-          description
-            "Location Name";
-        }
-        uses BFD-MGMT-BFD-LOC-INFORMATION;
       }
     }
     container label-counters {

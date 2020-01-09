@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Accounting(Entity):
+class Accounting(_Entity_):
     """
     Global Accounting configuration commands
     
@@ -43,7 +46,10 @@ class Accounting(Entity):
     _revision = '2017-05-31'
 
     def __init__(self):
-        super(Accounting, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Accounting, self).__init__()
         self._top_entity = None
 
         self.yang_name = "accounting"
@@ -67,7 +73,7 @@ class Accounting(Entity):
         self._perform_setattr(Accounting, ['enable'], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Interfaces configuration
         
@@ -94,7 +100,10 @@ class Accounting(Entity):
         _revision = '2017-05-31'
 
         def __init__(self):
-            super(Accounting.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Accounting.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "accounting"
@@ -122,7 +131,7 @@ class Accounting(Entity):
             self._perform_setattr(Accounting.Interfaces, ['enable'], name, value)
 
 
-        class Mpls(Entity):
+        class Mpls(_Entity_):
             """
             Interfaces MPLS configuration
             
@@ -144,7 +153,10 @@ class Accounting(Entity):
             _revision = '2017-05-31'
 
             def __init__(self):
-                super(Accounting.Interfaces.Mpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Accounting.Interfaces.Mpls, self).__init__()
 
                 self.yang_name = "mpls"
                 self.yang_parent_name = "interfaces"
@@ -165,9 +177,13 @@ class Accounting(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Accounting.Interfaces.Mpls, ['enable', 'enable_v4rsvpte'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_accounting_cfg as meta
+                return meta._meta_table['Accounting.Interfaces.Mpls']['meta_info']
 
 
-        class SegmentRouting(Entity):
+        class SegmentRouting(_Entity_):
             """
             Interfaces Segment Routing configuration
             
@@ -194,7 +210,10 @@ class Accounting(Entity):
             _revision = '2017-05-31'
 
             def __init__(self):
-                super(Accounting.Interfaces.SegmentRouting, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Accounting.Interfaces.SegmentRouting, self).__init__()
 
                 self.yang_name = "segment-routing"
                 self.yang_parent_name = "interfaces"
@@ -217,11 +236,23 @@ class Accounting(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Accounting.Interfaces.SegmentRouting, ['enable', 'enable_mplsv4', 'enable_mplsv6'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_accounting_cfg as meta
+                return meta._meta_table['Accounting.Interfaces.SegmentRouting']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_accounting_cfg as meta
+            return meta._meta_table['Accounting.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Accounting()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_accounting_cfg as meta
+        return meta._meta_table['Accounting']['meta_info']
 
 

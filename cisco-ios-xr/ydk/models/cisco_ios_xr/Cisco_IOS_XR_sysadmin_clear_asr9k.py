@@ -16,8 +16,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Clear(Entity):
+class Clear(_Entity_):
     """
     
     
@@ -50,7 +53,10 @@ class Clear(Entity):
     _revision = '2017-11-10'
 
     def __init__(self):
-        super(Clear, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Clear, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear"
@@ -75,7 +81,7 @@ class Clear(Entity):
         self._perform_setattr(Clear, [], name, value)
 
 
-    class Controller(Entity):
+    class Controller(_Entity_):
         """
         
         
@@ -92,7 +98,10 @@ class Clear(Entity):
         _revision = '2017-11-10'
 
         def __init__(self):
-            super(Clear.Controller, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Clear.Controller, self).__init__()
 
             self.yang_name = "controller"
             self.yang_parent_name = "clear"
@@ -113,7 +122,7 @@ class Clear(Entity):
             self._perform_setattr(Clear.Controller, [], name, value)
 
 
-        class Switch(Entity):
+        class Switch(_Entity_):
             """
             
             
@@ -132,7 +141,10 @@ class Clear(Entity):
             _revision = '2017-11-10'
 
             def __init__(self):
-                super(Clear.Controller.Switch, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Clear.Controller.Switch, self).__init__()
 
                 self.yang_name = "switch"
                 self.yang_parent_name = "controller"
@@ -153,7 +165,7 @@ class Clear(Entity):
                 self._perform_setattr(Clear.Controller.Switch, [], name, value)
 
 
-            class Oper(Entity):
+            class Oper(_Entity_):
                 """
                 Control Ethernet switch operational data.
                 
@@ -179,7 +191,10 @@ class Clear(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Clear.Controller.Switch.Oper, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Clear.Controller.Switch.Oper, self).__init__()
 
                     self.yang_name = "oper"
                     self.yang_parent_name = "switch"
@@ -204,7 +219,7 @@ class Clear(Entity):
                     self._perform_setattr(Clear.Controller.Switch.Oper, [], name, value)
 
 
-                class Fdb(Entity):
+                class Fdb(_Entity_):
                     """
                     
                     
@@ -223,7 +238,10 @@ class Clear(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Clear.Controller.Switch.Oper.Fdb, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Clear.Controller.Switch.Oper.Fdb, self).__init__()
 
                         self.yang_name = "fdb"
                         self.yang_parent_name = "oper"
@@ -242,7 +260,7 @@ class Clear(Entity):
                         self._perform_setattr(Clear.Controller.Switch.Oper.Fdb, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -275,7 +293,10 @@ class Clear(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Clear.Controller.Switch.Oper.Fdb.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Clear.Controller.Switch.Oper.Fdb.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "fdb"
@@ -298,10 +319,18 @@ class Clear(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Clear.Controller.Switch.Oper.Fdb.Location, ['rack', 'card', 'switch_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                            return meta._meta_table['Clear.Controller.Switch.Oper.Fdb.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                        return meta._meta_table['Clear.Controller.Switch.Oper.Fdb']['meta_info']
 
 
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     
                     
@@ -320,7 +349,10 @@ class Clear(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Clear.Controller.Switch.Oper.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Clear.Controller.Switch.Oper.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "oper"
@@ -339,7 +371,7 @@ class Clear(Entity):
                         self._perform_setattr(Clear.Controller.Switch.Oper.Statistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -372,7 +404,10 @@ class Clear(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Clear.Controller.Switch.Oper.Statistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Clear.Controller.Switch.Oper.Statistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "statistics"
@@ -395,13 +430,33 @@ class Clear(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Clear.Controller.Switch.Oper.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                            return meta._meta_table['Clear.Controller.Switch.Oper.Statistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                        return meta._meta_table['Clear.Controller.Switch.Oper.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                    return meta._meta_table['Clear.Controller.Switch.Oper']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                return meta._meta_table['Clear.Controller.Switch']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+            return meta._meta_table['Clear.Controller']['meta_info']
 
 
-
-
-
-
-    class Plugin(Entity):
+    class Plugin(_Entity_):
         """
         
         
@@ -420,7 +475,10 @@ class Clear(Entity):
         _revision = '2017-11-10'
 
         def __init__(self):
-            super(Clear.Plugin, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Clear.Plugin, self).__init__()
 
             self.yang_name = "plugin"
             self.yang_parent_name = "clear"
@@ -441,7 +499,7 @@ class Clear(Entity):
             self._perform_setattr(Clear.Plugin, [], name, value)
 
 
-        class Slot(Entity):
+        class Slot(_Entity_):
             """
             
             
@@ -460,7 +518,10 @@ class Clear(Entity):
             _revision = '2017-11-10'
 
             def __init__(self):
-                super(Clear.Plugin.Slot, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Clear.Plugin.Slot, self).__init__()
 
                 self.yang_name = "slot"
                 self.yang_parent_name = "plugin"
@@ -479,7 +540,7 @@ class Clear(Entity):
                 self._perform_setattr(Clear.Plugin.Slot, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -498,7 +559,10 @@ class Clear(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Clear.Plugin.Slot.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Clear.Plugin.Slot.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "slot"
@@ -517,12 +581,28 @@ class Clear(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Plugin.Slot.Location, ['location'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                    return meta._meta_table['Clear.Plugin.Slot.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+                return meta._meta_table['Clear.Plugin.Slot']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+            return meta._meta_table['Clear.Plugin']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Clear()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_clear_asr9k as meta
+        return meta._meta_table['Clear']['meta_info']
 
 

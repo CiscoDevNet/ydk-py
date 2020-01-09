@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Sla(Entity):
+class Sla(_Entity_):
     """
     SLA oper commands
     
@@ -41,7 +44,10 @@ class Sla(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Sla, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sla, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sla"
@@ -62,7 +68,7 @@ class Sla(Entity):
         self._perform_setattr(Sla, [], name, value)
 
 
-    class Protocols(Entity):
+    class Protocols(_Entity_):
         """
         Table of all SLA protocols
         
@@ -81,7 +87,10 @@ class Sla(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Sla.Protocols, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sla.Protocols, self).__init__()
 
             self.yang_name = "protocols"
             self.yang_parent_name = "sla"
@@ -102,7 +111,7 @@ class Sla(Entity):
             self._perform_setattr(Sla.Protocols, [], name, value)
 
 
-        class Ethernet(Entity):
+        class Ethernet(_Entity_):
             """
             The Ethernet SLA protocol
             
@@ -163,7 +172,10 @@ class Sla(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Sla.Protocols.Ethernet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sla.Protocols.Ethernet, self).__init__()
 
                 self.yang_name = "ethernet"
                 self.yang_parent_name = "protocols"
@@ -208,7 +220,7 @@ class Sla(Entity):
                 self._perform_setattr(Sla.Protocols.Ethernet, [], name, value)
 
 
-            class StatisticsOnDemandCurrents(Entity):
+            class StatisticsOnDemandCurrents(_Entity_):
                 """
                 Table of current statistics for SLA on\-demand
                 operations
@@ -228,7 +240,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents, self).__init__()
 
                     self.yang_name = "statistics-on-demand-currents"
                     self.yang_parent_name = "ethernet"
@@ -247,7 +262,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents, [], name, value)
 
 
-                class StatisticsOnDemandCurrent(Entity):
+                class StatisticsOnDemandCurrent(_Entity_):
                     """
                     Current statistics data for an SLA on\-demand
                     operation
@@ -356,7 +371,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, self).__init__()
 
                         self.yang_name = "statistics-on-demand-current"
                         self.yang_parent_name = "statistics-on-demand-currents"
@@ -402,7 +420,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -435,7 +453,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "statistics-on-demand-current"
@@ -463,7 +484,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -482,7 +503,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -501,9 +525,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -533,7 +561,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -554,10 +585,18 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions']['meta_info']
 
 
-
-                    class OperationSchedule(Entity):
+                    class OperationSchedule(_Entity_):
                         """
                         Operation schedule
                         
@@ -609,7 +648,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, self).__init__()
 
                             self.yang_name = "operation-schedule"
                             self.yang_parent_name = "statistics-on-demand-current"
@@ -634,9 +676,13 @@ class Sla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule']['meta_info']
 
 
-                    class OperationMetric(Entity):
+                    class OperationMetric(_Entity_):
                         """
                         Metrics gathered for the operation
                         
@@ -662,7 +708,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric, self).__init__()
 
                             self.yang_name = "operation-metric"
                             self.yang_parent_name = "statistics-on-demand-current"
@@ -685,7 +734,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration of the metric
                             
@@ -747,7 +796,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "operation-metric"
@@ -776,9 +828,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config']['meta_info']
 
 
-                        class Bucket(Entity):
+                        class Bucket(_Entity_):
                             """
                             Buckets stored for the metric
                             
@@ -1054,7 +1110,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, self).__init__()
 
                                 self.yang_name = "bucket"
                                 self.yang_parent_name = "operation-metric"
@@ -1138,7 +1197,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
-                            class Contents(Entity):
+                            class Contents(_Entity_):
                                 """
                                 The contents of the bucket; bins or samples
                                 
@@ -1171,7 +1230,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, self).__init__()
 
                                     self.yang_name = "contents"
                                     self.yang_parent_name = "bucket"
@@ -1199,7 +1261,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
-                                class Aggregated(Entity):
+                                class Aggregated(_Entity_):
                                     """
                                     Result bins in an SLA metric bucket
                                     
@@ -1218,7 +1280,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
 
                                         self.yang_name = "aggregated"
                                         self.yang_parent_name = "contents"
@@ -1237,7 +1302,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated, [], name, value)
 
 
-                                    class Bins(Entity):
+                                    class Bins(_Entity_):
                                         """
                                         The bins of an SLA metric bucket
                                         
@@ -1307,7 +1372,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
 
                                             self.yang_name = "bins"
                                             self.yang_parent_name = "aggregated"
@@ -1336,10 +1404,18 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated']['meta_info']
 
 
-
-                                class Unaggregated(Entity):
+                                class Unaggregated(_Entity_):
                                     """
                                     Result samples in an SLA metric bucket
                                     
@@ -1358,7 +1434,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
 
                                         self.yang_name = "unaggregated"
                                         self.yang_parent_name = "contents"
@@ -1377,7 +1456,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated, [], name, value)
 
 
-                                    class Sample(Entity):
+                                    class Sample(_Entity_):
                                         """
                                         The samples of an SLA metric bucket
                                         
@@ -1462,7 +1541,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
 
                                             self.yang_name = "sample"
                                             self.yang_parent_name = "unaggregated"
@@ -1497,15 +1579,43 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandCurrents']['meta_info']
 
 
-
-
-
-
-
-
-            class Operations(Entity):
+            class Operations(_Entity_):
                 """
                 Table of SLA operations
                 
@@ -1524,7 +1634,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.Operations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.Operations, self).__init__()
 
                     self.yang_name = "operations"
                     self.yang_parent_name = "ethernet"
@@ -1543,7 +1656,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.Operations, [], name, value)
 
 
-                class Operation(Entity):
+                class Operation(_Entity_):
                     """
                     SLA operation to get operation data for
                     
@@ -1635,7 +1748,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.Operations.Operation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.Operations.Operation, self).__init__()
 
                         self.yang_name = "operation"
                         self.yang_parent_name = "operations"
@@ -1677,7 +1793,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
 
 
-                    class ProfileOptions(Entity):
+                    class ProfileOptions(_Entity_):
                         """
                         Options that are only valid if the operation has
                         a profile
@@ -1776,7 +1892,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, self).__init__()
 
                             self.yang_name = "profile-options"
                             self.yang_parent_name = "operation"
@@ -1820,7 +1939,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
 
 
-                        class PacketPadding(Entity):
+                        class PacketPadding(_Entity_):
                             """
                             Configuration of the packet padding
                             
@@ -1857,7 +1976,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, self).__init__()
 
                                 self.yang_name = "packet-padding"
                                 self.yang_parent_name = "profile-options"
@@ -1880,9 +2002,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding']['meta_info']
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             Priority at which to send the packet, if
                             configured
@@ -1911,7 +2037,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "profile-options"
@@ -1932,9 +2061,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority']['meta_info']
 
 
-                        class OperationSchedule(Entity):
+                        class OperationSchedule(_Entity_):
                             """
                             Operation schedule
                             
@@ -1986,7 +2119,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, self).__init__()
 
                                 self.yang_name = "operation-schedule"
                                 self.yang_parent_name = "profile-options"
@@ -2011,9 +2147,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule']['meta_info']
 
 
-                        class OperationMetric(Entity):
+                        class OperationMetric(_Entity_):
                             """
                             Array of the metrics that are measured by the
                             operation
@@ -2042,7 +2182,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, self).__init__()
 
                                 self.yang_name = "operation-metric"
                                 self.yang_parent_name = "profile-options"
@@ -2066,7 +2209,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
 
 
-                            class MetricConfig(Entity):
+                            class MetricConfig(_Entity_):
                                 """
                                 Configuration of the metric
                                 
@@ -2128,7 +2271,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
 
                                     self.yang_name = "metric-config"
                                     self.yang_parent_name = "operation-metric"
@@ -2157,11 +2303,23 @@ class Sla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions']['meta_info']
 
 
-
-
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -2194,7 +2352,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "operation"
@@ -2222,7 +2383,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -2241,7 +2402,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -2260,9 +2424,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -2292,7 +2460,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -2313,12 +2484,28 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.Operations.Operation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.Operations']['meta_info']
 
 
-
-
-
-            class StatisticsHistoricals(Entity):
+            class StatisticsHistoricals(_Entity_):
                 """
                 Table of historical statistics for SLA
                 operations
@@ -2338,7 +2525,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.StatisticsHistoricals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.StatisticsHistoricals, self).__init__()
 
                     self.yang_name = "statistics-historicals"
                     self.yang_parent_name = "ethernet"
@@ -2357,7 +2547,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals, [], name, value)
 
 
-                class StatisticsHistorical(Entity):
+                class StatisticsHistorical(_Entity_):
                     """
                     Historical statistics data for an SLA
                     configured operation
@@ -2466,7 +2656,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, self).__init__()
 
                         self.yang_name = "statistics-historical"
                         self.yang_parent_name = "statistics-historicals"
@@ -2512,7 +2705,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -2545,7 +2738,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "statistics-historical"
@@ -2573,7 +2769,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -2592,7 +2788,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -2611,9 +2810,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -2643,7 +2846,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -2664,10 +2870,18 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions']['meta_info']
 
 
-
-                    class OperationSchedule(Entity):
+                    class OperationSchedule(_Entity_):
                         """
                         Operation schedule
                         
@@ -2719,7 +2933,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, self).__init__()
 
                             self.yang_name = "operation-schedule"
                             self.yang_parent_name = "statistics-historical"
@@ -2744,9 +2961,13 @@ class Sla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule']['meta_info']
 
 
-                    class OperationMetric(Entity):
+                    class OperationMetric(_Entity_):
                         """
                         Metrics gathered for the operation
                         
@@ -2772,7 +2993,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric, self).__init__()
 
                             self.yang_name = "operation-metric"
                             self.yang_parent_name = "statistics-historical"
@@ -2795,7 +3019,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration of the metric
                             
@@ -2857,7 +3081,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "operation-metric"
@@ -2886,9 +3113,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config']['meta_info']
 
 
-                        class Bucket(Entity):
+                        class Bucket(_Entity_):
                             """
                             Buckets stored for the metric
                             
@@ -3164,7 +3395,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, self).__init__()
 
                                 self.yang_name = "bucket"
                                 self.yang_parent_name = "operation-metric"
@@ -3248,7 +3482,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
-                            class Contents(Entity):
+                            class Contents(_Entity_):
                                 """
                                 The contents of the bucket; bins or samples
                                 
@@ -3281,7 +3515,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, self).__init__()
 
                                     self.yang_name = "contents"
                                     self.yang_parent_name = "bucket"
@@ -3309,7 +3546,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
-                                class Aggregated(Entity):
+                                class Aggregated(_Entity_):
                                     """
                                     Result bins in an SLA metric bucket
                                     
@@ -3328,7 +3565,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
 
                                         self.yang_name = "aggregated"
                                         self.yang_parent_name = "contents"
@@ -3347,7 +3587,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated, [], name, value)
 
 
-                                    class Bins(Entity):
+                                    class Bins(_Entity_):
                                         """
                                         The bins of an SLA metric bucket
                                         
@@ -3417,7 +3657,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
 
                                             self.yang_name = "bins"
                                             self.yang_parent_name = "aggregated"
@@ -3446,10 +3689,18 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated']['meta_info']
 
 
-
-                                class Unaggregated(Entity):
+                                class Unaggregated(_Entity_):
                                     """
                                     Result samples in an SLA metric bucket
                                     
@@ -3468,7 +3719,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
 
                                         self.yang_name = "unaggregated"
                                         self.yang_parent_name = "contents"
@@ -3487,7 +3741,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated, [], name, value)
 
 
-                                    class Sample(Entity):
+                                    class Sample(_Entity_):
                                         """
                                         The samples of an SLA metric bucket
                                         
@@ -3572,7 +3826,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
 
                                             self.yang_name = "sample"
                                             self.yang_parent_name = "unaggregated"
@@ -3607,15 +3864,43 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsHistoricals']['meta_info']
 
 
-
-
-
-
-
-
-            class StatisticsOnDemandHistoricals(Entity):
+            class StatisticsOnDemandHistoricals(_Entity_):
                 """
                 Table of historical statistics for SLA
                 on\-demand operations
@@ -3635,7 +3920,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals, self).__init__()
 
                     self.yang_name = "statistics-on-demand-historicals"
                     self.yang_parent_name = "ethernet"
@@ -3654,7 +3942,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals, [], name, value)
 
 
-                class StatisticsOnDemandHistorical(Entity):
+                class StatisticsOnDemandHistorical(_Entity_):
                     """
                     Historical statistics data for an SLA
                     on\-demand  operation
@@ -3763,7 +4051,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, self).__init__()
 
                         self.yang_name = "statistics-on-demand-historical"
                         self.yang_parent_name = "statistics-on-demand-historicals"
@@ -3809,7 +4100,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -3842,7 +4133,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "statistics-on-demand-historical"
@@ -3870,7 +4164,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -3889,7 +4183,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -3908,9 +4205,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -3940,7 +4241,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -3961,10 +4265,18 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions']['meta_info']
 
 
-
-                    class OperationSchedule(Entity):
+                    class OperationSchedule(_Entity_):
                         """
                         Operation schedule
                         
@@ -4016,7 +4328,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, self).__init__()
 
                             self.yang_name = "operation-schedule"
                             self.yang_parent_name = "statistics-on-demand-historical"
@@ -4041,9 +4356,13 @@ class Sla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule']['meta_info']
 
 
-                    class OperationMetric(Entity):
+                    class OperationMetric(_Entity_):
                         """
                         Metrics gathered for the operation
                         
@@ -4069,7 +4388,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric, self).__init__()
 
                             self.yang_name = "operation-metric"
                             self.yang_parent_name = "statistics-on-demand-historical"
@@ -4092,7 +4414,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration of the metric
                             
@@ -4154,7 +4476,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "operation-metric"
@@ -4183,9 +4508,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config']['meta_info']
 
 
-                        class Bucket(Entity):
+                        class Bucket(_Entity_):
                             """
                             Buckets stored for the metric
                             
@@ -4461,7 +4790,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, self).__init__()
 
                                 self.yang_name = "bucket"
                                 self.yang_parent_name = "operation-metric"
@@ -4545,7 +4877,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
-                            class Contents(Entity):
+                            class Contents(_Entity_):
                                 """
                                 The contents of the bucket; bins or samples
                                 
@@ -4578,7 +4910,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, self).__init__()
 
                                     self.yang_name = "contents"
                                     self.yang_parent_name = "bucket"
@@ -4606,7 +4941,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
-                                class Aggregated(Entity):
+                                class Aggregated(_Entity_):
                                     """
                                     Result bins in an SLA metric bucket
                                     
@@ -4625,7 +4960,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
 
                                         self.yang_name = "aggregated"
                                         self.yang_parent_name = "contents"
@@ -4644,7 +4982,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated, [], name, value)
 
 
-                                    class Bins(Entity):
+                                    class Bins(_Entity_):
                                         """
                                         The bins of an SLA metric bucket
                                         
@@ -4714,7 +5052,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
 
                                             self.yang_name = "bins"
                                             self.yang_parent_name = "aggregated"
@@ -4743,10 +5084,18 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated']['meta_info']
 
 
-
-                                class Unaggregated(Entity):
+                                class Unaggregated(_Entity_):
                                     """
                                     Result samples in an SLA metric bucket
                                     
@@ -4765,7 +5114,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
 
                                         self.yang_name = "unaggregated"
                                         self.yang_parent_name = "contents"
@@ -4784,7 +5136,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated, [], name, value)
 
 
-                                    class Sample(Entity):
+                                    class Sample(_Entity_):
                                         """
                                         The samples of an SLA metric bucket
                                         
@@ -4869,7 +5221,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
 
                                             self.yang_name = "sample"
                                             self.yang_parent_name = "unaggregated"
@@ -4904,15 +5259,43 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals']['meta_info']
 
 
-
-
-
-
-
-
-            class ConfigErrors(Entity):
+            class ConfigErrors(_Entity_):
                 """
                 Table of SLA configuration errors on configured
                 operations
@@ -4932,7 +5315,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.ConfigErrors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.ConfigErrors, self).__init__()
 
                     self.yang_name = "config-errors"
                     self.yang_parent_name = "ethernet"
@@ -4951,7 +5337,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors, [], name, value)
 
 
-                class ConfigError(Entity):
+                class ConfigError(_Entity_):
                     """
                     SLA operation to get configuration errors data
                     for
@@ -5140,7 +5526,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, self).__init__()
 
                         self.yang_name = "config-error"
                         self.yang_parent_name = "config-errors"
@@ -5205,10 +5594,18 @@ class Sla(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'profile_name_xr', 'display_short', 'rt_delay_inconsistent', 'ow_delay_sd_inconsistent', 'ow_delay_ds_inconsistent', 'rt_jitter_inconsistent', 'ow_jitter_sd_inconsistent', 'ow_jitter_ds_inconsistent', 'ow_loss_sd_inconsistent', 'ow_loss_ds_inconsistent', 'packet_pad_inconsistent', 'packet_rand_pad_inconsistent', 'min_packet_interval_inconsistent', 'priority_inconsistent', 'packet_type_inconsistent', 'profile_doesnt_exist', 'synthetic_loss_not_supported', 'probe_too_big', 'error_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.ConfigErrors.ConfigError']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.ConfigErrors']['meta_info']
 
 
-
-            class OnDemandOperations(Entity):
+            class OnDemandOperations(_Entity_):
                 """
                 Table of SLA on\-demand operations
                 
@@ -5227,7 +5624,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.OnDemandOperations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.OnDemandOperations, self).__init__()
 
                     self.yang_name = "on-demand-operations"
                     self.yang_parent_name = "ethernet"
@@ -5246,7 +5646,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations, [], name, value)
 
 
-                class OnDemandOperation(Entity):
+                class OnDemandOperation(_Entity_):
                     """
                     SLA on\-demand operation to get operation data
                     for
@@ -5339,7 +5739,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, self).__init__()
 
                         self.yang_name = "on-demand-operation"
                         self.yang_parent_name = "on-demand-operations"
@@ -5381,7 +5784,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
 
 
-                    class ProfileOptions(Entity):
+                    class ProfileOptions(_Entity_):
                         """
                         Options that are only valid if the operation has
                         a profile
@@ -5480,7 +5883,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, self).__init__()
 
                             self.yang_name = "profile-options"
                             self.yang_parent_name = "on-demand-operation"
@@ -5524,7 +5930,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
 
 
-                        class PacketPadding(Entity):
+                        class PacketPadding(_Entity_):
                             """
                             Configuration of the packet padding
                             
@@ -5561,7 +5967,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, self).__init__()
 
                                 self.yang_name = "packet-padding"
                                 self.yang_parent_name = "profile-options"
@@ -5584,9 +5993,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding']['meta_info']
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             Priority at which to send the packet, if
                             configured
@@ -5615,7 +6028,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "profile-options"
@@ -5636,9 +6052,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority']['meta_info']
 
 
-                        class OperationSchedule(Entity):
+                        class OperationSchedule(_Entity_):
                             """
                             Operation schedule
                             
@@ -5690,7 +6110,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, self).__init__()
 
                                 self.yang_name = "operation-schedule"
                                 self.yang_parent_name = "profile-options"
@@ -5715,9 +6138,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule']['meta_info']
 
 
-                        class OperationMetric(Entity):
+                        class OperationMetric(_Entity_):
                             """
                             Array of the metrics that are measured by the
                             operation
@@ -5746,7 +6173,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, self).__init__()
 
                                 self.yang_name = "operation-metric"
                                 self.yang_parent_name = "profile-options"
@@ -5770,7 +6200,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
 
 
-                            class MetricConfig(Entity):
+                            class MetricConfig(_Entity_):
                                 """
                                 Configuration of the metric
                                 
@@ -5832,7 +6262,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
 
                                     self.yang_name = "metric-config"
                                     self.yang_parent_name = "operation-metric"
@@ -5861,11 +6294,23 @@ class Sla(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions']['meta_info']
 
 
-
-
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -5898,7 +6343,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "on-demand-operation"
@@ -5926,7 +6374,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -5945,7 +6393,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -5964,9 +6415,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -5996,7 +6451,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -6017,12 +6475,28 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.OnDemandOperations']['meta_info']
 
 
-
-
-
-            class StatisticsCurrents(Entity):
+            class StatisticsCurrents(_Entity_):
                 """
                 Table of current statistics for SLA operations
                 
@@ -6041,7 +6515,10 @@ class Sla(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Sla.Protocols.Ethernet.StatisticsCurrents, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sla.Protocols.Ethernet.StatisticsCurrents, self).__init__()
 
                     self.yang_name = "statistics-currents"
                     self.yang_parent_name = "ethernet"
@@ -6060,7 +6537,7 @@ class Sla(Entity):
                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents, [], name, value)
 
 
-                class StatisticsCurrent(Entity):
+                class StatisticsCurrent(_Entity_):
                     """
                     Current statistics data for an SLA configured
                     operation
@@ -6169,7 +6646,10 @@ class Sla(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, self).__init__()
 
                         self.yang_name = "statistics-current"
                         self.yang_parent_name = "statistics-currents"
@@ -6215,7 +6695,7 @@ class Sla(Entity):
                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
 
 
-                    class SpecificOptions(Entity):
+                    class SpecificOptions(_Entity_):
                         """
                         Options specific to the type of operation
                         
@@ -6248,7 +6728,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, self).__init__()
 
                             self.yang_name = "specific-options"
                             self.yang_parent_name = "statistics-current"
@@ -6276,7 +6759,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, ['oper_type'], name, value)
 
 
-                        class ConfiguredOperationOptions(Entity):
+                        class ConfiguredOperationOptions(_Entity_):
                             """
                             Parameters for a configured operation
                             
@@ -6295,7 +6778,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
 
                                 self.yang_name = "configured-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -6314,9 +6800,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions']['meta_info']
 
 
-                        class OndemandOperationOptions(Entity):
+                        class OndemandOperationOptions(_Entity_):
                             """
                             Parameters for an ondemand operation
                             
@@ -6346,7 +6836,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
 
                                 self.yang_name = "ondemand-operation-options"
                                 self.yang_parent_name = "specific-options"
@@ -6367,10 +6860,18 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions']['meta_info']
 
 
-
-                    class OperationSchedule(Entity):
+                    class OperationSchedule(_Entity_):
                         """
                         Operation schedule
                         
@@ -6422,7 +6923,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, self).__init__()
 
                             self.yang_name = "operation-schedule"
                             self.yang_parent_name = "statistics-current"
@@ -6447,9 +6951,13 @@ class Sla(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule']['meta_info']
 
 
-                    class OperationMetric(Entity):
+                    class OperationMetric(_Entity_):
                         """
                         Metrics gathered for the operation
                         
@@ -6475,7 +6983,10 @@ class Sla(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric, self).__init__()
 
                             self.yang_name = "operation-metric"
                             self.yang_parent_name = "statistics-current"
@@ -6498,7 +7009,7 @@ class Sla(Entity):
                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration of the metric
                             
@@ -6560,7 +7071,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "operation-metric"
@@ -6589,9 +7103,13 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config']['meta_info']
 
 
-                        class Bucket(Entity):
+                        class Bucket(_Entity_):
                             """
                             Buckets stored for the metric
                             
@@ -6867,7 +7385,10 @@ class Sla(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, self).__init__()
 
                                 self.yang_name = "bucket"
                                 self.yang_parent_name = "operation-metric"
@@ -6951,7 +7472,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
 
 
-                            class Contents(Entity):
+                            class Contents(_Entity_):
                                 """
                                 The contents of the bucket; bins or samples
                                 
@@ -6984,7 +7505,10 @@ class Sla(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, self).__init__()
 
                                     self.yang_name = "contents"
                                     self.yang_parent_name = "bucket"
@@ -7012,7 +7536,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
 
 
-                                class Aggregated(Entity):
+                                class Aggregated(_Entity_):
                                     """
                                     Result bins in an SLA metric bucket
                                     
@@ -7031,7 +7555,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
 
                                         self.yang_name = "aggregated"
                                         self.yang_parent_name = "contents"
@@ -7050,7 +7577,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated, [], name, value)
 
 
-                                    class Bins(Entity):
+                                    class Bins(_Entity_):
                                         """
                                         The bins of an SLA metric bucket
                                         
@@ -7120,7 +7647,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
 
                                             self.yang_name = "bins"
                                             self.yang_parent_name = "aggregated"
@@ -7149,10 +7679,18 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated']['meta_info']
 
 
-
-                                class Unaggregated(Entity):
+                                class Unaggregated(_Entity_):
                                     """
                                     Result samples in an SLA metric bucket
                                     
@@ -7171,7 +7709,10 @@ class Sla(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
 
                                         self.yang_name = "unaggregated"
                                         self.yang_parent_name = "contents"
@@ -7190,7 +7731,7 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated, [], name, value)
 
 
-                                    class Sample(Entity):
+                                    class Sample(_Entity_):
                                         """
                                         The samples of an SLA metric bucket
                                         
@@ -7275,7 +7816,10 @@ class Sla(Entity):
                                         _revision = '2018-12-20'
 
                                         def __init__(self):
-                                            super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
 
                                             self.yang_name = "sample"
                                             self.yang_parent_name = "unaggregated"
@@ -7310,22 +7854,62 @@ class Sla(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                                return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                            return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                        return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                    return meta._meta_table['Sla.Protocols.Ethernet.StatisticsCurrents']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+                return meta._meta_table['Sla.Protocols.Ethernet']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+            return meta._meta_table['Sla.Protocols']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sla()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+        return meta._meta_table['Sla']['meta_info']
 
 
-class SlaNodes(Entity):
+class SlaNodes(_Entity_):
     """
     sla nodes
     
@@ -7337,7 +7921,10 @@ class SlaNodes(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SlaNodes, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SlaNodes, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sla-nodes"
@@ -7354,5 +7941,9 @@ class SlaNodes(Entity):
         self._top_entity = SlaNodes()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_oper as meta
+        return meta._meta_table['SlaNodes']['meta_info']
 
 

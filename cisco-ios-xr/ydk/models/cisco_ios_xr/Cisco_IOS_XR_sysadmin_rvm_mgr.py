@@ -13,8 +13,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -37,6 +40,12 @@ class FlagtypeTd(Enum):
     set = Enum.YLeaf(1, "set")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+        return meta._meta_table['FlagtypeTd']
+
+
 class NodetypeTd(Enum):
     """
     NodetypeTd (Enum Class)
@@ -52,8 +61,14 @@ class NodetypeTd(Enum):
     service = Enum.YLeaf(2, "service")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+        return meta._meta_table['NodetypeTd']
 
-class RVM(Entity):
+
+
+class RVM(_Entity_):
     """
     RVM Manager Info
     
@@ -72,7 +87,10 @@ class RVM(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(RVM, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RVM, self).__init__()
         self._top_entity = None
 
         self.yang_name = "RVM"
@@ -91,7 +109,7 @@ class RVM(Entity):
         self._perform_setattr(RVM, [], name, value)
 
 
-    class AllLocations(Entity):
+    class AllLocations(_Entity_):
         """
         
         
@@ -131,7 +149,10 @@ class RVM(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(RVM.AllLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RVM.AllLocations, self).__init__()
 
             self.yang_name = "all-locations"
             self.yang_parent_name = "RVM"
@@ -163,7 +184,7 @@ class RVM(Entity):
             self._perform_setattr(RVM.AllLocations, ['location'], name, value)
 
 
-        class Objects(Entity):
+        class Objects(_Entity_):
             """
             RVM Manager Info
             
@@ -182,7 +203,10 @@ class RVM(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(RVM.AllLocations.Objects, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RVM.AllLocations.Objects, self).__init__()
 
                 self.yang_name = "objects"
                 self.yang_parent_name = "all-locations"
@@ -200,7 +224,7 @@ class RVM(Entity):
                 self._perform_setattr(RVM.AllLocations.Objects, [], name, value)
 
 
-            class AllObjs(Entity):
+            class AllObjs(_Entity_):
                 """
                 
                 
@@ -248,7 +272,10 @@ class RVM(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(RVM.AllLocations.Objects.AllObjs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RVM.AllLocations.Objects.AllObjs, self).__init__()
 
                     self.yang_name = "all-objs"
                     self.yang_parent_name = "objects"
@@ -272,10 +299,18 @@ class RVM(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Objects.AllObjs, ['index', 'num_allocated', 'num_freed', 'num_objects'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                    return meta._meta_table['RVM.AllLocations.Objects.AllObjs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                return meta._meta_table['RVM.AllLocations.Objects']['meta_info']
 
 
-
-        class Node(Entity):
+        class Node(_Entity_):
             """
             RVM Manager Node Info
             
@@ -294,7 +329,10 @@ class RVM(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(RVM.AllLocations.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RVM.AllLocations.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "all-locations"
@@ -312,7 +350,7 @@ class RVM(Entity):
                 self._perform_setattr(RVM.AllLocations.Node, [], name, value)
 
 
-            class AllNodes(Entity):
+            class AllNodes(_Entity_):
                 """
                 
                 
@@ -361,7 +399,10 @@ class RVM(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(RVM.AllLocations.Node.AllNodes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RVM.AllLocations.Node.AllNodes, self).__init__()
 
                     self.yang_name = "all-nodes"
                     self.yang_parent_name = "node"
@@ -387,10 +428,18 @@ class RVM(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Node.AllNodes, ['ipv4_addr', 'ipv4_addr_str', 'node_info', 'node_hb_info', 'node_card_info'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                    return meta._meta_table['RVM.AllLocations.Node.AllNodes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                return meta._meta_table['RVM.AllLocations.Node']['meta_info']
 
 
-
-        class Card(Entity):
+        class Card(_Entity_):
             """
             RVM Manager Card Info
             
@@ -409,7 +458,10 @@ class RVM(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(RVM.AllLocations.Card, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RVM.AllLocations.Card, self).__init__()
 
                 self.yang_name = "card"
                 self.yang_parent_name = "all-locations"
@@ -427,7 +479,7 @@ class RVM(Entity):
                 self._perform_setattr(RVM.AllLocations.Card, [], name, value)
 
 
-            class AllCards(Entity):
+            class AllCards(_Entity_):
                 """
                 
                 
@@ -474,7 +526,10 @@ class RVM(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(RVM.AllLocations.Card.AllCards, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RVM.AllLocations.Card.AllCards, self).__init__()
 
                     self.yang_name = "all-cards"
                     self.yang_parent_name = "card"
@@ -500,12 +555,28 @@ class RVM(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Card.AllCards, ['serial_num', 'card_flag', 'card_info', 'sysadmin_nodes', 'xr_nodes'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                    return meta._meta_table['RVM.AllLocations.Card.AllCards']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+                return meta._meta_table['RVM.AllLocations.Card']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+            return meta._meta_table['RVM.AllLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RVM()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_rvm_mgr as meta
+        return meta._meta_table['RVM']['meta_info']
 
 

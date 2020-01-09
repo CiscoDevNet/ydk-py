@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class FtiBagFabricConfigState(Enum):
     fti_bag_config_complete = Enum.YLeaf(0, "fti-bag-config-complete")
 
     fti_bag_config_incomplete = Enum.YLeaf(1, "fti-bag-config-incomplete")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+        return meta._meta_table['FtiBagFabricConfigState']
 
 
 class FtiBagFabricPeerState(Enum):
@@ -80,6 +89,12 @@ class FtiBagFabricPeerState(Enum):
     fti_bag_fabric_peer_status_closing = Enum.YLeaf(4, "fti-bag-fabric-peer-status-closing")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+        return meta._meta_table['FtiBagFabricPeerState']
+
+
 class FtiBagFabricState(Enum):
     """
     FtiBagFabricState (Enum Class)
@@ -113,8 +128,14 @@ class FtiBagFabricState(Enum):
     fti_bag_fabric_state_inactive = Enum.YLeaf(3, "fti-bag-fabric-state-inactive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+        return meta._meta_table['FtiBagFabricState']
 
-class DciFabricInterconnect(Entity):
+
+
+class DciFabricInterconnect(_Entity_):
     """
     Display FTI operational data
     
@@ -154,7 +175,10 @@ class DciFabricInterconnect(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(DciFabricInterconnect, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(DciFabricInterconnect, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dci-fabric-interconnect"
@@ -187,7 +211,7 @@ class DciFabricInterconnect(Entity):
         self._perform_setattr(DciFabricInterconnect, [], name, value)
 
 
-    class OpflexSessionInfos(Entity):
+    class OpflexSessionInfos(_Entity_):
         """
         FTI Opflex Session Info for all fabrics
         
@@ -206,7 +230,10 @@ class DciFabricInterconnect(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(DciFabricInterconnect.OpflexSessionInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DciFabricInterconnect.OpflexSessionInfos, self).__init__()
 
             self.yang_name = "opflex-session-infos"
             self.yang_parent_name = "dci-fabric-interconnect"
@@ -225,7 +252,7 @@ class DciFabricInterconnect(Entity):
             self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos, [], name, value)
 
 
-        class OpflexSessionInfo(Entity):
+        class OpflexSessionInfo(_Entity_):
             """
             FTI Opflex Session Info for a particular fabric
             
@@ -294,7 +321,10 @@ class DciFabricInterconnect(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo, self).__init__()
 
                 self.yang_name = "opflex-session-info"
                 self.yang_parent_name = "opflex-session-infos"
@@ -326,7 +356,7 @@ class DciFabricInterconnect(Entity):
                 self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo, ['id1', 'fabric_id', 'config_state', 'last_upd_ts_config', 'fabric_state', 'last_upd_ts_fabric'], name, value)
 
 
-            class PeerInfo(Entity):
+            class PeerInfo(_Entity_):
                 """
                 Fabric Per Peer Info
                 
@@ -372,7 +402,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo, self).__init__()
 
                     self.yang_name = "peer-info"
                     self.yang_parent_name = "opflex-session-info"
@@ -396,11 +429,23 @@ class DciFabricInterconnect(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo, ['peer_ip', 'peer_port', 'peer_state', 'last_upd_ts_peer_status'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo.PeerInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                return meta._meta_table['DciFabricInterconnect.OpflexSessionInfos.OpflexSessionInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+            return meta._meta_table['DciFabricInterconnect.OpflexSessionInfos']['meta_info']
 
 
-
-
-    class FabricVrfDbs(Entity):
+    class FabricVrfDbs(_Entity_):
         """
         FTI Fabric\-VRF DB for all fabrics
         
@@ -419,7 +464,10 @@ class DciFabricInterconnect(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(DciFabricInterconnect.FabricVrfDbs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DciFabricInterconnect.FabricVrfDbs, self).__init__()
 
             self.yang_name = "fabric-vrf-dbs"
             self.yang_parent_name = "dci-fabric-interconnect"
@@ -438,7 +486,7 @@ class DciFabricInterconnect(Entity):
             self._perform_setattr(DciFabricInterconnect.FabricVrfDbs, [], name, value)
 
 
-        class FabricVrfDb(Entity):
+        class FabricVrfDb(_Entity_):
             """
             FTI Fabric\-VRF DB for a particular fabric
             
@@ -475,7 +523,10 @@ class DciFabricInterconnect(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb, self).__init__()
 
                 self.yang_name = "fabric-vrf-db"
                 self.yang_parent_name = "fabric-vrf-dbs"
@@ -499,7 +550,7 @@ class DciFabricInterconnect(Entity):
                 self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb, ['id1', 'fabric_id'], name, value)
 
 
-            class FabricVrf(Entity):
+            class FabricVrf(_Entity_):
                 """
                 Fabric VRFs
                 
@@ -560,7 +611,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf, self).__init__()
 
                     self.yang_name = "fabric-vrf"
                     self.yang_parent_name = "fabric-vrf-db"
@@ -588,7 +642,7 @@ class DciFabricInterconnect(Entity):
                     self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf, ['fabric_vrf', 'dci_vrf', 'fabric_vrf_flags'], name, value)
 
 
-                class V4ImportRt(Entity):
+                class V4ImportRt(_Entity_):
                     """
                     V4 Import Route Targets
                     
@@ -614,7 +668,10 @@ class DciFabricInterconnect(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt, self).__init__()
 
                         self.yang_name = "v4-import-rt"
                         self.yang_parent_name = "fabric-vrf"
@@ -634,9 +691,13 @@ class DciFabricInterconnect(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt, ['rt_value', 'rt_flags'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                        return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ImportRt']['meta_info']
 
 
-                class V4ExportRt(Entity):
+                class V4ExportRt(_Entity_):
                     """
                     V4 Export Route Targets
                     
@@ -662,7 +723,10 @@ class DciFabricInterconnect(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt, self).__init__()
 
                         self.yang_name = "v4-export-rt"
                         self.yang_parent_name = "fabric-vrf"
@@ -682,9 +746,13 @@ class DciFabricInterconnect(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt, ['rt_value', 'rt_flags'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                        return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V4ExportRt']['meta_info']
 
 
-                class V6ImportRt(Entity):
+                class V6ImportRt(_Entity_):
                     """
                     V6 Import Route Targets
                     
@@ -710,7 +778,10 @@ class DciFabricInterconnect(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt, self).__init__()
 
                         self.yang_name = "v6-import-rt"
                         self.yang_parent_name = "fabric-vrf"
@@ -730,9 +801,13 @@ class DciFabricInterconnect(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt, ['rt_value', 'rt_flags'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                        return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ImportRt']['meta_info']
 
 
-                class V6ExportRt(Entity):
+                class V6ExportRt(_Entity_):
                     """
                     V6 Export Route Targets
                     
@@ -758,7 +833,10 @@ class DciFabricInterconnect(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt, self).__init__()
 
                         self.yang_name = "v6-export-rt"
                         self.yang_parent_name = "fabric-vrf"
@@ -778,12 +856,28 @@ class DciFabricInterconnect(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt, ['rt_value', 'rt_flags'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                        return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf.V6ExportRt']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb.FabricVrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                return meta._meta_table['DciFabricInterconnect.FabricVrfDbs.FabricVrfDb']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+            return meta._meta_table['DciFabricInterconnect.FabricVrfDbs']['meta_info']
 
 
-
-
-
-    class DciVrfs(Entity):
+    class DciVrfs(_Entity_):
         """
         FTI DCI\-VRF DB for all VRFs
         
@@ -802,7 +896,10 @@ class DciFabricInterconnect(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(DciFabricInterconnect.DciVrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DciFabricInterconnect.DciVrfs, self).__init__()
 
             self.yang_name = "dci-vrfs"
             self.yang_parent_name = "dci-fabric-interconnect"
@@ -821,7 +918,7 @@ class DciFabricInterconnect(Entity):
             self._perform_setattr(DciFabricInterconnect.DciVrfs, [], name, value)
 
 
-        class DciVrf(Entity):
+        class DciVrf(_Entity_):
             """
             FTI DCI\-VRF Info for a particular VRF
             
@@ -939,7 +1036,10 @@ class DciFabricInterconnect(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(DciFabricInterconnect.DciVrfs.DciVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(DciFabricInterconnect.DciVrfs.DciVrf, self).__init__()
 
                 self.yang_name = "dci-vrf"
                 self.yang_parent_name = "dci-vrfs"
@@ -982,7 +1082,7 @@ class DciFabricInterconnect(Entity):
                 self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf, ['vrf1', 'dci_vrf', 'num_fabric_vrf', 'faric_vrfs_id_name', 'vni_id', 'bd_name', 'bvi_id', 'bvi_ip', 'bvi_ip_v6', 'dci_vrf_flags'], name, value)
 
 
-            class V4ImportRt(Entity):
+            class V4ImportRt(_Entity_):
                 """
                 V4 Import Route Targets
                 
@@ -1008,7 +1108,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt, self).__init__()
 
                     self.yang_name = "v4-import-rt"
                     self.yang_parent_name = "dci-vrf"
@@ -1028,9 +1131,13 @@ class DciFabricInterconnect(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt, ['rt_value', 'rt_flags'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.DciVrfs.DciVrf.V4ImportRt']['meta_info']
 
 
-            class V4ExportRt(Entity):
+            class V4ExportRt(_Entity_):
                 """
                 V4 Export Route Targets
                 
@@ -1056,7 +1163,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt, self).__init__()
 
                     self.yang_name = "v4-export-rt"
                     self.yang_parent_name = "dci-vrf"
@@ -1076,9 +1186,13 @@ class DciFabricInterconnect(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt, ['rt_value', 'rt_flags'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.DciVrfs.DciVrf.V4ExportRt']['meta_info']
 
 
-            class V6ImportRt(Entity):
+            class V6ImportRt(_Entity_):
                 """
                 V6 Import Route Targets
                 
@@ -1104,7 +1218,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt, self).__init__()
 
                     self.yang_name = "v6-import-rt"
                     self.yang_parent_name = "dci-vrf"
@@ -1124,9 +1241,13 @@ class DciFabricInterconnect(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt, ['rt_value', 'rt_flags'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.DciVrfs.DciVrf.V6ImportRt']['meta_info']
 
 
-            class V6ExportRt(Entity):
+            class V6ExportRt(_Entity_):
                 """
                 V6 Export Route Targets
                 
@@ -1152,7 +1273,10 @@ class DciFabricInterconnect(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt, self).__init__()
 
                     self.yang_name = "v6-export-rt"
                     self.yang_parent_name = "dci-vrf"
@@ -1172,11 +1296,23 @@ class DciFabricInterconnect(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt, ['rt_value', 'rt_flags'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                    return meta._meta_table['DciFabricInterconnect.DciVrfs.DciVrf.V6ExportRt']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+                return meta._meta_table['DciFabricInterconnect.DciVrfs.DciVrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+            return meta._meta_table['DciFabricInterconnect.DciVrfs']['meta_info']
 
 
-
-
-    class Acp(Entity):
+    class Acp(_Entity_):
         """
         Auto Config Pool Info
         
@@ -1290,7 +1426,10 @@ class DciFabricInterconnect(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(DciFabricInterconnect.Acp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DciFabricInterconnect.Acp, self).__init__()
 
             self.yang_name = "acp"
             self.yang_parent_name = "dci-fabric-interconnect"
@@ -1331,10 +1470,18 @@ class DciFabricInterconnect(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(DciFabricInterconnect.Acp, ['vni_min', 'vni_max', 'vni_bits', 'bvi_min', 'bvi_max', 'bvi_bits', 'bd_min', 'bd_max', 'bd_bits', 'vniused_range', 'bviused_range', 'bdused_range'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+            return meta._meta_table['DciFabricInterconnect.Acp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = DciFabricInterconnect()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_fti_oper as meta
+        return meta._meta_table['DciFabricInterconnect']['meta_info']
 
 

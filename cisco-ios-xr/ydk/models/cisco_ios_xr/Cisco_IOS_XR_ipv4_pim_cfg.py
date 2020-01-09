@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -65,6 +68,12 @@ class PimMultipath(Enum):
     source_group_hash = Enum.YLeaf(4, "source-group-hash")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+        return meta._meta_table['PimMultipath']
+
+
 class PimProtocolMode(Enum):
     """
     PimProtocolMode (Enum Class)
@@ -86,8 +95,14 @@ class PimProtocolMode(Enum):
     bidir = Enum.YLeaf(1, "bidir")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+        return meta._meta_table['PimProtocolMode']
 
-class Pim(Entity):
+
+
+class Pim(_Entity_):
     """
     PIM configuration
     
@@ -109,7 +124,10 @@ class Pim(Entity):
     _revision = '2017-10-15'
 
     def __init__(self):
-        super(Pim, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pim, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pim"
@@ -134,7 +152,7 @@ class Pim(Entity):
         self._perform_setattr(Pim, [], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF table
         
@@ -151,7 +169,10 @@ class Pim(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Pim.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pim.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "pim"
@@ -170,7 +191,7 @@ class Pim(Entity):
             self._perform_setattr(Pim.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF name
             
@@ -199,7 +220,10 @@ class Pim(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Pim.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pim.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -227,7 +251,7 @@ class Pim(Entity):
                 self._perform_setattr(Pim.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 IPV4 commands
                 
@@ -396,7 +420,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.Vrfs.Vrf.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.Vrfs.Vrf.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "vrf"
@@ -499,7 +526,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.Vrfs.Vrf.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
 
 
-                class SparseModeRpAddresses(Entity):
+                class SparseModeRpAddresses(_Entity_):
                     """
                     Configure Sparse\-Mode Rendezvous Point
                     
@@ -516,7 +543,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, self).__init__()
 
                         self.yang_name = "sparse-mode-rp-addresses"
                         self.yang_parent_name = "ipv4"
@@ -534,7 +564,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, [], name, value)
 
 
-                    class SparseModeRpAddress(Entity):
+                    class SparseModeRpAddress(_Entity_):
                         """
                         Address of the Rendezvous Point
                         
@@ -553,7 +583,7 @@ class Pim(Entity):
                         
                         .. attribute:: access_list_name
                         
-                        	Access list of groups that should map to a  given RP
+                        	Access list of groups that should map to a given RP
                         	**type**\: str
                         
                         	**length:** 1..64
@@ -571,7 +601,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
 
                             self.yang_name = "sparse-mode-rp-address"
                             self.yang_parent_name = "sparse-mode-rp-addresses"
@@ -593,10 +626,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses']['meta_info']
 
 
-
-                class InheritableDefaults(Entity):
+                class InheritableDefaults(_Entity_):
                     """
                     Inheritable defaults
                     
@@ -669,7 +710,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, self).__init__()
 
                         self.yang_name = "inheritable-defaults"
                         self.yang_parent_name = "ipv4"
@@ -699,9 +743,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.InheritableDefaults']['meta_info']
 
 
-                class Rpf(Entity):
+                class Rpf(_Entity_):
                     """
                     Configure RPF options
                     
@@ -720,7 +768,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Rpf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Rpf, self).__init__()
 
                         self.yang_name = "rpf"
                         self.yang_parent_name = "ipv4"
@@ -738,9 +789,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Rpf, ['route_policy'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Rpf']['meta_info']
 
 
-                class Maximum(Entity):
+                class Maximum(_Entity_):
                     """
                     Configure PIM State Limits
                     
@@ -794,7 +849,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Maximum, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Maximum, self).__init__()
 
                         self.yang_name = "maximum"
                         self.yang_parent_name = "ipv4"
@@ -828,7 +886,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum, [], name, value)
 
 
-                    class GroupMappingsAutoRp(Entity):
+                    class GroupMappingsAutoRp(_Entity_):
                         """
                         Override default maximum for number of group
                         mappings from autorp mapping agent
@@ -861,7 +919,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
 
                             self.yang_name = "group-mappings-auto-rp"
                             self.yang_parent_name = "maximum"
@@ -882,9 +943,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp']['meta_info']
 
 
-                    class BsrGroupMappings(Entity):
+                    class BsrGroupMappings(_Entity_):
                         """
                         Override default maximum and threshold for
                         number of group mappings from BSR
@@ -917,7 +982,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, self).__init__()
 
                             self.yang_name = "bsr-group-mappings"
                             self.yang_parent_name = "maximum"
@@ -938,9 +1006,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings']['meta_info']
 
 
-                    class RegisterStates(Entity):
+                    class RegisterStates(_Entity_):
                         """
                         Override default maximum for number of
                         sparse\-mode source registers
@@ -973,7 +1045,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, self).__init__()
 
                             self.yang_name = "register-states"
                             self.yang_parent_name = "maximum"
@@ -994,9 +1069,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates']['meta_info']
 
 
-                    class RouteInterfaces(Entity):
+                    class RouteInterfaces(_Entity_):
                         """
                         Override default maximum for number of
                         route\-interfaces
@@ -1029,7 +1108,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, self).__init__()
 
                             self.yang_name = "route-interfaces"
                             self.yang_parent_name = "maximum"
@@ -1050,9 +1132,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces']['meta_info']
 
 
-                    class BsrCandidateRpCache(Entity):
+                    class BsrCandidateRpCache(_Entity_):
                         """
                         Override default maximum and threshold for BSR
                         C\-RP cache setting
@@ -1085,7 +1171,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
 
                             self.yang_name = "bsr-candidate-rp-cache"
                             self.yang_parent_name = "maximum"
@@ -1106,9 +1195,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache']['meta_info']
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         Override default maximum for number of routes
                         
@@ -1140,7 +1233,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "maximum"
@@ -1161,10 +1257,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum.Routes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Maximum']['meta_info']
 
 
-
-                class SgExpiryTimer(Entity):
+                class SgExpiryTimer(_Entity_):
                     """
                     Configure expiry timer for S,G routes
                     
@@ -1192,7 +1296,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, self).__init__()
 
                         self.yang_name = "sg-expiry-timer"
                         self.yang_parent_name = "ipv4"
@@ -1212,9 +1319,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer']['meta_info']
 
 
-                class RpfVectorEnable(Entity):
+                class RpfVectorEnable(_Entity_):
                     """
                     Enable PIM RPF Vector Proxy's
                     
@@ -1250,7 +1361,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, self).__init__()
 
                         self.yang_name = "rpf-vector-enable"
                         self.yang_parent_name = "ipv4"
@@ -1275,9 +1389,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable']['meta_info']
 
 
-                class Ssm(Entity):
+                class Ssm(_Entity_):
                     """
                     Configure IP Multicast SSM
                     
@@ -1303,7 +1421,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Ssm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Ssm, self).__init__()
 
                         self.yang_name = "ssm"
                         self.yang_parent_name = "ipv4"
@@ -1323,9 +1444,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Ssm, ['disable', 'range'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Ssm']['meta_info']
 
 
-                class Injects(Entity):
+                class Injects(_Entity_):
                     """
                     Inject Explicit PIM RPF Vector Proxy's
                     
@@ -1342,7 +1467,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Injects, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Injects, self).__init__()
 
                         self.yang_name = "injects"
                         self.yang_parent_name = "ipv4"
@@ -1360,7 +1488,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects, [], name, value)
 
 
-                    class Inject(Entity):
+                    class Inject(_Entity_):
                         """
                         Inject Explicit PIM RPF Vector Proxy's
                         
@@ -1393,7 +1521,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, self).__init__()
 
                             self.yang_name = "inject"
                             self.yang_parent_name = "injects"
@@ -1415,10 +1546,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Injects.Inject']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Injects']['meta_info']
 
 
-
-                class BidirRpAddresses(Entity):
+                class BidirRpAddresses(_Entity_):
                     """
                     Configure Bidirectional PIM Rendezvous Point
                     
@@ -1435,7 +1574,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, self).__init__()
 
                         self.yang_name = "bidir-rp-addresses"
                         self.yang_parent_name = "ipv4"
@@ -1453,7 +1595,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, [], name, value)
 
 
-                    class BidirRpAddress(Entity):
+                    class BidirRpAddress(_Entity_):
                         """
                         Address of the Rendezvous Point
                         
@@ -1490,7 +1632,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
 
                             self.yang_name = "bidir-rp-address"
                             self.yang_parent_name = "bidir-rp-addresses"
@@ -1512,10 +1657,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses']['meta_info']
 
 
-
-                class Bsr(Entity):
+                class Bsr(_Entity_):
                     """
                     PIM BSR configuration
                     
@@ -1539,7 +1692,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Bsr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Bsr, self).__init__()
 
                         self.yang_name = "bsr"
                         self.yang_parent_name = "ipv4"
@@ -1562,7 +1718,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr, [], name, value)
 
 
-                    class CandidateBsr(Entity):
+                    class CandidateBsr(_Entity_):
                         """
                         PIM Candidate BSR configuration
                         
@@ -1609,7 +1765,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, self).__init__()
 
                             self.yang_name = "candidate-bsr"
                             self.yang_parent_name = "bsr"
@@ -1632,9 +1791,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr']['meta_info']
 
 
-                    class CandidateRps(Entity):
+                    class CandidateRps(_Entity_):
                         """
                         PIM RP configuration
                         
@@ -1651,7 +1814,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, self).__init__()
 
                             self.yang_name = "candidate-rps"
                             self.yang_parent_name = "bsr"
@@ -1669,7 +1835,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, [], name, value)
 
 
-                        class CandidateRp(Entity):
+                        class CandidateRp(_Entity_):
                             """
                             Address of PIM SM BSR Candidate\-RP
                             
@@ -1724,7 +1890,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
 
                                 self.yang_name = "candidate-rp"
                                 self.yang_parent_name = "candidate-rps"
@@ -1750,11 +1919,23 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Bsr']['meta_info']
 
 
-
-
-                class Mofrr(Entity):
+                class Mofrr(_Entity_):
                     """
                     Multicast Only Fast Re\-Route
                     
@@ -1800,7 +1981,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Mofrr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr, self).__init__()
 
                         self.yang_name = "mofrr"
                         self.yang_parent_name = "ipv4"
@@ -1833,7 +2017,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
 
 
-                    class CloneJoins(Entity):
+                    class CloneJoins(_Entity_):
                         """
                         Clone multicast joins
                         
@@ -1850,7 +2034,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, self).__init__()
 
                             self.yang_name = "clone-joins"
                             self.yang_parent_name = "mofrr"
@@ -1868,7 +2055,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, [], name, value)
 
 
-                        class CloneJoin(Entity):
+                        class CloneJoin(_Entity_):
                             """
                             Clone S,G joins as S1,G joins and S2,G joins
                             
@@ -1908,7 +2095,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
 
                                 self.yang_name = "clone-join"
                                 self.yang_parent_name = "clone-joins"
@@ -1932,10 +2122,18 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins']['meta_info']
 
 
-
-                    class CloneSources(Entity):
+                    class CloneSources(_Entity_):
                         """
                         Clone multicast traffic
                         
@@ -1952,7 +2150,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, self).__init__()
 
                             self.yang_name = "clone-sources"
                             self.yang_parent_name = "mofrr"
@@ -1970,7 +2171,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, [], name, value)
 
 
-                        class CloneSource(Entity):
+                        class CloneSource(_Entity_):
                             """
                             Clone S,G traffic as S1,G traffic and S2,G
                             traffic
@@ -2011,7 +2212,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
 
                                 self.yang_name = "clone-source"
                                 self.yang_parent_name = "clone-sources"
@@ -2035,11 +2239,23 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Mofrr']['meta_info']
 
 
-
-
-                class Paths(Entity):
+                class Paths(_Entity_):
                     """
                     Inject PIM RPF Vector Proxy's
                     
@@ -2056,7 +2272,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Paths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Paths, self).__init__()
 
                         self.yang_name = "paths"
                         self.yang_parent_name = "ipv4"
@@ -2074,7 +2293,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths, [], name, value)
 
 
-                    class Path(Entity):
+                    class Path(_Entity_):
                         """
                         Inject PIM RPF Vector Proxy's
                         
@@ -2107,7 +2326,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Paths.Path, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Paths.Path, self).__init__()
 
                             self.yang_name = "path"
                             self.yang_parent_name = "paths"
@@ -2129,10 +2351,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Paths.Path']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Paths']['meta_info']
 
 
-
-                class AllowRp(Entity):
+                class AllowRp(_Entity_):
                     """
                     Enable allow\-rp filtering for SM joins
                     
@@ -2160,7 +2390,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.AllowRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.AllowRp, self).__init__()
 
                         self.yang_name = "allow-rp"
                         self.yang_parent_name = "ipv4"
@@ -2181,9 +2414,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.AllowRp']['meta_info']
 
 
-                class Convergence(Entity):
+                class Convergence(_Entity_):
                     """
                     Configure convergence parameters
                     
@@ -2213,7 +2450,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Convergence, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Convergence, self).__init__()
 
                         self.yang_name = "convergence"
                         self.yang_parent_name = "ipv4"
@@ -2233,9 +2473,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Convergence']['meta_info']
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Interface\-level Configuration
                     
@@ -2252,7 +2496,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "ipv4"
@@ -2270,7 +2517,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         The name of the interface
                         
@@ -2375,7 +2622,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -2421,7 +2671,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
 
 
-                        class MaximumRoutes(Entity):
+                        class MaximumRoutes(_Entity_):
                             """
                             Maximum number of allowed routes for this
                             interface
@@ -2459,7 +2709,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
 
                                 self.yang_name = "maximum-routes"
                                 self.yang_parent_name = "interface"
@@ -2482,9 +2735,13 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes']['meta_info']
 
 
-                        class Bfd(Entity):
+                        class Bfd(_Entity_):
                             """
                             BFD configuration
                             
@@ -2517,7 +2774,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, self).__init__()
 
                                 self.yang_name = "bfd"
                                 self.yang_parent_name = "interface"
@@ -2539,12 +2799,28 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv4.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.Vrfs.Vrf.Ipv4']['meta_info']
 
 
-
-
-
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 IPV6 commands
                 
@@ -2703,7 +2979,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.Vrfs.Vrf.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.Vrfs.Vrf.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "vrf"
@@ -2798,7 +3077,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.Vrfs.Vrf.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
 
 
-                class SparseModeRpAddresses(Entity):
+                class SparseModeRpAddresses(_Entity_):
                     """
                     Configure Sparse\-Mode Rendezvous Point
                     
@@ -2815,7 +3094,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, self).__init__()
 
                         self.yang_name = "sparse-mode-rp-addresses"
                         self.yang_parent_name = "ipv6"
@@ -2833,7 +3115,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, [], name, value)
 
 
-                    class SparseModeRpAddress(Entity):
+                    class SparseModeRpAddress(_Entity_):
                         """
                         Address of the Rendezvous Point
                         
@@ -2852,7 +3134,7 @@ class Pim(Entity):
                         
                         .. attribute:: access_list_name
                         
-                        	Access list of groups that should map to a  given RP
+                        	Access list of groups that should map to a given RP
                         	**type**\: str
                         
                         	**length:** 1..64
@@ -2870,7 +3152,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
 
                             self.yang_name = "sparse-mode-rp-address"
                             self.yang_parent_name = "sparse-mode-rp-addresses"
@@ -2892,10 +3177,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses']['meta_info']
 
 
-
-                class InheritableDefaults(Entity):
+                class InheritableDefaults(_Entity_):
                     """
                     Inheritable defaults
                     
@@ -2968,7 +3261,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, self).__init__()
 
                         self.yang_name = "inheritable-defaults"
                         self.yang_parent_name = "ipv6"
@@ -2998,9 +3294,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.InheritableDefaults']['meta_info']
 
 
-                class Rpf(Entity):
+                class Rpf(_Entity_):
                     """
                     Configure RPF options
                     
@@ -3019,7 +3319,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Rpf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Rpf, self).__init__()
 
                         self.yang_name = "rpf"
                         self.yang_parent_name = "ipv6"
@@ -3037,9 +3340,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Rpf, ['route_policy'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Rpf']['meta_info']
 
 
-                class Maximum(Entity):
+                class Maximum(_Entity_):
                     """
                     Configure PIM State Limits
                     
@@ -3093,7 +3400,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Maximum, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Maximum, self).__init__()
 
                         self.yang_name = "maximum"
                         self.yang_parent_name = "ipv6"
@@ -3127,7 +3437,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum, [], name, value)
 
 
-                    class GroupMappingsAutoRp(Entity):
+                    class GroupMappingsAutoRp(_Entity_):
                         """
                         Override default maximum for number of group
                         mappings from autorp mapping agent
@@ -3160,7 +3470,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
 
                             self.yang_name = "group-mappings-auto-rp"
                             self.yang_parent_name = "maximum"
@@ -3181,9 +3494,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp']['meta_info']
 
 
-                    class BsrGroupMappings(Entity):
+                    class BsrGroupMappings(_Entity_):
                         """
                         Override default maximum and threshold for
                         number of group mappings from BSR
@@ -3216,7 +3533,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, self).__init__()
 
                             self.yang_name = "bsr-group-mappings"
                             self.yang_parent_name = "maximum"
@@ -3237,9 +3557,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings']['meta_info']
 
 
-                    class RegisterStates(Entity):
+                    class RegisterStates(_Entity_):
                         """
                         Override default maximum for number of
                         sparse\-mode source registers
@@ -3272,7 +3596,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, self).__init__()
 
                             self.yang_name = "register-states"
                             self.yang_parent_name = "maximum"
@@ -3293,9 +3620,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates']['meta_info']
 
 
-                    class RouteInterfaces(Entity):
+                    class RouteInterfaces(_Entity_):
                         """
                         Override default maximum for number of
                         route\-interfaces
@@ -3328,7 +3659,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, self).__init__()
 
                             self.yang_name = "route-interfaces"
                             self.yang_parent_name = "maximum"
@@ -3349,9 +3683,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces']['meta_info']
 
 
-                    class BsrCandidateRpCache(Entity):
+                    class BsrCandidateRpCache(_Entity_):
                         """
                         Override default maximum and threshold for BSR
                         C\-RP cache setting
@@ -3384,7 +3722,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
 
                             self.yang_name = "bsr-candidate-rp-cache"
                             self.yang_parent_name = "maximum"
@@ -3405,9 +3746,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache']['meta_info']
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         Override default maximum for number of routes
                         
@@ -3439,7 +3784,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "maximum"
@@ -3460,10 +3808,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum.Routes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Maximum']['meta_info']
 
 
-
-                class SgExpiryTimer(Entity):
+                class SgExpiryTimer(_Entity_):
                     """
                     Configure expiry timer for S,G routes
                     
@@ -3491,7 +3847,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, self).__init__()
 
                         self.yang_name = "sg-expiry-timer"
                         self.yang_parent_name = "ipv6"
@@ -3511,9 +3870,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer']['meta_info']
 
 
-                class RpfVectorEnable(Entity):
+                class RpfVectorEnable(_Entity_):
                     """
                     Enable PIM RPF Vector Proxy's
                     
@@ -3549,7 +3912,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, self).__init__()
 
                         self.yang_name = "rpf-vector-enable"
                         self.yang_parent_name = "ipv6"
@@ -3574,9 +3940,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable']['meta_info']
 
 
-                class Ssm(Entity):
+                class Ssm(_Entity_):
                     """
                     Configure IP Multicast SSM
                     
@@ -3602,7 +3972,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Ssm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Ssm, self).__init__()
 
                         self.yang_name = "ssm"
                         self.yang_parent_name = "ipv6"
@@ -3622,9 +3995,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Ssm, ['disable', 'range'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Ssm']['meta_info']
 
 
-                class BidirRpAddresses(Entity):
+                class BidirRpAddresses(_Entity_):
                     """
                     Configure Bidirectional PIM Rendezvous Point
                     
@@ -3641,7 +4018,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, self).__init__()
 
                         self.yang_name = "bidir-rp-addresses"
                         self.yang_parent_name = "ipv6"
@@ -3659,7 +4039,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, [], name, value)
 
 
-                    class BidirRpAddress(Entity):
+                    class BidirRpAddress(_Entity_):
                         """
                         Address of the Rendezvous Point
                         
@@ -3696,7 +4076,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
 
                             self.yang_name = "bidir-rp-address"
                             self.yang_parent_name = "bidir-rp-addresses"
@@ -3718,10 +4101,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses']['meta_info']
 
 
-
-                class Bsr(Entity):
+                class Bsr(_Entity_):
                     """
                     PIM BSR configuration
                     
@@ -3745,7 +4136,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Bsr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Bsr, self).__init__()
 
                         self.yang_name = "bsr"
                         self.yang_parent_name = "ipv6"
@@ -3768,7 +4162,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr, [], name, value)
 
 
-                    class CandidateBsr(Entity):
+                    class CandidateBsr(_Entity_):
                         """
                         PIM Candidate BSR configuration
                         
@@ -3809,7 +4203,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, self).__init__()
 
                             self.yang_name = "candidate-bsr"
                             self.yang_parent_name = "bsr"
@@ -3832,9 +4229,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr']['meta_info']
 
 
-                    class CandidateRps(Entity):
+                    class CandidateRps(_Entity_):
                         """
                         PIM RP configuration
                         
@@ -3851,7 +4252,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, self).__init__()
 
                             self.yang_name = "candidate-rps"
                             self.yang_parent_name = "bsr"
@@ -3869,7 +4273,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, [], name, value)
 
 
-                        class CandidateRp(Entity):
+                        class CandidateRp(_Entity_):
                             """
                             Address of PIM SM BSR Candidate\-RP
                             
@@ -3924,7 +4328,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
 
                                 self.yang_name = "candidate-rp"
                                 self.yang_parent_name = "candidate-rps"
@@ -3950,11 +4357,23 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Bsr']['meta_info']
 
 
-
-
-                class AllowRp(Entity):
+                class AllowRp(_Entity_):
                     """
                     Enable allow\-rp filtering for SM joins
                     
@@ -3982,7 +4401,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.AllowRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.AllowRp, self).__init__()
 
                         self.yang_name = "allow-rp"
                         self.yang_parent_name = "ipv6"
@@ -4003,9 +4425,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.AllowRp']['meta_info']
 
 
-                class EmbeddedRpAddresses(Entity):
+                class EmbeddedRpAddresses(_Entity_):
                     """
                     Set Embedded RP processing support
                     
@@ -4022,7 +4448,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, self).__init__()
 
                         self.yang_name = "embedded-rp-addresses"
                         self.yang_parent_name = "ipv6"
@@ -4040,7 +4469,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, [], name, value)
 
 
-                    class EmbeddedRpAddress(Entity):
+                    class EmbeddedRpAddress(_Entity_):
                         """
                         Set Embedded RP processing support
                         
@@ -4074,7 +4503,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
 
                             self.yang_name = "embedded-rp-address"
                             self.yang_parent_name = "embedded-rp-addresses"
@@ -4094,10 +4526,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses']['meta_info']
 
 
-
-                class Convergence(Entity):
+                class Convergence(_Entity_):
                     """
                     Configure convergence parameters
                     
@@ -4127,7 +4567,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Convergence, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Convergence, self).__init__()
 
                         self.yang_name = "convergence"
                         self.yang_parent_name = "ipv6"
@@ -4147,9 +4590,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Convergence']['meta_info']
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Interface\-level Configuration
                     
@@ -4166,7 +4613,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "ipv6"
@@ -4184,7 +4634,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         The name of the interface
                         
@@ -4289,7 +4739,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -4335,7 +4788,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
 
 
-                        class MaximumRoutes(Entity):
+                        class MaximumRoutes(_Entity_):
                             """
                             Maximum number of allowed routes for this
                             interface
@@ -4373,7 +4826,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
 
                                 self.yang_name = "maximum-routes"
                                 self.yang_parent_name = "interface"
@@ -4396,9 +4852,13 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes']['meta_info']
 
 
-                        class Bfd(Entity):
+                        class Bfd(_Entity_):
                             """
                             BFD configuration
                             
@@ -4431,7 +4891,10 @@ class Pim(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, self).__init__()
 
                                 self.yang_name = "bfd"
                                 self.yang_parent_name = "interface"
@@ -4453,14 +4916,38 @@ class Pim(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                                return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.Vrfs.Vrf.Ipv6.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.Vrfs.Vrf.Ipv6']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                return meta._meta_table['Pim.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+            return meta._meta_table['Pim.Vrfs']['meta_info']
 
 
-
-
-
-
-
-    class DefaultContext(Entity):
+    class DefaultContext(_Entity_):
         """
         Default Context
         
@@ -4482,7 +4969,10 @@ class Pim(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Pim.DefaultContext, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pim.DefaultContext, self).__init__()
 
             self.yang_name = "default-context"
             self.yang_parent_name = "pim"
@@ -4507,7 +4997,7 @@ class Pim(Entity):
             self._perform_setattr(Pim.DefaultContext, [], name, value)
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             IPV6 commands
             
@@ -4671,7 +5161,10 @@ class Pim(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Pim.DefaultContext.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pim.DefaultContext.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "default-context"
@@ -4771,7 +5264,7 @@ class Pim(Entity):
                 self._perform_setattr(Pim.DefaultContext.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface\-level Configuration
                 
@@ -4788,7 +5281,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "ipv6"
@@ -4807,7 +5303,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     The name of the interface
                     
@@ -4912,7 +5408,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -4959,7 +5458,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
 
 
-                    class MaximumRoutes(Entity):
+                    class MaximumRoutes(_Entity_):
                         """
                         Maximum number of allowed routes for this
                         interface
@@ -4997,7 +5496,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, self).__init__()
 
                             self.yang_name = "maximum-routes"
                             self.yang_parent_name = "interface"
@@ -5020,9 +5522,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes']['meta_info']
 
 
-                    class Bfd(Entity):
+                    class Bfd(_Entity_):
                         """
                         BFD configuration
                         
@@ -5055,7 +5561,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, self).__init__()
 
                             self.yang_name = "bfd"
                             self.yang_parent_name = "interface"
@@ -5077,11 +5586,23 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Interfaces']['meta_info']
 
 
-
-
-            class SparseModeRpAddresses(Entity):
+            class SparseModeRpAddresses(_Entity_):
                 """
                 Configure Sparse\-Mode Rendezvous Point
                 
@@ -5098,7 +5619,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, self).__init__()
 
                     self.yang_name = "sparse-mode-rp-addresses"
                     self.yang_parent_name = "ipv6"
@@ -5117,7 +5641,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, [], name, value)
 
 
-                class SparseModeRpAddress(Entity):
+                class SparseModeRpAddress(_Entity_):
                     """
                     Address of the Rendezvous Point
                     
@@ -5136,7 +5660,7 @@ class Pim(Entity):
                     
                     .. attribute:: access_list_name
                     
-                    	Access list of groups that should map to a  given RP
+                    	Access list of groups that should map to a given RP
                     	**type**\: str
                     
                     	**length:** 1..64
@@ -5154,7 +5678,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
 
                         self.yang_name = "sparse-mode-rp-address"
                         self.yang_parent_name = "sparse-mode-rp-addresses"
@@ -5177,10 +5704,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.SparseModeRpAddresses']['meta_info']
 
 
-
-            class InheritableDefaults(Entity):
+            class InheritableDefaults(_Entity_):
                 """
                 Inheritable defaults
                 
@@ -5253,7 +5788,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.InheritableDefaults, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.InheritableDefaults, self).__init__()
 
                     self.yang_name = "inheritable-defaults"
                     self.yang_parent_name = "ipv6"
@@ -5284,9 +5822,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.InheritableDefaults']['meta_info']
 
 
-            class Rpf(Entity):
+            class Rpf(_Entity_):
                 """
                 Configure RPF options
                 
@@ -5305,7 +5847,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Rpf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Rpf, self).__init__()
 
                     self.yang_name = "rpf"
                     self.yang_parent_name = "ipv6"
@@ -5324,9 +5869,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Rpf, ['route_policy'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Rpf']['meta_info']
 
 
-            class SgExpiryTimer(Entity):
+            class SgExpiryTimer(_Entity_):
                 """
                 Configure expiry timer for S,G routes
                 
@@ -5354,7 +5903,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.SgExpiryTimer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.SgExpiryTimer, self).__init__()
 
                     self.yang_name = "sg-expiry-timer"
                     self.yang_parent_name = "ipv6"
@@ -5375,9 +5927,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.SgExpiryTimer']['meta_info']
 
 
-            class RpfVectorEnable(Entity):
+            class RpfVectorEnable(_Entity_):
                 """
                 Enable PIM RPF Vector Proxy's
                 
@@ -5413,7 +5969,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.RpfVectorEnable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.RpfVectorEnable, self).__init__()
 
                     self.yang_name = "rpf-vector-enable"
                     self.yang_parent_name = "ipv6"
@@ -5439,9 +5998,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.RpfVectorEnable']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 Configure Non\-stop forwarding (NSF) options
                 
@@ -5462,7 +6025,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "ipv6"
@@ -5481,9 +6047,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Nsf, ['lifetime'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Nsf']['meta_info']
 
 
-            class Maximum(Entity):
+            class Maximum(_Entity_):
                 """
                 Configure PIM State Limits
                 
@@ -5597,7 +6167,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Maximum, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Maximum, self).__init__()
 
                     self.yang_name = "maximum"
                     self.yang_parent_name = "ipv6"
@@ -5655,7 +6228,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
 
 
-                class BsrGlobalGroupMappings(Entity):
+                class BsrGlobalGroupMappings(_Entity_):
                     """
                     Override default global maximum and threshold
                     for PIM group mapping ranges from BSR
@@ -5688,7 +6261,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, self).__init__()
 
                         self.yang_name = "bsr-global-group-mappings"
                         self.yang_parent_name = "maximum"
@@ -5710,9 +6286,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings']['meta_info']
 
 
-                class GlobalRoutes(Entity):
+                class GlobalRoutes(_Entity_):
                     """
                     Override default maximum for number of routes
                     
@@ -5744,7 +6324,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, self).__init__()
 
                         self.yang_name = "global-routes"
                         self.yang_parent_name = "maximum"
@@ -5766,9 +6349,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes']['meta_info']
 
 
-                class GlobalGroupMappingsAutoRp(Entity):
+                class GlobalGroupMappingsAutoRp(_Entity_):
                     """
                     Maximum for number of group mappings from
                     autorp mapping agent
@@ -5801,7 +6388,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
 
                         self.yang_name = "global-group-mappings-auto-rp"
                         self.yang_parent_name = "maximum"
@@ -5823,9 +6413,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp']['meta_info']
 
 
-                class BsrGlobalCandidateRpCache(Entity):
+                class BsrGlobalCandidateRpCache(_Entity_):
                     """
                     Override default global maximum and threshold
                     for C\-RP set in BSR
@@ -5858,7 +6452,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, self).__init__()
 
                         self.yang_name = "bsr-global-candidate-rp-cache"
                         self.yang_parent_name = "maximum"
@@ -5880,9 +6477,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache']['meta_info']
 
 
-                class GlobalRegisterStates(Entity):
+                class GlobalRegisterStates(_Entity_):
                     """
                     Override default maximum for number of
                     sparse\-mode source registers
@@ -5915,7 +6516,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, self).__init__()
 
                         self.yang_name = "global-register-states"
                         self.yang_parent_name = "maximum"
@@ -5937,9 +6541,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates']['meta_info']
 
 
-                class GlobalRouteInterfaces(Entity):
+                class GlobalRouteInterfaces(_Entity_):
                     """
                     Override default maximum for number of
                     route\-interfaces
@@ -5972,7 +6580,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, self).__init__()
 
                         self.yang_name = "global-route-interfaces"
                         self.yang_parent_name = "maximum"
@@ -5994,9 +6605,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces']['meta_info']
 
 
-                class GroupMappingsAutoRp(Entity):
+                class GroupMappingsAutoRp(_Entity_):
                     """
                     Override default maximum for number of group
                     mappings from autorp mapping agent
@@ -6029,7 +6644,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, self).__init__()
 
                         self.yang_name = "group-mappings-auto-rp"
                         self.yang_parent_name = "maximum"
@@ -6051,9 +6669,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp']['meta_info']
 
 
-                class BsrGroupMappings(Entity):
+                class BsrGroupMappings(_Entity_):
                     """
                     Override default maximum and threshold for
                     number of group mappings from BSR
@@ -6086,7 +6708,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, self).__init__()
 
                         self.yang_name = "bsr-group-mappings"
                         self.yang_parent_name = "maximum"
@@ -6108,9 +6733,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings']['meta_info']
 
 
-                class RegisterStates(Entity):
+                class RegisterStates(_Entity_):
                     """
                     Override default maximum for number of
                     sparse\-mode source registers
@@ -6143,7 +6772,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, self).__init__()
 
                         self.yang_name = "register-states"
                         self.yang_parent_name = "maximum"
@@ -6165,9 +6797,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.RegisterStates']['meta_info']
 
 
-                class RouteInterfaces(Entity):
+                class RouteInterfaces(_Entity_):
                     """
                     Override default maximum for number of
                     route\-interfaces
@@ -6200,7 +6836,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, self).__init__()
 
                         self.yang_name = "route-interfaces"
                         self.yang_parent_name = "maximum"
@@ -6222,9 +6861,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces']['meta_info']
 
 
-                class BsrCandidateRpCache(Entity):
+                class BsrCandidateRpCache(_Entity_):
                     """
                     Override default maximum and threshold for BSR
                     C\-RP cache setting
@@ -6257,7 +6900,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, self).__init__()
 
                         self.yang_name = "bsr-candidate-rp-cache"
                         self.yang_parent_name = "maximum"
@@ -6279,9 +6925,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache']['meta_info']
 
 
-                class Routes(Entity):
+                class Routes(_Entity_):
                     """
                     Override default maximum for number of routes
                     
@@ -6313,7 +6963,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Maximum.Routes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Maximum.Routes, self).__init__()
 
                         self.yang_name = "routes"
                         self.yang_parent_name = "maximum"
@@ -6335,10 +6988,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum.Routes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Maximum']['meta_info']
 
 
-
-            class Ssm(Entity):
+            class Ssm(_Entity_):
                 """
                 Configure IP Multicast SSM
                 
@@ -6364,7 +7025,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Ssm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Ssm, self).__init__()
 
                     self.yang_name = "ssm"
                     self.yang_parent_name = "ipv6"
@@ -6385,9 +7049,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Ssm, ['disable', 'range'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Ssm']['meta_info']
 
 
-            class BidirRpAddresses(Entity):
+            class BidirRpAddresses(_Entity_):
                 """
                 Configure Bidirectional PIM Rendezvous Point
                 
@@ -6404,7 +7072,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.BidirRpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.BidirRpAddresses, self).__init__()
 
                     self.yang_name = "bidir-rp-addresses"
                     self.yang_parent_name = "ipv6"
@@ -6423,7 +7094,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses, [], name, value)
 
 
-                class BidirRpAddress(Entity):
+                class BidirRpAddress(_Entity_):
                     """
                     Address of the Rendezvous Point
                     
@@ -6460,7 +7131,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, self).__init__()
 
                         self.yang_name = "bidir-rp-address"
                         self.yang_parent_name = "bidir-rp-addresses"
@@ -6483,10 +7157,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.BidirRpAddresses']['meta_info']
 
 
-
-            class Bsr(Entity):
+            class Bsr(_Entity_):
                 """
                 PIM BSR configuration
                 
@@ -6510,7 +7192,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Bsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Bsr, self).__init__()
 
                     self.yang_name = "bsr"
                     self.yang_parent_name = "ipv6"
@@ -6534,7 +7219,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr, [], name, value)
 
 
-                class CandidateBsr(Entity):
+                class CandidateBsr(_Entity_):
                     """
                     PIM Candidate BSR configuration
                     
@@ -6575,7 +7260,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, self).__init__()
 
                         self.yang_name = "candidate-bsr"
                         self.yang_parent_name = "bsr"
@@ -6599,9 +7287,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Bsr.CandidateBsr']['meta_info']
 
 
-                class CandidateRps(Entity):
+                class CandidateRps(_Entity_):
                     """
                     PIM RP configuration
                     
@@ -6618,7 +7310,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, self).__init__()
 
                         self.yang_name = "candidate-rps"
                         self.yang_parent_name = "bsr"
@@ -6637,7 +7332,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, [], name, value)
 
 
-                    class CandidateRp(Entity):
+                    class CandidateRp(_Entity_):
                         """
                         Address of PIM SM BSR Candidate\-RP
                         
@@ -6692,7 +7387,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, self).__init__()
 
                             self.yang_name = "candidate-rp"
                             self.yang_parent_name = "candidate-rps"
@@ -6719,11 +7417,23 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.Bsr.CandidateRps']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Bsr']['meta_info']
 
 
-
-
-            class AllowRp(Entity):
+            class AllowRp(_Entity_):
                 """
                 Enable allow\-rp filtering for SM joins
                 
@@ -6751,7 +7461,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.AllowRp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.AllowRp, self).__init__()
 
                     self.yang_name = "allow-rp"
                     self.yang_parent_name = "ipv6"
@@ -6773,9 +7486,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.AllowRp']['meta_info']
 
 
-            class EmbeddedRpAddresses(Entity):
+            class EmbeddedRpAddresses(_Entity_):
                 """
                 Set Embedded RP processing support
                 
@@ -6792,7 +7509,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, self).__init__()
 
                     self.yang_name = "embedded-rp-addresses"
                     self.yang_parent_name = "ipv6"
@@ -6811,7 +7531,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, [], name, value)
 
 
-                class EmbeddedRpAddress(Entity):
+                class EmbeddedRpAddress(_Entity_):
                     """
                     Set Embedded RP processing support
                     
@@ -6845,7 +7565,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, self).__init__()
 
                         self.yang_name = "embedded-rp-address"
                         self.yang_parent_name = "embedded-rp-addresses"
@@ -6866,10 +7589,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.EmbeddedRpAddresses']['meta_info']
 
 
-
-            class Convergence(Entity):
+            class Convergence(_Entity_):
                 """
                 Configure convergence parameters
                 
@@ -6899,7 +7630,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv6.Convergence, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv6.Convergence, self).__init__()
 
                     self.yang_name = "convergence"
                     self.yang_parent_name = "ipv6"
@@ -6920,10 +7654,18 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv6.Convergence']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                return meta._meta_table['Pim.DefaultContext.Ipv6']['meta_info']
 
 
-
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             IPV4 commands
             
@@ -7112,7 +7854,10 @@ class Pim(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Pim.DefaultContext.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pim.DefaultContext.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "default-context"
@@ -7232,7 +7977,7 @@ class Pim(Entity):
                 self._perform_setattr(Pim.DefaultContext.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
 
 
-            class RpfRedirect(Entity):
+            class RpfRedirect(_Entity_):
                 """
                 Configure RPF\-redirect feature
                 
@@ -7251,7 +7996,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.RpfRedirect, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.RpfRedirect, self).__init__()
 
                     self.yang_name = "rpf-redirect"
                     self.yang_parent_name = "ipv4"
@@ -7270,9 +8018,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.RpfRedirect, ['route_policy'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.RpfRedirect']['meta_info']
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface\-level Configuration
                 
@@ -7289,7 +8041,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "ipv4"
@@ -7308,7 +8063,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     The name of the interface
                     
@@ -7418,7 +8173,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -7469,7 +8227,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
 
 
-                    class RedirectBundle(Entity):
+                    class RedirectBundle(_Entity_):
                         """
                         Configure RPF\-redirect bundle for interface.
                         Applicable for IPv4 only
@@ -7507,7 +8265,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, self).__init__()
 
                             self.yang_name = "redirect-bundle"
                             self.yang_parent_name = "interface"
@@ -7529,9 +8290,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, ['bundle_name', 'interface_bandwidth', 'threshold_bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle']['meta_info']
 
 
-                    class MaximumRoutes(Entity):
+                    class MaximumRoutes(_Entity_):
                         """
                         Maximum number of allowed routes for this
                         interface
@@ -7569,7 +8334,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, self).__init__()
 
                             self.yang_name = "maximum-routes"
                             self.yang_parent_name = "interface"
@@ -7592,9 +8360,13 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes']['meta_info']
 
 
-                    class Bfd(Entity):
+                    class Bfd(_Entity_):
                         """
                         BFD configuration
                         
@@ -7627,7 +8399,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, self).__init__()
 
                             self.yang_name = "bfd"
                             self.yang_parent_name = "interface"
@@ -7649,11 +8424,23 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Interfaces']['meta_info']
 
 
-
-
-            class AutoRpCandidateRps(Entity):
+            class AutoRpCandidateRps(_Entity_):
                 """
                 Configure Candidate\-RPs
                 
@@ -7670,7 +8457,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, self).__init__()
 
                     self.yang_name = "auto-rp-candidate-rps"
                     self.yang_parent_name = "ipv4"
@@ -7689,7 +8479,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, [], name, value)
 
 
-                class AutoRpCandidateRp(Entity):
+                class AutoRpCandidateRp(_Entity_):
                     """
                     Specifications for a Candidate\-RP
                     
@@ -7742,7 +8532,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, self).__init__()
 
                         self.yang_name = "auto-rp-candidate-rp"
                         self.yang_parent_name = "auto-rp-candidate-rps"
@@ -7769,10 +8562,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, ['interface_name', 'protocol_mode', 'ttl', 'access_list_name', 'announce_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.AutoRpCandidateRps']['meta_info']
 
 
-
-            class AutoRpMappingAgent(Entity):
+            class AutoRpMappingAgent(_Entity_):
                 """
                 Configure AutoRP Mapping Agent
                 
@@ -7798,7 +8599,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, self).__init__()
 
                     self.yang_name = "auto-rp-mapping-agent"
                     self.yang_parent_name = "ipv4"
@@ -7821,7 +8625,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, [], name, value)
 
 
-                class Parameters(Entity):
+                class Parameters(_Entity_):
                     """
                     Specifications for Mapping Agent configured
                     on this box
@@ -7865,7 +8669,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, self).__init__()
 
                         self.yang_name = "parameters"
                         self.yang_parent_name = "auto-rp-mapping-agent"
@@ -7889,9 +8696,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, ['interface_name', 'ttl', 'announce_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters']['meta_info']
 
 
-                class CacheLimit(Entity):
+                class CacheLimit(_Entity_):
                     """
                     Mapping Agent cache size limit
                     
@@ -7923,7 +8734,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, self).__init__()
 
                         self.yang_name = "cache-limit"
                         self.yang_parent_name = "auto-rp-mapping-agent"
@@ -7945,10 +8759,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, ['maximum_cache_entry', 'threshold_cache_entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.AutoRpMappingAgent']['meta_info']
 
 
-
-            class SparseModeRpAddresses(Entity):
+            class SparseModeRpAddresses(_Entity_):
                 """
                 Configure Sparse\-Mode Rendezvous Point
                 
@@ -7965,7 +8787,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, self).__init__()
 
                     self.yang_name = "sparse-mode-rp-addresses"
                     self.yang_parent_name = "ipv4"
@@ -7984,7 +8809,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, [], name, value)
 
 
-                class SparseModeRpAddress(Entity):
+                class SparseModeRpAddress(_Entity_):
                     """
                     Address of the Rendezvous Point
                     
@@ -8003,7 +8828,7 @@ class Pim(Entity):
                     
                     .. attribute:: access_list_name
                     
-                    	Access list of groups that should map to a  given RP
+                    	Access list of groups that should map to a given RP
                     	**type**\: str
                     
                     	**length:** 1..64
@@ -8021,7 +8846,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, self).__init__()
 
                         self.yang_name = "sparse-mode-rp-address"
                         self.yang_parent_name = "sparse-mode-rp-addresses"
@@ -8044,10 +8872,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.SparseModeRpAddresses']['meta_info']
 
 
-
-            class InheritableDefaults(Entity):
+            class InheritableDefaults(_Entity_):
                 """
                 Inheritable defaults
                 
@@ -8120,7 +8956,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.InheritableDefaults, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.InheritableDefaults, self).__init__()
 
                     self.yang_name = "inheritable-defaults"
                     self.yang_parent_name = "ipv4"
@@ -8151,9 +8990,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.InheritableDefaults']['meta_info']
 
 
-            class Rpf(Entity):
+            class Rpf(_Entity_):
                 """
                 Configure RPF options
                 
@@ -8172,7 +9015,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Rpf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Rpf, self).__init__()
 
                     self.yang_name = "rpf"
                     self.yang_parent_name = "ipv4"
@@ -8191,9 +9037,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Rpf, ['route_policy'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Rpf']['meta_info']
 
 
-            class SgExpiryTimer(Entity):
+            class SgExpiryTimer(_Entity_):
                 """
                 Configure expiry timer for S,G routes
                 
@@ -8221,7 +9071,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.SgExpiryTimer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.SgExpiryTimer, self).__init__()
 
                     self.yang_name = "sg-expiry-timer"
                     self.yang_parent_name = "ipv4"
@@ -8242,9 +9095,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.SgExpiryTimer']['meta_info']
 
 
-            class RpfVectorEnable(Entity):
+            class RpfVectorEnable(_Entity_):
                 """
                 Enable PIM RPF Vector Proxy's
                 
@@ -8280,7 +9137,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.RpfVectorEnable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.RpfVectorEnable, self).__init__()
 
                     self.yang_name = "rpf-vector-enable"
                     self.yang_parent_name = "ipv4"
@@ -8306,9 +9166,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.RpfVectorEnable']['meta_info']
 
 
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 Configure Non\-stop forwarding (NSF) options
                 
@@ -8329,7 +9193,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "ipv4"
@@ -8348,9 +9215,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Nsf, ['lifetime'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Nsf']['meta_info']
 
 
-            class Maximum(Entity):
+            class Maximum(_Entity_):
                 """
                 Configure PIM State Limits
                 
@@ -8464,7 +9335,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Maximum, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Maximum, self).__init__()
 
                     self.yang_name = "maximum"
                     self.yang_parent_name = "ipv4"
@@ -8522,7 +9396,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
 
 
-                class BsrGlobalGroupMappings(Entity):
+                class BsrGlobalGroupMappings(_Entity_):
                     """
                     Override default global maximum and threshold
                     for PIM group mapping ranges from BSR
@@ -8555,7 +9429,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, self).__init__()
 
                         self.yang_name = "bsr-global-group-mappings"
                         self.yang_parent_name = "maximum"
@@ -8577,9 +9454,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings']['meta_info']
 
 
-                class GlobalRoutes(Entity):
+                class GlobalRoutes(_Entity_):
                     """
                     Override default maximum for number of routes
                     
@@ -8611,7 +9492,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, self).__init__()
 
                         self.yang_name = "global-routes"
                         self.yang_parent_name = "maximum"
@@ -8633,9 +9517,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes']['meta_info']
 
 
-                class GlobalGroupMappingsAutoRp(Entity):
+                class GlobalGroupMappingsAutoRp(_Entity_):
                     """
                     Maximum for number of group mappings from
                     autorp mapping agent
@@ -8668,7 +9556,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, self).__init__()
 
                         self.yang_name = "global-group-mappings-auto-rp"
                         self.yang_parent_name = "maximum"
@@ -8690,9 +9581,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp']['meta_info']
 
 
-                class BsrGlobalCandidateRpCache(Entity):
+                class BsrGlobalCandidateRpCache(_Entity_):
                     """
                     Override default global maximum and threshold
                     for C\-RP set in BSR
@@ -8725,7 +9620,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, self).__init__()
 
                         self.yang_name = "bsr-global-candidate-rp-cache"
                         self.yang_parent_name = "maximum"
@@ -8747,9 +9645,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache']['meta_info']
 
 
-                class GlobalRegisterStates(Entity):
+                class GlobalRegisterStates(_Entity_):
                     """
                     Override default maximum for number of
                     sparse\-mode source registers
@@ -8782,7 +9684,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, self).__init__()
 
                         self.yang_name = "global-register-states"
                         self.yang_parent_name = "maximum"
@@ -8804,9 +9709,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates']['meta_info']
 
 
-                class GlobalRouteInterfaces(Entity):
+                class GlobalRouteInterfaces(_Entity_):
                     """
                     Override default maximum for number of
                     route\-interfaces
@@ -8839,7 +9748,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, self).__init__()
 
                         self.yang_name = "global-route-interfaces"
                         self.yang_parent_name = "maximum"
@@ -8861,9 +9773,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces']['meta_info']
 
 
-                class GroupMappingsAutoRp(Entity):
+                class GroupMappingsAutoRp(_Entity_):
                     """
                     Override default maximum for number of group
                     mappings from autorp mapping agent
@@ -8896,7 +9812,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, self).__init__()
 
                         self.yang_name = "group-mappings-auto-rp"
                         self.yang_parent_name = "maximum"
@@ -8918,9 +9837,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp']['meta_info']
 
 
-                class BsrGroupMappings(Entity):
+                class BsrGroupMappings(_Entity_):
                     """
                     Override default maximum and threshold for
                     number of group mappings from BSR
@@ -8953,7 +9876,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, self).__init__()
 
                         self.yang_name = "bsr-group-mappings"
                         self.yang_parent_name = "maximum"
@@ -8975,9 +9901,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings']['meta_info']
 
 
-                class RegisterStates(Entity):
+                class RegisterStates(_Entity_):
                     """
                     Override default maximum for number of
                     sparse\-mode source registers
@@ -9010,7 +9940,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, self).__init__()
 
                         self.yang_name = "register-states"
                         self.yang_parent_name = "maximum"
@@ -9032,9 +9965,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.RegisterStates']['meta_info']
 
 
-                class RouteInterfaces(Entity):
+                class RouteInterfaces(_Entity_):
                     """
                     Override default maximum for number of
                     route\-interfaces
@@ -9067,7 +10004,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, self).__init__()
 
                         self.yang_name = "route-interfaces"
                         self.yang_parent_name = "maximum"
@@ -9089,9 +10029,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces']['meta_info']
 
 
-                class BsrCandidateRpCache(Entity):
+                class BsrCandidateRpCache(_Entity_):
                     """
                     Override default maximum and threshold for BSR
                     C\-RP cache setting
@@ -9124,7 +10068,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, self).__init__()
 
                         self.yang_name = "bsr-candidate-rp-cache"
                         self.yang_parent_name = "maximum"
@@ -9146,9 +10093,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache']['meta_info']
 
 
-                class Routes(Entity):
+                class Routes(_Entity_):
                     """
                     Override default maximum for number of routes
                     
@@ -9180,7 +10131,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Maximum.Routes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Maximum.Routes, self).__init__()
 
                         self.yang_name = "routes"
                         self.yang_parent_name = "maximum"
@@ -9202,10 +10156,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum.Routes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Maximum']['meta_info']
 
 
-
-            class Ssm(Entity):
+            class Ssm(_Entity_):
                 """
                 Configure IP Multicast SSM
                 
@@ -9231,7 +10193,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Ssm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Ssm, self).__init__()
 
                     self.yang_name = "ssm"
                     self.yang_parent_name = "ipv4"
@@ -9252,9 +10217,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Ssm, ['disable', 'range'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Ssm']['meta_info']
 
 
-            class Injects(Entity):
+            class Injects(_Entity_):
                 """
                 Inject Explicit PIM RPF Vector Proxy's
                 
@@ -9271,7 +10240,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Injects, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Injects, self).__init__()
 
                     self.yang_name = "injects"
                     self.yang_parent_name = "ipv4"
@@ -9290,7 +10262,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Injects, [], name, value)
 
 
-                class Inject(Entity):
+                class Inject(_Entity_):
                     """
                     Inject Explicit PIM RPF Vector Proxy's
                     
@@ -9323,7 +10295,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Injects.Inject, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Injects.Inject, self).__init__()
 
                         self.yang_name = "inject"
                         self.yang_parent_name = "injects"
@@ -9346,10 +10321,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Injects.Inject']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Injects']['meta_info']
 
 
-
-            class BidirRpAddresses(Entity):
+            class BidirRpAddresses(_Entity_):
                 """
                 Configure Bidirectional PIM Rendezvous Point
                 
@@ -9366,7 +10349,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.BidirRpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.BidirRpAddresses, self).__init__()
 
                     self.yang_name = "bidir-rp-addresses"
                     self.yang_parent_name = "ipv4"
@@ -9385,7 +10371,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses, [], name, value)
 
 
-                class BidirRpAddress(Entity):
+                class BidirRpAddress(_Entity_):
                     """
                     Address of the Rendezvous Point
                     
@@ -9422,7 +10408,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, self).__init__()
 
                         self.yang_name = "bidir-rp-address"
                         self.yang_parent_name = "bidir-rp-addresses"
@@ -9445,10 +10434,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.BidirRpAddresses']['meta_info']
 
 
-
-            class Bsr(Entity):
+            class Bsr(_Entity_):
                 """
                 PIM BSR configuration
                 
@@ -9472,7 +10469,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Bsr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Bsr, self).__init__()
 
                     self.yang_name = "bsr"
                     self.yang_parent_name = "ipv4"
@@ -9496,7 +10496,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr, [], name, value)
 
 
-                class CandidateBsr(Entity):
+                class CandidateBsr(_Entity_):
                     """
                     PIM Candidate BSR configuration
                     
@@ -9543,7 +10543,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, self).__init__()
 
                         self.yang_name = "candidate-bsr"
                         self.yang_parent_name = "bsr"
@@ -9567,9 +10570,13 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Bsr.CandidateBsr']['meta_info']
 
 
-                class CandidateRps(Entity):
+                class CandidateRps(_Entity_):
                     """
                     PIM RP configuration
                     
@@ -9586,7 +10593,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, self).__init__()
 
                         self.yang_name = "candidate-rps"
                         self.yang_parent_name = "bsr"
@@ -9605,7 +10615,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, [], name, value)
 
 
-                    class CandidateRp(Entity):
+                    class CandidateRp(_Entity_):
                         """
                         Address of PIM SM BSR Candidate\-RP
                         
@@ -9660,7 +10670,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, self).__init__()
 
                             self.yang_name = "candidate-rp"
                             self.yang_parent_name = "candidate-rps"
@@ -9687,11 +10700,23 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Bsr.CandidateRps']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Bsr']['meta_info']
 
 
-
-
-            class Mofrr(Entity):
+            class Mofrr(_Entity_):
                 """
                 Multicast Only Fast Re\-Route
                 
@@ -9737,7 +10762,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Mofrr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Mofrr, self).__init__()
 
                     self.yang_name = "mofrr"
                     self.yang_parent_name = "ipv4"
@@ -9771,7 +10799,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
 
 
-                class CloneJoins(Entity):
+                class CloneJoins(_Entity_):
                     """
                     Clone multicast joins
                     
@@ -9788,7 +10816,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, self).__init__()
 
                         self.yang_name = "clone-joins"
                         self.yang_parent_name = "mofrr"
@@ -9807,7 +10838,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, [], name, value)
 
 
-                    class CloneJoin(Entity):
+                    class CloneJoin(_Entity_):
                         """
                         Clone S,G joins as S1,G joins and S2,G joins
                         
@@ -9847,7 +10878,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, self).__init__()
 
                             self.yang_name = "clone-join"
                             self.yang_parent_name = "clone-joins"
@@ -9872,10 +10906,18 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Mofrr.CloneJoins']['meta_info']
 
 
-
-                class CloneSources(Entity):
+                class CloneSources(_Entity_):
                     """
                     Clone multicast traffic
                     
@@ -9892,7 +10934,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, self).__init__()
 
                         self.yang_name = "clone-sources"
                         self.yang_parent_name = "mofrr"
@@ -9911,7 +10956,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, [], name, value)
 
 
-                    class CloneSource(Entity):
+                    class CloneSource(_Entity_):
                         """
                         Clone S,G traffic as S1,G traffic and S2,G
                         traffic
@@ -9952,7 +10997,10 @@ class Pim(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, self).__init__()
 
                             self.yang_name = "clone-source"
                             self.yang_parent_name = "clone-sources"
@@ -9977,11 +11025,23 @@ class Pim(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                            return meta._meta_table['Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Mofrr.CloneSources']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Mofrr']['meta_info']
 
 
-
-
-            class Paths(Entity):
+            class Paths(_Entity_):
                 """
                 Inject PIM RPF Vector Proxy's
                 
@@ -9998,7 +11058,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Paths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Paths, self).__init__()
 
                     self.yang_name = "paths"
                     self.yang_parent_name = "ipv4"
@@ -10017,7 +11080,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Paths, [], name, value)
 
 
-                class Path(Entity):
+                class Path(_Entity_):
                     """
                     Inject PIM RPF Vector Proxy's
                     
@@ -10050,7 +11113,10 @@ class Pim(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Pim.DefaultContext.Ipv4.Paths.Path, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pim.DefaultContext.Ipv4.Paths.Path, self).__init__()
 
                         self.yang_name = "path"
                         self.yang_parent_name = "paths"
@@ -10073,10 +11139,18 @@ class Pim(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                        return meta._meta_table['Pim.DefaultContext.Ipv4.Paths.Path']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Paths']['meta_info']
 
 
-
-            class AllowRp(Entity):
+            class AllowRp(_Entity_):
                 """
                 Enable allow\-rp filtering for SM joins
                 
@@ -10104,7 +11178,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.AllowRp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.AllowRp, self).__init__()
 
                     self.yang_name = "allow-rp"
                     self.yang_parent_name = "ipv4"
@@ -10126,9 +11203,13 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.AllowRp']['meta_info']
 
 
-            class Convergence(Entity):
+            class Convergence(_Entity_):
                 """
                 Configure convergence parameters
                 
@@ -10158,7 +11239,10 @@ class Pim(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Pim.DefaultContext.Ipv4.Convergence, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pim.DefaultContext.Ipv4.Convergence, self).__init__()
 
                     self.yang_name = "convergence"
                     self.yang_parent_name = "ipv4"
@@ -10179,12 +11263,28 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                    return meta._meta_table['Pim.DefaultContext.Ipv4.Convergence']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+                return meta._meta_table['Pim.DefaultContext.Ipv4']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+            return meta._meta_table['Pim.DefaultContext']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pim()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_pim_cfg as meta
+        return meta._meta_table['Pim']['meta_info']
 
 

@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -37,6 +40,12 @@ class Action(Enum):
     accept_log = Enum.YLeaf(2, "accept_log")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['Action']
+
+
 class BuiltinModes(Enum):
     """
     BuiltinModes (Enum Class)
@@ -52,6 +61,12 @@ class BuiltinModes(Enum):
     configure = Enum.YLeaf(1, "configure")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['BuiltinModes']
+
+
 class BuiltinModes_(Enum):
     """
     BuiltinModes\_ (Enum Class)
@@ -65,6 +80,12 @@ class BuiltinModes_(Enum):
     exec_ = Enum.YLeaf(0, "exec")
 
     configure = Enum.YLeaf(1, "configure")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['BuiltinModes_']
 
 
 class CmdOperationType(Enum):
@@ -84,6 +105,12 @@ class CmdOperationType(Enum):
     rx = Enum.YLeaf(1, "rx")
 
     x = Enum.YLeaf(2, "x")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['CmdOperationType']
 
 
 class DataOperationType(Enum):
@@ -225,8 +252,14 @@ class DataOperationType(Enum):
     dx = Enum.YLeaf(32, "dx")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['DataOperationType']
 
-class Aaa(Entity):
+
+
+class Aaa(_Entity_):
     """
     
     
@@ -252,6 +285,11 @@ class Aaa(Entity):
     
     	**presence node**\: True
     
+    .. attribute:: disaster_recovery
+    
+    	
+    	**type**\:  :py:class:`DisasterRecovery <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.DisasterRecovery>`
+    
     .. attribute:: privileged_access
     
     	
@@ -273,11 +311,6 @@ class Aaa(Entity):
     
     	**config**\: False
     
-    .. attribute:: disaster_recovery
-    
-    	
-    	**type**\:  :py:class:`DisasterRecovery <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.DisasterRecovery>`
-    
     
 
     """
@@ -286,7 +319,10 @@ class Aaa(Entity):
     _revision = '2011-09-22'
 
     def __init__(self):
-        super(Aaa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Aaa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aaa"
@@ -294,7 +330,7 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("accounting", ("accounting", Aaa.Accounting)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("cisco_ios_xr_sysadmin_aaa_aaa_show_accounting", Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery))])
+        self._child_classes = OrderedDict([("authentication", ("authentication", Aaa.Authentication)), ("authorization", ("authorization", Aaa.Authorization)), ("accounting", ("accounting", Aaa.Accounting)), ("ios", ("ios", Aaa.Ios)), ("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", ("disaster_recovery", Aaa.DisasterRecovery)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", ("privileged_access", Aaa.PrivilegedAccess)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", ("cisco_ios_xr_sysadmin_aaa_aaa_show_accounting", Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting)), ("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", ("user_group", Aaa.UserGroup))])
         self._leafs = OrderedDict()
 
         self.authentication = Aaa.Authentication()
@@ -312,6 +348,10 @@ class Aaa(Entity):
         self.ios = None
         self._children_name_map["ios"] = "ios"
 
+        self.disaster_recovery = Aaa.DisasterRecovery()
+        self.disaster_recovery.parent = self
+        self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
+
         self.privileged_access = Aaa.PrivilegedAccess()
         self.privileged_access.parent = self
         self._children_name_map["privileged_access"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"
@@ -323,10 +363,6 @@ class Aaa(Entity):
         self.user_group = Aaa.UserGroup()
         self.user_group.parent = self
         self._children_name_map["user_group"] = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"
-
-        self.disaster_recovery = Aaa.DisasterRecovery()
-        self.disaster_recovery.parent = self
-        self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
         self._segment_path = lambda: "tailf-aaa:aaa"
         self._is_frozen = True
 
@@ -334,7 +370,7 @@ class Aaa(Entity):
         self._perform_setattr(Aaa, [], name, value)
 
 
-    class Authentication(Entity):
+    class Authentication(_Entity_):
         """
         
         
@@ -361,7 +397,10 @@ class Aaa(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(Aaa.Authentication, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Authentication, self).__init__()
 
             self.yang_name = "authentication"
             self.yang_parent_name = "aaa"
@@ -390,7 +429,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Authentication, [], name, value)
 
 
-        class Users(Entity):
+        class Users(_Entity_):
             """
             
             
@@ -407,7 +446,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authentication.Users, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authentication.Users, self).__init__()
 
                 self.yang_name = "users"
                 self.yang_parent_name = "authentication"
@@ -426,7 +468,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authentication.Users, [], name, value)
 
 
-            class User(Entity):
+            class User(_Entity_):
                 """
                 
                 
@@ -482,7 +524,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authentication.Users.User, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authentication.Users.User, self).__init__()
 
                     self.yang_name = "user"
                     self.yang_parent_name = "users"
@@ -511,10 +556,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authentication.Users.User, ['name', 'uid', 'gid', 'password', 'ssh_keydir', 'homedir'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authentication.Users.User']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authentication.Users']['meta_info']
 
 
-
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             
             
@@ -531,7 +584,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authentication.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authentication.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "authentication"
@@ -550,7 +606,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authentication.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 
                 
@@ -583,7 +639,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authentication.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authentication.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -606,10 +665,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authentication.Groups.Group, ['name', 'gid', 'users'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authentication.Groups.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authentication.Groups']['meta_info']
 
 
-
-        class Login(Entity):
+        class Login(_Entity_):
             """
             
             
@@ -626,7 +693,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authentication.Login, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authentication.Login, self).__init__()
 
                 self.yang_name = "login"
                 self.yang_parent_name = "authentication"
@@ -647,7 +717,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authentication.Login, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 
                 
@@ -664,7 +734,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authentication.Login.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authentication.Login.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "login"
@@ -683,11 +756,23 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authentication.Login.Group, ['tacacs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authentication.Login.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authentication.Login']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.Authentication']['meta_info']
 
 
-
-
-    class Authorization(Entity):
+    class Authorization(_Entity_):
         """
         
         
@@ -714,7 +799,10 @@ class Aaa(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(Aaa.Authorization, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Authorization, self).__init__()
 
             self.yang_name = "authorization"
             self.yang_parent_name = "aaa"
@@ -743,7 +831,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Authorization, [], name, value)
 
 
-        class Cmdrules(Entity):
+        class Cmdrules(_Entity_):
             """
             
             
@@ -760,7 +848,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authorization.Cmdrules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authorization.Cmdrules, self).__init__()
 
                 self.yang_name = "cmdrules"
                 self.yang_parent_name = "authorization"
@@ -779,7 +870,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authorization.Cmdrules, [], name, value)
 
 
-            class Cmdrule(Entity):
+            class Cmdrule(_Entity_):
                 """
                 
                 
@@ -833,7 +924,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authorization.Cmdrules.Cmdrule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authorization.Cmdrules.Cmdrule, self).__init__()
 
                     self.yang_name = "cmdrule"
                     self.yang_parent_name = "cmdrules"
@@ -862,10 +956,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, ['index', 'context', 'command', 'group', 'ops', 'action'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authorization.Cmdrules.Cmdrule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authorization.Cmdrules']['meta_info']
 
 
-
-        class Datarules(Entity):
+        class Datarules(_Entity_):
             """
             
             
@@ -882,7 +984,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authorization.Datarules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authorization.Datarules, self).__init__()
 
                 self.yang_name = "datarules"
                 self.yang_parent_name = "authorization"
@@ -901,7 +1006,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authorization.Datarules, [], name, value)
 
 
-            class Datarule(Entity):
+            class Datarule(_Entity_):
                 """
                 
                 
@@ -962,7 +1067,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authorization.Datarules.Datarule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authorization.Datarules.Datarule, self).__init__()
 
                     self.yang_name = "datarule"
                     self.yang_parent_name = "datarules"
@@ -993,10 +1101,18 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authorization.Datarules.Datarule, ['index', 'namespace', 'context', 'keypath', 'group', 'ops', 'action'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authorization.Datarules.Datarule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authorization.Datarules']['meta_info']
 
 
-
-        class Commands(Entity):
+        class Commands(_Entity_):
             """
             
             
@@ -1013,7 +1129,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Authorization.Commands, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Authorization.Commands, self).__init__()
 
                 self.yang_name = "commands"
                 self.yang_parent_name = "authorization"
@@ -1034,7 +1153,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Authorization.Commands, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 
                 
@@ -1056,7 +1175,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Authorization.Commands.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Authorization.Commands.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "commands"
@@ -1077,11 +1199,23 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authorization.Commands.Group, ['tacacs', 'none'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Authorization.Commands.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Authorization.Commands']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.Authorization']['meta_info']
 
 
-
-
-    class Accounting(Entity):
+    class Accounting(_Entity_):
         """
         
         
@@ -1098,7 +1232,10 @@ class Aaa(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(Aaa.Accounting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Accounting, self).__init__()
 
             self.yang_name = "accounting"
             self.yang_parent_name = "aaa"
@@ -1119,7 +1256,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Accounting, [], name, value)
 
 
-        class Commands(Entity):
+        class Commands(_Entity_):
             """
             
             
@@ -1136,7 +1273,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Accounting.Commands, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Accounting.Commands, self).__init__()
 
                 self.yang_name = "commands"
                 self.yang_parent_name = "accounting"
@@ -1157,7 +1297,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Accounting.Commands, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 
                 
@@ -1174,7 +1314,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Accounting.Commands.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Accounting.Commands.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "commands"
@@ -1193,11 +1336,23 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Accounting.Commands.Group, ['tacacs'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Accounting.Commands.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Accounting.Commands']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.Accounting']['meta_info']
 
 
-
-
-    class Ios(Entity):
+    class Ios(_Entity_):
         """
         
         
@@ -1221,7 +1376,10 @@ class Aaa(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(Aaa.Ios, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Ios, self).__init__()
 
             self.yang_name = "ios"
             self.yang_parent_name = "aaa"
@@ -1242,7 +1400,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Ios, [], name, value)
 
 
-        class Level(Entity):
+        class Level(_Entity_):
             """
             
             
@@ -1278,7 +1436,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Ios.Level, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Ios.Level, self).__init__()
 
                 self.yang_name = "level"
                 self.yang_parent_name = "ios"
@@ -1303,9 +1464,13 @@ class Aaa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Ios.Level, ['nr', 'secret', 'password', 'prompt'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Ios.Level']['meta_info']
 
 
-        class Privilege(Entity):
+        class Privilege(_Entity_):
             """
             
             
@@ -1331,7 +1496,10 @@ class Aaa(Entity):
             _revision = '2011-09-22'
 
             def __init__(self):
-                super(Aaa.Ios.Privilege, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Ios.Privilege, self).__init__()
 
                 self.yang_name = "privilege"
                 self.yang_parent_name = "ios"
@@ -1353,7 +1521,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Ios.Privilege, ['mode'], name, value)
 
 
-            class Level(Entity):
+            class Level(_Entity_):
                 """
                 
                 
@@ -1377,7 +1545,10 @@ class Aaa(Entity):
                 _revision = '2011-09-22'
 
                 def __init__(self):
-                    super(Aaa.Ios.Privilege.Level, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Ios.Privilege.Level, self).__init__()
 
                     self.yang_name = "level"
                     self.yang_parent_name = "privilege"
@@ -1398,7 +1569,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Ios.Privilege.Level, ['nr'], name, value)
 
 
-                class Command(Entity):
+                class Command(_Entity_):
                     """
                     
                     
@@ -1415,7 +1586,10 @@ class Aaa(Entity):
                     _revision = '2011-09-22'
 
                     def __init__(self):
-                        super(Aaa.Ios.Privilege.Level.Command, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Ios.Privilege.Level.Command, self).__init__()
 
                         self.yang_name = "command"
                         self.yang_parent_name = "level"
@@ -1433,12 +1607,82 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Ios.Privilege.Level.Command, ['name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                        return meta._meta_table['Aaa.Ios.Privilege.Level.Command']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                    return meta._meta_table['Aaa.Ios.Privilege.Level']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+                return meta._meta_table['Aaa.Ios.Privilege']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.Ios']['meta_info']
 
 
+    class DisasterRecovery(_Entity_):
+        """
+        
+        
+        .. attribute:: username
+        
+        	
+        	**type**\: str
+        
+        	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Authentication.Users.User>`
+        
+        .. attribute:: password
+        
+        	
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'disaster-recovery'
+        _revision = '2017-05-10'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.DisasterRecovery, self).__init__()
+
+            self.yang_name = "disaster-recovery"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('password', (YLeaf(YType.str, 'password'), ['str'])),
+            ])
+            self.username = None
+            self.password = None
+            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
+            self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.DisasterRecovery, ['username', 'password'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.DisasterRecovery']['meta_info']
 
 
-
-    class PrivilegedAccess(Entity):
+    class PrivilegedAccess(_Entity_):
         """
         
         
@@ -1478,7 +1722,10 @@ class Aaa(Entity):
         _revision = '2017-05-10'
 
         def __init__(self):
-            super(Aaa.PrivilegedAccess, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.PrivilegedAccess, self).__init__()
 
             self.yang_name = "privileged-access"
             self.yang_parent_name = "aaa"
@@ -1503,9 +1750,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.PrivilegedAccess, ['shell_access', 'first_user', 'first_user_change', 'current_disaster_recovery_user'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.PrivilegedAccess']['meta_info']
 
 
-    class CiscoIOSXRSysadminAaaAaaShowAccounting(Entity):
+    class CiscoIOSXRSysadminAaaAaaShowAccounting(_Entity_):
         """
         
         
@@ -1524,7 +1775,10 @@ class Aaa(Entity):
         _revision = '2017-05-10'
 
         def __init__(self):
-            super(Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting, self).__init__()
 
             self.yang_name = "accounting"
             self.yang_parent_name = "aaa"
@@ -1543,9 +1797,13 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting, ['log_data'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.CiscoIOSXRSysadminAaaAaaShowAccounting']['meta_info']
 
 
-    class UserGroup(Entity):
+    class UserGroup(_Entity_):
         """
         
         
@@ -1564,7 +1822,10 @@ class Aaa(Entity):
         _revision = '2017-05-10'
 
         def __init__(self):
-            super(Aaa.UserGroup, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.UserGroup, self).__init__()
 
             self.yang_name = "user-group"
             self.yang_parent_name = "aaa"
@@ -1583,61 +1844,22 @@ class Aaa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.UserGroup, ['grp_data'], name, value)
 
-
-
-    class DisasterRecovery(Entity):
-        """
-        
-        
-        .. attribute:: username
-        
-        	
-        	**type**\: str
-        
-        	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xr.tailf_aaa.Aaa.Authentication.Users.User>`
-        
-        .. attribute:: password
-        
-        	
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'disaster-recovery'
-        _revision = '2017-05-10'
-
-        def __init__(self):
-            super(Aaa.DisasterRecovery, self).__init__()
-
-            self.yang_name = "disaster-recovery"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('username', (YLeaf(YType.str, 'username'), ['str'])),
-                ('password', (YLeaf(YType.str, 'password'), ['str'])),
-            ])
-            self.username = None
-            self.password = None
-            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
-            self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.DisasterRecovery, ['username', 'password'], name, value)
-
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['Aaa.UserGroup']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['Aaa']['meta_info']
 
 
-class Alias(Entity):
+class Alias(_Entity_):
     """
     
     
@@ -1661,7 +1883,10 @@ class Alias(Entity):
     _revision = '2011-09-22'
 
     def __init__(self):
-        super(Alias, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Alias, self).__init__()
         self._top_entity = None
 
         self.yang_name = "alias"
@@ -1686,9 +1911,13 @@ class Alias(Entity):
         self._top_entity = Alias()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['Alias']['meta_info']
 
 
-class Session(Entity):
+class Session(_Entity_):
     """
     
     
@@ -1758,7 +1987,10 @@ class Session(Entity):
     _revision = '2011-09-22'
 
     def __init__(self):
-        super(Session, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Session, self).__init__()
         self._top_entity = None
 
         self.yang_name = "session"
@@ -1800,9 +2032,13 @@ class Session(Entity):
         self._top_entity = Session()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['Session']['meta_info']
 
 
-class User(Entity):
+class User(_Entity_):
     """
     
     
@@ -1834,7 +2070,10 @@ class User(Entity):
     _revision = '2011-09-22'
 
     def __init__(self):
-        super(User, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(User, self).__init__()
         self._top_entity = None
 
         self.yang_name = "user"
@@ -1862,7 +2101,7 @@ class User(Entity):
         self._perform_setattr(User, ['name', 'description'], name, value)
 
 
-    class Alias(Entity):
+    class Alias(_Entity_):
         """
         
         
@@ -1886,7 +2125,10 @@ class User(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(User.Alias, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(User.Alias, self).__init__()
 
             self.yang_name = "alias"
             self.yang_parent_name = "user"
@@ -1906,9 +2148,13 @@ class User(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(User.Alias, ['name', 'expansion'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['User.Alias']['meta_info']
 
 
-    class Session(Entity):
+    class Session(_Entity_):
         """
         
         
@@ -1976,7 +2222,10 @@ class User(Entity):
         _revision = '2011-09-22'
 
         def __init__(self):
-            super(User.Session, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(User.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "user"
@@ -2012,10 +2261,18 @@ class User(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(User.Session, ['complete_on_space', 'ignore_leading_space', 'idle_timeout', 'paginate', 'history', 'autowizard', 'show_defaults', 'display_level', 'prompt1', 'prompt2'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+            return meta._meta_table['User.Session']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = User()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_aaa as meta
+        return meta._meta_table['User']['meta_info']
 
 

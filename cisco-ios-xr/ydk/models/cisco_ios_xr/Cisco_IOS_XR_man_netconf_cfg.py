@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class NetconfYang(Entity):
+class NetconfYang(_Entity_):
     """
     NETCONF YANG configuration commands
     
@@ -38,7 +41,10 @@ class NetconfYang(Entity):
     _revision = '2018-05-04'
 
     def __init__(self):
-        super(NetconfYang, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NetconfYang, self).__init__()
         self._top_entity = None
 
         self.yang_name = "netconf-yang"
@@ -59,7 +65,7 @@ class NetconfYang(Entity):
         self._perform_setattr(NetconfYang, [], name, value)
 
 
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         NETCONF YANG agent configuration commands
         
@@ -95,7 +101,10 @@ class NetconfYang(Entity):
         _revision = '2018-05-04'
 
         def __init__(self):
-            super(NetconfYang.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetconfYang.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "netconf-yang"
@@ -127,7 +136,7 @@ class NetconfYang(Entity):
             self._perform_setattr(NetconfYang.Agent, ['rate_limit'], name, value)
 
 
-        class Models(Entity):
+        class Models(_Entity_):
             """
             Models to be disabled
             
@@ -144,7 +153,10 @@ class NetconfYang(Entity):
             _revision = '2018-05-04'
 
             def __init__(self):
-                super(NetconfYang.Agent.Models, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetconfYang.Agent.Models, self).__init__()
 
                 self.yang_name = "models"
                 self.yang_parent_name = "agent"
@@ -165,7 +177,7 @@ class NetconfYang(Entity):
                 self._perform_setattr(NetconfYang.Agent.Models, [], name, value)
 
 
-            class Openconfig(Entity):
+            class Openconfig(_Entity_):
                 """
                 Type of models\: openconfig
                 
@@ -182,7 +194,10 @@ class NetconfYang(Entity):
                 _revision = '2018-05-04'
 
                 def __init__(self):
-                    super(NetconfYang.Agent.Models.Openconfig, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetconfYang.Agent.Models.Openconfig, self).__init__()
 
                     self.yang_name = "openconfig"
                     self.yang_parent_name = "models"
@@ -201,10 +216,18 @@ class NetconfYang(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.Agent.Models.Openconfig, ['disabled'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+                    return meta._meta_table['NetconfYang.Agent.Models.Openconfig']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+                return meta._meta_table['NetconfYang.Agent.Models']['meta_info']
 
 
-
-        class Ssh(Entity):
+        class Ssh(_Entity_):
             """
             NETCONF YANG agent over SSH connection
             
@@ -221,7 +244,10 @@ class NetconfYang(Entity):
             _revision = '2018-05-04'
 
             def __init__(self):
-                super(NetconfYang.Agent.Ssh, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetconfYang.Agent.Ssh, self).__init__()
 
                 self.yang_name = "ssh"
                 self.yang_parent_name = "agent"
@@ -240,9 +266,13 @@ class NetconfYang(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.Agent.Ssh, ['enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+                return meta._meta_table['NetconfYang.Agent.Ssh']['meta_info']
 
 
-        class Session(Entity):
+        class Session(_Entity_):
             """
             Session settings
             
@@ -281,7 +311,10 @@ class NetconfYang(Entity):
             _revision = '2018-05-04'
 
             def __init__(self):
-                super(NetconfYang.Agent.Session, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetconfYang.Agent.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "agent"
@@ -304,11 +337,23 @@ class NetconfYang(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.Agent.Session, ['limit', 'absolute_timeout', 'idle_timeout'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+                return meta._meta_table['NetconfYang.Agent.Session']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+            return meta._meta_table['NetconfYang.Agent']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NetconfYang()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+        return meta._meta_table['NetconfYang']['meta_info']
 
 

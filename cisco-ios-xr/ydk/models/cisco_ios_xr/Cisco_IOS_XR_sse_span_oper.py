@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ssespan(Entity):
+class Ssespan(_Entity_):
     """
     SSE SPAN operational data
     
@@ -40,7 +43,10 @@ class Ssespan(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Ssespan, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ssespan, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ssespan"
@@ -61,7 +67,7 @@ class Ssespan(Entity):
         self._perform_setattr(Ssespan, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node table for node\-specific operational data
         
@@ -80,7 +86,10 @@ class Ssespan(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Ssespan.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ssespan.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ssespan"
@@ -99,7 +108,7 @@ class Ssespan(Entity):
             self._perform_setattr(Ssespan.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -141,7 +150,10 @@ class Ssespan(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Ssespan.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ssespan.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -173,7 +185,7 @@ class Ssespan(Entity):
                 self._perform_setattr(Ssespan.Nodes.Node, ['node'], name, value)
 
 
-            class SpanMirrInfos(Entity):
+            class SpanMirrInfos(_Entity_):
                 """
                 SPAN SFT entry
                 
@@ -192,7 +204,10 @@ class Ssespan(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Ssespan.Nodes.Node.SpanMirrInfos, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssespan.Nodes.Node.SpanMirrInfos, self).__init__()
 
                     self.yang_name = "span-mirr-infos"
                     self.yang_parent_name = "node"
@@ -210,7 +225,7 @@ class Ssespan(Entity):
                     self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos, [], name, value)
 
 
-                class SpanMirrInfo(Entity):
+                class SpanMirrInfo(_Entity_):
                     """
                     Mirror info 
                     
@@ -438,7 +453,10 @@ class Ssespan(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, self).__init__()
 
                         self.yang_name = "span-mirr-info"
                         self.yang_parent_name = "span-mirr-infos"
@@ -502,10 +520,18 @@ class Ssespan(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo, ['intf_name', 'src_ifh', 'intf_name_xr', 'v4_acl_flag', 'v6_acl_flag', 'gre_acl_flag', 'v4state', 'v6state', 'gre_state', 'v4sessid', 'v6sessid', 'gre_sessid', 'v4dst_type', 'v6dst_type', 'gredst_type', 'v4statsptr', 'v6statsptr', 'grev4statsptr', 'grev6statsptr', 'mplsv4stats', 'mplsv6pkts', 'np_umask', 'uidb', 'sft_hw_data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                        return meta._meta_table['Ssespan.Nodes.Node.SpanMirrInfos.SpanMirrInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                    return meta._meta_table['Ssespan.Nodes.Node.SpanMirrInfos']['meta_info']
 
 
-
-            class Spanudf(Entity):
+            class Spanudf(_Entity_):
                 """
                 udf info
                 
@@ -562,7 +588,10 @@ class Ssespan(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Ssespan.Nodes.Node.Spanudf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssespan.Nodes.Node.Spanudf, self).__init__()
 
                     self.yang_name = "spanudf"
                     self.yang_parent_name = "node"
@@ -588,9 +617,13 @@ class Ssespan(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssespan.Nodes.Node.Spanudf, ['udf_hdr', 'udf_type', 'udf_len', 'udf_value', 'udf_hw_data'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                    return meta._meta_table['Ssespan.Nodes.Node.Spanudf']['meta_info']
 
 
-            class SpanSessInfos(Entity):
+            class SpanSessInfos(_Entity_):
                 """
                 SPAN SDT entry
                 
@@ -609,7 +642,10 @@ class Ssespan(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Ssespan.Nodes.Node.SpanSessInfos, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ssespan.Nodes.Node.SpanSessInfos, self).__init__()
 
                     self.yang_name = "span-sess-infos"
                     self.yang_parent_name = "node"
@@ -627,7 +663,7 @@ class Ssespan(Entity):
                     self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos, [], name, value)
 
 
-                class SpanSessInfo(Entity):
+                class SpanSessInfo(_Entity_):
                     """
                     Session info 
                     
@@ -792,7 +828,10 @@ class Ssespan(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, self).__init__()
 
                         self.yang_name = "span-sess-info"
                         self.yang_parent_name = "span-sess-infos"
@@ -842,13 +881,33 @@ class Ssespan(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo, ['session_id', 'session_class', 'valid', 'id', 'state', 'class_', 'ifhandle', 'mode', 'ip_type', 'vrf_id', 'tos_bit', 'tos_bit_copied', 'ttl', 'dfbit', 'src_ip', 'dst_ip', 'sdt_hw_data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                        return meta._meta_table['Ssespan.Nodes.Node.SpanSessInfos.SpanSessInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                    return meta._meta_table['Ssespan.Nodes.Node.SpanSessInfos']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+                return meta._meta_table['Ssespan.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+            return meta._meta_table['Ssespan.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ssespan()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sse_span_oper as meta
+        return meta._meta_table['Ssespan']['meta_info']
 
 

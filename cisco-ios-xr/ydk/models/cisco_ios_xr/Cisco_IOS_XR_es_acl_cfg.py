@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class EsAclGrantEnum(Enum):
     permit = Enum.YLeaf(1, "permit")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+        return meta._meta_table['EsAclGrantEnum']
 
-class EsAcl(Entity):
+
+
+class EsAcl(_Entity_):
     """
     Layer 2 ACL configuration data
     
@@ -59,7 +68,10 @@ class EsAcl(Entity):
     _revision = '2018-02-26'
 
     def __init__(self):
-        super(EsAcl, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EsAcl, self).__init__()
         self._top_entity = None
 
         self.yang_name = "es-acl"
@@ -80,7 +92,7 @@ class EsAcl(Entity):
         self._perform_setattr(EsAcl, [], name, value)
 
 
-    class Accesses(Entity):
+    class Accesses(_Entity_):
         """
         Table of access lists
         
@@ -97,7 +109,10 @@ class EsAcl(Entity):
         _revision = '2018-02-26'
 
         def __init__(self):
-            super(EsAcl.Accesses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EsAcl.Accesses, self).__init__()
 
             self.yang_name = "accesses"
             self.yang_parent_name = "es-acl"
@@ -116,7 +131,7 @@ class EsAcl(Entity):
             self._perform_setattr(EsAcl.Accesses, [], name, value)
 
 
-        class Access(Entity):
+        class Access(_Entity_):
             """
             An ACL
             
@@ -140,7 +155,10 @@ class EsAcl(Entity):
             _revision = '2018-02-26'
 
             def __init__(self):
-                super(EsAcl.Accesses.Access, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EsAcl.Accesses.Access, self).__init__()
 
                 self.yang_name = "access"
                 self.yang_parent_name = "accesses"
@@ -164,7 +182,7 @@ class EsAcl(Entity):
                 self._perform_setattr(EsAcl.Accesses.Access, ['name'], name, value)
 
 
-            class AccessListEntries(Entity):
+            class AccessListEntries(_Entity_):
                 """
                 ACL entry table; contains list of access list
                 entries
@@ -182,7 +200,10 @@ class EsAcl(Entity):
                 _revision = '2018-02-26'
 
                 def __init__(self):
-                    super(EsAcl.Accesses.Access.AccessListEntries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EsAcl.Accesses.Access.AccessListEntries, self).__init__()
 
                     self.yang_name = "access-list-entries"
                     self.yang_parent_name = "access"
@@ -200,7 +221,7 @@ class EsAcl(Entity):
                     self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries, [], name, value)
 
 
-                class AccessListEntry(Entity):
+                class AccessListEntry(_Entity_):
                     """
                     An ACL entry; either a description (remark)
                     or anAccess List Entry to match against
@@ -214,7 +235,7 @@ class EsAcl(Entity):
                     
                     .. attribute:: grant
                     
-                    	Forwarding action for the packet. This is required  for any non\-remark ACE. Leave unspecified otherwise
+                    	Forwarding action for the packet. This is required for any non\-remark ACE. Leave unspecified otherwise
                     	**type**\:  :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
                     
                     .. attribute:: source_network
@@ -243,28 +264,28 @@ class EsAcl(Entity):
                     
                     .. attribute:: cos
                     
-                    	Class of Service value. Any value not in the  permissible range will be rejected
+                    	Class of Service value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: dei
                     
-                    	Discard Eligibility Indication bit. User can specify  1 to indicate the bit is set. Leave unspecified otherwise
+                    	Discard Eligibility Indication bit. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: inner_vlan1
                     
-                    	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not  in the permissible range will be rejected
+                    	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..4095
                     
                     .. attribute:: inner_vlan2
                     
-                    	This represents the QinQ vlan identifier. It is used in  the upper bound (in range). Any value not in the permissible range will be rejected
+                    	This represents the QinQ vlan identifier. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..4095
@@ -278,7 +299,7 @@ class EsAcl(Entity):
                     
                     .. attribute:: inner_dei
                     
-                    	Discard Eligibility Indication for Inner Header. User  can specify 1 to indicate the bit is set. Leave  unspecified otherwise
+                    	Discard Eligibility Indication for Inner Header. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..1
@@ -324,7 +345,10 @@ class EsAcl(Entity):
                     _revision = '2018-02-26'
 
                     def __init__(self):
-                        super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
 
                         self.yang_name = "access-list-entry"
                         self.yang_parent_name = "access-list-entries"
@@ -379,7 +403,7 @@ class EsAcl(Entity):
                         self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_vlan1', 'inner_vlan2', 'inner_cos', 'inner_dei', 'remark', 'ether_type_number', 'capture', 'log_option', 'sequence_str'], name, value)
 
 
-                    class SourceNetwork(Entity):
+                    class SourceNetwork(_Entity_):
                         """
                         Source network settings.
                         
@@ -405,7 +429,10 @@ class EsAcl(Entity):
                         _revision = '2018-02-26'
 
                         def __init__(self):
-                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
 
                             self.yang_name = "source-network"
                             self.yang_parent_name = "access-list-entry"
@@ -425,9 +452,13 @@ class EsAcl(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+                            return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork']['meta_info']
 
 
-                    class DestinationNetwork(Entity):
+                    class DestinationNetwork(_Entity_):
                         """
                         Destination network settings.
                         
@@ -453,7 +484,10 @@ class EsAcl(Entity):
                         _revision = '2018-02-26'
 
                         def __init__(self):
-                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
 
                             self.yang_name = "destination-network"
                             self.yang_parent_name = "access-list-entry"
@@ -473,14 +507,38 @@ class EsAcl(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+                            return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+                        return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+                    return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+                return meta._meta_table['EsAcl.Accesses.Access']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+            return meta._meta_table['EsAcl.Accesses']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EsAcl()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
+        return meta._meta_table['EsAcl']['meta_info']
 
 

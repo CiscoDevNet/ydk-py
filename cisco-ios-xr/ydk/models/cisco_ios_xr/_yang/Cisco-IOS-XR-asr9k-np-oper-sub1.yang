@@ -215,7 +215,7 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
 
   grouping TCAM-VMR-ENTRY {
     description
-      "application vmr entry";
+      "Application VMR entry";
     leaf num-vmr-ids {
       type uint32;
       description
@@ -258,37 +258,37 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
     }
     container app-id-ifib {
       description
-        "app IFIB entry";
+        "App IFIB entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-qos {
       description
-        "app qos entry";
+        "App qos entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-acl {
       description
-        "app acl entry";
+        "App acl entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-afmon {
       description
-        "app afmon entry";
+        "App afmon entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-li {
       description
-        "app LI entry";
+        "App LI entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-pbr {
       description
-        "app PBR entry";
+        "App PBR entry";
       uses TCAM-VMR-ENTRY;
     }
     container app-id-edpl {
       description
-        "app EDPL entry";
+        "App EDPL entry";
       uses TCAM-VMR-ENTRY;
     }
     leaf free-entries {
@@ -319,12 +319,12 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
     leaf valid-entries {
       type uint32;
       description
-        "Valid Entries";
+        "Valid entries";
     }
     leaf free-entries {
       type uint32;
       description
-        "Free Entries";
+        "Free entries";
     }
   }
 
@@ -350,7 +350,7 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
 
   grouping TCAM-VMR-ENTRY-INT {
     description
-      "application vmr entry internal";
+      "Application VMR entry internal";
     leaf num-vmr-ids {
       type uint32;
       description
@@ -373,37 +373,37 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
       "tcam ods table internal";
     container app-id-ifib {
       description
-        "app IFIB entry";
+        "App IFIB entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container app-id-qos {
       description
-        "app qos entry";
+        "App qos entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container app-id-acl {
       description
-        "app acl entry";
+        "App acl entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container app-id-afmon {
       description
-        "app afmon entry";
+        "App afmon entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container app-id-li {
       description
-        "app LI entry";
+        "App LI entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container app-id-pbr {
       description
-        "app PBR entry";
+        "App PBR entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     container application-edpl-entry {
       description
-        "app EDPL entry";
+        "App EDPL entry";
       uses TCAM-VMR-ENTRY-INT;
     }
     leaf max-entries {
@@ -414,7 +414,7 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
     leaf free-entries {
       type uint32;
       description
-        "free entries";
+        "Free entries";
     }
   }
 
@@ -429,12 +429,12 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
     leaf valid-entries {
       type uint32;
       description
-        "Valid Entries";
+        "Valid entries";
     }
     leaf free-entries {
       type uint32;
       description
-        "Free Entries";
+        "Free entries";
     }
   }
 
@@ -531,6 +531,101 @@ submodule Cisco-IOS-XR-asr9k-np-oper-sub1 {
       description
         "Array of NP Channel load counters";
       uses PRM-NP-CHN-LOAD-A;
+    }
+  }
+
+  grouping TCAM-VMR-ENTRY-ID {
+    description
+      "Feature VMR entry";
+    leaf vmr-id {
+      type uint32;
+      description
+        "Vmr ID";
+    }
+    leaf used-entries {
+      type uint32;
+      description
+        "The number of used vmr entries";
+    }
+    leaf allocated-entries {
+      type uint32;
+      description
+        "The number of active vmr entries";
+    }
+  }
+
+  grouping TCAM-FEATURE-ENTRY {
+    description
+      "tcam feature info";
+    leaf feature-id {
+      type string;
+      description
+        "Feature ID";
+    }
+    leaf num-vmr-ids {
+      type uint32;
+      description
+        "Number of VRM IDs";
+    }
+    leaf total-used-entries {
+      type uint32;
+      description
+        "Number of used VMR entries";
+    }
+    leaf total-allocated-entries {
+      type uint32;
+      description
+        "Total Allocated entries";
+    }
+    list vmr-entry {
+      description
+        "VMR entries";
+      uses TCAM-VMR-ENTRY-ID;
+    }
+  }
+
+  grouping TCAM-REGION-TABLE-INT {
+    description
+      "tcam table internal region";
+    leaf region-name {
+      type string;
+      description
+        "Region Name";
+    }
+    leaf max-entries {
+      type uint32;
+      description
+        "Max entries";
+    }
+    leaf free-entries {
+      type uint32;
+      description
+        "Free entries";
+    }
+    list feature {
+      description
+        "Feature";
+      uses TCAM-FEATURE-ENTRY;
+    }
+  }
+
+  grouping TCAM-SHOW-SUM-INT-REGION {
+    description
+      "tcam summary internal region";
+    list tcam-region {
+      description
+        "TCAM Regions";
+      uses TCAM-REGION-TABLE-INT;
+    }
+  }
+
+  grouping TCAM-INFO-SHOW-SUM-REGION {
+    description
+      "tcam info summary region";
+    container internal-tcam-info {
+      description
+        "Internal tcam summary info";
+      uses TCAM-SHOW-SUM-INT-REGION;
     }
   }
 

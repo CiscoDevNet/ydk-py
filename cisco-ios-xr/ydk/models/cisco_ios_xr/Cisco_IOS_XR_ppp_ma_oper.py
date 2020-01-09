@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -63,6 +66,12 @@ class NcpIdent(Enum):
     mplscp = Enum.YLeaf(5, "mplscp")
 
     osicp = Enum.YLeaf(6, "osicp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['NcpIdent']
 
 
 class PppFsmState(Enum):
@@ -134,6 +143,12 @@ class PppFsmState(Enum):
     ppp_fsm_state_opened_9 = Enum.YLeaf(9, "ppp-fsm-state-opened-9")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['PppFsmState']
+
+
 class PppIphcCompression(Enum):
     """
     PppIphcCompression (Enum Class)
@@ -171,6 +186,12 @@ class PppIphcCompression(Enum):
     ppp_iphc_compression_fmt_iphc = Enum.YLeaf(3, "ppp-iphc-compression-fmt-iphc")
 
     ppp_iphc_compression_fmt_cisco = Enum.YLeaf(4, "ppp-iphc-compression-fmt-cisco")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['PppIphcCompression']
 
 
 class PppLcpMpMbrState(Enum):
@@ -266,6 +287,12 @@ class PppLcpMpMbrState(Enum):
     ppp_lcp_mp_mbr_state_active = Enum.YLeaf(13, "ppp-lcp-mp-mbr-state-active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['PppLcpMpMbrState']
+
+
 class PppSsoFsmState(Enum):
     """
     PppSsoFsmState (Enum Class)
@@ -323,8 +350,14 @@ class PppSsoFsmState(Enum):
     ppp_sso_state_active_negd_7 = Enum.YLeaf(7, "ppp-sso-state-active-negd-7")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['PppSsoFsmState']
 
-class Ppp(Entity):
+
+
+class Ppp(_Entity_):
     """
     PPP operational data
     
@@ -343,7 +376,10 @@ class Ppp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ppp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ppp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ppp"
@@ -364,7 +400,7 @@ class Ppp(Entity):
         self._perform_setattr(Ppp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node PPP operational data
         
@@ -383,7 +419,10 @@ class Ppp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ppp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ppp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ppp"
@@ -402,7 +441,7 @@ class Ppp(Entity):
             self._perform_setattr(Ppp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The PPP operational data for a particular node
             
@@ -472,7 +511,10 @@ class Ppp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ppp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ppp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -520,7 +562,7 @@ class Ppp(Entity):
                 self._perform_setattr(Ppp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 PPP statistics data for a particular node
                 
@@ -553,7 +595,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -579,7 +624,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.Statistics, [], name, value)
 
 
-                class LcpStatistics(Entity):
+                class LcpStatistics(_Entity_):
                     """
                     PPP LCP Statistics
                     
@@ -807,7 +852,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.LcpStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Statistics.LcpStatistics, self).__init__()
 
                         self.yang_name = "lcp-statistics"
                         self.yang_parent_name = "statistics"
@@ -871,9 +919,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Statistics.LcpStatistics']['meta_info']
 
 
-                class AuthenticationStatistics(Entity):
+                class AuthenticationStatistics(_Entity_):
                     """
                     PPP Authentication statistics
                     
@@ -1020,7 +1072,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, self).__init__()
 
                         self.yang_name = "authentication-statistics"
                         self.yang_parent_name = "statistics"
@@ -1066,9 +1121,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Statistics.AuthenticationStatistics']['meta_info']
 
 
-                class NcpStatisticsArray(Entity):
+                class NcpStatisticsArray(_Entity_):
                     """
                     Array of PPP NCP Statistics
                     
@@ -1213,7 +1272,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, self).__init__()
 
                         self.yang_name = "ncp-statistics-array"
                         self.yang_parent_name = "statistics"
@@ -1259,10 +1321,18 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Statistics.NcpStatisticsArray']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.Statistics']['meta_info']
 
 
-
-            class NodeInterfaces(Entity):
+            class NodeInterfaces(_Entity_):
                 """
                 Per interface PPP operational data
                 
@@ -1281,7 +1351,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.NodeInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.NodeInterfaces, self).__init__()
 
                     self.yang_name = "node-interfaces"
                     self.yang_parent_name = "node"
@@ -1299,7 +1372,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces, [], name, value)
 
 
-                class NodeInterface(Entity):
+                class NodeInterface(_Entity_):
                     """
                     LCP and summarized NCP data for an interface
                     running PPP
@@ -1572,7 +1645,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, self).__init__()
 
                         self.yang_name = "node-interface"
                         self.yang_parent_name = "node-interfaces"
@@ -1659,7 +1735,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'parent_state', 'line_state', 'is_loopback_detected', 'caps_idb_srg_role', 'session_srg_role', 'keepalive_period', 'keepalive_retry_count', 'is_ssrp_configured', 'is_l2ac', 'provisioned', 'ip_interworking_enabled', 'xconnect_id', 'is_tunneled_session', 'ssrp_peer_id', 'lcp_state', 'lcpsso_state', 'is_lcp_delayed', 'local_mru', 'peer_mru', 'local_mrru', 'peer_mrru', 'local_ed', 'peer_ed', 'is_mcmp_enabled', 'local_mcmp_classes', 'peer_mcmp_classes', 'session_expires'], name, value)
 
 
-                    class MpInfo(Entity):
+                    class MpInfo(_Entity_):
                         """
                         MP information
                         
@@ -1744,7 +1820,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, self).__init__()
 
                             self.yang_name = "mp-info"
                             self.yang_parent_name = "node-interface"
@@ -1779,7 +1858,7 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['is_mp_bundle', 'mp_bundle_interface', 'is_mp_bundle_member', 'mp_group', 'active_links', 'inactive_links', 'minimum_active_links', 'mp_state'], name, value)
 
 
-                        class MpMemberInfoArray(Entity):
+                        class MpMemberInfoArray(_Entity_):
                             """
                             Array of MP members
                             
@@ -1807,7 +1886,10 @@ class Ppp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, self).__init__()
 
                                 self.yang_name = "mp-member-info-array"
                                 self.yang_parent_name = "mp-info"
@@ -1827,10 +1909,18 @@ class Ppp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo']['meta_info']
 
 
-
-                    class ConfiguredTimeout(Entity):
+                    class ConfiguredTimeout(_Entity_):
                         """
                         Configured timeout
                         
@@ -1864,7 +1954,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, self).__init__()
 
                             self.yang_name = "configured-timeout"
                             self.yang_parent_name = "node-interface"
@@ -1884,9 +1977,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, ['minutes', 'seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout']['meta_info']
 
 
-                    class AuthInfo(Entity):
+                    class AuthInfo(_Entity_):
                         """
                         Authentication information
                         
@@ -1958,7 +2055,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, self).__init__()
 
                             self.yang_name = "auth-info"
                             self.yang_parent_name = "node-interface"
@@ -1990,9 +2090,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_us_auth', 'of_peer_auth', 'of_us_name', 'of_peer_name', 'of_us_sso_state', 'of_peer_sso_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo']['meta_info']
 
 
-                    class NcpInfoArray(Entity):
+                    class NcpInfoArray(_Entity_):
                         """
                         Array of per\-NCP data
                         
@@ -2039,7 +2143,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, self).__init__()
 
                             self.yang_name = "ncp-info-array"
                             self.yang_parent_name = "node-interface"
@@ -2068,7 +2175,7 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['ncp_state', 'ncpsso_state', 'is_passive', 'ncp_identifier'], name, value)
 
 
-                        class NcpInfo(Entity):
+                        class NcpInfo(_Entity_):
                             """
                             Specific NCP info
                             
@@ -2108,7 +2215,10 @@ class Ppp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, self).__init__()
 
                                 self.yang_name = "ncp-info"
                                 self.yang_parent_name = "ncp-info-array"
@@ -2139,7 +2249,7 @@ class Ppp(Entity):
                                 self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, ['type'], name, value)
 
 
-                            class IpcpInfo(Entity):
+                            class IpcpInfo(_Entity_):
                                 """
                                 Info for IPCP
                                 
@@ -2235,7 +2345,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, self).__init__()
 
                                     self.yang_name = "ipcp-info"
                                     self.yang_parent_name = "ncp-info"
@@ -2276,7 +2389,7 @@ class Ppp(Entity):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['local_address', 'peer_address', 'peer_netmask', 'dns_primary', 'dns_secondary', 'wins_primary', 'wins_secondary', 'is_iphc_configured'], name, value)
 
 
-                                class LocalIphcOptions(Entity):
+                                class LocalIphcOptions(_Entity_):
                                     """
                                     Local IPHC options
                                     
@@ -2354,7 +2467,10 @@ class Ppp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, self).__init__()
 
                                         self.yang_name = "local-iphc-options"
                                         self.yang_parent_name = "ipcp-info"
@@ -2386,9 +2502,13 @@ class Ppp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                        return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions']['meta_info']
 
 
-                                class PeerIphcOptions(Entity):
+                                class PeerIphcOptions(_Entity_):
                                     """
                                     Peer IPHC options
                                     
@@ -2466,7 +2586,10 @@ class Ppp(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, self).__init__()
 
                                         self.yang_name = "peer-iphc-options"
                                         self.yang_parent_name = "ipcp-info"
@@ -2498,10 +2621,18 @@ class Ppp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                        return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo']['meta_info']
 
 
-
-                            class IpcpiwInfo(Entity):
+                            class IpcpiwInfo(_Entity_):
                                 """
                                 Info for IPCPIW
                                 
@@ -2531,7 +2662,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, self).__init__()
 
                                     self.yang_name = "ipcpiw-info"
                                     self.yang_parent_name = "ncp-info"
@@ -2551,9 +2685,13 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, ['local_address', 'peer_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo']['meta_info']
 
 
-                            class Ipv6cpInfo(Entity):
+                            class Ipv6cpInfo(_Entity_):
                                 """
                                 Info for IPv6CP
                                 
@@ -2583,7 +2721,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, self).__init__()
 
                                     self.yang_name = "ipv6cp-info"
                                     self.yang_parent_name = "ncp-info"
@@ -2603,13 +2744,33 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, ['local_address', 'peer_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces.NodeInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.NodeInterfaces']['meta_info']
 
 
-
-
-
-
-            class SsoAlerts(Entity):
+            class SsoAlerts(_Entity_):
                 """
                 PPP SSO Alert data for a particular node
                 
@@ -2628,7 +2789,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.SsoAlerts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.SsoAlerts, self).__init__()
 
                     self.yang_name = "sso-alerts"
                     self.yang_parent_name = "node"
@@ -2646,7 +2810,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.SsoAlerts, [], name, value)
 
 
-                class SsoAlert(Entity):
+                class SsoAlert(_Entity_):
                     """
                     PPP SSO Alert data for a particular interface
                     
@@ -2695,7 +2859,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoAlerts.SsoAlert, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert, self).__init__()
 
                         self.yang_name = "sso-alert"
                         self.yang_parent_name = "sso-alerts"
@@ -2730,7 +2897,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert, ['interface'], name, value)
 
 
-                    class LcpError(Entity):
+                    class LcpError(_Entity_):
                         """
                         LCP SSO Error
                         
@@ -2767,7 +2934,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, self).__init__()
 
                             self.yang_name = "lcp-error"
                             self.yang_parent_name = "sso-alert"
@@ -2789,9 +2959,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['is_error', 'error', 'context'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError']['meta_info']
 
 
-                    class OfUsAuthError(Entity):
+                    class OfUsAuthError(_Entity_):
                         """
                         Of\-us Authentication SSO Error
                         
@@ -2828,7 +3002,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, self).__init__()
 
                             self.yang_name = "of-us-auth-error"
                             self.yang_parent_name = "sso-alert"
@@ -2850,9 +3027,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['is_error', 'error', 'context'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError']['meta_info']
 
 
-                    class OfPeerAuthError(Entity):
+                    class OfPeerAuthError(_Entity_):
                         """
                         Of\-peer Authentication SSO Error
                         
@@ -2889,7 +3070,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, self).__init__()
 
                             self.yang_name = "of-peer-auth-error"
                             self.yang_parent_name = "sso-alert"
@@ -2911,9 +3095,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['is_error', 'error', 'context'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError']['meta_info']
 
 
-                    class IpcpError(Entity):
+                    class IpcpError(_Entity_):
                         """
                         IPCP SSO Error
                         
@@ -2950,7 +3138,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, self).__init__()
 
                             self.yang_name = "ipcp-error"
                             self.yang_parent_name = "sso-alert"
@@ -2972,11 +3163,23 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['is_error', 'error', 'context'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoAlerts.SsoAlert']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.SsoAlerts']['meta_info']
 
 
-
-
-            class NodeInterfaceStatistics(Entity):
+            class NodeInterfaceStatistics(_Entity_):
                 """
                 Per interface PPP operational statistics
                 
@@ -2995,7 +3198,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.NodeInterfaceStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.NodeInterfaceStatistics, self).__init__()
 
                     self.yang_name = "node-interface-statistics"
                     self.yang_parent_name = "node"
@@ -3013,7 +3219,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics, [], name, value)
 
 
-                class NodeInterfaceStatistic(Entity):
+                class NodeInterfaceStatistic(_Entity_):
                     """
                     LCP and NCP statistics for an interface
                     running PPP
@@ -3056,7 +3262,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, self).__init__()
 
                         self.yang_name = "node-interface-statistic"
                         self.yang_parent_name = "node-interface-statistics"
@@ -3085,7 +3294,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, ['interface_name'], name, value)
 
 
-                    class LcpStatistics(Entity):
+                    class LcpStatistics(_Entity_):
                         """
                         PPP LCP Statistics
                         
@@ -3241,7 +3450,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, self).__init__()
 
                             self.yang_name = "lcp-statistics"
                             self.yang_parent_name = "node-interface-statistic"
@@ -3289,9 +3501,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics']['meta_info']
 
 
-                    class AuthenticationStatistics(Entity):
+                    class AuthenticationStatistics(_Entity_):
                         """
                         PPP Authentication statistics
                         
@@ -3438,7 +3654,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, self).__init__()
 
                             self.yang_name = "authentication-statistics"
                             self.yang_parent_name = "node-interface-statistic"
@@ -3484,9 +3703,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics']['meta_info']
 
 
-                    class NcpStatisticsArray(Entity):
+                    class NcpStatisticsArray(_Entity_):
                         """
                         Array of PPP NCP Statistics
                         
@@ -3577,7 +3800,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, self).__init__()
 
                             self.yang_name = "ncp-statistics-array"
                             self.yang_parent_name = "node-interface-statistic"
@@ -3611,11 +3837,23 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.NodeInterfaceStatistics']['meta_info']
 
 
-
-
-            class SsoSummary(Entity):
+            class SsoSummary(_Entity_):
                 """
                 Summarized PPP SSO data for a particular node
                 
@@ -3655,7 +3893,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.SsoSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.SsoSummary, self).__init__()
 
                     self.yang_name = "sso-summary"
                     self.yang_parent_name = "node"
@@ -3687,7 +3928,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.SsoSummary, [], name, value)
 
 
-                class LcpStates(Entity):
+                class LcpStates(_Entity_):
                     """
                     LCP SSO FSM States
                     
@@ -3717,7 +3958,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.LcpStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoSummary.LcpStates, self).__init__()
 
                         self.yang_name = "lcp-states"
                         self.yang_parent_name = "sso-summary"
@@ -3737,9 +3981,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['total', 'count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoSummary.LcpStates']['meta_info']
 
 
-                class OfUsAuthStates(Entity):
+                class OfUsAuthStates(_Entity_):
                     """
                     Of\-us Authentication SSO FSM States
                     
@@ -3769,7 +4017,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, self).__init__()
 
                         self.yang_name = "of-us-auth-states"
                         self.yang_parent_name = "sso-summary"
@@ -3789,9 +4040,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['total', 'count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoSummary.OfUsAuthStates']['meta_info']
 
 
-                class OfPeerAuthStates(Entity):
+                class OfPeerAuthStates(_Entity_):
                     """
                     Of\-peer Authentication SSO FSM States
                     
@@ -3821,7 +4076,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, self).__init__()
 
                         self.yang_name = "of-peer-auth-states"
                         self.yang_parent_name = "sso-summary"
@@ -3841,9 +4099,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['total', 'count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates']['meta_info']
 
 
-                class IpcpStates(Entity):
+                class IpcpStates(_Entity_):
                     """
                     IPCP SSO FSM States
                     
@@ -3873,7 +4135,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoSummary.IpcpStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoSummary.IpcpStates, self).__init__()
 
                         self.yang_name = "ipcp-states"
                         self.yang_parent_name = "sso-summary"
@@ -3893,10 +4158,18 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['total', 'count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoSummary.IpcpStates']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.SsoSummary']['meta_info']
 
 
-
-            class SsoGroups(Entity):
+            class SsoGroups(_Entity_):
                 """
                 PPP SSO Group data for a particular node
                 
@@ -3915,7 +4188,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.SsoGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.SsoGroups, self).__init__()
 
                     self.yang_name = "sso-groups"
                     self.yang_parent_name = "node"
@@ -3933,7 +4209,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups, [], name, value)
 
 
-                class SsoGroup(Entity):
+                class SsoGroup(_Entity_):
                     """
                     PPP SSO state data for a particular group
                     
@@ -3961,7 +4237,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.SsoGroups.SsoGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.SsoGroups.SsoGroup, self).__init__()
 
                         self.yang_name = "sso-group"
                         self.yang_parent_name = "sso-groups"
@@ -3984,7 +4263,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup, ['group_id'], name, value)
 
 
-                    class SsoStates(Entity):
+                    class SsoStates(_Entity_):
                         """
                         PPP SSO State data for a particular group
                         
@@ -4003,7 +4282,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates, self).__init__()
 
                             self.yang_name = "sso-states"
                             self.yang_parent_name = "sso-group"
@@ -4021,7 +4303,7 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates, [], name, value)
 
 
-                        class SsoState(Entity):
+                        class SsoState(_Entity_):
                             """
                             PPP SSO State data for a particular
                             interface
@@ -4089,7 +4371,10 @@ class Ppp(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, self).__init__()
 
                                 self.yang_name = "sso-state"
                                 self.yang_parent_name = "sso-states"
@@ -4128,7 +4413,7 @@ class Ppp(Entity):
                                 self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'session_id_xr', 'interface'], name, value)
 
 
-                            class LcpState(Entity):
+                            class LcpState(_Entity_):
                                 """
                                 LCP SSO State
                                 
@@ -4154,7 +4439,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, self).__init__()
 
                                     self.yang_name = "lcp-state"
                                     self.yang_parent_name = "sso-state"
@@ -4174,9 +4462,13 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, ['is_running', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState']['meta_info']
 
 
-                            class OfUsAuthState(Entity):
+                            class OfUsAuthState(_Entity_):
                                 """
                                 Of\-us Authentication SSO State
                                 
@@ -4202,7 +4494,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, self).__init__()
 
                                     self.yang_name = "of-us-auth-state"
                                     self.yang_parent_name = "sso-state"
@@ -4222,9 +4517,13 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, ['is_running', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState']['meta_info']
 
 
-                            class OfPeerAuthState(Entity):
+                            class OfPeerAuthState(_Entity_):
                                 """
                                 Of\-peer Authentication SSO State
                                 
@@ -4250,7 +4549,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, self).__init__()
 
                                     self.yang_name = "of-peer-auth-state"
                                     self.yang_parent_name = "sso-state"
@@ -4270,9 +4572,13 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState']['meta_info']
 
 
-                            class IpcpState(Entity):
+                            class IpcpState(_Entity_):
                                 """
                                 IPCP SSO State
                                 
@@ -4298,7 +4604,10 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, self).__init__()
 
                                     self.yang_name = "ipcp-state"
                                     self.yang_parent_name = "sso-state"
@@ -4318,13 +4627,33 @@ class Ppp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                    return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                                return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.SsoGroups.SsoGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.SsoGroups']['meta_info']
 
 
-
-
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summarized PPP data for a particular node
                 
@@ -4357,7 +4686,10 @@ class Ppp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ppp.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ppp.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -4385,7 +4717,7 @@ class Ppp(Entity):
                     self._perform_setattr(Ppp.Nodes.Node.Summary, [], name, value)
 
 
-                class Intfs(Entity):
+                class Intfs(_Entity_):
                     """
                     Interfaces running PPP
                     
@@ -4460,7 +4792,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Summary.Intfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Summary.Intfs, self).__init__()
 
                         self.yang_name = "intfs"
                         self.yang_parent_name = "summary"
@@ -4490,9 +4825,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['pos_count', 'serial_count', 'pppoe_count', 'multilink_bundle_count', 'gcc0_count', 'gcc1_count', 'total'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Summary.Intfs']['meta_info']
 
 
-                class FsmStates(Entity):
+                class FsmStates(_Entity_):
                     """
                     FSM States
                     
@@ -4518,7 +4857,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Summary.FsmStates, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Summary.FsmStates, self).__init__()
 
                         self.yang_name = "fsm-states"
                         self.yang_parent_name = "summary"
@@ -4540,7 +4882,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates, [], name, value)
 
 
-                    class LcpfsmStates(Entity):
+                    class LcpfsmStates(_Entity_):
                         """
                         Array of per\-LCP FSM States
                         
@@ -4570,7 +4912,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, self).__init__()
 
                             self.yang_name = "lcpfsm-states"
                             self.yang_parent_name = "fsm-states"
@@ -4590,9 +4935,13 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['total', 'count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates']['meta_info']
 
 
-                    class NcpfsmStatesArray(Entity):
+                    class NcpfsmStatesArray(_Entity_):
                         """
                         Array of per\-NCP FSM States
                         
@@ -4629,7 +4978,10 @@ class Ppp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, self).__init__()
 
                             self.yang_name = "ncpfsm-states-array"
                             self.yang_parent_name = "fsm-states"
@@ -4651,10 +5003,18 @@ class Ppp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['ncp_identifier', 'total', 'count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                            return meta._meta_table['Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Summary.FsmStates']['meta_info']
 
 
-
-                class LcpAuthPhases(Entity):
+                class LcpAuthPhases(_Entity_):
                     """
                     LCP/Auth Phases
                     
@@ -4720,7 +5080,10 @@ class Ppp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ppp.Nodes.Node.Summary.LcpAuthPhases, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ppp.Nodes.Node.Summary.LcpAuthPhases, self).__init__()
 
                         self.yang_name = "lcp-auth-phases"
                         self.yang_parent_name = "summary"
@@ -4748,13 +5111,33 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['lcp_not_negotiated', 'authenticating', 'line_held_down', 'up_local_term', 'up_l2_fwded', 'up_tunneled'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                        return meta._meta_table['Ppp.Nodes.Node.Summary.LcpAuthPhases']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                    return meta._meta_table['Ppp.Nodes.Node.Summary']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+                return meta._meta_table['Ppp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+            return meta._meta_table['Ppp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ppp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ma_oper as meta
+        return meta._meta_table['Ppp']['meta_info']
 
 

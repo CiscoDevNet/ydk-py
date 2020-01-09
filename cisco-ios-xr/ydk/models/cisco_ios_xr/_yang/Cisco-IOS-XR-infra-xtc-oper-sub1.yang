@@ -26,6 +26,18 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-02 {
+    description
+      "Added REST peer statistic information.";
+  }
+  revision 2019-09-27 {
+    description
+      "Implement new show pce lsp and show pce initiated tunnels commands for Optima";
+  }
+  revision 2019-04-17 {
+    description
+      "Various modifications to policy-related models for better compatibility with the IETF policy draft";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -151,6 +163,33 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
     description
       "PCE CSPF Result Code";
+  }
+
+  typedef Cmn-ha-case {
+    type enumeration {
+      enum "ha-case-migration" {
+        description
+          "HA Case Migration";
+      }
+      enum "ha-case-restart" {
+        description
+          "HA Case Restart";
+      }
+      enum "ha-case-switchover" {
+        description
+          "HA Case Switchover";
+      }
+      enum "ha-case-startup" {
+        description
+          "HA Case Startup";
+      }
+      enum "ha-case-invalid" {
+        description
+          "HA Case Invalid";
+      }
+    }
+    description
+      "Various HA cases";
   }
 
   typedef Sid {
@@ -400,6 +439,83 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
     description
       "Pce af id";
+  }
+
+  grouping REST-PEER-STATS-INFO {
+    description
+      "Stats info struct";
+    leaf type {
+      type uint32;
+      description
+        "REST peer operation types";
+    }
+    leaf state {
+      type uint32;
+      description
+        "REST peer state";
+    }
+    leaf id {
+      type uint32;
+      description
+        "Unique Identifier for stats";
+    }
+    leaf failed {
+      type boolean;
+      description
+        "Indicates failure";
+    }
+    leaf st-time {
+      type uint32;
+      description
+        "Indicates start time";
+    }
+    leaf ls-time {
+      type uint32;
+      description
+        "Indicates Last seen time";
+    }
+    leaf queue-valid-time {
+      type uint32;
+      description
+        "Timestamp, when something was sent from queue or
+         when it was empty.";
+    }
+    leaf send-queue-size {
+      type uint64;
+      units "byte";
+      description
+        "Size of data in send queue in bytes";
+    }
+    leaf rest-query {
+      type string;
+      description
+        "query string";
+    }
+  }
+
+  grouping REST-PEER-STATS-BAG {
+    description
+      "REST PEER STATS BAG";
+    container ip-addr {
+      description
+        "Indicates the rest peer IP";
+      uses PCE-IP-ADDR-TYPE;
+    }
+    leaf uid {
+      type uint32;
+      description
+        "Indicates the UID for the peer";
+    }
+    leaf count {
+      type uint32;
+      description
+        "Stats array index";
+    }
+    list stats {
+      description
+        "Stats info";
+      uses REST-PEER-STATS-INFO;
+    }
   }
 
   grouping PCE-PATH-LIST-BAG {
@@ -653,6 +769,58 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping CMN-TIMER-INFO {
+    description
+      "Timer information";
+    leaf running {
+      type boolean;
+      description
+        "Whether the timer is running";
+    }
+    leaf remaining-seconds {
+      type int64;
+      units "second";
+      description
+        "Number of remaining seconds";
+    }
+    leaf remaining-nano-seconds {
+      type int64;
+      units "nanosecond";
+      description
+        "Number of remaining nanoseconds";
+    }
+  }
+
+  grouping XTC-TOPO-READY-BAG {
+    description
+      "XTC Topology Readiness Information";
+    container timer {
+      description
+        "Topology readiness timer";
+      uses CMN-TIMER-INFO;
+    }
+    leaf ready {
+      type boolean;
+      description
+        "Topology readiness";
+    }
+    leaf pcep-allowed {
+      type boolean;
+      description
+        "Whether PCEP is allowed";
+    }
+    leaf ha-case {
+      type Cmn-ha-case;
+      description
+        "Last HA case";
+    }
+    leaf timer-value {
+      type uint32;
+      description
+        "Topology ready timer value selected at start";
+    }
+  }
+
   grouping PCE-TOPO-STATS-BAG {
     description
       "Statistics on topology update";
@@ -695,6 +863,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Statistics on topology update";
       uses PCE-TOPO-STATS-BAG;
+    }
+    container topology-ready-summary {
+      description
+        "Topology ready summary";
+      uses XTC-TOPO-READY-BAG;
     }
     leaf nodes {
       type uint32;
@@ -1465,7 +1638,7 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
         "Event message";
     }
     leaf time-stamp {
-      type uint32;
+      type uint64;
       description
         "Event time, relative to Jan 1, 1970";
     }
@@ -1794,6 +1967,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Computing PCE";
     }
+    leaf preference {
+      type uint32;
+      description
+        "Preference";
+    }
     leaf-list srlg-info {
       type uint32;
       description
@@ -1833,6 +2011,16 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "Color";
+    }
+    leaf interface-name {
+      type string;
+      description
+        "Interface name";
+    }
+    leaf profile-id {
+      type uint16;
+      description
+        "Profile ID";
     }
     list detail-lsp-information {
       description

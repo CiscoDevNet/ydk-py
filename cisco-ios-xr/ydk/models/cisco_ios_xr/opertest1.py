@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Oper(Entity):
+class Oper(_Entity_):
     """
     
     
@@ -95,7 +98,10 @@ class Oper(Entity):
     _revision = '2016-10-12'
 
     def __init__(self):
-        super(Oper, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Oper, self).__init__()
         self._top_entity = None
 
         self.yang_name = "oper"
@@ -135,7 +141,7 @@ class Oper(Entity):
         self._perform_setattr(Oper, ['fred', 'barney', 'wilma', 'betty'], name, value)
 
 
-    class Slates(Entity):
+    class Slates(_Entity_):
         """
         
         
@@ -165,7 +171,10 @@ class Oper(Entity):
         _revision = '2016-10-12'
 
         def __init__(self):
-            super(Oper.Slates, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Slates, self).__init__()
 
             self.yang_name = "slates"
             self.yang_parent_name = "oper"
@@ -186,9 +195,13 @@ class Oper(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Slates, ['slatenum', 'mrslate'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+            return meta._meta_table['Oper.Slates']['meta_info']
 
 
-    class Uname(Entity):
+    class Uname(_Entity_):
         """
         
         
@@ -242,7 +255,10 @@ class Oper(Entity):
         _revision = '2016-10-12'
 
         def __init__(self):
-            super(Oper.Uname, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Uname, self).__init__()
 
             self.yang_name = "uname"
             self.yang_parent_name = "oper"
@@ -271,9 +287,13 @@ class Oper(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Uname, ['system', 'nodename', 'release', 'version', 'machine', 'all'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+            return meta._meta_table['Oper.Uname']['meta_info']
 
 
-    class Uptime(Entity):
+    class Uptime(_Entity_):
         """
         
         
@@ -320,7 +340,10 @@ class Oper(Entity):
         _revision = '2016-10-12'
 
         def __init__(self):
-            super(Oper.Uptime, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Uptime, self).__init__()
 
             self.yang_name = "uptime"
             self.yang_parent_name = "oper"
@@ -347,9 +370,13 @@ class Oper(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Uptime, ['curtime', 'uptime', 'loadavg1min', 'loadavg5min', 'loadavg15min'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+            return meta._meta_table['Oper.Uptime']['meta_info']
 
 
-    class W(Entity):
+    class W(_Entity_):
         """
         
         
@@ -375,7 +402,10 @@ class Oper(Entity):
         _revision = '2016-10-12'
 
         def __init__(self):
-            super(Oper.W, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.W, self).__init__()
 
             self.yang_name = "w"
             self.yang_parent_name = "oper"
@@ -400,7 +430,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.W, [], name, value)
 
 
-        class HeaderInfo(Entity):
+        class HeaderInfo(_Entity_):
             """
             
             
@@ -447,7 +477,10 @@ class Oper(Entity):
             _revision = '2016-10-12'
 
             def __init__(self):
-                super(Oper.W.HeaderInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.W.HeaderInfo, self).__init__()
 
                 self.yang_name = "header-info"
                 self.yang_parent_name = "w"
@@ -474,9 +507,13 @@ class Oper(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.W.HeaderInfo, ['curtime', 'uptime', 'loadavg1min', 'loadavg5min', 'loadavg15min'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+                return meta._meta_table['Oper.W.HeaderInfo']['meta_info']
 
 
-        class Users(Entity):
+        class Users(_Entity_):
             """
             
             
@@ -495,7 +532,10 @@ class Oper(Entity):
             _revision = '2016-10-12'
 
             def __init__(self):
-                super(Oper.W.Users, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.W.Users, self).__init__()
 
                 self.yang_name = "users"
                 self.yang_parent_name = "w"
@@ -514,7 +554,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.W.Users, [], name, value)
 
 
-            class User(Entity):
+            class User(_Entity_):
                 """
                 
                 
@@ -582,7 +622,10 @@ class Oper(Entity):
                 _revision = '2016-10-12'
 
                 def __init__(self):
-                    super(Oper.W.Users.User, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.W.Users.User, self).__init__()
 
                     self.yang_name = "user"
                     self.yang_parent_name = "users"
@@ -615,16 +658,32 @@ class Oper(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.W.Users.User, ['tty', 'user', 'from_', 'login_at', 'idle', 'jcpu', 'pcpu', 'what'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+                    return meta._meta_table['Oper.W.Users.User']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+                return meta._meta_table['Oper.W.Users']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+            return meta._meta_table['Oper.W']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Oper()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+        return meta._meta_table['Oper']['meta_info']
 
 
-class Actions(Entity):
+class Actions(_Entity_):
     """
     
     
@@ -636,7 +695,10 @@ class Actions(Entity):
     _revision = '2016-10-12'
 
     def __init__(self):
-        super(Actions, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Actions, self).__init__()
         self._top_entity = None
 
         self.yang_name = "actions"
@@ -653,5 +715,9 @@ class Actions(Entity):
         self._top_entity = Actions()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _opertest1 as meta
+        return meta._meta_table['Actions']['meta_info']
 
 

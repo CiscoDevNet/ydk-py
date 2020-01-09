@@ -3,12 +3,15 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR action package configuration.
 
-Copyright (c) 2016\-2018 by Cisco Systems, Inc.
+Copyright (c) 2016\-2019 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class KeyGenerateRsaGeneralKeys(Entity):
+class KeyGenerateRsaGeneralKeys(_Entity_):
     """
     Generate a general purpose RSA key pair for signing and encryption
     
@@ -31,10 +34,13 @@ class KeyGenerateRsaGeneralKeys(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyGenerateRsaGeneralKeys, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyGenerateRsaGeneralKeys, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-generate-rsa-general-keys"
@@ -52,7 +58,7 @@ class KeyGenerateRsaGeneralKeys(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -75,10 +81,13 @@ class KeyGenerateRsaGeneralKeys(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyGenerateRsaGeneralKeys.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyGenerateRsaGeneralKeys.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-generate-rsa-general-keys"
@@ -99,14 +108,22 @@ class KeyGenerateRsaGeneralKeys(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsaGeneralKeys.Input, ['key_label', 'key_modulus'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyGenerateRsaGeneralKeys.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsaGeneralKeys()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyGenerateRsaGeneralKeys']['meta_info']
 
 
-class KeyGenerateRsaUsageKeys(Entity):
+class KeyGenerateRsaUsageKeys(_Entity_):
     """
     Generate seperate RSA key pairs for signing and encryption
     
@@ -120,10 +137,13 @@ class KeyGenerateRsaUsageKeys(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyGenerateRsaUsageKeys, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyGenerateRsaUsageKeys, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-generate-rsa-usage-keys"
@@ -141,7 +161,7 @@ class KeyGenerateRsaUsageKeys(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -164,10 +184,13 @@ class KeyGenerateRsaUsageKeys(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyGenerateRsaUsageKeys.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyGenerateRsaUsageKeys.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-generate-rsa-usage-keys"
@@ -188,14 +211,22 @@ class KeyGenerateRsaUsageKeys(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsaUsageKeys.Input, ['key_label', 'key_modulus'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyGenerateRsaUsageKeys.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsaUsageKeys()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyGenerateRsaUsageKeys']['meta_info']
 
 
-class KeyGenerateRsa(Entity):
+class KeyGenerateRsa(_Entity_):
     """
     Generate seperate RSA key pairs for signing and encryption
     
@@ -209,10 +240,13 @@ class KeyGenerateRsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyGenerateRsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyGenerateRsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-generate-rsa"
@@ -230,7 +264,7 @@ class KeyGenerateRsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -253,10 +287,13 @@ class KeyGenerateRsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyGenerateRsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyGenerateRsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-generate-rsa"
@@ -277,14 +314,22 @@ class KeyGenerateRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsa.Input, ['key_label', 'key_modulus'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyGenerateRsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyGenerateRsa']['meta_info']
 
 
-class KeyGenerateDsa(Entity):
+class KeyGenerateDsa(_Entity_):
     """
     Generate DSA keys
     
@@ -298,10 +343,13 @@ class KeyGenerateDsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyGenerateDsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyGenerateDsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-generate-dsa"
@@ -319,7 +367,7 @@ class KeyGenerateDsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -337,10 +385,13 @@ class KeyGenerateDsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyGenerateDsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyGenerateDsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-generate-dsa"
@@ -359,14 +410,22 @@ class KeyGenerateDsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateDsa.Input, ['key_modulus'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyGenerateDsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateDsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyGenerateDsa']['meta_info']
 
 
-class KeyGenerateEcdsa(Entity):
+class KeyGenerateEcdsa(_Entity_):
     """
     Generate a ECDSA key of curve type nistp256 \| nistp384 \| nistp521
     
@@ -380,10 +439,13 @@ class KeyGenerateEcdsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyGenerateEcdsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyGenerateEcdsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-generate-ecdsa"
@@ -401,7 +463,7 @@ class KeyGenerateEcdsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -422,10 +484,13 @@ class KeyGenerateEcdsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyGenerateEcdsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyGenerateEcdsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-generate-ecdsa"
@@ -465,14 +530,28 @@ class KeyGenerateEcdsa(Entity):
             nistp521 = Enum.YLeaf(2, "nistp521")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+                return meta._meta_table['KeyGenerateEcdsa.Input.KeyModulus']
+
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyGenerateEcdsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyGenerateEcdsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyGenerateEcdsa']['meta_info']
 
 
-class KeyZeroizeRsa(Entity):
+class KeyZeroizeRsa(_Entity_):
     """
     Remove RSA keys
     
@@ -486,10 +565,13 @@ class KeyZeroizeRsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyZeroizeRsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeRsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-zeroize-rsa"
@@ -507,7 +589,7 @@ class KeyZeroizeRsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -521,10 +603,13 @@ class KeyZeroizeRsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyZeroizeRsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyZeroizeRsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-zeroize-rsa"
@@ -543,14 +628,22 @@ class KeyZeroizeRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyZeroizeRsa.Input, ['key_label'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyZeroizeRsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyZeroizeRsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeRsa']['meta_info']
 
 
-class KeyZeroizeDsa(Entity):
+class KeyZeroizeDsa(_Entity_):
     """
     Remove DSA keys
     
@@ -559,10 +652,13 @@ class KeyZeroizeDsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyZeroizeDsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeDsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-zeroize-dsa"
@@ -579,9 +675,13 @@ class KeyZeroizeDsa(Entity):
         self._top_entity = KeyZeroizeDsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeDsa']['meta_info']
 
 
-class KeyZeroizeEcdsa(Entity):
+class KeyZeroizeEcdsa(_Entity_):
     """
     Remove ECDSA key of curve type nistp256 \| nistp384 \| nistp521
     
@@ -595,10 +695,13 @@ class KeyZeroizeEcdsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyZeroizeEcdsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeEcdsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-zeroize-ecdsa"
@@ -616,7 +719,7 @@ class KeyZeroizeEcdsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -637,10 +740,13 @@ class KeyZeroizeEcdsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyZeroizeEcdsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyZeroizeEcdsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-zeroize-ecdsa"
@@ -680,14 +786,28 @@ class KeyZeroizeEcdsa(Entity):
             nistp521 = Enum.YLeaf(2, "nistp521")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+                return meta._meta_table['KeyZeroizeEcdsa.Input.KeyModulus']
+
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyZeroizeEcdsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyZeroizeEcdsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeEcdsa']['meta_info']
 
 
-class KeyZeroizeAuthenticationRsa(Entity):
+class KeyZeroizeAuthenticationRsa(_Entity_):
     """
     Remove RSA authentication key
     
@@ -696,10 +816,13 @@ class KeyZeroizeAuthenticationRsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyZeroizeAuthenticationRsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeAuthenticationRsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-zeroize-authentication-rsa"
@@ -716,9 +839,248 @@ class KeyZeroizeAuthenticationRsa(Entity):
         self._top_entity = KeyZeroizeAuthenticationRsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeAuthenticationRsa']['meta_info']
 
 
-class KeyImportAuthenticationRsa(Entity):
+class KeyZeroizeAuthenticationRsaUsername(_Entity_):
+    """
+    Remove RSA authentication key
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeAuthenticationRsaUsername.Input>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-act'
+    _revision = '2019-06-18'
+
+    def __init__(self):
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeAuthenticationRsaUsername, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-zeroize-authentication-rsa-username"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = KeyZeroizeAuthenticationRsaUsername.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa-username"
+        self._is_frozen = True
+
+
+    class Input(_Entity_):
+        """
+        
+        
+        .. attribute:: username
+        
+        	Username
+        	**type**\: str
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'crypto-act'
+        _revision = '2019-06-18'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyZeroizeAuthenticationRsaUsername.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "key-zeroize-authentication-rsa-username"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+            ])
+            self.username = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa-username/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KeyZeroizeAuthenticationRsaUsername.Input, ['username'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyZeroizeAuthenticationRsaUsername.Input']['meta_info']
+
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeAuthenticationRsaUsername()
+        return self._top_entity
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeAuthenticationRsaUsername']['meta_info']
+
+
+class KeyZeroizeAuthenticationRsaAll(_Entity_):
+    """
+    Remove RSA authentication key
+    
+    
+
+    """
+
+    _prefix = 'crypto-act'
+    _revision = '2019-06-18'
+
+    def __init__(self):
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyZeroizeAuthenticationRsaAll, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-zeroize-authentication-rsa-all"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa-all"
+        self._is_frozen = True
+
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeAuthenticationRsaAll()
+        return self._top_entity
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyZeroizeAuthenticationRsaAll']['meta_info']
+
+
+class KeyImportAuthenticationRsaUsername(_Entity_):
+    """
+    RSA authentication key for user
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyImportAuthenticationRsaUsername.Input>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-act'
+    _revision = '2019-06-18'
+
+    def __init__(self):
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyImportAuthenticationRsaUsername, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-import-authentication-rsa-username"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = KeyImportAuthenticationRsaUsername.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa-username"
+        self._is_frozen = True
+
+
+    class Input(_Entity_):
+        """
+        
+        
+        .. attribute:: path
+        
+        	Path to RSA pubkey file
+        	**type**\: str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: username
+        
+        	Username
+        	**type**\: str
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'crypto-act'
+        _revision = '2019-06-18'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyImportAuthenticationRsaUsername.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "key-import-authentication-rsa-username"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+            ])
+            self.path = None
+            self.username = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa-username/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KeyImportAuthenticationRsaUsername.Input, ['path', 'username'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyImportAuthenticationRsaUsername.Input']['meta_info']
+
+    def clone_ptr(self):
+        self._top_entity = KeyImportAuthenticationRsaUsername()
+        return self._top_entity
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyImportAuthenticationRsaUsername']['meta_info']
+
+
+class KeyImportAuthenticationRsa(_Entity_):
     """
     Remove RSA authentication key
     
@@ -732,10 +1094,13 @@ class KeyImportAuthenticationRsa(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(KeyImportAuthenticationRsa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(KeyImportAuthenticationRsa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "key-import-authentication-rsa"
@@ -753,7 +1118,7 @@ class KeyImportAuthenticationRsa(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -769,10 +1134,13 @@ class KeyImportAuthenticationRsa(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(KeyImportAuthenticationRsa.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(KeyImportAuthenticationRsa.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "key-import-authentication-rsa"
@@ -791,14 +1159,22 @@ class KeyImportAuthenticationRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyImportAuthenticationRsa.Input, ['path'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['KeyImportAuthenticationRsa.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = KeyImportAuthenticationRsa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['KeyImportAuthenticationRsa']['meta_info']
 
 
-class CaAuthenticate(Entity):
+class CaAuthenticate(_Entity_):
     """
     Get the certification authority certificate
     
@@ -812,10 +1188,13 @@ class CaAuthenticate(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaAuthenticate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaAuthenticate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-authenticate"
@@ -833,7 +1212,7 @@ class CaAuthenticate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -849,10 +1228,13 @@ class CaAuthenticate(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaAuthenticate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaAuthenticate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-authenticate"
@@ -871,14 +1253,22 @@ class CaAuthenticate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaAuthenticate.Input, ['server_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaAuthenticate.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaAuthenticate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaAuthenticate']['meta_info']
 
 
-class CaEnroll(Entity):
+class CaEnroll(_Entity_):
     """
     Request a certificate from a CA
     
@@ -892,10 +1282,13 @@ class CaEnroll(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaEnroll, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaEnroll, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-enroll"
@@ -913,7 +1306,7 @@ class CaEnroll(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -929,10 +1322,13 @@ class CaEnroll(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaEnroll.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaEnroll.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-enroll"
@@ -951,14 +1347,22 @@ class CaEnroll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaEnroll.Input, ['server_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaEnroll.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaEnroll()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaEnroll']['meta_info']
 
 
-class CaImportCertificate(Entity):
+class CaImportCertificate(_Entity_):
     """
     Import a certificate from a s/tftp server or the terminal
     
@@ -972,10 +1376,13 @@ class CaImportCertificate(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaImportCertificate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaImportCertificate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-import-certificate"
@@ -993,7 +1400,7 @@ class CaImportCertificate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1009,10 +1416,13 @@ class CaImportCertificate(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaImportCertificate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaImportCertificate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-import-certificate"
@@ -1031,14 +1441,22 @@ class CaImportCertificate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaImportCertificate.Input, ['server_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaImportCertificate.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaImportCertificate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaImportCertificate']['meta_info']
 
 
-class CaCancelEnroll(Entity):
+class CaCancelEnroll(_Entity_):
     """
     Cancel enrollment from a CA
     
@@ -1052,10 +1470,13 @@ class CaCancelEnroll(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaCancelEnroll, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaCancelEnroll, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-cancel-enroll"
@@ -1073,7 +1494,7 @@ class CaCancelEnroll(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1089,10 +1510,13 @@ class CaCancelEnroll(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaCancelEnroll.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaCancelEnroll.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-cancel-enroll"
@@ -1111,14 +1535,22 @@ class CaCancelEnroll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaCancelEnroll.Input, ['server_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaCancelEnroll.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaCancelEnroll()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaCancelEnroll']['meta_info']
 
 
-class CaCrlRequest(Entity):
+class CaCrlRequest(_Entity_):
     """
     Actions on certificate revocation lists
     
@@ -1137,10 +1569,13 @@ class CaCrlRequest(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaCrlRequest, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaCrlRequest, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-crl-request"
@@ -1162,7 +1597,7 @@ class CaCrlRequest(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1178,10 +1613,13 @@ class CaCrlRequest(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaCrlRequest.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaCrlRequest.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-crl-request"
@@ -1200,9 +1638,13 @@ class CaCrlRequest(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaCrlRequest.Input, ['uri'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaCrlRequest.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -1218,10 +1660,13 @@ class CaCrlRequest(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaCrlRequest.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaCrlRequest.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "ca-crl-request"
@@ -1240,14 +1685,22 @@ class CaCrlRequest(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaCrlRequest.Output, ['certificate'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaCrlRequest.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaCrlRequest()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaCrlRequest']['meta_info']
 
 
-class CaTrustpoolImportUrl(Entity):
+class CaTrustpoolImportUrl(_Entity_):
     """
     Manual import trustpool certificates from URL
     
@@ -1261,10 +1714,13 @@ class CaTrustpoolImportUrl(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaTrustpoolImportUrl, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaTrustpoolImportUrl, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-trustpool-import-url"
@@ -1282,7 +1738,7 @@ class CaTrustpoolImportUrl(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1296,10 +1752,13 @@ class CaTrustpoolImportUrl(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaTrustpoolImportUrl.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaTrustpoolImportUrl.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-trustpool-import-url"
@@ -1318,14 +1777,22 @@ class CaTrustpoolImportUrl(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaTrustpoolImportUrl.Input, ['url'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaTrustpoolImportUrl.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaTrustpoolImportUrl()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaTrustpoolImportUrl']['meta_info']
 
 
-class CaTrustpoolImportUrlClean(Entity):
+class CaTrustpoolImportUrlClean(_Entity_):
     """
     Remove downloaded certificates in trustpool
     
@@ -1339,10 +1806,13 @@ class CaTrustpoolImportUrlClean(Entity):
     """
 
     _prefix = 'crypto-act'
-    _revision = '2016-04-17'
+    _revision = '2019-06-18'
 
     def __init__(self):
-        super(CaTrustpoolImportUrlClean, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CaTrustpoolImportUrlClean, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ca-trustpool-import-url-clean"
@@ -1360,7 +1830,7 @@ class CaTrustpoolImportUrlClean(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1374,10 +1844,13 @@ class CaTrustpoolImportUrlClean(Entity):
         """
 
         _prefix = 'crypto-act'
-        _revision = '2016-04-17'
+        _revision = '2019-06-18'
 
         def __init__(self):
-            super(CaTrustpoolImportUrlClean.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CaTrustpoolImportUrlClean.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ca-trustpool-import-url-clean"
@@ -1396,10 +1869,18 @@ class CaTrustpoolImportUrlClean(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaTrustpoolImportUrlClean.Input, ['url'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+            return meta._meta_table['CaTrustpoolImportUrlClean.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CaTrustpoolImportUrlClean()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
+        return meta._meta_table['CaTrustpoolImportUrlClean']['meta_info']
 
 

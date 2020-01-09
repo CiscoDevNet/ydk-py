@@ -6,7 +6,7 @@ for the Calvados model objects.
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
-Fault management YANG model. 
+Fault management YANG model.
 
 Copyright(c) 2014\-2017 by Cisco Systems, Inc.
 All rights reserved.
@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -43,6 +46,12 @@ class FmActionResultT(Enum):
     FAILURE = Enum.YLeaf(1, "FAILURE")
 
     NO_OP = Enum.YLeaf(2, "NO-OP")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmActionResultT']
 
 
 class FmActionT(Enum):
@@ -78,6 +87,12 @@ class FmActionT(Enum):
     REPORT = Enum.YLeaf(5, "REPORT")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmActionT']
+
+
 class FmCorrelationObjQualifierT(Enum):
     """
     FmCorrelationObjQualifierT (Enum Class)
@@ -101,6 +116,12 @@ class FmCorrelationObjQualifierT(Enum):
     QUALIFIER_OBJECT = Enum.YLeaf(3, "QUALIFIER_OBJECT")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmCorrelationObjQualifierT']
+
+
 class FmFaultSeverityT(Enum):
     """
     FmFaultSeverityT (Enum Class)
@@ -122,6 +143,12 @@ class FmFaultSeverityT(Enum):
     MINOR = Enum.YLeaf(2, "MINOR")
 
     NR = Enum.YLeaf(3, "NR")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmFaultSeverityT']
 
 
 class FmFaultStateT(Enum):
@@ -169,6 +196,12 @@ class FmFaultStateT(Enum):
     UPDATE = Enum.YLeaf(8, "UPDATE")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmFaultStateT']
+
+
 class FmHistoryStateT(Enum):
     """
     FmHistoryStateT (Enum Class)
@@ -190,6 +223,12 @@ class FmHistoryStateT(Enum):
     FM_HISTORY_STATE_INVALID = Enum.YLeaf(2, "FM_HISTORY_STATE_INVALID")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmHistoryStateT']
+
+
 class FmRuleEvalResultT(Enum):
     """
     FmRuleEvalResultT (Enum Class)
@@ -205,6 +244,12 @@ class FmRuleEvalResultT(Enum):
     SUCCESS = Enum.YLeaf(0, "SUCCESS")
 
     FAILURE = Enum.YLeaf(1, "FAILURE")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmRuleEvalResultT']
 
 
 class FmServiceScopeT(Enum):
@@ -228,6 +273,12 @@ class FmServiceScopeT(Enum):
     FM_SERVICE_SYSTEM_SCOPE = Enum.YLeaf(2, "FM_SERVICE_SYSTEM_SCOPE")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['FmServiceScopeT']
+
+
 class GenericHaRole(Enum):
     """
     GenericHaRole (Enum Class)
@@ -247,8 +298,14 @@ class GenericHaRole(Enum):
     Standby = Enum.YLeaf(2, "Standby")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['GenericHaRole']
 
-class Fm(Entity):
+
+
+class Fm(_Entity_):
     """
     Sysadmin fault management operational data model
     
@@ -267,7 +324,10 @@ class Fm(Entity):
     _revision = '2016-04-12'
 
     def __init__(self):
-        super(Fm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Fm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fm"
@@ -286,7 +346,7 @@ class Fm(Entity):
         self._perform_setattr(Fm, [], name, value)
 
 
-    class Agents(Entity):
+    class Agents(_Entity_):
         """
         
         
@@ -361,7 +421,10 @@ class Fm(Entity):
         _revision = '2016-04-12'
 
         def __init__(self):
-            super(Fm.Agents, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Fm.Agents, self).__init__()
 
             self.yang_name = "agents"
             self.yang_parent_name = "fm"
@@ -407,7 +470,7 @@ class Fm(Entity):
             self._perform_setattr(Fm.Agents, ['location', 'process', 'subsystem', 'agent'], name, value)
 
 
-        class FmInitials(Entity):
+        class FmInitials(_Entity_):
             """
             
             
@@ -489,7 +552,10 @@ class Fm(Entity):
             _revision = '2016-04-12'
 
             def __init__(self):
-                super(Fm.Agents.FmInitials, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fm.Agents.FmInitials, self).__init__()
 
                 self.yang_name = "fm_initials"
                 self.yang_parent_name = "agents"
@@ -521,9 +587,13 @@ class Fm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmInitials, ['levm', 'comp_id', 'process', 'default_rule_cb', 'default_action_cb', 'default_notif_cb', 'default_error_cb', 'replica_cb'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                return meta._meta_table['Fm.Agents.FmInitials']['meta_info']
 
 
-        class FmTable(Entity):
+        class FmTable(_Entity_):
             """
             
             
@@ -549,7 +619,10 @@ class Fm(Entity):
             _revision = '2016-04-12'
 
             def __init__(self):
-                super(Fm.Agents.FmTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fm.Agents.FmTable, self).__init__()
 
                 self.yang_name = "fm_table"
                 self.yang_parent_name = "agents"
@@ -568,7 +641,7 @@ class Fm(Entity):
                 self._perform_setattr(Fm.Agents.FmTable, [], name, value)
 
 
-            class Brief(Entity):
+            class Brief(_Entity_):
                 """
                 
                 
@@ -608,7 +681,10 @@ class Fm(Entity):
                 _revision = '2016-04-12'
 
                 def __init__(self):
-                    super(Fm.Agents.FmTable.Brief, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fm.Agents.FmTable.Brief, self).__init__()
 
                     self.yang_name = "brief"
                     self.yang_parent_name = "fm_table"
@@ -632,9 +708,13 @@ class Fm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmTable.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                    return meta._meta_table['Fm.Agents.FmTable.Brief']['meta_info']
 
 
-            class Entry(Entity):
+            class Entry(_Entity_):
                 """
                 
                 
@@ -723,7 +803,10 @@ class Fm(Entity):
                 _revision = '2016-04-12'
 
                 def __init__(self):
-                    super(Fm.Agents.FmTable.Entry, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fm.Agents.FmTable.Entry, self).__init__()
 
                     self.yang_name = "entry"
                     self.yang_parent_name = "fm_table"
@@ -764,7 +847,7 @@ class Fm(Entity):
                     self._perform_setattr(Fm.Agents.FmTable.Entry, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
 
 
-                class Detail(Entity):
+                class Detail(_Entity_):
                     """
                     
                     
@@ -825,7 +908,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.Detail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.Detail, self).__init__()
 
                         self.yang_name = "detail"
                         self.yang_parent_name = "entry"
@@ -855,9 +941,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name', 'description', 'detection_logic', 'corr_obj_qualifier'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.Detail']['meta_info']
 
 
-                class CausalList(Entity):
+                class CausalList(_Entity_):
                     """
                     Causal list of fault ids for the specified fault.
                     
@@ -890,7 +980,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.CausalList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.CausalList, self).__init__()
 
                         self.yang_name = "causal_list"
                         self.yang_parent_name = "entry"
@@ -912,9 +1005,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.CausalList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.CausalList']['meta_info']
 
 
-                class DependencyList(Entity):
+                class DependencyList(_Entity_):
                     """
                     Dependency list of fault ids.
                     
@@ -947,7 +1044,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.DependencyList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.DependencyList, self).__init__()
 
                         self.yang_name = "dependency_list"
                         self.yang_parent_name = "entry"
@@ -969,9 +1069,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.DependencyList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.DependencyList']['meta_info']
 
 
-                class PropagationList(Entity):
+                class PropagationList(_Entity_):
                     """
                     Propagation list of fault agents.
                     
@@ -1011,7 +1115,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.PropagationList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.PropagationList, self).__init__()
 
                         self.yang_name = "propagation_list"
                         self.yang_parent_name = "entry"
@@ -1035,9 +1142,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.PropagationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.PropagationList']['meta_info']
 
 
-                class NotificationList(Entity):
+                class NotificationList(_Entity_):
                     """
                     Notification list of fault agents.
                     
@@ -1077,7 +1188,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.NotificationList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.NotificationList, self).__init__()
 
                         self.yang_name = "notification_list"
                         self.yang_parent_name = "entry"
@@ -1101,9 +1215,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.NotificationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.NotificationList']['meta_info']
 
 
-                class EscalationList(Entity):
+                class EscalationList(_Entity_):
                     """
                     escalation list of fault agents.
                     
@@ -1143,7 +1261,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.EscalationList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.EscalationList, self).__init__()
 
                         self.yang_name = "escalation_list"
                         self.yang_parent_name = "entry"
@@ -1167,9 +1288,13 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.EscalationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.EscalationList']['meta_info']
 
 
-                class Faults(Entity):
+                class Faults(_Entity_):
                     """
                     
                     
@@ -1195,7 +1320,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.Faults, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.Faults, self).__init__()
 
                         self.yang_name = "faults"
                         self.yang_parent_name = "entry"
@@ -1219,7 +1347,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.Faults, [], name, value)
 
 
-                    class Active(Entity):
+                    class Active(_Entity_):
                         """
                         
                         
@@ -1245,7 +1373,10 @@ class Fm(Entity):
                         _revision = '2016-04-12'
 
                         def __init__(self):
-                            super(Fm.Agents.FmTable.Entry.Faults.Active, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Fm.Agents.FmTable.Entry.Faults.Active, self).__init__()
 
                             self.yang_name = "active"
                             self.yang_parent_name = "faults"
@@ -1264,7 +1395,7 @@ class Fm(Entity):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active, [], name, value)
 
 
-                        class Brief(Entity):
+                        class Brief(_Entity_):
                             """
                             
                             
@@ -1292,7 +1423,10 @@ class Fm(Entity):
                             _revision = '2016-04-12'
 
                             def __init__(self):
-                                super(Fm.Agents.FmTable.Entry.Faults.Active.Brief, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Fm.Agents.FmTable.Entry.Faults.Active.Brief, self).__init__()
 
                                 self.yang_name = "brief"
                                 self.yang_parent_name = "active"
@@ -1312,9 +1446,13 @@ class Fm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Brief, ['object_id', 'fault_timestamp'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                                return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.Active.Brief']['meta_info']
 
 
-                        class Detail(Entity):
+                        class Detail(_Entity_):
                             """
                             
                             
@@ -1460,7 +1598,10 @@ class Fm(Entity):
                             _revision = '2016-04-12'
 
                             def __init__(self):
-                                super(Fm.Agents.FmTable.Entry.Faults.Active.Detail, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Fm.Agents.FmTable.Entry.Faults.Active.Detail, self).__init__()
 
                                 self.yang_name = "detail"
                                 self.yang_parent_name = "active"
@@ -1512,10 +1653,18 @@ class Fm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                                return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.Active.Detail']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                            return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.Active']['meta_info']
 
 
-
-                    class History(Entity):
+                    class History(_Entity_):
                         """
                         
                         
@@ -1541,7 +1690,10 @@ class Fm(Entity):
                         _revision = '2016-04-12'
 
                         def __init__(self):
-                            super(Fm.Agents.FmTable.Entry.Faults.History, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Fm.Agents.FmTable.Entry.Faults.History, self).__init__()
 
                             self.yang_name = "history"
                             self.yang_parent_name = "faults"
@@ -1560,7 +1712,7 @@ class Fm(Entity):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History, [], name, value)
 
 
-                        class Brief(Entity):
+                        class Brief(_Entity_):
                             """
                             
                             
@@ -1588,7 +1740,10 @@ class Fm(Entity):
                             _revision = '2016-04-12'
 
                             def __init__(self):
-                                super(Fm.Agents.FmTable.Entry.Faults.History.Brief, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Fm.Agents.FmTable.Entry.Faults.History.Brief, self).__init__()
 
                                 self.yang_name = "brief"
                                 self.yang_parent_name = "history"
@@ -1608,9 +1763,13 @@ class Fm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Brief, ['object_id', 'fault_timestamp'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                                return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.History.Brief']['meta_info']
 
 
-                        class Detail(Entity):
+                        class Detail(_Entity_):
                             """
                             
                             
@@ -1756,7 +1915,10 @@ class Fm(Entity):
                             _revision = '2016-04-12'
 
                             def __init__(self):
-                                super(Fm.Agents.FmTable.Entry.Faults.History.Detail, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Fm.Agents.FmTable.Entry.Faults.History.Detail, self).__init__()
 
                                 self.yang_name = "detail"
                                 self.yang_parent_name = "history"
@@ -1808,11 +1970,23 @@ class Fm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                                return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.History.Detail']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                            return meta._meta_table['Fm.Agents.FmTable.Entry.Faults.History']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.Faults']['meta_info']
 
 
-
-
-                class WaitingList(Entity):
+                class WaitingList(_Entity_):
                     """
                     
                     
@@ -1838,7 +2012,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmTable.Entry.WaitingList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmTable.Entry.WaitingList, self).__init__()
 
                         self.yang_name = "waiting_list"
                         self.yang_parent_name = "entry"
@@ -1857,7 +2034,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList, [], name, value)
 
 
-                    class Brief(Entity):
+                    class Brief(_Entity_):
                         """
                         
                         
@@ -1931,7 +2108,10 @@ class Fm(Entity):
                         _revision = '2016-04-12'
 
                         def __init__(self):
-                            super(Fm.Agents.FmTable.Entry.WaitingList.Brief, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Fm.Agents.FmTable.Entry.WaitingList.Brief, self).__init__()
 
                             self.yang_name = "brief"
                             self.yang_parent_name = "waiting_list"
@@ -1963,9 +2143,13 @@ class Fm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                            return meta._meta_table['Fm.Agents.FmTable.Entry.WaitingList.Brief']['meta_info']
 
 
-                    class Entry_(Entity):
+                    class Entry_(_Entity_):
                         """
                         
                         
@@ -2039,7 +2223,10 @@ class Fm(Entity):
                         _revision = '2016-04-12'
 
                         def __init__(self):
-                            super(Fm.Agents.FmTable.Entry.WaitingList.Entry_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Fm.Agents.FmTable.Entry.WaitingList.Entry_, self).__init__()
 
                             self.yang_name = "entry"
                             self.yang_parent_name = "waiting_list"
@@ -2071,12 +2258,28 @@ class Fm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Entry_, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                            return meta._meta_table['Fm.Agents.FmTable.Entry.WaitingList.Entry_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmTable.Entry.WaitingList']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                    return meta._meta_table['Fm.Agents.FmTable.Entry']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                return meta._meta_table['Fm.Agents.FmTable']['meta_info']
 
 
-
-
-
-        class FmInternals(Entity):
+        class FmInternals(_Entity_):
             """
             
             
@@ -2095,7 +2298,10 @@ class Fm(Entity):
             _revision = '2016-04-12'
 
             def __init__(self):
-                super(Fm.Agents.FmInternals, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fm.Agents.FmInternals, self).__init__()
 
                 self.yang_name = "fm_internals"
                 self.yang_parent_name = "agents"
@@ -2113,7 +2319,7 @@ class Fm(Entity):
                 self._perform_setattr(Fm.Agents.FmInternals, [], name, value)
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 
                 
@@ -2233,7 +2439,10 @@ class Fm(Entity):
                 _revision = '2016-04-12'
 
                 def __init__(self):
-                    super(Fm.Agents.FmInternals.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fm.Agents.FmInternals.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "fm_internals"
@@ -2278,7 +2487,7 @@ class Fm(Entity):
                     self._perform_setattr(Fm.Agents.FmInternals.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'common_action', 'opaque_action', 'mitigation_cb', 'recovery_cb', 'alarm_severity_dirty', 'disable_action', 'repeat_action', 'has_causal_list', 'parser_tag', 'parser_tag_string'], name, value)
 
 
-                class Rules(Entity):
+                class Rules(_Entity_):
                     """
                     list of fault rule declaring callbacks
                     
@@ -2306,7 +2515,10 @@ class Fm(Entity):
                     _revision = '2016-04-12'
 
                     def __init__(self):
-                        super(Fm.Agents.FmInternals.Detail.Rules, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Fm.Agents.FmInternals.Detail.Rules, self).__init__()
 
                         self.yang_name = "rules"
                         self.yang_parent_name = "detail"
@@ -2326,11 +2538,23 @@ class Fm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmInternals.Detail.Rules, ['fault_location', 'rule_cb'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                        return meta._meta_table['Fm.Agents.FmInternals.Detail.Rules']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                    return meta._meta_table['Fm.Agents.FmInternals.Detail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                return meta._meta_table['Fm.Agents.FmInternals']['meta_info']
 
 
-
-
-        class FmAlarmMapping(Entity):
+        class FmAlarmMapping(_Entity_):
             """
             
             
@@ -2349,7 +2573,10 @@ class Fm(Entity):
             _revision = '2016-04-12'
 
             def __init__(self):
-                super(Fm.Agents.FmAlarmMapping, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fm.Agents.FmAlarmMapping, self).__init__()
 
                 self.yang_name = "fm_alarm_mapping"
                 self.yang_parent_name = "agents"
@@ -2367,7 +2594,7 @@ class Fm(Entity):
                 self._perform_setattr(Fm.Agents.FmAlarmMapping, [], name, value)
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 
                 
@@ -2418,7 +2645,10 @@ class Fm(Entity):
                 _revision = '2016-04-12'
 
                 def __init__(self):
-                    super(Fm.Agents.FmAlarmMapping.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fm.Agents.FmAlarmMapping.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "fm_alarm_mapping"
@@ -2444,10 +2674,18 @@ class Fm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmAlarmMapping.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'alarm_group', 'alarm_severity'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                    return meta._meta_table['Fm.Agents.FmAlarmMapping.Detail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                return meta._meta_table['Fm.Agents.FmAlarmMapping']['meta_info']
 
 
-
-        class FmStatistics(Entity):
+        class FmStatistics(_Entity_):
             """
             
             
@@ -2466,7 +2704,10 @@ class Fm(Entity):
             _revision = '2016-04-12'
 
             def __init__(self):
-                super(Fm.Agents.FmStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Fm.Agents.FmStatistics, self).__init__()
 
                 self.yang_name = "fm_statistics"
                 self.yang_parent_name = "agents"
@@ -2484,7 +2725,7 @@ class Fm(Entity):
                 self._perform_setattr(Fm.Agents.FmStatistics, [], name, value)
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 
                 
@@ -2571,7 +2812,10 @@ class Fm(Entity):
                 _revision = '2016-04-12'
 
                 def __init__(self):
-                    super(Fm.Agents.FmStatistics.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Fm.Agents.FmStatistics.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "fm_statistics"
@@ -2605,12 +2849,28 @@ class Fm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmStatistics.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'threshold_count', 'all_object_occur_count', 'declared_count', 'cleared_count', 'info_count', 'hold_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                    return meta._meta_table['Fm.Agents.FmStatistics.Detail']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+                return meta._meta_table['Fm.Agents.FmStatistics']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+            return meta._meta_table['Fm.Agents']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Fm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_fm as meta
+        return meta._meta_table['Fm']['meta_info']
 
 

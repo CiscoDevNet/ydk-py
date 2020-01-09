@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HeapSummary(Entity):
+class HeapSummary(_Entity_):
     """
     Heap Summary
     
@@ -47,7 +50,10 @@ class HeapSummary(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(HeapSummary, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HeapSummary, self).__init__()
         self._top_entity = None
 
         self.yang_name = "heap-summary"
@@ -72,7 +78,7 @@ class HeapSummary(Entity):
         self._perform_setattr(HeapSummary, [], name, value)
 
 
-    class LocationDescriptions(Entity):
+    class LocationDescriptions(_Entity_):
         """
         Location
         
@@ -91,7 +97,10 @@ class HeapSummary(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HeapSummary.LocationDescriptions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HeapSummary.LocationDescriptions, self).__init__()
 
             self.yang_name = "location-descriptions"
             self.yang_parent_name = "heap-summary"
@@ -110,7 +119,7 @@ class HeapSummary(Entity):
             self._perform_setattr(HeapSummary.LocationDescriptions, [], name, value)
 
 
-        class LocationDescription(Entity):
+        class LocationDescription(_Entity_):
             """
             Location specified in location
             
@@ -138,7 +147,10 @@ class HeapSummary(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(HeapSummary.LocationDescriptions.LocationDescription, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HeapSummary.LocationDescriptions.LocationDescription, self).__init__()
 
                 self.yang_name = "location-description"
                 self.yang_parent_name = "location-descriptions"
@@ -159,10 +171,18 @@ class HeapSummary(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HeapSummary.LocationDescriptions.LocationDescription, ['node', 'show_output'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_heap_summary_oper as meta
+                return meta._meta_table['HeapSummary.LocationDescriptions.LocationDescription']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_heap_summary_oper as meta
+            return meta._meta_table['HeapSummary.LocationDescriptions']['meta_info']
 
 
-
-    class All(Entity):
+    class All(_Entity_):
         """
         All locations
         
@@ -181,7 +201,10 @@ class HeapSummary(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HeapSummary.All, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HeapSummary.All, self).__init__()
 
             self.yang_name = "all"
             self.yang_parent_name = "heap-summary"
@@ -200,10 +223,18 @@ class HeapSummary(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(HeapSummary.All, ['show_output'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_heap_summary_oper as meta
+            return meta._meta_table['HeapSummary.All']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HeapSummary()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_heap_summary_oper as meta
+        return meta._meta_table['HeapSummary']['meta_info']
 
 

@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class XrXml(Entity):
+class XrXml(_Entity_):
     """
     XML
     
@@ -39,7 +42,10 @@ class XrXml(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(XrXml, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(XrXml, self).__init__()
         self._top_entity = None
 
         self.yang_name = "xr-xml"
@@ -60,7 +66,7 @@ class XrXml(Entity):
         self._perform_setattr(XrXml, [], name, value)
 
 
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         XML agent
         
@@ -87,7 +93,10 @@ class XrXml(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(XrXml.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(XrXml.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "xr-xml"
@@ -116,7 +125,7 @@ class XrXml(Entity):
             self._perform_setattr(XrXml.Agent, [], name, value)
 
 
-        class Default(Entity):
+        class Default(_Entity_):
             """
             XML default dedicated agent
             
@@ -178,7 +187,10 @@ class XrXml(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(XrXml.Agent.Default, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Default, self).__init__()
 
                 self.yang_name = "default"
                 self.yang_parent_name = "agent"
@@ -218,7 +230,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Default, ['ipv6_enable', 'ipv4_disable', 'iteration_size', 'enable', 'streaming_size'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Session attributes
                 
@@ -239,7 +251,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Default.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Default.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "default"
@@ -258,9 +273,13 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Default.Session, ['timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Default.Session']['meta_info']
 
 
-            class Throttle(Entity):
+            class Throttle(_Entity_):
                 """
                 XML agent throttling
                 
@@ -290,7 +309,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Default.Throttle, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Default.Throttle, self).__init__()
 
                     self.yang_name = "throttle"
                     self.yang_parent_name = "default"
@@ -311,9 +333,13 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Default.Throttle, ['process_rate', 'memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Default.Throttle']['meta_info']
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 List of VRFs
                 
@@ -330,7 +356,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Default.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Default.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "default"
@@ -349,7 +378,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Default.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     A specific VRF
                     
@@ -394,7 +423,10 @@ class XrXml(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(XrXml.Agent.Default.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(XrXml.Agent.Default.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -421,11 +453,23 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Default.Vrfs.Vrf, ['vrf_name', 'ipv6_access_list', 'ipv4_access_list', 'access_list', 'shutdown'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                        return meta._meta_table['XrXml.Agent.Default.Vrfs.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Default.Vrfs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['XrXml.Agent.Default']['meta_info']
 
 
-
-
-        class Tty(Entity):
+        class Tty(_Entity_):
             """
             XML TTY agent
             
@@ -472,7 +516,10 @@ class XrXml(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(XrXml.Agent.Tty, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Tty, self).__init__()
 
                 self.yang_name = "tty"
                 self.yang_parent_name = "agent"
@@ -504,7 +551,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Tty, ['iteration_size', 'enable', 'streaming_size'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Session attributes
                 
@@ -525,7 +572,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Tty.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Tty.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "tty"
@@ -544,9 +594,13 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Tty.Session, ['timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Tty.Session']['meta_info']
 
 
-            class Throttle(Entity):
+            class Throttle(_Entity_):
                 """
                 XML agent throttling
                 
@@ -576,7 +630,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Tty.Throttle, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Tty.Throttle, self).__init__()
 
                     self.yang_name = "throttle"
                     self.yang_parent_name = "tty"
@@ -597,10 +654,18 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Tty.Throttle, ['process_rate', 'memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Tty.Throttle']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
 
 
-
-        class Ssl(Entity):
+        class Ssl(_Entity_):
             """
             XML SSL agent
             
@@ -652,7 +717,10 @@ class XrXml(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(XrXml.Agent.Ssl, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Ssl, self).__init__()
 
                 self.yang_name = "ssl"
                 self.yang_parent_name = "agent"
@@ -688,7 +756,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Ssl, ['iteration_size', 'enable', 'streaming_size'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Session attributes
                 
@@ -709,7 +777,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Ssl.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Ssl.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "ssl"
@@ -728,9 +799,13 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Ssl.Session, ['timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Ssl.Session']['meta_info']
 
 
-            class Throttle(Entity):
+            class Throttle(_Entity_):
                 """
                 XML agent throttling
                 
@@ -760,7 +835,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Ssl.Throttle, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Ssl.Throttle, self).__init__()
 
                     self.yang_name = "throttle"
                     self.yang_parent_name = "ssl"
@@ -781,9 +859,13 @@ class XrXml(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Ssl.Throttle, ['process_rate', 'memory'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Ssl.Throttle']['meta_info']
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 List of VRFs
                 
@@ -800,7 +882,10 @@ class XrXml(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(XrXml.Agent.Ssl.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Ssl.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "ssl"
@@ -819,7 +904,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Ssl.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     A specific VRF
                     
@@ -864,7 +949,10 @@ class XrXml(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(XrXml.Agent.Ssl.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(XrXml.Agent.Ssl.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -891,17 +979,37 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Ssl.Vrfs.Vrf, ['vrf_name', 'ipv6_access_list', 'ipv4_access_list', 'access_list', 'shutdown'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                        return meta._meta_table['XrXml.Agent.Ssl.Vrfs.Vrf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Ssl.Vrfs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['XrXml.Agent.Ssl']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+            return meta._meta_table['XrXml.Agent']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = XrXml()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+        return meta._meta_table['XrXml']['meta_info']
 
 
-class Netconf(Entity):
+class Netconf(_Entity_):
     """
     netconf
     
@@ -918,7 +1026,10 @@ class Netconf(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Netconf, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Netconf, self).__init__()
         self._top_entity = None
 
         self.yang_name = "netconf"
@@ -939,7 +1050,7 @@ class Netconf(Entity):
         self._perform_setattr(Netconf, [], name, value)
 
 
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         XML agent
         
@@ -956,7 +1067,10 @@ class Netconf(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Netconf.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Netconf.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "netconf"
@@ -977,7 +1091,7 @@ class Netconf(Entity):
             self._perform_setattr(Netconf.Agent, [], name, value)
 
 
-        class Tty(Entity):
+        class Tty(_Entity_):
             """
             NETCONF agent over TTY
             
@@ -1004,7 +1118,10 @@ class Netconf(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Netconf.Agent.Tty, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Netconf.Agent.Tty, self).__init__()
 
                 self.yang_name = "tty"
                 self.yang_parent_name = "agent"
@@ -1032,7 +1149,7 @@ class Netconf(Entity):
                 self._perform_setattr(Netconf.Agent.Tty, ['enable'], name, value)
 
 
-            class Throttle(Entity):
+            class Throttle(_Entity_):
                 """
                 NETCONF agent throttling
                 
@@ -1073,7 +1190,10 @@ class Netconf(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Netconf.Agent.Tty.Throttle, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Netconf.Agent.Tty.Throttle, self).__init__()
 
                     self.yang_name = "throttle"
                     self.yang_parent_name = "tty"
@@ -1096,9 +1216,13 @@ class Netconf(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Netconf.Agent.Tty.Throttle, ['memory', 'offload_memory', 'process_rate'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['Netconf.Agent.Tty.Throttle']['meta_info']
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Session attributes
                 
@@ -1119,7 +1243,10 @@ class Netconf(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Netconf.Agent.Tty.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Netconf.Agent.Tty.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "tty"
@@ -1138,12 +1265,28 @@ class Netconf(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Netconf.Agent.Tty.Session, ['timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['Netconf.Agent.Tty.Session']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['Netconf.Agent.Tty']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+            return meta._meta_table['Netconf.Agent']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Netconf()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+        return meta._meta_table['Netconf']['meta_info']
 
 

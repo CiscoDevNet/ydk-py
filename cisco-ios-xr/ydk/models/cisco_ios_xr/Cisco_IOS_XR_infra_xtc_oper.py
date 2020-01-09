@@ -14,13 +14,61 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+
+
+class CmnHaCase(Enum):
+    """
+    CmnHaCase (Enum Class)
+
+    Various HA cases
+
+    .. data:: ha_case_migration = 0
+
+    	HA Case Migration
+
+    .. data:: ha_case_restart = 1
+
+    	HA Case Restart
+
+    .. data:: ha_case_switchover = 2
+
+    	HA Case Switchover
+
+    .. data:: ha_case_startup = 3
+
+    	HA Case Startup
+
+    .. data:: ha_case_invalid = 4
+
+    	HA Case Invalid
+
+    """
+
+    ha_case_migration = Enum.YLeaf(0, "ha-case-migration")
+
+    ha_case_restart = Enum.YLeaf(1, "ha-case-restart")
+
+    ha_case_switchover = Enum.YLeaf(2, "ha-case-switchover")
+
+    ha_case_startup = Enum.YLeaf(3, "ha-case-startup")
+
+    ha_case_invalid = Enum.YLeaf(4, "ha-case-invalid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['CmnHaCase']
 
 
 class LspSetup(Enum):
@@ -50,6 +98,12 @@ class LspSetup(Enum):
     setup_unknown = Enum.YLeaf(2, "setup-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['LspSetup']
+
+
 class LspState(Enum):
     """
     LspState (Enum Class)
@@ -71,6 +125,12 @@ class LspState(Enum):
     lsp_up = Enum.YLeaf(1, "lsp-up")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['LspState']
+
+
 class PceAddressFamily(Enum):
     """
     PceAddressFamily (Enum Class)
@@ -90,6 +150,12 @@ class PceAddressFamily(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceAddressFamily']
 
 
 class PceAfId(Enum):
@@ -117,6 +183,12 @@ class PceAfId(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceAfId']
 
 
 class PceAsso(Enum):
@@ -150,6 +222,12 @@ class PceAsso(Enum):
     node = Enum.YLeaf(2, "node")
 
     srlg = Enum.YLeaf(3, "srlg")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceAsso']
 
 
 class PceCspfRc(Enum):
@@ -275,6 +353,12 @@ class PceCspfRc(Enum):
     pce_cspf_dp_success = Enum.YLeaf(18, "pce-cspf-dp-success")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceCspfRc']
+
+
 class PceHeadendSwap(Enum):
     """
     PceHeadendSwap (Enum Class)
@@ -300,6 +384,12 @@ class PceHeadendSwap(Enum):
     pcehs_plain = Enum.YLeaf(1, "pcehs-plain")
 
     pcehs_rwi = Enum.YLeaf(2, "pcehs-rwi")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceHeadendSwap']
 
 
 class PceIgpInfoId(Enum):
@@ -329,6 +419,12 @@ class PceIgpInfoId(Enum):
     bgp = Enum.YLeaf(3, "bgp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceIgpInfoId']
+
+
 class PceProto(Enum):
     """
     PceProto (Enum Class)
@@ -348,6 +444,12 @@ class PceProto(Enum):
     pcep = Enum.YLeaf(0, "pcep")
 
     netconf = Enum.YLeaf(1, "netconf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceProto']
 
 
 class PceRro(Enum):
@@ -389,6 +491,12 @@ class PceRro(Enum):
     rro_type_sr_nai_null = Enum.YLeaf(4, "rro-type-sr-nai-null")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceRro']
+
+
 class PceSrSid(Enum):
     """
     PceSrSid (Enum Class)
@@ -426,6 +534,12 @@ class PceSrSid(Enum):
     ipv6_adjacency_sid = Enum.YLeaf(3, "ipv6-adjacency-sid")
 
     unknown_sid = Enum.YLeaf(4, "unknown-sid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceSrSid']
 
 
 class PceigpProtocol(Enum):
@@ -467,6 +581,12 @@ class PceigpProtocol(Enum):
     te = Enum.YLeaf(8, "te")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceigpProtocol']
+
+
 class PcepLspState(Enum):
     """
     PcepLspState (Enum Class)
@@ -504,6 +624,12 @@ class PcepLspState(Enum):
     lsp_going_down = Enum.YLeaf(3, "lsp-going-down")
 
     lsp_being_signaled = Enum.YLeaf(4, "lsp-being-signaled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PcepLspState']
 
 
 class PcepState(Enum):
@@ -551,6 +677,12 @@ class PcepState(Enum):
     pcep_open = Enum.YLeaf(5, "pcep-open")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PcepState']
+
+
 class Sid(Enum):
     """
     Sid (Enum Class)
@@ -590,8 +722,14 @@ class Sid(Enum):
     sr_strict_prefix_sid = Enum.YLeaf(5, "sr-strict-prefix-sid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['Sid']
 
-class PceLspData(Entity):
+
+
+class PceLspData(_Entity_):
     """
     PCE LSP's data
     
@@ -621,10 +759,13 @@ class PceLspData(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-10-02'
 
     def __init__(self):
-        super(PceLspData, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PceLspData, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pce-lsp-data"
@@ -653,7 +794,7 @@ class PceLspData(Entity):
         self._perform_setattr(PceLspData, [], name, value)
 
 
-    class TunnelInfos(Entity):
+    class TunnelInfos(_Entity_):
         """
         Tunnel database in XTC
         
@@ -669,10 +810,13 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceLspData.TunnelInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceLspData.TunnelInfos, self).__init__()
 
             self.yang_name = "tunnel-infos"
             self.yang_parent_name = "pce-lsp-data"
@@ -691,7 +835,7 @@ class PceLspData(Entity):
             self._perform_setattr(PceLspData.TunnelInfos, [], name, value)
 
 
-        class TunnelInfo(Entity):
+        class TunnelInfo(_Entity_):
             """
             Tunnel information
             
@@ -752,10 +896,13 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceLspData.TunnelInfos.TunnelInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceLspData.TunnelInfos.TunnelInfo, self).__init__()
 
                 self.yang_name = "tunnel-info"
                 self.yang_parent_name = "tunnel-infos"
@@ -787,7 +934,7 @@ class PceLspData(Entity):
                 self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr'], name, value)
 
 
-            class PccAddress(Entity):
+            class PccAddress(_Entity_):
                 """
                 PCC address
                 
@@ -821,10 +968,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.TunnelInfos.TunnelInfo.PccAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.TunnelInfos.TunnelInfo.PccAddress, self).__init__()
 
                     self.yang_name = "pcc-address"
                     self.yang_parent_name = "tunnel-info"
@@ -846,9 +996,13 @@ class PceLspData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.TunnelInfos.TunnelInfo.PccAddress']['meta_info']
 
 
-            class BriefLspInformation(Entity):
+            class BriefLspInformation(_Entity_):
                 """
                 Brief LSP information
                 
@@ -946,10 +1100,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
 
                     self.yang_name = "brief-lsp-information"
                     self.yang_parent_name = "tunnel-info"
@@ -992,7 +1149,7 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd', 'absolute_margin', 'relative_margin'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -1026,10 +1183,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "brief-lsp-information"
@@ -1051,9 +1211,13 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress']['meta_info']
 
 
-                class DestinationAddress(Entity):
+                class DestinationAddress(_Entity_):
                     """
                     Destination address
                     
@@ -1087,10 +1251,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, self).__init__()
 
                         self.yang_name = "destination-address"
                         self.yang_parent_name = "brief-lsp-information"
@@ -1112,12 +1279,28 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceLspData.TunnelInfos.TunnelInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceLspData.TunnelInfos']['meta_info']
 
 
-
-
-
-    class LspSummary(Entity):
+    class LspSummary(_Entity_):
         """
         LSP summary database in XTC
         
@@ -1140,10 +1323,13 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceLspData.LspSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceLspData.LspSummary, self).__init__()
 
             self.yang_name = "lsp-summary"
             self.yang_parent_name = "pce-lsp-data"
@@ -1166,7 +1352,7 @@ class PceLspData(Entity):
             self._perform_setattr(PceLspData.LspSummary, [], name, value)
 
 
-        class AllLsPs(Entity):
+        class AllLsPs(_Entity_):
             """
             Summary for all peers
             
@@ -1220,10 +1406,13 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceLspData.LspSummary.AllLsPs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceLspData.LspSummary.AllLsPs, self).__init__()
 
                 self.yang_name = "all-ls-ps"
                 self.yang_parent_name = "lsp-summary"
@@ -1250,9 +1439,13 @@ class PceLspData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PceLspData.LspSummary.AllLsPs, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceLspData.LspSummary.AllLsPs']['meta_info']
 
 
-        class PeerLsPsInfo(Entity):
+        class PeerLsPsInfo(_Entity_):
             """
             Number of LSPs for specific peer
             
@@ -1275,10 +1468,13 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceLspData.LspSummary.PeerLsPsInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceLspData.LspSummary.PeerLsPsInfo, self).__init__()
 
                 self.yang_name = "peer-ls-ps-info"
                 self.yang_parent_name = "lsp-summary"
@@ -1303,7 +1499,7 @@ class PceLspData(Entity):
                 self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo, [], name, value)
 
 
-            class LspSummary_(Entity):
+            class LspSummary_(_Entity_):
                 """
                 Number of LSPs for specific peer
                 
@@ -1357,10 +1553,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
 
                     self.yang_name = "lsp-summary"
                     self.yang_parent_name = "peer-ls-ps-info"
@@ -1387,9 +1586,13 @@ class PceLspData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.LspSummary.PeerLsPsInfo.LspSummary_']['meta_info']
 
 
-            class PeerAddress(Entity):
+            class PeerAddress(_Entity_):
                 """
                 Peer address
                 
@@ -1423,10 +1626,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, self).__init__()
 
                     self.yang_name = "peer-address"
                     self.yang_parent_name = "peer-ls-ps-info"
@@ -1449,11 +1655,23 @@ class PceLspData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.LspSummary.PeerLsPsInfo.PeerAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceLspData.LspSummary.PeerLsPsInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceLspData.LspSummary']['meta_info']
 
 
-
-
-    class TunnelDetailInfos(Entity):
+    class TunnelDetailInfos(_Entity_):
         """
         Detailed tunnel database in XTC
         
@@ -1469,10 +1687,13 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceLspData.TunnelDetailInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceLspData.TunnelDetailInfos, self).__init__()
 
             self.yang_name = "tunnel-detail-infos"
             self.yang_parent_name = "pce-lsp-data"
@@ -1491,7 +1712,7 @@ class PceLspData(Entity):
             self._perform_setattr(PceLspData.TunnelDetailInfos, [], name, value)
 
 
-        class TunnelDetailInfo(Entity):
+        class TunnelDetailInfo(_Entity_):
             """
             Detailed tunnel information
             
@@ -1563,6 +1784,22 @@ class PceLspData(Entity):
             
             	**config**\: False
             
+            .. attribute:: interface_name
+            
+            	Interface name
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: profile_id
+            
+            	Profile ID
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
             .. attribute:: detail_lsp_information
             
             	Detail LSP information
@@ -1575,10 +1812,13 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
 
                 self.yang_name = "tunnel-detail-info"
                 self.yang_parent_name = "tunnel-detail-infos"
@@ -1593,6 +1833,8 @@ class PceLspData(Entity):
                     ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
                     ('xtc_controlled', (YLeaf(YType.boolean, 'xtc-controlled'), ['bool'])),
                     ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('profile_id', (YLeaf(YType.uint16, 'profile-id'), ['int'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -1600,6 +1842,8 @@ class PceLspData(Entity):
                 self.tunnel_name_xr = None
                 self.xtc_controlled = None
                 self.color = None
+                self.interface_name = None
+                self.profile_id = None
 
                 self.pcc_address = PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress()
                 self.pcc_address.parent = self
@@ -1615,10 +1859,10 @@ class PceLspData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color'], name, value)
+                self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color', 'interface_name', 'profile_id'], name, value)
 
 
-            class PccAddress(Entity):
+            class PccAddress(_Entity_):
                 """
                 PCC address
                 
@@ -1652,10 +1896,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, self).__init__()
 
                     self.yang_name = "pcc-address"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -1677,9 +1924,13 @@ class PceLspData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress']['meta_info']
 
 
-            class PrivateLspInformation(Entity):
+            class PrivateLspInformation(_Entity_):
                 """
                 Private LSP information
                 
@@ -1695,10 +1946,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
 
                     self.yang_name = "private-lsp-information"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -1716,7 +1970,7 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, [], name, value)
 
 
-                class EventBuffer(Entity):
+                class EventBuffer(_Entity_):
                     """
                     LSP Event buffer
                     
@@ -1741,7 +1995,7 @@ class PceLspData(Entity):
                     	Event time, relative to Jan 1, 1970
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
                     
@@ -1750,10 +2004,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
 
                         self.yang_name = "event-buffer"
                         self.yang_parent_name = "private-lsp-information"
@@ -1764,7 +2021,7 @@ class PceLspData(Entity):
                         self._leafs = OrderedDict([
                             ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
                             ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
-                            ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
+                            ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
                         ])
                         self.event_id = None
                         self.event_message = None
@@ -1775,10 +2032,18 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, ['event_id', 'event_message', 'time_stamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation']['meta_info']
 
 
-
-            class DetailLspInformation(Entity):
+            class DetailLspInformation(_Entity_):
                 """
                 Detail LSP information
                 
@@ -1888,6 +2153,15 @@ class PceLspData(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: preference
+                
+                	Preference
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 .. attribute:: srlg_info
                 
                 	List of SLRGs used by LSP
@@ -1909,10 +2183,13 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
 
                     self.yang_name = "detail-lsp-information"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -1927,6 +2204,7 @@ class PceLspData(Entity):
                         ('actual_bandwidth', (YLeaf(YType.uint64, 'actual-bandwidth'), ['int'])),
                         ('lsp_role', (YLeaf(YType.uint32, 'lsp-role'), ['int'])),
                         ('computing_pce', (YLeaf(YType.uint32, 'computing-pce'), ['int'])),
+                        ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
                         ('srlg_info', (YLeafList(YType.uint32, 'srlg-info'), ['int'])),
                     ])
                     self.signaled_bandwidth_specified = None
@@ -1935,6 +2213,7 @@ class PceLspData(Entity):
                     self.actual_bandwidth = None
                     self.lsp_role = None
                     self.computing_pce = None
+                    self.preference = None
                     self.srlg_info = []
 
                     self.brief_lsp_information = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation()
@@ -1974,10 +2253,10 @@ class PceLspData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'srlg_info'], name, value)
+                    self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'preference', 'srlg_info'], name, value)
 
 
-                class BriefLspInformation(Entity):
+                class BriefLspInformation(_Entity_):
                     """
                     Brief LSP information
                     
@@ -2075,10 +2354,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
 
                         self.yang_name = "brief-lsp-information"
                         self.yang_parent_name = "detail-lsp-information"
@@ -2121,7 +2403,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd', 'absolute_margin', 'relative_margin'], name, value)
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source address
                         
@@ -2155,10 +2437,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "brief-lsp-information"
@@ -2180,9 +2465,13 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress']['meta_info']
 
 
-                    class DestinationAddress(Entity):
+                    class DestinationAddress(_Entity_):
                         """
                         Destination address
                         
@@ -2216,10 +2505,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, self).__init__()
 
                             self.yang_name = "destination-address"
                             self.yang_parent_name = "brief-lsp-information"
@@ -2241,10 +2533,18 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation']['meta_info']
 
 
-
-                class ErOs(Entity):
+                class ErOs(_Entity_):
                     """
                     Paths
                     
@@ -2326,10 +2626,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
 
                         self.yang_name = "er-os"
                         self.yang_parent_name = "detail-lsp-information"
@@ -2361,7 +2664,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, ['reported_metric_type', 'reported_metric_value', 'computed_metric_type', 'computed_metric_value', 'computed_hop_list_time'], name, value)
 
 
-                    class ReportedRsvpPath(Entity):
+                    class ReportedRsvpPath(_Entity_):
                         """
                         Reported RSVP path
                         
@@ -2379,10 +2682,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
 
                             self.yang_name = "reported-rsvp-path"
                             self.yang_parent_name = "er-os"
@@ -2400,9 +2706,13 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, ['hop_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath']['meta_info']
 
 
-                    class ReportedSrPath(Entity):
+                    class ReportedSrPath(_Entity_):
                         """
                         Reported SR path
                         
@@ -2441,10 +2751,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
 
                             self.yang_name = "reported-sr-path"
                             self.yang_parent_name = "er-os"
@@ -2473,7 +2786,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -2507,10 +2820,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "reported-sr-path"
@@ -2532,9 +2848,13 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -2568,10 +2888,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "reported-sr-path"
@@ -2593,10 +2916,18 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath']['meta_info']
 
 
-
-                    class ComputedRsvpPath(Entity):
+                    class ComputedRsvpPath(_Entity_):
                         """
                         Computed RSVP path
                         
@@ -2614,10 +2945,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
 
                             self.yang_name = "computed-rsvp-path"
                             self.yang_parent_name = "er-os"
@@ -2635,9 +2969,13 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, ['hop_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath']['meta_info']
 
 
-                    class ComputedSrPath(Entity):
+                    class ComputedSrPath(_Entity_):
                         """
                         Computed SR path
                         
@@ -2676,10 +3014,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
 
                             self.yang_name = "computed-sr-path"
                             self.yang_parent_name = "er-os"
@@ -2708,7 +3049,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -2742,10 +3083,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "computed-sr-path"
@@ -2767,9 +3111,13 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -2803,10 +3151,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "computed-sr-path"
@@ -2828,11 +3179,23 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs']['meta_info']
 
 
-
-
-                class LsppcepInformation(Entity):
+                class LsppcepInformation(_Entity_):
                     """
                     PCEP related LSP information
                     
@@ -2903,10 +3266,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
 
                         self.yang_name = "lsppcep-information"
                         self.yang_parent_name = "detail-lsp-information"
@@ -2941,7 +3307,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
-                    class RsvpError(Entity):
+                    class RsvpError(_Entity_):
                         """
                         RSVP error info
                         
@@ -2986,10 +3352,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
 
                             self.yang_name = "rsvp-error"
                             self.yang_parent_name = "lsppcep-information"
@@ -3013,10 +3382,18 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, ['node_address', 'error_flags', 'error_code', 'error_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation']['meta_info']
 
 
-
-                class LspAssociationInfo(Entity):
+                class LspAssociationInfo(_Entity_):
                     """
                     LSP association information
                     
@@ -3050,10 +3427,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
 
                         self.yang_name = "lsp-association-info"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3078,7 +3458,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, ['association_type', 'association_id'], name, value)
 
 
-                    class AssociationSource(Entity):
+                    class AssociationSource(_Entity_):
                         """
                         Association Source
                         
@@ -3112,10 +3492,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, self).__init__()
 
                             self.yang_name = "association-source"
                             self.yang_parent_name = "lsp-association-info"
@@ -3137,10 +3520,18 @@ class PceLspData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo']['meta_info']
 
 
-
-                class LspAttributes(Entity):
+                class LspAttributes(_Entity_):
                     """
                     LSP attributes
                     
@@ -3201,10 +3592,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
 
                         self.yang_name = "lsp-attributes"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3232,9 +3626,13 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, ['affinity_exclude_any', 'affinity_include_any', 'affinity_include_all', 'setup_priority', 'hold_priority', 'local_protection'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes']['meta_info']
 
 
-                class SubDelegatedPce(Entity):
+                class SubDelegatedPce(_Entity_):
                     """
                     Sub delegated PCE
                     
@@ -3268,10 +3666,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, self).__init__()
 
                         self.yang_name = "sub-delegated-pce"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3293,9 +3694,13 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce']['meta_info']
 
 
-                class StateSyncPce(Entity):
+                class StateSyncPce(_Entity_):
                     """
                     State\-sync PCE
                     
@@ -3329,10 +3734,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, self).__init__()
 
                         self.yang_name = "state-sync-pce"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3354,9 +3762,13 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce']['meta_info']
 
 
-                class ReportingPccAddress(Entity):
+                class ReportingPccAddress(_Entity_):
                     """
                     Reporting PCC address
                     
@@ -3390,10 +3802,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, self).__init__()
 
                         self.yang_name = "reporting-pcc-address"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3415,9 +3830,13 @@ class PceLspData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress']['meta_info']
 
 
-                class Rro(Entity):
+                class Rro(_Entity_):
                     """
                     RRO
                     
@@ -3467,10 +3886,13 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
 
                         self.yang_name = "rro"
                         self.yang_parent_name = "detail-lsp-information"
@@ -3499,7 +3921,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, ['rro_type', 'ipv4_address', 'mpls_label', 'flags'], name, value)
 
 
-                    class SrRro(Entity):
+                    class SrRro(_Entity_):
                         """
                         Segment Routing RRO info
                         
@@ -3538,10 +3960,13 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
 
                             self.yang_name = "sr-rro"
                             self.yang_parent_name = "rro"
@@ -3570,7 +3995,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -3604,10 +4029,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "sr-rro"
@@ -3629,9 +4057,13 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -3665,10 +4097,13 @@ class PceLspData(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "sr-rro"
@@ -3690,19 +4125,47 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceLspData.TunnelDetailInfos.TunnelDetailInfo']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceLspData.TunnelDetailInfos']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PceLspData()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceLspData']['meta_info']
 
 
-class PcePeer(Entity):
+class PcePeer(_Entity_):
     """
     pce peer
     
@@ -3725,10 +4188,13 @@ class PcePeer(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-10-02'
 
     def __init__(self):
-        super(PcePeer, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PcePeer, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pce-peer"
@@ -3753,7 +4219,7 @@ class PcePeer(Entity):
         self._perform_setattr(PcePeer, [], name, value)
 
 
-    class PeerDetailInfos(Entity):
+    class PeerDetailInfos(_Entity_):
         """
         Detailed peers database in XTC
         
@@ -3769,10 +4235,13 @@ class PcePeer(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PcePeer.PeerDetailInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PcePeer.PeerDetailInfos, self).__init__()
 
             self.yang_name = "peer-detail-infos"
             self.yang_parent_name = "pce-peer"
@@ -3791,7 +4260,7 @@ class PcePeer(Entity):
             self._perform_setattr(PcePeer.PeerDetailInfos, [], name, value)
 
 
-        class PeerDetailInfo(Entity):
+        class PeerDetailInfo(_Entity_):
             """
             Detailed PCE peer information
             
@@ -3845,10 +4314,13 @@ class PcePeer(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PcePeer.PeerDetailInfos.PeerDetailInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PcePeer.PeerDetailInfos.PeerDetailInfo, self).__init__()
 
                 self.yang_name = "peer-detail-info"
                 self.yang_parent_name = "peer-detail-infos"
@@ -3880,7 +4352,7 @@ class PcePeer(Entity):
                 self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo, ['peer_address', 'peer_protocol', 'max_sid_depth'], name, value)
 
 
-            class PeerAddressXr(Entity):
+            class PeerAddressXr(_Entity_):
                 """
                 Peer address
                 
@@ -3914,10 +4386,13 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, self).__init__()
 
                     self.yang_name = "peer-address-xr"
                     self.yang_parent_name = "peer-detail-info"
@@ -3939,9 +4414,13 @@ class PcePeer(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr']['meta_info']
 
 
-            class DetailPcepInformation(Entity):
+            class DetailPcepInformation(_Entity_):
                 """
                 Detailed PCE protocol information
                 
@@ -4233,10 +4712,13 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
 
                     self.yang_name = "detail-pcep-information"
                     self.yang_parent_name = "peer-detail-info"
@@ -4325,7 +4807,7 @@ class PcePeer(Entity):
                     self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, ['error', 'speaker_id', 'pcep_up_time', 'keepalives', 'md5_enabled', 'keychain_enabled', 'negotiated_local_keepalive', 'negotiated_remote_keepalive', 'negotiated_dead_time', 'pce_request_rx', 'pce_request_tx', 'pce_reply_rx', 'pce_reply_tx', 'pce_error_rx', 'pce_error_tx', 'pce_open_tx', 'pce_open_rx', 'pce_report_rx', 'pce_report_tx', 'pce_update_rx', 'pce_update_tx', 'pce_initiate_rx', 'pce_initiate_tx', 'pce_keepalive_tx', 'pce_keepalive_rx', 'local_session_id', 'remote_session_id', 'minimum_keepalive_interval', 'maximum_dead_interval', 'max_sid_depth'], name, value)
 
 
-                class BriefPcepInformation(Entity):
+                class BriefPcepInformation(_Entity_):
                     """
                     Brief PCE protocol information
                     
@@ -4390,10 +4872,13 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
 
                         self.yang_name = "brief-pcep-information"
                         self.yang_parent_name = "detail-pcep-information"
@@ -4425,9 +4910,13 @@ class PcePeer(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation']['meta_info']
 
 
-                class LastErrorRx(Entity):
+                class LastErrorRx(_Entity_):
                     """
                     Last PCError received
                     
@@ -4454,10 +4943,13 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
 
                         self.yang_name = "last-error-rx"
                         self.yang_parent_name = "detail-pcep-information"
@@ -4477,9 +4969,13 @@ class PcePeer(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, ['pc_error_type', 'pc_error_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx']['meta_info']
 
 
-                class LastErrorTx(Entity):
+                class LastErrorTx(_Entity_):
                     """
                     Last PCError sent
                     
@@ -4506,10 +5002,13 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
 
                         self.yang_name = "last-error-tx"
                         self.yang_parent_name = "detail-pcep-information"
@@ -4529,12 +5028,28 @@ class PcePeer(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, ['pc_error_type', 'pc_error_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PcePeer.PeerDetailInfos.PeerDetailInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PcePeer.PeerDetailInfos']['meta_info']
 
 
-
-
-
-    class PeerInfos(Entity):
+    class PeerInfos(_Entity_):
         """
         Peers database in XTC
         
@@ -4550,10 +5065,13 @@ class PcePeer(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PcePeer.PeerInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PcePeer.PeerInfos, self).__init__()
 
             self.yang_name = "peer-infos"
             self.yang_parent_name = "pce-peer"
@@ -4572,7 +5090,7 @@ class PcePeer(Entity):
             self._perform_setattr(PcePeer.PeerInfos, [], name, value)
 
 
-        class PeerInfo(Entity):
+        class PeerInfo(_Entity_):
             """
             PCE peer information
             
@@ -4617,10 +5135,13 @@ class PcePeer(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PcePeer.PeerInfos.PeerInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PcePeer.PeerInfos.PeerInfo, self).__init__()
 
                 self.yang_name = "peer-info"
                 self.yang_parent_name = "peer-infos"
@@ -4650,7 +5171,7 @@ class PcePeer(Entity):
                 self._perform_setattr(PcePeer.PeerInfos.PeerInfo, ['peer_address', 'peer_protocol'], name, value)
 
 
-            class PeerAddressXr(Entity):
+            class PeerAddressXr(_Entity_):
                 """
                 Peer address
                 
@@ -4684,10 +5205,13 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, self).__init__()
 
                     self.yang_name = "peer-address-xr"
                     self.yang_parent_name = "peer-info"
@@ -4709,9 +5233,13 @@ class PcePeer(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PcePeer.PeerInfos.PeerInfo.PeerAddressXr']['meta_info']
 
 
-            class BriefPcepInformation(Entity):
+            class BriefPcepInformation(_Entity_):
                 """
                 PCE protocol information
                 
@@ -4776,10 +5304,13 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
 
                     self.yang_name = "brief-pcep-information"
                     self.yang_parent_name = "peer-info"
@@ -4811,16 +5342,32 @@ class PcePeer(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PcePeer.PeerInfos.PeerInfo.BriefPcepInformation']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PcePeer.PeerInfos.PeerInfo']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PcePeer.PeerInfos']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PcePeer()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PcePeer']['meta_info']
 
 
-class PceTopology(Entity):
+class PceTopology(_Entity_):
     """
     pce topology
     
@@ -4850,10 +5397,13 @@ class PceTopology(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-10-02'
 
     def __init__(self):
-        super(PceTopology, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PceTopology, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pce-topology"
@@ -4882,7 +5432,7 @@ class PceTopology(Entity):
         self._perform_setattr(PceTopology, [], name, value)
 
 
-    class TopologyNodes(Entity):
+    class TopologyNodes(_Entity_):
         """
         Node database in XTC
         
@@ -4898,10 +5448,13 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceTopology.TopologyNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceTopology.TopologyNodes, self).__init__()
 
             self.yang_name = "topology-nodes"
             self.yang_parent_name = "pce-topology"
@@ -4920,7 +5473,7 @@ class PceTopology(Entity):
             self._perform_setattr(PceTopology.TopologyNodes, [], name, value)
 
 
-        class TopologyNode(Entity):
+        class TopologyNode(_Entity_):
             """
             Node information
             
@@ -4982,10 +5535,13 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceTopology.TopologyNodes.TopologyNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceTopology.TopologyNodes.TopologyNode, self).__init__()
 
                 self.yang_name = "topology-node"
                 self.yang_parent_name = "topology-nodes"
@@ -5017,7 +5573,7 @@ class PceTopology(Entity):
                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode, ['node_identifier', 'node_identifier_xr', 'overload'], name, value)
 
 
-            class NodeProtocolIdentifier(Entity):
+            class NodeProtocolIdentifier(_Entity_):
                 """
                 Node protocol identifier
                 
@@ -5079,10 +5635,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
 
                     self.yang_name = "node-protocol-identifier"
                     self.yang_parent_name = "topology-node"
@@ -5112,7 +5671,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                class IgpInformation(Entity):
+                class IgpInformation(_Entity_):
                     """
                     IGP information
                     
@@ -5137,10 +5696,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
 
                         self.yang_name = "igp-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -5163,7 +5725,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -5197,10 +5759,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
@@ -5225,7 +5790,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -5262,10 +5827,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -5296,7 +5864,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -5321,10 +5889,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -5344,9 +5915,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -5373,10 +5948,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -5396,9 +5974,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -5425,10 +6007,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -5448,12 +6033,28 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                class SrgbInformation(Entity):
+                class SrgbInformation(_Entity_):
                     """
                     SRGB information
                     
@@ -5496,10 +6097,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                         self.yang_name = "srgb-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -5526,7 +6130,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -5560,10 +6164,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
@@ -5588,7 +6195,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -5625,10 +6232,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -5659,7 +6269,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -5684,10 +6294,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -5707,9 +6320,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -5736,10 +6353,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -5759,9 +6379,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -5788,10 +6412,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -5811,13 +6438,33 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-            class Prefixe(Entity):
+            class Prefixe(_Entity_):
                 """
                 Prefixes
                 
@@ -5849,10 +6496,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.TopologyNodes.TopologyNode.Prefixe, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologyNodes.TopologyNode.Prefixe, self).__init__()
 
                     self.yang_name = "prefixe"
                     self.yang_parent_name = "topology-node"
@@ -5879,7 +6529,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe, ['domain_identifier'], name, value)
 
 
-                class PfxSid(Entity):
+                class PfxSid(_Entity_):
                     """
                     Prefix SID
                     
@@ -5953,10 +6603,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
 
                         self.yang_name = "pfx-sid"
                         self.yang_parent_name = "prefixe"
@@ -5993,7 +6646,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -6027,10 +6680,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "pfx-sid"
@@ -6052,10 +6708,18 @@ class PceTopology(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid']['meta_info']
 
 
-
-                class NodeId(Entity):
+                class NodeId(_Entity_):
                     """
                     Link\-state node identifier
                     
@@ -6089,10 +6753,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
 
                         self.yang_name = "node-id"
                         self.yang_parent_name = "prefixe"
@@ -6117,7 +6784,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class Igp(_Entity_):
                         """
                         IGP\-specific information
                         
@@ -6154,10 +6821,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
 
                             self.yang_name = "igp"
                             self.yang_parent_name = "node-id"
@@ -6188,7 +6858,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, ['igp_id'], name, value)
 
 
-                        class Isis(Entity):
+                        class Isis(_Entity_):
                             """
                             ISIS information
                             
@@ -6213,10 +6883,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
 
                                 self.yang_name = "isis"
                                 self.yang_parent_name = "igp"
@@ -6236,9 +6909,13 @@ class PceTopology(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis']['meta_info']
 
 
-                        class Ospf(Entity):
+                        class Ospf(_Entity_):
                             """
                             OSPF information
                             
@@ -6265,10 +6942,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
 
                                 self.yang_name = "ospf"
                                 self.yang_parent_name = "igp"
@@ -6288,9 +6968,13 @@ class PceTopology(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf']['meta_info']
 
 
-                        class Bgp(Entity):
+                        class Bgp(_Entity_):
                             """
                             BGP information
                             
@@ -6317,10 +7001,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
 
                                 self.yang_name = "bgp"
                                 self.yang_parent_name = "igp"
@@ -6340,12 +7027,28 @@ class PceTopology(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Prefixe']['meta_info']
 
 
-
-
-
-            class Ipv4Link(Entity):
+            class Ipv4Link(_Entity_):
                 """
                 IPv4 Link information
                 
@@ -6454,10 +7157,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
 
                     self.yang_name = "ipv4-link"
                     self.yang_parent_name = "topology-node"
@@ -6504,7 +7210,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'srlgs'], name, value)
 
 
-                class LocalIgpInformation(Entity):
+                class LocalIgpInformation(_Entity_):
                     """
                     Local node IGP information
                     
@@ -6529,10 +7235,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
 
                         self.yang_name = "local-igp-information"
                         self.yang_parent_name = "ipv4-link"
@@ -6555,7 +7264,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -6589,10 +7298,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
@@ -6617,7 +7329,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -6654,10 +7366,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -6688,7 +7403,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -6713,10 +7428,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -6736,9 +7454,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -6765,10 +7487,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -6788,9 +7513,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -6817,10 +7546,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -6840,12 +7572,28 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation']['meta_info']
 
 
-
-
-
-                class RemoteNodeProtocolIdentifier(Entity):
+                class RemoteNodeProtocolIdentifier(_Entity_):
                     """
                     Remote node protocol identifier
                     
@@ -6907,10 +7655,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
 
                         self.yang_name = "remote-node-protocol-identifier"
                         self.yang_parent_name = "ipv4-link"
@@ -6940,7 +7691,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                    class IgpInformation(Entity):
+                    class IgpInformation(_Entity_):
                         """
                         IGP information
                         
@@ -6965,10 +7716,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
 
                             self.yang_name = "igp-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -6991,7 +7745,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -7025,10 +7779,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
@@ -7053,7 +7810,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -7090,10 +7847,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -7124,7 +7884,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -7149,10 +7909,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -7172,9 +7935,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -7201,10 +7968,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -7224,9 +7994,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -7253,10 +8027,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -7276,12 +8053,28 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                    class SrgbInformation(Entity):
+                    class SrgbInformation(_Entity_):
                         """
                         SRGB information
                         
@@ -7324,10 +8117,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                             self.yang_name = "srgb-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -7354,7 +8150,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -7388,10 +8184,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
@@ -7416,7 +8215,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -7453,10 +8252,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -7487,7 +8289,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -7512,10 +8314,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -7535,9 +8340,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -7564,10 +8373,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -7587,9 +8399,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -7616,10 +8432,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -7639,13 +8458,33 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-                class PerformanceMetrics(Entity):
+                class PerformanceMetrics(_Entity_):
                     """
                     Performance metrics
                     
@@ -7665,10 +8504,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, self).__init__()
 
                         self.yang_name = "performance-metrics"
                         self.yang_parent_name = "ipv4-link"
@@ -7686,9 +8528,13 @@ class PceTopology(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, ['unidirectional_minimum_delay_microseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics']['meta_info']
 
 
-                class AdjacencySid(Entity):
+                class AdjacencySid(_Entity_):
                     """
                     Adjacency SIDs
                     
@@ -7762,10 +8608,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
 
                         self.yang_name = "adjacency-sid"
                         self.yang_parent_name = "ipv4-link"
@@ -7802,7 +8651,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -7836,10 +8685,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "adjacency-sid"
@@ -7861,11 +8713,23 @@ class PceTopology(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv4Link']['meta_info']
 
 
-
-
-            class Ipv6Link(Entity):
+            class Ipv6Link(_Entity_):
                 """
                 IPv6 Link information
                 
@@ -7949,10 +8813,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
 
                     self.yang_name = "ipv6-link"
                     self.yang_parent_name = "topology-node"
@@ -7991,7 +8858,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, ['local_ipv6_address', 'remote_ipv6_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth'], name, value)
 
 
-                class LocalIgpInformation(Entity):
+                class LocalIgpInformation(_Entity_):
                     """
                     Local node IGP information
                     
@@ -8016,10 +8883,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
 
                         self.yang_name = "local-igp-information"
                         self.yang_parent_name = "ipv6-link"
@@ -8042,7 +8912,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -8076,10 +8946,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
@@ -8104,7 +8977,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -8141,10 +9014,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -8175,7 +9051,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -8200,10 +9076,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -8223,9 +9102,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -8252,10 +9135,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -8275,9 +9161,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -8304,10 +9194,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -8327,12 +9220,28 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation']['meta_info']
 
 
-
-
-
-                class RemoteNodeProtocolIdentifier(Entity):
+                class RemoteNodeProtocolIdentifier(_Entity_):
                     """
                     Remote node protocol identifier
                     
@@ -8394,10 +9303,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
 
                         self.yang_name = "remote-node-protocol-identifier"
                         self.yang_parent_name = "ipv6-link"
@@ -8427,7 +9339,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                    class IgpInformation(Entity):
+                    class IgpInformation(_Entity_):
                         """
                         IGP information
                         
@@ -8452,10 +9364,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
 
                             self.yang_name = "igp-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -8478,7 +9393,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -8512,10 +9427,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
@@ -8540,7 +9458,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -8577,10 +9495,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -8611,7 +9532,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -8636,10 +9557,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -8659,9 +9583,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -8688,10 +9616,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -8711,9 +9642,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -8740,10 +9675,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -8763,12 +9701,28 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                    class SrgbInformation(Entity):
+                    class SrgbInformation(_Entity_):
                         """
                         SRGB information
                         
@@ -8811,10 +9765,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                             self.yang_name = "srgb-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -8841,7 +9798,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -8875,10 +9832,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
@@ -8903,7 +9863,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -8940,10 +9900,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -8974,7 +9937,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -8999,10 +9962,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -9022,9 +9988,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -9051,10 +10021,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -9074,9 +10047,13 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -9103,10 +10080,13 @@ class PceTopology(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -9126,13 +10106,33 @@ class PceTopology(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-                class AdjacencySid(Entity):
+                class AdjacencySid(_Entity_):
                     """
                     Adjacency SIDs
                     
@@ -9206,10 +10206,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
 
                         self.yang_name = "adjacency-sid"
                         self.yang_parent_name = "ipv6-link"
@@ -9246,7 +10249,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -9280,10 +10283,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "adjacency-sid"
@@ -9305,13 +10311,33 @@ class PceTopology(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologyNodes.TopologyNode.Ipv6Link']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceTopology.TopologyNodes.TopologyNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceTopology.TopologyNodes']['meta_info']
 
 
-
-
-
-
-    class TopologySummaries(Entity):
+    class TopologySummaries(_Entity_):
         """
         Node summary database in XTC
         
@@ -9327,10 +10353,13 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceTopology.TopologySummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceTopology.TopologySummaries, self).__init__()
 
             self.yang_name = "topology-summaries"
             self.yang_parent_name = "pce-topology"
@@ -9349,7 +10378,7 @@ class PceTopology(Entity):
             self._perform_setattr(PceTopology.TopologySummaries, [], name, value)
 
 
-        class TopologySummary(Entity):
+        class TopologySummary(_Entity_):
             """
             Node summary database in XTC
             
@@ -9371,6 +10400,13 @@ class PceTopology(Entity):
             
             	Statistics on topology update
             	**type**\:  :py:class:`StatsTopologyUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate>`
+            
+            	**config**\: False
+            
+            .. attribute:: topology_ready_summary
+            
+            	Topology ready summary
+            	**type**\:  :py:class:`TopologyReadySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary>`
             
             	**config**\: False
             
@@ -9494,17 +10530,20 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceTopology.TopologySummaries.TopologySummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceTopology.TopologySummaries.TopologySummary, self).__init__()
 
                 self.yang_name = "topology-summary"
                 self.yang_parent_name = "topology-summaries"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate))])
+                self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate)), ("topology-ready-summary", ("topology_ready_summary", PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary))])
                 self._leafs = OrderedDict([
                     ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAddressFamily', '')])),
                     ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceigpProtocol', '')])),
@@ -9541,6 +10580,10 @@ class PceTopology(Entity):
                 self.stats_topology_update = PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate()
                 self.stats_topology_update.parent = self
                 self._children_name_map["stats_topology_update"] = "stats-topology-update"
+
+                self.topology_ready_summary = PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary()
+                self.topology_ready_summary.parent = self
+                self._children_name_map["topology_ready_summary"] = "topology-ready-summary"
                 self._segment_path = lambda: "topology-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summaries/%s" % self._segment_path()
                 self._is_frozen = True
@@ -9549,7 +10592,7 @@ class PceTopology(Entity):
                 self._perform_setattr(PceTopology.TopologySummaries.TopologySummary, ['af', 'protocol', 'nodes', 'lookup_nodes', 'prefixes', 'prefix_sids', 'regular_prefix_sids', 'strict_prefix_sids', 'links', 'epe_links', 'adjacency_sids', 'epesids', 'protected_adjacency_sids', 'un_protected_adjacency_sids', 'topology_consistent'], name, value)
 
 
-            class StatsTopologyUpdate(Entity):
+            class StatsTopologyUpdate(_Entity_):
                 """
                 Statistics on topology update
                 
@@ -9612,10 +10655,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate, self).__init__()
 
                     self.yang_name = "stats-topology-update"
                     self.yang_parent_name = "topology-summary"
@@ -9644,11 +10690,183 @@ class PceTopology(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate, ['num_nodes_added', 'num_nodes_deleted', 'num_links_added', 'num_links_deleted', 'num_prefixes_added', 'num_prefixes_deleted'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologySummaries.TopologySummary.StatsTopologyUpdate']['meta_info']
 
 
+            class TopologyReadySummary(_Entity_):
+                """
+                Topology ready summary
+                
+                .. attribute:: timer
+                
+                	Topology readiness timer
+                	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer>`
+                
+                	**config**\: False
+                
+                .. attribute:: ready
+                
+                	Topology readiness
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: pcep_allowed
+                
+                	Whether PCEP is allowed
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: ha_case
+                
+                	Last HA case
+                	**type**\:  :py:class:`CmnHaCase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.CmnHaCase>`
+                
+                	**config**\: False
+                
+                .. attribute:: timer_value
+                
+                	Topology ready timer value selected at start
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2019-10-02'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary, self).__init__()
+
+                    self.yang_name = "topology-ready-summary"
+                    self.yang_parent_name = "topology-summary"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("timer", ("timer", PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer))])
+                    self._leafs = OrderedDict([
+                        ('ready', (YLeaf(YType.boolean, 'ready'), ['bool'])),
+                        ('pcep_allowed', (YLeaf(YType.boolean, 'pcep-allowed'), ['bool'])),
+                        ('ha_case', (YLeaf(YType.enumeration, 'ha-case'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'CmnHaCase', '')])),
+                        ('timer_value', (YLeaf(YType.uint32, 'timer-value'), ['int'])),
+                    ])
+                    self.ready = None
+                    self.pcep_allowed = None
+                    self.ha_case = None
+                    self.timer_value = None
+
+                    self.timer = PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer()
+                    self.timer.parent = self
+                    self._children_name_map["timer"] = "timer"
+                    self._segment_path = lambda: "topology-ready-summary"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summaries/topology-summary/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary, ['ready', 'pcep_allowed', 'ha_case', 'timer_value'], name, value)
 
 
-    class PrefixInfos(Entity):
+                class Timer(_Entity_):
+                    """
+                    Topology readiness timer
+                    
+                    .. attribute:: running
+                    
+                    	Whether the timer is running
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: remaining_seconds
+                    
+                    	Number of remaining seconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: remaining_nano_seconds
+                    
+                    	Number of remaining nanoseconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2019-10-02'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer, self).__init__()
+
+                        self.yang_name = "timer"
+                        self.yang_parent_name = "topology-ready-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                            ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                            ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                        ])
+                        self.running = None
+                        self.remaining_seconds = None
+                        self.remaining_nano_seconds = None
+                        self._segment_path = lambda: "timer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summaries/topology-summary/topology-ready-summary/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary.Timer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.TopologySummaries.TopologySummary.TopologyReadySummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceTopology.TopologySummaries.TopologySummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceTopology.TopologySummaries']['meta_info']
+
+
+    class PrefixInfos(_Entity_):
         """
         Prefixes database in XTC
         
@@ -9664,10 +10882,13 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PceTopology.PrefixInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PceTopology.PrefixInfos, self).__init__()
 
             self.yang_name = "prefix-infos"
             self.yang_parent_name = "pce-topology"
@@ -9686,7 +10907,7 @@ class PceTopology(Entity):
             self._perform_setattr(PceTopology.PrefixInfos, [], name, value)
 
 
-        class PrefixInfo(Entity):
+        class PrefixInfo(_Entity_):
             """
             PCE prefix information
             
@@ -9727,10 +10948,13 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PceTopology.PrefixInfos.PrefixInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PceTopology.PrefixInfos.PrefixInfo, self).__init__()
 
                 self.yang_name = "prefix-info"
                 self.yang_parent_name = "prefix-infos"
@@ -9758,7 +10982,7 @@ class PceTopology(Entity):
                 self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo, ['node_identifier', 'node_identifier_xr'], name, value)
 
 
-            class NodeProtocolIdentifier(Entity):
+            class NodeProtocolIdentifier(_Entity_):
                 """
                 Node protocol identifier
                 
@@ -9820,10 +11044,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
 
                     self.yang_name = "node-protocol-identifier"
                     self.yang_parent_name = "prefix-info"
@@ -9853,7 +11080,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                class IgpInformation(Entity):
+                class IgpInformation(_Entity_):
                     """
                     IGP information
                     
@@ -9878,10 +11105,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
 
                         self.yang_name = "igp-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -9904,7 +11134,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -9938,10 +11168,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
@@ -9966,7 +11199,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -10003,10 +11236,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -10037,7 +11273,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -10062,10 +11298,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -10085,9 +11324,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -10114,10 +11357,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -10137,9 +11383,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -10166,10 +11416,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -10189,12 +11442,28 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                class SrgbInformation(Entity):
+                class SrgbInformation(_Entity_):
                     """
                     SRGB information
                     
@@ -10237,10 +11506,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                         self.yang_name = "srgb-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -10267,7 +11539,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -10301,10 +11573,13 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
@@ -10329,7 +11604,7 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -10366,10 +11641,13 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -10400,7 +11678,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -10425,10 +11703,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -10448,9 +11729,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -10477,10 +11762,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -10500,9 +11788,13 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -10529,10 +11821,13 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -10552,13 +11847,33 @@ class PceTopology(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-            class Address(Entity):
+            class Address(_Entity_):
                 """
                 Prefix address
                 
@@ -10574,10 +11889,13 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PceTopology.PrefixInfos.PrefixInfo.Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PceTopology.PrefixInfos.PrefixInfo.Address, self).__init__()
 
                     self.yang_name = "address"
                     self.yang_parent_name = "prefix-info"
@@ -10597,7 +11915,7 @@ class PceTopology(Entity):
                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address, [], name, value)
 
 
-                class Ip(Entity):
+                class Ip(_Entity_):
                     """
                     Prefix IP address
                     
@@ -10631,10 +11949,13 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
 
                         self.yang_name = "ip"
                         self.yang_parent_name = "address"
@@ -10656,17 +11977,37 @@ class PceTopology(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.Address.Ip']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo.Address']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['PceTopology.PrefixInfos.PrefixInfo']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['PceTopology.PrefixInfos']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PceTopology()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['PceTopology']['meta_info']
 
 
-class Pce(Entity):
+class Pce(_Entity_):
     """
     pce
     
@@ -10709,6 +12050,13 @@ class Pce(Entity):
     
     	CSPF path info
     	**type**\:  :py:class:`Cspf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf>`
+    
+    	**config**\: False
+    
+    .. attribute:: statistics_nodes
+    
+    	PCE REST peer statistics
+    	**type**\:  :py:class:`StatisticsNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.StatisticsNodes>`
     
     	**config**\: False
     
@@ -10773,10 +12121,13 @@ class Pce(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-09-07'
+    _revision = '2019-10-02'
 
     def __init__(self):
-        super(Pce, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pce, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pce"
@@ -10784,7 +12135,7 @@ class Pce(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("cspf-sr-mpls", ("cspf_sr_mpls", Pce.CspfSrMpls)), ("verification-events", ("verification_events", Pce.VerificationEvents)), ("peer-summaries", ("peer_summaries", Pce.PeerSummaries)), ("association-infos", ("association_infos", Pce.AssociationInfos)), ("paths", ("paths", Pce.Paths)), ("cspf", ("cspf", Pce.Cspf)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("topology-summaries", ("topology_summaries", Pce.TopologySummaries)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
+        self._child_classes = OrderedDict([("cspf-sr-mpls", ("cspf_sr_mpls", Pce.CspfSrMpls)), ("verification-events", ("verification_events", Pce.VerificationEvents)), ("peer-summaries", ("peer_summaries", Pce.PeerSummaries)), ("association-infos", ("association_infos", Pce.AssociationInfos)), ("paths", ("paths", Pce.Paths)), ("cspf", ("cspf", Pce.Cspf)), ("statistics-nodes", ("statistics_nodes", Pce.StatisticsNodes)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("topology-summaries", ("topology_summaries", Pce.TopologySummaries)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
         self._leafs = OrderedDict()
 
         self.cspf_sr_mpls = Pce.CspfSrMpls()
@@ -10810,6 +12161,10 @@ class Pce(Entity):
         self.cspf = Pce.Cspf()
         self.cspf.parent = self
         self._children_name_map["cspf"] = "cspf"
+
+        self.statistics_nodes = Pce.StatisticsNodes()
+        self.statistics_nodes.parent = self
+        self._children_name_map["statistics_nodes"] = "statistics-nodes"
 
         self.tunnel_infos = Pce.TunnelInfos()
         self.tunnel_infos.parent = self
@@ -10849,7 +12204,7 @@ class Pce(Entity):
         self._perform_setattr(Pce, [], name, value)
 
 
-    class CspfSrMpls(Entity):
+    class CspfSrMpls(_Entity_):
         """
         CSPF for SR MPLS path info
         
@@ -10865,10 +12220,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.CspfSrMpls, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.CspfSrMpls, self).__init__()
 
             self.yang_name = "cspf-sr-mpls"
             self.yang_parent_name = "pce"
@@ -10889,7 +12247,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.CspfSrMpls, [], name, value)
 
 
-        class CspfSrMplsPaths(Entity):
+        class CspfSrMplsPaths(_Entity_):
             """
             This table models the path calculation
             capabilities in XTC.A GET operation for the
@@ -10907,10 +12265,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.CspfSrMpls.CspfSrMplsPaths, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.CspfSrMpls.CspfSrMplsPaths, self).__init__()
 
                 self.yang_name = "cspf-sr-mpls-paths"
                 self.yang_parent_name = "cspf-sr-mpls"
@@ -10929,7 +12290,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths, [], name, value)
 
 
-            class CspfSrMplsPath(Entity):
+            class CspfSrMplsPath(_Entity_):
                 """
                 A GET operation on this class returns the path
                 .
@@ -11130,10 +12491,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath, self).__init__()
 
                     self.yang_name = "cspf-sr-mpls-path"
                     self.yang_parent_name = "cspf-sr-mpls-paths"
@@ -11189,7 +12553,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', 'msd1', 'msd2', 'relative_margin', 'absolute_margin', 'affinity_include_all', 'affinity_include_any', 'affinity_exclude_any', 'cspf_result', 'iterations_done'], name, value)
 
 
-                class OutputPath(Entity):
+                class OutputPath(_Entity_):
                     """
                     Output SR MPLS paths
                     
@@ -11228,10 +12592,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath, self).__init__()
 
                         self.yang_name = "output-path"
                         self.yang_parent_name = "cspf-sr-mpls-path"
@@ -11261,7 +12628,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath, ['cost'], name, value)
 
 
-                    class Source(Entity):
+                    class Source(_Entity_):
                         """
                         Source of path
                         
@@ -11295,10 +12662,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source, self).__init__()
 
                             self.yang_name = "source"
                             self.yang_parent_name = "output-path"
@@ -11321,9 +12691,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Source']['meta_info']
 
 
-                    class Destination(Entity):
+                    class Destination(_Entity_):
                         """
                         Destination of path
                         
@@ -11357,10 +12731,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination, self).__init__()
 
                             self.yang_name = "destination"
                             self.yang_parent_name = "output-path"
@@ -11383,9 +12760,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Destination']['meta_info']
 
 
-                    class Hops(Entity):
+                    class Hops(_Entity_):
                         """
                         SR hops
                         
@@ -11424,10 +12805,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops, self).__init__()
 
                             self.yang_name = "hops"
                             self.yang_parent_name = "output-path"
@@ -11457,7 +12841,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -11491,10 +12875,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "hops"
@@ -11517,9 +12904,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -11553,10 +12944,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "hops"
@@ -11579,14 +12973,38 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops.RemoteAddr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath.Hops']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath.OutputPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths.CspfSrMplsPath']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.CspfSrMpls.CspfSrMplsPaths']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.CspfSrMpls']['meta_info']
 
 
-
-
-
-
-
-    class VerificationEvents(Entity):
+    class VerificationEvents(_Entity_):
         """
         PCE Verification events in XTC
         
@@ -11602,10 +13020,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.VerificationEvents, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.VerificationEvents, self).__init__()
 
             self.yang_name = "verification-events"
             self.yang_parent_name = "pce"
@@ -11624,7 +13045,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.VerificationEvents, [], name, value)
 
 
-        class VerificationEvent(Entity):
+        class VerificationEvent(_Entity_):
             """
             PCE single verification event
             
@@ -11658,7 +13079,7 @@ class Pce(Entity):
             	Event time, relative to Jan 1, 1970
             	**type**\: int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
             	**config**\: False
             
@@ -11667,10 +13088,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.VerificationEvents.VerificationEvent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.VerificationEvents.VerificationEvent, self).__init__()
 
                 self.yang_name = "verification-event"
                 self.yang_parent_name = "verification-events"
@@ -11682,7 +13106,7 @@ class Pce(Entity):
                     ('event_idx', (YLeaf(YType.uint32, 'event-idx'), ['int'])),
                     ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
                     ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
-                    ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
+                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
                 ])
                 self.event_idx = None
                 self.event_id = None
@@ -11695,10 +13119,18 @@ class Pce(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.VerificationEvents.VerificationEvent, ['event_idx', 'event_id', 'event_message', 'time_stamp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.VerificationEvents.VerificationEvent']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.VerificationEvents']['meta_info']
 
 
-
-    class PeerSummaries(Entity):
+    class PeerSummaries(_Entity_):
         """
         Detailed PCE peer information
         
@@ -11714,10 +13146,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.PeerSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PeerSummaries, self).__init__()
 
             self.yang_name = "peer-summaries"
             self.yang_parent_name = "pce"
@@ -11736,7 +13171,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.PeerSummaries, [], name, value)
 
 
-        class PeerSummary(Entity):
+        class PeerSummary(_Entity_):
             """
             Summary PCE peer information
             
@@ -11759,10 +13194,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.PeerSummaries.PeerSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.PeerSummaries.PeerSummary, self).__init__()
 
                 self.yang_name = "peer-summary"
                 self.yang_parent_name = "peer-summaries"
@@ -11786,7 +13224,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.PeerSummaries.PeerSummary, ['af'], name, value)
 
 
-            class PcepPeers(Entity):
+            class PcepPeers(_Entity_):
                 """
                 PCEP peers summary information
                 
@@ -11822,10 +13260,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PeerSummaries.PeerSummary.PcepPeers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PeerSummaries.PeerSummary.PcepPeers, self).__init__()
 
                     self.yang_name = "pcep-peers"
                     self.yang_parent_name = "peer-summary"
@@ -11847,11 +13288,23 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerSummaries.PeerSummary.PcepPeers, ['peer_count_up', 'peer_count_down', 'peer_count_all'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PeerSummaries.PeerSummary.PcepPeers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.PeerSummaries.PeerSummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.PeerSummaries']['meta_info']
 
 
-
-
-    class AssociationInfos(Entity):
+    class AssociationInfos(_Entity_):
         """
         Associaition database in XTC
         
@@ -11867,10 +13320,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.AssociationInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.AssociationInfos, self).__init__()
 
             self.yang_name = "association-infos"
             self.yang_parent_name = "pce"
@@ -11889,7 +13345,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.AssociationInfos, [], name, value)
 
 
-        class AssociationInfo(Entity):
+        class AssociationInfo(_Entity_):
             """
             PCE Association information
             
@@ -11986,10 +13442,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.AssociationInfos.AssociationInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.AssociationInfos.AssociationInfo, self).__init__()
 
                 self.yang_name = "association-info"
                 self.yang_parent_name = "association-infos"
@@ -12029,7 +13488,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.AssociationInfos.AssociationInfo, ['group_id', 'type', 'sub_id', 'association_type', 'association_id', 'strict', 'status', 'headends_swapped'], name, value)
 
 
-            class AssociationSource(Entity):
+            class AssociationSource(_Entity_):
                 """
                 Association Source
                 
@@ -12063,10 +13522,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.AssociationInfos.AssociationInfo.AssociationSource, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.AssociationInfos.AssociationInfo.AssociationSource, self).__init__()
 
                     self.yang_name = "association-source"
                     self.yang_parent_name = "association-info"
@@ -12088,9 +13550,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.AssociationInfos.AssociationInfo.AssociationSource']['meta_info']
 
 
-            class AssociationLsp(Entity):
+            class AssociationLsp(_Entity_):
                 """
                 Association LSP Info
                 
@@ -12147,10 +13613,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.AssociationInfos.AssociationInfo.AssociationLsp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.AssociationInfos.AssociationInfo.AssociationLsp, self).__init__()
 
                     self.yang_name = "association-lsp"
                     self.yang_parent_name = "association-info"
@@ -12181,7 +13650,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp, ['tunnel_id', 'lspid', 'tunnel_name', 'pce_based', 'plsp_id'], name, value)
 
 
-                class PccAddress(Entity):
+                class PccAddress(_Entity_):
                     """
                     PCC address
                     
@@ -12215,10 +13684,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, self).__init__()
 
                         self.yang_name = "pcc-address"
                         self.yang_parent_name = "association-lsp"
@@ -12240,12 +13712,28 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.AssociationInfos.AssociationInfo.AssociationLsp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.AssociationInfos.AssociationInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.AssociationInfos']['meta_info']
 
 
-
-
-
-    class Paths(Entity):
+    class Paths(_Entity_):
         """
         This table models the path calculation
         capabilities in XTC.A GET operation for the
@@ -12263,10 +13751,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.Paths, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Paths, self).__init__()
 
             self.yang_name = "paths"
             self.yang_parent_name = "pce"
@@ -12285,7 +13776,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.Paths, [], name, value)
 
 
-        class Path(Entity):
+        class Path(_Entity_):
             """
             A GET operation on this class returns the path.
             
@@ -12363,10 +13854,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.Paths.Path, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Paths.Path, self).__init__()
 
                 self.yang_name = "path"
                 self.yang_parent_name = "paths"
@@ -12402,7 +13896,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.Paths.Path, ['af', 'source', 'destination', 'cost'], name, value)
 
 
-            class SourceXr(Entity):
+            class SourceXr(_Entity_):
                 """
                 Source of path
                 
@@ -12436,10 +13930,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.Paths.Path.SourceXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.Paths.Path.SourceXr, self).__init__()
 
                     self.yang_name = "source-xr"
                     self.yang_parent_name = "path"
@@ -12461,9 +13958,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.Paths.Path.SourceXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.Paths.Path.SourceXr']['meta_info']
 
 
-            class DestinationXr(Entity):
+            class DestinationXr(_Entity_):
                 """
                 Destination of path
                 
@@ -12497,10 +13998,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.Paths.Path.DestinationXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.Paths.Path.DestinationXr, self).__init__()
 
                     self.yang_name = "destination-xr"
                     self.yang_parent_name = "path"
@@ -12522,9 +14026,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.Paths.Path.DestinationXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.Paths.Path.DestinationXr']['meta_info']
 
 
-            class Hops(Entity):
+            class Hops(_Entity_):
                 """
                 Hop addresses
                 
@@ -12560,10 +14068,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.Paths.Path.Hops, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.Paths.Path.Hops, self).__init__()
 
                     self.yang_name = "hops"
                     self.yang_parent_name = "path"
@@ -12585,11 +14096,23 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.Paths.Path.Hops, ['address_family', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.Paths.Path.Hops']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.Paths.Path']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.Paths']['meta_info']
 
 
-
-
-    class Cspf(Entity):
+    class Cspf(_Entity_):
         """
         CSPF path info
         
@@ -12605,10 +14128,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.Cspf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Cspf, self).__init__()
 
             self.yang_name = "cspf"
             self.yang_parent_name = "pce"
@@ -12629,7 +14155,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.Cspf, [], name, value)
 
 
-        class CspfPaths(Entity):
+        class CspfPaths(_Entity_):
             """
             This table models the path calculation
             capabilities in XTC.A GET operation for the
@@ -12647,10 +14173,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.Cspf.CspfPaths, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Cspf.CspfPaths, self).__init__()
 
                 self.yang_name = "cspf-paths"
                 self.yang_parent_name = "cspf"
@@ -12669,7 +14198,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.Cspf.CspfPaths, [], name, value)
 
 
-            class CspfPath(Entity):
+            class CspfPath(_Entity_):
                 """
                 A GET operation on this class returns the path
                 .
@@ -12814,10 +14343,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.Cspf.CspfPaths.CspfPath, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.Cspf.CspfPaths.CspfPath, self).__init__()
 
                     self.yang_name = "cspf-path"
                     self.yang_parent_name = "cspf-paths"
@@ -12861,7 +14393,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', 'headends_swapped', 'cspf_result', 'iterations_done'], name, value)
 
 
-                class OutputPath(Entity):
+                class OutputPath(_Entity_):
                     """
                     Output PCE paths
                     
@@ -12900,10 +14432,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.Cspf.CspfPaths.CspfPath.OutputPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.Cspf.CspfPaths.CspfPath.OutputPath, self).__init__()
 
                         self.yang_name = "output-path"
                         self.yang_parent_name = "cspf-path"
@@ -12933,7 +14468,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath, ['cost'], name, value)
 
 
-                    class SourceXr(Entity):
+                    class SourceXr(_Entity_):
                         """
                         Source of path
                         
@@ -12967,10 +14502,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.SourceXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.SourceXr, self).__init__()
 
                             self.yang_name = "source-xr"
                             self.yang_parent_name = "output-path"
@@ -12993,9 +14531,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.SourceXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.Cspf.CspfPaths.CspfPath.OutputPath.SourceXr']['meta_info']
 
 
-                    class DestinationXr(Entity):
+                    class DestinationXr(_Entity_):
                         """
                         Destination of path
                         
@@ -13029,10 +14571,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.DestinationXr, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.DestinationXr, self).__init__()
 
                             self.yang_name = "destination-xr"
                             self.yang_parent_name = "output-path"
@@ -13055,9 +14600,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.DestinationXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.Cspf.CspfPaths.CspfPath.OutputPath.DestinationXr']['meta_info']
 
 
-                    class Hops(Entity):
+                    class Hops(_Entity_):
                         """
                         Hop addresses
                         
@@ -13093,10 +14642,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, self).__init__()
 
                             self.yang_name = "hops"
                             self.yang_parent_name = "output-path"
@@ -13119,13 +14671,387 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, ['address_family', 'ipv4_prefix', 'ipv6_prefix'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.Cspf.CspfPaths.CspfPath.OutputPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.Cspf.CspfPaths.CspfPath']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.Cspf.CspfPaths']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.Cspf']['meta_info']
 
 
+    class StatisticsNodes(_Entity_):
+        """
+        PCE REST peer statistics
+        
+        .. attribute:: statistics_node
+        
+        	PCE REST peer statistics information
+        	**type**\: list of  		 :py:class:`StatisticsNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.StatisticsNodes.StatisticsNode>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-oper'
+        _revision = '2019-10-02'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.StatisticsNodes, self).__init__()
+
+            self.yang_name = "statistics-nodes"
+            self.yang_parent_name = "pce"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("statistics-node", ("statistics_node", Pce.StatisticsNodes.StatisticsNode))])
+            self._leafs = OrderedDict()
+
+            self.statistics_node = YList(self)
+            self._segment_path = lambda: "statistics-nodes"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pce.StatisticsNodes, [], name, value)
 
 
+        class StatisticsNode(_Entity_):
+            """
+            PCE REST peer statistics information
+            
+            .. attribute:: af  (key)
+            
+            	Specify Address family
+            	**type**\:  :py:class:`PceAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAddressFamily>`
+            
+            	**config**\: False
+            
+            .. attribute:: ip
+            
+            	Specify IPv4 or v6 Address
+            	**type**\: union of the below types:
+            
+            		**type**\: str
+            
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            		**type**\: str
+            
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
+            
+            .. attribute:: ip_addr
+            
+            	Indicates the rest peer IP
+            	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.StatisticsNodes.StatisticsNode.IpAddr>`
+            
+            	**config**\: False
+            
+            .. attribute:: uid
+            
+            	Indicates the UID for the peer
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: count
+            
+            	Stats array index
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            .. attribute:: stats
+            
+            	Stats info
+            	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.StatisticsNodes.StatisticsNode.Stats>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-oper'
+            _revision = '2019-10-02'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.StatisticsNodes.StatisticsNode, self).__init__()
+
+                self.yang_name = "statistics-node"
+                self.yang_parent_name = "statistics-nodes"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['af']
+                self._child_classes = OrderedDict([("ip-addr", ("ip_addr", Pce.StatisticsNodes.StatisticsNode.IpAddr)), ("stats", ("stats", Pce.StatisticsNodes.StatisticsNode.Stats))])
+                self._leafs = OrderedDict([
+                    ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAddressFamily', '')])),
+                    ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                    ('uid', (YLeaf(YType.uint32, 'uid'), ['int'])),
+                    ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                ])
+                self.af = None
+                self.ip = None
+                self.uid = None
+                self.count = None
+
+                self.ip_addr = Pce.StatisticsNodes.StatisticsNode.IpAddr()
+                self.ip_addr.parent = self
+                self._children_name_map["ip_addr"] = "ip-addr"
+
+                self.stats = YList(self)
+                self._segment_path = lambda: "statistics-node" + "[af='" + str(self.af) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/statistics-nodes/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pce.StatisticsNodes.StatisticsNode, ['af', 'ip', 'uid', 'count'], name, value)
 
 
-    class TunnelInfos(Entity):
+            class IpAddr(_Entity_):
+                """
+                Indicates the rest peer IP
+                
+                .. attribute:: af_name
+                
+                	AFName
+                	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                
+                	**config**\: False
+                
+                .. attribute:: ipv4
+                
+                	IPv4 address type
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: ipv6
+                
+                	IPv6 address type
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2019-10-02'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.StatisticsNodes.StatisticsNode.IpAddr, self).__init__()
+
+                    self.yang_name = "ip-addr"
+                    self.yang_parent_name = "statistics-node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                    ])
+                    self.af_name = None
+                    self.ipv4 = None
+                    self.ipv6 = None
+                    self._segment_path = lambda: "ip-addr"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pce.StatisticsNodes.StatisticsNode.IpAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.StatisticsNodes.StatisticsNode.IpAddr']['meta_info']
+
+
+            class Stats(_Entity_):
+                """
+                Stats info
+                
+                .. attribute:: type
+                
+                	REST peer operation types
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: state
+                
+                	REST peer state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: id
+                
+                	Unique Identifier for stats
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: failed
+                
+                	Indicates failure
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: st_time
+                
+                	Indicates start time
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: ls_time
+                
+                	Indicates Last seen time
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: queue_valid_time
+                
+                	Timestamp, when something was sent from queue or when it was empty
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: send_queue_size
+                
+                	Size of data in send queue in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: rest_query
+                
+                	query string
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2019-10-02'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.StatisticsNodes.StatisticsNode.Stats, self).__init__()
+
+                    self.yang_name = "stats"
+                    self.yang_parent_name = "statistics-node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', (YLeaf(YType.uint32, 'type'), ['int'])),
+                        ('state', (YLeaf(YType.uint32, 'state'), ['int'])),
+                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                        ('failed', (YLeaf(YType.boolean, 'failed'), ['bool'])),
+                        ('st_time', (YLeaf(YType.uint32, 'st-time'), ['int'])),
+                        ('ls_time', (YLeaf(YType.uint32, 'ls-time'), ['int'])),
+                        ('queue_valid_time', (YLeaf(YType.uint32, 'queue-valid-time'), ['int'])),
+                        ('send_queue_size', (YLeaf(YType.uint64, 'send-queue-size'), ['int'])),
+                        ('rest_query', (YLeaf(YType.str, 'rest-query'), ['str'])),
+                    ])
+                    self.type = None
+                    self.state = None
+                    self.id = None
+                    self.failed = None
+                    self.st_time = None
+                    self.ls_time = None
+                    self.queue_valid_time = None
+                    self.send_queue_size = None
+                    self.rest_query = None
+                    self._segment_path = lambda: "stats"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pce.StatisticsNodes.StatisticsNode.Stats, ['type', 'state', 'id', 'failed', 'st_time', 'ls_time', 'queue_valid_time', 'send_queue_size', 'rest_query'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.StatisticsNodes.StatisticsNode.Stats']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.StatisticsNodes.StatisticsNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.StatisticsNodes']['meta_info']
+
+
+    class TunnelInfos(_Entity_):
         """
         Tunnel database in XTC
         
@@ -13141,10 +15067,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.TunnelInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.TunnelInfos, self).__init__()
 
             self.yang_name = "tunnel-infos"
             self.yang_parent_name = "pce"
@@ -13163,7 +15092,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.TunnelInfos, [], name, value)
 
 
-        class TunnelInfo(Entity):
+        class TunnelInfo(_Entity_):
             """
             Tunnel information
             
@@ -13224,10 +15153,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.TunnelInfos.TunnelInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.TunnelInfos.TunnelInfo, self).__init__()
 
                 self.yang_name = "tunnel-info"
                 self.yang_parent_name = "tunnel-infos"
@@ -13259,7 +15191,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr'], name, value)
 
 
-            class PccAddress(Entity):
+            class PccAddress(_Entity_):
                 """
                 PCC address
                 
@@ -13293,10 +15225,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TunnelInfos.TunnelInfo.PccAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TunnelInfos.TunnelInfo.PccAddress, self).__init__()
 
                     self.yang_name = "pcc-address"
                     self.yang_parent_name = "tunnel-info"
@@ -13318,9 +15253,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelInfos.TunnelInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TunnelInfos.TunnelInfo.PccAddress']['meta_info']
 
 
-            class BriefLspInformation(Entity):
+            class BriefLspInformation(_Entity_):
                 """
                 Brief LSP information
                 
@@ -13418,10 +15357,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
 
                     self.yang_name = "brief-lsp-information"
                     self.yang_parent_name = "tunnel-info"
@@ -13464,7 +15406,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd', 'absolute_margin', 'relative_margin'], name, value)
 
 
-                class SourceAddress(Entity):
+                class SourceAddress(_Entity_):
                     """
                     Source address
                     
@@ -13498,10 +15440,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, self).__init__()
 
                         self.yang_name = "source-address"
                         self.yang_parent_name = "brief-lsp-information"
@@ -13523,9 +15468,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress']['meta_info']
 
 
-                class DestinationAddress(Entity):
+                class DestinationAddress(_Entity_):
                     """
                     Destination address
                     
@@ -13559,10 +15508,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, self).__init__()
 
                         self.yang_name = "destination-address"
                         self.yang_parent_name = "brief-lsp-information"
@@ -13584,12 +15536,28 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TunnelInfos.TunnelInfo.BriefLspInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.TunnelInfos.TunnelInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.TunnelInfos']['meta_info']
 
 
-
-
-
-    class PeerDetailInfos(Entity):
+    class PeerDetailInfos(_Entity_):
         """
         Detailed peers database in XTC
         
@@ -13605,10 +15573,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.PeerDetailInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PeerDetailInfos, self).__init__()
 
             self.yang_name = "peer-detail-infos"
             self.yang_parent_name = "pce"
@@ -13627,7 +15598,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.PeerDetailInfos, [], name, value)
 
 
-        class PeerDetailInfo(Entity):
+        class PeerDetailInfo(_Entity_):
             """
             Detailed PCE peer information
             
@@ -13681,10 +15652,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.PeerDetailInfos.PeerDetailInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.PeerDetailInfos.PeerDetailInfo, self).__init__()
 
                 self.yang_name = "peer-detail-info"
                 self.yang_parent_name = "peer-detail-infos"
@@ -13716,7 +15690,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo, ['peer_address', 'peer_protocol', 'max_sid_depth'], name, value)
 
 
-            class PeerAddressXr(Entity):
+            class PeerAddressXr(_Entity_):
                 """
                 Peer address
                 
@@ -13750,10 +15724,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, self).__init__()
 
                     self.yang_name = "peer-address-xr"
                     self.yang_parent_name = "peer-detail-info"
@@ -13775,9 +15752,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr']['meta_info']
 
 
-            class DetailPcepInformation(Entity):
+            class DetailPcepInformation(_Entity_):
                 """
                 Detailed PCE protocol information
                 
@@ -14069,10 +16050,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
 
                     self.yang_name = "detail-pcep-information"
                     self.yang_parent_name = "peer-detail-info"
@@ -14161,7 +16145,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, ['error', 'speaker_id', 'pcep_up_time', 'keepalives', 'md5_enabled', 'keychain_enabled', 'negotiated_local_keepalive', 'negotiated_remote_keepalive', 'negotiated_dead_time', 'pce_request_rx', 'pce_request_tx', 'pce_reply_rx', 'pce_reply_tx', 'pce_error_rx', 'pce_error_tx', 'pce_open_tx', 'pce_open_rx', 'pce_report_rx', 'pce_report_tx', 'pce_update_rx', 'pce_update_tx', 'pce_initiate_rx', 'pce_initiate_tx', 'pce_keepalive_tx', 'pce_keepalive_rx', 'local_session_id', 'remote_session_id', 'minimum_keepalive_interval', 'maximum_dead_interval', 'max_sid_depth'], name, value)
 
 
-                class BriefPcepInformation(Entity):
+                class BriefPcepInformation(_Entity_):
                     """
                     Brief PCE protocol information
                     
@@ -14226,10 +16210,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
 
                         self.yang_name = "brief-pcep-information"
                         self.yang_parent_name = "detail-pcep-information"
@@ -14261,9 +16248,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation']['meta_info']
 
 
-                class LastErrorRx(Entity):
+                class LastErrorRx(_Entity_):
                     """
                     Last PCError received
                     
@@ -14290,10 +16281,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
 
                         self.yang_name = "last-error-rx"
                         self.yang_parent_name = "detail-pcep-information"
@@ -14313,9 +16307,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, ['pc_error_type', 'pc_error_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx']['meta_info']
 
 
-                class LastErrorTx(Entity):
+                class LastErrorTx(_Entity_):
                     """
                     Last PCError sent
                     
@@ -14342,10 +16340,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
 
                         self.yang_name = "last-error-tx"
                         self.yang_parent_name = "detail-pcep-information"
@@ -14365,12 +16366,28 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, ['pc_error_type', 'pc_error_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.PeerDetailInfos.PeerDetailInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.PeerDetailInfos']['meta_info']
 
 
-
-
-
-    class TopologyNodes(Entity):
+    class TopologyNodes(_Entity_):
         """
         Node database in XTC
         
@@ -14386,10 +16403,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.TopologyNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.TopologyNodes, self).__init__()
 
             self.yang_name = "topology-nodes"
             self.yang_parent_name = "pce"
@@ -14408,7 +16428,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.TopologyNodes, [], name, value)
 
 
-        class TopologyNode(Entity):
+        class TopologyNode(_Entity_):
             """
             Node information
             
@@ -14470,10 +16490,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.TopologyNodes.TopologyNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.TopologyNodes.TopologyNode, self).__init__()
 
                 self.yang_name = "topology-node"
                 self.yang_parent_name = "topology-nodes"
@@ -14505,7 +16528,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.TopologyNodes.TopologyNode, ['node_identifier', 'node_identifier_xr', 'overload'], name, value)
 
 
-            class NodeProtocolIdentifier(Entity):
+            class NodeProtocolIdentifier(_Entity_):
                 """
                 Node protocol identifier
                 
@@ -14567,10 +16590,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
 
                     self.yang_name = "node-protocol-identifier"
                     self.yang_parent_name = "topology-node"
@@ -14600,7 +16626,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                class IgpInformation(Entity):
+                class IgpInformation(_Entity_):
                     """
                     IGP information
                     
@@ -14625,10 +16651,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
 
                         self.yang_name = "igp-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -14651,7 +16680,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -14685,10 +16714,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
@@ -14713,7 +16745,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -14750,10 +16782,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -14784,7 +16819,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -14809,10 +16844,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -14832,9 +16870,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -14861,10 +16903,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -14884,9 +16929,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -14913,10 +16962,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -14936,12 +16988,28 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                class SrgbInformation(Entity):
+                class SrgbInformation(_Entity_):
                     """
                     SRGB information
                     
@@ -14984,10 +17052,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                         self.yang_name = "srgb-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -15014,7 +17085,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -15048,10 +17119,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
@@ -15076,7 +17150,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -15113,10 +17187,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -15147,7 +17224,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -15172,10 +17249,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -15195,9 +17275,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -15224,10 +17308,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -15247,9 +17334,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -15276,10 +17367,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -15299,13 +17393,33 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-            class Prefixe(Entity):
+            class Prefixe(_Entity_):
                 """
                 Prefixes
                 
@@ -15337,10 +17451,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TopologyNodes.TopologyNode.Prefixe, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologyNodes.TopologyNode.Prefixe, self).__init__()
 
                     self.yang_name = "prefixe"
                     self.yang_parent_name = "topology-node"
@@ -15367,7 +17484,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe, ['domain_identifier'], name, value)
 
 
-                class PfxSid(Entity):
+                class PfxSid(_Entity_):
                     """
                     Prefix SID
                     
@@ -15441,10 +17558,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
 
                         self.yang_name = "pfx-sid"
                         self.yang_parent_name = "prefixe"
@@ -15481,7 +17601,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -15515,10 +17635,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "pfx-sid"
@@ -15540,10 +17663,18 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid']['meta_info']
 
 
-
-                class NodeId(Entity):
+                class NodeId(_Entity_):
                     """
                     Link\-state node identifier
                     
@@ -15577,10 +17708,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
 
                         self.yang_name = "node-id"
                         self.yang_parent_name = "prefixe"
@@ -15605,7 +17739,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class Igp(_Entity_):
                         """
                         IGP\-specific information
                         
@@ -15642,10 +17776,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
 
                             self.yang_name = "igp"
                             self.yang_parent_name = "node-id"
@@ -15676,7 +17813,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, ['igp_id'], name, value)
 
 
-                        class Isis(Entity):
+                        class Isis(_Entity_):
                             """
                             ISIS information
                             
@@ -15701,10 +17838,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
 
                                 self.yang_name = "isis"
                                 self.yang_parent_name = "igp"
@@ -15724,9 +17864,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis']['meta_info']
 
 
-                        class Ospf(Entity):
+                        class Ospf(_Entity_):
                             """
                             OSPF information
                             
@@ -15753,10 +17897,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
 
                                 self.yang_name = "ospf"
                                 self.yang_parent_name = "igp"
@@ -15776,9 +17923,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf']['meta_info']
 
 
-                        class Bgp(Entity):
+                        class Bgp(_Entity_):
                             """
                             BGP information
                             
@@ -15805,10 +17956,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
 
                                 self.yang_name = "bgp"
                                 self.yang_parent_name = "igp"
@@ -15828,12 +17982,28 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe.NodeId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Prefixe']['meta_info']
 
 
-
-
-
-            class Ipv4Link(Entity):
+            class Ipv4Link(_Entity_):
                 """
                 IPv4 Link information
                 
@@ -15942,10 +18112,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
 
                     self.yang_name = "ipv4-link"
                     self.yang_parent_name = "topology-node"
@@ -15992,7 +18165,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link, ['local_ipv4_address', 'remote_ipv4_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth', 'administrative_groups', 'srlgs'], name, value)
 
 
-                class LocalIgpInformation(Entity):
+                class LocalIgpInformation(_Entity_):
                     """
                     Local node IGP information
                     
@@ -16017,10 +18190,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
 
                         self.yang_name = "local-igp-information"
                         self.yang_parent_name = "ipv4-link"
@@ -16043,7 +18219,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -16077,10 +18253,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
@@ -16105,7 +18284,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -16142,10 +18321,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -16176,7 +18358,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -16201,10 +18383,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -16224,9 +18409,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -16253,10 +18442,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -16276,9 +18468,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -16305,10 +18501,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -16328,12 +18527,28 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation']['meta_info']
 
 
-
-
-
-                class RemoteNodeProtocolIdentifier(Entity):
+                class RemoteNodeProtocolIdentifier(_Entity_):
                     """
                     Remote node protocol identifier
                     
@@ -16395,10 +18610,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
 
                         self.yang_name = "remote-node-protocol-identifier"
                         self.yang_parent_name = "ipv4-link"
@@ -16428,7 +18646,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                    class IgpInformation(Entity):
+                    class IgpInformation(_Entity_):
                         """
                         IGP information
                         
@@ -16453,10 +18671,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
 
                             self.yang_name = "igp-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -16479,7 +18700,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -16513,10 +18734,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
@@ -16541,7 +18765,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -16578,10 +18802,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -16612,7 +18839,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -16637,10 +18864,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -16660,9 +18890,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -16689,10 +18923,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -16712,9 +18949,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -16741,10 +18982,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -16764,12 +19008,28 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                    class SrgbInformation(Entity):
+                    class SrgbInformation(_Entity_):
                         """
                         SRGB information
                         
@@ -16812,10 +19072,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                             self.yang_name = "srgb-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -16842,7 +19105,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -16876,10 +19139,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
@@ -16904,7 +19170,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -16941,10 +19207,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -16975,7 +19244,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -17000,10 +19269,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -17023,9 +19295,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -17052,10 +19328,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -17075,9 +19354,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -17104,10 +19387,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -17127,13 +19413,33 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-                class PerformanceMetrics(Entity):
+                class PerformanceMetrics(_Entity_):
                     """
                     Performance metrics
                     
@@ -17153,10 +19459,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, self).__init__()
 
                         self.yang_name = "performance-metrics"
                         self.yang_parent_name = "ipv4-link"
@@ -17174,9 +19483,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, ['unidirectional_minimum_delay_microseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics']['meta_info']
 
 
-                class AdjacencySid(Entity):
+                class AdjacencySid(_Entity_):
                     """
                     Adjacency SIDs
                     
@@ -17250,10 +19563,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
 
                         self.yang_name = "adjacency-sid"
                         self.yang_parent_name = "ipv4-link"
@@ -17290,7 +19606,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -17324,10 +19640,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "adjacency-sid"
@@ -17349,11 +19668,23 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv4Link']['meta_info']
 
 
-
-
-            class Ipv6Link(Entity):
+            class Ipv6Link(_Entity_):
                 """
                 IPv6 Link information
                 
@@ -17437,10 +19768,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
 
                     self.yang_name = "ipv6-link"
                     self.yang_parent_name = "topology-node"
@@ -17479,7 +19813,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link, ['local_ipv6_address', 'remote_ipv6_address', 'igp_metric', 'te_metric', 'maximum_link_bandwidth', 'max_reservable_bandwidth'], name, value)
 
 
-                class LocalIgpInformation(Entity):
+                class LocalIgpInformation(_Entity_):
                     """
                     Local node IGP information
                     
@@ -17504,10 +19838,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
 
                         self.yang_name = "local-igp-information"
                         self.yang_parent_name = "ipv6-link"
@@ -17530,7 +19867,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -17564,10 +19901,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
@@ -17592,7 +19932,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -17629,10 +19969,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -17663,7 +20006,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -17688,10 +20031,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -17711,9 +20057,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -17740,10 +20090,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -17763,9 +20116,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -17792,10 +20149,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -17815,12 +20175,28 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation']['meta_info']
 
 
-
-
-
-                class RemoteNodeProtocolIdentifier(Entity):
+                class RemoteNodeProtocolIdentifier(_Entity_):
                     """
                     Remote node protocol identifier
                     
@@ -17882,10 +20258,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
 
                         self.yang_name = "remote-node-protocol-identifier"
                         self.yang_parent_name = "ipv6-link"
@@ -17915,7 +20294,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                    class IgpInformation(Entity):
+                    class IgpInformation(_Entity_):
                         """
                         IGP information
                         
@@ -17940,10 +20319,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
 
                             self.yang_name = "igp-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -17966,7 +20348,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -18000,10 +20382,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
@@ -18028,7 +20413,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -18065,10 +20450,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -18099,7 +20487,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -18124,10 +20512,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -18147,9 +20538,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -18176,10 +20571,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -18199,9 +20597,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -18228,10 +20630,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -18251,12 +20656,28 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                    class SrgbInformation(Entity):
+                    class SrgbInformation(_Entity_):
                         """
                         SRGB information
                         
@@ -18299,10 +20720,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                             self.yang_name = "srgb-information"
                             self.yang_parent_name = "remote-node-protocol-identifier"
@@ -18329,7 +20753,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                        class NodeId(Entity):
+                        class NodeId(_Entity_):
                             """
                             Link\-state node identifier
                             
@@ -18363,10 +20787,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                                 self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
@@ -18391,7 +20818,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                            class Igp(Entity):
+                            class Igp(_Entity_):
                                 """
                                 IGP\-specific information
                                 
@@ -18428,10 +20855,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                     self.yang_name = "igp"
                                     self.yang_parent_name = "node-id"
@@ -18462,7 +20892,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                                class Isis(Entity):
+                                class Isis(_Entity_):
                                     """
                                     ISIS information
                                     
@@ -18487,10 +20917,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                         self.yang_name = "isis"
                                         self.yang_parent_name = "igp"
@@ -18510,9 +20943,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                                class Ospf(Entity):
+                                class Ospf(_Entity_):
                                     """
                                     OSPF information
                                     
@@ -18539,10 +20976,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                         self.yang_name = "ospf"
                                         self.yang_parent_name = "igp"
@@ -18562,9 +21002,13 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     BGP information
                                     
@@ -18591,10 +21035,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-oper'
-                                    _revision = '2017-09-07'
+                                    _revision = '2019-10-02'
 
                                     def __init__(self):
-                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "igp"
@@ -18614,13 +21061,33 @@ class Pce(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-                class AdjacencySid(Entity):
+                class AdjacencySid(_Entity_):
                     """
                     Adjacency SIDs
                     
@@ -18694,10 +21161,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
 
                         self.yang_name = "adjacency-sid"
                         self.yang_parent_name = "ipv6-link"
@@ -18734,7 +21204,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, ['sid_type', 'mpls_label', 'rflag', 'nflag', 'pflag', 'eflag', 'vflag', 'lflag'], name, value)
 
 
-                    class SidPrefix(Entity):
+                    class SidPrefix(_Entity_):
                         """
                         Prefix
                         
@@ -18768,10 +21238,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
 
                             self.yang_name = "sid-prefix"
                             self.yang_parent_name = "adjacency-sid"
@@ -18793,13 +21266,33 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologyNodes.TopologyNode.Ipv6Link']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.TopologyNodes.TopologyNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.TopologyNodes']['meta_info']
 
 
-
-
-
-
-    class TopologySummaries(Entity):
+    class TopologySummaries(_Entity_):
         """
         Node summary database in XTC
         
@@ -18815,10 +21308,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.TopologySummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.TopologySummaries, self).__init__()
 
             self.yang_name = "topology-summaries"
             self.yang_parent_name = "pce"
@@ -18837,7 +21333,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.TopologySummaries, [], name, value)
 
 
-        class TopologySummary(Entity):
+        class TopologySummary(_Entity_):
             """
             Node summary database in XTC
             
@@ -18859,6 +21355,13 @@ class Pce(Entity):
             
             	Statistics on topology update
             	**type**\:  :py:class:`StatsTopologyUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate>`
+            
+            	**config**\: False
+            
+            .. attribute:: topology_ready_summary
+            
+            	Topology ready summary
+            	**type**\:  :py:class:`TopologyReadySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologySummaries.TopologySummary.TopologyReadySummary>`
             
             	**config**\: False
             
@@ -18982,17 +21485,20 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.TopologySummaries.TopologySummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.TopologySummaries.TopologySummary, self).__init__()
 
                 self.yang_name = "topology-summary"
                 self.yang_parent_name = "topology-summaries"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate))])
+                self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate)), ("topology-ready-summary", ("topology_ready_summary", Pce.TopologySummaries.TopologySummary.TopologyReadySummary))])
                 self._leafs = OrderedDict([
                     ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAddressFamily', '')])),
                     ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceigpProtocol', '')])),
@@ -19029,6 +21535,10 @@ class Pce(Entity):
                 self.stats_topology_update = Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate()
                 self.stats_topology_update.parent = self
                 self._children_name_map["stats_topology_update"] = "stats-topology-update"
+
+                self.topology_ready_summary = Pce.TopologySummaries.TopologySummary.TopologyReadySummary()
+                self.topology_ready_summary.parent = self
+                self._children_name_map["topology_ready_summary"] = "topology-ready-summary"
                 self._segment_path = lambda: "topology-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summaries/%s" % self._segment_path()
                 self._is_frozen = True
@@ -19037,7 +21547,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.TopologySummaries.TopologySummary, ['af', 'protocol', 'nodes', 'lookup_nodes', 'prefixes', 'prefix_sids', 'regular_prefix_sids', 'strict_prefix_sids', 'links', 'epe_links', 'adjacency_sids', 'epesids', 'protected_adjacency_sids', 'un_protected_adjacency_sids', 'topology_consistent'], name, value)
 
 
-            class StatsTopologyUpdate(Entity):
+            class StatsTopologyUpdate(_Entity_):
                 """
                 Statistics on topology update
                 
@@ -19100,10 +21610,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate, self).__init__()
 
                     self.yang_name = "stats-topology-update"
                     self.yang_parent_name = "topology-summary"
@@ -19132,11 +21645,183 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate, ['num_nodes_added', 'num_nodes_deleted', 'num_links_added', 'num_links_deleted', 'num_prefixes_added', 'num_prefixes_deleted'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologySummaries.TopologySummary.StatsTopologyUpdate']['meta_info']
 
 
+            class TopologyReadySummary(_Entity_):
+                """
+                Topology ready summary
+                
+                .. attribute:: timer
+                
+                	Topology readiness timer
+                	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer>`
+                
+                	**config**\: False
+                
+                .. attribute:: ready
+                
+                	Topology readiness
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: pcep_allowed
+                
+                	Whether PCEP is allowed
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: ha_case
+                
+                	Last HA case
+                	**type**\:  :py:class:`CmnHaCase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.CmnHaCase>`
+                
+                	**config**\: False
+                
+                .. attribute:: timer_value
+                
+                	Topology ready timer value selected at start
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2019-10-02'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TopologySummaries.TopologySummary.TopologyReadySummary, self).__init__()
+
+                    self.yang_name = "topology-ready-summary"
+                    self.yang_parent_name = "topology-summary"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("timer", ("timer", Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer))])
+                    self._leafs = OrderedDict([
+                        ('ready', (YLeaf(YType.boolean, 'ready'), ['bool'])),
+                        ('pcep_allowed', (YLeaf(YType.boolean, 'pcep-allowed'), ['bool'])),
+                        ('ha_case', (YLeaf(YType.enumeration, 'ha-case'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'CmnHaCase', '')])),
+                        ('timer_value', (YLeaf(YType.uint32, 'timer-value'), ['int'])),
+                    ])
+                    self.ready = None
+                    self.pcep_allowed = None
+                    self.ha_case = None
+                    self.timer_value = None
+
+                    self.timer = Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer()
+                    self.timer.parent = self
+                    self._children_name_map["timer"] = "timer"
+                    self._segment_path = lambda: "topology-ready-summary"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summaries/topology-summary/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pce.TopologySummaries.TopologySummary.TopologyReadySummary, ['ready', 'pcep_allowed', 'ha_case', 'timer_value'], name, value)
 
 
-    class PrefixInfos(Entity):
+                class Timer(_Entity_):
+                    """
+                    Topology readiness timer
+                    
+                    .. attribute:: running
+                    
+                    	Whether the timer is running
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: remaining_seconds
+                    
+                    	Number of remaining seconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: remaining_nano_seconds
+                    
+                    	Number of remaining nanoseconds
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2019-10-02'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer, self).__init__()
+
+                        self.yang_name = "timer"
+                        self.yang_parent_name = "topology-ready-summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('running', (YLeaf(YType.boolean, 'running'), ['bool'])),
+                            ('remaining_seconds', (YLeaf(YType.int64, 'remaining-seconds'), ['int'])),
+                            ('remaining_nano_seconds', (YLeaf(YType.int64, 'remaining-nano-seconds'), ['int'])),
+                        ])
+                        self.running = None
+                        self.remaining_seconds = None
+                        self.remaining_nano_seconds = None
+                        self._segment_path = lambda: "timer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summaries/topology-summary/topology-ready-summary/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer, ['running', 'remaining_seconds', 'remaining_nano_seconds'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TopologySummaries.TopologySummary.TopologyReadySummary.Timer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TopologySummaries.TopologySummary.TopologyReadySummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.TopologySummaries.TopologySummary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.TopologySummaries']['meta_info']
+
+
+    class PrefixInfos(_Entity_):
         """
         Prefixes database in XTC
         
@@ -19152,10 +21837,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.PrefixInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PrefixInfos, self).__init__()
 
             self.yang_name = "prefix-infos"
             self.yang_parent_name = "pce"
@@ -19174,7 +21862,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.PrefixInfos, [], name, value)
 
 
-        class PrefixInfo(Entity):
+        class PrefixInfo(_Entity_):
             """
             PCE prefix information
             
@@ -19215,10 +21903,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.PrefixInfos.PrefixInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.PrefixInfos.PrefixInfo, self).__init__()
 
                 self.yang_name = "prefix-info"
                 self.yang_parent_name = "prefix-infos"
@@ -19246,7 +21937,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.PrefixInfos.PrefixInfo, ['node_identifier', 'node_identifier_xr'], name, value)
 
 
-            class NodeProtocolIdentifier(Entity):
+            class NodeProtocolIdentifier(_Entity_):
                 """
                 Node protocol identifier
                 
@@ -19308,10 +21999,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
 
                     self.yang_name = "node-protocol-identifier"
                     self.yang_parent_name = "prefix-info"
@@ -19341,7 +22035,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, ['node_name', 'ipv4_bgp_router_id_set', 'ipv4_bgp_router_id', 'ipv4te_router_id_set', 'ipv4te_router_id'], name, value)
 
 
-                class IgpInformation(Entity):
+                class IgpInformation(_Entity_):
                     """
                     IGP information
                     
@@ -19366,10 +22060,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
 
                         self.yang_name = "igp-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -19392,7 +22089,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, ['domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -19426,10 +22123,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
@@ -19454,7 +22154,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -19491,10 +22191,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -19525,7 +22228,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -19550,10 +22253,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -19573,9 +22279,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -19602,10 +22312,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -19625,9 +22338,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -19654,10 +22371,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -19677,12 +22397,28 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation']['meta_info']
 
 
-
-
-
-                class SrgbInformation(Entity):
+                class SrgbInformation(_Entity_):
                     """
                     SRGB information
                     
@@ -19725,10 +22461,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
 
                         self.yang_name = "srgb-information"
                         self.yang_parent_name = "node-protocol-identifier"
@@ -19755,7 +22494,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, ['start', 'size', 'domain_identifier'], name, value)
 
 
-                    class NodeId(Entity):
+                    class NodeId(_Entity_):
                         """
                         Link\-state node identifier
                         
@@ -19789,10 +22528,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
                             self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
@@ -19817,7 +22559,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, ['autonomous_system_number', 'ls_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             IGP\-specific information
                             
@@ -19854,10 +22596,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "node-id"
@@ -19888,7 +22633,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, ['igp_id'], name, value)
 
 
-                            class Isis(Entity):
+                            class Isis(_Entity_):
                                 """
                                 ISIS information
                                 
@@ -19913,10 +22658,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
                                     self.yang_name = "isis"
                                     self.yang_parent_name = "igp"
@@ -19936,9 +22684,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, ['system_id', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis']['meta_info']
 
 
-                            class Ospf(Entity):
+                            class Ospf(_Entity_):
                                 """
                                 OSPF information
                                 
@@ -19965,10 +22717,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
 
                                     self.yang_name = "ospf"
                                     self.yang_parent_name = "igp"
@@ -19988,9 +22743,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, ['router_id', 'area'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 BGP information
                                 
@@ -20017,10 +22776,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "igp"
@@ -20040,13 +22802,33 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, ['router_id', 'confed_asn'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier']['meta_info']
 
 
-
-
-
-
-            class Address(Entity):
+            class Address(_Entity_):
                 """
                 Prefix address
                 
@@ -20062,10 +22844,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PrefixInfos.PrefixInfo.Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PrefixInfos.PrefixInfo.Address, self).__init__()
 
                     self.yang_name = "address"
                     self.yang_parent_name = "prefix-info"
@@ -20085,7 +22870,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address, [], name, value)
 
 
-                class Ip(Entity):
+                class Ip(_Entity_):
                     """
                     Prefix IP address
                     
@@ -20119,10 +22904,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
 
                         self.yang_name = "ip"
                         self.yang_parent_name = "address"
@@ -20144,12 +22932,28 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.PrefixInfos.PrefixInfo.Address.Ip']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PrefixInfos.PrefixInfo.Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.PrefixInfos.PrefixInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.PrefixInfos']['meta_info']
 
 
-
-
-
-    class LspSummary(Entity):
+    class LspSummary(_Entity_):
         """
         LSP summary database in XTC
         
@@ -20172,10 +22976,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.LspSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.LspSummary, self).__init__()
 
             self.yang_name = "lsp-summary"
             self.yang_parent_name = "pce"
@@ -20198,7 +23005,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.LspSummary, [], name, value)
 
 
-        class AllLsPs(Entity):
+        class AllLsPs(_Entity_):
             """
             Summary for all peers
             
@@ -20252,10 +23059,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.LspSummary.AllLsPs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.LspSummary.AllLsPs, self).__init__()
 
                 self.yang_name = "all-ls-ps"
                 self.yang_parent_name = "lsp-summary"
@@ -20282,9 +23092,13 @@ class Pce(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.LspSummary.AllLsPs, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.LspSummary.AllLsPs']['meta_info']
 
 
-        class PeerLsPsInfo(Entity):
+        class PeerLsPsInfo(_Entity_):
             """
             Number of LSPs for specific peer
             
@@ -20307,10 +23121,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.LspSummary.PeerLsPsInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.LspSummary.PeerLsPsInfo, self).__init__()
 
                 self.yang_name = "peer-ls-ps-info"
                 self.yang_parent_name = "lsp-summary"
@@ -20335,7 +23152,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.LspSummary.PeerLsPsInfo, [], name, value)
 
 
-            class LspSummary_(Entity):
+            class LspSummary_(_Entity_):
                 """
                 Number of LSPs for specific peer
                 
@@ -20389,10 +23206,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
 
                     self.yang_name = "lsp-summary"
                     self.yang_parent_name = "peer-ls-ps-info"
@@ -20419,9 +23239,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.LspSummary.PeerLsPsInfo.LspSummary_']['meta_info']
 
 
-            class PeerAddress(Entity):
+            class PeerAddress(_Entity_):
                 """
                 Peer address
                 
@@ -20455,10 +23279,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.LspSummary.PeerLsPsInfo.PeerAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.LspSummary.PeerLsPsInfo.PeerAddress, self).__init__()
 
                     self.yang_name = "peer-address"
                     self.yang_parent_name = "peer-ls-ps-info"
@@ -20481,11 +23308,23 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.PeerAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.LspSummary.PeerLsPsInfo.PeerAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.LspSummary.PeerLsPsInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.LspSummary']['meta_info']
 
 
-
-
-    class PeerInfos(Entity):
+    class PeerInfos(_Entity_):
         """
         Peers database in XTC
         
@@ -20501,10 +23340,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.PeerInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PeerInfos, self).__init__()
 
             self.yang_name = "peer-infos"
             self.yang_parent_name = "pce"
@@ -20523,7 +23365,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.PeerInfos, [], name, value)
 
 
-        class PeerInfo(Entity):
+        class PeerInfo(_Entity_):
             """
             PCE peer information
             
@@ -20568,10 +23410,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.PeerInfos.PeerInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.PeerInfos.PeerInfo, self).__init__()
 
                 self.yang_name = "peer-info"
                 self.yang_parent_name = "peer-infos"
@@ -20601,7 +23446,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.PeerInfos.PeerInfo, ['peer_address', 'peer_protocol'], name, value)
 
 
-            class PeerAddressXr(Entity):
+            class PeerAddressXr(_Entity_):
                 """
                 Peer address
                 
@@ -20635,10 +23480,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PeerInfos.PeerInfo.PeerAddressXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PeerInfos.PeerInfo.PeerAddressXr, self).__init__()
 
                     self.yang_name = "peer-address-xr"
                     self.yang_parent_name = "peer-info"
@@ -20660,9 +23508,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.PeerAddressXr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PeerInfos.PeerInfo.PeerAddressXr']['meta_info']
 
 
-            class BriefPcepInformation(Entity):
+            class BriefPcepInformation(_Entity_):
                 """
                 PCE protocol information
                 
@@ -20727,10 +23579,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
 
                     self.yang_name = "brief-pcep-information"
                     self.yang_parent_name = "peer-info"
@@ -20762,11 +23617,23 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.BriefPcepInformation, ['pcep_state', 'stateful', 'capability_update', 'capability_instantiate', 'capability_segment_routing', 'capability_triggered_sync', 'capability_db_version', 'capability_delta_sync'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.PeerInfos.PeerInfo.BriefPcepInformation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.PeerInfos.PeerInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.PeerInfos']['meta_info']
 
 
-
-
-    class TunnelDetailInfos(Entity):
+    class TunnelDetailInfos(_Entity_):
         """
         Detailed tunnel database in XTC
         
@@ -20782,10 +23649,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-09-07'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(Pce.TunnelDetailInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.TunnelDetailInfos, self).__init__()
 
             self.yang_name = "tunnel-detail-infos"
             self.yang_parent_name = "pce"
@@ -20804,7 +23674,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.TunnelDetailInfos, [], name, value)
 
 
-        class TunnelDetailInfo(Entity):
+        class TunnelDetailInfo(_Entity_):
             """
             Detailed tunnel information
             
@@ -20876,6 +23746,22 @@ class Pce(Entity):
             
             	**config**\: False
             
+            .. attribute:: interface_name
+            
+            	Interface name
+            	**type**\: str
+            
+            	**config**\: False
+            
+            .. attribute:: profile_id
+            
+            	Profile ID
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            	**config**\: False
+            
             .. attribute:: detail_lsp_information
             
             	Detail LSP information
@@ -20888,10 +23774,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-09-07'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(Pce.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
 
                 self.yang_name = "tunnel-detail-info"
                 self.yang_parent_name = "tunnel-detail-infos"
@@ -20906,6 +23795,8 @@ class Pce(Entity):
                     ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
                     ('xtc_controlled', (YLeaf(YType.boolean, 'xtc-controlled'), ['bool'])),
                     ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('profile_id', (YLeaf(YType.uint16, 'profile-id'), ['int'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -20913,6 +23804,8 @@ class Pce(Entity):
                 self.tunnel_name_xr = None
                 self.xtc_controlled = None
                 self.color = None
+                self.interface_name = None
+                self.profile_id = None
 
                 self.pcc_address = Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress()
                 self.pcc_address.parent = self
@@ -20928,10 +23821,10 @@ class Pce(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color'], name, value)
+                self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', 'tunnel_name_xr', 'xtc_controlled', 'color', 'interface_name', 'profile_id'], name, value)
 
 
-            class PccAddress(Entity):
+            class PccAddress(_Entity_):
                 """
                 PCC address
                 
@@ -20965,10 +23858,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, self).__init__()
 
                     self.yang_name = "pcc-address"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -20990,9 +23886,13 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress']['meta_info']
 
 
-            class PrivateLspInformation(Entity):
+            class PrivateLspInformation(_Entity_):
                 """
                 Private LSP information
                 
@@ -21008,10 +23908,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
 
                     self.yang_name = "private-lsp-information"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -21029,7 +23932,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, [], name, value)
 
 
-                class EventBuffer(Entity):
+                class EventBuffer(_Entity_):
                     """
                     LSP Event buffer
                     
@@ -21054,7 +23957,7 @@ class Pce(Entity):
                     	Event time, relative to Jan 1, 1970
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     	**config**\: False
                     
@@ -21063,10 +23966,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
 
                         self.yang_name = "event-buffer"
                         self.yang_parent_name = "private-lsp-information"
@@ -21077,7 +23983,7 @@ class Pce(Entity):
                         self._leafs = OrderedDict([
                             ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
                             ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
-                            ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
+                            ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
                         ])
                         self.event_id = None
                         self.event_message = None
@@ -21088,10 +23994,18 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, ['event_id', 'event_message', 'time_stamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation']['meta_info']
 
 
-
-            class DetailLspInformation(Entity):
+            class DetailLspInformation(_Entity_):
                 """
                 Detail LSP information
                 
@@ -21201,6 +24115,15 @@ class Pce(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: preference
+                
+                	Preference
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
                 .. attribute:: srlg_info
                 
                 	List of SLRGs used by LSP
@@ -21222,10 +24145,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
 
                     self.yang_name = "detail-lsp-information"
                     self.yang_parent_name = "tunnel-detail-info"
@@ -21240,6 +24166,7 @@ class Pce(Entity):
                         ('actual_bandwidth', (YLeaf(YType.uint64, 'actual-bandwidth'), ['int'])),
                         ('lsp_role', (YLeaf(YType.uint32, 'lsp-role'), ['int'])),
                         ('computing_pce', (YLeaf(YType.uint32, 'computing-pce'), ['int'])),
+                        ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
                         ('srlg_info', (YLeafList(YType.uint32, 'srlg-info'), ['int'])),
                     ])
                     self.signaled_bandwidth_specified = None
@@ -21248,6 +24175,7 @@ class Pce(Entity):
                     self.actual_bandwidth = None
                     self.lsp_role = None
                     self.computing_pce = None
+                    self.preference = None
                     self.srlg_info = []
 
                     self.brief_lsp_information = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation()
@@ -21287,10 +24215,10 @@ class Pce(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'srlg_info'], name, value)
+                    self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, ['signaled_bandwidth_specified', 'signaled_bandwidth', 'actual_bandwidth_specified', 'actual_bandwidth', 'lsp_role', 'computing_pce', 'preference', 'srlg_info'], name, value)
 
 
-                class BriefLspInformation(Entity):
+                class BriefLspInformation(_Entity_):
                     """
                     Brief LSP information
                     
@@ -21388,10 +24316,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
 
                         self.yang_name = "brief-lsp-information"
                         self.yang_parent_name = "detail-lsp-information"
@@ -21434,7 +24365,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, ['tunnel_id', 'lspid', 'binding_sid', 'lsp_setup_type', 'operational_state', 'administrative_state', 'msd', 'absolute_margin', 'relative_margin'], name, value)
 
 
-                    class SourceAddress(Entity):
+                    class SourceAddress(_Entity_):
                         """
                         Source address
                         
@@ -21468,10 +24399,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, self).__init__()
 
                             self.yang_name = "source-address"
                             self.yang_parent_name = "brief-lsp-information"
@@ -21493,9 +24427,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress']['meta_info']
 
 
-                    class DestinationAddress(Entity):
+                    class DestinationAddress(_Entity_):
                         """
                         Destination address
                         
@@ -21529,10 +24467,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, self).__init__()
 
                             self.yang_name = "destination-address"
                             self.yang_parent_name = "brief-lsp-information"
@@ -21554,10 +24495,18 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation']['meta_info']
 
 
-
-                class ErOs(Entity):
+                class ErOs(_Entity_):
                     """
                     Paths
                     
@@ -21639,10 +24588,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
 
                         self.yang_name = "er-os"
                         self.yang_parent_name = "detail-lsp-information"
@@ -21674,7 +24626,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, ['reported_metric_type', 'reported_metric_value', 'computed_metric_type', 'computed_metric_value', 'computed_hop_list_time'], name, value)
 
 
-                    class ReportedRsvpPath(Entity):
+                    class ReportedRsvpPath(_Entity_):
                         """
                         Reported RSVP path
                         
@@ -21692,10 +24644,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
 
                             self.yang_name = "reported-rsvp-path"
                             self.yang_parent_name = "er-os"
@@ -21713,9 +24668,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, ['hop_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath']['meta_info']
 
 
-                    class ReportedSrPath(Entity):
+                    class ReportedSrPath(_Entity_):
                         """
                         Reported SR path
                         
@@ -21754,10 +24713,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
 
                             self.yang_name = "reported-sr-path"
                             self.yang_parent_name = "er-os"
@@ -21786,7 +24748,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -21820,10 +24782,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "reported-sr-path"
@@ -21845,9 +24810,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -21881,10 +24850,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "reported-sr-path"
@@ -21906,10 +24878,18 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath']['meta_info']
 
 
-
-                    class ComputedRsvpPath(Entity):
+                    class ComputedRsvpPath(_Entity_):
                         """
                         Computed RSVP path
                         
@@ -21927,10 +24907,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
 
                             self.yang_name = "computed-rsvp-path"
                             self.yang_parent_name = "er-os"
@@ -21948,9 +24931,13 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, ['hop_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath']['meta_info']
 
 
-                    class ComputedSrPath(Entity):
+                    class ComputedSrPath(_Entity_):
                         """
                         Computed SR path
                         
@@ -21989,10 +24976,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
 
                             self.yang_name = "computed-sr-path"
                             self.yang_parent_name = "er-os"
@@ -22021,7 +25011,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -22055,10 +25045,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "computed-sr-path"
@@ -22080,9 +25073,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -22116,10 +25113,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "computed-sr-path"
@@ -22141,11 +25141,23 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs']['meta_info']
 
 
-
-
-                class LsppcepInformation(Entity):
+                class LsppcepInformation(_Entity_):
                     """
                     PCEP related LSP information
                     
@@ -22216,10 +25228,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
 
                         self.yang_name = "lsppcep-information"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22254,7 +25269,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
-                    class RsvpError(Entity):
+                    class RsvpError(_Entity_):
                         """
                         RSVP error info
                         
@@ -22299,10 +25314,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
 
                             self.yang_name = "rsvp-error"
                             self.yang_parent_name = "lsppcep-information"
@@ -22326,10 +25344,18 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, ['node_address', 'error_flags', 'error_code', 'error_value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation']['meta_info']
 
 
-
-                class LspAssociationInfo(Entity):
+                class LspAssociationInfo(_Entity_):
                     """
                     LSP association information
                     
@@ -22363,10 +25389,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
 
                         self.yang_name = "lsp-association-info"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22391,7 +25420,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, ['association_type', 'association_id'], name, value)
 
 
-                    class AssociationSource(Entity):
+                    class AssociationSource(_Entity_):
                         """
                         Association Source
                         
@@ -22425,10 +25454,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, self).__init__()
 
                             self.yang_name = "association-source"
                             self.yang_parent_name = "lsp-association-info"
@@ -22450,10 +25482,18 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo']['meta_info']
 
 
-
-                class LspAttributes(Entity):
+                class LspAttributes(_Entity_):
                     """
                     LSP attributes
                     
@@ -22514,10 +25554,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
 
                         self.yang_name = "lsp-attributes"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22545,9 +25588,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, ['affinity_exclude_any', 'affinity_include_any', 'affinity_include_all', 'setup_priority', 'hold_priority', 'local_protection'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes']['meta_info']
 
 
-                class SubDelegatedPce(Entity):
+                class SubDelegatedPce(_Entity_):
                     """
                     Sub delegated PCE
                     
@@ -22581,10 +25628,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, self).__init__()
 
                         self.yang_name = "sub-delegated-pce"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22606,9 +25656,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce']['meta_info']
 
 
-                class StateSyncPce(Entity):
+                class StateSyncPce(_Entity_):
                     """
                     State\-sync PCE
                     
@@ -22642,10 +25696,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, self).__init__()
 
                         self.yang_name = "state-sync-pce"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22667,9 +25724,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce']['meta_info']
 
 
-                class ReportingPccAddress(Entity):
+                class ReportingPccAddress(_Entity_):
                     """
                     Reporting PCC address
                     
@@ -22703,10 +25764,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, self).__init__()
 
                         self.yang_name = "reporting-pcc-address"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22728,9 +25792,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress']['meta_info']
 
 
-                class Rro(Entity):
+                class Rro(_Entity_):
                     """
                     RRO
                     
@@ -22780,10 +25848,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
 
                         self.yang_name = "rro"
                         self.yang_parent_name = "detail-lsp-information"
@@ -22812,7 +25883,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, ['rro_type', 'ipv4_address', 'mpls_label', 'flags'], name, value)
 
 
-                    class SrRro(Entity):
+                    class SrRro(_Entity_):
                         """
                         Segment Routing RRO info
                         
@@ -22851,10 +25922,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-09-07'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
 
                             self.yang_name = "sr-rro"
                             self.yang_parent_name = "rro"
@@ -22883,7 +25957,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, ['sid_type', 'mpls_label'], name, value)
 
 
-                        class LocalAddr(Entity):
+                        class LocalAddr(_Entity_):
                             """
                             Local Address
                             
@@ -22917,10 +25991,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, self).__init__()
 
                                 self.yang_name = "local-addr"
                                 self.yang_parent_name = "sr-rro"
@@ -22942,9 +26019,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr']['meta_info']
 
 
-                        class RemoteAddr(Entity):
+                        class RemoteAddr(_Entity_):
                             """
                             Remote Address
                             
@@ -22978,10 +26059,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, self).__init__()
 
                                 self.yang_name = "remote-addr"
                                 self.yang_parent_name = "sr-rro"
@@ -23003,15 +26087,43 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                            return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                        return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                    return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+                return meta._meta_table['Pce.TunnelDetailInfos.TunnelDetailInfo']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+            return meta._meta_table['Pce.TunnelDetailInfos']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pce()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_oper as meta
+        return meta._meta_table['Pce']['meta_info']
 
 

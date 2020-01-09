@@ -537,7 +537,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
         "A set of brief alarm commands";
       container card {
         description
-          "Alarms reported at the local card as 
+          "Alarms reported at the local card as
            specified by the location parameter";
         list location {
           key "locations";
@@ -549,7 +549,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
       }
       container rack {
         description
-          "Alarms reported at the rack scope   
+          "Alarms reported at the rack scope
            specified by the rack-id";
         list rack_locations {
           key "rackid";
@@ -570,7 +570,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
         "A set of detail alarm commands";
       container card {
         description
-          "Alarms reported at the local card as 
+          "Alarms reported at the local card as
            specified by the location parameter";
         list location {
           key "locations";
@@ -582,7 +582,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
       }
       container rack {
         description
-          "Alarms reported at the rack as 
+          "Alarms reported at the rack as
            specified by the location parameter";
         list rack_locations {
           key "rackid";
@@ -594,7 +594,7 @@ module Cisco-IOS-XR-sysadmin-alarm-mgr {
       }
       container system {
         description
-          "Alarms reported at the system as 
+          "Alarms reported at the system as
            specified by the location parameter";
         uses scope_detail_shows;
       }

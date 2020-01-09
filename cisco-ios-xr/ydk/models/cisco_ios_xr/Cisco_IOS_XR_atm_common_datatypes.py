@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class AtmPvcData(Enum):
     ilmi = Enum.YLeaf(2, "ilmi")
 
     layer2 = Enum.YLeaf(3, "layer2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
+        return meta._meta_table['AtmPvcData']
 
 
 class AtmPvcEncapsulation(Enum):
@@ -82,6 +91,12 @@ class AtmPvcEncapsulation(Enum):
     aal5 = Enum.YLeaf(8, "aal5")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
+        return meta._meta_table['AtmPvcEncapsulation']
+
+
 class AtmPvcShaping(Enum):
     """
     AtmPvcShaping (Enum Class)
@@ -115,6 +130,12 @@ class AtmPvcShaping(Enum):
     ubr = Enum.YLeaf(6, "ubr")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
+        return meta._meta_table['AtmPvcShaping']
+
+
 class AtmVpShaping(Enum):
     """
     AtmVpShaping (Enum Class)
@@ -146,6 +167,12 @@ class AtmVpShaping(Enum):
     vbr_rt = Enum.YLeaf(3, "vbr-rt")
 
     ubr = Enum.YLeaf(6, "ubr")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
+        return meta._meta_table['AtmVpShaping']
 
 
 

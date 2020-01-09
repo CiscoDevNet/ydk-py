@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HardwareModulePortMode(Entity):
+class HardwareModulePortMode(_Entity_):
     """
     HW module port\-mode config
     
@@ -38,7 +41,10 @@ class HardwareModulePortMode(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(HardwareModulePortMode, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModulePortMode, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module-port-mode"
@@ -57,7 +63,7 @@ class HardwareModulePortMode(Entity):
         self._perform_setattr(HardwareModulePortMode, [], name, value)
 
 
-    class ConfigMode(Entity):
+    class ConfigMode(_Entity_):
         """
         Active or Pre configuration
         
@@ -81,7 +87,10 @@ class HardwareModulePortMode(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HardwareModulePortMode.ConfigMode, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModulePortMode.ConfigMode, self).__init__()
 
             self.yang_name = "config-mode"
             self.yang_parent_name = "hardware-module-port-mode"
@@ -103,7 +112,7 @@ class HardwareModulePortMode(Entity):
             self._perform_setattr(HardwareModulePortMode.ConfigMode, ['id1'], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             A node
             
@@ -127,7 +136,10 @@ class HardwareModulePortMode(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(HardwareModulePortMode.ConfigMode.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModulePortMode.ConfigMode.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "config-mode"
@@ -150,7 +162,7 @@ class HardwareModulePortMode(Entity):
                 self._perform_setattr(HardwareModulePortMode.ConfigMode.Node, ['id2'], name, value)
 
 
-            class PortMode(Entity):
+            class PortMode(_Entity_):
                 """
                 Linecard port\-mode
                 
@@ -167,7 +179,10 @@ class HardwareModulePortMode(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(HardwareModulePortMode.ConfigMode.Node.PortMode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModulePortMode.ConfigMode.Node.PortMode, self).__init__()
 
                     self.yang_name = "port-mode"
                     self.yang_parent_name = "node"
@@ -185,12 +200,28 @@ class HardwareModulePortMode(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModulePortMode.ConfigMode.Node.PortMode, ['if_port_mode'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_pwrglide_cfg as meta
+                    return meta._meta_table['HardwareModulePortMode.ConfigMode.Node.PortMode']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_pwrglide_cfg as meta
+                return meta._meta_table['HardwareModulePortMode.ConfigMode.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_pwrglide_cfg as meta
+            return meta._meta_table['HardwareModulePortMode.ConfigMode']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModulePortMode()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_pwrglide_cfg as meta
+        return meta._meta_table['HardwareModulePortMode']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IkEv2(Entity):
+class IkEv2(_Entity_):
     """
     IKEv2 operational data
     
@@ -40,7 +43,10 @@ class IkEv2(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(IkEv2, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IkEv2, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ik-ev2"
@@ -61,7 +67,7 @@ class IkEv2(Entity):
         self._perform_setattr(IkEv2, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node IKEv2 operational data
         
@@ -80,7 +86,10 @@ class IkEv2(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IkEv2.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IkEv2.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ik-ev2"
@@ -99,7 +108,7 @@ class IkEv2(Entity):
             self._perform_setattr(IkEv2.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IKEv2 operational data for a particular node
             
@@ -162,7 +171,10 @@ class IkEv2(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IkEv2.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IkEv2.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -206,7 +218,7 @@ class IkEv2(Entity):
                 self._perform_setattr(IkEv2.Nodes.Node, ['node_name'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 IKEv2 Session data
                 
@@ -225,7 +237,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "node"
@@ -243,7 +258,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Session, [], name, value)
 
 
-                class Session_(Entity):
+                class Session_(_Entity_):
                     """
                     Session List
                     
@@ -303,7 +318,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Session.Session_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Session.Session_, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "session"
@@ -331,7 +349,7 @@ class IkEv2(Entity):
                         self._perform_setattr(IkEv2.Nodes.Node.Session.Session_, ['session_id', 'session_status', 'ike_cnt', 'child_cnt'], name, value)
 
 
-                    class Sa(Entity):
+                    class Sa(_Entity_):
                         """
                         SA List
                         
@@ -484,7 +502,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Session.Session_.Sa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Session.Session_.Sa, self).__init__()
 
                             self.yang_name = "sa"
                             self.yang_parent_name = "session"
@@ -538,9 +559,13 @@ class IkEv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IkEv2.Nodes.Node.Session.Session_.Sa, ['tunnel_id', 'local_addr_port', 'remote_addr_port', 'state', 'encr', 'keysize', 'prf', 'hash', 'dh_group', 'auth_sign', 'auth_verify', 'life_active', 'session_id', 'status_desc', 'local_spi', 'remote_spi', 'local_id', 'remote_id', 'sa_initiator'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Session.Session_.Sa']['meta_info']
 
 
-                    class ChildSa(Entity):
+                    class ChildSa(_Entity_):
                         """
                         Child SA List
                         
@@ -596,7 +621,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Session.Session_.ChildSa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Session.Session_.ChildSa, self).__init__()
 
                             self.yang_name = "child-sa"
                             self.yang_parent_name = "session"
@@ -624,11 +652,23 @@ class IkEv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IkEv2.Nodes.Node.Session.Session_.ChildSa, ['local_selector', 'remote_selector', 'esp_spi_in_out', 'encr', 'keysize', 'hmac'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Session.Session_.ChildSa']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Session.Session_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Session']['meta_info']
 
 
-
-
-            class Sa(Entity):
+            class Sa(_Entity_):
                 """
                 IKEv2 SA data
                 
@@ -661,7 +701,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Sa, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Sa, self).__init__()
 
                     self.yang_name = "sa"
                     self.yang_parent_name = "node"
@@ -689,7 +732,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Sa, [], name, value)
 
 
-                class LocalV4(Entity):
+                class LocalV4(_Entity_):
                     """
                     IKEv2 SA lookup on local IP
                     
@@ -708,7 +751,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Sa.LocalV4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Sa.LocalV4, self).__init__()
 
                         self.yang_name = "local-v4"
                         self.yang_parent_name = "sa"
@@ -726,7 +772,7 @@ class IkEv2(Entity):
                         self._perform_setattr(IkEv2.Nodes.Node.Sa.LocalV4, [], name, value)
 
 
-                    class Ip(Entity):
+                    class Ip(_Entity_):
                         """
                         IKEv2 SA data based on address
                         
@@ -754,7 +800,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Sa.LocalV4.Ip, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Sa.LocalV4.Ip, self).__init__()
 
                             self.yang_name = "ip"
                             self.yang_parent_name = "local-v4"
@@ -775,7 +824,7 @@ class IkEv2(Entity):
                             self._perform_setattr(IkEv2.Nodes.Node.Sa.LocalV4.Ip, ['address'], name, value)
 
 
-                        class Sa_(Entity):
+                        class Sa_(_Entity_):
                             """
                             SA list
                             
@@ -928,7 +977,10 @@ class IkEv2(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IkEv2.Nodes.Node.Sa.LocalV4.Ip.Sa_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IkEv2.Nodes.Node.Sa.LocalV4.Ip.Sa_, self).__init__()
 
                                 self.yang_name = "sa"
                                 self.yang_parent_name = "ip"
@@ -982,11 +1034,23 @@ class IkEv2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IkEv2.Nodes.Node.Sa.LocalV4.Ip.Sa_, ['tunnel_id', 'local_addr_port', 'remote_addr_port', 'state', 'encr', 'keysize', 'prf', 'hash', 'dh_group', 'auth_sign', 'auth_verify', 'life_active', 'session_id', 'status_desc', 'local_spi', 'remote_spi', 'local_id', 'remote_id', 'sa_initiator'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                                return meta._meta_table['IkEv2.Nodes.Node.Sa.LocalV4.Ip.Sa_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Sa.LocalV4.Ip']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Sa.LocalV4']['meta_info']
 
 
-
-
-                class RemoteV4(Entity):
+                class RemoteV4(_Entity_):
                     """
                     IKEv2 SA lookup on remote IP
                     
@@ -1005,7 +1069,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Sa.RemoteV4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Sa.RemoteV4, self).__init__()
 
                         self.yang_name = "remote-v4"
                         self.yang_parent_name = "sa"
@@ -1023,7 +1090,7 @@ class IkEv2(Entity):
                         self._perform_setattr(IkEv2.Nodes.Node.Sa.RemoteV4, [], name, value)
 
 
-                    class Ip(Entity):
+                    class Ip(_Entity_):
                         """
                         IKEv2 SA data based on address
                         
@@ -1051,7 +1118,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Sa.RemoteV4.Ip, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Sa.RemoteV4.Ip, self).__init__()
 
                             self.yang_name = "ip"
                             self.yang_parent_name = "remote-v4"
@@ -1072,7 +1142,7 @@ class IkEv2(Entity):
                             self._perform_setattr(IkEv2.Nodes.Node.Sa.RemoteV4.Ip, ['address'], name, value)
 
 
-                        class Sa_(Entity):
+                        class Sa_(_Entity_):
                             """
                             SA list
                             
@@ -1225,7 +1295,10 @@ class IkEv2(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IkEv2.Nodes.Node.Sa.RemoteV4.Ip.Sa_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IkEv2.Nodes.Node.Sa.RemoteV4.Ip.Sa_, self).__init__()
 
                                 self.yang_name = "sa"
                                 self.yang_parent_name = "ip"
@@ -1279,11 +1352,23 @@ class IkEv2(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IkEv2.Nodes.Node.Sa.RemoteV4.Ip.Sa_, ['tunnel_id', 'local_addr_port', 'remote_addr_port', 'state', 'encr', 'keysize', 'prf', 'hash', 'dh_group', 'auth_sign', 'auth_verify', 'life_active', 'session_id', 'status_desc', 'local_spi', 'remote_spi', 'local_id', 'remote_id', 'sa_initiator'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                                return meta._meta_table['IkEv2.Nodes.Node.Sa.RemoteV4.Ip.Sa_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Sa.RemoteV4.Ip']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Sa.RemoteV4']['meta_info']
 
 
-
-
-                class All(Entity):
+                class All(_Entity_):
                     """
                     IKEv2 SA all data
                     
@@ -1302,7 +1387,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Sa.All, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Sa.All, self).__init__()
 
                         self.yang_name = "all"
                         self.yang_parent_name = "sa"
@@ -1320,7 +1408,7 @@ class IkEv2(Entity):
                         self._perform_setattr(IkEv2.Nodes.Node.Sa.All, [], name, value)
 
 
-                    class Sa_(Entity):
+                    class Sa_(_Entity_):
                         """
                         SA list
                         
@@ -1473,7 +1561,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Sa.All.Sa_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Sa.All.Sa_, self).__init__()
 
                             self.yang_name = "sa"
                             self.yang_parent_name = "all"
@@ -1527,11 +1618,23 @@ class IkEv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IkEv2.Nodes.Node.Sa.All.Sa_, ['tunnel_id', 'local_addr_port', 'remote_addr_port', 'state', 'encr', 'keysize', 'prf', 'hash', 'dh_group', 'auth_sign', 'auth_verify', 'life_active', 'session_id', 'status_desc', 'local_spi', 'remote_spi', 'local_id', 'remote_id', 'sa_initiator'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Sa.All.Sa_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Sa.All']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Sa']['meta_info']
 
 
-
-
-            class Policies(Entity):
+            class Policies(_Entity_):
                 """
                 IKEv2 policies on this node
                 
@@ -1550,7 +1653,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Policies, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Policies, self).__init__()
 
                     self.yang_name = "policies"
                     self.yang_parent_name = "node"
@@ -1568,7 +1674,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Policies, [], name, value)
 
 
-                class Policy(Entity):
+                class Policy(_Entity_):
                     """
                     IKEv2 policy data
                     
@@ -1612,7 +1718,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Policies.Policy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Policies.Policy, self).__init__()
 
                         self.yang_name = "policy"
                         self.yang_parent_name = "policies"
@@ -1636,10 +1745,18 @@ class IkEv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IkEv2.Nodes.Node.Policies.Policy, ['name', 'policy_name', 'addr', 'proposal'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Policies.Policy']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Policies']['meta_info']
 
 
-
-            class Proposals(Entity):
+            class Proposals(_Entity_):
                 """
                 IKEv2 proposals on this node
                 
@@ -1658,7 +1775,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Proposals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Proposals, self).__init__()
 
                     self.yang_name = "proposals"
                     self.yang_parent_name = "node"
@@ -1676,7 +1796,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Proposals, [], name, value)
 
 
-                class Proposal(Entity):
+                class Proposal(_Entity_):
                     """
                     IKEv2 proposal data
                     
@@ -1732,7 +1852,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Proposals.Proposal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Proposals.Proposal, self).__init__()
 
                         self.yang_name = "proposal"
                         self.yang_parent_name = "proposals"
@@ -1760,10 +1883,18 @@ class IkEv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IkEv2.Nodes.Node.Proposals.Proposal, ['name', 'proposal_name', 'encryption_alg', 'hash_alg', 'prf_alg', 'group_alg'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Proposals.Proposal']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Proposals']['meta_info']
 
 
-
-            class Profiles(Entity):
+            class Profiles(_Entity_):
                 """
                 IKEv2 profiles on this node
                 
@@ -1782,7 +1913,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Profiles, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Profiles, self).__init__()
 
                     self.yang_name = "profiles"
                     self.yang_parent_name = "node"
@@ -1800,7 +1934,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Profiles, [], name, value)
 
 
-                class Profile(Entity):
+                class Profile(_Entity_):
                     """
                     IKEv2 profile data
                     
@@ -1887,7 +2021,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Profiles.Profile, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Profiles.Profile, self).__init__()
 
                         self.yang_name = "profile"
                         self.yang_parent_name = "profiles"
@@ -1921,10 +2058,18 @@ class IkEv2(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IkEv2.Nodes.Node.Profiles.Profile, ['name', 'profile_name', 'keyring_name', 'match_any', 'lifetime', 'dpd_interval', 'dpd_retry', 'addr', 'mask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Profiles.Profile']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Profiles']['meta_info']
 
 
-
-            class Keyrings(Entity):
+            class Keyrings(_Entity_):
                 """
                 IKEv2 keyrings on this node
                 
@@ -1943,7 +2088,10 @@ class IkEv2(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IkEv2.Nodes.Node.Keyrings, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IkEv2.Nodes.Node.Keyrings, self).__init__()
 
                     self.yang_name = "keyrings"
                     self.yang_parent_name = "node"
@@ -1961,7 +2109,7 @@ class IkEv2(Entity):
                     self._perform_setattr(IkEv2.Nodes.Node.Keyrings, [], name, value)
 
 
-                class Keyring(Entity):
+                class Keyring(_Entity_):
                     """
                     IKEv2 keyring data
                     
@@ -1996,7 +2144,10 @@ class IkEv2(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IkEv2.Nodes.Node.Keyrings.Keyring, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IkEv2.Nodes.Node.Keyrings.Keyring, self).__init__()
 
                         self.yang_name = "keyring"
                         self.yang_parent_name = "keyrings"
@@ -2019,7 +2170,7 @@ class IkEv2(Entity):
                         self._perform_setattr(IkEv2.Nodes.Node.Keyrings.Keyring, ['name', 'keyring_name'], name, value)
 
 
-                    class Peer(Entity):
+                    class Peer(_Entity_):
                         """
                         List of peers
                         
@@ -2066,7 +2217,10 @@ class IkEv2(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IkEv2.Nodes.Node.Keyrings.Keyring.Peer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IkEv2.Nodes.Node.Keyrings.Keyring.Peer, self).__init__()
 
                             self.yang_name = "peer"
                             self.yang_parent_name = "keyring"
@@ -2092,14 +2246,38 @@ class IkEv2(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IkEv2.Nodes.Node.Keyrings.Keyring.Peer, ['peer_name', 'ip_address', 'subnet', 'local_psk', 'remote_psk'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                            return meta._meta_table['IkEv2.Nodes.Node.Keyrings.Keyring.Peer']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                        return meta._meta_table['IkEv2.Nodes.Node.Keyrings.Keyring']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                    return meta._meta_table['IkEv2.Nodes.Node.Keyrings']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+                return meta._meta_table['IkEv2.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+            return meta._meta_table['IkEv2.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IkEv2()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ikev2_oper as meta
+        return meta._meta_table['IkEv2']['meta_info']
 
 

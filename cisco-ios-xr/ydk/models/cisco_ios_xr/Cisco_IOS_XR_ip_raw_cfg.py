@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class IpRaw(Entity):
+class IpRaw(_Entity_):
     """
     Global IP RAW configuration
     
@@ -54,7 +57,10 @@ class IpRaw(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(IpRaw, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpRaw, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-raw"
@@ -80,7 +86,7 @@ class IpRaw(Entity):
         self._perform_setattr(IpRaw, ['receive_q'], name, value)
 
 
-    class NumThread(Entity):
+    class NumThread(_Entity_):
         """
         RAW InQueue and OutQueue threads
         
@@ -112,7 +118,10 @@ class IpRaw(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IpRaw.NumThread, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpRaw.NumThread, self).__init__()
 
             self.yang_name = "num-thread"
             self.yang_parent_name = "ip-raw"
@@ -134,9 +143,13 @@ class IpRaw(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpRaw.NumThread, ['raw_in_q_threads', 'raw_out_q_threads'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_raw_cfg as meta
+            return meta._meta_table['IpRaw.NumThread']['meta_info']
 
 
-    class Directory(Entity):
+    class Directory(_Entity_):
         """
         RAW directory details
         
@@ -175,7 +188,10 @@ class IpRaw(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IpRaw.Directory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpRaw.Directory, self).__init__()
 
             self.yang_name = "directory"
             self.yang_parent_name = "ip-raw"
@@ -199,10 +215,18 @@ class IpRaw(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpRaw.Directory, ['directoryname', 'max_raw_debug_files', 'max_file_size_files'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_raw_cfg as meta
+            return meta._meta_table['IpRaw.Directory']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpRaw()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_raw_cfg as meta
+        return meta._meta_table['IpRaw']['meta_info']
 
 

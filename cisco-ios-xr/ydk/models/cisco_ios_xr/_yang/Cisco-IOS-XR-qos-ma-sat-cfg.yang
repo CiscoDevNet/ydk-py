@@ -51,8 +51,8 @@ module Cisco-IOS-XR-qos-ma-sat-cfg {
 
   grouping QOS {
     description
-      "Common node of interface-configuration, 
-       nv-satellite-access, nv-satellite-fabric-link, 
+      "Common node of interface-configuration,
+       nv-satellite-access, nv-satellite-fabric-link,
        satellites";
     container qos {
       description

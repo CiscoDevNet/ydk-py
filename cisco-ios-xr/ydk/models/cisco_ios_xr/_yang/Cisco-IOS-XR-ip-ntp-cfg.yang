@@ -411,7 +411,7 @@ module Cisco-IOS-XR-ip-ntp-cfg {
         type Ntpdscp;
         mandatory true;
         description
-          "NTPPRECEDENCE (0) to specify Precedence value 
+          "NTPPRECEDENCE (0) to specify Precedence value
            NTPDSCP (1) to specify DSCP value";
       }
       leaf dscp-or-precedence-value {
@@ -710,7 +710,7 @@ module Cisco-IOS-XR-ip-ntp-cfg {
     }
     leaf master {
       type uint32 {
-        range "1..15";
+        range "1..20";
       }
       default "8";
       description

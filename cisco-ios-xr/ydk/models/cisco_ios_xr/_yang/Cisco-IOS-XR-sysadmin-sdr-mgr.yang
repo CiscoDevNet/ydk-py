@@ -39,9 +39,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-10-22 {
+  revision 2019-04-12 {
     description
-      "Removed choice for action re_pair";
+      "Added tailf:cli-full-command for issu and pairing-mode config";
   }
 
   typedef Location {

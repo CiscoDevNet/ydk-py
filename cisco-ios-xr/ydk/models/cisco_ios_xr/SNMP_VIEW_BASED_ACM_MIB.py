@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,6 +29,12 @@ class VacmAccessContextMatchType(Enum):
     prefix = Enum.YLeaf(2, "prefix")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+        return meta._meta_table['VacmAccessContextMatchType']
+
+
 class VacmViewTreeFamilyTypeType(Enum):
     """
     VacmViewTreeFamilyTypeType (Enum Class)
@@ -41,8 +50,14 @@ class VacmViewTreeFamilyTypeType(Enum):
     excluded = Enum.YLeaf(2, "excluded")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+        return meta._meta_table['VacmViewTreeFamilyTypeType']
 
-class SNMPVIEWBASEDACMMIB(Entity):
+
+
+class SNMPVIEWBASEDACMMIB(_Entity_):
     """
     
     
@@ -69,7 +84,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
     _revision = '2002-10-16'
 
     def __init__(self):
-        super(SNMPVIEWBASEDACMMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPVIEWBASEDACMMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-VIEW-BASED-ACM-MIB"
@@ -98,7 +116,7 @@ class SNMPVIEWBASEDACMMIB(Entity):
         self._perform_setattr(SNMPVIEWBASEDACMMIB, [], name, value)
 
 
-    class VacmSecurityToGroupTable(Entity):
+    class VacmSecurityToGroupTable(_Entity_):
         """
         
         
@@ -115,7 +133,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable, self).__init__()
 
             self.yang_name = "vacmSecurityToGroupTable"
             self.yang_parent_name = "SNMP-VIEW-BASED-ACM-MIB"
@@ -134,7 +155,7 @@ class SNMPVIEWBASEDACMMIB(Entity):
             self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable, [], name, value)
 
 
-        class VacmSecurityToGroupEntry(Entity):
+        class VacmSecurityToGroupEntry(_Entity_):
             """
             
             
@@ -176,7 +197,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
             _revision = '2002-10-16'
 
             def __init__(self):
-                super(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable.VacmSecurityToGroupEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable.VacmSecurityToGroupEntry, self).__init__()
 
                 self.yang_name = "vacmSecurityToGroupEntry"
                 self.yang_parent_name = "vacmSecurityToGroupTable"
@@ -201,10 +225,18 @@ class SNMPVIEWBASEDACMMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable.VacmSecurityToGroupEntry, ['vacmsecuritymodel', 'vacmsecurityname', 'vacmgroupname', 'vacmsecuritytogroupstoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+                return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable.VacmSecurityToGroupEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+            return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmSecurityToGroupTable']['meta_info']
 
 
-
-    class VacmAccessTable(Entity):
+    class VacmAccessTable(_Entity_):
         """
         
         
@@ -221,7 +253,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPVIEWBASEDACMMIB.VacmAccessTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPVIEWBASEDACMMIB.VacmAccessTable, self).__init__()
 
             self.yang_name = "vacmAccessTable"
             self.yang_parent_name = "SNMP-VIEW-BASED-ACM-MIB"
@@ -240,7 +275,7 @@ class SNMPVIEWBASEDACMMIB(Entity):
             self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmAccessTable, [], name, value)
 
 
-        class VacmAccessEntry(Entity):
+        class VacmAccessEntry(_Entity_):
             """
             
             
@@ -313,7 +348,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
             _revision = '2002-10-16'
 
             def __init__(self):
-                super(SNMPVIEWBASEDACMMIB.VacmAccessTable.VacmAccessEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPVIEWBASEDACMMIB.VacmAccessTable.VacmAccessEntry, self).__init__()
 
                 self.yang_name = "vacmAccessEntry"
                 self.yang_parent_name = "vacmAccessTable"
@@ -348,10 +386,18 @@ class SNMPVIEWBASEDACMMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmAccessTable.VacmAccessEntry, ['vacmgroupname', 'vacmaccesscontextprefix', 'vacmaccesssecuritymodel', 'vacmaccesssecuritylevel', 'vacmaccesscontextmatch', 'vacmaccessreadviewname', 'vacmaccesswriteviewname', 'vacmaccessnotifyviewname', 'vacmaccessstoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+                return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmAccessTable.VacmAccessEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+            return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmAccessTable']['meta_info']
 
 
-
-    class VacmViewTreeFamilyTable(Entity):
+    class VacmViewTreeFamilyTable(_Entity_):
         """
         
         
@@ -368,7 +414,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable, self).__init__()
 
             self.yang_name = "vacmViewTreeFamilyTable"
             self.yang_parent_name = "SNMP-VIEW-BASED-ACM-MIB"
@@ -387,7 +436,7 @@ class SNMPVIEWBASEDACMMIB(Entity):
             self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable, [], name, value)
 
 
-        class VacmViewTreeFamilyEntry(Entity):
+        class VacmViewTreeFamilyEntry(_Entity_):
             """
             
             
@@ -434,7 +483,10 @@ class SNMPVIEWBASEDACMMIB(Entity):
             _revision = '2002-10-16'
 
             def __init__(self):
-                super(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable.VacmViewTreeFamilyEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable.VacmViewTreeFamilyEntry, self).__init__()
 
                 self.yang_name = "vacmViewTreeFamilyEntry"
                 self.yang_parent_name = "vacmViewTreeFamilyTable"
@@ -461,11 +513,23 @@ class SNMPVIEWBASEDACMMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable.VacmViewTreeFamilyEntry, ['vacmviewtreefamilyviewname', 'vacmviewtreefamilysubtree', 'vacmviewtreefamilymask', 'vacmviewtreefamilytype', 'vacmviewtreefamilystoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+                return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable.VacmViewTreeFamilyEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+            return meta._meta_table['SNMPVIEWBASEDACMMIB.VacmViewTreeFamilyTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPVIEWBASEDACMMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_VIEW_BASED_ACM_MIB as meta
+        return meta._meta_table['SNMPVIEWBASEDACMMIB']['meta_info']
 
 

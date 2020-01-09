@@ -7,8 +7,11 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MasterKeyAdd(Entity):
+class MasterKeyAdd(_Entity_):
     """
     To add a new master key
     
@@ -34,7 +37,10 @@ class MasterKeyAdd(Entity):
     _revision = '2017-04-17'
 
     def __init__(self):
-        super(MasterKeyAdd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MasterKeyAdd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "master-key-add"
@@ -52,7 +58,7 @@ class MasterKeyAdd(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -69,7 +75,10 @@ class MasterKeyAdd(Entity):
         _revision = '2017-04-17'
 
         def __init__(self):
-            super(MasterKeyAdd.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MasterKeyAdd.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "master-key-add"
@@ -88,14 +97,22 @@ class MasterKeyAdd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MasterKeyAdd.Input, ['new_key'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_act as meta
+            return meta._meta_table['MasterKeyAdd.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MasterKeyAdd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_act as meta
+        return meta._meta_table['MasterKeyAdd']['meta_info']
 
 
-class MasterKeyDelete(Entity):
+class MasterKeyDelete(_Entity_):
     """
     Remove Master key
     
@@ -107,7 +124,10 @@ class MasterKeyDelete(Entity):
     _revision = '2017-04-17'
 
     def __init__(self):
-        super(MasterKeyDelete, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MasterKeyDelete, self).__init__()
         self._top_entity = None
 
         self.yang_name = "master-key-delete"
@@ -124,9 +144,13 @@ class MasterKeyDelete(Entity):
         self._top_entity = MasterKeyDelete()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_act as meta
+        return meta._meta_table['MasterKeyDelete']['meta_info']
 
 
-class MasterKeyUpdate(Entity):
+class MasterKeyUpdate(_Entity_):
     """
     To update master key
     
@@ -143,7 +167,10 @@ class MasterKeyUpdate(Entity):
     _revision = '2017-04-17'
 
     def __init__(self):
-        super(MasterKeyUpdate, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MasterKeyUpdate, self).__init__()
         self._top_entity = None
 
         self.yang_name = "master-key-update"
@@ -161,7 +188,7 @@ class MasterKeyUpdate(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -187,7 +214,10 @@ class MasterKeyUpdate(Entity):
         _revision = '2017-04-17'
 
         def __init__(self):
-            super(MasterKeyUpdate.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MasterKeyUpdate.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "master-key-update"
@@ -208,10 +238,18 @@ class MasterKeyUpdate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MasterKeyUpdate.Input, ['old_key', 'new_key'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_act as meta
+            return meta._meta_table['MasterKeyUpdate.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MasterKeyUpdate()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_act as meta
+        return meta._meta_table['MasterKeyUpdate']['meta_info']
 
 

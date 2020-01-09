@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Grpc(Entity):
+class Grpc(_Entity_):
     """
     grpc commands
     
@@ -47,7 +50,10 @@ class Grpc(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Grpc, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Grpc, self).__init__()
         self._top_entity = None
 
         self.yang_name = "grpc"
@@ -72,7 +78,7 @@ class Grpc(Entity):
         self._perform_setattr(Grpc, [], name, value)
 
 
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Grpc Statistics
         
@@ -273,7 +279,10 @@ class Grpc(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Grpc.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Grpc.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "grpc"
@@ -332,9 +341,13 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_oper as meta
+            return meta._meta_table['Grpc.Statistics']['meta_info']
 
 
-    class Status(Entity):
+    class Status(_Entity_):
         """
         Grpc Status
         
@@ -426,7 +439,10 @@ class Grpc(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Grpc.Status, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Grpc.Status, self).__init__()
 
             self.yang_name = "status"
             self.yang_parent_name = "grpc"
@@ -463,10 +479,18 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total', 'max_streams', 'max_streams_per_user'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_oper as meta
+            return meta._meta_table['Grpc.Status']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Grpc()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_oper as meta
+        return meta._meta_table['Grpc']['meta_info']
 
 

@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,6 +29,12 @@ class SnmpNotifyFilterTypeType(Enum):
     excluded = Enum.YLeaf(2, "excluded")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+        return meta._meta_table['SnmpNotifyFilterTypeType']
+
+
 class SnmpNotifyTypeType(Enum):
     """
     SnmpNotifyTypeType (Enum Class)
@@ -41,8 +50,14 @@ class SnmpNotifyTypeType(Enum):
     inform = Enum.YLeaf(2, "inform")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+        return meta._meta_table['SnmpNotifyTypeType']
 
-class SNMPNOTIFICATIONMIB(Entity):
+
+
+class SNMPNOTIFICATIONMIB(_Entity_):
     """
     
     
@@ -73,7 +88,10 @@ class SNMPNOTIFICATIONMIB(Entity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        super(SNMPNOTIFICATIONMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPNOTIFICATIONMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-NOTIFICATION-MIB"
@@ -100,7 +118,7 @@ class SNMPNOTIFICATIONMIB(Entity):
         self._perform_setattr(SNMPNOTIFICATIONMIB, [], name, value)
 
 
-    class SnmpNotifyTable(Entity):
+    class SnmpNotifyTable(_Entity_):
         """
         
         
@@ -117,7 +135,10 @@ class SNMPNOTIFICATIONMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPNOTIFICATIONMIB.SnmpNotifyTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPNOTIFICATIONMIB.SnmpNotifyTable, self).__init__()
 
             self.yang_name = "snmpNotifyTable"
             self.yang_parent_name = "SNMP-NOTIFICATION-MIB"
@@ -136,7 +157,7 @@ class SNMPNOTIFICATIONMIB(Entity):
             self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyTable, [], name, value)
 
 
-        class SnmpNotifyEntry(Entity):
+        class SnmpNotifyEntry(_Entity_):
             """
             
             
@@ -176,7 +197,10 @@ class SNMPNOTIFICATIONMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPNOTIFICATIONMIB.SnmpNotifyTable.SnmpNotifyEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPNOTIFICATIONMIB.SnmpNotifyTable.SnmpNotifyEntry, self).__init__()
 
                 self.yang_name = "snmpNotifyEntry"
                 self.yang_parent_name = "snmpNotifyTable"
@@ -201,10 +225,18 @@ class SNMPNOTIFICATIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyTable.SnmpNotifyEntry, ['snmpnotifyname', 'snmpnotifytag', 'snmpnotifytype', 'snmpnotifystoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+                return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyTable.SnmpNotifyEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+            return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyTable']['meta_info']
 
 
-
-    class SnmpNotifyFilterProfileTable(Entity):
+    class SnmpNotifyFilterProfileTable(_Entity_):
         """
         
         
@@ -223,7 +255,10 @@ class SNMPNOTIFICATIONMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable, self).__init__()
 
             self.yang_name = "snmpNotifyFilterProfileTable"
             self.yang_parent_name = "SNMP-NOTIFICATION-MIB"
@@ -243,7 +278,7 @@ class SNMPNOTIFICATIONMIB(Entity):
             self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable, [], name, value)
 
 
-        class SnmpNotifyFilterProfileEntry(Entity):
+        class SnmpNotifyFilterProfileEntry(_Entity_):
             """
             
             
@@ -276,7 +311,10 @@ class SNMPNOTIFICATIONMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable.SnmpNotifyFilterProfileEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable.SnmpNotifyFilterProfileEntry, self).__init__()
 
                 self.yang_name = "snmpNotifyFilterProfileEntry"
                 self.yang_parent_name = "snmpNotifyFilterProfileTable"
@@ -299,10 +337,18 @@ class SNMPNOTIFICATIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable.SnmpNotifyFilterProfileEntry, ['snmptargetparamsname', 'snmpnotifyfilterprofilename', 'snmpnotifyfilterprofilestortype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+                return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable.SnmpNotifyFilterProfileEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+            return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyFilterProfileTable']['meta_info']
 
 
-
-    class SnmpNotifyFilterTable(Entity):
+    class SnmpNotifyFilterTable(_Entity_):
         """
         
         
@@ -321,7 +367,10 @@ class SNMPNOTIFICATIONMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable, self).__init__()
 
             self.yang_name = "snmpNotifyFilterTable"
             self.yang_parent_name = "SNMP-NOTIFICATION-MIB"
@@ -341,7 +390,7 @@ class SNMPNOTIFICATIONMIB(Entity):
             self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable, [], name, value)
 
 
-        class SnmpNotifyFilterEntry(Entity):
+        class SnmpNotifyFilterEntry(_Entity_):
             """
             
             
@@ -388,7 +437,10 @@ class SNMPNOTIFICATIONMIB(Entity):
             _revision = '2002-10-14'
 
             def __init__(self):
-                super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable.SnmpNotifyFilterEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable.SnmpNotifyFilterEntry, self).__init__()
 
                 self.yang_name = "snmpNotifyFilterEntry"
                 self.yang_parent_name = "snmpNotifyFilterTable"
@@ -415,11 +467,23 @@ class SNMPNOTIFICATIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable.SnmpNotifyFilterEntry, ['snmpnotifyfilterprofilename', 'snmpnotifyfiltersubtree', 'snmpnotifyfiltermask', 'snmpnotifyfiltertype', 'snmpnotifyfilterstoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+                return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable.SnmpNotifyFilterEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+            return meta._meta_table['SNMPNOTIFICATIONMIB.SnmpNotifyFilterTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPNOTIFICATIONMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_NOTIFICATION_MIB as meta
+        return meta._meta_table['SNMPNOTIFICATIONMIB']['meta_info']
 
 

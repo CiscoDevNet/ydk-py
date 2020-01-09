@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -95,6 +98,12 @@ class CrytoAlgo(Enum):
     hmac_sha_256 = Enum.YLeaf(10, "hmac-sha-256")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+        return meta._meta_table['CrytoAlgo']
+
+
 class Enc(Enum):
     """
     Enc (Enum Class)
@@ -116,8 +125,14 @@ class Enc(Enum):
     password_type6 = Enum.YLeaf(2, "password-type6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+        return meta._meta_table['Enc']
 
-class Keychain(Entity):
+
+
+class Keychain(_Entity_):
     """
     Keychain operational data
     
@@ -136,7 +151,10 @@ class Keychain(Entity):
     _revision = '2018-01-31'
 
     def __init__(self):
-        super(Keychain, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Keychain, self).__init__()
         self._top_entity = None
 
         self.yang_name = "keychain"
@@ -157,7 +175,7 @@ class Keychain(Entity):
         self._perform_setattr(Keychain, [], name, value)
 
 
-    class Keys(Entity):
+    class Keys(_Entity_):
         """
         List of configured key names
         
@@ -176,7 +194,10 @@ class Keychain(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Keychain.Keys, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Keychain.Keys, self).__init__()
 
             self.yang_name = "keys"
             self.yang_parent_name = "keychain"
@@ -195,7 +216,7 @@ class Keychain(Entity):
             self._perform_setattr(Keychain.Keys, [], name, value)
 
 
-        class Key(Entity):
+        class Key(_Entity_):
             """
             Configured key name
             
@@ -230,7 +251,10 @@ class Keychain(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Keychain.Keys.Key, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Keychain.Keys.Key, self).__init__()
 
                 self.yang_name = "key"
                 self.yang_parent_name = "keys"
@@ -256,7 +280,7 @@ class Keychain(Entity):
                 self._perform_setattr(Keychain.Keys.Key, ['key_name', 'accept_tolerance'], name, value)
 
 
-            class Key_(Entity):
+            class Key_(_Entity_):
                 """
                 Key properties
                 
@@ -275,7 +299,10 @@ class Keychain(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Keychain.Keys.Key.Key_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Keychain.Keys.Key.Key_, self).__init__()
 
                     self.yang_name = "key"
                     self.yang_parent_name = "key"
@@ -293,7 +320,7 @@ class Keychain(Entity):
                     self._perform_setattr(Keychain.Keys.Key.Key_, [], name, value)
 
 
-                class KeyId(Entity):
+                class KeyId(_Entity_):
                     """
                     key id
                     
@@ -354,7 +381,10 @@ class Keychain(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Keychain.Keys.Key.Key_.KeyId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Keychain.Keys.Key.Key_.KeyId, self).__init__()
 
                         self.yang_name = "key-id"
                         self.yang_parent_name = "key"
@@ -391,7 +421,7 @@ class Keychain(Entity):
                         self._perform_setattr(Keychain.Keys.Key.Key_.KeyId, ['key_string', 'type', 'key_id', 'cryptographic_algorithm'], name, value)
 
 
-                    class Macsec(Entity):
+                    class Macsec(_Entity_):
                         """
                         To check if it's a macsec key
                         
@@ -410,7 +440,10 @@ class Keychain(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Keychain.Keys.Key.Key_.KeyId.Macsec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Keychain.Keys.Key.Key_.KeyId.Macsec, self).__init__()
 
                             self.yang_name = "macsec"
                             self.yang_parent_name = "key-id"
@@ -428,9 +461,13 @@ class Keychain(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.Macsec, ['is_macsec_key'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                            return meta._meta_table['Keychain.Keys.Key.Key_.KeyId.Macsec']['meta_info']
 
 
-                    class SendLifetime(Entity):
+                    class SendLifetime(_Entity_):
                         """
                         Lifetime of the key
                         
@@ -479,7 +516,10 @@ class Keychain(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Keychain.Keys.Key.Key_.KeyId.SendLifetime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Keychain.Keys.Key.Key_.KeyId.SendLifetime, self).__init__()
 
                             self.yang_name = "send-lifetime"
                             self.yang_parent_name = "key-id"
@@ -505,9 +545,13 @@ class Keychain(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.SendLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                            return meta._meta_table['Keychain.Keys.Key.Key_.KeyId.SendLifetime']['meta_info']
 
 
-                    class AcceptLifetime(Entity):
+                    class AcceptLifetime(_Entity_):
                         """
                         Accept Lifetime of the key
                         
@@ -556,7 +600,10 @@ class Keychain(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, self).__init__()
 
                             self.yang_name = "accept-lifetime"
                             self.yang_parent_name = "key-id"
@@ -582,14 +629,38 @@ class Keychain(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                            return meta._meta_table['Keychain.Keys.Key.Key_.KeyId.AcceptLifetime']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                        return meta._meta_table['Keychain.Keys.Key.Key_.KeyId']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                    return meta._meta_table['Keychain.Keys.Key.Key_']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+                return meta._meta_table['Keychain.Keys.Key']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+            return meta._meta_table['Keychain.Keys']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Keychain()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
+        return meta._meta_table['Keychain']['meta_info']
 
 

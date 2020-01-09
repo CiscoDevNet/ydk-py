@@ -7,8 +7,11 @@ Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ping(Entity):
+class Ping(_Entity_):
     """
     Send echo messages
     
@@ -39,7 +42,10 @@ class Ping(Entity):
     _revision = '2018-10-01'
 
     def __init__(self):
-        super(Ping, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ping, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ping"
@@ -61,7 +67,7 @@ class Ping(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -92,7 +98,10 @@ class Ping(Entity):
         _revision = '2018-10-01'
 
         def __init__(self):
-            super(Ping.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ping.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "ping"
@@ -117,7 +126,7 @@ class Ping(Entity):
             self._perform_setattr(Ping.Input, [], name, value)
 
 
-        class Destination(Entity):
+        class Destination(_Entity_):
             """
             
             
@@ -230,7 +239,10 @@ class Ping(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Ping.Input.Destination, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ping.Input.Destination, self).__init__()
 
                 self.yang_name = "destination"
                 self.yang_parent_name = "input"
@@ -278,9 +290,13 @@ class Ping(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ping.Input.Destination, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate', 'priority', 'outgoing_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                return meta._meta_table['Ping.Input.Destination']['meta_info']
 
 
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             
             
@@ -379,7 +395,10 @@ class Ping(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Ping.Input.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ping.Input.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "input"
@@ -422,9 +441,13 @@ class Ping(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ping.Input.Ipv4, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'type_of_service', 'do_not_frag', 'validate'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                return meta._meta_table['Ping.Input.Ipv4']['meta_info']
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             
             
@@ -520,7 +543,10 @@ class Ping(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Ping.Input.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ping.Input.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "input"
@@ -562,10 +588,18 @@ class Ping(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ping.Input.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'vrf_name', 'source', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                return meta._meta_table['Ping.Input.Ipv6']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+            return meta._meta_table['Ping.Input']['meta_info']
 
 
-
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -582,7 +616,10 @@ class Ping(Entity):
         _revision = '2018-10-01'
 
         def __init__(self):
-            super(Ping.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ping.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "ping"
@@ -603,7 +640,7 @@ class Ping(Entity):
             self._perform_setattr(Ping.Output, [], name, value)
 
 
-        class PingResponse(Entity):
+        class PingResponse(_Entity_):
             """
             
             
@@ -627,7 +664,10 @@ class Ping(Entity):
             _revision = '2018-10-01'
 
             def __init__(self):
-                super(Ping.Output.PingResponse, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ping.Output.PingResponse, self).__init__()
 
                 self.yang_name = "ping-response"
                 self.yang_parent_name = "output"
@@ -649,7 +689,7 @@ class Ping(Entity):
                 self._perform_setattr(Ping.Output.PingResponse, [], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 
                 
@@ -787,7 +827,10 @@ class Ping(Entity):
                 _revision = '2018-10-01'
 
                 def __init__(self):
-                    super(Ping.Output.PingResponse.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ping.Output.PingResponse.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "ping-response"
@@ -843,7 +886,7 @@ class Ping(Entity):
                     self._perform_setattr(Ping.Output.PingResponse.Ipv4, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'hits', 'total', 'success_rate', 'rtt_min', 'rtt_avg', 'rtt_max', 'sweep_min', 'sweep_max', 'rotate_pattern', 'ping_error_response'], name, value)
 
 
-                class Replies(Entity):
+                class Replies(_Entity_):
                     """
                     
                     
@@ -860,7 +903,10 @@ class Ping(Entity):
                     _revision = '2018-10-01'
 
                     def __init__(self):
-                        super(Ping.Output.PingResponse.Ipv4.Replies, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ping.Output.PingResponse.Ipv4.Replies, self).__init__()
 
                         self.yang_name = "replies"
                         self.yang_parent_name = "ipv4"
@@ -878,7 +924,7 @@ class Ping(Entity):
                         self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies, [], name, value)
 
 
-                    class Reply(Entity):
+                    class Reply(_Entity_):
                         """
                         
                         
@@ -907,7 +953,10 @@ class Ping(Entity):
                         _revision = '2018-10-01'
 
                         def __init__(self):
-                            super(Ping.Output.PingResponse.Ipv4.Replies.Reply, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ping.Output.PingResponse.Ipv4.Replies.Reply, self).__init__()
 
                             self.yang_name = "reply"
                             self.yang_parent_name = "replies"
@@ -932,7 +981,7 @@ class Ping(Entity):
                             self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply, ['reply_index', 'result'], name, value)
 
 
-                        class BroadcastReplyAddresses(Entity):
+                        class BroadcastReplyAddresses(_Entity_):
                             """
                             
                             
@@ -949,7 +998,10 @@ class Ping(Entity):
                             _revision = '2018-10-01'
 
                             def __init__(self):
-                                super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, self).__init__()
 
                                 self.yang_name = "broadcast-reply-addresses"
                                 self.yang_parent_name = "reply"
@@ -967,7 +1019,7 @@ class Ping(Entity):
                                 self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses, [], name, value)
 
 
-                            class BroadcastReplyAddress(Entity):
+                            class BroadcastReplyAddress(_Entity_):
                                 """
                                 
                                 
@@ -989,7 +1041,10 @@ class Ping(Entity):
                                 _revision = '2018-10-01'
 
                                 def __init__(self):
-                                    super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, self).__init__()
 
                                     self.yang_name = "broadcast-reply-address"
                                     self.yang_parent_name = "broadcast-reply-addresses"
@@ -1009,13 +1064,33 @@ class Ping(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, ['reply_address', 'result'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                                    return meta._meta_table['Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                                return meta._meta_table['Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                            return meta._meta_table['Ping.Output.PingResponse.Ipv4.Replies.Reply']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                        return meta._meta_table['Ping.Output.PingResponse.Ipv4.Replies']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                    return meta._meta_table['Ping.Output.PingResponse.Ipv4']['meta_info']
 
 
-
-
-
-
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 
                 
@@ -1150,7 +1225,10 @@ class Ping(Entity):
                 _revision = '2018-10-01'
 
                 def __init__(self):
-                    super(Ping.Output.PingResponse.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ping.Output.PingResponse.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "ping-response"
@@ -1205,7 +1283,7 @@ class Ping(Entity):
                     self._perform_setattr(Ping.Output.PingResponse.Ipv6, ['destination', 'repeat_count', 'data_size', 'timeout', 'interval', 'pattern', 'sweep', 'sweep_min', 'sweep_max', 'rotate_pattern', 'hits', 'total', 'success_rate', 'rtt_min', 'rtt_avg', 'rtt_max'], name, value)
 
 
-                class Replies(Entity):
+                class Replies(_Entity_):
                     """
                     
                     
@@ -1222,7 +1300,10 @@ class Ping(Entity):
                     _revision = '2018-10-01'
 
                     def __init__(self):
-                        super(Ping.Output.PingResponse.Ipv6.Replies, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ping.Output.PingResponse.Ipv6.Replies, self).__init__()
 
                         self.yang_name = "replies"
                         self.yang_parent_name = "ipv6"
@@ -1241,7 +1322,7 @@ class Ping(Entity):
                         self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies, [], name, value)
 
 
-                    class Reply(Entity):
+                    class Reply(_Entity_):
                         """
                         
                         
@@ -1265,7 +1346,10 @@ class Ping(Entity):
                         _revision = '2018-10-01'
 
                         def __init__(self):
-                            super(Ping.Output.PingResponse.Ipv6.Replies.Reply, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ping.Output.PingResponse.Ipv6.Replies.Reply, self).__init__()
 
                             self.yang_name = "reply"
                             self.yang_parent_name = "replies"
@@ -1286,14 +1370,38 @@ class Ping(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ping.Output.PingResponse.Ipv6.Replies.Reply, ['reply_index', 'result'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                            return meta._meta_table['Ping.Output.PingResponse.Ipv6.Replies.Reply']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                        return meta._meta_table['Ping.Output.PingResponse.Ipv6.Replies']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                    return meta._meta_table['Ping.Output.PingResponse.Ipv6']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+                return meta._meta_table['Ping.Output.PingResponse']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+            return meta._meta_table['Ping.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ping()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ping_act as meta
+        return meta._meta_table['Ping']['meta_info']
 
 

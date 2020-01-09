@@ -1990,9 +1990,22 @@ submodule Cisco-IOS-XR-evpn-oper-sub1 {
     }
     leaf startup-cost-in-time {
       type uint32;
-      units "minute";
+      units "second";
       description
-        "EVPN Node startup cost-in Time (minutes)";
+        "EVPN Node startup cost-in Time (seconds)";
+    }
+    leaf mac-postpone-timer {
+      type uint32;
+      units "second";
+      description
+        "Configured timer for postponing MAC withdraws
+         (seconds)";
+    }
+    leaf mac-postpone-timer-left {
+      type uint32;
+      units "millisecond";
+      description
+        "Milliseconds left on MAC withdraw postpone timer";
     }
     leaf l2rib-throttle {
       type boolean;

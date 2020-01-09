@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -30,8 +33,14 @@ class SnmpSecurityLevel(Enum):
     authPriv = Enum.YLeaf(3, "authPriv")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_FRAMEWORK_MIB as meta
+        return meta._meta_table['SnmpSecurityLevel']
 
-class SNMPFRAMEWORKMIB(Entity):
+
+
+class SNMPFRAMEWORKMIB(_Entity_):
     """
     
     
@@ -50,7 +59,10 @@ class SNMPFRAMEWORKMIB(Entity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        super(SNMPFRAMEWORKMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPFRAMEWORKMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-FRAMEWORK-MIB"
@@ -71,7 +83,7 @@ class SNMPFRAMEWORKMIB(Entity):
         self._perform_setattr(SNMPFRAMEWORKMIB, [], name, value)
 
 
-    class SnmpEngine(Entity):
+    class SnmpEngine(_Entity_):
         """
         
         
@@ -119,7 +131,10 @@ class SNMPFRAMEWORKMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPFRAMEWORKMIB.SnmpEngine, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPFRAMEWORKMIB.SnmpEngine, self).__init__()
 
             self.yang_name = "snmpEngine"
             self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
@@ -144,10 +159,18 @@ class SNMPFRAMEWORKMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_FRAMEWORK_MIB as meta
+            return meta._meta_table['SNMPFRAMEWORKMIB.SnmpEngine']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_FRAMEWORK_MIB as meta
+        return meta._meta_table['SNMPFRAMEWORKMIB']['meta_info']
 
 

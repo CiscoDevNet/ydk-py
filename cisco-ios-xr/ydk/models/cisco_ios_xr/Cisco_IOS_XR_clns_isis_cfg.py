@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class IsisAdjCheck(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAdjCheck']
+
+
 class IsisAdvTypeExternal(Enum):
     """
     IsisAdvTypeExternal (Enum Class)
@@ -52,6 +61,12 @@ class IsisAdvTypeExternal(Enum):
     """
 
     external = Enum.YLeaf(1, "external")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAdvTypeExternal']
 
 
 class IsisAdvTypeInterLevel(Enum):
@@ -69,6 +84,12 @@ class IsisAdvTypeInterLevel(Enum):
     inter_level = Enum.YLeaf(1, "inter-level")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAdvTypeInterLevel']
+
+
 class IsisApplication(Enum):
     """
     IsisApplication (Enum Class)
@@ -84,6 +105,12 @@ class IsisApplication(Enum):
     lfa = Enum.YLeaf(0, "lfa")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisApplication']
+
+
 class IsisApplicationAttribute(Enum):
     """
     IsisApplicationAttribute (Enum Class)
@@ -97,6 +124,12 @@ class IsisApplicationAttribute(Enum):
     """
 
     srlg = Enum.YLeaf(0, "srlg")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisApplicationAttribute']
 
 
 class IsisApplyWeight(Enum):
@@ -126,6 +159,12 @@ class IsisApplyWeight(Enum):
     ecmp_only_bandwidth = Enum.YLeaf(3, "ecmp-only-bandwidth")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisApplyWeight']
+
+
 class IsisAttachedBit(Enum):
     """
     IsisAttachedBit (Enum Class)
@@ -151,6 +190,12 @@ class IsisAttachedBit(Enum):
     on = Enum.YLeaf(1, "on")
 
     off = Enum.YLeaf(2, "off")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAttachedBit']
 
 
 class IsisAuthenticationAlgorithm(Enum):
@@ -180,6 +225,12 @@ class IsisAuthenticationAlgorithm(Enum):
     keychain = Enum.YLeaf(3, "keychain")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAuthenticationAlgorithm']
+
+
 class IsisAuthenticationFailureMode(Enum):
     """
     IsisAuthenticationFailureMode (Enum Class)
@@ -199,6 +250,12 @@ class IsisAuthenticationFailureMode(Enum):
     drop = Enum.YLeaf(0, "drop")
 
     send_only = Enum.YLeaf(1, "send-only")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisAuthenticationFailureMode']
 
 
 class IsisConfigurableLevel(Enum):
@@ -228,6 +285,12 @@ class IsisConfigurableLevel(Enum):
     level_2 = Enum.YLeaf(2, "level-2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisConfigurableLevel']
+
+
 class IsisConfigurableLevels(Enum):
     """
     IsisConfigurableLevels (Enum Class)
@@ -255,6 +318,12 @@ class IsisConfigurableLevels(Enum):
     level1_and2 = Enum.YLeaf(3, "level1-and2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisConfigurableLevels']
+
+
 class IsisEnablePoi(Enum):
     """
     IsisEnablePoi (Enum Class)
@@ -274,6 +343,12 @@ class IsisEnablePoi(Enum):
     enable_poi_off = Enum.YLeaf(0, "enable-poi-off")
 
     enable_poi_on = Enum.YLeaf(1, "enable-poi-on")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisEnablePoi']
 
 
 class IsisHelloPadding(Enum):
@@ -297,6 +372,12 @@ class IsisHelloPadding(Enum):
     sometimes = Enum.YLeaf(1, "sometimes")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisHelloPadding']
+
+
 class IsisInterfaceAfState(Enum):
     """
     IsisInterfaceAfState (Enum Class)
@@ -310,6 +391,12 @@ class IsisInterfaceAfState(Enum):
     """
 
     disable = Enum.YLeaf(0, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisInterfaceAfState']
 
 
 class IsisInterfaceFrrTiebreaker(Enum):
@@ -331,6 +418,12 @@ class IsisInterfaceFrrTiebreaker(Enum):
     node_protecting = Enum.YLeaf(3, "node-protecting")
 
     srlg_disjoint = Enum.YLeaf(6, "srlg-disjoint")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisInterfaceFrrTiebreaker']
 
 
 class IsisInterfaceState(Enum):
@@ -366,6 +459,12 @@ class IsisInterfaceState(Enum):
     enabled_active = Enum.YLeaf(3, "enabled-active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisInterfaceState']
+
+
 class IsisLabelPreference(Enum):
     """
     IsisLabelPreference (Enum Class)
@@ -385,6 +484,45 @@ class IsisLabelPreference(Enum):
     ldp = Enum.YLeaf(0, "ldp")
 
     segment_routing = Enum.YLeaf(1, "segment-routing")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisLabelPreference']
+
+
+class IsisMaxMetricMode(Enum):
+    """
+    IsisMaxMetricMode (Enum Class)
+
+    Isis max metric mode
+
+    .. data:: permanently_set = 1
+
+    	Set always
+
+    .. data:: startup_period = 2
+
+    	Set during the startup period
+
+    .. data:: wait_for_bgp = 3
+
+    	Set until BGP comverges
+
+    """
+
+    permanently_set = Enum.YLeaf(1, "permanently-set")
+
+    startup_period = Enum.YLeaf(2, "startup-period")
+
+    wait_for_bgp = Enum.YLeaf(3, "wait-for-bgp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMaxMetricMode']
 
 
 class IsisMetric(Enum):
@@ -418,6 +556,12 @@ class IsisMetric(Enum):
     rib_internal = Enum.YLeaf(2, "rib-internal")
 
     rib_external = Enum.YLeaf(3, "rib-external")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMetric']
 
 
 class IsisMetricStyle(Enum):
@@ -459,6 +603,12 @@ class IsisMetricStyle(Enum):
     new_metric_style_transition = Enum.YLeaf(4, "new-metric-style-transition")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMetricStyle']
+
+
 class IsisMibAdjacencyChangeBoolean(Enum):
     """
     IsisMibAdjacencyChangeBoolean (Enum Class)
@@ -478,6 +628,12 @@ class IsisMibAdjacencyChangeBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(17, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAdjacencyChangeBoolean']
 
 
 class IsisMibAllBoolean(Enum):
@@ -501,6 +657,12 @@ class IsisMibAllBoolean(Enum):
     true = Enum.YLeaf(19, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAllBoolean']
+
+
 class IsisMibAreaMismatchBoolean(Enum):
     """
     IsisMibAreaMismatchBoolean (Enum Class)
@@ -520,6 +682,12 @@ class IsisMibAreaMismatchBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(12, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAreaMismatchBoolean']
 
 
 class IsisMibAttemptToExceedMaxSequenceBoolean(Enum):
@@ -543,6 +711,12 @@ class IsisMibAttemptToExceedMaxSequenceBoolean(Enum):
     true = Enum.YLeaf(4, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAttemptToExceedMaxSequenceBoolean']
+
+
 class IsisMibAuthenticationFailureBoolean(Enum):
     """
     IsisMibAuthenticationFailureBoolean (Enum Class)
@@ -562,6 +736,12 @@ class IsisMibAuthenticationFailureBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(10, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAuthenticationFailureBoolean']
 
 
 class IsisMibAuthenticationTypeFailureBoolean(Enum):
@@ -585,6 +765,12 @@ class IsisMibAuthenticationTypeFailureBoolean(Enum):
     true = Enum.YLeaf(9, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAuthenticationTypeFailureBoolean']
+
+
 class IsisMibCorruptedLspDetectedBoolean(Enum):
     """
     IsisMibCorruptedLspDetectedBoolean (Enum Class)
@@ -604,6 +790,12 @@ class IsisMibCorruptedLspDetectedBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(3, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibCorruptedLspDetectedBoolean']
 
 
 class IsisMibDatabaseOverFlowBoolean(Enum):
@@ -627,6 +819,12 @@ class IsisMibDatabaseOverFlowBoolean(Enum):
     true = Enum.YLeaf(1, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibDatabaseOverFlowBoolean']
+
+
 class IsisMibIdLengthMismatchBoolean(Enum):
     """
     IsisMibIdLengthMismatchBoolean (Enum Class)
@@ -646,6 +844,12 @@ class IsisMibIdLengthMismatchBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(5, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibIdLengthMismatchBoolean']
 
 
 class IsisMibLspErrorDetectedBoolean(Enum):
@@ -669,6 +873,12 @@ class IsisMibLspErrorDetectedBoolean(Enum):
     true = Enum.YLeaf(18, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibLspErrorDetectedBoolean']
+
+
 class IsisMibLspTooLargeToPropagateBoolean(Enum):
     """
     IsisMibLspTooLargeToPropagateBoolean (Enum Class)
@@ -688,6 +898,12 @@ class IsisMibLspTooLargeToPropagateBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(14, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibLspTooLargeToPropagateBoolean']
 
 
 class IsisMibManualAddressDropsBoolean(Enum):
@@ -711,6 +927,12 @@ class IsisMibManualAddressDropsBoolean(Enum):
     true = Enum.YLeaf(2, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibManualAddressDropsBoolean']
+
+
 class IsisMibMaxAreaAddressMismatchBoolean(Enum):
     """
     IsisMibMaxAreaAddressMismatchBoolean (Enum Class)
@@ -730,6 +952,12 @@ class IsisMibMaxAreaAddressMismatchBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(6, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibMaxAreaAddressMismatchBoolean']
 
 
 class IsisMibOriginatedLspBufferSizeMismatchBoolean(Enum):
@@ -755,6 +983,12 @@ class IsisMibOriginatedLspBufferSizeMismatchBoolean(Enum):
     true = Enum.YLeaf(15, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibOriginatedLspBufferSizeMismatchBoolean']
+
+
 class IsisMibOwnLspPurgeBoolean(Enum):
     """
     IsisMibOwnLspPurgeBoolean (Enum Class)
@@ -774,6 +1008,12 @@ class IsisMibOwnLspPurgeBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(7, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibOwnLspPurgeBoolean']
 
 
 class IsisMibProtocolsSupportedMismatchBoolean(Enum):
@@ -797,6 +1037,12 @@ class IsisMibProtocolsSupportedMismatchBoolean(Enum):
     true = Enum.YLeaf(16, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibProtocolsSupportedMismatchBoolean']
+
+
 class IsisMibRejectedAdjacencyBoolean(Enum):
     """
     IsisMibRejectedAdjacencyBoolean (Enum Class)
@@ -816,6 +1062,12 @@ class IsisMibRejectedAdjacencyBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(13, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibRejectedAdjacencyBoolean']
 
 
 class IsisMibSequenceNumberSkipBoolean(Enum):
@@ -839,6 +1091,12 @@ class IsisMibSequenceNumberSkipBoolean(Enum):
     true = Enum.YLeaf(8, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibSequenceNumberSkipBoolean']
+
+
 class IsisMibVersionSkewBoolean(Enum):
     """
     IsisMibVersionSkewBoolean (Enum Class)
@@ -858,6 +1116,12 @@ class IsisMibVersionSkewBoolean(Enum):
     false = Enum.YLeaf(0, "false")
 
     true = Enum.YLeaf(11, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibVersionSkewBoolean']
 
 
 class IsisMicroLoopAvoidance(Enum):
@@ -895,6 +1159,12 @@ class IsisMicroLoopAvoidance(Enum):
     micro_loop_avoidance_segement_routing = Enum.YLeaf(3, "micro-loop-avoidance-segement-routing")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMicroLoopAvoidance']
+
+
 class IsisNsfFlavor(Enum):
     """
     IsisNsfFlavor (Enum Class)
@@ -914,6 +1184,12 @@ class IsisNsfFlavor(Enum):
     cisco_proprietary_nsf = Enum.YLeaf(1, "cisco-proprietary-nsf")
 
     ietf_standard_nsf = Enum.YLeaf(2, "ietf-standard-nsf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisNsfFlavor']
 
 
 class IsisOverloadBitMode(Enum):
@@ -943,6 +1219,12 @@ class IsisOverloadBitMode(Enum):
     wait_for_bgp = Enum.YLeaf(3, "wait-for-bgp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisOverloadBitMode']
+
+
 class IsisPrefixPriority(Enum):
     """
     IsisPrefixPriority (Enum Class)
@@ -968,6 +1250,12 @@ class IsisPrefixPriority(Enum):
     high_priority = Enum.YLeaf(1, "high-priority")
 
     medium_priority = Enum.YLeaf(2, "medium-priority")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisPrefixPriority']
 
 
 class IsisRedistProto(Enum):
@@ -1045,6 +1333,12 @@ class IsisRedistProto(Enum):
     mobile = Enum.YLeaf(10, "mobile")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisRedistProto']
+
+
 class IsisRemoteLfa(Enum):
     """
     IsisRemoteLfa (Enum Class)
@@ -1066,6 +1360,12 @@ class IsisRemoteLfa(Enum):
     remote_lfa_tunnel_ldp = Enum.YLeaf(1, "remote-lfa-tunnel-ldp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisRemoteLfa']
+
+
 class IsisSnpAuth(Enum):
     """
     IsisSnpAuth (Enum Class)
@@ -1085,6 +1385,12 @@ class IsisSnpAuth(Enum):
     send_only = Enum.YLeaf(0, "send-only")
 
     full = Enum.YLeaf(1, "full")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisSnpAuth']
 
 
 class IsisTracingMode(Enum):
@@ -1114,6 +1420,12 @@ class IsisTracingMode(Enum):
     enhanced = Enum.YLeaf(2, "enhanced")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisTracingMode']
+
+
 class IsisexplicitNullFlag(Enum):
     """
     IsisexplicitNullFlag (Enum Class)
@@ -1133,6 +1445,12 @@ class IsisexplicitNullFlag(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisexplicitNullFlag']
 
 
 class Isisfrr(Enum):
@@ -1156,6 +1474,12 @@ class Isisfrr(Enum):
     per_prefix = Enum.YLeaf(2, "per-prefix")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['Isisfrr']
+
+
 class IsisfrrLoadSharing(Enum):
     """
     IsisfrrLoadSharing (Enum Class)
@@ -1171,6 +1495,12 @@ class IsisfrrLoadSharing(Enum):
     """
 
     disable = Enum.YLeaf(1, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrLoadSharing']
 
 
 class IsisfrrSrlgProtection(Enum):
@@ -1192,6 +1522,12 @@ class IsisfrrSrlgProtection(Enum):
     local = Enum.YLeaf(0, "local")
 
     weighted_global = Enum.YLeaf(1, "weighted-global")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrSrlgProtection']
 
 
 class IsisfrrTiebreaker(Enum):
@@ -1245,6 +1581,12 @@ class IsisfrrTiebreaker(Enum):
     srlg_disjoint = Enum.YLeaf(6, "srlg-disjoint")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrTiebreaker']
+
+
 class IsisispfState(Enum):
     """
     IsisispfState (Enum Class)
@@ -1258,6 +1600,12 @@ class IsisispfState(Enum):
     """
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisispfState']
 
 
 class IsisphpFlag(Enum):
@@ -1281,6 +1629,12 @@ class IsisphpFlag(Enum):
     disable = Enum.YLeaf(1, "disable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisphpFlag']
+
+
 class Isissid1(Enum):
     """
     Isissid1 (Enum Class)
@@ -1300,6 +1654,12 @@ class Isissid1(Enum):
     index = Enum.YLeaf(1, "index")
 
     absolute = Enum.YLeaf(2, "absolute")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['Isissid1']
 
 
 class IsissidProtected(Enum):
@@ -1323,6 +1683,12 @@ class IsissidProtected(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsissidProtected']
+
+
 class NflagClear(Enum):
     """
     NflagClear (Enum Class)
@@ -1344,8 +1710,14 @@ class NflagClear(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['NflagClear']
 
-class Isis(Entity):
+
+
+class Isis(_Entity_):
     """
     IS\-IS configuration for all instances
     
@@ -1362,7 +1734,10 @@ class Isis(Entity):
     _revision = '2019-03-15'
 
     def __init__(self):
-        super(Isis, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Isis, self).__init__()
         self._top_entity = None
 
         self.yang_name = "isis"
@@ -1383,7 +1758,7 @@ class Isis(Entity):
         self._perform_setattr(Isis, [], name, value)
 
 
-    class Instances(Entity):
+    class Instances(_Entity_):
         """
         IS\-IS instance configuration
         
@@ -1400,7 +1775,10 @@ class Isis(Entity):
         _revision = '2019-03-15'
 
         def __init__(self):
-            super(Isis.Instances, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Isis.Instances, self).__init__()
 
             self.yang_name = "instances"
             self.yang_parent_name = "isis"
@@ -1419,7 +1797,7 @@ class Isis(Entity):
             self._perform_setattr(Isis.Instances, [], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Configuration for a single IS\-IS instance
             
@@ -1454,7 +1832,7 @@ class Isis(Entity):
             
             .. attribute:: max_link_metrics
             
-            	Max Link Metric configuration
+            	Max Metric configuration
             	**type**\:  :py:class:`MaxLinkMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics>`
             
             .. attribute:: adjacency_stagger
@@ -1621,7 +1999,10 @@ class Isis(Entity):
             _revision = '2019-03-15'
 
             def __init__(self):
-                super(Isis.Instances.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Isis.Instances.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "instances"
@@ -1748,7 +2129,7 @@ class Isis(Entity):
                 self._perform_setattr(Isis.Instances.Instance, ['instance_name', 'running', 'log_adjacency_changes', 'ignore_lsp_errors', 'is_type', 'tracing_mode', 'vrf_context', 'instance_id', 'dynamic_host_name', 'purge_transmit_strict', 'nsr', 'log_pdu_drops'], name, value)
 
 
-            class Srgb(Entity):
+            class Srgb(_Entity_):
                 """
                 Segment Routing Global Block configuration
                 
@@ -1780,7 +2161,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Srgb, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Srgb, self).__init__()
 
                     self.yang_name = "srgb"
                     self.yang_parent_name = "instance"
@@ -1801,9 +2185,13 @@ class Isis(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.Srgb, ['lower_bound', 'upper_bound'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Srgb']['meta_info']
 
 
-            class LspGenerationIntervals(Entity):
+            class LspGenerationIntervals(_Entity_):
                 """
                 LSP generation\-interval configuration
                 
@@ -1820,7 +2208,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspGenerationIntervals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspGenerationIntervals, self).__init__()
 
                     self.yang_name = "lsp-generation-intervals"
                     self.yang_parent_name = "instance"
@@ -1838,7 +2229,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspGenerationIntervals, [], name, value)
 
 
-                class LspGenerationInterval(Entity):
+                class LspGenerationInterval(_Entity_):
                     """
                     LSP generation scheduling parameters
                     
@@ -1882,7 +2273,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, self).__init__()
 
                         self.yang_name = "lsp-generation-interval"
                         self.yang_parent_name = "lsp-generation-intervals"
@@ -1906,10 +2300,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspGenerationIntervals']['meta_info']
 
 
-
-            class LspArrivalTimes(Entity):
+            class LspArrivalTimes(_Entity_):
                 """
                 LSP arrival time configuration
                 
@@ -1926,7 +2328,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspArrivalTimes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspArrivalTimes, self).__init__()
 
                     self.yang_name = "lsp-arrival-times"
                     self.yang_parent_name = "instance"
@@ -1944,7 +2349,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspArrivalTimes, [], name, value)
 
 
-                class LspArrivalTime(Entity):
+                class LspArrivalTime(_Entity_):
                     """
                     Minimum LSP arrival time
                     
@@ -1988,7 +2393,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, self).__init__()
 
                         self.yang_name = "lsp-arrival-time"
                         self.yang_parent_name = "lsp-arrival-times"
@@ -2012,10 +2420,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspArrivalTimes']['meta_info']
 
 
-
-            class TraceBufferSize(Entity):
+            class TraceBufferSize(_Entity_):
                 """
                 Trace buffer size configuration
                 
@@ -2055,7 +2471,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.TraceBufferSize, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.TraceBufferSize, self).__init__()
 
                     self.yang_name = "trace-buffer-size"
                     self.yang_parent_name = "instance"
@@ -2079,15 +2498,19 @@ class Isis(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.TraceBufferSize, ['detailed', 'standard', 'severe', 'hello'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.TraceBufferSize']['meta_info']
 
 
-            class MaxLinkMetrics(Entity):
+            class MaxLinkMetrics(_Entity_):
                 """
-                Max Link Metric configuration
+                Max Metric configuration
                 
                 .. attribute:: max_link_metric
                 
-                	Max Link Metric
+                	Max Metric
                 	**type**\: list of  		 :py:class:`MaxLinkMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric>`
                 
                 
@@ -2098,7 +2521,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.MaxLinkMetrics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.MaxLinkMetrics, self).__init__()
 
                     self.yang_name = "max-link-metrics"
                     self.yang_parent_name = "instance"
@@ -2116,14 +2542,58 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.MaxLinkMetrics, [], name, value)
 
 
-                class MaxLinkMetric(Entity):
+                class MaxLinkMetric(_Entity_):
                     """
-                    Max Link Metric
+                    Max Metric
                     
                     .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    
+                    .. attribute:: max_metric_mode
+                    
+                    	Circumstances under which the max metric is advertised in the system LSP
+                    	**type**\:  :py:class:`IsisMaxMetricMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMaxMetricMode>`
+                    
+                    	**default value**\: permanently-set
+                    
+                    .. attribute:: max_metric_period
+                    
+                    	Time in seconds to advertise max link metric after process startup
+                    	**type**\: int
+                    
+                    	**range:** 5..86400
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: external
+                    
+                    	If TRUE, overwrite metric of prefixes learned from another protocol with max metric
+                    	**type**\: bool
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: interlevel
+                    
+                    	If TRUE, overwrite metric of prefixes learned from another ISIS level with max metric
+                    	**type**\: bool
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: deflt_rt
+                    
+                    	If TRUE, overwrite metric of default route with max metric
+                    	**type**\: bool
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: srv6_loc
+                    
+                    	If TRUE, overwrite metric of segment routing IPV6 locator with max metric
+                    	**type**\: bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -2133,7 +2603,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, self).__init__()
 
                         self.yang_name = "max-link-metric"
                         self.yang_parent_name = "max-link-metrics"
@@ -2143,18 +2616,38 @@ class Isis(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel', '')])),
+                            ('max_metric_mode', (YLeaf(YType.enumeration, 'max-metric-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisMaxMetricMode', '')])),
+                            ('max_metric_period', (YLeaf(YType.uint32, 'max-metric-period'), ['int'])),
+                            ('external', (YLeaf(YType.boolean, 'external'), ['bool'])),
+                            ('interlevel', (YLeaf(YType.boolean, 'interlevel'), ['bool'])),
+                            ('deflt_rt', (YLeaf(YType.boolean, 'deflt-rt'), ['bool'])),
+                            ('srv6_loc', (YLeaf(YType.boolean, 'srv6-loc'), ['bool'])),
                         ])
                         self.level = None
+                        self.max_metric_mode = None
+                        self.max_metric_period = None
+                        self.external = None
+                        self.interlevel = None
+                        self.deflt_rt = None
+                        self.srv6_loc = None
                         self._segment_path = lambda: "max-link-metric" + "[level='" + str(self.level) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, ['level'], name, value)
+                        self._perform_setattr(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, ['level', 'max_metric_mode', 'max_metric_period', 'external', 'interlevel', 'deflt_rt', 'srv6_loc'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.MaxLinkMetrics']['meta_info']
 
 
-
-
-            class AdjacencyStagger(Entity):
+            class AdjacencyStagger(_Entity_):
                 """
                 Stagger ISIS adjacency bring up
                 
@@ -2186,7 +2679,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.AdjacencyStagger, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.AdjacencyStagger, self).__init__()
 
                     self.yang_name = "adjacency-stagger"
                     self.yang_parent_name = "instance"
@@ -2207,9 +2703,13 @@ class Isis(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.AdjacencyStagger, ['initial_nbr', 'max_nbr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.AdjacencyStagger']['meta_info']
 
 
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Per\-address\-family configuration
                 
@@ -2226,7 +2726,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "instance"
@@ -2244,7 +2747,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     Configuration for an IS\-IS address\-family. If
                     a named (non\-default) topology is being
@@ -2280,7 +2783,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -2306,7 +2812,7 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.Afs.Af, ['af_name', 'saf_name'], name, value)
 
 
-                    class AfData(Entity):
+                    class AfData(_Entity_):
                         """
                         Data container.
                         
@@ -2505,7 +3011,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Afs.Af.AfData, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Afs.Af.AfData, self).__init__()
 
                             self.yang_name = "af-data"
                             self.yang_parent_name = "af"
@@ -2641,7 +3150,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData, ['maximum_paths', 'topology_id', 'single_topology', 'adjacency_check', 'advertise_link_attributes', 'apply_weight', 'default_admin_distance', 'advertise_passive_only', 'ignore_attached_bit', 'attached_bit', 'route_source_first_hop'], name, value)
 
 
-                        class SegmentRouting(Entity):
+                        class SegmentRouting(_Entity_):
                             """
                             Enable Segment Routing configuration
                             
@@ -2683,7 +3192,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, self).__init__()
 
                                 self.yang_name = "segment-routing"
                                 self.yang_parent_name = "af-data"
@@ -2718,7 +3230,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls'], name, value)
 
 
-                            class Srv6(Entity):
+                            class Srv6(_Entity_):
                                 """
                                 SRv6 configuration
                                 
@@ -2740,7 +3252,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6, self).__init__()
 
                                     self.yang_name = "srv6"
                                     self.yang_parent_name = "segment-routing"
@@ -2763,7 +3278,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6, ['running'], name, value)
 
 
-                                class Srv6Locators(Entity):
+                                class Srv6Locators(_Entity_):
                                     """
                                     SRv6 Locator configuration
                                     
@@ -2780,7 +3295,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators, self).__init__()
 
                                         self.yang_name = "srv6-locators"
                                         self.yang_parent_name = "srv6"
@@ -2798,7 +3316,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators, [], name, value)
 
 
-                                    class Srv6Locator(Entity):
+                                    class Srv6Locator(_Entity_):
                                         """
                                         Configuration for a single SRv6 Locator
                                         
@@ -2822,7 +3340,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
 
                                             self.yang_name = "srv6-locator"
                                             self.yang_parent_name = "srv6-locators"
@@ -2842,11 +3363,23 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, ['locator_name', 'running'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators.Srv6Locator']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6.Srv6Locators']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.Srv6']['meta_info']
 
 
-
-
-                            class ConnectedPrefixSids(Entity):
+                            class ConnectedPrefixSids(_Entity_):
                                 """
                                 Connected Segment Routing prefix SID map
                                 configuration
@@ -2864,7 +3397,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids, self).__init__()
 
                                     self.yang_name = "connected-prefix-sids"
                                     self.yang_parent_name = "segment-routing"
@@ -2882,7 +3418,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids, [], name, value)
 
 
-                                class ConnectedPrefixSid(Entity):
+                                class ConnectedPrefixSid(_Entity_):
                                     """
                                     Segment Routing prefix SID map
                                     
@@ -2954,7 +3490,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
 
                                         self.yang_name = "connected-prefix-sid"
                                         self.yang_parent_name = "connected-prefix-sids"
@@ -2986,10 +3525,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, ['address_prefix', 'algo', 'sid_type', 'sid', 'sid_range', 'interface', 'php', 'explicit_null'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.ConnectedPrefixSids']['meta_info']
 
 
-
-                            class PrefixSidMap(Entity):
+                            class PrefixSidMap(_Entity_):
                                 """
                                 Enable Segment Routing prefix SID map
                                 configuration
@@ -3012,7 +3559,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, self).__init__()
 
                                     self.yang_name = "prefix-sid-map"
                                     self.yang_parent_name = "segment-routing"
@@ -3032,10 +3582,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, ['advertise_local', 'receive'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting']['meta_info']
 
 
-
-                        class MetricStyles(Entity):
+                        class MetricStyles(_Entity_):
                             """
                             Metric\-style configuration
                             
@@ -3052,7 +3610,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles, self).__init__()
 
                                 self.yang_name = "metric-styles"
                                 self.yang_parent_name = "af-data"
@@ -3070,7 +3631,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles, [], name, value)
 
 
-                            class MetricStyle(Entity):
+                            class MetricStyle(_Entity_):
                                 """
                                 Configuration of metric style in LSPs
                                 
@@ -3094,7 +3655,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, self).__init__()
 
                                     self.yang_name = "metric-style"
                                     self.yang_parent_name = "metric-styles"
@@ -3114,10 +3678,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, ['level', 'style'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MetricStyles']['meta_info']
 
 
-
-                        class FrrTable(Entity):
+                        class FrrTable(_Entity_):
                             """
                             Fast\-ReRoute configuration
                             
@@ -3168,7 +3740,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable, self).__init__()
 
                                 self.yang_name = "frr-table"
                                 self.yang_parent_name = "af-data"
@@ -3211,7 +3786,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable, ['frr_initial_delay'], name, value)
 
 
-                            class FrrLoadSharings(Entity):
+                            class FrrLoadSharings(_Entity_):
                                 """
                                 Load share prefixes across multiple
                                 backups
@@ -3229,7 +3804,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings, self).__init__()
 
                                     self.yang_name = "frr-load-sharings"
                                     self.yang_parent_name = "frr-table"
@@ -3247,7 +3825,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings, [], name, value)
 
 
-                                class FrrLoadSharing(Entity):
+                                class FrrLoadSharing(_Entity_):
                                     """
                                     Disable load sharing
                                     
@@ -3271,7 +3849,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
 
                                         self.yang_name = "frr-load-sharing"
                                         self.yang_parent_name = "frr-load-sharings"
@@ -3291,10 +3872,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings']['meta_info']
 
 
-
-                            class FrrsrlgProtectionTypes(Entity):
+                            class FrrsrlgProtectionTypes(_Entity_):
                                 """
                                 SRLG protection type configuration
                                 
@@ -3311,7 +3900,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes, self).__init__()
 
                                     self.yang_name = "frrsrlg-protection-types"
                                     self.yang_parent_name = "frr-table"
@@ -3329,7 +3921,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes, [], name, value)
 
 
-                                class FrrsrlgProtectionType(Entity):
+                                class FrrsrlgProtectionType(_Entity_):
                                     """
                                     FRR SRLG Protection Type
                                     
@@ -3353,7 +3945,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
 
                                         self.yang_name = "frrsrlg-protection-type"
                                         self.yang_parent_name = "frrsrlg-protection-types"
@@ -3373,10 +3968,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, ['level', 'protection_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes']['meta_info']
 
 
-
-                            class PriorityLimits(Entity):
+                            class PriorityLimits(_Entity_):
                                 """
                                 FRR prefix\-limit configuration
                                 
@@ -3393,7 +3996,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits, self).__init__()
 
                                     self.yang_name = "priority-limits"
                                     self.yang_parent_name = "frr-table"
@@ -3411,7 +4017,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits, [], name, value)
 
 
-                                class PriorityLimit(Entity):
+                                class PriorityLimit(_Entity_):
                                     """
                                     Limit backup computation upto the prefix
                                     priority
@@ -3441,7 +4047,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
 
                                         self.yang_name = "priority-limit"
                                         self.yang_parent_name = "priority-limits"
@@ -3463,10 +4072,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits']['meta_info']
 
 
-
-                            class FrrRemoteLfaPrefixes(Entity):
+                            class FrrRemoteLfaPrefixes(_Entity_):
                                 """
                                 FRR remote LFA prefix list filter
                                 configuration
@@ -3484,7 +4101,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
 
                                     self.yang_name = "frr-remote-lfa-prefixes"
                                     self.yang_parent_name = "frr-table"
@@ -3502,7 +4122,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes, [], name, value)
 
 
-                                class FrrRemoteLfaPrefix(Entity):
+                                class FrrRemoteLfaPrefix(_Entity_):
                                     """
                                     Filter remote LFA router IDs using
                                     prefix\-list
@@ -3529,7 +4149,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
 
                                         self.yang_name = "frr-remote-lfa-prefix"
                                         self.yang_parent_name = "frr-remote-lfa-prefixes"
@@ -3549,10 +4172,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes']['meta_info']
 
 
-
-                            class FrrTiebreakers(Entity):
+                            class FrrTiebreakers(_Entity_):
                                 """
                                 FRR tiebreakers configuration
                                 
@@ -3569,7 +4200,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers, self).__init__()
 
                                     self.yang_name = "frr-tiebreakers"
                                     self.yang_parent_name = "frr-table"
@@ -3587,7 +4221,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers, [], name, value)
 
 
-                                class FrrTiebreaker(Entity):
+                                class FrrTiebreaker(_Entity_):
                                     """
                                     Configure tiebreaker for multiple backups
                                     
@@ -3618,7 +4252,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
 
                                         self.yang_name = "frr-tiebreaker"
                                         self.yang_parent_name = "frr-tiebreakers"
@@ -3640,10 +4277,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers']['meta_info']
 
 
-
-                            class FrrUseCandOnlies(Entity):
+                            class FrrUseCandOnlies(_Entity_):
                                 """
                                 FRR use candidate only configuration
                                 
@@ -3660,7 +4305,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies, self).__init__()
 
                                     self.yang_name = "frr-use-cand-onlies"
                                     self.yang_parent_name = "frr-table"
@@ -3678,7 +4326,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies, [], name, value)
 
 
-                                class FrrUseCandOnly(Entity):
+                                class FrrUseCandOnly(_Entity_):
                                     """
                                     Configure use candidate only to exclude
                                     interfaces as backup
@@ -3701,7 +4349,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
 
                                         self.yang_name = "frr-use-cand-only"
                                         self.yang_parent_name = "frr-use-cand-onlies"
@@ -3721,11 +4372,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable']['meta_info']
 
 
-
-
-                        class RouterId(Entity):
+                        class RouterId(_Entity_):
                             """
                             Stable IP address for system. Will only be
                             applied for the unicast sub\-address\-family.
@@ -3750,7 +4413,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.RouterId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.RouterId, self).__init__()
 
                                 self.yang_name = "router-id"
                                 self.yang_parent_name = "af-data"
@@ -3770,9 +4436,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.RouterId, ['address', 'interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.RouterId']['meta_info']
 
 
-                        class SpfPrefixPriorities(Entity):
+                        class SpfPrefixPriorities(_Entity_):
                             """
                             SPF Prefix Priority configuration
                             
@@ -3789,7 +4459,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities, self).__init__()
 
                                 self.yang_name = "spf-prefix-priorities"
                                 self.yang_parent_name = "af-data"
@@ -3807,7 +4480,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities, [], name, value)
 
 
-                            class SpfPrefixPriority(Entity):
+                            class SpfPrefixPriority(_Entity_):
                                 """
                                 Determine SPF priority for prefixes
                                 
@@ -3843,7 +4516,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
 
                                     self.yang_name = "spf-prefix-priority"
                                     self.yang_parent_name = "spf-prefix-priorities"
@@ -3867,10 +4543,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities']['meta_info']
 
 
-
-                        class SummaryPrefixes(Entity):
+                        class SummaryPrefixes(_Entity_):
                             """
                             Summary\-prefix configuration
                             
@@ -3887,7 +4571,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes, self).__init__()
 
                                 self.yang_name = "summary-prefixes"
                                 self.yang_parent_name = "af-data"
@@ -3905,7 +4592,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes, [], name, value)
 
 
-                            class SummaryPrefix(Entity):
+                            class SummaryPrefix(_Entity_):
                                 """
                                 Configure IP address prefixes to advertise
                                 
@@ -3944,7 +4631,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, self).__init__()
 
                                     self.yang_name = "summary-prefix"
                                     self.yang_parent_name = "summary-prefixes"
@@ -3966,10 +4656,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes']['meta_info']
 
 
-
-                        class MicroLoopAvoidance(Entity):
+                        class MicroLoopAvoidance(_Entity_):
                             """
                             Micro Loop Avoidance configuration
                             
@@ -3997,7 +4695,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, self).__init__()
 
                                 self.yang_name = "micro-loop-avoidance"
                                 self.yang_parent_name = "af-data"
@@ -4017,9 +4718,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, ['enable', 'rib_update_delay'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance']['meta_info']
 
 
-                        class Ucmp(Entity):
+                        class Ucmp(_Entity_):
                             """
                             UCMP (UnEqual Cost MultiPath) configuration
                             
@@ -4052,7 +4757,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp, self).__init__()
 
                                 self.yang_name = "ucmp"
                                 self.yang_parent_name = "af-data"
@@ -4079,7 +4787,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp, ['delay_interval'], name, value)
 
 
-                            class Enable(Entity):
+                            class Enable(_Entity_):
                                 """
                                 UCMP feature enable configuration
                                 
@@ -4107,7 +4815,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, self).__init__()
 
                                     self.yang_name = "enable"
                                     self.yang_parent_name = "ucmp"
@@ -4127,9 +4838,13 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable']['meta_info']
 
 
-                            class ExcludeInterfaces(Entity):
+                            class ExcludeInterfaces(_Entity_):
                                 """
                                 Interfaces excluded from UCMP path
                                 computation
@@ -4147,7 +4862,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces, self).__init__()
 
                                     self.yang_name = "exclude-interfaces"
                                     self.yang_parent_name = "ucmp"
@@ -4165,7 +4883,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces, [], name, value)
 
 
-                                class ExcludeInterface(Entity):
+                                class ExcludeInterface(_Entity_):
                                     """
                                     Exclude this interface from UCMP path
                                     computation
@@ -4185,7 +4903,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                         self.yang_name = "exclude-interface"
                                         self.yang_parent_name = "exclude-interfaces"
@@ -4203,11 +4924,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ucmp']['meta_info']
 
 
-
-
-                        class MaxRedistPrefixes(Entity):
+                        class MaxRedistPrefixes(_Entity_):
                             """
                             Maximum number of redistributed
                             prefixesconfiguration
@@ -4225,7 +4958,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes, self).__init__()
 
                                 self.yang_name = "max-redist-prefixes"
                                 self.yang_parent_name = "af-data"
@@ -4243,7 +4979,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes, [], name, value)
 
 
-                            class MaxRedistPrefix(Entity):
+                            class MaxRedistPrefix(_Entity_):
                                 """
                                 An upper limit on the number of
                                 redistributed prefixes which may be
@@ -4271,7 +5007,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
 
                                     self.yang_name = "max-redist-prefix"
                                     self.yang_parent_name = "max-redist-prefixes"
@@ -4291,10 +5030,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes']['meta_info']
 
 
-
-                        class Propagations(Entity):
+                        class Propagations(_Entity_):
                             """
                             Route propagation configuration
                             
@@ -4311,7 +5058,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Propagations, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Propagations, self).__init__()
 
                                 self.yang_name = "propagations"
                                 self.yang_parent_name = "af-data"
@@ -4329,7 +5079,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Propagations, [], name, value)
 
 
-                            class Propagation(Entity):
+                            class Propagation(_Entity_):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
@@ -4360,7 +5110,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, self).__init__()
 
                                     self.yang_name = "propagation"
                                     self.yang_parent_name = "propagations"
@@ -4382,10 +5135,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Propagations']['meta_info']
 
 
-
-                        class Redistributions(Entity):
+                        class Redistributions(_Entity_):
                             """
                             Protocol redistribution configuration
                             
@@ -4402,7 +5163,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions, self).__init__()
 
                                 self.yang_name = "redistributions"
                                 self.yang_parent_name = "af-data"
@@ -4420,7 +5184,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions, [], name, value)
 
 
-                            class Redistribution(Entity):
+                            class Redistribution(_Entity_):
                                 """
                                 Redistribution of other protocols into
                                 this IS\-IS instance
@@ -4460,7 +5224,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, self).__init__()
 
                                     self.yang_name = "redistribution"
                                     self.yang_parent_name = "redistributions"
@@ -4486,7 +5253,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, ['protocol_name'], name, value)
 
 
-                                class ConnectedOrStaticOrRipOrSubscriberOrMobile(Entity):
+                                class ConnectedOrStaticOrRipOrSubscriberOrMobile(_Entity_):
                                     """
                                     connected or static or rip or subscriber
                                     or mobile
@@ -4532,7 +5299,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
 
                                         self.yang_name = "connected-or-static-or-rip-or-subscriber-or-mobile"
                                         self.yang_parent_name = "redistribution"
@@ -4559,9 +5329,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, ['metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile']['meta_info']
 
 
-                                class OspfOrOspfv3OrIsisOrApplication(Entity):
+                                class OspfOrOspfv3OrIsisOrApplication(_Entity_):
                                     """
                                     ospf or ospfv3 or isis or application
                                     
@@ -4611,7 +5385,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
 
                                         self.yang_name = "ospf-or-ospfv3-or-isis-or-application"
                                         self.yang_parent_name = "redistribution"
@@ -4639,9 +5416,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     bgp
                                     
@@ -4698,7 +5479,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "redistribution"
@@ -4728,9 +5512,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp']['meta_info']
 
 
-                                class Eigrp(Entity):
+                                class Eigrp(_Entity_):
                                     """
                                     eigrp
                                     
@@ -4780,7 +5568,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, self).__init__()
 
                                         self.yang_name = "eigrp"
                                         self.yang_parent_name = "redistribution"
@@ -4808,11 +5599,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Redistributions']['meta_info']
 
 
-
-
-                        class ApplicationTables(Entity):
+                        class ApplicationTables(_Entity_):
                             """
                             Advertise application specific values
                             
@@ -4829,7 +5632,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables, self).__init__()
 
                                 self.yang_name = "application-tables"
                                 self.yang_parent_name = "af-data"
@@ -4847,7 +5653,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables, [], name, value)
 
 
-                            class ApplicationTable(Entity):
+                            class ApplicationTable(_Entity_):
                                 """
                                 Application Name
                                 
@@ -4869,7 +5675,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable, self).__init__()
 
                                     self.yang_name = "application-table"
                                     self.yang_parent_name = "application-tables"
@@ -4890,7 +5699,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable, ['app_type'], name, value)
 
 
-                                class AttributeTable(Entity):
+                                class AttributeTable(_Entity_):
                                     """
                                     Attribute Name
                                     
@@ -4914,7 +5723,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
 
                                         self.yang_name = "attribute-table"
                                         self.yang_parent_name = "application-table"
@@ -4934,11 +5746,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable, ['app_type', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables']['meta_info']
 
 
-
-
-                        class SpfPeriodicIntervals(Entity):
+                        class SpfPeriodicIntervals(_Entity_):
                             """
                             Peoridic SPF configuration
                             
@@ -4955,7 +5779,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals, self).__init__()
 
                                 self.yang_name = "spf-periodic-intervals"
                                 self.yang_parent_name = "af-data"
@@ -4973,7 +5800,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals, [], name, value)
 
 
-                            class SpfPeriodicInterval(Entity):
+                            class SpfPeriodicInterval(_Entity_):
                                 """
                                 Maximum interval between spf runs
                                 
@@ -5001,7 +5828,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
 
                                     self.yang_name = "spf-periodic-interval"
                                     self.yang_parent_name = "spf-periodic-intervals"
@@ -5021,10 +5851,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals']['meta_info']
 
 
-
-                        class DistributeListIn(Entity):
+                        class DistributeListIn(_Entity_):
                             """
                             Filter routes sent to the RIB
                             
@@ -5050,7 +5888,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn, self).__init__()
 
                                 self.yang_name = "distribute-list-in"
                                 self.yang_parent_name = "af-data"
@@ -5070,9 +5911,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn, ['prefix_list_name', 'route_policy_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn']['meta_info']
 
 
-                        class SpfIntervals(Entity):
+                        class SpfIntervals(_Entity_):
                             """
                             SPF\-interval configuration
                             
@@ -5089,7 +5934,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals, self).__init__()
 
                                 self.yang_name = "spf-intervals"
                                 self.yang_parent_name = "af-data"
@@ -5107,7 +5955,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals, [], name, value)
 
 
-                            class SpfInterval(Entity):
+                            class SpfInterval(_Entity_):
                                 """
                                 Route calculation scheduling parameters
                                 
@@ -5151,7 +5999,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, self).__init__()
 
                                     self.yang_name = "spf-interval"
                                     self.yang_parent_name = "spf-intervals"
@@ -5175,10 +6026,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals']['meta_info']
 
 
-
-                        class MonitorConvergence(Entity):
+                        class MonitorConvergence(_Entity_):
                             """
                             Enable convergence monitoring
                             
@@ -5207,7 +6066,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, self).__init__()
 
                                 self.yang_name = "monitor-convergence"
                                 self.yang_parent_name = "af-data"
@@ -5229,9 +6091,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, ['enable', 'track_ip_frr', 'prefix_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence']['meta_info']
 
 
-                        class DefaultInformation(Entity):
+                        class DefaultInformation(_Entity_):
                             """
                             Control origination of a default route with
                             the option of using a policy.  If no policy
@@ -5263,7 +6129,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, self).__init__()
 
                                 self.yang_name = "default-information"
                                 self.yang_parent_name = "af-data"
@@ -5285,9 +6154,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, ['use_policy', 'policy_name', 'external'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation']['meta_info']
 
 
-                        class AdminDistances(Entity):
+                        class AdminDistances(_Entity_):
                             """
                             Per\-route administrative
                             distanceconfiguration
@@ -5305,7 +6178,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances, self).__init__()
 
                                 self.yang_name = "admin-distances"
                                 self.yang_parent_name = "af-data"
@@ -5323,7 +6199,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances, [], name, value)
 
 
-                            class AdminDistance(Entity):
+                            class AdminDistance(_Entity_):
                                 """
                                 Administrative distance configuration. The
                                 supplied distance is applied to all routes
@@ -5368,7 +6244,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, self).__init__()
 
                                     self.yang_name = "admin-distance"
                                     self.yang_parent_name = "admin-distances"
@@ -5390,10 +6269,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.AdminDistances']['meta_info']
 
 
-
-                        class Ispf(Entity):
+                        class Ispf(_Entity_):
                             """
                             ISPF configuration
                             
@@ -5410,7 +6297,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Ispf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Ispf, self).__init__()
 
                                 self.yang_name = "ispf"
                                 self.yang_parent_name = "af-data"
@@ -5430,7 +6320,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ispf, [], name, value)
 
 
-                            class States(Entity):
+                            class States(_Entity_):
                                 """
                                 ISPF state (enable/disable)
                                 
@@ -5447,7 +6337,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States, self).__init__()
 
                                     self.yang_name = "states"
                                     self.yang_parent_name = "ispf"
@@ -5465,7 +6358,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States, [], name, value)
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Enable/disable ISPF
                                     
@@ -5489,7 +6382,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "states"
@@ -5509,11 +6405,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, ['level', 'state'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ispf.States']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Ispf']['meta_info']
 
 
-
-
-                        class MplsLdpGlobal(Entity):
+                        class MplsLdpGlobal(_Entity_):
                             """
                             MPLS LDP configuration. MPLS LDP
                             configuration will only be applied for the
@@ -5532,7 +6440,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, self).__init__()
 
                                 self.yang_name = "mpls-ldp-global"
                                 self.yang_parent_name = "af-data"
@@ -5550,9 +6461,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, ['auto_config'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal']['meta_info']
 
 
-                        class Mpls(Entity):
+                        class Mpls(_Entity_):
                             """
                             MPLS configuration. MPLS configuration will
                             only be applied for the IPv4\-unicast
@@ -5586,7 +6501,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Mpls, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Mpls, self).__init__()
 
                                 self.yang_name = "mpls"
                                 self.yang_parent_name = "af-data"
@@ -5615,7 +6533,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Mpls, ['igp_intact', 'multicast_intact'], name, value)
 
 
-                            class RouterId(Entity):
+                            class RouterId(_Entity_):
                                 """
                                 Traffic Engineering stable IP address for
                                 system
@@ -5642,7 +6560,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, self).__init__()
 
                                     self.yang_name = "router-id"
                                     self.yang_parent_name = "mpls"
@@ -5662,9 +6583,13 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, ['address', 'interface_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId']['meta_info']
 
 
-                            class Level(Entity):
+                            class Level(_Entity_):
                                 """
                                 Enable MPLS for an IS\-IS at the given
                                 levels
@@ -5687,7 +6612,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, self).__init__()
 
                                     self.yang_name = "level"
                                     self.yang_parent_name = "mpls"
@@ -5707,10 +6635,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, ['level1', 'level2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Mpls']['meta_info']
 
 
-
-                        class ManualAdjSids(Entity):
+                        class ManualAdjSids(_Entity_):
                             """
                             Manual Adjacecy SID configuration
                             
@@ -5727,7 +6663,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids, self).__init__()
 
                                 self.yang_name = "manual-adj-sids"
                                 self.yang_parent_name = "af-data"
@@ -5745,7 +6684,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids, [], name, value)
 
 
-                            class ManualAdjSid(Entity):
+                            class ManualAdjSid(_Entity_):
                                 """
                                 Assign adjancency SID to an interface
                                 
@@ -5781,7 +6720,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, self).__init__()
 
                                     self.yang_name = "manual-adj-sid"
                                     self.yang_parent_name = "manual-adj-sids"
@@ -5805,10 +6747,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids']['meta_info']
 
 
-
-                        class Metrics(Entity):
+                        class Metrics(_Entity_):
                             """
                             Metric configuration
                             
@@ -5825,7 +6775,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Metrics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Metrics, self).__init__()
 
                                 self.yang_name = "metrics"
                                 self.yang_parent_name = "af-data"
@@ -5843,7 +6796,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Metrics, [], name, value)
 
 
-                            class Metric(Entity):
+                            class Metric(_Entity_):
                                 """
                                 Metric configuration. Legal value depends on
                                 the metric\-style specified for the topology. If
@@ -5880,7 +6833,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric, self).__init__()
 
                                     self.yang_name = "metric"
                                     self.yang_parent_name = "metrics"
@@ -5919,10 +6875,24 @@ class Isis(Entity):
                                     maximum = Enum.YLeaf(16777215, "maximum")
 
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric.Metric_']
 
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric']['meta_info']
 
-                        class Weights(Entity):
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Metrics']['meta_info']
+
+
+                        class Weights(_Entity_):
                             """
                             Weight configuration
                             
@@ -5939,7 +6909,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.AfData.Weights, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.AfData.Weights, self).__init__()
 
                                 self.yang_name = "weights"
                                 self.yang_parent_name = "af-data"
@@ -5957,7 +6930,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Weights, [], name, value)
 
 
-                            class Weight(Entity):
+                            class Weight(_Entity_):
                                 """
                                 Weight configuration under interface for load
                                 balancing
@@ -5984,7 +6957,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, self).__init__()
 
                                     self.yang_name = "weight"
                                     self.yang_parent_name = "weights"
@@ -6004,11 +6980,23 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, ['level', 'weight'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Weights']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData']['meta_info']
 
 
-
-
-                    class TopologyName(Entity):
+                    class TopologyName(_Entity_):
                         """
                         keys\: topology\-name
                         
@@ -6212,7 +7200,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Afs.Af.TopologyName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Afs.Af.TopologyName, self).__init__()
 
                             self.yang_name = "topology-name"
                             self.yang_parent_name = "af"
@@ -6349,7 +7340,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName, ['topology_name', 'maximum_paths', 'topology_id', 'single_topology', 'adjacency_check', 'advertise_link_attributes', 'apply_weight', 'default_admin_distance', 'advertise_passive_only', 'ignore_attached_bit', 'attached_bit', 'route_source_first_hop'], name, value)
 
 
-                        class SegmentRouting(Entity):
+                        class SegmentRouting(_Entity_):
                             """
                             Enable Segment Routing configuration
                             
@@ -6391,7 +7382,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, self).__init__()
 
                                 self.yang_name = "segment-routing"
                                 self.yang_parent_name = "topology-name"
@@ -6426,7 +7420,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, ['bundle_member_adj_sid', 'labeled_only', 'mpls'], name, value)
 
 
-                            class Srv6(Entity):
+                            class Srv6(_Entity_):
                                 """
                                 SRv6 configuration
                                 
@@ -6448,7 +7442,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6, self).__init__()
 
                                     self.yang_name = "srv6"
                                     self.yang_parent_name = "segment-routing"
@@ -6471,7 +7468,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6, ['running'], name, value)
 
 
-                                class Srv6Locators(Entity):
+                                class Srv6Locators(_Entity_):
                                     """
                                     SRv6 Locator configuration
                                     
@@ -6488,7 +7485,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators, self).__init__()
 
                                         self.yang_name = "srv6-locators"
                                         self.yang_parent_name = "srv6"
@@ -6506,7 +7506,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators, [], name, value)
 
 
-                                    class Srv6Locator(Entity):
+                                    class Srv6Locator(_Entity_):
                                         """
                                         Configuration for a single SRv6 Locator
                                         
@@ -6530,7 +7530,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, self).__init__()
 
                                             self.yang_name = "srv6-locator"
                                             self.yang_parent_name = "srv6-locators"
@@ -6550,11 +7553,23 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator, ['locator_name', 'running'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators.Srv6Locator']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6.Srv6Locators']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.Srv6']['meta_info']
 
 
-
-
-                            class ConnectedPrefixSids(Entity):
+                            class ConnectedPrefixSids(_Entity_):
                                 """
                                 Connected Segment Routing prefix SID map
                                 configuration
@@ -6572,7 +7587,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids, self).__init__()
 
                                     self.yang_name = "connected-prefix-sids"
                                     self.yang_parent_name = "segment-routing"
@@ -6590,7 +7608,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids, [], name, value)
 
 
-                                class ConnectedPrefixSid(Entity):
+                                class ConnectedPrefixSid(_Entity_):
                                     """
                                     Segment Routing prefix SID map
                                     
@@ -6662,7 +7680,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, self).__init__()
 
                                         self.yang_name = "connected-prefix-sid"
                                         self.yang_parent_name = "connected-prefix-sids"
@@ -6694,10 +7715,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid, ['address_prefix', 'algo', 'sid_type', 'sid', 'sid_range', 'interface', 'php', 'explicit_null'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids.ConnectedPrefixSid']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.ConnectedPrefixSids']['meta_info']
 
 
-
-                            class PrefixSidMap(Entity):
+                            class PrefixSidMap(_Entity_):
                                 """
                                 Enable Segment Routing prefix SID map
                                 configuration
@@ -6720,7 +7749,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, self).__init__()
 
                                     self.yang_name = "prefix-sid-map"
                                     self.yang_parent_name = "segment-routing"
@@ -6740,10 +7772,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, ['advertise_local', 'receive'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting']['meta_info']
 
 
-
-                        class MetricStyles(Entity):
+                        class MetricStyles(_Entity_):
                             """
                             Metric\-style configuration
                             
@@ -6760,7 +7800,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles, self).__init__()
 
                                 self.yang_name = "metric-styles"
                                 self.yang_parent_name = "topology-name"
@@ -6778,7 +7821,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles, [], name, value)
 
 
-                            class MetricStyle(Entity):
+                            class MetricStyle(_Entity_):
                                 """
                                 Configuration of metric style in LSPs
                                 
@@ -6802,7 +7845,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, self).__init__()
 
                                     self.yang_name = "metric-style"
                                     self.yang_parent_name = "metric-styles"
@@ -6822,10 +7868,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, ['level', 'style'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles']['meta_info']
 
 
-
-                        class FrrTable(Entity):
+                        class FrrTable(_Entity_):
                             """
                             Fast\-ReRoute configuration
                             
@@ -6876,7 +7930,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable, self).__init__()
 
                                 self.yang_name = "frr-table"
                                 self.yang_parent_name = "topology-name"
@@ -6919,7 +7976,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable, ['frr_initial_delay'], name, value)
 
 
-                            class FrrLoadSharings(Entity):
+                            class FrrLoadSharings(_Entity_):
                                 """
                                 Load share prefixes across multiple
                                 backups
@@ -6937,7 +7994,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings, self).__init__()
 
                                     self.yang_name = "frr-load-sharings"
                                     self.yang_parent_name = "frr-table"
@@ -6955,7 +8015,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings, [], name, value)
 
 
-                                class FrrLoadSharing(Entity):
+                                class FrrLoadSharing(_Entity_):
                                     """
                                     Disable load sharing
                                     
@@ -6979,7 +8039,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
 
                                         self.yang_name = "frr-load-sharing"
                                         self.yang_parent_name = "frr-load-sharings"
@@ -6999,10 +8062,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings']['meta_info']
 
 
-
-                            class FrrsrlgProtectionTypes(Entity):
+                            class FrrsrlgProtectionTypes(_Entity_):
                                 """
                                 SRLG protection type configuration
                                 
@@ -7019,7 +8090,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes, self).__init__()
 
                                     self.yang_name = "frrsrlg-protection-types"
                                     self.yang_parent_name = "frr-table"
@@ -7037,7 +8111,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes, [], name, value)
 
 
-                                class FrrsrlgProtectionType(Entity):
+                                class FrrsrlgProtectionType(_Entity_):
                                     """
                                     FRR SRLG Protection Type
                                     
@@ -7061,7 +8135,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, self).__init__()
 
                                         self.yang_name = "frrsrlg-protection-type"
                                         self.yang_parent_name = "frrsrlg-protection-types"
@@ -7081,10 +8158,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, ['level', 'protection_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes']['meta_info']
 
 
-
-                            class PriorityLimits(Entity):
+                            class PriorityLimits(_Entity_):
                                 """
                                 FRR prefix\-limit configuration
                                 
@@ -7101,7 +8186,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits, self).__init__()
 
                                     self.yang_name = "priority-limits"
                                     self.yang_parent_name = "frr-table"
@@ -7119,7 +8207,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits, [], name, value)
 
 
-                                class PriorityLimit(Entity):
+                                class PriorityLimit(_Entity_):
                                     """
                                     Limit backup computation upto the prefix
                                     priority
@@ -7149,7 +8237,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
 
                                         self.yang_name = "priority-limit"
                                         self.yang_parent_name = "priority-limits"
@@ -7171,10 +8262,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits']['meta_info']
 
 
-
-                            class FrrRemoteLfaPrefixes(Entity):
+                            class FrrRemoteLfaPrefixes(_Entity_):
                                 """
                                 FRR remote LFA prefix list filter
                                 configuration
@@ -7192,7 +8291,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
 
                                     self.yang_name = "frr-remote-lfa-prefixes"
                                     self.yang_parent_name = "frr-table"
@@ -7210,7 +8312,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes, [], name, value)
 
 
-                                class FrrRemoteLfaPrefix(Entity):
+                                class FrrRemoteLfaPrefix(_Entity_):
                                     """
                                     Filter remote LFA router IDs using
                                     prefix\-list
@@ -7237,7 +8339,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
 
                                         self.yang_name = "frr-remote-lfa-prefix"
                                         self.yang_parent_name = "frr-remote-lfa-prefixes"
@@ -7257,10 +8362,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes']['meta_info']
 
 
-
-                            class FrrTiebreakers(Entity):
+                            class FrrTiebreakers(_Entity_):
                                 """
                                 FRR tiebreakers configuration
                                 
@@ -7277,7 +8390,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers, self).__init__()
 
                                     self.yang_name = "frr-tiebreakers"
                                     self.yang_parent_name = "frr-table"
@@ -7295,7 +8411,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers, [], name, value)
 
 
-                                class FrrTiebreaker(Entity):
+                                class FrrTiebreaker(_Entity_):
                                     """
                                     Configure tiebreaker for multiple backups
                                     
@@ -7326,7 +8442,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
 
                                         self.yang_name = "frr-tiebreaker"
                                         self.yang_parent_name = "frr-tiebreakers"
@@ -7348,10 +8467,18 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers']['meta_info']
 
 
-
-                            class FrrUseCandOnlies(Entity):
+                            class FrrUseCandOnlies(_Entity_):
                                 """
                                 FRR use candidate only configuration
                                 
@@ -7368,7 +8495,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies, self).__init__()
 
                                     self.yang_name = "frr-use-cand-onlies"
                                     self.yang_parent_name = "frr-table"
@@ -7386,7 +8516,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies, [], name, value)
 
 
-                                class FrrUseCandOnly(Entity):
+                                class FrrUseCandOnly(_Entity_):
                                     """
                                     Configure use candidate only to exclude
                                     interfaces as backup
@@ -7409,7 +8539,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
 
                                         self.yang_name = "frr-use-cand-only"
                                         self.yang_parent_name = "frr-use-cand-onlies"
@@ -7429,11 +8562,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable']['meta_info']
 
 
-
-
-                        class RouterId(Entity):
+                        class RouterId(_Entity_):
                             """
                             Stable IP address for system. Will only be
                             applied for the unicast sub\-address\-family.
@@ -7458,7 +8603,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, self).__init__()
 
                                 self.yang_name = "router-id"
                                 self.yang_parent_name = "topology-name"
@@ -7478,9 +8626,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, ['address', 'interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.RouterId']['meta_info']
 
 
-                        class SpfPrefixPriorities(Entity):
+                        class SpfPrefixPriorities(_Entity_):
                             """
                             SPF Prefix Priority configuration
                             
@@ -7497,7 +8649,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities, self).__init__()
 
                                 self.yang_name = "spf-prefix-priorities"
                                 self.yang_parent_name = "topology-name"
@@ -7515,7 +8670,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities, [], name, value)
 
 
-                            class SpfPrefixPriority(Entity):
+                            class SpfPrefixPriority(_Entity_):
                                 """
                                 Determine SPF priority for prefixes
                                 
@@ -7551,7 +8706,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
 
                                     self.yang_name = "spf-prefix-priority"
                                     self.yang_parent_name = "spf-prefix-priorities"
@@ -7575,10 +8733,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities']['meta_info']
 
 
-
-                        class SummaryPrefixes(Entity):
+                        class SummaryPrefixes(_Entity_):
                             """
                             Summary\-prefix configuration
                             
@@ -7595,7 +8761,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes, self).__init__()
 
                                 self.yang_name = "summary-prefixes"
                                 self.yang_parent_name = "topology-name"
@@ -7613,7 +8782,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes, [], name, value)
 
 
-                            class SummaryPrefix(Entity):
+                            class SummaryPrefix(_Entity_):
                                 """
                                 Configure IP address prefixes to advertise
                                 
@@ -7652,7 +8821,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, self).__init__()
 
                                     self.yang_name = "summary-prefix"
                                     self.yang_parent_name = "summary-prefixes"
@@ -7674,10 +8846,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes']['meta_info']
 
 
-
-                        class MicroLoopAvoidance(Entity):
+                        class MicroLoopAvoidance(_Entity_):
                             """
                             Micro Loop Avoidance configuration
                             
@@ -7705,7 +8885,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, self).__init__()
 
                                 self.yang_name = "micro-loop-avoidance"
                                 self.yang_parent_name = "topology-name"
@@ -7725,9 +8908,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, ['enable', 'rib_update_delay'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance']['meta_info']
 
 
-                        class Ucmp(Entity):
+                        class Ucmp(_Entity_):
                             """
                             UCMP (UnEqual Cost MultiPath) configuration
                             
@@ -7760,7 +8947,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp, self).__init__()
 
                                 self.yang_name = "ucmp"
                                 self.yang_parent_name = "topology-name"
@@ -7787,7 +8977,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp, ['delay_interval'], name, value)
 
 
-                            class Enable(Entity):
+                            class Enable(_Entity_):
                                 """
                                 UCMP feature enable configuration
                                 
@@ -7815,7 +9005,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, self).__init__()
 
                                     self.yang_name = "enable"
                                     self.yang_parent_name = "ucmp"
@@ -7835,9 +9028,13 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable']['meta_info']
 
 
-                            class ExcludeInterfaces(Entity):
+                            class ExcludeInterfaces(_Entity_):
                                 """
                                 Interfaces excluded from UCMP path
                                 computation
@@ -7855,7 +9052,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces, self).__init__()
 
                                     self.yang_name = "exclude-interfaces"
                                     self.yang_parent_name = "ucmp"
@@ -7873,7 +9073,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces, [], name, value)
 
 
-                                class ExcludeInterface(Entity):
+                                class ExcludeInterface(_Entity_):
                                     """
                                     Exclude this interface from UCMP path
                                     computation
@@ -7893,7 +9093,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                         self.yang_name = "exclude-interface"
                                         self.yang_parent_name = "exclude-interfaces"
@@ -7911,11 +9114,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp']['meta_info']
 
 
-
-
-                        class MaxRedistPrefixes(Entity):
+                        class MaxRedistPrefixes(_Entity_):
                             """
                             Maximum number of redistributed
                             prefixesconfiguration
@@ -7933,7 +9148,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes, self).__init__()
 
                                 self.yang_name = "max-redist-prefixes"
                                 self.yang_parent_name = "topology-name"
@@ -7951,7 +9169,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes, [], name, value)
 
 
-                            class MaxRedistPrefix(Entity):
+                            class MaxRedistPrefix(_Entity_):
                                 """
                                 An upper limit on the number of
                                 redistributed prefixes which may be
@@ -7979,7 +9197,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
 
                                     self.yang_name = "max-redist-prefix"
                                     self.yang_parent_name = "max-redist-prefixes"
@@ -7999,10 +9220,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes']['meta_info']
 
 
-
-                        class Propagations(Entity):
+                        class Propagations(_Entity_):
                             """
                             Route propagation configuration
                             
@@ -8019,7 +9248,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations, self).__init__()
 
                                 self.yang_name = "propagations"
                                 self.yang_parent_name = "topology-name"
@@ -8037,7 +9269,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations, [], name, value)
 
 
-                            class Propagation(Entity):
+                            class Propagation(_Entity_):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
@@ -8068,7 +9300,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, self).__init__()
 
                                     self.yang_name = "propagation"
                                     self.yang_parent_name = "propagations"
@@ -8090,10 +9325,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Propagations']['meta_info']
 
 
-
-                        class Redistributions(Entity):
+                        class Redistributions(_Entity_):
                             """
                             Protocol redistribution configuration
                             
@@ -8110,7 +9353,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions, self).__init__()
 
                                 self.yang_name = "redistributions"
                                 self.yang_parent_name = "topology-name"
@@ -8128,7 +9374,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions, [], name, value)
 
 
-                            class Redistribution(Entity):
+                            class Redistribution(_Entity_):
                                 """
                                 Redistribution of other protocols into
                                 this IS\-IS instance
@@ -8168,7 +9414,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, self).__init__()
 
                                     self.yang_name = "redistribution"
                                     self.yang_parent_name = "redistributions"
@@ -8194,7 +9443,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, ['protocol_name'], name, value)
 
 
-                                class ConnectedOrStaticOrRipOrSubscriberOrMobile(Entity):
+                                class ConnectedOrStaticOrRipOrSubscriberOrMobile(_Entity_):
                                     """
                                     connected or static or rip or subscriber
                                     or mobile
@@ -8240,7 +9489,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
 
                                         self.yang_name = "connected-or-static-or-rip-or-subscriber-or-mobile"
                                         self.yang_parent_name = "redistribution"
@@ -8267,9 +9519,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, ['metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile']['meta_info']
 
 
-                                class OspfOrOspfv3OrIsisOrApplication(Entity):
+                                class OspfOrOspfv3OrIsisOrApplication(_Entity_):
                                     """
                                     ospf or ospfv3 or isis or application
                                     
@@ -8319,7 +9575,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
 
                                         self.yang_name = "ospf-or-ospfv3-or-isis-or-application"
                                         self.yang_parent_name = "redistribution"
@@ -8347,9 +9606,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication']['meta_info']
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     bgp
                                     
@@ -8406,7 +9669,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "redistribution"
@@ -8436,9 +9702,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp']['meta_info']
 
 
-                                class Eigrp(Entity):
+                                class Eigrp(_Entity_):
                                     """
                                     eigrp
                                     
@@ -8488,7 +9758,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, self).__init__()
 
                                         self.yang_name = "eigrp"
                                         self.yang_parent_name = "redistribution"
@@ -8516,11 +9789,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions']['meta_info']
 
 
-
-
-                        class ApplicationTables(Entity):
+                        class ApplicationTables(_Entity_):
                             """
                             Advertise application specific values
                             
@@ -8537,7 +9822,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables, self).__init__()
 
                                 self.yang_name = "application-tables"
                                 self.yang_parent_name = "topology-name"
@@ -8555,7 +9843,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables, [], name, value)
 
 
-                            class ApplicationTable(Entity):
+                            class ApplicationTable(_Entity_):
                                 """
                                 Application Name
                                 
@@ -8577,7 +9865,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable, self).__init__()
 
                                     self.yang_name = "application-table"
                                     self.yang_parent_name = "application-tables"
@@ -8598,7 +9889,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable, ['app_type'], name, value)
 
 
-                                class AttributeTable(Entity):
+                                class AttributeTable(_Entity_):
                                     """
                                     Attribute Name
                                     
@@ -8622,7 +9913,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable, self).__init__()
 
                                         self.yang_name = "attribute-table"
                                         self.yang_parent_name = "application-table"
@@ -8642,11 +9936,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable, ['app_type', 'enable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables']['meta_info']
 
 
-
-
-                        class SpfPeriodicIntervals(Entity):
+                        class SpfPeriodicIntervals(_Entity_):
                             """
                             Peoridic SPF configuration
                             
@@ -8663,7 +9969,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals, self).__init__()
 
                                 self.yang_name = "spf-periodic-intervals"
                                 self.yang_parent_name = "topology-name"
@@ -8681,7 +9990,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals, [], name, value)
 
 
-                            class SpfPeriodicInterval(Entity):
+                            class SpfPeriodicInterval(_Entity_):
                                 """
                                 Maximum interval between spf runs
                                 
@@ -8709,7 +10018,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
 
                                     self.yang_name = "spf-periodic-interval"
                                     self.yang_parent_name = "spf-periodic-intervals"
@@ -8729,10 +10041,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals']['meta_info']
 
 
-
-                        class DistributeListIn(Entity):
+                        class DistributeListIn(_Entity_):
                             """
                             Filter routes sent to the RIB
                             
@@ -8758,7 +10078,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn, self).__init__()
 
                                 self.yang_name = "distribute-list-in"
                                 self.yang_parent_name = "topology-name"
@@ -8778,9 +10101,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn, ['prefix_list_name', 'route_policy_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn']['meta_info']
 
 
-                        class SpfIntervals(Entity):
+                        class SpfIntervals(_Entity_):
                             """
                             SPF\-interval configuration
                             
@@ -8797,7 +10124,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals, self).__init__()
 
                                 self.yang_name = "spf-intervals"
                                 self.yang_parent_name = "topology-name"
@@ -8815,7 +10145,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals, [], name, value)
 
 
-                            class SpfInterval(Entity):
+                            class SpfInterval(_Entity_):
                                 """
                                 Route calculation scheduling parameters
                                 
@@ -8859,7 +10189,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, self).__init__()
 
                                     self.yang_name = "spf-interval"
                                     self.yang_parent_name = "spf-intervals"
@@ -8883,10 +10216,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals']['meta_info']
 
 
-
-                        class MonitorConvergence(Entity):
+                        class MonitorConvergence(_Entity_):
                             """
                             Enable convergence monitoring
                             
@@ -8915,7 +10256,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, self).__init__()
 
                                 self.yang_name = "monitor-convergence"
                                 self.yang_parent_name = "topology-name"
@@ -8937,9 +10281,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, ['enable', 'track_ip_frr', 'prefix_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence']['meta_info']
 
 
-                        class DefaultInformation(Entity):
+                        class DefaultInformation(_Entity_):
                             """
                             Control origination of a default route with
                             the option of using a policy.  If no policy
@@ -8971,7 +10319,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, self).__init__()
 
                                 self.yang_name = "default-information"
                                 self.yang_parent_name = "topology-name"
@@ -8993,9 +10344,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, ['use_policy', 'policy_name', 'external'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation']['meta_info']
 
 
-                        class AdminDistances(Entity):
+                        class AdminDistances(_Entity_):
                             """
                             Per\-route administrative
                             distanceconfiguration
@@ -9013,7 +10368,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances, self).__init__()
 
                                 self.yang_name = "admin-distances"
                                 self.yang_parent_name = "topology-name"
@@ -9031,7 +10389,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances, [], name, value)
 
 
-                            class AdminDistance(Entity):
+                            class AdminDistance(_Entity_):
                                 """
                                 Administrative distance configuration. The
                                 supplied distance is applied to all routes
@@ -9076,7 +10434,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, self).__init__()
 
                                     self.yang_name = "admin-distance"
                                     self.yang_parent_name = "admin-distances"
@@ -9098,10 +10459,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances']['meta_info']
 
 
-
-                        class Ispf(Entity):
+                        class Ispf(_Entity_):
                             """
                             ISPF configuration
                             
@@ -9118,7 +10487,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf, self).__init__()
 
                                 self.yang_name = "ispf"
                                 self.yang_parent_name = "topology-name"
@@ -9138,7 +10510,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf, [], name, value)
 
 
-                            class States(Entity):
+                            class States(_Entity_):
                                 """
                                 ISPF state (enable/disable)
                                 
@@ -9155,7 +10527,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States, self).__init__()
 
                                     self.yang_name = "states"
                                     self.yang_parent_name = "ispf"
@@ -9173,7 +10548,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States, [], name, value)
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Enable/disable ISPF
                                     
@@ -9197,7 +10572,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "states"
@@ -9217,11 +10595,23 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, ['level', 'state'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Ispf']['meta_info']
 
 
-
-
-                        class MplsLdpGlobal(Entity):
+                        class MplsLdpGlobal(_Entity_):
                             """
                             MPLS LDP configuration. MPLS LDP
                             configuration will only be applied for the
@@ -9240,7 +10630,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, self).__init__()
 
                                 self.yang_name = "mpls-ldp-global"
                                 self.yang_parent_name = "topology-name"
@@ -9258,9 +10651,13 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, ['auto_config'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal']['meta_info']
 
 
-                        class Mpls(Entity):
+                        class Mpls(_Entity_):
                             """
                             MPLS configuration. MPLS configuration will
                             only be applied for the IPv4\-unicast
@@ -9294,7 +10691,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls, self).__init__()
 
                                 self.yang_name = "mpls"
                                 self.yang_parent_name = "topology-name"
@@ -9323,7 +10723,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls, ['igp_intact', 'multicast_intact'], name, value)
 
 
-                            class RouterId(Entity):
+                            class RouterId(_Entity_):
                                 """
                                 Traffic Engineering stable IP address for
                                 system
@@ -9350,7 +10750,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, self).__init__()
 
                                     self.yang_name = "router-id"
                                     self.yang_parent_name = "mpls"
@@ -9370,9 +10773,13 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, ['address', 'interface_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId']['meta_info']
 
 
-                            class Level(Entity):
+                            class Level(_Entity_):
                                 """
                                 Enable MPLS for an IS\-IS at the given
                                 levels
@@ -9395,7 +10802,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, self).__init__()
 
                                     self.yang_name = "level"
                                     self.yang_parent_name = "mpls"
@@ -9415,10 +10825,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, ['level1', 'level2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Mpls']['meta_info']
 
 
-
-                        class ManualAdjSids(Entity):
+                        class ManualAdjSids(_Entity_):
                             """
                             Manual Adjacecy SID configuration
                             
@@ -9435,7 +10853,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids, self).__init__()
 
                                 self.yang_name = "manual-adj-sids"
                                 self.yang_parent_name = "topology-name"
@@ -9453,7 +10874,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids, [], name, value)
 
 
-                            class ManualAdjSid(Entity):
+                            class ManualAdjSid(_Entity_):
                                 """
                                 Assign adjancency SID to an interface
                                 
@@ -9489,7 +10910,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
 
                                     self.yang_name = "manual-adj-sid"
                                     self.yang_parent_name = "manual-adj-sids"
@@ -9513,10 +10937,18 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids']['meta_info']
 
 
-
-                        class Metrics(Entity):
+                        class Metrics(_Entity_):
                             """
                             Metric configuration
                             
@@ -9533,7 +10965,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics, self).__init__()
 
                                 self.yang_name = "metrics"
                                 self.yang_parent_name = "topology-name"
@@ -9551,7 +10986,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics, [], name, value)
 
 
-                            class Metric(Entity):
+                            class Metric(_Entity_):
                                 """
                                 Metric configuration. Legal value depends on
                                 the metric\-style specified for the topology. If
@@ -9588,7 +11023,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric, self).__init__()
 
                                     self.yang_name = "metric"
                                     self.yang_parent_name = "metrics"
@@ -9627,10 +11065,24 @@ class Isis(Entity):
                                     maximum = Enum.YLeaf(16777215, "maximum")
 
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric.Metric_']
 
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric']['meta_info']
 
-                        class Weights(Entity):
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Metrics']['meta_info']
+
+
+                        class Weights(_Entity_):
                             """
                             Weight configuration
                             
@@ -9647,7 +11099,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights, self).__init__()
 
                                 self.yang_name = "weights"
                                 self.yang_parent_name = "topology-name"
@@ -9665,7 +11120,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Weights, [], name, value)
 
 
-                            class Weight(Entity):
+                            class Weight(_Entity_):
                                 """
                                 Weight configuration under interface for load
                                 balancing
@@ -9692,7 +11147,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, self).__init__()
 
                                     self.yang_name = "weight"
                                     self.yang_parent_name = "weights"
@@ -9712,13 +11170,33 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Weights']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.Afs.Af']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Afs']['meta_info']
 
 
-
-
-
-
-            class LspRefreshIntervals(Entity):
+            class LspRefreshIntervals(_Entity_):
                 """
                 LSP refresh\-interval configuration
                 
@@ -9735,7 +11213,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspRefreshIntervals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspRefreshIntervals, self).__init__()
 
                     self.yang_name = "lsp-refresh-intervals"
                     self.yang_parent_name = "instance"
@@ -9753,7 +11234,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspRefreshIntervals, [], name, value)
 
 
-                class LspRefreshInterval(Entity):
+                class LspRefreshInterval(_Entity_):
                     """
                     Interval between re\-flooding of unchanged
                     LSPs
@@ -9782,7 +11263,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, self).__init__()
 
                         self.yang_name = "lsp-refresh-interval"
                         self.yang_parent_name = "lsp-refresh-intervals"
@@ -9802,10 +11286,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, ['level', 'interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspRefreshIntervals']['meta_info']
 
 
-
-            class Distribute(Entity):
+            class Distribute(_Entity_):
                 """
                 Distribute link\-state configuration
                 
@@ -9840,7 +11332,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Distribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Distribute, self).__init__()
 
                     self.yang_name = "distribute"
                     self.yang_parent_name = "instance"
@@ -9863,9 +11358,13 @@ class Isis(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.Distribute, ['dist_inst_id', 'level', 'dist_throttle'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Distribute']['meta_info']
 
 
-            class FlexAlgos(Entity):
+            class FlexAlgos(_Entity_):
                 """
                 Flex\-Algo Table
                 
@@ -9882,7 +11381,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.FlexAlgos, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.FlexAlgos, self).__init__()
 
                     self.yang_name = "flex-algos"
                     self.yang_parent_name = "instance"
@@ -9900,7 +11402,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.FlexAlgos, [], name, value)
 
 
-                class FlexAlgo(Entity):
+                class FlexAlgo(_Entity_):
                     """
                     Configuration for an IS\-IS Flex\-Algo
                     
@@ -9953,7 +11455,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.FlexAlgos.FlexAlgo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.FlexAlgos.FlexAlgo, self).__init__()
 
                         self.yang_name = "flex-algo"
                         self.yang_parent_name = "flex-algos"
@@ -9986,7 +11491,7 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.FlexAlgos.FlexAlgo, ['flex_algo', 'running', 'metric_type', 'priority', 'frr_disable', 'advertise_definition'], name, value)
 
 
-                    class AffinityExcludeAnies(Entity):
+                    class AffinityExcludeAnies(_Entity_):
                         """
                         Set the exclude\-any affinity
                         
@@ -10003,7 +11508,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies, self).__init__()
 
                             self.yang_name = "affinity-exclude-anies"
                             self.yang_parent_name = "flex-algo"
@@ -10021,11 +11529,23 @@ class Isis(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies, ['affinity_exclude_any'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.FlexAlgos.FlexAlgo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.FlexAlgos']['meta_info']
 
 
-
-
-            class AffinityMappings(Entity):
+            class AffinityMappings(_Entity_):
                 """
                 Affinity Mapping Table
                 
@@ -10042,7 +11562,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.AffinityMappings, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.AffinityMappings, self).__init__()
 
                     self.yang_name = "affinity-mappings"
                     self.yang_parent_name = "instance"
@@ -10060,7 +11583,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.AffinityMappings, [], name, value)
 
 
-                class AffinityMapping(Entity):
+                class AffinityMapping(_Entity_):
                     """
                     Affinity Mapping configuration
                     
@@ -10088,7 +11611,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.AffinityMappings.AffinityMapping, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.AffinityMappings.AffinityMapping, self).__init__()
 
                         self.yang_name = "affinity-mapping"
                         self.yang_parent_name = "affinity-mappings"
@@ -10108,10 +11634,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.AffinityMappings.AffinityMapping, ['affinity_name', 'value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.AffinityMappings.AffinityMapping']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.AffinityMappings']['meta_info']
 
 
-
-            class LspAcceptPasswords(Entity):
+            class LspAcceptPasswords(_Entity_):
                 """
                 LSP/SNP accept password configuration
                 
@@ -10128,7 +11662,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspAcceptPasswords, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspAcceptPasswords, self).__init__()
 
                     self.yang_name = "lsp-accept-passwords"
                     self.yang_parent_name = "instance"
@@ -10146,7 +11683,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspAcceptPasswords, [], name, value)
 
 
-                class LspAcceptPassword(Entity):
+                class LspAcceptPassword(_Entity_):
                     """
                     LSP/SNP accept passwords. This requires the
                     existence of an LSPPassword of the same level
@@ -10174,7 +11711,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, self).__init__()
 
                         self.yang_name = "lsp-accept-password"
                         self.yang_parent_name = "lsp-accept-passwords"
@@ -10194,10 +11734,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, ['level', 'password'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspAcceptPasswords']['meta_info']
 
 
-
-            class LspMtus(Entity):
+            class LspMtus(_Entity_):
                 """
                 LSP MTU configuration
                 
@@ -10214,7 +11762,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspMtus, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspMtus, self).__init__()
 
                     self.yang_name = "lsp-mtus"
                     self.yang_parent_name = "instance"
@@ -10232,7 +11783,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspMtus, [], name, value)
 
 
-                class LspMtu(Entity):
+                class LspMtu(_Entity_):
                     """
                     LSP MTU
                     
@@ -10260,7 +11811,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspMtus.LspMtu, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspMtus.LspMtu, self).__init__()
 
                         self.yang_name = "lsp-mtu"
                         self.yang_parent_name = "lsp-mtus"
@@ -10280,10 +11834,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspMtus.LspMtu, ['level', 'mtu'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspMtus.LspMtu']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspMtus']['meta_info']
 
 
-
-            class SrlgTable(Entity):
+            class SrlgTable(_Entity_):
                 """
                 SRLG configuration
                 
@@ -10307,7 +11869,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.SrlgTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.SrlgTable, self).__init__()
 
                     self.yang_name = "srlg-table"
                     self.yang_parent_name = "instance"
@@ -10330,7 +11895,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.SrlgTable, ['srlg_admin_weight_default'], name, value)
 
 
-                class SrlgNames(Entity):
+                class SrlgNames(_Entity_):
                     """
                     SRLG named configuration
                     
@@ -10347,7 +11912,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.SrlgTable.SrlgNames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.SrlgTable.SrlgNames, self).__init__()
 
                         self.yang_name = "srlg-names"
                         self.yang_parent_name = "srlg-table"
@@ -10365,7 +11933,7 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.SrlgTable.SrlgNames, [], name, value)
 
 
-                    class SrlgName(Entity):
+                    class SrlgName(_Entity_):
                         """
                         Configuration for an IS\-IS SRLG
                         
@@ -10396,7 +11964,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName, self).__init__()
 
                             self.yang_name = "srlg-name"
                             self.yang_parent_name = "srlg-names"
@@ -10421,7 +11992,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName, ['srlg_name', 'admin_weight'], name, value)
 
 
-                        class FromTos(Entity):
+                        class FromTos(_Entity_):
                             """
                             Configure Static Remote SRLG
                             
@@ -10438,7 +12009,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos, self).__init__()
 
                                 self.yang_name = "from-tos"
                                 self.yang_parent_name = "srlg-name"
@@ -10456,7 +12030,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos, [], name, value)
 
 
-                            class FromTo(Entity):
+                            class FromTo(_Entity_):
                                 """
                                 Local and remote addresses of a link
                                 
@@ -10482,7 +12056,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo, self).__init__()
 
                                     self.yang_name = "from-to"
                                     self.yang_parent_name = "from-tos"
@@ -10502,13 +12079,33 @@ class Isis(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo, ['local_ipv4_address', 'remote_ipv4_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.SrlgTable.SrlgNames']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.SrlgTable']['meta_info']
 
 
-
-
-
-
-            class Nsf(Entity):
+            class Nsf(_Entity_):
                 """
                 IS\-IS NSF configuration
                 
@@ -10556,7 +12153,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Nsf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Nsf, self).__init__()
 
                     self.yang_name = "nsf"
                     self.yang_parent_name = "instance"
@@ -10580,9 +12180,13 @@ class Isis(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.Nsf, ['flavor', 'interface_timer', 'max_interface_timer_expiry', 'lifetime'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Nsf']['meta_info']
 
 
-            class LinkGroups(Entity):
+            class LinkGroups(_Entity_):
                 """
                 Link Group
                 
@@ -10599,7 +12203,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LinkGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LinkGroups, self).__init__()
 
                     self.yang_name = "link-groups"
                     self.yang_parent_name = "instance"
@@ -10617,7 +12224,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LinkGroups, [], name, value)
 
 
-                class LinkGroup(Entity):
+                class LinkGroup(_Entity_):
                     """
                     Configuration for link group name
                     
@@ -10661,7 +12268,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LinkGroups.LinkGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LinkGroups.LinkGroup, self).__init__()
 
                         self.yang_name = "link-group"
                         self.yang_parent_name = "link-groups"
@@ -10685,10 +12295,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LinkGroups.LinkGroup, ['link_group_name', 'metric_offset', 'revert_members', 'minimum_members'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LinkGroups.LinkGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LinkGroups']['meta_info']
 
 
-
-            class LspCheckIntervals(Entity):
+            class LspCheckIntervals(_Entity_):
                 """
                 LSP checksum check interval configuration
                 
@@ -10705,7 +12323,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspCheckIntervals, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspCheckIntervals, self).__init__()
 
                     self.yang_name = "lsp-check-intervals"
                     self.yang_parent_name = "instance"
@@ -10723,7 +12344,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspCheckIntervals, [], name, value)
 
 
-                class LspCheckInterval(Entity):
+                class LspCheckInterval(_Entity_):
                     """
                     LSP checksum check interval parameters
                     
@@ -10751,7 +12372,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, self).__init__()
 
                         self.yang_name = "lsp-check-interval"
                         self.yang_parent_name = "lsp-check-intervals"
@@ -10771,10 +12395,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, ['level', 'interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspCheckIntervals']['meta_info']
 
 
-
-            class LspPasswords(Entity):
+            class LspPasswords(_Entity_):
                 """
                 LSP/SNP password configuration
                 
@@ -10791,7 +12423,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspPasswords, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspPasswords, self).__init__()
 
                     self.yang_name = "lsp-passwords"
                     self.yang_parent_name = "instance"
@@ -10809,7 +12444,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspPasswords, [], name, value)
 
 
-                class LspPassword(Entity):
+                class LspPassword(_Entity_):
                     """
                     LSP/SNP passwords. This must exist if an
                     LSPAcceptPassword of the same level exists.
@@ -10862,7 +12497,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspPasswords.LspPassword, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspPasswords.LspPassword, self).__init__()
 
                         self.yang_name = "lsp-password"
                         self.yang_parent_name = "lsp-passwords"
@@ -10890,10 +12528,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspPasswords.LspPassword, ['level', 'algorithm', 'failure_mode', 'authentication_type', 'password', 'enable_poi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspPasswords.LspPassword']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspPasswords']['meta_info']
 
 
-
-            class Nets(Entity):
+            class Nets(_Entity_):
                 """
                 NET configuration
                 
@@ -10910,7 +12556,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Nets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Nets, self).__init__()
 
                     self.yang_name = "nets"
                     self.yang_parent_name = "instance"
@@ -10928,7 +12577,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.Nets, [], name, value)
 
 
-                class Net(Entity):
+                class Net(_Entity_):
                     """
                     Network Entity Title (NET)
                     
@@ -10947,7 +12596,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.Nets.Net, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.Nets.Net, self).__init__()
 
                         self.yang_name = "net"
                         self.yang_parent_name = "nets"
@@ -10965,10 +12617,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.Nets.Net, ['net_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.Nets.Net']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Nets']['meta_info']
 
 
-
-            class LspLifetimes(Entity):
+            class LspLifetimes(_Entity_):
                 """
                 LSP lifetime configuration
                 
@@ -10985,7 +12645,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.LspLifetimes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.LspLifetimes, self).__init__()
 
                     self.yang_name = "lsp-lifetimes"
                     self.yang_parent_name = "instance"
@@ -11003,7 +12666,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.LspLifetimes, [], name, value)
 
 
-                class LspLifetime(Entity):
+                class LspLifetime(_Entity_):
                     """
                     Maximum LSP lifetime
                     
@@ -11031,7 +12694,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.LspLifetimes.LspLifetime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.LspLifetimes.LspLifetime, self).__init__()
 
                         self.yang_name = "lsp-lifetime"
                         self.yang_parent_name = "lsp-lifetimes"
@@ -11051,10 +12717,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspLifetimes.LspLifetime, ['level', 'lifetime'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.LspLifetimes.LspLifetime']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.LspLifetimes']['meta_info']
 
 
-
-            class OverloadBits(Entity):
+            class OverloadBits(_Entity_):
                 """
                 LSP overload\-bit configuration
                 
@@ -11071,7 +12745,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.OverloadBits, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.OverloadBits, self).__init__()
 
                     self.yang_name = "overload-bits"
                     self.yang_parent_name = "instance"
@@ -11089,7 +12766,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.OverloadBits, [], name, value)
 
 
-                class OverloadBit(Entity):
+                class OverloadBit(_Entity_):
                     """
                     Set the overload bit in the System LSP so
                     that other routers avoid this one in SPF
@@ -11137,7 +12814,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.OverloadBits.OverloadBit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.OverloadBits.OverloadBit, self).__init__()
 
                         self.yang_name = "overload-bit"
                         self.yang_parent_name = "overload-bits"
@@ -11163,10 +12843,18 @@ class Isis(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.OverloadBits.OverloadBit, ['level', 'overload_bit_mode', 'hippity_period', 'external_adv_type', 'inter_level_adv_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.OverloadBits.OverloadBit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.OverloadBits']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Per\-interface configuration
                 
@@ -11183,7 +12871,10 @@ class Isis(Entity):
                 _revision = '2019-03-15'
 
                 def __init__(self):
-                    super(Isis.Instances.Instance.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Isis.Instances.Instance.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "instance"
@@ -11201,7 +12892,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Configuration for an IS\-IS interface
                     
@@ -11333,7 +13024,10 @@ class Isis(Entity):
                     _revision = '2019-03-15'
 
                     def __init__(self):
-                        super(Isis.Instances.Instance.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Isis.Instances.Instance.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -11440,8 +13134,14 @@ class Isis(Entity):
                         blocked = Enum.YLeaf(0, "blocked")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.MeshGroup']
 
-                    class IntAffinityTable(Entity):
+
+
+                    class IntAffinityTable(_Entity_):
                         """
                         Interface Affinity Table
                         
@@ -11458,7 +13158,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable, self).__init__()
 
                             self.yang_name = "int-affinity-table"
                             self.yang_parent_name = "interface"
@@ -11478,7 +13181,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable, [], name, value)
 
 
-                        class FlexAlgos(Entity):
+                        class FlexAlgos(_Entity_):
                             """
                             Set the interface affinities used by
                             Flex\-Algo
@@ -11496,7 +13199,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos, self).__init__()
 
                                 self.yang_name = "flex-algos"
                                 self.yang_parent_name = "int-affinity-table"
@@ -11514,10 +13220,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos, ['flex_algo'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable']['meta_info']
 
 
-
-                    class LspRetransmitThrottleIntervals(Entity):
+                    class LspRetransmitThrottleIntervals(_Entity_):
                         """
                         LSP\-retransmission\-throttle\-interval
                         configuration
@@ -11535,7 +13249,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals, self).__init__()
 
                             self.yang_name = "lsp-retransmit-throttle-intervals"
                             self.yang_parent_name = "interface"
@@ -11553,7 +13270,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals, [], name, value)
 
 
-                        class LspRetransmitThrottleInterval(Entity):
+                        class LspRetransmitThrottleInterval(_Entity_):
                             """
                             Minimum interval betwen retransissions of
                             different LSPs
@@ -11582,7 +13299,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, self).__init__()
 
                                 self.yang_name = "lsp-retransmit-throttle-interval"
                                 self.yang_parent_name = "lsp-retransmit-throttle-intervals"
@@ -11602,10 +13322,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, ['level', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals']['meta_info']
 
 
-
-                    class LspRetransmitIntervals(Entity):
+                    class LspRetransmitIntervals(_Entity_):
                         """
                         LSP\-retransmission\-interval configuration
                         
@@ -11622,7 +13350,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals, self).__init__()
 
                             self.yang_name = "lsp-retransmit-intervals"
                             self.yang_parent_name = "interface"
@@ -11640,7 +13371,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals, [], name, value)
 
 
-                        class LspRetransmitInterval(Entity):
+                        class LspRetransmitInterval(_Entity_):
                             """
                             Interval between retransmissions of the
                             same LSP
@@ -11669,7 +13400,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, self).__init__()
 
                                 self.yang_name = "lsp-retransmit-interval"
                                 self.yang_parent_name = "lsp-retransmit-intervals"
@@ -11689,10 +13423,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, ['level', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals']['meta_info']
 
 
-
-                    class Bfd(Entity):
+                    class Bfd(_Entity_):
                         """
                         BFD configuration
                         
@@ -11730,7 +13472,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.Bfd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.Bfd, self).__init__()
 
                             self.yang_name = "bfd"
                             self.yang_parent_name = "interface"
@@ -11754,9 +13499,13 @@ class Isis(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Bfd, ['enable_ipv6', 'enable_ipv4', 'interval', 'detection_multiplier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.Bfd']['meta_info']
 
 
-                    class Priorities(Entity):
+                    class Priorities(_Entity_):
                         """
                         DIS\-election priority configuration
                         
@@ -11773,7 +13522,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.Priorities, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.Priorities, self).__init__()
 
                             self.yang_name = "priorities"
                             self.yang_parent_name = "interface"
@@ -11791,7 +13543,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Priorities, [], name, value)
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             DIS\-election priority
                             
@@ -11817,7 +13569,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "priorities"
@@ -11837,10 +13592,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, ['level', 'priority_value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.Priorities']['meta_info']
 
 
-
-                    class HelloAcceptPasswords(Entity):
+                    class HelloAcceptPasswords(_Entity_):
                         """
                         IIH accept password configuration
                         
@@ -11857,7 +13620,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords, self).__init__()
 
                             self.yang_name = "hello-accept-passwords"
                             self.yang_parent_name = "interface"
@@ -11875,7 +13641,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords, [], name, value)
 
 
-                        class HelloAcceptPassword(Entity):
+                        class HelloAcceptPassword(_Entity_):
                             """
                             IIH accept passwords. This requires the
                             existence of a HelloPassword of the same
@@ -11903,7 +13669,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, self).__init__()
 
                                 self.yang_name = "hello-accept-password"
                                 self.yang_parent_name = "hello-accept-passwords"
@@ -11923,10 +13692,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, ['level', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords']['meta_info']
 
 
-
-                    class HelloPasswords(Entity):
+                    class HelloPasswords(_Entity_):
                         """
                         IIH password configuration
                         
@@ -11943,7 +13720,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords, self).__init__()
 
                             self.yang_name = "hello-passwords"
                             self.yang_parent_name = "interface"
@@ -11961,7 +13741,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords, [], name, value)
 
 
-                        class HelloPassword(Entity):
+                        class HelloPassword(_Entity_):
                             """
                             IIH passwords. This must exist if a
                             HelloAcceptPassword of the same level
@@ -12003,7 +13783,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, self).__init__()
 
                                 self.yang_name = "hello-password"
                                 self.yang_parent_name = "hello-passwords"
@@ -12027,10 +13810,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, ['level', 'algorithm', 'failure_mode', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPasswords']['meta_info']
 
 
-
-                    class HelloPaddings(Entity):
+                    class HelloPaddings(_Entity_):
                         """
                         Hello\-padding configuration
                         
@@ -12047,7 +13838,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings, self).__init__()
 
                             self.yang_name = "hello-paddings"
                             self.yang_parent_name = "interface"
@@ -12065,7 +13859,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings, [], name, value)
 
 
-                        class HelloPadding(Entity):
+                        class HelloPadding(_Entity_):
                             """
                             Pad IIHs to the interface MTU
                             
@@ -12089,7 +13883,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, self).__init__()
 
                                 self.yang_name = "hello-padding"
                                 self.yang_parent_name = "hello-paddings"
@@ -12109,10 +13906,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, ['level', 'padding_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPaddings']['meta_info']
 
 
-
-                    class HelloMultipliers(Entity):
+                    class HelloMultipliers(_Entity_):
                         """
                         Hello\-multiplier configuration
                         
@@ -12129,7 +13934,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers, self).__init__()
 
                             self.yang_name = "hello-multipliers"
                             self.yang_parent_name = "interface"
@@ -12147,7 +13955,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers, [], name, value)
 
 
-                        class HelloMultiplier(Entity):
+                        class HelloMultiplier(_Entity_):
                             """
                             Hello\-multiplier configuration. The number
                             of successive IIHs that may be missed on an
@@ -12175,7 +13983,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, self).__init__()
 
                                 self.yang_name = "hello-multiplier"
                                 self.yang_parent_name = "hello-multipliers"
@@ -12195,10 +14006,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, ['level', 'multiplier'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers']['meta_info']
 
 
-
-                    class LspFastFloodThresholds(Entity):
+                    class LspFastFloodThresholds(_Entity_):
                         """
                         LSP fast flood threshold configuration
                         
@@ -12215,7 +14034,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds, self).__init__()
 
                             self.yang_name = "lsp-fast-flood-thresholds"
                             self.yang_parent_name = "interface"
@@ -12233,7 +14055,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds, [], name, value)
 
 
-                        class LspFastFloodThreshold(Entity):
+                        class LspFastFloodThreshold(_Entity_):
                             """
                             Number of LSPs to send back to back on an
                             interface.
@@ -12260,7 +14082,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, self).__init__()
 
                                 self.yang_name = "lsp-fast-flood-threshold"
                                 self.yang_parent_name = "lsp-fast-flood-thresholds"
@@ -12280,10 +14105,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, ['level', 'count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds']['meta_info']
 
 
-
-                    class PrefixAttributeNFlagClears(Entity):
+                    class PrefixAttributeNFlagClears(_Entity_):
                         """
                         Prefix attribute N flag clear configuration
                         
@@ -12300,7 +14133,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears, self).__init__()
 
                             self.yang_name = "prefix-attribute-n-flag-clears"
                             self.yang_parent_name = "interface"
@@ -12318,7 +14154,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears, [], name, value)
 
 
-                        class PrefixAttributeNFlagClear(Entity):
+                        class PrefixAttributeNFlagClear(_Entity_):
                             """
                             Clear the N flag in prefix attribute flags
                             sub\-TLV
@@ -12336,7 +14172,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, self).__init__()
 
                                 self.yang_name = "prefix-attribute-n-flag-clear"
                                 self.yang_parent_name = "prefix-attribute-n-flag-clears"
@@ -12354,10 +14193,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, ['level'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears']['meta_info']
 
 
-
-                    class HelloIntervals(Entity):
+                    class HelloIntervals(_Entity_):
                         """
                         Hello\-interval configuration
                         
@@ -12374,7 +14221,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals, self).__init__()
 
                             self.yang_name = "hello-intervals"
                             self.yang_parent_name = "interface"
@@ -12392,7 +14242,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals, [], name, value)
 
 
-                        class HelloInterval(Entity):
+                        class HelloInterval(_Entity_):
                             """
                             Hello\-interval configuration. The interval
                             at which IIH packets will be sent. This
@@ -12423,7 +14273,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, self).__init__()
 
                                 self.yang_name = "hello-interval"
                                 self.yang_parent_name = "hello-intervals"
@@ -12443,10 +14296,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, ['level', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloIntervals']['meta_info']
 
 
-
-                    class InterfaceAfs(Entity):
+                    class InterfaceAfs(_Entity_):
                         """
                         Per\-interface address\-family configuration
                         
@@ -12463,7 +14324,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs, self).__init__()
 
                             self.yang_name = "interface-afs"
                             self.yang_parent_name = "interface"
@@ -12481,7 +14345,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs, [], name, value)
 
 
-                        class InterfaceAf(Entity):
+                        class InterfaceAf(_Entity_):
                             """
                             Configuration for an IS\-IS address\-family
                             on a single interface. If a named
@@ -12518,7 +14382,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, self).__init__()
 
                                 self.yang_name = "interface-af"
                                 self.yang_parent_name = "interface-afs"
@@ -12545,7 +14412,7 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, ['af_name', 'saf_name'], name, value)
 
 
-                            class InterfaceAfData(Entity):
+                            class InterfaceAfData(_Entity_):
                                 """
                                 Data container.
                                 
@@ -12628,7 +14495,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData, self).__init__()
 
                                     self.yang_name = "interface-af-data"
                                     self.yang_parent_name = "interface-af"
@@ -12690,7 +14560,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData, ['interface_af_state', 'running'], name, value)
 
 
-                                class PrefixSid(Entity):
+                                class PrefixSid(_Entity_):
                                     """
                                     Assign prefix SID to an interface,
                                     ISISPHPFlag will be rejected if set to
@@ -12744,7 +14614,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, self).__init__()
 
                                         self.yang_name = "prefix-sid"
                                         self.yang_parent_name = "interface-af-data"
@@ -12771,9 +14644,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid']['meta_info']
 
 
-                                class InterfaceFrrTable(Entity):
+                                class InterfaceFrrTable(_Entity_):
                                     """
                                     Fast\-ReRoute configuration
                                     
@@ -12825,7 +14702,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable, self).__init__()
 
                                         self.yang_name = "interface-frr-table"
                                         self.yang_parent_name = "interface-af-data"
@@ -12873,7 +14753,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable, [], name, value)
 
 
-                                    class FrrlfaCandidateInterfaces(Entity):
+                                    class FrrlfaCandidateInterfaces(_Entity_):
                                         """
                                         FRR LFA candidate configuration
                                         
@@ -12890,7 +14770,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
 
                                             self.yang_name = "frrlfa-candidate-interfaces"
                                             self.yang_parent_name = "interface-frr-table"
@@ -12908,7 +14791,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces, [], name, value)
 
 
-                                        class FrrlfaCandidateInterface(Entity):
+                                        class FrrlfaCandidateInterface(_Entity_):
                                             """
                                             Include an interface to LFA candidate
                                             in computation
@@ -12942,7 +14825,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
 
                                                 self.yang_name = "frrlfa-candidate-interface"
                                                 self.yang_parent_name = "frrlfa-candidate-interfaces"
@@ -12964,10 +14850,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces']['meta_info']
 
 
-
-                                    class FrrRemoteLfaMaxMetrics(Entity):
+                                    class FrrRemoteLfaMaxMetrics(_Entity_):
                                         """
                                         Remote LFA maxmimum metric
                                         
@@ -12984,7 +14878,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
 
                                             self.yang_name = "frr-remote-lfa-max-metrics"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13002,7 +14899,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, [], name, value)
 
 
-                                        class FrrRemoteLfaMaxMetric(Entity):
+                                        class FrrRemoteLfaMaxMetric(_Entity_):
                                             """
                                             Configure the maximum metric for
                                             selecting a remote LFA node
@@ -13029,7 +14926,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
 
                                                 self.yang_name = "frr-remote-lfa-max-metric"
                                                 self.yang_parent_name = "frr-remote-lfa-max-metrics"
@@ -13049,10 +14949,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics']['meta_info']
 
 
-
-                                    class FrrTypes(Entity):
+                                    class FrrTypes(_Entity_):
                                         """
                                         Type of FRR computation per level
                                         
@@ -13069,7 +14977,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes, self).__init__()
 
                                             self.yang_name = "frr-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13087,7 +14998,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes, [], name, value)
 
 
-                                        class FrrType(Entity):
+                                        class FrrType(_Entity_):
                                             """
                                             Type of computation for prefixes
                                             reachable via interface
@@ -13112,7 +15023,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
 
                                                 self.yang_name = "frr-type"
                                                 self.yang_parent_name = "frr-types"
@@ -13132,10 +15046,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes']['meta_info']
 
 
-
-                                    class FrrRemoteLfaTypes(Entity):
+                                    class FrrRemoteLfaTypes(_Entity_):
                                         """
                                         Remote LFA Enable
                                         
@@ -13152,7 +15074,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
 
                                             self.yang_name = "frr-remote-lfa-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13170,7 +15095,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes, [], name, value)
 
 
-                                        class FrrRemoteLfaType(Entity):
+                                        class FrrRemoteLfaType(_Entity_):
                                             """
                                             Enable remote lfa for a particular
                                             level
@@ -13195,7 +15120,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
 
                                                 self.yang_name = "frr-remote-lfa-type"
                                                 self.yang_parent_name = "frr-remote-lfa-types"
@@ -13215,10 +15143,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes']['meta_info']
 
 
-
-                                    class InterfaceFrrTiebreakerDefaults(Entity):
+                                    class InterfaceFrrTiebreakerDefaults(_Entity_):
                                         """
                                         Interface FRR Default tiebreaker
                                         configuration
@@ -13236,7 +15172,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
 
                                             self.yang_name = "interface-frr-tiebreaker-defaults"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13254,7 +15193,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, [], name, value)
 
 
-                                        class InterfaceFrrTiebreakerDefault(Entity):
+                                        class InterfaceFrrTiebreakerDefault(_Entity_):
                                             """
                                             Configure default tiebreaker
                                             
@@ -13271,7 +15210,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
 
                                                 self.yang_name = "interface-frr-tiebreaker-default"
                                                 self.yang_parent_name = "interface-frr-tiebreaker-defaults"
@@ -13289,10 +15231,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults']['meta_info']
 
 
-
-                                    class FrrtilfaTypes(Entity):
+                                    class FrrtilfaTypes(_Entity_):
                                         """
                                         TI LFA Enable
                                         
@@ -13309,7 +15259,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
 
                                             self.yang_name = "frrtilfa-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13327,7 +15280,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes, [], name, value)
 
 
-                                        class FrrtilfaType(Entity):
+                                        class FrrtilfaType(_Entity_):
                                             """
                                             Enable TI lfa for a particular level
                                             
@@ -13344,7 +15297,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
 
                                                 self.yang_name = "frrtilfa-type"
                                                 self.yang_parent_name = "frrtilfa-types"
@@ -13362,10 +15318,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes']['meta_info']
 
 
-
-                                    class FrrExcludeInterfaces(Entity):
+                                    class FrrExcludeInterfaces(_Entity_):
                                         """
                                         FRR exclusion configuration
                                         
@@ -13382,7 +15346,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "frr-exclude-interfaces"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13400,7 +15367,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces, [], name, value)
 
 
-                                        class FrrExcludeInterface(Entity):
+                                        class FrrExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from computation
                                             
@@ -13433,7 +15400,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
 
                                                 self.yang_name = "frr-exclude-interface"
                                                 self.yang_parent_name = "frr-exclude-interfaces"
@@ -13455,10 +15425,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces']['meta_info']
 
 
-
-                                    class InterfaceFrrTiebreakers(Entity):
+                                    class InterfaceFrrTiebreakers(_Entity_):
                                         """
                                         Interface FRR tiebreakers configuration
                                         
@@ -13475,7 +15453,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
 
                                             self.yang_name = "interface-frr-tiebreakers"
                                             self.yang_parent_name = "interface-frr-table"
@@ -13493,7 +15474,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers, [], name, value)
 
 
-                                        class InterfaceFrrTiebreaker(Entity):
+                                        class InterfaceFrrTiebreaker(_Entity_):
                                             """
                                             Configure tiebreaker for multiple
                                             backups
@@ -13525,7 +15506,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
 
                                                 self.yang_name = "interface-frr-tiebreaker"
                                                 self.yang_parent_name = "interface-frr-tiebreakers"
@@ -13547,11 +15531,23 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable']['meta_info']
 
 
-
-
-                                class MplsLdp(Entity):
+                                class MplsLdp(_Entity_):
                                     """
                                     MPLS LDP configuration
                                     
@@ -13572,7 +15568,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, self).__init__()
 
                                         self.yang_name = "mpls-ldp"
                                         self.yang_parent_name = "interface-af-data"
@@ -13590,9 +15589,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, ['sync_level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp']['meta_info']
 
 
-                                class PrefixSspfsid(Entity):
+                                class PrefixSspfsid(_Entity_):
                                     """
                                     Assign prefix SSPF SID to an interface,
                                     ISISPHPFlag will be rejected if set to
@@ -13646,7 +15649,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, self).__init__()
 
                                         self.yang_name = "prefix-sspfsid"
                                         self.yang_parent_name = "interface-af-data"
@@ -13673,9 +15679,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid']['meta_info']
 
 
-                                class AlgorithmPrefixSids(Entity):
+                                class AlgorithmPrefixSids(_Entity_):
                                     """
                                     Algorithm SID Table
                                     
@@ -13692,7 +15702,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids, self).__init__()
 
                                         self.yang_name = "algorithm-prefix-sids"
                                         self.yang_parent_name = "interface-af-data"
@@ -13710,7 +15723,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids, [], name, value)
 
 
-                                    class AlgorithmPrefixSid(Entity):
+                                    class AlgorithmPrefixSid(_Entity_):
                                         """
                                         Assign prefix SID for algorithm to an
                                         interface, ISISPHPFlag will be rejected
@@ -13769,7 +15782,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
 
                                             self.yang_name = "algorithm-prefix-sid"
                                             self.yang_parent_name = "algorithm-prefix-sids"
@@ -13797,10 +15813,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid, ['algo', 'type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids']['meta_info']
 
 
-
-                                class AutoMetrics(Entity):
+                                class AutoMetrics(_Entity_):
                                     """
                                     AutoMetric configuration
                                     
@@ -13817,7 +15841,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics, self).__init__()
 
                                         self.yang_name = "auto-metrics"
                                         self.yang_parent_name = "interface-af-data"
@@ -13835,7 +15862,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics, [], name, value)
 
 
-                                    class AutoMetric(Entity):
+                                    class AutoMetric(_Entity_):
                                         """
                                         AutoMetric Proactive\-Protect
                                         configuration. Legal value depends on
@@ -13869,7 +15896,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, self).__init__()
 
                                             self.yang_name = "auto-metric"
                                             self.yang_parent_name = "auto-metrics"
@@ -13889,10 +15919,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics']['meta_info']
 
 
-
-                                class AdminTags(Entity):
+                                class AdminTags(_Entity_):
                                     """
                                     admin\-tag configuration
                                     
@@ -13909,7 +15947,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags, self).__init__()
 
                                         self.yang_name = "admin-tags"
                                         self.yang_parent_name = "interface-af-data"
@@ -13927,7 +15968,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags, [], name, value)
 
 
-                                    class AdminTag(Entity):
+                                    class AdminTag(_Entity_):
                                         """
                                         Admin tag for advertised interface
                                         connected routes
@@ -13954,7 +15995,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, self).__init__()
 
                                             self.yang_name = "admin-tag"
                                             self.yang_parent_name = "admin-tags"
@@ -13974,10 +16018,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags']['meta_info']
 
 
-
-                                class InterfaceLinkGroup(Entity):
+                                class InterfaceLinkGroup(_Entity_):
                                     """
                                     Provide link group name and level
                                     
@@ -14009,7 +16061,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, self).__init__()
 
                                         self.yang_name = "interface-link-group"
                                         self.yang_parent_name = "interface-af-data"
@@ -14030,9 +16085,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, ['link_group', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup']['meta_info']
 
 
-                                class ManualAdjSids(Entity):
+                                class ManualAdjSids(_Entity_):
                                     """
                                     Manual Adjacecy SID configuration
                                     
@@ -14049,7 +16108,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids, self).__init__()
 
                                         self.yang_name = "manual-adj-sids"
                                         self.yang_parent_name = "interface-af-data"
@@ -14067,7 +16129,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids, [], name, value)
 
 
-                                    class ManualAdjSid(Entity):
+                                    class ManualAdjSid(_Entity_):
                                         """
                                         Assign adjancency SID to an interface
                                         
@@ -14103,7 +16165,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, self).__init__()
 
                                             self.yang_name = "manual-adj-sid"
                                             self.yang_parent_name = "manual-adj-sids"
@@ -14127,10 +16192,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids']['meta_info']
 
 
-
-                                class Metrics(Entity):
+                                class Metrics(_Entity_):
                                     """
                                     Metric configuration
                                     
@@ -14147,7 +16220,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics, self).__init__()
 
                                         self.yang_name = "metrics"
                                         self.yang_parent_name = "interface-af-data"
@@ -14165,7 +16241,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics, [], name, value)
 
 
-                                    class Metric(Entity):
+                                    class Metric(_Entity_):
                                         """
                                         Metric configuration. Legal value depends on
                                         the metric\-style specified for the topology. If
@@ -14202,7 +16278,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric, self).__init__()
 
                                             self.yang_name = "metric"
                                             self.yang_parent_name = "metrics"
@@ -14241,10 +16320,24 @@ class Isis(Entity):
                                             maximum = Enum.YLeaf(16777215, "maximum")
 
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric.Metric_']
 
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric']['meta_info']
 
-                                class Weights(Entity):
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics']['meta_info']
+
+
+                                class Weights(_Entity_):
                                     """
                                     Weight configuration
                                     
@@ -14261,7 +16354,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights, self).__init__()
 
                                         self.yang_name = "weights"
                                         self.yang_parent_name = "interface-af-data"
@@ -14279,7 +16375,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights, [], name, value)
 
 
-                                    class Weight(Entity):
+                                    class Weight(_Entity_):
                                         """
                                         Weight configuration under interface for load
                                         balancing
@@ -14306,7 +16402,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, self).__init__()
 
                                             self.yang_name = "weight"
                                             self.yang_parent_name = "weights"
@@ -14326,11 +16425,23 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, ['level', 'weight'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 
 
-
-
-                            class TopologyName(Entity):
+                            class TopologyName(_Entity_):
                                 """
                                 keys\: topology\-name
                                 
@@ -14420,7 +16531,10 @@ class Isis(Entity):
                                 _revision = '2019-03-15'
 
                                 def __init__(self):
-                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, self).__init__()
 
                                     self.yang_name = "topology-name"
                                     self.yang_parent_name = "interface-af"
@@ -14484,7 +16598,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, ['topology_name', 'interface_af_state', 'running'], name, value)
 
 
-                                class PrefixSid(Entity):
+                                class PrefixSid(_Entity_):
                                     """
                                     Assign prefix SID to an interface,
                                     ISISPHPFlag will be rejected if set to
@@ -14538,7 +16652,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, self).__init__()
 
                                         self.yang_name = "prefix-sid"
                                         self.yang_parent_name = "topology-name"
@@ -14565,9 +16682,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid']['meta_info']
 
 
-                                class InterfaceFrrTable(Entity):
+                                class InterfaceFrrTable(_Entity_):
                                     """
                                     Fast\-ReRoute configuration
                                     
@@ -14619,7 +16740,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable, self).__init__()
 
                                         self.yang_name = "interface-frr-table"
                                         self.yang_parent_name = "topology-name"
@@ -14667,7 +16791,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable, [], name, value)
 
 
-                                    class FrrlfaCandidateInterfaces(Entity):
+                                    class FrrlfaCandidateInterfaces(_Entity_):
                                         """
                                         FRR LFA candidate configuration
                                         
@@ -14684,7 +16808,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
 
                                             self.yang_name = "frrlfa-candidate-interfaces"
                                             self.yang_parent_name = "interface-frr-table"
@@ -14702,7 +16829,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces, [], name, value)
 
 
-                                        class FrrlfaCandidateInterface(Entity):
+                                        class FrrlfaCandidateInterface(_Entity_):
                                             """
                                             Include an interface to LFA candidate
                                             in computation
@@ -14736,7 +16863,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
 
                                                 self.yang_name = "frrlfa-candidate-interface"
                                                 self.yang_parent_name = "frrlfa-candidate-interfaces"
@@ -14758,10 +16888,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces']['meta_info']
 
 
-
-                                    class FrrRemoteLfaMaxMetrics(Entity):
+                                    class FrrRemoteLfaMaxMetrics(_Entity_):
                                         """
                                         Remote LFA maxmimum metric
                                         
@@ -14778,7 +16916,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
 
                                             self.yang_name = "frr-remote-lfa-max-metrics"
                                             self.yang_parent_name = "interface-frr-table"
@@ -14796,7 +16937,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, [], name, value)
 
 
-                                        class FrrRemoteLfaMaxMetric(Entity):
+                                        class FrrRemoteLfaMaxMetric(_Entity_):
                                             """
                                             Configure the maximum metric for
                                             selecting a remote LFA node
@@ -14823,7 +16964,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
 
                                                 self.yang_name = "frr-remote-lfa-max-metric"
                                                 self.yang_parent_name = "frr-remote-lfa-max-metrics"
@@ -14843,10 +16987,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics']['meta_info']
 
 
-
-                                    class FrrTypes(Entity):
+                                    class FrrTypes(_Entity_):
                                         """
                                         Type of FRR computation per level
                                         
@@ -14863,7 +17015,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes, self).__init__()
 
                                             self.yang_name = "frr-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -14881,7 +17036,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes, [], name, value)
 
 
-                                        class FrrType(Entity):
+                                        class FrrType(_Entity_):
                                             """
                                             Type of computation for prefixes
                                             reachable via interface
@@ -14906,7 +17061,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
 
                                                 self.yang_name = "frr-type"
                                                 self.yang_parent_name = "frr-types"
@@ -14926,10 +17084,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes']['meta_info']
 
 
-
-                                    class FrrRemoteLfaTypes(Entity):
+                                    class FrrRemoteLfaTypes(_Entity_):
                                         """
                                         Remote LFA Enable
                                         
@@ -14946,7 +17112,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
 
                                             self.yang_name = "frr-remote-lfa-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -14964,7 +17133,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes, [], name, value)
 
 
-                                        class FrrRemoteLfaType(Entity):
+                                        class FrrRemoteLfaType(_Entity_):
                                             """
                                             Enable remote lfa for a particular
                                             level
@@ -14989,7 +17158,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
 
                                                 self.yang_name = "frr-remote-lfa-type"
                                                 self.yang_parent_name = "frr-remote-lfa-types"
@@ -15009,10 +17181,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes']['meta_info']
 
 
-
-                                    class InterfaceFrrTiebreakerDefaults(Entity):
+                                    class InterfaceFrrTiebreakerDefaults(_Entity_):
                                         """
                                         Interface FRR Default tiebreaker
                                         configuration
@@ -15030,7 +17210,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
 
                                             self.yang_name = "interface-frr-tiebreaker-defaults"
                                             self.yang_parent_name = "interface-frr-table"
@@ -15048,7 +17231,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, [], name, value)
 
 
-                                        class InterfaceFrrTiebreakerDefault(Entity):
+                                        class InterfaceFrrTiebreakerDefault(_Entity_):
                                             """
                                             Configure default tiebreaker
                                             
@@ -15065,7 +17248,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
 
                                                 self.yang_name = "interface-frr-tiebreaker-default"
                                                 self.yang_parent_name = "interface-frr-tiebreaker-defaults"
@@ -15083,10 +17269,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults']['meta_info']
 
 
-
-                                    class FrrtilfaTypes(Entity):
+                                    class FrrtilfaTypes(_Entity_):
                                         """
                                         TI LFA Enable
                                         
@@ -15103,7 +17297,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
 
                                             self.yang_name = "frrtilfa-types"
                                             self.yang_parent_name = "interface-frr-table"
@@ -15121,7 +17318,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes, [], name, value)
 
 
-                                        class FrrtilfaType(Entity):
+                                        class FrrtilfaType(_Entity_):
                                             """
                                             Enable TI lfa for a particular level
                                             
@@ -15138,7 +17335,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
 
                                                 self.yang_name = "frrtilfa-type"
                                                 self.yang_parent_name = "frrtilfa-types"
@@ -15156,10 +17356,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes']['meta_info']
 
 
-
-                                    class FrrExcludeInterfaces(Entity):
+                                    class FrrExcludeInterfaces(_Entity_):
                                         """
                                         FRR exclusion configuration
                                         
@@ -15176,7 +17384,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "frr-exclude-interfaces"
                                             self.yang_parent_name = "interface-frr-table"
@@ -15194,7 +17405,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces, [], name, value)
 
 
-                                        class FrrExcludeInterface(Entity):
+                                        class FrrExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from computation
                                             
@@ -15227,7 +17438,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
 
                                                 self.yang_name = "frr-exclude-interface"
                                                 self.yang_parent_name = "frr-exclude-interfaces"
@@ -15249,10 +17463,18 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces']['meta_info']
 
 
-
-                                    class InterfaceFrrTiebreakers(Entity):
+                                    class InterfaceFrrTiebreakers(_Entity_):
                                         """
                                         Interface FRR tiebreakers configuration
                                         
@@ -15269,7 +17491,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
 
                                             self.yang_name = "interface-frr-tiebreakers"
                                             self.yang_parent_name = "interface-frr-table"
@@ -15287,7 +17512,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers, [], name, value)
 
 
-                                        class InterfaceFrrTiebreaker(Entity):
+                                        class InterfaceFrrTiebreaker(_Entity_):
                                             """
                                             Configure tiebreaker for multiple
                                             backups
@@ -15319,7 +17544,10 @@ class Isis(Entity):
                                             _revision = '2019-03-15'
 
                                             def __init__(self):
-                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
 
                                                 self.yang_name = "interface-frr-tiebreaker"
                                                 self.yang_parent_name = "interface-frr-tiebreakers"
@@ -15341,11 +17569,23 @@ class Isis(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable']['meta_info']
 
 
-
-
-                                class MplsLdp(Entity):
+                                class MplsLdp(_Entity_):
                                     """
                                     MPLS LDP configuration
                                     
@@ -15366,7 +17606,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, self).__init__()
 
                                         self.yang_name = "mpls-ldp"
                                         self.yang_parent_name = "topology-name"
@@ -15384,9 +17627,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, ['sync_level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp']['meta_info']
 
 
-                                class PrefixSspfsid(Entity):
+                                class PrefixSspfsid(_Entity_):
                                     """
                                     Assign prefix SSPF SID to an interface,
                                     ISISPHPFlag will be rejected if set to
@@ -15440,7 +17687,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, self).__init__()
 
                                         self.yang_name = "prefix-sspfsid"
                                         self.yang_parent_name = "topology-name"
@@ -15467,9 +17717,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid']['meta_info']
 
 
-                                class AlgorithmPrefixSids(Entity):
+                                class AlgorithmPrefixSids(_Entity_):
                                     """
                                     Algorithm SID Table
                                     
@@ -15486,7 +17740,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids, self).__init__()
 
                                         self.yang_name = "algorithm-prefix-sids"
                                         self.yang_parent_name = "topology-name"
@@ -15504,7 +17761,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids, [], name, value)
 
 
-                                    class AlgorithmPrefixSid(Entity):
+                                    class AlgorithmPrefixSid(_Entity_):
                                         """
                                         Assign prefix SID for algorithm to an
                                         interface, ISISPHPFlag will be rejected
@@ -15563,7 +17820,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid, self).__init__()
 
                                             self.yang_name = "algorithm-prefix-sid"
                                             self.yang_parent_name = "algorithm-prefix-sids"
@@ -15591,10 +17851,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid, ['algo', 'type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids']['meta_info']
 
 
-
-                                class AutoMetrics(Entity):
+                                class AutoMetrics(_Entity_):
                                     """
                                     AutoMetric configuration
                                     
@@ -15611,7 +17879,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics, self).__init__()
 
                                         self.yang_name = "auto-metrics"
                                         self.yang_parent_name = "topology-name"
@@ -15629,7 +17900,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics, [], name, value)
 
 
-                                    class AutoMetric(Entity):
+                                    class AutoMetric(_Entity_):
                                         """
                                         AutoMetric Proactive\-Protect
                                         configuration. Legal value depends on
@@ -15663,7 +17934,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, self).__init__()
 
                                             self.yang_name = "auto-metric"
                                             self.yang_parent_name = "auto-metrics"
@@ -15683,10 +17957,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics']['meta_info']
 
 
-
-                                class AdminTags(Entity):
+                                class AdminTags(_Entity_):
                                     """
                                     admin\-tag configuration
                                     
@@ -15703,7 +17985,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags, self).__init__()
 
                                         self.yang_name = "admin-tags"
                                         self.yang_parent_name = "topology-name"
@@ -15721,7 +18006,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags, [], name, value)
 
 
-                                    class AdminTag(Entity):
+                                    class AdminTag(_Entity_):
                                         """
                                         Admin tag for advertised interface
                                         connected routes
@@ -15748,7 +18033,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, self).__init__()
 
                                             self.yang_name = "admin-tag"
                                             self.yang_parent_name = "admin-tags"
@@ -15768,10 +18056,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags']['meta_info']
 
 
-
-                                class InterfaceLinkGroup(Entity):
+                                class InterfaceLinkGroup(_Entity_):
                                     """
                                     Provide link group name and level
                                     
@@ -15803,7 +18099,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, self).__init__()
 
                                         self.yang_name = "interface-link-group"
                                         self.yang_parent_name = "topology-name"
@@ -15824,9 +18123,13 @@ class Isis(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, ['link_group', 'level'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup']['meta_info']
 
 
-                                class ManualAdjSids(Entity):
+                                class ManualAdjSids(_Entity_):
                                     """
                                     Manual Adjacecy SID configuration
                                     
@@ -15843,7 +18146,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids, self).__init__()
 
                                         self.yang_name = "manual-adj-sids"
                                         self.yang_parent_name = "topology-name"
@@ -15861,7 +18167,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids, [], name, value)
 
 
-                                    class ManualAdjSid(Entity):
+                                    class ManualAdjSid(_Entity_):
                                         """
                                         Assign adjancency SID to an interface
                                         
@@ -15897,7 +18203,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
 
                                             self.yang_name = "manual-adj-sid"
                                             self.yang_parent_name = "manual-adj-sids"
@@ -15921,10 +18230,18 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids']['meta_info']
 
 
-
-                                class Metrics(Entity):
+                                class Metrics(_Entity_):
                                     """
                                     Metric configuration
                                     
@@ -15941,7 +18258,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics, self).__init__()
 
                                         self.yang_name = "metrics"
                                         self.yang_parent_name = "topology-name"
@@ -15959,7 +18279,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics, [], name, value)
 
 
-                                    class Metric(Entity):
+                                    class Metric(_Entity_):
                                         """
                                         Metric configuration. Legal value depends on
                                         the metric\-style specified for the topology. If
@@ -15996,7 +18316,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric, self).__init__()
 
                                             self.yang_name = "metric"
                                             self.yang_parent_name = "metrics"
@@ -16035,10 +18358,24 @@ class Isis(Entity):
                                             maximum = Enum.YLeaf(16777215, "maximum")
 
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_']
 
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric']['meta_info']
 
-                                class Weights(Entity):
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics']['meta_info']
+
+
+                                class Weights(_Entity_):
                                     """
                                     Weight configuration
                                     
@@ -16055,7 +18392,10 @@ class Isis(Entity):
                                     _revision = '2019-03-15'
 
                                     def __init__(self):
-                                        super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights, self).__init__()
 
                                         self.yang_name = "weights"
                                         self.yang_parent_name = "topology-name"
@@ -16073,7 +18413,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights, [], name, value)
 
 
-                                    class Weight(Entity):
+                                    class Weight(_Entity_):
                                         """
                                         Weight configuration under interface for load
                                         balancing
@@ -16100,7 +18440,10 @@ class Isis(Entity):
                                         _revision = '2019-03-15'
 
                                         def __init__(self):
-                                            super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, self).__init__()
 
                                             self.yang_name = "weight"
                                             self.yang_parent_name = "weights"
@@ -16120,13 +18463,33 @@ class Isis(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                    return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs']['meta_info']
 
 
-
-
-
-
-                    class CsnpIntervals(Entity):
+                    class CsnpIntervals(_Entity_):
                         """
                         CSNP\-interval configuration
                         
@@ -16143,7 +18506,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals, self).__init__()
 
                             self.yang_name = "csnp-intervals"
                             self.yang_parent_name = "interface"
@@ -16161,7 +18527,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals, [], name, value)
 
 
-                        class CsnpInterval(Entity):
+                        class CsnpInterval(_Entity_):
                             """
                             CSNP\-interval configuration. No fixed
                             default value as this depends on the media
@@ -16191,7 +18557,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, self).__init__()
 
                                 self.yang_name = "csnp-interval"
                                 self.yang_parent_name = "csnp-intervals"
@@ -16211,10 +18580,18 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, ['level', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals']['meta_info']
 
 
-
-                    class LspIntervals(Entity):
+                    class LspIntervals(_Entity_):
                         """
                         LSP\-interval configuration
                         
@@ -16231,7 +18608,10 @@ class Isis(Entity):
                         _revision = '2019-03-15'
 
                         def __init__(self):
-                            super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals, self).__init__()
 
                             self.yang_name = "lsp-intervals"
                             self.yang_parent_name = "interface"
@@ -16249,7 +18629,7 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspIntervals, [], name, value)
 
 
-                        class LspInterval(Entity):
+                        class LspInterval(_Entity_):
                             """
                             Interval between transmission of LSPs on
                             interface.
@@ -16278,7 +18658,10 @@ class Isis(Entity):
                             _revision = '2019-03-15'
 
                             def __init__(self):
-                                super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, self).__init__()
 
                                 self.yang_name = "lsp-interval"
                                 self.yang_parent_name = "lsp-intervals"
@@ -16298,15 +18681,43 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, ['level', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspIntervals']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.Interfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                return meta._meta_table['Isis.Instances.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+            return meta._meta_table['Isis.Instances']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Isis()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['Isis']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class AsicErrors(Entity):
+class AsicErrors(_Entity_):
     """
     Error summary of all asics
     
@@ -40,7 +43,10 @@ class AsicErrors(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(AsicErrors, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AsicErrors, self).__init__()
         self._top_entity = None
 
         self.yang_name = "asic-errors"
@@ -61,7 +67,7 @@ class AsicErrors(Entity):
         self._perform_setattr(AsicErrors, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Asic errors for each available nodes
         
@@ -80,7 +86,10 @@ class AsicErrors(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(AsicErrors.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AsicErrors.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "asic-errors"
@@ -99,7 +108,7 @@ class AsicErrors(Entity):
             self._perform_setattr(AsicErrors.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Asic error for a particular node
             
@@ -127,7 +136,10 @@ class AsicErrors(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(AsicErrors.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AsicErrors.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -149,7 +161,7 @@ class AsicErrors(Entity):
                 self._perform_setattr(AsicErrors.Nodes.Node, ['node_name'], name, value)
 
 
-            class AsicInformation(Entity):
+            class AsicInformation(_Entity_):
                 """
                 Asic on the node
                 
@@ -184,7 +196,10 @@ class AsicErrors(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AsicErrors.Nodes.Node.AsicInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AsicErrors.Nodes.Node.AsicInformation, self).__init__()
 
                     self.yang_name = "asic-information"
                     self.yang_parent_name = "node"
@@ -211,7 +226,7 @@ class AsicErrors(Entity):
                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation, ['asic'], name, value)
 
 
-                class AllInstances(Entity):
+                class AllInstances(_Entity_):
                     """
                     All asic instance on the node
                     
@@ -230,7 +245,10 @@ class AsicErrors(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AsicErrors.Nodes.Node.AsicInformation.AllInstances, self).__init__()
 
                         self.yang_name = "all-instances"
                         self.yang_parent_name = "asic-information"
@@ -250,7 +268,7 @@ class AsicErrors(Entity):
                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances, [], name, value)
 
 
-                    class AllErrorPath(Entity):
+                    class AllErrorPath(_Entity_):
                         """
                         Error path of all instances
                         
@@ -269,7 +287,10 @@ class AsicErrors(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath, self).__init__()
 
                             self.yang_name = "all-error-path"
                             self.yang_parent_name = "all-instances"
@@ -289,7 +310,7 @@ class AsicErrors(Entity):
                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath, [], name, value)
 
 
-                        class Summary(Entity):
+                        class Summary(_Entity_):
                             """
                             Summary of all instances errors
                             
@@ -322,7 +343,10 @@ class AsicErrors(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, self).__init__()
 
                                 self.yang_name = "summary"
                                 self.yang_parent_name = "all-error-path"
@@ -345,7 +369,7 @@ class AsicErrors(Entity):
                                 self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, ['legacy_client', 'cih_client'], name, value)
 
 
-                            class SumData(Entity):
+                            class SumData(_Entity_):
                                 """
                                 sum data
                                 
@@ -443,7 +467,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, self).__init__()
 
                                     self.yang_name = "sum-data"
                                     self.yang_parent_name = "summary"
@@ -479,7 +506,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
 
 
-                                class ErrCount(Entity):
+                                class ErrCount(_Entity_):
                                     """
                                     err count
                                     
@@ -507,7 +534,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, self).__init__()
 
                                         self.yang_name = "err-count"
                                         self.yang_parent_name = "sum-data"
@@ -527,9 +557,13 @@ class AsicErrors(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, ['name', 'count'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount']['meta_info']
 
 
-                                class PcieErrCount(Entity):
+                                class PcieErrCount(_Entity_):
                                     """
                                     pcie err count
                                     
@@ -557,7 +591,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, self).__init__()
 
                                         self.yang_name = "pcie-err-count"
                                         self.yang_parent_name = "sum-data"
@@ -577,13 +614,33 @@ class AsicErrors(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.AllInstances']['meta_info']
 
 
-
-
-
-
-                class Instances(Entity):
+                class Instances(_Entity_):
                     """
                     All asic errors  on the node
                     
@@ -602,7 +659,10 @@ class AsicErrors(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AsicErrors.Nodes.Node.AsicInformation.Instances, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AsicErrors.Nodes.Node.AsicInformation.Instances, self).__init__()
 
                         self.yang_name = "instances"
                         self.yang_parent_name = "asic-information"
@@ -620,7 +680,7 @@ class AsicErrors(Entity):
                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances, [], name, value)
 
 
-                    class Instance(Entity):
+                    class Instance(_Entity_):
                         """
                         Particular asic instance on the node
                         
@@ -648,7 +708,10 @@ class AsicErrors(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instances"
@@ -671,7 +734,7 @@ class AsicErrors(Entity):
                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance, ['asic_instance'], name, value)
 
 
-                        class ErrorPath(Entity):
+                        class ErrorPath(_Entity_):
                             """
                             Error path of the instances
                             
@@ -1040,7 +1103,10 @@ class AsicErrors(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath, self).__init__()
 
                                 self.yang_name = "error-path"
                                 self.yang_parent_name = "instance"
@@ -1260,7 +1326,7 @@ class AsicErrors(Entity):
                                 self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath, [], name, value)
 
 
-                            class MultipleBitSoftErrors(Entity):
+                            class MultipleBitSoftErrors(_Entity_):
                                 """
                                 Multiple bit soft error information
                                 
@@ -1279,7 +1345,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors, self).__init__()
 
                                     self.yang_name = "multiple-bit-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -1297,7 +1366,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -1425,7 +1494,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "multiple-bit-soft-errors"
@@ -1469,7 +1541,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -1506,7 +1578,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -1528,9 +1603,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -1585,7 +1664,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -1611,11 +1693,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors']['meta_info']
 
 
-
-
-                            class AsicErrorGenericSoft(Entity):
+                            class AsicErrorGenericSoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -1634,7 +1728,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft, self).__init__()
 
                                     self.yang_name = "asic-error-generic-soft"
                                     self.yang_parent_name = "error-path"
@@ -1652,7 +1749,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -1780,7 +1877,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-generic-soft"
@@ -1824,7 +1924,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -1861,7 +1961,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -1883,9 +1986,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -1940,7 +2047,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -1966,11 +2076,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft']['meta_info']
 
 
-
-
-                            class CrcHardErrors(Entity):
+                            class CrcHardErrors(_Entity_):
                                 """
                                 CRC hard error information
                                 
@@ -1989,7 +2111,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors, self).__init__()
 
                                     self.yang_name = "crc-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -2007,7 +2132,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -2135,7 +2260,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "crc-hard-errors"
@@ -2179,7 +2307,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -2216,7 +2344,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -2238,9 +2369,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -2295,7 +2430,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -2321,11 +2459,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors']['meta_info']
 
 
-
-
-                            class AsicErrorSbeSoft(Entity):
+                            class AsicErrorSbeSoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -2344,7 +2494,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft, self).__init__()
 
                                     self.yang_name = "asic-error-sbe-soft"
                                     self.yang_parent_name = "error-path"
@@ -2362,7 +2515,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -2490,7 +2643,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-sbe-soft"
@@ -2534,7 +2690,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -2571,7 +2727,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -2593,9 +2752,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -2650,7 +2813,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -2676,11 +2842,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft']['meta_info']
 
 
-
-
-                            class HardwareSoftErrors(Entity):
+                            class HardwareSoftErrors(_Entity_):
                                 """
                                 Hardware soft error information
                                 
@@ -2699,7 +2877,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors, self).__init__()
 
                                     self.yang_name = "hardware-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -2717,7 +2898,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -2845,7 +3026,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "hardware-soft-errors"
@@ -2889,7 +3073,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -2926,7 +3110,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -2948,9 +3135,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -3005,7 +3196,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -3031,11 +3225,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors']['meta_info']
 
 
-
-
-                            class AsicErrorCrcSoft(Entity):
+                            class AsicErrorCrcSoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -3054,7 +3260,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft, self).__init__()
 
                                     self.yang_name = "asic-error-crc-soft"
                                     self.yang_parent_name = "error-path"
@@ -3072,7 +3281,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -3200,7 +3409,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-crc-soft"
@@ -3244,7 +3456,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -3281,7 +3493,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -3303,9 +3518,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -3360,7 +3579,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -3386,11 +3608,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft']['meta_info']
 
 
-
-
-                            class AsicErrorParitySoft(Entity):
+                            class AsicErrorParitySoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -3409,7 +3643,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft, self).__init__()
 
                                     self.yang_name = "asic-error-parity-soft"
                                     self.yang_parent_name = "error-path"
@@ -3427,7 +3664,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -3555,7 +3792,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-parity-soft"
@@ -3599,7 +3839,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -3636,7 +3876,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -3658,9 +3901,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -3715,7 +3962,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -3741,11 +3991,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft']['meta_info']
 
 
-
-
-                            class IoSoftErrors(Entity):
+                            class IoSoftErrors(_Entity_):
                                 """
                                 IO soft error information
                                 
@@ -3764,7 +4026,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors, self).__init__()
 
                                     self.yang_name = "io-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -3782,7 +4047,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -3910,7 +4175,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "io-soft-errors"
@@ -3954,7 +4222,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -3991,7 +4259,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -4013,9 +4284,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -4070,7 +4345,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -4096,11 +4374,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors']['meta_info']
 
 
-
-
-                            class ResetSoftErrors(Entity):
+                            class ResetSoftErrors(_Entity_):
                                 """
                                 Reset soft error information
                                 
@@ -4119,7 +4409,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors, self).__init__()
 
                                     self.yang_name = "reset-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -4137,7 +4430,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -4265,7 +4558,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "reset-soft-errors"
@@ -4309,7 +4605,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -4346,7 +4642,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -4368,9 +4667,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -4425,7 +4728,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -4451,11 +4757,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors']['meta_info']
 
 
-
-
-                            class BarrierHardErrors(Entity):
+                            class BarrierHardErrors(_Entity_):
                                 """
                                 Barrier hard error information
                                 
@@ -4474,7 +4792,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors, self).__init__()
 
                                     self.yang_name = "barrier-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -4492,7 +4813,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -4620,7 +4941,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "barrier-hard-errors"
@@ -4664,7 +4988,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -4701,7 +5025,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -4723,9 +5050,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -4780,7 +5111,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -4806,11 +5140,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors']['meta_info']
 
 
-
-
-                            class UcodeSoftErrors(Entity):
+                            class UcodeSoftErrors(_Entity_):
                                 """
                                 Ucode soft error information
                                 
@@ -4829,7 +5175,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors, self).__init__()
 
                                     self.yang_name = "ucode-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -4847,7 +5196,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -4975,7 +5324,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "ucode-soft-errors"
@@ -5019,7 +5371,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -5056,7 +5408,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -5078,9 +5433,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -5135,7 +5494,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -5161,11 +5523,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors']['meta_info']
 
 
-
-
-                            class AsicErrorResetHard(Entity):
+                            class AsicErrorResetHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -5184,7 +5558,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard, self).__init__()
 
                                     self.yang_name = "asic-error-reset-hard"
                                     self.yang_parent_name = "error-path"
@@ -5202,7 +5579,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -5330,7 +5707,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-reset-hard"
@@ -5374,7 +5754,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -5411,7 +5791,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -5433,9 +5816,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -5490,7 +5877,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -5516,11 +5906,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard']['meta_info']
 
 
-
-
-                            class SingleBitHardErrors(Entity):
+                            class SingleBitHardErrors(_Entity_):
                                 """
                                 Single bit hard error information
                                 
@@ -5539,7 +5941,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors, self).__init__()
 
                                     self.yang_name = "single-bit-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -5557,7 +5962,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -5685,7 +6090,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "single-bit-hard-errors"
@@ -5729,7 +6137,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -5766,7 +6174,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -5788,9 +6199,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -5845,7 +6260,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -5871,11 +6289,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors']['meta_info']
 
 
-
-
-                            class IndirectHardErrors(Entity):
+                            class IndirectHardErrors(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -5894,7 +6324,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors, self).__init__()
 
                                     self.yang_name = "indirect-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -5912,7 +6345,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -6040,7 +6473,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "indirect-hard-errors"
@@ -6084,7 +6520,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -6121,7 +6557,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -6143,9 +6582,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -6200,7 +6643,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -6226,11 +6672,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors']['meta_info']
 
 
-
-
-                            class OutofResourceSoft(Entity):
+                            class OutofResourceSoft(_Entity_):
                                 """
                                 OOR thresh information
                                 
@@ -6249,7 +6707,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft, self).__init__()
 
                                     self.yang_name = "outof-resource-soft"
                                     self.yang_parent_name = "error-path"
@@ -6267,7 +6728,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -6395,7 +6856,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "outof-resource-soft"
@@ -6439,7 +6903,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -6476,7 +6940,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -6498,9 +6965,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -6555,7 +7026,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -6581,11 +7055,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft']['meta_info']
 
 
-
-
-                            class CrcSoftErrors(Entity):
+                            class CrcSoftErrors(_Entity_):
                                 """
                                 CRC soft error information
                                 
@@ -6604,7 +7090,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors, self).__init__()
 
                                     self.yang_name = "crc-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -6622,7 +7111,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -6750,7 +7239,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "crc-soft-errors"
@@ -6794,7 +7286,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -6831,7 +7323,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -6853,9 +7348,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -6910,7 +7409,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -6936,11 +7438,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors']['meta_info']
 
 
-
-
-                            class TimeOutHardErrors(Entity):
+                            class TimeOutHardErrors(_Entity_):
                                 """
                                 Time out hard error information
                                 
@@ -6959,7 +7473,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors, self).__init__()
 
                                     self.yang_name = "time-out-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -6977,7 +7494,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -7105,7 +7622,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "time-out-hard-errors"
@@ -7149,7 +7669,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -7186,7 +7706,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -7208,9 +7731,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -7265,7 +7792,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -7291,11 +7821,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors']['meta_info']
 
 
-
-
-                            class BarrierSoftErrors(Entity):
+                            class BarrierSoftErrors(_Entity_):
                                 """
                                 Barrier soft error information
                                 
@@ -7314,7 +7856,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors, self).__init__()
 
                                     self.yang_name = "barrier-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -7332,7 +7877,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -7460,7 +8005,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "barrier-soft-errors"
@@ -7504,7 +8052,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -7541,7 +8089,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -7563,9 +8114,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -7620,7 +8175,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -7646,11 +8204,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors']['meta_info']
 
 
-
-
-                            class AsicErrorMbeSoft(Entity):
+                            class AsicErrorMbeSoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -7669,7 +8239,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft, self).__init__()
 
                                     self.yang_name = "asic-error-mbe-soft"
                                     self.yang_parent_name = "error-path"
@@ -7687,7 +8260,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -7815,7 +8388,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-mbe-soft"
@@ -7859,7 +8435,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -7896,7 +8472,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -7918,9 +8497,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -7975,7 +8558,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -8001,11 +8587,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft']['meta_info']
 
 
-
-
-                            class BackPressureHardErrors(Entity):
+                            class BackPressureHardErrors(_Entity_):
                                 """
                                 BP hard error information
                                 
@@ -8024,7 +8622,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors, self).__init__()
 
                                     self.yang_name = "back-pressure-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -8042,7 +8643,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -8170,7 +8771,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "back-pressure-hard-errors"
@@ -8214,7 +8818,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -8251,7 +8855,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -8273,9 +8880,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -8330,7 +8941,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -8356,11 +8970,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors']['meta_info']
 
 
-
-
-                            class SingleBitSoftErrors(Entity):
+                            class SingleBitSoftErrors(_Entity_):
                                 """
                                 Single bit soft error information
                                 
@@ -8379,7 +9005,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors, self).__init__()
 
                                     self.yang_name = "single-bit-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -8397,7 +9026,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -8525,7 +9154,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "single-bit-soft-errors"
@@ -8569,7 +9201,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -8606,7 +9238,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -8628,9 +9263,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -8685,7 +9324,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -8711,11 +9353,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors']['meta_info']
 
 
-
-
-                            class IndirectSoftErrors(Entity):
+                            class IndirectSoftErrors(_Entity_):
                                 """
                                 Indirect soft error information
                                 
@@ -8734,7 +9388,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors, self).__init__()
 
                                     self.yang_name = "indirect-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -8752,7 +9409,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -8880,7 +9537,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "indirect-soft-errors"
@@ -8924,7 +9584,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -8961,7 +9621,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -8983,9 +9646,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -9040,7 +9707,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -9066,11 +9736,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors']['meta_info']
 
 
-
-
-                            class GenericHardErrors(Entity):
+                            class GenericHardErrors(_Entity_):
                                 """
                                 Generic hard error information
                                 
@@ -9089,7 +9771,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors, self).__init__()
 
                                     self.yang_name = "generic-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -9107,7 +9792,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -9235,7 +9920,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "generic-hard-errors"
@@ -9279,7 +9967,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -9316,7 +10004,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -9338,9 +10029,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -9395,7 +10090,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -9421,11 +10119,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors']['meta_info']
 
 
-
-
-                            class LinkHardErrors(Entity):
+                            class LinkHardErrors(_Entity_):
                                 """
                                 Link hard error information
                                 
@@ -9444,7 +10154,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors, self).__init__()
 
                                     self.yang_name = "link-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -9462,7 +10175,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -9590,7 +10303,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "link-hard-errors"
@@ -9634,7 +10350,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -9671,7 +10387,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -9693,9 +10412,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -9750,7 +10473,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -9776,11 +10502,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors']['meta_info']
 
 
-
-
-                            class ConfigurationHardErrors(Entity):
+                            class ConfigurationHardErrors(_Entity_):
                                 """
                                 Configuration hard error information
                                 
@@ -9799,7 +10537,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors, self).__init__()
 
                                     self.yang_name = "configuration-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -9817,7 +10558,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -9945,7 +10686,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "configuration-hard-errors"
@@ -9989,7 +10733,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -10026,7 +10770,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -10048,9 +10795,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -10105,7 +10856,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -10131,11 +10885,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors']['meta_info']
 
 
-
-
-                            class InstanceSummary(Entity):
+                            class InstanceSummary(_Entity_):
                                 """
                                 Summary for a specific instance
                                 
@@ -10168,7 +10934,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, self).__init__()
 
                                     self.yang_name = "instance-summary"
                                     self.yang_parent_name = "error-path"
@@ -10191,7 +10960,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, ['legacy_client', 'cih_client'], name, value)
 
 
-                                class SumData(Entity):
+                                class SumData(_Entity_):
                                     """
                                     sum data
                                     
@@ -10289,7 +11058,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, self).__init__()
 
                                         self.yang_name = "sum-data"
                                         self.yang_parent_name = "instance-summary"
@@ -10325,7 +11097,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
 
 
-                                    class ErrCount(Entity):
+                                    class ErrCount(_Entity_):
                                         """
                                         err count
                                         
@@ -10353,7 +11125,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, self).__init__()
 
                                             self.yang_name = "err-count"
                                             self.yang_parent_name = "sum-data"
@@ -10373,9 +11148,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, ['name', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount']['meta_info']
 
 
-                                    class PcieErrCount(Entity):
+                                    class PcieErrCount(_Entity_):
                                         """
                                         pcie err count
                                         
@@ -10403,7 +11182,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, self).__init__()
 
                                             self.yang_name = "pcie-err-count"
                                             self.yang_parent_name = "sum-data"
@@ -10423,11 +11205,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary']['meta_info']
 
 
-
-
-                            class UnexpectedHardErrors(Entity):
+                            class UnexpectedHardErrors(_Entity_):
                                 """
                                 Unexpected hard error information
                                 
@@ -10446,7 +11240,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors, self).__init__()
 
                                     self.yang_name = "unexpected-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -10464,7 +11261,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -10592,7 +11389,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "unexpected-hard-errors"
@@ -10636,7 +11436,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -10673,7 +11473,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -10695,9 +11498,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -10752,7 +11559,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -10778,11 +11588,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors']['meta_info']
 
 
-
-
-                            class TimeOutSoftErrors(Entity):
+                            class TimeOutSoftErrors(_Entity_):
                                 """
                                 Time out soft error information
                                 
@@ -10801,7 +11623,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors, self).__init__()
 
                                     self.yang_name = "time-out-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -10819,7 +11644,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -10947,7 +11772,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "time-out-soft-errors"
@@ -10991,7 +11819,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -11028,7 +11856,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -11050,9 +11881,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -11107,7 +11942,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -11133,11 +11971,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors']['meta_info']
 
 
-
-
-                            class AsicErrorGenericHard(Entity):
+                            class AsicErrorGenericHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -11156,7 +12006,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard, self).__init__()
 
                                     self.yang_name = "asic-error-generic-hard"
                                     self.yang_parent_name = "error-path"
@@ -11174,7 +12027,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -11302,7 +12155,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-generic-hard"
@@ -11346,7 +12202,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -11383,7 +12239,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -11405,9 +12264,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -11462,7 +12325,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -11488,11 +12354,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard']['meta_info']
 
 
-
-
-                            class ParityHardErrors(Entity):
+                            class ParityHardErrors(_Entity_):
                                 """
                                 Parity hard error information
                                 
@@ -11511,7 +12389,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors, self).__init__()
 
                                     self.yang_name = "parity-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -11529,7 +12410,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -11657,7 +12538,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "parity-hard-errors"
@@ -11701,7 +12585,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -11738,7 +12622,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -11760,9 +12647,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -11817,7 +12708,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -11843,11 +12737,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors']['meta_info']
 
 
-
-
-                            class DescriptorHardErrors(Entity):
+                            class DescriptorHardErrors(_Entity_):
                                 """
                                 Descriptor hard error information
                                 
@@ -11866,7 +12772,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors, self).__init__()
 
                                     self.yang_name = "descriptor-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -11884,7 +12793,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -12012,7 +12921,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "descriptor-hard-errors"
@@ -12056,7 +12968,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -12093,7 +13005,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -12115,9 +13030,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -12172,7 +13091,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -12198,11 +13120,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors']['meta_info']
 
 
-
-
-                            class InterfaceHardErrors(Entity):
+                            class InterfaceHardErrors(_Entity_):
                                 """
                                 Interface hard error information
                                 
@@ -12221,7 +13155,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors, self).__init__()
 
                                     self.yang_name = "interface-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -12239,7 +13176,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -12367,7 +13304,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "interface-hard-errors"
@@ -12411,7 +13351,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -12448,7 +13388,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -12470,9 +13413,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -12527,7 +13474,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -12553,11 +13503,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors']['meta_info']
 
 
-
-
-                            class AsicErrorSbeHard(Entity):
+                            class AsicErrorSbeHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -12576,7 +13538,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard, self).__init__()
 
                                     self.yang_name = "asic-error-sbe-hard"
                                     self.yang_parent_name = "error-path"
@@ -12594,7 +13559,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -12722,7 +13687,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-sbe-hard"
@@ -12766,7 +13734,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -12803,7 +13771,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -12825,9 +13796,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -12882,7 +13857,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -12908,11 +13886,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard']['meta_info']
 
 
-
-
-                            class AsicErrorCrcHard(Entity):
+                            class AsicErrorCrcHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -12931,7 +13921,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard, self).__init__()
 
                                     self.yang_name = "asic-error-crc-hard"
                                     self.yang_parent_name = "error-path"
@@ -12949,7 +13942,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -13077,7 +14070,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-crc-hard"
@@ -13121,7 +14117,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -13158,7 +14154,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -13180,9 +14179,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -13237,7 +14240,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -13263,11 +14269,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard']['meta_info']
 
 
-
-
-                            class AsicErrorParityHard(Entity):
+                            class AsicErrorParityHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -13286,7 +14304,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard, self).__init__()
 
                                     self.yang_name = "asic-error-parity-hard"
                                     self.yang_parent_name = "error-path"
@@ -13304,7 +14325,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -13432,7 +14453,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-parity-hard"
@@ -13476,7 +14500,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -13513,7 +14537,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -13535,9 +14562,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -13592,7 +14623,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -13618,11 +14652,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard']['meta_info']
 
 
-
-
-                            class AsicErrorResetSoft(Entity):
+                            class AsicErrorResetSoft(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -13641,7 +14687,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft, self).__init__()
 
                                     self.yang_name = "asic-error-reset-soft"
                                     self.yang_parent_name = "error-path"
@@ -13659,7 +14708,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -13787,7 +14836,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-reset-soft"
@@ -13831,7 +14883,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -13868,7 +14920,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -13890,9 +14945,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -13947,7 +15006,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -13973,11 +15035,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft']['meta_info']
 
 
-
-
-                            class BackPressureSoftErrors(Entity):
+                            class BackPressureSoftErrors(_Entity_):
                                 """
                                 BP soft error information
                                 
@@ -13996,7 +15070,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors, self).__init__()
 
                                     self.yang_name = "back-pressure-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -14014,7 +15091,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -14142,7 +15219,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "back-pressure-soft-errors"
@@ -14186,7 +15266,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -14223,7 +15303,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -14245,9 +15328,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -14302,7 +15389,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -14328,11 +15418,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors']['meta_info']
 
 
-
-
-                            class GenericSoftErrors(Entity):
+                            class GenericSoftErrors(_Entity_):
                                 """
                                 Generic soft error information
                                 
@@ -14351,7 +15453,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors, self).__init__()
 
                                     self.yang_name = "generic-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -14369,7 +15474,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -14497,7 +15602,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "generic-soft-errors"
@@ -14541,7 +15649,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -14578,7 +15686,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -14600,9 +15711,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -14657,7 +15772,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -14683,11 +15801,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors']['meta_info']
 
 
-
-
-                            class LinkSoftErrors(Entity):
+                            class LinkSoftErrors(_Entity_):
                                 """
                                 Link soft error information
                                 
@@ -14706,7 +15836,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors, self).__init__()
 
                                     self.yang_name = "link-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -14724,7 +15857,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -14852,7 +15985,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "link-soft-errors"
@@ -14896,7 +16032,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -14933,7 +16069,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -14955,9 +16094,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -15012,7 +16155,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -15038,11 +16184,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors']['meta_info']
 
 
-
-
-                            class ConfigurationSoftErrors(Entity):
+                            class ConfigurationSoftErrors(_Entity_):
                                 """
                                 Configuration soft error information
                                 
@@ -15061,7 +16219,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors, self).__init__()
 
                                     self.yang_name = "configuration-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -15079,7 +16240,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -15207,7 +16368,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "configuration-soft-errors"
@@ -15251,7 +16415,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -15288,7 +16452,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -15310,9 +16477,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -15367,7 +16538,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -15393,11 +16567,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors']['meta_info']
 
 
-
-
-                            class MultipleBitHardErrors(Entity):
+                            class MultipleBitHardErrors(_Entity_):
                                 """
                                 Multiple bit hard error information
                                 
@@ -15416,7 +16602,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors, self).__init__()
 
                                     self.yang_name = "multiple-bit-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -15434,7 +16623,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -15562,7 +16751,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "multiple-bit-hard-errors"
@@ -15606,7 +16798,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -15643,7 +16835,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -15665,9 +16860,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -15722,7 +16921,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -15748,11 +16950,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors']['meta_info']
 
 
-
-
-                            class UnexpectedSoftErrors(Entity):
+                            class UnexpectedSoftErrors(_Entity_):
                                 """
                                 Unexpected soft error information
                                 
@@ -15771,7 +16985,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors, self).__init__()
 
                                     self.yang_name = "unexpected-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -15789,7 +17006,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -15917,7 +17134,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "unexpected-soft-errors"
@@ -15961,7 +17181,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -15998,7 +17218,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -16020,9 +17243,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -16077,7 +17304,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -16103,11 +17333,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors']['meta_info']
 
 
-
-
-                            class OutofResourceHard(Entity):
+                            class OutofResourceHard(_Entity_):
                                 """
                                 OOR thresh information
                                 
@@ -16126,7 +17368,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard, self).__init__()
 
                                     self.yang_name = "outof-resource-hard"
                                     self.yang_parent_name = "error-path"
@@ -16144,7 +17389,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -16272,7 +17517,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "outof-resource-hard"
@@ -16316,7 +17564,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -16353,7 +17601,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -16375,9 +17626,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -16432,7 +17687,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -16458,11 +17716,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard']['meta_info']
 
 
-
-
-                            class HardwareHardErrors(Entity):
+                            class HardwareHardErrors(_Entity_):
                                 """
                                 Hardware hard error information
                                 
@@ -16481,7 +17751,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors, self).__init__()
 
                                     self.yang_name = "hardware-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -16499,7 +17772,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -16627,7 +17900,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "hardware-hard-errors"
@@ -16671,7 +17947,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -16708,7 +17984,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -16730,9 +18009,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -16787,7 +18070,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -16813,11 +18099,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors']['meta_info']
 
 
-
-
-                            class ParitySoftErrors(Entity):
+                            class ParitySoftErrors(_Entity_):
                                 """
                                 Parity soft error information
                                 
@@ -16836,7 +18134,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors, self).__init__()
 
                                     self.yang_name = "parity-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -16854,7 +18155,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -16982,7 +18283,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "parity-soft-errors"
@@ -17026,7 +18330,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -17063,7 +18367,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -17085,9 +18392,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -17142,7 +18453,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -17168,11 +18482,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors']['meta_info']
 
 
-
-
-                            class DescriptorSoftErrors(Entity):
+                            class DescriptorSoftErrors(_Entity_):
                                 """
                                 Descriptor soft error information
                                 
@@ -17191,7 +18517,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors, self).__init__()
 
                                     self.yang_name = "descriptor-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -17209,7 +18538,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -17337,7 +18666,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "descriptor-soft-errors"
@@ -17381,7 +18713,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -17418,7 +18750,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -17440,9 +18775,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -17497,7 +18836,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -17523,11 +18865,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors']['meta_info']
 
 
-
-
-                            class InterfaceSoftErrors(Entity):
+                            class InterfaceSoftErrors(_Entity_):
                                 """
                                 Interface soft error information
                                 
@@ -17546,7 +18900,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors, self).__init__()
 
                                     self.yang_name = "interface-soft-errors"
                                     self.yang_parent_name = "error-path"
@@ -17564,7 +18921,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -17692,7 +19049,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "interface-soft-errors"
@@ -17736,7 +19096,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -17773,7 +19133,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -17795,9 +19158,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -17852,7 +19219,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -17878,11 +19248,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors']['meta_info']
 
 
-
-
-                            class IoHardErrors(Entity):
+                            class IoHardErrors(_Entity_):
                                 """
                                 IO hard error information
                                 
@@ -17901,7 +19283,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors, self).__init__()
 
                                     self.yang_name = "io-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -17919,7 +19304,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -18047,7 +19432,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "io-hard-errors"
@@ -18091,7 +19479,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -18128,7 +19516,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -18150,9 +19541,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -18207,7 +19602,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -18233,11 +19631,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors']['meta_info']
 
 
-
-
-                            class ResetHardErrors(Entity):
+                            class ResetHardErrors(_Entity_):
                                 """
                                 Reset hard error information
                                 
@@ -18256,7 +19666,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors, self).__init__()
 
                                     self.yang_name = "reset-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -18274,7 +19687,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -18402,7 +19815,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "reset-hard-errors"
@@ -18446,7 +19862,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -18483,7 +19899,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -18505,9 +19924,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -18562,7 +19985,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -18588,11 +20014,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors']['meta_info']
 
 
-
-
-                            class UcodeHardErrors(Entity):
+                            class UcodeHardErrors(_Entity_):
                                 """
                                 UCode hard error information
                                 
@@ -18611,7 +20049,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors, self).__init__()
 
                                     self.yang_name = "ucode-hard-errors"
                                     self.yang_parent_name = "error-path"
@@ -18629,7 +20070,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -18757,7 +20198,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "ucode-hard-errors"
@@ -18801,7 +20245,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -18838,7 +20282,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -18860,9 +20307,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -18917,7 +20368,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -18943,11 +20397,23 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors']['meta_info']
 
 
-
-
-                            class AsicErrorMbeHard(Entity):
+                            class AsicErrorMbeHard(_Entity_):
                                 """
                                 Indirect hard error information
                                 
@@ -18966,7 +20432,10 @@ class AsicErrors(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard, self).__init__()
 
                                     self.yang_name = "asic-error-mbe-hard"
                                     self.yang_parent_name = "error-path"
@@ -18984,7 +20453,7 @@ class AsicErrors(Entity):
                                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard, [], name, value)
 
 
-                                class Error(Entity):
+                                class Error(_Entity_):
                                     """
                                     Collection of errors
                                     
@@ -19112,7 +20581,10 @@ class AsicErrors(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, self).__init__()
 
                                         self.yang_name = "error"
                                         self.yang_parent_name = "asic-error-mbe-hard"
@@ -19156,7 +20628,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, ['name', 'asic_info', 'node_key', 'alarm_on', 'thresh_hi', 'period_hi', 'thresh_lo', 'period_lo', 'count', 'intr_type', 'leaf_id', 'last_cleared'], name, value)
 
 
-                                    class CsrsInfo(Entity):
+                                    class CsrsInfo(_Entity_):
                                         """
                                         List of csrs\_info
                                         
@@ -19193,7 +20665,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, self).__init__()
 
                                             self.yang_name = "csrs-info"
                                             self.yang_parent_name = "error"
@@ -19215,9 +20690,13 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, ['name', 'address', 'width'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo']['meta_info']
 
 
-                                    class LastErr(Entity):
+                                    class LastErr(_Entity_):
                                         """
                                         Last Printable error information
                                         
@@ -19272,7 +20751,10 @@ class AsicErrors(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, self).__init__()
 
                                             self.yang_name = "last-err"
                                             self.yang_parent_name = "error"
@@ -19298,18 +20780,58 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, ['at_time', 'at_time_nsec', 'counter_val', 'error_desc', 'error_regval'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                                return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                            return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances.Instance']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                        return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation.Instances']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                    return meta._meta_table['AsicErrors.Nodes.Node.AsicInformation']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+                return meta._meta_table['AsicErrors.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+            return meta._meta_table['AsicErrors.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AsicErrors()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asic_errors_oper as meta
+        return meta._meta_table['AsicErrors']['meta_info']
 
 

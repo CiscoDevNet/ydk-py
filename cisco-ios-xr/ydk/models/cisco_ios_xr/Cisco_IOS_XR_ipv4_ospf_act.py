@@ -7,8 +7,11 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ClearOspfRoutes(Entity):
+class ClearOspfRoutes(_Entity_):
     """
     Clear OSPF route table
     
@@ -34,7 +37,10 @@ class ClearOspfRoutes(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfRoutes, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfRoutes, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-routes"
@@ -52,7 +58,7 @@ class ClearOspfRoutes(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -76,7 +82,10 @@ class ClearOspfRoutes(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfRoutes.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfRoutes.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-routes"
@@ -100,7 +109,7 @@ class ClearOspfRoutes(Entity):
             self._perform_setattr(ClearOspfRoutes.Input, ['route'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -117,7 +126,10 @@ class ClearOspfRoutes(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfRoutes.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfRoutes.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -136,15 +148,27 @@ class ClearOspfRoutes(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfRoutes.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfRoutes.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfRoutes.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfRoutes()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfRoutes']['meta_info']
 
 
-class ClearOspfRedistribution(Entity):
+class ClearOspfRedistribution(_Entity_):
     """
     Clear OSPF route redistribution
     
@@ -161,7 +185,10 @@ class ClearOspfRedistribution(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfRedistribution, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfRedistribution, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-redistribution"
@@ -179,7 +206,7 @@ class ClearOspfRedistribution(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -203,7 +230,10 @@ class ClearOspfRedistribution(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfRedistribution.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfRedistribution.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-redistribution"
@@ -227,7 +257,7 @@ class ClearOspfRedistribution(Entity):
             self._perform_setattr(ClearOspfRedistribution.Input, ['redistribution'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -244,7 +274,10 @@ class ClearOspfRedistribution(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfRedistribution.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfRedistribution.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -263,15 +296,27 @@ class ClearOspfRedistribution(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfRedistribution.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfRedistribution.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfRedistribution.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfRedistribution()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfRedistribution']['meta_info']
 
 
-class ClearOspfStatistics(Entity):
+class ClearOspfStatistics(_Entity_):
     """
     Clear OSPF counters and statistics
     
@@ -288,7 +333,10 @@ class ClearOspfStatistics(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfStatistics, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfStatistics, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-statistics"
@@ -306,7 +354,7 @@ class ClearOspfStatistics(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -348,7 +396,10 @@ class ClearOspfStatistics(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfStatistics.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfStatistics.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-statistics"
@@ -380,7 +431,7 @@ class ClearOspfStatistics(Entity):
             self._perform_setattr(ClearOspfStatistics.Input, ['all', 'message_queue', 'spf', 'neighbor', 'interface_name'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -397,7 +448,10 @@ class ClearOspfStatistics(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfStatistics.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfStatistics.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -416,15 +470,27 @@ class ClearOspfStatistics(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatistics.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfStatistics.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfStatistics.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfStatistics()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfStatistics']['meta_info']
 
 
-class ClearOspfStatisticsNeighbor(Entity):
+class ClearOspfStatisticsNeighbor(_Entity_):
     """
     Clear OSPF neighbor statistics per interface or neighbor id
     
@@ -441,7 +507,10 @@ class ClearOspfStatisticsNeighbor(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfStatisticsNeighbor, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfStatisticsNeighbor, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-statistics-neighbor"
@@ -459,7 +528,7 @@ class ClearOspfStatisticsNeighbor(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -481,7 +550,10 @@ class ClearOspfStatisticsNeighbor(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfStatisticsNeighbor.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfStatisticsNeighbor.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-statistics-neighbor"
@@ -506,7 +578,7 @@ class ClearOspfStatisticsNeighbor(Entity):
             self._perform_setattr(ClearOspfStatisticsNeighbor.Input, [], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -523,7 +595,10 @@ class ClearOspfStatisticsNeighbor(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfStatisticsNeighbor.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfStatisticsNeighbor.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -542,9 +617,13 @@ class ClearOspfStatisticsNeighbor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsNeighbor.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfStatisticsNeighbor.Input.Instance']['meta_info']
 
 
-        class Neighbor(Entity):
+        class Neighbor(_Entity_):
             """
             
             
@@ -570,7 +649,10 @@ class ClearOspfStatisticsNeighbor(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfStatisticsNeighbor.Input.Neighbor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfStatisticsNeighbor.Input.Neighbor, self).__init__()
 
                 self.yang_name = "neighbor"
                 self.yang_parent_name = "input"
@@ -591,15 +673,27 @@ class ClearOspfStatisticsNeighbor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsNeighbor.Input.Neighbor, ['neighbor_id', 'interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfStatisticsNeighbor.Input.Neighbor']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfStatisticsNeighbor.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfStatisticsNeighbor()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfStatisticsNeighbor']['meta_info']
 
 
-class ClearOspfStatisticsInterface(Entity):
+class ClearOspfStatisticsInterface(_Entity_):
     """
     Clear OSPF interface statistics
     
@@ -616,7 +710,10 @@ class ClearOspfStatisticsInterface(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfStatisticsInterface, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfStatisticsInterface, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-statistics-interface"
@@ -634,7 +731,7 @@ class ClearOspfStatisticsInterface(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -656,7 +753,10 @@ class ClearOspfStatisticsInterface(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfStatisticsInterface.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfStatisticsInterface.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-statistics-interface"
@@ -681,7 +781,7 @@ class ClearOspfStatisticsInterface(Entity):
             self._perform_setattr(ClearOspfStatisticsInterface.Input, [], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -698,7 +798,10 @@ class ClearOspfStatisticsInterface(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfStatisticsInterface.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfStatisticsInterface.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -717,9 +820,13 @@ class ClearOspfStatisticsInterface(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsInterface.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfStatisticsInterface.Input.Instance']['meta_info']
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             
             
@@ -738,7 +845,10 @@ class ClearOspfStatisticsInterface(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfStatisticsInterface.Input.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfStatisticsInterface.Input.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "input"
@@ -757,15 +867,27 @@ class ClearOspfStatisticsInterface(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsInterface.Input.Interface, ['interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfStatisticsInterface.Input.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfStatisticsInterface.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfStatisticsInterface()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfStatisticsInterface']['meta_info']
 
 
-class ClearOspfProcess(Entity):
+class ClearOspfProcess(_Entity_):
     """
     Clear (reset) OSPF process
     
@@ -782,7 +904,10 @@ class ClearOspfProcess(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfProcess, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfProcess, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-process"
@@ -800,7 +925,7 @@ class ClearOspfProcess(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -824,7 +949,10 @@ class ClearOspfProcess(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfProcess.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfProcess.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-process"
@@ -848,7 +976,7 @@ class ClearOspfProcess(Entity):
             self._perform_setattr(ClearOspfProcess.Input, ['process'], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             Clear data from OSPF instance
             
@@ -865,7 +993,10 @@ class ClearOspfProcess(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfProcess.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfProcess.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -884,15 +1015,27 @@ class ClearOspfProcess(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfProcess.Input.Instance, ['instance_identifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfProcess.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfProcess.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfProcess()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfProcess']['meta_info']
 
 
-class ClearOspfInstanceVrf(Entity):
+class ClearOspfInstanceVrf(_Entity_):
     """
     Clear one or more non\-default OSPF VRFs in process
     
@@ -909,7 +1052,10 @@ class ClearOspfInstanceVrf(Entity):
     _revision = '2016-09-14'
 
     def __init__(self):
-        super(ClearOspfInstanceVrf, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearOspfInstanceVrf, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-ospf-instance-vrf"
@@ -927,7 +1073,7 @@ class ClearOspfInstanceVrf(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -944,7 +1090,10 @@ class ClearOspfInstanceVrf(Entity):
         _revision = '2016-09-14'
 
         def __init__(self):
-            super(ClearOspfInstanceVrf.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearOspfInstanceVrf.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-ospf-instance-vrf"
@@ -965,7 +1114,7 @@ class ClearOspfInstanceVrf(Entity):
             self._perform_setattr(ClearOspfInstanceVrf.Input, [], name, value)
 
 
-        class Instance(Entity):
+        class Instance(_Entity_):
             """
             OSPF instance name
             
@@ -999,7 +1148,10 @@ class ClearOspfInstanceVrf(Entity):
             _revision = '2016-09-14'
 
             def __init__(self):
-                super(ClearOspfInstanceVrf.Input.Instance, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ClearOspfInstanceVrf.Input.Instance, self).__init__()
 
                 self.yang_name = "instance"
                 self.yang_parent_name = "input"
@@ -1031,7 +1183,7 @@ class ClearOspfInstanceVrf(Entity):
                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance, ['instance_identifier'], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 Clear one or more non\-default OSPF VRFs in process
                 
@@ -1068,7 +1220,10 @@ class ClearOspfInstanceVrf(Entity):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    super(ClearOspfInstanceVrf.Input.Instance.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ClearOspfInstanceVrf.Input.Instance.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "instance"
@@ -1098,7 +1253,7 @@ class ClearOspfInstanceVrf(Entity):
                     self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf, ['vrf_name', 'process', 'redistribution', 'route'], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     OSPF counters and statistics
                     
@@ -1130,7 +1285,10 @@ class ClearOspfInstanceVrf(Entity):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "vrf"
@@ -1160,7 +1318,7 @@ class ClearOspfInstanceVrf(Entity):
                         self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats, ['spf', 'message_queue'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         OSPF interface statistics
                         
@@ -1179,7 +1337,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "stats"
@@ -1198,9 +1359,13 @@ class ClearOspfInstanceVrf(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface']['meta_info']
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         Neighbor statistics per interface or neighbor id
                         
@@ -1224,7 +1389,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "stats"
@@ -1248,7 +1416,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor, ['neighbor_id'], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             
                             
@@ -1267,7 +1435,10 @@ class ClearOspfInstanceVrf(Entity):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "neighbor"
@@ -1286,12 +1457,28 @@ class ClearOspfInstanceVrf(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                                return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                        return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.Vrf.Stats']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                    return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.Vrf']['meta_info']
 
 
-
-
-
-            class All(Entity):
+            class All(_Entity_):
                 """
                 Clear all non\-default OSPF VRFs
                 
@@ -1323,7 +1510,10 @@ class ClearOspfInstanceVrf(Entity):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    super(ClearOspfInstanceVrf.Input.Instance.All, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ClearOspfInstanceVrf.Input.Instance.All, self).__init__()
 
                     self.yang_name = "all"
                     self.yang_parent_name = "instance"
@@ -1351,7 +1541,7 @@ class ClearOspfInstanceVrf(Entity):
                     self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All, ['process', 'redistribution', 'route'], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     OSPF counters and statistics
                     
@@ -1383,7 +1573,10 @@ class ClearOspfInstanceVrf(Entity):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        super(ClearOspfInstanceVrf.Input.Instance.All.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ClearOspfInstanceVrf.Input.Instance.All.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "all"
@@ -1413,7 +1606,7 @@ class ClearOspfInstanceVrf(Entity):
                         self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats, ['spf', 'message_queue'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         OSPF interface statistics
                         
@@ -1432,7 +1625,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "stats"
@@ -1451,9 +1647,13 @@ class ClearOspfInstanceVrf(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface']['meta_info']
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         Neighbor statistics per interface or neighbor id
                         
@@ -1477,7 +1677,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "stats"
@@ -1501,7 +1704,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor, ['neighbor_id'], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             
                             
@@ -1520,7 +1723,10 @@ class ClearOspfInstanceVrf(Entity):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "neighbor"
@@ -1539,12 +1745,28 @@ class ClearOspfInstanceVrf(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                                return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                        return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.All.Stats']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                    return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.All']['meta_info']
 
 
-
-
-
-            class AllInclusive(Entity):
+            class AllInclusive(_Entity_):
                 """
                 Clear all non\-default and default OSPF VRFs
                 
@@ -1576,7 +1798,10 @@ class ClearOspfInstanceVrf(Entity):
                 _revision = '2016-09-14'
 
                 def __init__(self):
-                    super(ClearOspfInstanceVrf.Input.Instance.AllInclusive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ClearOspfInstanceVrf.Input.Instance.AllInclusive, self).__init__()
 
                     self.yang_name = "all-inclusive"
                     self.yang_parent_name = "instance"
@@ -1604,7 +1829,7 @@ class ClearOspfInstanceVrf(Entity):
                     self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive, ['process', 'redistribution', 'route'], name, value)
 
 
-                class Stats(Entity):
+                class Stats(_Entity_):
                     """
                     OSPF counters and statistics
                     
@@ -1636,7 +1861,10 @@ class ClearOspfInstanceVrf(Entity):
                     _revision = '2016-09-14'
 
                     def __init__(self):
-                        super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats, self).__init__()
 
                         self.yang_name = "stats"
                         self.yang_parent_name = "all-inclusive"
@@ -1666,7 +1894,7 @@ class ClearOspfInstanceVrf(Entity):
                         self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats, ['spf', 'message_queue'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         OSPF interface statistics
                         
@@ -1685,7 +1913,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "stats"
@@ -1704,9 +1935,13 @@ class ClearOspfInstanceVrf(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface']['meta_info']
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         Neighbor statistics per interface or neighbor id
                         
@@ -1730,7 +1965,10 @@ class ClearOspfInstanceVrf(Entity):
                         _revision = '2016-09-14'
 
                         def __init__(self):
-                            super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "stats"
@@ -1754,7 +1992,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor, ['neighbor_id'], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             
                             
@@ -1773,7 +2011,10 @@ class ClearOspfInstanceVrf(Entity):
                             _revision = '2016-09-14'
 
                             def __init__(self):
-                                super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "neighbor"
@@ -1792,15 +2033,43 @@ class ClearOspfInstanceVrf(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                                return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                            return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                        return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                    return meta._meta_table['ClearOspfInstanceVrf.Input.Instance.AllInclusive']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+                return meta._meta_table['ClearOspfInstanceVrf.Input.Instance']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+            return meta._meta_table['ClearOspfInstanceVrf.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearOspfInstanceVrf()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_act as meta
+        return meta._meta_table['ClearOspfInstanceVrf']['meta_info']
 
 

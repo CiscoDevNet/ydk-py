@@ -6,7 +6,7 @@ module Cisco-IOS-XR-infra-tc-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-infra-tc-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2019-06-17;
   }
 
   organization
@@ -33,6 +33,10 @@ module Cisco-IOS-XR-infra-tc-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-17 {
+    description
+      "Change type of tunnel interface name to string";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -108,7 +112,7 @@ module Cisco-IOS-XR-infra-tc-oper {
               description
                 "Tunnel information";
               leaf interface-name {
-                type xr:Interface-name;
+                type xr:Cisco-ios-xr-string;
                 description
                   "The Interface Name";
               }

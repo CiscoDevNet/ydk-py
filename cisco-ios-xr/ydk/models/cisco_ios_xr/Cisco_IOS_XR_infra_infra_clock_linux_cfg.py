@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Clock(Entity):
+class Clock(_Entity_):
     """
     Configure time\-of\-day clock
     
@@ -40,7 +43,10 @@ class Clock(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Clock, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Clock, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clock"
@@ -60,7 +66,7 @@ class Clock(Entity):
         self._perform_setattr(Clock, [], name, value)
 
 
-    class TimeZone(Entity):
+    class TimeZone(_Entity_):
         """
         Configure time zone
         
@@ -88,7 +94,10 @@ class Clock(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Clock.TimeZone, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Clock.TimeZone, self).__init__()
 
             self.yang_name = "time-zone"
             self.yang_parent_name = "clock"
@@ -110,10 +119,18 @@ class Clock(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Clock.TimeZone, ['time_zone_name', 'area_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_clock_linux_cfg as meta
+            return meta._meta_table['Clock.TimeZone']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Clock()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_clock_linux_cfg as meta
+        return meta._meta_table['Clock']['meta_info']
 
 

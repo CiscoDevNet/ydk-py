@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,8 +50,14 @@ class AaaAdminPassword(Enum):
     type9 = Enum.YLeaf(9, "type9")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+        return meta._meta_table['AaaAdminPassword']
 
-class Aaa(Entity):
+
+
+class Aaa(_Entity_):
     """
     Admin plane AAA configuration
     
@@ -65,7 +74,10 @@ class Aaa(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Aaa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Aaa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aaa"
@@ -86,7 +98,7 @@ class Aaa(Entity):
         self._perform_setattr(Aaa, [], name, value)
 
 
-    class Usernames(Entity):
+    class Usernames(_Entity_):
         """
         Configure local username
         
@@ -103,7 +115,10 @@ class Aaa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Aaa.Usernames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aaa.Usernames, self).__init__()
 
             self.yang_name = "usernames"
             self.yang_parent_name = "aaa"
@@ -122,7 +137,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.Usernames, [], name, value)
 
 
-        class Username(Entity):
+        class Username(_Entity_):
             """
             Admin Username
             
@@ -149,7 +164,10 @@ class Aaa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Aaa.Usernames.Username, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aaa.Usernames.Username, self).__init__()
 
                 self.yang_name = "username"
                 self.yang_parent_name = "usernames"
@@ -177,7 +195,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Usernames.Username, ['name'], name, value)
 
 
-            class UsergroupUnderUsernames(Entity):
+            class UsergroupUnderUsernames(_Entity_):
                 """
                 Specify the usergroup to which this admin user
                 belongs
@@ -195,7 +213,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Usernames.Username.UsergroupUnderUsernames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Usernames.Username.UsergroupUnderUsernames, self).__init__()
 
                     self.yang_name = "usergroup-under-usernames"
                     self.yang_parent_name = "username"
@@ -213,7 +234,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames, [], name, value)
 
 
-                class UsergroupUnderUsername(Entity):
+                class UsergroupUnderUsername(_Entity_):
                     """
                     Name of the usergroup
                     
@@ -232,7 +253,10 @@ class Aaa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, self).__init__()
 
                         self.yang_name = "usergroup-under-username"
                         self.yang_parent_name = "usergroup-under-usernames"
@@ -250,10 +274,18 @@ class Aaa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+                        return meta._meta_table['Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+                    return meta._meta_table['Aaa.Usernames.Username.UsergroupUnderUsernames']['meta_info']
 
 
-
-            class Secret(Entity):
+            class Secret(_Entity_):
                 """
                 Specify the secret for the admin user
                 
@@ -291,7 +323,10 @@ class Aaa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Aaa.Usernames.Username.Secret, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aaa.Usernames.Username.Secret, self).__init__()
 
                     self.yang_name = "secret"
                     self.yang_parent_name = "username"
@@ -315,12 +350,28 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Usernames.Username.Secret, ['type', 'secret5', 'secret8', 'secret9'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+                    return meta._meta_table['Aaa.Usernames.Username.Secret']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+                return meta._meta_table['Aaa.Usernames.Username']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+            return meta._meta_table['Aaa.Usernames']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_admin_cfg as meta
+        return meta._meta_table['Aaa']['meta_info']
 
 

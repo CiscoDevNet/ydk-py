@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Rib(Entity):
+class Rib(_Entity_):
     """
     RIB configuration.
     
@@ -49,7 +52,10 @@ class Rib(Entity):
     _revision = '2017-07-31'
 
     def __init__(self):
-        super(Rib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rib"
@@ -73,7 +79,7 @@ class Rib(Entity):
         self._perform_setattr(Rib, ['max_recursion_depth'], name, value)
 
 
-    class Af(Entity):
+    class Af(_Entity_):
         """
         RIB address family configuration
         
@@ -95,7 +101,10 @@ class Rib(Entity):
         _revision = '2017-07-31'
 
         def __init__(self):
-            super(Rib.Af, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rib.Af, self).__init__()
 
             self.yang_name = "af"
             self.yang_parent_name = "rib"
@@ -120,7 +129,7 @@ class Rib(Entity):
             self._perform_setattr(Rib.Af, [], name, value)
 
 
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             IPv4 configuration
             
@@ -142,7 +151,10 @@ class Rib(Entity):
             _revision = '2017-07-31'
 
             def __init__(self):
-                super(Rib.Af.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rib.Af.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "af"
@@ -166,7 +178,7 @@ class Rib(Entity):
                 self._perform_setattr(Rib.Af.Ipv4, ['next_hop_dampening_disable'], name, value)
 
 
-            class RedistributionHistory(Entity):
+            class RedistributionHistory(_Entity_):
                 """
                 Redistribution history related configs
                 
@@ -197,7 +209,10 @@ class Rib(Entity):
                 _revision = '2017-07-31'
 
                 def __init__(self):
-                    super(Rib.Af.Ipv4.RedistributionHistory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rib.Af.Ipv4.RedistributionHistory, self).__init__()
 
                     self.yang_name = "redistribution-history"
                     self.yang_parent_name = "ipv4"
@@ -223,7 +238,7 @@ class Rib(Entity):
                     self._perform_setattr(Rib.Af.Ipv4.RedistributionHistory, ['bcdl_client', 'protocol_client'], name, value)
 
 
-                class Keep(Entity):
+                class Keep(_Entity_):
                     """
                     Retain redistribution history after disconnect.
                     
@@ -240,7 +255,10 @@ class Rib(Entity):
                     _revision = '2017-07-31'
 
                     def __init__(self):
-                        super(Rib.Af.Ipv4.RedistributionHistory.Keep, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rib.Af.Ipv4.RedistributionHistory.Keep, self).__init__()
 
                         self.yang_name = "keep"
                         self.yang_parent_name = "redistribution-history"
@@ -259,11 +277,23 @@ class Rib(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rib.Af.Ipv4.RedistributionHistory.Keep, ['bcdl'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                        return meta._meta_table['Rib.Af.Ipv4.RedistributionHistory.Keep']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                    return meta._meta_table['Rib.Af.Ipv4.RedistributionHistory']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                return meta._meta_table['Rib.Af.Ipv4']['meta_info']
 
 
-
-
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             IPv6 configuration
             
@@ -285,7 +315,10 @@ class Rib(Entity):
             _revision = '2017-07-31'
 
             def __init__(self):
-                super(Rib.Af.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rib.Af.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "af"
@@ -309,7 +342,7 @@ class Rib(Entity):
                 self._perform_setattr(Rib.Af.Ipv6, ['next_hop_dampening_disable'], name, value)
 
 
-            class RedistributionHistory(Entity):
+            class RedistributionHistory(_Entity_):
                 """
                 Redistribution history related configs
                 
@@ -340,7 +373,10 @@ class Rib(Entity):
                 _revision = '2017-07-31'
 
                 def __init__(self):
-                    super(Rib.Af.Ipv6.RedistributionHistory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rib.Af.Ipv6.RedistributionHistory, self).__init__()
 
                     self.yang_name = "redistribution-history"
                     self.yang_parent_name = "ipv6"
@@ -366,7 +402,7 @@ class Rib(Entity):
                     self._perform_setattr(Rib.Af.Ipv6.RedistributionHistory, ['bcdl_client', 'protocol_client'], name, value)
 
 
-                class Keep(Entity):
+                class Keep(_Entity_):
                     """
                     Retain redistribution history after disconnect.
                     
@@ -383,7 +419,10 @@ class Rib(Entity):
                     _revision = '2017-07-31'
 
                     def __init__(self):
-                        super(Rib.Af.Ipv6.RedistributionHistory.Keep, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rib.Af.Ipv6.RedistributionHistory.Keep, self).__init__()
 
                         self.yang_name = "keep"
                         self.yang_parent_name = "redistribution-history"
@@ -402,13 +441,33 @@ class Rib(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rib.Af.Ipv6.RedistributionHistory.Keep, ['bcdl'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                        return meta._meta_table['Rib.Af.Ipv6.RedistributionHistory.Keep']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                    return meta._meta_table['Rib.Af.Ipv6.RedistributionHistory']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+                return meta._meta_table['Rib.Af.Ipv6']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+            return meta._meta_table['Rib.Af']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rib()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_cfg as meta
+        return meta._meta_table['Rib']['meta_info']
 
 

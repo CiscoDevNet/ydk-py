@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -144,8 +147,14 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+        return meta._meta_table['ImStateEnum']
 
-class InterfaceDampening(Entity):
+
+
+class InterfaceDampening(_Entity_):
     """
     Interface dampening data
     
@@ -171,7 +180,10 @@ class InterfaceDampening(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(InterfaceDampening, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InterfaceDampening, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interface-dampening"
@@ -196,7 +208,7 @@ class InterfaceDampening(Entity):
         self._perform_setattr(InterfaceDampening, [], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         The interface list for which dampening info is
         available
@@ -216,7 +228,10 @@ class InterfaceDampening(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(InterfaceDampening.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InterfaceDampening.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "interface-dampening"
@@ -235,7 +250,7 @@ class InterfaceDampening(Entity):
             self._perform_setattr(InterfaceDampening.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             The interface for which dampening info is being
             queried
@@ -264,7 +279,10 @@ class InterfaceDampening(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(InterfaceDampening.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InterfaceDampening.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -288,7 +306,7 @@ class InterfaceDampening(Entity):
                 self._perform_setattr(InterfaceDampening.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class IfDampening(Entity):
+            class IfDampening(_Entity_):
                 """
                 Dampening info for the interface
                 
@@ -388,7 +406,10 @@ class InterfaceDampening(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(InterfaceDampening.Interfaces.Interface.IfDampening, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InterfaceDampening.Interfaces.Interface.IfDampening, self).__init__()
 
                     self.yang_name = "if-dampening"
                     self.yang_parent_name = "interface"
@@ -427,7 +448,7 @@ class InterfaceDampening(Entity):
                     self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening, ['state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
 
-                class InterfaceDampening_(Entity):
+                class InterfaceDampening_(_Entity_):
                     """
                     Interface dampening
                     
@@ -482,7 +503,10 @@ class InterfaceDampening(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_, self).__init__()
 
                         self.yang_name = "interface-dampening"
                         self.yang_parent_name = "if-dampening"
@@ -508,9 +532,13 @@ class InterfaceDampening(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_']['meta_info']
 
 
-                class Capsulation(Entity):
+                class Capsulation(_Entity_):
                     """
                     Dampening information for capsulations
                     
@@ -536,7 +564,10 @@ class InterfaceDampening(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation, self).__init__()
 
                         self.yang_name = "capsulation"
                         self.yang_parent_name = "if-dampening"
@@ -559,7 +590,7 @@ class InterfaceDampening(Entity):
                         self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation, ['capsulation_number'], name, value)
 
 
-                    class CapsulationDampening(Entity):
+                    class CapsulationDampening(_Entity_):
                         """
                         Capsulation dampening
                         
@@ -614,7 +645,10 @@ class InterfaceDampening(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening, self).__init__()
 
                             self.yang_name = "capsulation-dampening"
                             self.yang_parent_name = "capsulation"
@@ -640,13 +674,33 @@ class InterfaceDampening(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                    return meta._meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                return meta._meta_table['InterfaceDampening.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+            return meta._meta_table['InterfaceDampening.Interfaces']['meta_info']
 
 
-
-
-
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         The location of the interface(s) being queried
         
@@ -665,7 +719,10 @@ class InterfaceDampening(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(InterfaceDampening.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InterfaceDampening.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "interface-dampening"
@@ -684,7 +741,7 @@ class InterfaceDampening(Entity):
             self._perform_setattr(InterfaceDampening.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The location of the interface(s) being queried
             
@@ -712,7 +769,10 @@ class InterfaceDampening(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(InterfaceDampening.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InterfaceDampening.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -736,7 +796,7 @@ class InterfaceDampening(Entity):
                 self._perform_setattr(InterfaceDampening.Nodes.Node, ['node_name'], name, value)
 
 
-            class Show(Entity):
+            class Show(_Entity_):
                 """
                 Show details for the interfaces
                 
@@ -755,7 +815,10 @@ class InterfaceDampening(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(InterfaceDampening.Nodes.Node.Show, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InterfaceDampening.Nodes.Node.Show, self).__init__()
 
                     self.yang_name = "show"
                     self.yang_parent_name = "node"
@@ -775,7 +838,7 @@ class InterfaceDampening(Entity):
                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show, [], name, value)
 
 
-                class Dampening(Entity):
+                class Dampening(_Entity_):
                     """
                     Dampening information of the interface(s)
                     being queried
@@ -802,7 +865,10 @@ class InterfaceDampening(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceDampening.Nodes.Node.Show.Dampening, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceDampening.Nodes.Node.Show.Dampening, self).__init__()
 
                         self.yang_name = "dampening"
                         self.yang_parent_name = "show"
@@ -826,7 +892,7 @@ class InterfaceDampening(Entity):
                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening, [], name, value)
 
 
-                    class IfHandles(Entity):
+                    class IfHandles(_Entity_):
                         """
                         Interface handle for which dampening info
                         queried
@@ -846,7 +912,10 @@ class InterfaceDampening(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles, self).__init__()
 
                             self.yang_name = "if-handles"
                             self.yang_parent_name = "dampening"
@@ -864,7 +933,7 @@ class InterfaceDampening(Entity):
                             self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles, [], name, value)
 
 
-                        class IfHandle(Entity):
+                        class IfHandle(_Entity_):
                             """
                             Dampening info for the interface handle
                             
@@ -973,7 +1042,10 @@ class InterfaceDampening(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle, self).__init__()
 
                                 self.yang_name = "if-handle"
                                 self.yang_parent_name = "if-handles"
@@ -1014,7 +1086,7 @@ class InterfaceDampening(Entity):
                                 self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle, ['interface_handle_name', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
 
-                            class InterfaceDampening_(Entity):
+                            class InterfaceDampening_(_Entity_):
                                 """
                                 Interface dampening
                                 
@@ -1069,7 +1141,10 @@ class InterfaceDampening(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_, self).__init__()
 
                                     self.yang_name = "interface-dampening"
                                     self.yang_parent_name = "if-handle"
@@ -1095,9 +1170,13 @@ class InterfaceDampening(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                    return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_']['meta_info']
 
 
-                            class Capsulation(Entity):
+                            class Capsulation(_Entity_):
                                 """
                                 Dampening information for capsulations
                                 
@@ -1123,7 +1202,10 @@ class InterfaceDampening(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation, self).__init__()
 
                                     self.yang_name = "capsulation"
                                     self.yang_parent_name = "if-handle"
@@ -1146,7 +1228,7 @@ class InterfaceDampening(Entity):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation, ['capsulation_number'], name, value)
 
 
-                                class CapsulationDampening(Entity):
+                                class CapsulationDampening(_Entity_):
                                     """
                                     Capsulation dampening
                                     
@@ -1201,7 +1283,10 @@ class InterfaceDampening(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening, self).__init__()
 
                                         self.yang_name = "capsulation-dampening"
                                         self.yang_parent_name = "capsulation"
@@ -1227,12 +1312,28 @@ class InterfaceDampening(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                        return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                    return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles']['meta_info']
 
 
-
-
-
-                    class Interfaces(Entity):
+                    class Interfaces(_Entity_):
                         """
                         Table of interfaces for which dampening info
                         can be queried
@@ -1252,7 +1353,10 @@ class InterfaceDampening(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces, self).__init__()
 
                             self.yang_name = "interfaces"
                             self.yang_parent_name = "dampening"
@@ -1270,7 +1374,7 @@ class InterfaceDampening(Entity):
                             self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces, [], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             Dampening info for the interface
                             
@@ -1379,7 +1483,10 @@ class InterfaceDampening(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "interfaces"
@@ -1420,7 +1527,7 @@ class InterfaceDampening(Entity):
                                 self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface, ['interface_name', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
 
-                            class InterfaceDampening_(Entity):
+                            class InterfaceDampening_(_Entity_):
                                 """
                                 Interface dampening
                                 
@@ -1475,7 +1582,10 @@ class InterfaceDampening(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_, self).__init__()
 
                                     self.yang_name = "interface-dampening"
                                     self.yang_parent_name = "interface"
@@ -1501,9 +1611,13 @@ class InterfaceDampening(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                    return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_']['meta_info']
 
 
-                            class Capsulation(Entity):
+                            class Capsulation(_Entity_):
                                 """
                                 Dampening information for capsulations
                                 
@@ -1529,7 +1643,10 @@ class InterfaceDampening(Entity):
                                 _revision = '2015-07-30'
 
                                 def __init__(self):
-                                    super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation, self).__init__()
 
                                     self.yang_name = "capsulation"
                                     self.yang_parent_name = "interface"
@@ -1552,7 +1669,7 @@ class InterfaceDampening(Entity):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation, ['capsulation_number'], name, value)
 
 
-                                class CapsulationDampening(Entity):
+                                class CapsulationDampening(_Entity_):
                                     """
                                     Capsulation dampening
                                     
@@ -1607,7 +1724,10 @@ class InterfaceDampening(Entity):
                                     _revision = '2015-07-30'
 
                                     def __init__(self):
-                                        super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening, self).__init__()
 
                                         self.yang_name = "capsulation-dampening"
                                         self.yang_parent_name = "capsulation"
@@ -1633,21 +1753,57 @@ class InterfaceDampening(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                        return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                    return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceDampening.Nodes.Node.Show.Dampening']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                    return meta._meta_table['InterfaceDampening.Nodes.Node.Show']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                return meta._meta_table['InterfaceDampening.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+            return meta._meta_table['InterfaceDampening.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InterfaceDampening()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+        return meta._meta_table['InterfaceDampening']['meta_info']
 
 
-class InterfaceProperties(Entity):
+class InterfaceProperties(_Entity_):
     """
     interface properties
     
@@ -1666,7 +1822,10 @@ class InterfaceProperties(Entity):
     _revision = '2015-07-30'
 
     def __init__(self):
-        super(InterfaceProperties, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InterfaceProperties, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interface-properties"
@@ -1687,7 +1846,7 @@ class InterfaceProperties(Entity):
         self._perform_setattr(InterfaceProperties, [], name, value)
 
 
-    class DataNodes(Entity):
+    class DataNodes(_Entity_):
         """
         Operational data for interfaces
         
@@ -1706,7 +1865,10 @@ class InterfaceProperties(Entity):
         _revision = '2015-07-30'
 
         def __init__(self):
-            super(InterfaceProperties.DataNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InterfaceProperties.DataNodes, self).__init__()
 
             self.yang_name = "data-nodes"
             self.yang_parent_name = "interface-properties"
@@ -1725,7 +1887,7 @@ class InterfaceProperties(Entity):
             self._perform_setattr(InterfaceProperties.DataNodes, [], name, value)
 
 
-        class DataNode(Entity):
+        class DataNode(_Entity_):
             """
             The location of a (D)RP in the same LR as the
             interface being queried
@@ -1768,7 +1930,10 @@ class InterfaceProperties(Entity):
             _revision = '2015-07-30'
 
             def __init__(self):
-                super(InterfaceProperties.DataNodes.DataNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InterfaceProperties.DataNodes.DataNode, self).__init__()
 
                 self.yang_name = "data-node"
                 self.yang_parent_name = "data-nodes"
@@ -1800,7 +1965,7 @@ class InterfaceProperties(Entity):
                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode, ['data_node_name'], name, value)
 
 
-            class Locationviews(Entity):
+            class Locationviews(_Entity_):
                 """
                 Location\-specific view of interface
                 operational data
@@ -1820,7 +1985,10 @@ class InterfaceProperties(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(InterfaceProperties.DataNodes.DataNode.Locationviews, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InterfaceProperties.DataNodes.DataNode.Locationviews, self).__init__()
 
                     self.yang_name = "locationviews"
                     self.yang_parent_name = "data-node"
@@ -1838,7 +2006,7 @@ class InterfaceProperties(Entity):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews, [], name, value)
 
 
-                class Locationview(Entity):
+                class Locationview(_Entity_):
                     """
                     Operational data for all interfaces and
                     controllers on a particular node
@@ -1867,7 +2035,10 @@ class InterfaceProperties(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview, self).__init__()
 
                         self.yang_name = "locationview"
                         self.yang_parent_name = "locationviews"
@@ -1890,7 +2061,7 @@ class InterfaceProperties(Entity):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview, ['locationview_name'], name, value)
 
 
-                    class Interfaces(Entity):
+                    class Interfaces(_Entity_):
                         """
                         Operational data for all interfaces and
                         controllers
@@ -1910,7 +2081,10 @@ class InterfaceProperties(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces, self).__init__()
 
                             self.yang_name = "interfaces"
                             self.yang_parent_name = "locationview"
@@ -1928,7 +2102,7 @@ class InterfaceProperties(Entity):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces, [], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             The operational attributes for a particular
                             interface
@@ -2055,7 +2229,10 @@ class InterfaceProperties(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "interfaces"
@@ -2099,12 +2276,28 @@ class InterfaceProperties(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                return meta._meta_table['InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                    return meta._meta_table['InterfaceProperties.DataNodes.DataNode.Locationviews']['meta_info']
 
 
-
-
-
-            class PqNodeLocations(Entity):
+            class PqNodeLocations(_Entity_):
                 """
                 Partially qualified Location\-specific view of
                 interface operational data
@@ -2124,7 +2317,10 @@ class InterfaceProperties(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations, self).__init__()
 
                     self.yang_name = "pq-node-locations"
                     self.yang_parent_name = "data-node"
@@ -2142,7 +2338,7 @@ class InterfaceProperties(Entity):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations, [], name, value)
 
 
-                class PqNodeLocation(Entity):
+                class PqNodeLocation(_Entity_):
                     """
                     Operational data for all interfaces and
                     controllers on a particular pq\_node
@@ -2171,7 +2367,10 @@ class InterfaceProperties(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation, self).__init__()
 
                         self.yang_name = "pq-node-location"
                         self.yang_parent_name = "pq-node-locations"
@@ -2194,7 +2393,7 @@ class InterfaceProperties(Entity):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation, ['pq_node_name'], name, value)
 
 
-                    class Interfaces(Entity):
+                    class Interfaces(_Entity_):
                         """
                         Operational data for all interfaces and
                         controllers
@@ -2214,7 +2413,10 @@ class InterfaceProperties(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces, self).__init__()
 
                             self.yang_name = "interfaces"
                             self.yang_parent_name = "pq-node-location"
@@ -2232,7 +2434,7 @@ class InterfaceProperties(Entity):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces, [], name, value)
 
 
-                        class Interface(Entity):
+                        class Interface(_Entity_):
                             """
                             The operational attributes for a particular
                             interface
@@ -2359,7 +2561,10 @@ class InterfaceProperties(Entity):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, self).__init__()
 
                                 self.yang_name = "interface"
                                 self.yang_parent_name = "interfaces"
@@ -2403,12 +2608,28 @@ class InterfaceProperties(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                                return meta._meta_table['InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                    return meta._meta_table['InterfaceProperties.DataNodes.DataNode.PqNodeLocations']['meta_info']
 
 
-
-
-
-            class SystemView(Entity):
+            class SystemView(_Entity_):
                 """
                 System\-wide view of interface operational data
                 
@@ -2427,7 +2648,10 @@ class InterfaceProperties(Entity):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    super(InterfaceProperties.DataNodes.DataNode.SystemView, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InterfaceProperties.DataNodes.DataNode.SystemView, self).__init__()
 
                     self.yang_name = "system-view"
                     self.yang_parent_name = "data-node"
@@ -2447,7 +2671,7 @@ class InterfaceProperties(Entity):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Operational data for all interfaces and
                     controllers
@@ -2467,7 +2691,10 @@ class InterfaceProperties(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "system-view"
@@ -2485,7 +2712,7 @@ class InterfaceProperties(Entity):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         The operational attributes for a particular
                         interface
@@ -2612,7 +2839,10 @@ class InterfaceProperties(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -2656,14 +2886,38 @@ class InterfaceProperties(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                            return meta._meta_table['InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                        return meta._meta_table['InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                    return meta._meta_table['InterfaceProperties.DataNodes.DataNode.SystemView']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+                return meta._meta_table['InterfaceProperties.DataNodes.DataNode']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+            return meta._meta_table['InterfaceProperties.DataNodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InterfaceProperties()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
+        return meta._meta_table['InterfaceProperties']['meta_info']
 
 

@@ -13,8 +13,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -23,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Instmgr(Entity):
+class Instmgr(_Entity_):
     """
     
     
@@ -42,7 +45,10 @@ class Instmgr(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(Instmgr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Instmgr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "instmgr"
@@ -61,7 +67,7 @@ class Instmgr(Entity):
         self._perform_setattr(Instmgr, [], name, value)
 
 
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -87,7 +93,10 @@ class Instmgr(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Instmgr.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Instmgr.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "instmgr"
@@ -109,7 +118,7 @@ class Instmgr(Entity):
             self._perform_setattr(Instmgr.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -135,7 +144,10 @@ class Instmgr(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Instmgr.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Instmgr.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -156,7 +168,7 @@ class Instmgr(Entity):
                 self._perform_setattr(Instmgr.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -182,7 +194,10 @@ class Instmgr(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Instmgr.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Instmgr.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -203,7 +218,7 @@ class Instmgr(Entity):
                     self._perform_setattr(Instmgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -222,7 +237,10 @@ class Instmgr(Entity):
                     _revision = '2017-04-12'
 
                     def __init__(self):
-                        super(Instmgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Instmgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -240,13 +258,33 @@ class Instmgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Instmgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_trace_instmgr as meta
+                        return meta._meta_table['Instmgr.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_trace_instmgr as meta
+                    return meta._meta_table['Instmgr.Trace.Location.AllOptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_trace_instmgr as meta
+                return meta._meta_table['Instmgr.Trace.Location']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_trace_instmgr as meta
+            return meta._meta_table['Instmgr.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Instmgr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_trace_instmgr as meta
+        return meta._meta_table['Instmgr']['meta_info']
 
 

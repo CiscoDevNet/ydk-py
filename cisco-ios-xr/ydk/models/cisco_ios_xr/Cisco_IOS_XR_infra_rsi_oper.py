@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -65,6 +68,12 @@ class Priority(Enum):
     very_low = Enum.YLeaf(4, "very-low")
 
     invald = Enum.YLeaf(5, "invald")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+        return meta._meta_table['Priority']
 
 
 class Source(Enum):
@@ -124,8 +133,14 @@ class Source(Enum):
     from_optical_and_notified = Enum.YLeaf(24, "from-optical-and-notified")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+        return meta._meta_table['Source']
 
-class VrfGroup(Entity):
+
+
+class VrfGroup(_Entity_):
     """
     VRF group operational data
     
@@ -144,7 +159,10 @@ class VrfGroup(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(VrfGroup, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(VrfGroup, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vrf-group"
@@ -165,7 +183,7 @@ class VrfGroup(Entity):
         self._perform_setattr(VrfGroup, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node operational data
         
@@ -184,7 +202,10 @@ class VrfGroup(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(VrfGroup.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VrfGroup.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "vrf-group"
@@ -203,7 +224,7 @@ class VrfGroup(Entity):
             self._perform_setattr(VrfGroup.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node details
             
@@ -231,7 +252,10 @@ class VrfGroup(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(VrfGroup.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VrfGroup.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -255,7 +279,7 @@ class VrfGroup(Entity):
                 self._perform_setattr(VrfGroup.Nodes.Node, ['node_name'], name, value)
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 Group operational data
                 
@@ -274,7 +298,10 @@ class VrfGroup(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(VrfGroup.Nodes.Node.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VrfGroup.Nodes.Node.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "node"
@@ -292,7 +319,7 @@ class VrfGroup(Entity):
                     self._perform_setattr(VrfGroup.Nodes.Node.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     Group details
                     
@@ -336,7 +363,10 @@ class VrfGroup(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(VrfGroup.Nodes.Node.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(VrfGroup.Nodes.Node.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -361,7 +391,7 @@ class VrfGroup(Entity):
                         self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', 'vr_fs', 'forward_reference'], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         VRF group's VRF
                         
@@ -380,7 +410,10 @@ class VrfGroup(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(VrfGroup.Nodes.Node.Groups.Group.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(VrfGroup.Nodes.Node.Groups.Group.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "group"
@@ -398,18 +431,42 @@ class VrfGroup(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group.Vrf, ['vrf_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['VrfGroup.Nodes.Node.Groups.Group.Vrf']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['VrfGroup.Nodes.Node.Groups.Group']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['VrfGroup.Nodes.Node.Groups']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['VrfGroup.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['VrfGroup.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = VrfGroup()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+        return meta._meta_table['VrfGroup']['meta_info']
 
 
-class Srlg(Entity):
+class Srlg(_Entity_):
     """
     srlg
     
@@ -484,7 +541,10 @@ class Srlg(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Srlg, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Srlg, self).__init__()
         self._top_entity = None
 
         self.yang_name = "srlg"
@@ -537,7 +597,7 @@ class Srlg(Entity):
         self._perform_setattr(Srlg, [], name, value)
 
 
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Set of Groups configured for SRLG
         
@@ -556,7 +616,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "srlg"
@@ -575,7 +638,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             SRLG group details
             
@@ -619,7 +682,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -645,7 +711,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
 
 
-            class SrlgAttribute(Entity):
+            class SrlgAttribute(_Entity_):
                 """
                 SRLG attribute
                 
@@ -682,7 +748,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Groups.Group.SrlgAttribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Groups.Group.SrlgAttribute, self).__init__()
 
                     self.yang_name = "srlg-attribute"
                     self.yang_parent_name = "group"
@@ -704,11 +773,23 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Groups.Group.SrlgAttribute']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.Groups']['meta_info']
 
 
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Set of interfaces configured for SRLG
         
@@ -727,7 +808,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "srlg"
@@ -746,7 +830,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             SRLG interface summary
             
@@ -801,7 +885,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -828,10 +915,18 @@ class Srlg(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.Interfaces']['meta_info']
 
 
-
-    class Rsips(Entity):
+    class Rsips(_Entity_):
         """
         Set of rsip configured for SRLG
         
@@ -850,7 +945,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.Rsips, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Rsips, self).__init__()
 
             self.yang_name = "rsips"
             self.yang_parent_name = "srlg"
@@ -869,7 +967,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Rsips, [], name, value)
 
 
-        class Rsip(Entity):
+        class Rsip(_Entity_):
             """
             SRLG rsip details
             
@@ -922,7 +1020,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.Rsips.Rsip, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Rsips.Rsip, self).__init__()
 
                 self.yang_name = "rsip"
                 self.yang_parent_name = "rsips"
@@ -950,7 +1051,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.Rsips.Rsip, ['rsip_name', 'optical_layer_interface_name', 'registrations', 'interface_values'], name, value)
 
 
-            class SrlgAttribute(Entity):
+            class SrlgAttribute(_Entity_):
                 """
                 SRLG attribute
                 
@@ -987,7 +1088,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Rsips.Rsip.SrlgAttribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Rsips.Rsip.SrlgAttribute, self).__init__()
 
                     self.yang_name = "srlg-attribute"
                     self.yang_parent_name = "rsip"
@@ -1009,11 +1113,23 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Rsips.Rsip.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Rsips.Rsip.SrlgAttribute']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.Rsips.Rsip']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.Rsips']['meta_info']
 
 
-
-
-    class SrlgMaps(Entity):
+    class SrlgMaps(_Entity_):
         """
         Set of SRLG name, value maps configured
         
@@ -1032,7 +1148,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.SrlgMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.SrlgMaps, self).__init__()
 
             self.yang_name = "srlg-maps"
             self.yang_parent_name = "srlg"
@@ -1051,7 +1170,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.SrlgMaps, [], name, value)
 
 
-        class SrlgMap(Entity):
+        class SrlgMap(_Entity_):
             """
             Configured SRLG name details 
             
@@ -1088,7 +1207,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.SrlgMaps.SrlgMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.SrlgMaps.SrlgMap, self).__init__()
 
                 self.yang_name = "srlg-map"
                 self.yang_parent_name = "srlg-maps"
@@ -1111,10 +1233,18 @@ class Srlg(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.SrlgMaps.SrlgMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.SrlgMaps']['meta_info']
 
 
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         RSI SRLG operational data
         
@@ -1133,7 +1263,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "srlg"
@@ -1152,7 +1285,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             RSI SRLG operational data
             
@@ -1222,7 +1355,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1270,7 +1406,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.Nodes.Node, ['node_name'], name, value)
 
 
-            class SrlgMaps(Entity):
+            class SrlgMaps(_Entity_):
                 """
                 Set of SRLG name, value maps configured
                 
@@ -1289,7 +1425,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.SrlgMaps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.SrlgMaps, self).__init__()
 
                     self.yang_name = "srlg-maps"
                     self.yang_parent_name = "node"
@@ -1307,7 +1446,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.SrlgMaps, [], name, value)
 
 
-                class SrlgMap(Entity):
+                class SrlgMap(_Entity_):
                     """
                     Configured SRLG name details 
                     
@@ -1344,7 +1483,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.SrlgMaps.SrlgMap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.SrlgMaps.SrlgMap, self).__init__()
 
                         self.yang_name = "srlg-map"
                         self.yang_parent_name = "srlg-maps"
@@ -1366,10 +1508,18 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.SrlgMaps.SrlgMap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.SrlgMaps']['meta_info']
 
 
-
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 Set of Groups configured for SRLG
                 
@@ -1388,7 +1538,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "node"
@@ -1406,7 +1559,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     SRLG group details
                     
@@ -1450,7 +1603,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -1475,7 +1631,7 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
 
 
-                    class SrlgAttribute(Entity):
+                    class SrlgAttribute(_Entity_):
                         """
                         SRLG attribute
                         
@@ -1512,7 +1668,10 @@ class Srlg(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, self).__init__()
 
                             self.yang_name = "srlg-attribute"
                             self.yang_parent_name = "group"
@@ -1534,11 +1693,23 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['Srlg.Nodes.Node.Groups.Group.SrlgAttribute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.Groups']['meta_info']
 
 
-
-
-            class InheritNodes(Entity):
+            class InheritNodes(_Entity_):
                 """
                 Set of inherit locations configured for SRLG
                 
@@ -1557,7 +1728,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.InheritNodes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.InheritNodes, self).__init__()
 
                     self.yang_name = "inherit-nodes"
                     self.yang_parent_name = "node"
@@ -1575,7 +1749,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.InheritNodes, [], name, value)
 
 
-                class InheritNode(Entity):
+                class InheritNode(_Entity_):
                     """
                     SRLG inherit location details
                     
@@ -1619,7 +1793,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.InheritNodes.InheritNode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.InheritNodes.InheritNode, self).__init__()
 
                         self.yang_name = "inherit-node"
                         self.yang_parent_name = "inherit-nodes"
@@ -1644,7 +1821,7 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
 
 
-                    class SrlgAttribute(Entity):
+                    class SrlgAttribute(_Entity_):
                         """
                         SRLG attribute
                         
@@ -1681,7 +1858,10 @@ class Srlg(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, self).__init__()
 
                             self.yang_name = "srlg-attribute"
                             self.yang_parent_name = "inherit-node"
@@ -1703,11 +1883,23 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.InheritNodes.InheritNode']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.InheritNodes']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Set of interfaces configured for SRLG
                 
@@ -1726,7 +1918,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -1744,7 +1939,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     SRLG interface summary
                     
@@ -1799,7 +1994,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -1825,10 +2023,18 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.Interfaces']['meta_info']
 
 
-
-            class InterfaceDetails(Entity):
+            class InterfaceDetails(_Entity_):
                 """
                 Set of interfaces configured for SRLG
                 
@@ -1847,7 +2053,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.InterfaceDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.InterfaceDetails, self).__init__()
 
                     self.yang_name = "interface-details"
                     self.yang_parent_name = "node"
@@ -1865,7 +2074,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails, [], name, value)
 
 
-                class InterfaceDetail(Entity):
+                class InterfaceDetail(_Entity_):
                     """
                     SRLG interface details
                     
@@ -1918,7 +2127,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, self).__init__()
 
                         self.yang_name = "interface-detail"
                         self.yang_parent_name = "interface-details"
@@ -1944,7 +2156,7 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
 
 
-                    class SrlgAttribute(Entity):
+                    class SrlgAttribute(_Entity_):
                         """
                         SRLG attributes
                         
@@ -1995,7 +2207,10 @@ class Srlg(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__init__()
 
                             self.yang_name = "srlg-attribute"
                             self.yang_parent_name = "interface-detail"
@@ -2021,9 +2236,13 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute']['meta_info']
 
 
-                    class Rsip(Entity):
+                    class Rsip(_Entity_):
                         """
                         rsip list
                         
@@ -2042,7 +2261,10 @@ class Srlg(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, self).__init__()
 
                             self.yang_name = "rsip"
                             self.yang_parent_name = "interface-detail"
@@ -2060,11 +2282,23 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails']['meta_info']
 
 
-
-
-            class SrlgValues(Entity):
+            class SrlgValues(_Entity_):
                 """
                 Set of SRLG values configured
                 
@@ -2083,7 +2317,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.SrlgValues, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.SrlgValues, self).__init__()
 
                     self.yang_name = "srlg-values"
                     self.yang_parent_name = "node"
@@ -2101,7 +2338,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.SrlgValues, [], name, value)
 
 
-                class SrlgValue(Entity):
+                class SrlgValue(_Entity_):
                     """
                     Configured SRLG value details 
                     
@@ -2129,7 +2366,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.SrlgValues.SrlgValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.SrlgValues.SrlgValue, self).__init__()
 
                         self.yang_name = "srlg-value"
                         self.yang_parent_name = "srlg-values"
@@ -2149,10 +2389,18 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.SrlgValues.SrlgValue']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.SrlgValues']['meta_info']
 
 
-
-            class InterfaceSrlgNames(Entity):
+            class InterfaceSrlgNames(_Entity_):
                 """
                 Set of SRLG names configured
                 
@@ -2171,7 +2419,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.Nodes.Node.InterfaceSrlgNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.Nodes.Node.InterfaceSrlgNames, self).__init__()
 
                     self.yang_name = "interface-srlg-names"
                     self.yang_parent_name = "node"
@@ -2189,7 +2440,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames, [], name, value)
 
 
-                class InterfaceSrlgName(Entity):
+                class InterfaceSrlgName(_Entity_):
                     """
                     Configured SRLG name details 
                     
@@ -2233,7 +2484,10 @@ class Srlg(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
 
                         self.yang_name = "interface-srlg-name"
                         self.yang_parent_name = "interface-srlg-names"
@@ -2260,7 +2514,7 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
 
 
-                    class Interfaces(Entity):
+                    class Interfaces(_Entity_):
                         """
                         Interfaces information
                         
@@ -2279,7 +2533,10 @@ class Srlg(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
 
                             self.yang_name = "interfaces"
                             self.yang_parent_name = "interface-srlg-name"
@@ -2297,13 +2554,33 @@ class Srlg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                            return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                        return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.Nodes']['meta_info']
 
 
-
-
-
-
-    class InterfaceSrlgNames(Entity):
+    class InterfaceSrlgNames(_Entity_):
         """
         Set of SRLG names configured
         
@@ -2322,7 +2599,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.InterfaceSrlgNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.InterfaceSrlgNames, self).__init__()
 
             self.yang_name = "interface-srlg-names"
             self.yang_parent_name = "srlg"
@@ -2341,7 +2621,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.InterfaceSrlgNames, [], name, value)
 
 
-        class InterfaceSrlgName(Entity):
+        class InterfaceSrlgName(_Entity_):
             """
             Configured SRLG name details 
             
@@ -2385,7 +2665,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
 
                 self.yang_name = "interface-srlg-name"
                 self.yang_parent_name = "interface-srlg-names"
@@ -2413,7 +2696,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interfaces information
                 
@@ -2432,7 +2715,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "interface-srlg-name"
@@ -2450,11 +2736,23 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.InterfaceSrlgNames.InterfaceSrlgName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.InterfaceSrlgNames']['meta_info']
 
 
-
-
-    class InheritNodes(Entity):
+    class InheritNodes(_Entity_):
         """
         Set of inherit locations configured for SRLG
         
@@ -2473,7 +2771,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.InheritNodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.InheritNodes, self).__init__()
 
             self.yang_name = "inherit-nodes"
             self.yang_parent_name = "srlg"
@@ -2492,7 +2793,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.InheritNodes, [], name, value)
 
 
-        class InheritNode(Entity):
+        class InheritNode(_Entity_):
             """
             SRLG inherit location details
             
@@ -2536,7 +2837,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.InheritNodes.InheritNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.InheritNodes.InheritNode, self).__init__()
 
                 self.yang_name = "inherit-node"
                 self.yang_parent_name = "inherit-nodes"
@@ -2562,7 +2866,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
 
 
-            class SrlgAttribute(Entity):
+            class SrlgAttribute(_Entity_):
                 """
                 SRLG attribute
                 
@@ -2599,7 +2903,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.InheritNodes.InheritNode.SrlgAttribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.InheritNodes.InheritNode.SrlgAttribute, self).__init__()
 
                     self.yang_name = "srlg-attribute"
                     self.yang_parent_name = "inherit-node"
@@ -2621,11 +2928,23 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.InheritNodes.InheritNode.SrlgAttribute']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.InheritNodes.InheritNode']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.InheritNodes']['meta_info']
 
 
-
-
-    class SrlgValues(Entity):
+    class SrlgValues(_Entity_):
         """
         Set of SRLG values configured
         
@@ -2644,7 +2963,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.SrlgValues, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.SrlgValues, self).__init__()
 
             self.yang_name = "srlg-values"
             self.yang_parent_name = "srlg"
@@ -2663,7 +2985,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.SrlgValues, [], name, value)
 
 
-        class SrlgValue(Entity):
+        class SrlgValue(_Entity_):
             """
             Configured SRLG value details 
             
@@ -2691,7 +3013,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.SrlgValues.SrlgValue, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.SrlgValues.SrlgValue, self).__init__()
 
                 self.yang_name = "srlg-value"
                 self.yang_parent_name = "srlg-values"
@@ -2712,10 +3037,18 @@ class Srlg(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.SrlgValues.SrlgValue']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.SrlgValues']['meta_info']
 
 
-
-    class InterfaceDetails(Entity):
+    class InterfaceDetails(_Entity_):
         """
         Set of interfaces configured for SRLG
         
@@ -2734,7 +3067,10 @@ class Srlg(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Srlg.InterfaceDetails, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srlg.InterfaceDetails, self).__init__()
 
             self.yang_name = "interface-details"
             self.yang_parent_name = "srlg"
@@ -2753,7 +3089,7 @@ class Srlg(Entity):
             self._perform_setattr(Srlg.InterfaceDetails, [], name, value)
 
 
-        class InterfaceDetail(Entity):
+        class InterfaceDetail(_Entity_):
             """
             SRLG interface details
             
@@ -2806,7 +3142,10 @@ class Srlg(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Srlg.InterfaceDetails.InterfaceDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srlg.InterfaceDetails.InterfaceDetail, self).__init__()
 
                 self.yang_name = "interface-detail"
                 self.yang_parent_name = "interface-details"
@@ -2833,7 +3172,7 @@ class Srlg(Entity):
                 self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
 
 
-            class SrlgAttribute(Entity):
+            class SrlgAttribute(_Entity_):
                 """
                 SRLG attributes
                 
@@ -2884,7 +3223,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__init__()
 
                     self.yang_name = "srlg-attribute"
                     self.yang_parent_name = "interface-detail"
@@ -2910,9 +3252,13 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute']['meta_info']
 
 
-            class Rsip(Entity):
+            class Rsip(_Entity_):
                 """
                 rsip list
                 
@@ -2931,7 +3277,10 @@ class Srlg(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Srlg.InterfaceDetails.InterfaceDetail.Rsip, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srlg.InterfaceDetails.InterfaceDetail.Rsip, self).__init__()
 
                     self.yang_name = "rsip"
                     self.yang_parent_name = "interface-detail"
@@ -2949,16 +3298,32 @@ class Srlg(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                    return meta._meta_table['Srlg.InterfaceDetails.InterfaceDetail.Rsip']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+                return meta._meta_table['Srlg.InterfaceDetails.InterfaceDetail']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['Srlg.InterfaceDetails']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Srlg()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+        return meta._meta_table['Srlg']['meta_info']
 
 
-class SelectiveVrfDownload(Entity):
+class SelectiveVrfDownload(_Entity_):
     """
     selective vrf download
     
@@ -2977,7 +3342,10 @@ class SelectiveVrfDownload(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SelectiveVrfDownload, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SelectiveVrfDownload, self).__init__()
         self._top_entity = None
 
         self.yang_name = "selective-vrf-download"
@@ -2998,7 +3366,7 @@ class SelectiveVrfDownload(Entity):
         self._perform_setattr(SelectiveVrfDownload, [], name, value)
 
 
-    class State(Entity):
+    class State(_Entity_):
         """
         Selective VRF Download feature state details
         
@@ -3024,7 +3392,10 @@ class SelectiveVrfDownload(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SelectiveVrfDownload.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SelectiveVrfDownload.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "selective-vrf-download"
@@ -3045,10 +3416,18 @@ class SelectiveVrfDownload(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SelectiveVrfDownload.State, ['is_svd_enabled', 'is_svd_enabled_cfg'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+            return meta._meta_table['SelectiveVrfDownload.State']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SelectiveVrfDownload()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
+        return meta._meta_table['SelectiveVrfDownload']['meta_info']
 
 

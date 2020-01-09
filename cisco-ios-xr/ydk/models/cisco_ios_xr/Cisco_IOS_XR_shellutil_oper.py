@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,8 +62,14 @@ class TimeSource(Enum):
     calendar = Enum.YLeaf(4, "calendar")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_oper as meta
+        return meta._meta_table['TimeSource']
 
-class SystemTime(Entity):
+
+
+class SystemTime(_Entity_):
     """
     System time information
     
@@ -86,7 +95,10 @@ class SystemTime(Entity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        super(SystemTime, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SystemTime, self).__init__()
         self._top_entity = None
 
         self.yang_name = "system-time"
@@ -111,7 +123,7 @@ class SystemTime(Entity):
         self._perform_setattr(SystemTime, [], name, value)
 
 
-    class Clock(Entity):
+    class Clock(_Entity_):
         """
         System clock information
         
@@ -209,7 +221,10 @@ class SystemTime(Entity):
         _revision = '2015-01-07'
 
         def __init__(self):
-            super(SystemTime.Clock, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SystemTime.Clock, self).__init__()
 
             self.yang_name = "clock"
             self.yang_parent_name = "system-time"
@@ -246,9 +261,13 @@ class SystemTime(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_oper as meta
+            return meta._meta_table['SystemTime.Clock']['meta_info']
 
 
-    class Uptime(Entity):
+    class Uptime(_Entity_):
         """
         System uptime information
         
@@ -261,7 +280,7 @@ class SystemTime(Entity):
         
         .. attribute:: uptime
         
-        	Amount of time in seconds since this system     was last initialized
+        	Amount of time in seconds since this system was last initialized
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -278,7 +297,10 @@ class SystemTime(Entity):
         _revision = '2015-01-07'
 
         def __init__(self):
-            super(SystemTime.Uptime, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SystemTime.Uptime, self).__init__()
 
             self.yang_name = "uptime"
             self.yang_parent_name = "system-time"
@@ -299,10 +321,18 @@ class SystemTime(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SystemTime.Uptime, ['host_name', 'uptime'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_oper as meta
+            return meta._meta_table['SystemTime.Uptime']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SystemTime()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_oper as meta
+        return meta._meta_table['SystemTime']['meta_info']
 
 

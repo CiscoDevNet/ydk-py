@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class VrfPolicy(Entity):
+class VrfPolicy(_Entity_):
     """
     VRF Policy PBR configuration
     
@@ -38,7 +41,10 @@ class VrfPolicy(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(VrfPolicy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(VrfPolicy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vrf-policy"
@@ -57,7 +63,7 @@ class VrfPolicy(Entity):
         self._perform_setattr(VrfPolicy, [], name, value)
 
 
-    class Vrf(Entity):
+    class Vrf(_Entity_):
         """
         VRF Name
         
@@ -81,7 +87,10 @@ class VrfPolicy(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(VrfPolicy.Vrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VrfPolicy.Vrf, self).__init__()
 
             self.yang_name = "vrf"
             self.yang_parent_name = "vrf-policy"
@@ -103,7 +112,7 @@ class VrfPolicy(Entity):
             self._perform_setattr(VrfPolicy.Vrf, ['vrf_name'], name, value)
 
 
-        class Afi(Entity):
+        class Afi(_Entity_):
             """
             address family
             
@@ -127,7 +136,10 @@ class VrfPolicy(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(VrfPolicy.Vrf.Afi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VrfPolicy.Vrf.Afi, self).__init__()
 
                 self.yang_name = "afi"
                 self.yang_parent_name = "vrf"
@@ -147,11 +159,23 @@ class VrfPolicy(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VrfPolicy.Vrf.Afi, ['afi_type', 'service_policy_in'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vrf_policy_cfg as meta
+                return meta._meta_table['VrfPolicy.Vrf.Afi']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vrf_policy_cfg as meta
+            return meta._meta_table['VrfPolicy.Vrf']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = VrfPolicy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pbr_vrf_policy_cfg as meta
+        return meta._meta_table['VrfPolicy']['meta_info']
 
 

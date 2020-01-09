@@ -7,8 +7,11 @@ Copyright (c) 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ClearCountersController(Entity):
+class ClearCountersController(_Entity_):
     """
     Controller name.
     
@@ -35,7 +38,10 @@ class ClearCountersController(Entity):
     _revision = '2018-01-10'
 
     def __init__(self):
-        super(ClearCountersController, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearCountersController, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-counters-controller"
@@ -53,7 +59,7 @@ class ClearCountersController(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -74,7 +80,10 @@ class ClearCountersController(Entity):
         _revision = '2018-01-10'
 
         def __init__(self):
-            super(ClearCountersController.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearCountersController.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-counters-controller"
@@ -93,14 +102,22 @@ class ClearCountersController(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearCountersController.Input, ['controller_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_act as meta
+            return meta._meta_table['ClearCountersController.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearCountersController()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_act as meta
+        return meta._meta_table['ClearCountersController']['meta_info']
 
 
-class ClearCountersAll(Entity):
+class ClearCountersAll(_Entity_):
     """
     Clear counters on all interfaces.
     
@@ -113,7 +130,10 @@ class ClearCountersAll(Entity):
     _revision = '2018-01-10'
 
     def __init__(self):
-        super(ClearCountersAll, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearCountersAll, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-counters-all"
@@ -130,9 +150,13 @@ class ClearCountersAll(Entity):
         self._top_entity = ClearCountersAll()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_act as meta
+        return meta._meta_table['ClearCountersAll']['meta_info']
 
 
-class ClearCountersInterface(Entity):
+class ClearCountersInterface(_Entity_):
     """
     Clear counters for interface.
     
@@ -150,7 +174,10 @@ class ClearCountersInterface(Entity):
     _revision = '2018-01-10'
 
     def __init__(self):
-        super(ClearCountersInterface, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ClearCountersInterface, self).__init__()
         self._top_entity = None
 
         self.yang_name = "clear-counters-interface"
@@ -168,7 +195,7 @@ class ClearCountersInterface(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -189,7 +216,10 @@ class ClearCountersInterface(Entity):
         _revision = '2018-01-10'
 
         def __init__(self):
-            super(ClearCountersInterface.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ClearCountersInterface.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "clear-counters-interface"
@@ -208,10 +238,18 @@ class ClearCountersInterface(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearCountersInterface.Input, ['interface_name'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_act as meta
+            return meta._meta_table['ClearCountersInterface.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ClearCountersInterface()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_act as meta
+        return meta._meta_table['ClearCountersInterface']['meta_info']
 
 

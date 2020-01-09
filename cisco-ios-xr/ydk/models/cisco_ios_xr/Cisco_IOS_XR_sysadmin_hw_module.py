@@ -16,8 +16,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class HwModule(Entity):
+class HwModule(_Entity_):
     """
     
     
@@ -57,7 +60,10 @@ class HwModule(Entity):
     _revision = '2017-01-31'
 
     def __init__(self):
-        super(HwModule, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HwModule, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hw-module"
@@ -86,7 +92,7 @@ class HwModule(Entity):
         self._perform_setattr(HwModule, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         
         
@@ -123,7 +129,10 @@ class HwModule(Entity):
         _revision = '2017-01-31'
 
         def __init__(self):
-            super(HwModule.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HwModule.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "hw-module"
@@ -158,7 +167,7 @@ class HwModule(Entity):
             self._perform_setattr(HwModule.Config, [], name, value)
 
 
-        class Shutdown(Entity):
+        class Shutdown(_Entity_):
             """
             
             
@@ -175,7 +184,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Config.Shutdown, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Config.Shutdown, self).__init__()
 
                 self.yang_name = "shutdown"
                 self.yang_parent_name = "config"
@@ -194,7 +206,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Config.Shutdown, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -215,7 +227,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Config.Shutdown.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Config.Shutdown.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "shutdown"
@@ -234,10 +249,18 @@ class HwModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Config.Shutdown.Location, ['location'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Config.Shutdown.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Config.Shutdown']['meta_info']
 
 
-
-        class Reset(Entity):
+        class Reset(_Entity_):
             """
             
             
@@ -254,7 +277,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Config.Reset, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Config.Reset, self).__init__()
 
                 self.yang_name = "reset"
                 self.yang_parent_name = "config"
@@ -275,7 +301,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Config.Reset, [], name, value)
 
 
-            class Auto(Entity):
+            class Auto(_Entity_):
                 """
                 
                 
@@ -292,7 +318,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Config.Reset.Auto, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Config.Reset.Auto, self).__init__()
 
                     self.yang_name = "auto"
                     self.yang_parent_name = "reset"
@@ -313,7 +342,7 @@ class HwModule(Entity):
                     self._perform_setattr(HwModule.Config.Reset.Auto, [], name, value)
 
 
-                class Disable(Entity):
+                class Disable(_Entity_):
                     """
                     
                     
@@ -330,7 +359,10 @@ class HwModule(Entity):
                     _revision = '2017-01-31'
 
                     def __init__(self):
-                        super(HwModule.Config.Reset.Auto.Disable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HwModule.Config.Reset.Auto.Disable, self).__init__()
 
                         self.yang_name = "disable"
                         self.yang_parent_name = "auto"
@@ -349,7 +381,7 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.Config.Reset.Auto.Disable, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -370,7 +402,10 @@ class HwModule(Entity):
                         _revision = '2017-01-31'
 
                         def __init__(self):
-                            super(HwModule.Config.Reset.Auto.Disable.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HwModule.Config.Reset.Auto.Disable.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "disable"
@@ -389,12 +424,28 @@ class HwModule(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, ['location'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                            return meta._meta_table['HwModule.Config.Reset.Auto.Disable.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                        return meta._meta_table['HwModule.Config.Reset.Auto.Disable']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Config.Reset.Auto']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Config.Reset']['meta_info']
 
 
-
-
-
-        class Offline(Entity):
+        class Offline(_Entity_):
             """
             
             
@@ -411,7 +462,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Config.Offline, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Config.Offline, self).__init__()
 
                 self.yang_name = "offline"
                 self.yang_parent_name = "config"
@@ -430,7 +484,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Config.Offline, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -451,7 +505,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Config.Offline.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Config.Offline.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "offline"
@@ -470,10 +527,18 @@ class HwModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Config.Offline.Location, ['location'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Config.Offline.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Config.Offline']['meta_info']
 
 
-
-        class AttentionLed(Entity):
+        class AttentionLed(_Entity_):
             """
             
             
@@ -490,7 +555,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Config.AttentionLed, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Config.AttentionLed, self).__init__()
 
                 self.yang_name = "attention-led"
                 self.yang_parent_name = "config"
@@ -509,7 +577,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Config.AttentionLed, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -530,7 +598,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Config.AttentionLed.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Config.AttentionLed.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "attention-led"
@@ -549,10 +620,18 @@ class HwModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Config.AttentionLed.Location, ['location'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Config.AttentionLed.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Config.AttentionLed']['meta_info']
 
 
-
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -574,7 +653,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Config.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Config.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "config"
@@ -598,7 +680,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Config.Location, ['location'], name, value)
 
 
-            class Logging(Entity):
+            class Logging(_Entity_):
                 """
                 
                 
@@ -615,7 +697,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Config.Location.Logging, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Config.Location.Logging, self).__init__()
 
                     self.yang_name = "logging"
                     self.yang_parent_name = "location"
@@ -635,7 +720,7 @@ class HwModule(Entity):
                     self._perform_setattr(HwModule.Config.Location.Logging, [], name, value)
 
 
-                class Onboard(Entity):
+                class Onboard(_Entity_):
                     """
                     
                     
@@ -652,7 +737,10 @@ class HwModule(Entity):
                     _revision = '2017-01-31'
 
                     def __init__(self):
-                        super(HwModule.Config.Location.Logging.Onboard, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HwModule.Config.Location.Logging.Onboard, self).__init__()
 
                         self.yang_name = "onboard"
                         self.yang_parent_name = "logging"
@@ -670,12 +758,28 @@ class HwModule(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.Config.Location.Logging.Onboard, ['disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                        return meta._meta_table['HwModule.Config.Location.Logging.Onboard']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Config.Location.Logging']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Config.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+            return meta._meta_table['HwModule.Config']['meta_info']
 
 
-
-
-
-    class Oper(Entity):
+    class Oper(_Entity_):
         """
         
         
@@ -694,7 +798,10 @@ class HwModule(Entity):
         _revision = '2017-01-31'
 
         def __init__(self):
-            super(HwModule.Oper, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HwModule.Oper, self).__init__()
 
             self.yang_name = "oper"
             self.yang_parent_name = "hw-module"
@@ -713,7 +820,7 @@ class HwModule(Entity):
             self._perform_setattr(HwModule.Oper, [], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -746,7 +853,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Oper.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Oper.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "oper"
@@ -774,7 +884,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Oper.Location, ['location'], name, value)
 
 
-            class Actions(Entity):
+            class Actions(_Entity_):
                 """
                 
                 
@@ -793,7 +903,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Oper.Location.Actions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Oper.Location.Actions, self).__init__()
 
                     self.yang_name = "actions"
                     self.yang_parent_name = "location"
@@ -813,7 +926,7 @@ class HwModule(Entity):
                     self._perform_setattr(HwModule.Oper.Location.Actions, [], name, value)
 
 
-                class Cbootmedia(Entity):
+                class Cbootmedia(_Entity_):
                     """
                     
                     
@@ -832,7 +945,10 @@ class HwModule(Entity):
                     _revision = '2017-01-31'
 
                     def __init__(self):
-                        super(HwModule.Oper.Location.Actions.Cbootmedia, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(HwModule.Oper.Location.Actions.Cbootmedia, self).__init__()
 
                         self.yang_name = "cbootmedia"
                         self.yang_parent_name = "actions"
@@ -850,7 +966,7 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia, [], name, value)
 
 
-                    class Bootmedia(Entity):
+                    class Bootmedia(_Entity_):
                         """
                         
                         
@@ -869,7 +985,10 @@ class HwModule(Entity):
                         _revision = '2017-01-31'
 
                         def __init__(self):
-                            super(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, self).__init__()
 
                             self.yang_name = "bootmedia"
                             self.yang_parent_name = "cbootmedia"
@@ -887,11 +1006,23 @@ class HwModule(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, ['bootmedium'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                            return meta._meta_table['HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                        return meta._meta_table['HwModule.Oper.Location.Actions.Cbootmedia']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Oper.Location.Actions']['meta_info']
 
 
-
-
-            class Show(Entity):
+            class Show(_Entity_):
                 """
                 
                 
@@ -903,7 +1034,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Oper.Location.Show, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Oper.Location.Show, self).__init__()
 
                     self.yang_name = "show"
                     self.yang_parent_name = "location"
@@ -915,11 +1049,23 @@ class HwModule(Entity):
                     self._segment_path = lambda: "show"
                     self._is_frozen = True
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Oper.Location.Show']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Oper.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+            return meta._meta_table['HwModule.Oper']['meta_info']
 
 
-
-
-    class Shhwfpd(Entity):
+    class Shhwfpd(_Entity_):
         """
         
         
@@ -945,7 +1091,10 @@ class HwModule(Entity):
         _revision = '2017-01-31'
 
         def __init__(self):
-            super(HwModule.Shhwfpd, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HwModule.Shhwfpd, self).__init__()
 
             self.yang_name = "shhwfpd"
             self.yang_parent_name = "hw-module"
@@ -965,7 +1114,7 @@ class HwModule(Entity):
             self._perform_setattr(HwModule.Shhwfpd, [], name, value)
 
 
-        class Alocation(Entity):
+        class Alocation(_Entity_):
             """
             
             
@@ -991,7 +1140,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Shhwfpd.Alocation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Shhwfpd.Alocation, self).__init__()
 
                 self.yang_name = "alocation"
                 self.yang_parent_name = "shhwfpd"
@@ -1013,7 +1165,7 @@ class HwModule(Entity):
                 self._perform_setattr(HwModule.Shhwfpd.Alocation, ['locs'], name, value)
 
 
-            class Fpd(Entity):
+            class Fpd(_Entity_):
                 """
                 
                 
@@ -1074,7 +1226,10 @@ class HwModule(Entity):
                 _revision = '2017-01-31'
 
                 def __init__(self):
-                    super(HwModule.Shhwfpd.Alocation.Fpd, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HwModule.Shhwfpd.Alocation.Fpd, self).__init__()
 
                     self.yang_name = "fpd"
                     self.yang_parent_name = "alocation"
@@ -1104,10 +1259,18 @@ class HwModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, ['fpdname', 'state', 'hwver', 'fpdver', 'cardname', 'attr', 'fpddnld'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                    return meta._meta_table['HwModule.Shhwfpd.Alocation.Fpd']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Shhwfpd.Alocation']['meta_info']
 
 
-
-        class Fpd(Entity):
+        class Fpd(_Entity_):
             """
             
             
@@ -1126,7 +1289,10 @@ class HwModule(Entity):
             _revision = '2017-01-31'
 
             def __init__(self):
-                super(HwModule.Shhwfpd.Fpd, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HwModule.Shhwfpd.Fpd, self).__init__()
 
                 self.yang_name = "fpd"
                 self.yang_parent_name = "shhwfpd"
@@ -1145,11 +1311,23 @@ class HwModule(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Shhwfpd.Fpd, ['fpdname'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+                return meta._meta_table['HwModule.Shhwfpd.Fpd']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+            return meta._meta_table['HwModule.Shhwfpd']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HwModule()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_hw_module as meta
+        return meta._meta_table['HwModule']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Eem(Entity):
+class Eem(_Entity_):
     """
     EEM operational data
     
@@ -68,7 +71,10 @@ class Eem(Entity):
     _revision = '2016-02-05'
 
     def __init__(self):
-        super(Eem, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Eem, self).__init__()
         self._top_entity = None
 
         self.yang_name = "eem"
@@ -105,7 +111,7 @@ class Eem(Entity):
         self._perform_setattr(Eem, [], name, value)
 
 
-    class DirUser(Entity):
+    class DirUser(_Entity_):
         """
         directory user
         
@@ -131,7 +137,10 @@ class Eem(Entity):
         _revision = '2016-02-05'
 
         def __init__(self):
-            super(Eem.DirUser, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eem.DirUser, self).__init__()
 
             self.yang_name = "dir-user"
             self.yang_parent_name = "eem"
@@ -156,7 +165,7 @@ class Eem(Entity):
             self._perform_setattr(Eem.DirUser, [], name, value)
 
 
-        class Library(Entity):
+        class Library(_Entity_):
             """
             directory user library
             
@@ -182,7 +191,10 @@ class Eem(Entity):
             _revision = '2016-02-05'
 
             def __init__(self):
-                super(Eem.DirUser.Library, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eem.DirUser.Library, self).__init__()
 
                 self.yang_name = "library"
                 self.yang_parent_name = "dir-user"
@@ -203,9 +215,13 @@ class Eem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eem.DirUser.Library, ['policy', 'library'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+                return meta._meta_table['Eem.DirUser.Library']['meta_info']
 
 
-        class Policy(Entity):
+        class Policy(_Entity_):
             """
             directory user policy
             
@@ -231,7 +247,10 @@ class Eem(Entity):
             _revision = '2016-02-05'
 
             def __init__(self):
-                super(Eem.DirUser.Policy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eem.DirUser.Policy, self).__init__()
 
                 self.yang_name = "policy"
                 self.yang_parent_name = "dir-user"
@@ -252,10 +271,18 @@ class Eem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eem.DirUser.Policy, ['policy', 'library'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+                return meta._meta_table['Eem.DirUser.Policy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+            return meta._meta_table['Eem.DirUser']['meta_info']
 
 
-
-    class EnvVariables(Entity):
+    class EnvVariables(_Entity_):
         """
         list of environmental variables
         
@@ -274,7 +301,10 @@ class Eem(Entity):
         _revision = '2016-02-05'
 
         def __init__(self):
-            super(Eem.EnvVariables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eem.EnvVariables, self).__init__()
 
             self.yang_name = "env-variables"
             self.yang_parent_name = "eem"
@@ -293,7 +323,7 @@ class Eem(Entity):
             self._perform_setattr(Eem.EnvVariables, [], name, value)
 
 
-        class EnvVariable(Entity):
+        class EnvVariable(_Entity_):
             """
             environmental variables name and value 
             
@@ -328,7 +358,10 @@ class Eem(Entity):
             _revision = '2016-02-05'
 
             def __init__(self):
-                super(Eem.EnvVariables.EnvVariable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eem.EnvVariables.EnvVariable, self).__init__()
 
                 self.yang_name = "env-variable"
                 self.yang_parent_name = "env-variables"
@@ -351,10 +384,18 @@ class Eem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eem.EnvVariables.EnvVariable, ['name', 'name_xr', 'value'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+                return meta._meta_table['Eem.EnvVariables.EnvVariable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+            return meta._meta_table['Eem.EnvVariables']['meta_info']
 
 
-
-    class RefreshTime(Entity):
+    class RefreshTime(_Entity_):
         """
         Refresh time
         
@@ -375,7 +416,10 @@ class Eem(Entity):
         _revision = '2016-02-05'
 
         def __init__(self):
-            super(Eem.RefreshTime, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eem.RefreshTime, self).__init__()
 
             self.yang_name = "refresh-time"
             self.yang_parent_name = "eem"
@@ -394,9 +438,13 @@ class Eem(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Eem.RefreshTime, ['refreshtime'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+            return meta._meta_table['Eem.RefreshTime']['meta_info']
 
 
-    class RegPolicies(Entity):
+    class RegPolicies(_Entity_):
         """
         list the registered policies
         
@@ -415,7 +463,10 @@ class Eem(Entity):
         _revision = '2016-02-05'
 
         def __init__(self):
-            super(Eem.RegPolicies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eem.RegPolicies, self).__init__()
 
             self.yang_name = "reg-policies"
             self.yang_parent_name = "eem"
@@ -434,7 +485,7 @@ class Eem(Entity):
             self._perform_setattr(Eem.RegPolicies, [], name, value)
 
 
-        class RegPolicy(Entity):
+        class RegPolicy(_Entity_):
             """
             policy name and create time 
             
@@ -520,7 +571,10 @@ class Eem(Entity):
             _revision = '2016-02-05'
 
             def __init__(self):
-                super(Eem.RegPolicies.RegPolicy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eem.RegPolicies.RegPolicy, self).__init__()
 
                 self.yang_name = "reg-policy"
                 self.yang_parent_name = "reg-policies"
@@ -557,10 +611,18 @@ class Eem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eem.RegPolicies.RegPolicy, ['name', 'type', 'time_created', 'policy_name', 'class_', 'event_type', 'trap', 'persist_time', 'username', 'description'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+                return meta._meta_table['Eem.RegPolicies.RegPolicy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+            return meta._meta_table['Eem.RegPolicies']['meta_info']
 
 
-
-    class AvlPolicies(Entity):
+    class AvlPolicies(_Entity_):
         """
         list the available policies
         
@@ -579,7 +641,10 @@ class Eem(Entity):
         _revision = '2016-02-05'
 
         def __init__(self):
-            super(Eem.AvlPolicies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eem.AvlPolicies, self).__init__()
 
             self.yang_name = "avl-policies"
             self.yang_parent_name = "eem"
@@ -598,7 +663,7 @@ class Eem(Entity):
             self._perform_setattr(Eem.AvlPolicies, [], name, value)
 
 
-        class AvlPolicy(Entity):
+        class AvlPolicy(_Entity_):
             """
             policy name and create time 
             
@@ -640,7 +705,10 @@ class Eem(Entity):
             _revision = '2016-02-05'
 
             def __init__(self):
-                super(Eem.AvlPolicies.AvlPolicy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eem.AvlPolicies.AvlPolicy, self).__init__()
 
                 self.yang_name = "avl-policy"
                 self.yang_parent_name = "avl-policies"
@@ -665,11 +733,23 @@ class Eem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eem.AvlPolicies.AvlPolicy, ['name', 'type', 'time_created', 'policy_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+                return meta._meta_table['Eem.AvlPolicies.AvlPolicy']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+            return meta._meta_table['Eem.AvlPolicies']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Eem()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ha_eem_policy_oper as meta
+        return meta._meta_table['Eem']['meta_info']
 
 

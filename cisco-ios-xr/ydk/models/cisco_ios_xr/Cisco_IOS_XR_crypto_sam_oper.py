@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class CertificateIssuer(Enum):
     unknown = Enum.YLeaf(0, "unknown")
 
     code_signing_server_certificate_authority = Enum.YLeaf(1, "code-signing-server-certificate-authority")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+        return meta._meta_table['CertificateIssuer']
 
 
 class LogCode(Enum):
@@ -188,6 +197,12 @@ class LogCode(Enum):
     namespace_deleted_recovered_by_sam = Enum.YLeaf(20, "namespace-deleted-recovered-by-sam")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+        return meta._meta_table['LogCode']
+
+
 class LogError(Enum):
     """
     LogError (Enum Class)
@@ -213,6 +228,12 @@ class LogError(Enum):
     log_message_error = Enum.YLeaf(1, "log-message-error")
 
     get_issuer_name_failed = Enum.YLeaf(2, "get-issuer-name-failed")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+        return meta._meta_table['LogError']
 
 
 class LogTables(Enum):
@@ -248,8 +269,14 @@ class LogTables(Enum):
     sam_tables = Enum.YLeaf(3, "sam-tables")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+        return meta._meta_table['LogTables']
 
-class Sam(Entity):
+
+
+class Sam(_Entity_):
     """
     Software authentication manager certificate
     information
@@ -304,7 +331,10 @@ class Sam(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Sam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sam"
@@ -345,7 +375,7 @@ class Sam(Entity):
         self._perform_setattr(Sam, [], name, value)
 
 
-    class SystemInformation(Entity):
+    class SystemInformation(_Entity_):
         """
         SAM system information
         
@@ -382,7 +412,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.SystemInformation, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.SystemInformation, self).__init__()
 
             self.yang_name = "system-information"
             self.yang_parent_name = "sam"
@@ -405,9 +438,13 @@ class Sam(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.SystemInformation, ['is_running', 'prompt_interval', 'is_default_response'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.SystemInformation']['meta_info']
 
 
-    class LogContents(Entity):
+    class LogContents(_Entity_):
         """
         SAM log content table information
         
@@ -426,7 +463,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.LogContents, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.LogContents, self).__init__()
 
             self.yang_name = "log-contents"
             self.yang_parent_name = "sam"
@@ -445,7 +485,7 @@ class Sam(Entity):
             self._perform_setattr(Sam.LogContents, [], name, value)
 
 
-        class LogContent(Entity):
+        class LogContent(_Entity_):
             """
             Number of lines for SAM log message
             
@@ -491,7 +531,10 @@ class Sam(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sam.LogContents.LogContent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sam.LogContents.LogContent, self).__init__()
 
                 self.yang_name = "log-content"
                 self.yang_parent_name = "log-contents"
@@ -517,7 +560,7 @@ class Sam(Entity):
                 self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', 'total_entries', 'entries_shown'], name, value)
 
 
-            class Logs(Entity):
+            class Logs(_Entity_):
                 """
                 SAM logs
                 
@@ -610,7 +653,10 @@ class Sam(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sam.LogContents.LogContent.Logs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sam.LogContents.LogContent.Logs, self).__init__()
 
                     self.yang_name = "logs"
                     self.yang_parent_name = "log-content"
@@ -648,11 +694,23 @@ class Sam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sam.LogContents.LogContent.Logs, ['time', 'code', 'target_device', 'index', 'error', 'issuer', 'serial_no', 'sam_table_index', 'update_time', 'source_device', 'table'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                    return meta._meta_table['Sam.LogContents.LogContent.Logs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.LogContents.LogContent']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.LogContents']['meta_info']
 
 
-
-
-    class Devices(Entity):
+    class Devices(_Entity_):
         """
         Certificate device table information
         
@@ -671,7 +729,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.Devices, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.Devices, self).__init__()
 
             self.yang_name = "devices"
             self.yang_parent_name = "sam"
@@ -690,7 +751,7 @@ class Sam(Entity):
             self._perform_setattr(Sam.Devices, [], name, value)
 
 
-        class Device(Entity):
+        class Device(_Entity_):
             """
             Certificate table device information
             
@@ -718,7 +779,10 @@ class Sam(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sam.Devices.Device, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sam.Devices.Device, self).__init__()
 
                 self.yang_name = "device"
                 self.yang_parent_name = "devices"
@@ -742,7 +806,7 @@ class Sam(Entity):
                 self._perform_setattr(Sam.Devices.Device, ['device_name'], name, value)
 
 
-            class Certificate(Entity):
+            class Certificate(_Entity_):
                 """
                 Certificate table information
                 
@@ -768,7 +832,10 @@ class Sam(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sam.Devices.Device.Certificate, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sam.Devices.Device.Certificate, self).__init__()
 
                     self.yang_name = "certificate"
                     self.yang_parent_name = "device"
@@ -792,7 +859,7 @@ class Sam(Entity):
                     self._perform_setattr(Sam.Devices.Device.Certificate, [], name, value)
 
 
-                class Brief(Entity):
+                class Brief(_Entity_):
                     """
                     Certificate table brief information
                     
@@ -827,7 +894,10 @@ class Sam(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Sam.Devices.Device.Certificate.Brief, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sam.Devices.Device.Certificate.Brief, self).__init__()
 
                         self.yang_name = "brief"
                         self.yang_parent_name = "certificate"
@@ -852,7 +922,7 @@ class Sam(Entity):
                         self._perform_setattr(Sam.Devices.Device.Certificate.Brief, ['location', 'certificate_index'], name, value)
 
 
-                    class CertificateFlags(Entity):
+                    class CertificateFlags(_Entity_):
                         """
                         Certificate flags
                         
@@ -892,7 +962,10 @@ class Sam(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Sam.Devices.Device.Certificate.Brief.CertificateFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sam.Devices.Device.Certificate.Brief.CertificateFlags, self).__init__()
 
                             self.yang_name = "certificate-flags"
                             self.yang_parent_name = "brief"
@@ -916,10 +989,18 @@ class Sam(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                            return meta._meta_table['Sam.Devices.Device.Certificate.Brief.CertificateFlags']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                        return meta._meta_table['Sam.Devices.Device.Certificate.Brief']['meta_info']
 
 
-
-                class CertificateIndexes(Entity):
+                class CertificateIndexes(_Entity_):
                     """
                     Certificate detail index table information
                     
@@ -938,7 +1019,10 @@ class Sam(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Sam.Devices.Device.Certificate.CertificateIndexes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sam.Devices.Device.Certificate.CertificateIndexes, self).__init__()
 
                         self.yang_name = "certificate-indexes"
                         self.yang_parent_name = "certificate"
@@ -956,7 +1040,7 @@ class Sam(Entity):
                         self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes, [], name, value)
 
 
-                    class CertificateIndex(Entity):
+                    class CertificateIndex(_Entity_):
                         """
                         Certificate detail index information
                         
@@ -984,7 +1068,10 @@ class Sam(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex, self).__init__()
 
                             self.yang_name = "certificate-index"
                             self.yang_parent_name = "certificate-indexes"
@@ -1007,7 +1094,7 @@ class Sam(Entity):
                             self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex, ['index'], name, value)
 
 
-                        class Detail(Entity):
+                        class Detail(_Entity_):
                             """
                             Certificate table detail information
                             
@@ -1042,7 +1129,10 @@ class Sam(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, self).__init__()
 
                                 self.yang_name = "detail"
                                 self.yang_parent_name = "certificate-index"
@@ -1067,7 +1157,7 @@ class Sam(Entity):
                                 self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, ['location', 'certificate_index'], name, value)
 
 
-                            class CertificateFlags(Entity):
+                            class CertificateFlags(_Entity_):
                                 """
                                 Certificate flags
                                 
@@ -1107,7 +1197,10 @@ class Sam(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, self).__init__()
 
                                     self.yang_name = "certificate-flags"
                                     self.yang_parent_name = "detail"
@@ -1131,15 +1224,43 @@ class Sam(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                                    return meta._meta_table['Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                                return meta._meta_table['Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                            return meta._meta_table['Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                        return meta._meta_table['Sam.Devices.Device.Certificate.CertificateIndexes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                    return meta._meta_table['Sam.Devices.Device.Certificate']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.Devices.Device']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.Devices']['meta_info']
 
 
-
-
-
-
-
-
-    class Packages(Entity):
+    class Packages(_Entity_):
         """
         SAM certificate information  package
         
@@ -1158,7 +1279,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.Packages, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.Packages, self).__init__()
 
             self.yang_name = "packages"
             self.yang_parent_name = "sam"
@@ -1177,7 +1301,7 @@ class Sam(Entity):
             self._perform_setattr(Sam.Packages, [], name, value)
 
 
-        class Package(Entity):
+        class Package(_Entity_):
             """
             SAM certificate information for a specific
             package
@@ -1220,7 +1344,10 @@ class Sam(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sam.Packages.Package, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sam.Packages.Package, self).__init__()
 
                 self.yang_name = "package"
                 self.yang_parent_name = "packages"
@@ -1248,7 +1375,7 @@ class Sam(Entity):
                 self._perform_setattr(Sam.Packages.Package, ['package_name', 'location', 'certificate_index'], name, value)
 
 
-            class CertificateFlags(Entity):
+            class CertificateFlags(_Entity_):
                 """
                 Certificate flags
                 
@@ -1288,7 +1415,10 @@ class Sam(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sam.Packages.Package.CertificateFlags, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sam.Packages.Package.CertificateFlags, self).__init__()
 
                     self.yang_name = "certificate-flags"
                     self.yang_parent_name = "package"
@@ -1312,11 +1442,23 @@ class Sam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sam.Packages.Package.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                    return meta._meta_table['Sam.Packages.Package.CertificateFlags']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.Packages.Package']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.Packages']['meta_info']
 
 
-
-
-    class CertificateRevocations(Entity):
+    class CertificateRevocations(_Entity_):
         """
         Certificate revocation list index table
         information
@@ -1336,7 +1478,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.CertificateRevocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.CertificateRevocations, self).__init__()
 
             self.yang_name = "certificate-revocations"
             self.yang_parent_name = "sam"
@@ -1355,7 +1500,7 @@ class Sam(Entity):
             self._perform_setattr(Sam.CertificateRevocations, [], name, value)
 
 
-        class CertificateRevocation(Entity):
+        class CertificateRevocation(_Entity_):
             """
             Certificate revocation list index information
             
@@ -1383,7 +1528,10 @@ class Sam(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sam.CertificateRevocations.CertificateRevocation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sam.CertificateRevocations.CertificateRevocation, self).__init__()
 
                 self.yang_name = "certificate-revocation"
                 self.yang_parent_name = "certificate-revocations"
@@ -1407,7 +1555,7 @@ class Sam(Entity):
                 self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation, ['crl_index'], name, value)
 
 
-            class CertificateRevocationListDetail(Entity):
+            class CertificateRevocationListDetail(_Entity_):
                 """
                 Certificate revocation list detail information
                 
@@ -1442,7 +1590,10 @@ class Sam(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, self).__init__()
 
                     self.yang_name = "certificate-revocation-list-detail"
                     self.yang_parent_name = "certificate-revocation"
@@ -1467,7 +1618,7 @@ class Sam(Entity):
                     self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, ['crl_index', 'updates'], name, value)
 
 
-                class Issuer(Entity):
+                class Issuer(_Entity_):
                     """
                     Issuer name
                     
@@ -1500,7 +1651,10 @@ class Sam(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, self).__init__()
 
                         self.yang_name = "issuer"
                         self.yang_parent_name = "certificate-revocation-list-detail"
@@ -1522,12 +1676,28 @@ class Sam(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, ['common_name', 'organization', 'country'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                        return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                    return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.CertificateRevocations']['meta_info']
 
 
-
-
-
-    class CertificateRevocationListSummary(Entity):
+    class CertificateRevocationListSummary(_Entity_):
         """
         Certificate revocation list summary information 
         
@@ -1562,7 +1732,10 @@ class Sam(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Sam.CertificateRevocationListSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.CertificateRevocationListSummary, self).__init__()
 
             self.yang_name = "certificate-revocation-list-summary"
             self.yang_parent_name = "sam"
@@ -1588,7 +1761,7 @@ class Sam(Entity):
             self._perform_setattr(Sam.CertificateRevocationListSummary, ['crl_index', 'updates'], name, value)
 
 
-        class Issuer(Entity):
+        class Issuer(_Entity_):
             """
             Issuer name
             
@@ -1621,7 +1794,10 @@ class Sam(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Sam.CertificateRevocationListSummary.Issuer, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Sam.CertificateRevocationListSummary.Issuer, self).__init__()
 
                 self.yang_name = "issuer"
                 self.yang_parent_name = "certificate-revocation-list-summary"
@@ -1644,11 +1820,23 @@ class Sam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, ['common_name', 'organization', 'country'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.CertificateRevocationListSummary.Issuer']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.CertificateRevocationListSummary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+        return meta._meta_table['Sam']['meta_info']
 
 

@@ -28,7 +28,7 @@ module Cisco-IOS-XR-sysadmin-fm {
      This module contains a collection of YANG
      definitions for Cisco IOS-XR SysAdmin configuration.
      
-     Fault management YANG model. 
+     Fault management YANG model.
      
      Copyright(c) 2014-2017 by Cisco Systems, Inc.
      All rights reserved.

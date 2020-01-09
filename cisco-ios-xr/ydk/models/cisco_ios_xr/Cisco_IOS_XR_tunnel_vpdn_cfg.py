@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class DfBit(Enum):
     reflect = Enum.YLeaf(1, "reflect")
 
     set = Enum.YLeaf(2, "set")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+        return meta._meta_table['DfBit']
 
 
 class Option(Enum):
@@ -80,8 +89,14 @@ class Option(Enum):
     tunnel_drop = Enum.YLeaf(16, "tunnel-drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+        return meta._meta_table['Option']
 
-class Vpdn(Entity):
+
+
+class Vpdn(_Entity_):
     """
     VPDN configuration
     
@@ -150,7 +165,10 @@ class Vpdn(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Vpdn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vpdn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vpdn"
@@ -206,7 +224,7 @@ class Vpdn(Entity):
         self._perform_setattr(Vpdn, ['session_limit', 'enable', 'soft_shut'], name, value)
 
 
-    class History(Entity):
+    class History(_Entity_):
         """
         VPDN history logging
         
@@ -223,7 +241,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.History, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.History, self).__init__()
 
             self.yang_name = "history"
             self.yang_parent_name = "vpdn"
@@ -242,9 +263,13 @@ class Vpdn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.History, ['failure'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.History']['meta_info']
 
 
-    class Redundancy(Entity):
+    class Redundancy(_Entity_):
         """
         Enable VPDN redundancy
         
@@ -266,7 +291,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.Redundancy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.Redundancy, self).__init__()
 
             self.yang_name = "redundancy"
             self.yang_parent_name = "vpdn"
@@ -290,7 +318,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.Redundancy, ['enable'], name, value)
 
 
-        class ProcessFailures(Entity):
+        class ProcessFailures(_Entity_):
             """
             Process crash configuration
             
@@ -307,7 +335,10 @@ class Vpdn(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.Redundancy.ProcessFailures, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.Redundancy.ProcessFailures, self).__init__()
 
                 self.yang_name = "process-failures"
                 self.yang_parent_name = "redundancy"
@@ -326,10 +357,18 @@ class Vpdn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Redundancy.ProcessFailures, ['switchover'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                return meta._meta_table['Vpdn.Redundancy.ProcessFailures']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.Redundancy']['meta_info']
 
 
-
-    class Local(Entity):
+    class Local(_Entity_):
         """
         VPDN Local radius process configuration
         
@@ -367,7 +406,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.Local, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.Local, self).__init__()
 
             self.yang_name = "local"
             self.yang_parent_name = "vpdn"
@@ -392,9 +434,13 @@ class Vpdn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Local, ['secret_text', 'path', 'cache_disabled', 'port'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.Local']['meta_info']
 
 
-    class Templates(Entity):
+    class Templates(_Entity_):
         """
         Table of Template
         
@@ -411,7 +457,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.Templates, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.Templates, self).__init__()
 
             self.yang_name = "templates"
             self.yang_parent_name = "vpdn"
@@ -430,7 +479,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.Templates, [], name, value)
 
 
-        class Template(Entity):
+        class Template(_Entity_):
             """
             VPDN template configuration
             
@@ -505,7 +554,10 @@ class Vpdn(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.Templates.Template, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.Templates.Template, self).__init__()
 
                 self.yang_name = "template"
                 self.yang_parent_name = "templates"
@@ -555,7 +607,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'rate_convert_speed_avps', 'description', 'l2tp_class', 'dsl_line_forwarding'], name, value)
 
 
-            class CallerId(Entity):
+            class CallerId(_Entity_):
                 """
                 Options to apply on calling station id
                 
@@ -574,7 +626,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.CallerId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Templates.Template.CallerId, self).__init__()
 
                     self.yang_name = "caller-id"
                     self.yang_parent_name = "template"
@@ -592,9 +647,13 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.CallerId, ['mask'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.Templates.Template.CallerId']['meta_info']
 
 
-            class Vpn(Entity):
+            class Vpn(_Entity_):
                 """
                 VPN ID/VRF name
                 
@@ -618,7 +677,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.Vpn, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Templates.Template.Vpn, self).__init__()
 
                     self.yang_name = "vpn"
                     self.yang_parent_name = "template"
@@ -641,7 +703,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Templates.Template.Vpn, ['vrf'], name, value)
 
 
-                class Id(Entity):
+                class Id(_Entity_):
                     """
                     VPN ID
                     
@@ -667,7 +729,10 @@ class Vpdn(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Vpdn.Templates.Template.Vpn.Id, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vpdn.Templates.Template.Vpn.Id, self).__init__()
 
                         self.yang_name = "id"
                         self.yang_parent_name = "vpn"
@@ -687,10 +752,18 @@ class Vpdn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Templates.Template.Vpn.Id, ['oui', 'index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                        return meta._meta_table['Vpdn.Templates.Template.Vpn.Id']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.Templates.Template.Vpn']['meta_info']
 
 
-
-            class Tunnel(Entity):
+            class Tunnel(_Entity_):
                 """
                 L2TP tunnel commands
                 
@@ -711,7 +784,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.Tunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Templates.Template.Tunnel, self).__init__()
 
                     self.yang_name = "tunnel"
                     self.yang_parent_name = "template"
@@ -729,9 +805,13 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Tunnel, ['busy_timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.Templates.Template.Tunnel']['meta_info']
 
 
-            class Ip(Entity):
+            class Ip(_Entity_):
                 """
                 Set IP TOS value
                 
@@ -750,7 +830,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.Ip, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Templates.Template.Ip, self).__init__()
 
                     self.yang_name = "ip"
                     self.yang_parent_name = "template"
@@ -768,9 +851,13 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Ip, ['tos'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.Templates.Template.Ip']['meta_info']
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 IPv4 settings for tunnel
                 
@@ -794,7 +881,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.Templates.Template.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "template"
@@ -814,11 +904,23 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Ipv4, ['df_bit', 'source'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.Templates.Template.Ipv4']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                return meta._meta_table['Vpdn.Templates.Template']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.Templates']['meta_info']
 
 
-
-
-    class CallerId(Entity):
+    class CallerId(_Entity_):
         """
         Options to apply on calling station ID
         
@@ -837,7 +939,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.CallerId, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.CallerId, self).__init__()
 
             self.yang_name = "caller-id"
             self.yang_parent_name = "vpdn"
@@ -856,9 +961,13 @@ class Vpdn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.CallerId, ['mask'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.CallerId']['meta_info']
 
 
-    class VpdNgroups(Entity):
+    class VpdNgroups(_Entity_):
         """
         Table of VPDNgroup
         
@@ -875,7 +984,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.VpdNgroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.VpdNgroups, self).__init__()
 
             self.yang_name = "vpd-ngroups"
             self.yang_parent_name = "vpdn"
@@ -894,7 +1006,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.VpdNgroups, [], name, value)
 
 
-        class VpdNgroup(Entity):
+        class VpdNgroup(_Entity_):
             """
             vpdn\-group configuration
             
@@ -975,7 +1087,10 @@ class Vpdn(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.VpdNgroups.VpdNgroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.VpdNgroups.VpdNgroup, self).__init__()
 
                 self.yang_name = "vpd-ngroup"
                 self.yang_parent_name = "vpd-ngroups"
@@ -1019,7 +1134,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup, ['vpd_ngroupname', 'dsl_line_forwarding', 'cisco_avp100_format_e_enable', 'desc', 'attribute', 'l2tp_class', 'tunnel_busy_timeout', 'vrf_name', 'sr_ctemplate'], name, value)
 
 
-            class VpnId(Entity):
+            class VpnId(_Entity_):
                 """
                 Vpn id
                 
@@ -1045,7 +1160,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.VpdNgroups.VpdNgroup.VpnId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.VpdNgroups.VpdNgroup.VpnId, self).__init__()
 
                     self.yang_name = "vpn-id"
                     self.yang_parent_name = "vpd-ngroup"
@@ -1065,9 +1183,13 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.VpnId, ['vpn_id_oui', 'vpn_id_index'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.VpdNgroups.VpdNgroup.VpnId']['meta_info']
 
 
-            class Ip(Entity):
+            class Ip(_Entity_):
                 """
                 set ip tos value
                 
@@ -1086,7 +1208,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.VpdNgroups.VpdNgroup.Ip, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.VpdNgroups.VpdNgroup.Ip, self).__init__()
 
                     self.yang_name = "ip"
                     self.yang_parent_name = "vpd-ngroup"
@@ -1104,11 +1229,23 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.Ip, ['tos'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.VpdNgroups.VpdNgroup.Ip']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                return meta._meta_table['Vpdn.VpdNgroups.VpdNgroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.VpdNgroups']['meta_info']
 
 
-
-
-    class Loggings(Entity):
+    class Loggings(_Entity_):
         """
         Table of Logging
         
@@ -1125,7 +1262,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.Loggings, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.Loggings, self).__init__()
 
             self.yang_name = "loggings"
             self.yang_parent_name = "vpdn"
@@ -1144,7 +1284,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.Loggings, [], name, value)
 
 
-        class Logging(Entity):
+        class Logging(_Entity_):
             """
             Configure logging for VPDN
             
@@ -1161,7 +1301,10 @@ class Vpdn(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.Loggings.Logging, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.Loggings.Logging, self).__init__()
 
                 self.yang_name = "logging"
                 self.yang_parent_name = "loggings"
@@ -1180,10 +1323,18 @@ class Vpdn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Loggings.Logging, ['option'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                return meta._meta_table['Vpdn.Loggings.Logging']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.Loggings']['meta_info']
 
 
-
-    class L2tp(Entity):
+    class L2tp(_Entity_):
         """
         L2TPv2 protocol commands
         
@@ -1212,7 +1363,10 @@ class Vpdn(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Vpdn.L2tp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vpdn.L2tp, self).__init__()
 
             self.yang_name = "l2tp"
             self.yang_parent_name = "vpdn"
@@ -1238,7 +1392,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.L2tp, ['tcp_mss_adjust', 'reassembly'], name, value)
 
 
-        class SessionId(Entity):
+        class SessionId(_Entity_):
             """
             Session ID commands
             
@@ -1255,7 +1409,10 @@ class Vpdn(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Vpdn.L2tp.SessionId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vpdn.L2tp.SessionId, self).__init__()
 
                 self.yang_name = "session-id"
                 self.yang_parent_name = "l2tp"
@@ -1276,7 +1433,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.L2tp.SessionId, [], name, value)
 
 
-            class Space(Entity):
+            class Space(_Entity_):
                 """
                 Session ID space commands
                 
@@ -1293,7 +1450,10 @@ class Vpdn(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Vpdn.L2tp.SessionId.Space, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vpdn.L2tp.SessionId.Space, self).__init__()
 
                     self.yang_name = "space"
                     self.yang_parent_name = "session-id"
@@ -1312,12 +1472,28 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.L2tp.SessionId.Space, ['hierarchy'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                    return meta._meta_table['Vpdn.L2tp.SessionId.Space']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+                return meta._meta_table['Vpdn.L2tp.SessionId']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+            return meta._meta_table['Vpdn.L2tp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vpdn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_vpdn_cfg as meta
+        return meta._meta_table['Vpdn']['meta_info']
 
 

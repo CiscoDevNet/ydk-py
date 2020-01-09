@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -52,6 +55,12 @@ class BfdMode(Enum):
     ietf = Enum.YLeaf(2, "ietf")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BfdMode']
+
+
 class BundleCiscoExtTypes(Enum):
     """
     BundleCiscoExtTypes (Enum Class)
@@ -71,6 +80,12 @@ class BundleCiscoExtTypes(Enum):
     lon_signaling_off = Enum.YLeaf(0, "lon-signaling-off")
 
     lon_signaling_on = Enum.YLeaf(1, "lon-signaling-on")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleCiscoExtTypes']
 
 
 class BundleLoadBalance(Enum):
@@ -116,6 +131,12 @@ class BundleLoadBalance(Enum):
     destination_ip = Enum.YLeaf(4, "destination-ip")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleLoadBalance']
+
+
 class BundleMaximumActiveLinksMode(Enum):
     """
     BundleMaximumActiveLinksMode (Enum Class)
@@ -135,6 +156,12 @@ class BundleMaximumActiveLinksMode(Enum):
     default = Enum.YLeaf(0, "default")
 
     hot_standby = Enum.YLeaf(1, "hot-standby")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleMaximumActiveLinksMode']
 
 
 class BundleMinimumBandwidthRange(Enum):
@@ -170,6 +197,12 @@ class BundleMinimumBandwidthRange(Enum):
     gbps = Enum.YLeaf(3, "gbps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleMinimumBandwidthRange']
+
+
 class BundleMode(Enum):
     """
     BundleMode (Enum Class)
@@ -197,6 +230,12 @@ class BundleMode(Enum):
     passive = Enum.YLeaf(2, "passive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleMode']
+
+
 class BundlePeriod(Enum):
     """
     BundlePeriod (Enum Class)
@@ -210,6 +249,12 @@ class BundlePeriod(Enum):
     """
 
     true = Enum.YLeaf(1, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundlePeriod']
 
 
 class BundlePortActivity(Enum):
@@ -245,6 +290,12 @@ class BundlePortActivity(Enum):
     inherit = Enum.YLeaf(4, "inherit")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundlePortActivity']
+
+
 class ChurnLogging(Enum):
     """
     ChurnLogging (Enum Class)
@@ -272,6 +323,12 @@ class ChurnLogging(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['ChurnLogging']
+
+
 class MlacpMaximizeParameter(Enum):
     """
     MlacpMaximizeParameter (Enum Class)
@@ -291,6 +348,12 @@ class MlacpMaximizeParameter(Enum):
     links = Enum.YLeaf(1, "links")
 
     bandwidth = Enum.YLeaf(2, "bandwidth")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['MlacpMaximizeParameter']
 
 
 class MlacpSwitchover(Enum):
@@ -314,6 +377,12 @@ class MlacpSwitchover(Enum):
     revertive = Enum.YLeaf(2, "revertive")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['MlacpSwitchover']
+
+
 class PeriodShortEnum(Enum):
     """
     PeriodShortEnum (Enum Class)
@@ -329,8 +398,14 @@ class PeriodShortEnum(Enum):
     true = Enum.YLeaf(1, "true")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['PeriodShortEnum']
 
-class Lacp(Entity):
+
+
+class Lacp(_Entity_):
     """
     Link Aggregation Control Protocol commands
     
@@ -358,7 +433,10 @@ class Lacp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Lacp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lacp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lacp"
@@ -383,5 +461,9 @@ class Lacp(Entity):
         self._top_entity = Lacp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['Lacp']['meta_info']
 
 

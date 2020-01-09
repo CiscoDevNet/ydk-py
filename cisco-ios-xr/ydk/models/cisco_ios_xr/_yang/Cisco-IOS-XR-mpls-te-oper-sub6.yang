@@ -43,6 +43,282 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
       "IOS XR 6.0 revision.";
   }
 
+  typedef Im-state-enum {
+    type enumeration {
+      enum "im-state-not-ready" {
+        description
+          "im state not ready";
+      }
+      enum "im-state-admin-down" {
+        description
+          "im state admin down";
+      }
+      enum "im-state-down" {
+        description
+          "im state down";
+      }
+      enum "im-state-up" {
+        description
+          "im state up";
+      }
+      enum "im-state-shutdown" {
+        description
+          "im state shutdown";
+      }
+      enum "im-state-err-disable" {
+        description
+          "im state err disable";
+      }
+      enum "im-state-down-immediate" {
+        description
+          "im state down immediate";
+      }
+      enum "im-state-down-immediate-admin" {
+        description
+          "im state down immediate admin";
+      }
+      enum "im-state-down-graceful" {
+        description
+          "im state down graceful";
+      }
+      enum "im-state-begin-shutdown" {
+        description
+          "im state begin shutdown";
+      }
+      enum "im-state-end-shutdown" {
+        description
+          "im state end shutdown";
+      }
+      enum "im-state-begin-error-disable" {
+        description
+          "im state begin error disable";
+      }
+      enum "im-state-end-error-disable" {
+        description
+          "im state end error disable";
+      }
+      enum "im-state-begin-down-graceful" {
+        description
+          "im state begin down graceful";
+      }
+      enum "im-state-reset" {
+        description
+          "im state reset";
+      }
+      enum "im-state-operational" {
+        description
+          "im state operational";
+      }
+      enum "im-state-not-operational" {
+        description
+          "im state not operational";
+      }
+      enum "im-state-unknown" {
+        description
+          "im state unknown";
+      }
+      enum "im-state-last" {
+        description
+          "im state last";
+      }
+    }
+    description
+      "Im state enum";
+  }
+
+  typedef Igpte-link-encoding-protocol {
+    type enumeration {
+      enum "link-encoding-protocol-none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "link-encoding-protocol-p-acket" {
+        value 1;
+        description
+          "Packet";
+      }
+      enum "link-encoding-protocol-ethernet" {
+        value 2;
+        description
+          "Ethernet";
+      }
+      enum "link-encoding-protocol-ansi-etsi-pdh" {
+        value 3;
+        description
+          "ANSI ETSI PDH";
+      }
+      enum "link-encoding-protocol-reserved4" {
+        value 4;
+        description
+          "Reserved";
+      }
+      enum "link-encoding-protocol-sdh-sonet" {
+        value 5;
+        description
+          "SDH SONET";
+      }
+      enum "link-encoding-protocol-reserved6" {
+        value 6;
+        description
+          "Reserved";
+      }
+      enum "link-encoding-protocol-digital-wrapper" {
+        value 7;
+        description
+          "Digital Wrapper";
+      }
+      enum "link-encoding-protocol-lambda-photonic" {
+        value 8;
+        description
+          "Lambda Photonic";
+      }
+      enum "link-encoding-protocol-fiber" {
+        value 9;
+        description
+          "Fiber";
+      }
+      enum "link-encoding-protocol-reserved10" {
+        value 10;
+        description
+          "Reserved";
+      }
+      enum "link-encoding-protocol-fiber-channel" {
+        value 11;
+        description
+          "Fiber Channel";
+      }
+      enum "link-encoding-protocol-g709otn" {
+        value 12;
+        description
+          "G709 OTN";
+      }
+      enum "link-encoding-protocol-passive-internal" {
+        value 200;
+        description
+          "Derived from ingress node";
+      }
+    }
+    description
+      "Link protocol switching capabilities";
+  }
+
+  typedef Igpte-link-switch-capability {
+    type enumeration {
+      enum "link-switching-capability-none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "link-switching-capability-psc1" {
+        value 1;
+        description
+          "Packet (level 1)";
+      }
+      enum "link-switching-capability-psc2" {
+        value 2;
+        description
+          "Packet (level 2)";
+      }
+      enum "link-switching-capability-psc3" {
+        value 3;
+        description
+          "Packet (level 3)";
+      }
+      enum "link-switching-capability-psc4" {
+        value 4;
+        description
+          "Packet (level 4)";
+      }
+      enum "link-switching-capability-l2sc" {
+        value 51;
+        description
+          "Layer 2";
+      }
+      enum "link-switching-capability-tdm" {
+        value 100;
+        description
+          "TDM";
+      }
+      enum "link-switching-capability-otn-tdm" {
+        value 110;
+        description
+          "OTN TDM";
+      }
+      enum "link-switching-capability-lsc" {
+        value 150;
+        description
+          "LSC";
+      }
+      enum "link-switching-capability-fsc" {
+        value 200;
+        description
+          "FSC";
+      }
+    }
+    description
+      "Link protocol switching capabilities";
+  }
+
+  typedef Otu {
+    type enumeration {
+      enum "non-otu" {
+        description
+          "Type Non OTU";
+      }
+      enum "otu1" {
+        description
+          "Type OTU1";
+      }
+      enum "otu1e" {
+        description
+          "Type OTU1E";
+      }
+      enum "otu1f" {
+        description
+          "Type OTU1F";
+      }
+      enum "otu2" {
+        description
+          "Type OTU2";
+      }
+      enum "otu3" {
+        description
+          "Type 0TU3";
+      }
+      enum "otu4" {
+        description
+          "Type OTU4";
+      }
+      enum "otu2e" {
+        description
+          "Type OTU2E";
+      }
+      enum "otu2f" {
+        description
+          "Type OTU2F";
+      }
+      enum "otu3e1" {
+        description
+          "Type OTU3E1";
+      }
+      enum "otu3e2" {
+        description
+          "Type OTU3E2";
+      }
+      enum "otuc2" {
+        description
+          "Type OTUC2";
+      }
+      enum "otuc4" {
+        description
+          "Type OTUC4";
+      }
+    }
+    description
+      "OTU types";
+  }
+
   typedef Te-affinity-table {
     type enumeration {
       enum "affinity-table-mapping" {

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SdrInventoryVm(Entity):
+class SdrInventoryVm(_Entity_):
     """
     Platform VM information
     
@@ -40,7 +43,10 @@ class SdrInventoryVm(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SdrInventoryVm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrInventoryVm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-inventory-vm"
@@ -61,7 +67,7 @@ class SdrInventoryVm(Entity):
         self._perform_setattr(SdrInventoryVm, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node directory
         
@@ -80,7 +86,10 @@ class SdrInventoryVm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SdrInventoryVm.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrInventoryVm.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "sdr-inventory-vm"
@@ -99,7 +108,7 @@ class SdrInventoryVm(Entity):
             self._perform_setattr(SdrInventoryVm.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node name
             
@@ -127,7 +136,10 @@ class SdrInventoryVm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SdrInventoryVm.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrInventoryVm.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -151,7 +163,7 @@ class SdrInventoryVm(Entity):
                 self._perform_setattr(SdrInventoryVm.Nodes.Node, ['name'], name, value)
 
 
-            class NodeEntries(Entity):
+            class NodeEntries(_Entity_):
                 """
                 VM Information
                 
@@ -170,7 +182,10 @@ class SdrInventoryVm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SdrInventoryVm.Nodes.Node.NodeEntries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SdrInventoryVm.Nodes.Node.NodeEntries, self).__init__()
 
                     self.yang_name = "node-entries"
                     self.yang_parent_name = "node"
@@ -188,7 +203,7 @@ class SdrInventoryVm(Entity):
                     self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries, [], name, value)
 
 
-                class NodeEntry(Entity):
+                class NodeEntry(_Entity_):
                     """
                     VM information for a node
                     
@@ -344,7 +359,10 @@ class SdrInventoryVm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, self).__init__()
 
                         self.yang_name = "node-entry"
                         self.yang_parent_name = "node-entries"
@@ -392,13 +410,33 @@ class SdrInventoryVm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cmproxy_oper as meta
+                        return meta._meta_table['SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cmproxy_oper as meta
+                    return meta._meta_table['SdrInventoryVm.Nodes.Node.NodeEntries']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cmproxy_oper as meta
+                return meta._meta_table['SdrInventoryVm.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cmproxy_oper as meta
+            return meta._meta_table['SdrInventoryVm.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrInventoryVm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_cmproxy_oper as meta
+        return meta._meta_table['SdrInventoryVm']['meta_info']
 
 

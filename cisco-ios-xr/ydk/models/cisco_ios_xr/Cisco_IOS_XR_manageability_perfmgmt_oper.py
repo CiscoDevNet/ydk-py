@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PerfMgmt(Entity):
+class PerfMgmt(_Entity_):
     """
     Performance Management agent operational data
     
@@ -47,7 +50,10 @@ class PerfMgmt(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(PerfMgmt, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PerfMgmt, self).__init__()
         self._top_entity = None
 
         self.yang_name = "perf-mgmt"
@@ -72,7 +78,7 @@ class PerfMgmt(Entity):
         self._perform_setattr(PerfMgmt, [], name, value)
 
 
-    class Periodic(Entity):
+    class Periodic(_Entity_):
         """
         Data from periodic requests
         
@@ -119,7 +125,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Periodic, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Periodic, self).__init__()
 
             self.yang_name = "periodic"
             self.yang_parent_name = "perf-mgmt"
@@ -156,7 +165,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Periodic, [], name, value)
 
 
-        class Ospf(Entity):
+        class Ospf(_Entity_):
             """
             Collected OSPF data
             
@@ -182,7 +191,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Periodic.Ospf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Periodic.Ospf, self).__init__()
 
                 self.yang_name = "ospf"
                 self.yang_parent_name = "periodic"
@@ -207,7 +219,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Periodic.Ospf, [], name, value)
 
 
-            class Ospfv2ProtocolInstances(Entity):
+            class Ospfv2ProtocolInstances(_Entity_):
                 """
                 OSPF v2 instances for which protocol statistics
                 are collected
@@ -227,7 +239,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances, self).__init__()
 
                     self.yang_name = "ospfv2-protocol-instances"
                     self.yang_parent_name = "ospf"
@@ -246,7 +261,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances, [], name, value)
 
 
-                class Ospfv2ProtocolInstance(Entity):
+                class Ospfv2ProtocolInstance(_Entity_):
                     """
                     Protocol samples for a particular OSPF v2
                     instance
@@ -275,7 +290,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
 
                         self.yang_name = "ospfv2-protocol-instance"
                         self.yang_parent_name = "ospfv2-protocol-instances"
@@ -299,7 +317,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, ['instance_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for an OSPV v2 instance
                         
@@ -318,7 +336,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ospfv2-protocol-instance"
@@ -336,7 +357,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -557,7 +578,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -619,12 +643,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances']['meta_info']
 
 
-
-
-
-            class Ospfv3ProtocolInstances(Entity):
+            class Ospfv3ProtocolInstances(_Entity_):
                 """
                 OSPF v3 instances for which protocol statistics
                 are collected
@@ -644,7 +684,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances, self).__init__()
 
                     self.yang_name = "ospfv3-protocol-instances"
                     self.yang_parent_name = "ospf"
@@ -663,7 +706,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances, [], name, value)
 
 
-                class Ospfv3ProtocolInstance(Entity):
+                class Ospfv3ProtocolInstance(_Entity_):
                     """
                     Protocol samples for a particular OSPF v3
                     instance
@@ -692,7 +735,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
 
                         self.yang_name = "ospfv3-protocol-instance"
                         self.yang_parent_name = "ospfv3-protocol-instances"
@@ -716,7 +762,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, ['instance_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for an OSPV v3 instance
                         
@@ -735,7 +781,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ospfv3-protocol-instance"
@@ -753,7 +802,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -965,7 +1014,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -1025,13 +1077,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Periodic.Ospf']['meta_info']
 
 
-
-
-
-
-        class Mpls(Entity):
+        class Mpls(_Entity_):
             """
             Collected MPLS data
             
@@ -1050,7 +1122,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Periodic.Mpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Periodic.Mpls, self).__init__()
 
                 self.yang_name = "mpls"
                 self.yang_parent_name = "periodic"
@@ -1071,7 +1146,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Periodic.Mpls, [], name, value)
 
 
-            class LdpNeighbors(Entity):
+            class LdpNeighbors(_Entity_):
                 """
                 LDP neighbors for which statistics are
                 collected
@@ -1091,7 +1166,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Mpls.LdpNeighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Mpls.LdpNeighbors, self).__init__()
 
                     self.yang_name = "ldp-neighbors"
                     self.yang_parent_name = "mpls"
@@ -1110,7 +1188,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors, [], name, value)
 
 
-                class LdpNeighbor(Entity):
+                class LdpNeighbor(_Entity_):
                     """
                     Samples for a particular LDP neighbor
                     
@@ -1138,7 +1216,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
 
                         self.yang_name = "ldp-neighbor"
                         self.yang_parent_name = "ldp-neighbors"
@@ -1162,7 +1243,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor, ['nbr'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Samples for a particular LDP neighbor
                         
@@ -1181,7 +1262,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ldp-neighbor"
@@ -1199,7 +1283,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             LDP neighbor statistics sample
                             
@@ -1393,7 +1477,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -1449,13 +1536,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Mpls.LdpNeighbors']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Periodic.Mpls']['meta_info']
 
 
-
-
-
-
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             Nodes for which data is collected
             
@@ -1474,7 +1581,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Periodic.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Periodic.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "periodic"
@@ -1493,7 +1603,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Periodic.Nodes, [], name, value)
 
 
-            class Node(Entity):
+            class Node(_Entity_):
                 """
                 Node Instance
                 
@@ -1535,7 +1645,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Nodes.Node, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Nodes.Node, self).__init__()
 
                     self.yang_name = "node"
                     self.yang_parent_name = "nodes"
@@ -1567,7 +1680,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Nodes.Node, ['node_id'], name, value)
 
 
-                class SampleXr(Entity):
+                class SampleXr(_Entity_):
                     """
                     Node CPU data
                     
@@ -1586,7 +1699,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Nodes.Node.SampleXr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Nodes.Node.SampleXr, self).__init__()
 
                         self.yang_name = "sample-xr"
                         self.yang_parent_name = "node"
@@ -1604,7 +1720,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr, [], name, value)
 
 
-                    class Sample(Entity):
+                    class Sample(_Entity_):
                         """
                         Node CPU data sample
                         
@@ -1654,7 +1770,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, self).__init__()
 
                             self.yang_name = "sample"
                             self.yang_parent_name = "sample-xr"
@@ -1678,10 +1797,18 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.SampleXr']['meta_info']
 
 
-
-                class Processes(Entity):
+                class Processes(_Entity_):
                     """
                     Processes data
                     
@@ -1700,7 +1827,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Nodes.Node.Processes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Nodes.Node.Processes, self).__init__()
 
                         self.yang_name = "processes"
                         self.yang_parent_name = "node"
@@ -1718,7 +1848,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes, [], name, value)
 
 
-                    class Process(Entity):
+                    class Process(_Entity_):
                         """
                         Process data
                         
@@ -1746,7 +1876,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Nodes.Node.Processes.Process, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Nodes.Node.Processes.Process, self).__init__()
 
                             self.yang_name = "process"
                             self.yang_parent_name = "processes"
@@ -1769,7 +1902,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process, ['process_id'], name, value)
 
 
-                        class Samples(Entity):
+                        class Samples(_Entity_):
                             """
                             Process data
                             
@@ -1788,7 +1921,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples, self).__init__()
 
                                 self.yang_name = "samples"
                                 self.yang_parent_name = "process"
@@ -1806,7 +1942,7 @@ class PerfMgmt(Entity):
                                 self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples, [], name, value)
 
 
-                            class Sample(Entity):
+                            class Sample(_Entity_):
                                 """
                                 Process data sample
                                 
@@ -1867,7 +2003,10 @@ class PerfMgmt(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
 
                                     self.yang_name = "sample"
                                     self.yang_parent_name = "samples"
@@ -1893,12 +2032,28 @@ class PerfMgmt(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                    return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Processes.Process']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Processes']['meta_info']
 
 
-
-
-
-                class Samples(Entity):
+                class Samples(_Entity_):
                     """
                     Node Memory data
                     
@@ -1917,7 +2072,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Nodes.Node.Samples, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Nodes.Node.Samples, self).__init__()
 
                         self.yang_name = "samples"
                         self.yang_parent_name = "node"
@@ -1935,7 +2093,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples, [], name, value)
 
 
-                    class Sample(Entity):
+                    class Sample(_Entity_):
                         """
                         Node Memory data sample
                         
@@ -1989,7 +2147,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, self).__init__()
 
                             self.yang_name = "sample"
                             self.yang_parent_name = "samples"
@@ -2013,12 +2174,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Samples.Sample']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Nodes.Node.Samples']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Nodes.Node']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Periodic.Nodes']['meta_info']
 
 
-
-
-
-        class Bgp(Entity):
+        class Bgp(_Entity_):
             """
             Collected BGP data
             
@@ -2037,7 +2214,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Periodic.Bgp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Periodic.Bgp, self).__init__()
 
                 self.yang_name = "bgp"
                 self.yang_parent_name = "periodic"
@@ -2058,7 +2238,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Periodic.Bgp, [], name, value)
 
 
-            class BgpNeighbors(Entity):
+            class BgpNeighbors(_Entity_):
                 """
                 Neighbors for which statistics are collected
                 
@@ -2077,7 +2257,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Bgp.BgpNeighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Bgp.BgpNeighbors, self).__init__()
 
                     self.yang_name = "bgp-neighbors"
                     self.yang_parent_name = "bgp"
@@ -2096,7 +2279,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors, [], name, value)
 
 
-                class BgpNeighbor(Entity):
+                class BgpNeighbor(_Entity_):
                     """
                     Samples for particular neighbor
                     
@@ -2124,7 +2307,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
 
                         self.yang_name = "bgp-neighbor"
                         self.yang_parent_name = "bgp-neighbors"
@@ -2148,7 +2334,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor, ['ip_address'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for a BGP neighbor
                         
@@ -2167,7 +2353,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "bgp-neighbor"
@@ -2185,7 +2374,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Neighbor statistics sample
                             
@@ -2289,7 +2478,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -2325,13 +2517,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Bgp.BgpNeighbors']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Periodic.Bgp']['meta_info']
 
 
-
-
-
-
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Collected Interface data
             
@@ -2364,7 +2576,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Periodic.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Periodic.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "periodic"
@@ -2393,7 +2608,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Periodic.Interface, [], name, value)
 
 
-            class GenericCounterInterfaces(Entity):
+            class GenericCounterInterfaces(_Entity_):
                 """
                 Interfaces for which Generic Counters are
                 collected
@@ -2413,7 +2628,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces, self).__init__()
 
                     self.yang_name = "generic-counter-interfaces"
                     self.yang_parent_name = "interface"
@@ -2432,7 +2650,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces, [], name, value)
 
 
-                class GenericCounterInterface(Entity):
+                class GenericCounterInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -2460,7 +2678,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
 
                         self.yang_name = "generic-counter-interface"
                         self.yang_parent_name = "generic-counter-interfaces"
@@ -2484,7 +2705,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Generic Counter samples for an interface
                         
@@ -2503,7 +2724,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "generic-counter-interface"
@@ -2521,7 +2745,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -2737,7 +2961,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -2797,12 +3024,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Interface.GenericCounterInterfaces']['meta_info']
 
 
-
-
-
-            class BasicCounterInterfaces(Entity):
+            class BasicCounterInterfaces(_Entity_):
                 """
                 Interfaces for which Basic Counters are
                 collected
@@ -2822,7 +3065,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces, self).__init__()
 
                     self.yang_name = "basic-counter-interfaces"
                     self.yang_parent_name = "interface"
@@ -2841,7 +3087,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces, [], name, value)
 
 
-                class BasicCounterInterface(Entity):
+                class BasicCounterInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -2869,7 +3115,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
 
                         self.yang_name = "basic-counter-interface"
                         self.yang_parent_name = "basic-counter-interfaces"
@@ -2893,7 +3142,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Basic Counter samples for an interface
                         
@@ -2912,7 +3161,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "basic-counter-interface"
@@ -2930,7 +3182,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Basic Counters sample
                             
@@ -3056,7 +3308,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -3096,12 +3351,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Interface.BasicCounterInterfaces']['meta_info']
 
 
-
-
-
-            class DataRateInterfaces(Entity):
+            class DataRateInterfaces(_Entity_):
                 """
                 Interfaces for which Data Rates are collected
                 
@@ -3120,7 +3391,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Periodic.Interface.DataRateInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Periodic.Interface.DataRateInterfaces, self).__init__()
 
                     self.yang_name = "data-rate-interfaces"
                     self.yang_parent_name = "interface"
@@ -3139,7 +3413,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces, [], name, value)
 
 
-                class DataRateInterface(Entity):
+                class DataRateInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -3167,7 +3441,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
 
                         self.yang_name = "data-rate-interface"
                         self.yang_parent_name = "data-rate-interfaces"
@@ -3191,7 +3468,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Data Rate samples for an interface
                         
@@ -3210,7 +3487,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "data-rate-interface"
@@ -3228,7 +3508,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Data Rates sample
                             
@@ -3351,7 +3631,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -3389,14 +3672,38 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Periodic.Interface.DataRateInterfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Periodic.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+            return meta._meta_table['PerfMgmt.Periodic']['meta_info']
 
 
-
-
-
-
-
-    class Monitor(Entity):
+    class Monitor(_Entity_):
         """
         Data from monitor (one history period) requests
         
@@ -3443,7 +3750,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Monitor, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Monitor, self).__init__()
 
             self.yang_name = "monitor"
             self.yang_parent_name = "perf-mgmt"
@@ -3480,7 +3790,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Monitor, [], name, value)
 
 
-        class Ospf(Entity):
+        class Ospf(_Entity_):
             """
             Collected OSPF data
             
@@ -3506,7 +3816,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Monitor.Ospf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Monitor.Ospf, self).__init__()
 
                 self.yang_name = "ospf"
                 self.yang_parent_name = "monitor"
@@ -3531,7 +3844,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Monitor.Ospf, [], name, value)
 
 
-            class Ospfv2ProtocolInstances(Entity):
+            class Ospfv2ProtocolInstances(_Entity_):
                 """
                 OSPF v2 instances for which protocol statistics
                 are collected
@@ -3551,7 +3864,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances, self).__init__()
 
                     self.yang_name = "ospfv2-protocol-instances"
                     self.yang_parent_name = "ospf"
@@ -3570,7 +3886,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances, [], name, value)
 
 
-                class Ospfv2ProtocolInstance(Entity):
+                class Ospfv2ProtocolInstance(_Entity_):
                     """
                     Protocol samples for a particular OSPF v2
                     instance
@@ -3599,7 +3915,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
 
                         self.yang_name = "ospfv2-protocol-instance"
                         self.yang_parent_name = "ospfv2-protocol-instances"
@@ -3623,7 +3942,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, ['instance_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for an OSPV v2 instance
                         
@@ -3642,7 +3961,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ospfv2-protocol-instance"
@@ -3660,7 +3982,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -3881,7 +4203,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -3943,12 +4268,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances']['meta_info']
 
 
-
-
-
-            class Ospfv3ProtocolInstances(Entity):
+            class Ospfv3ProtocolInstances(_Entity_):
                 """
                 OSPF v3 instances for which protocol statistics
                 are collected
@@ -3968,7 +4309,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances, self).__init__()
 
                     self.yang_name = "ospfv3-protocol-instances"
                     self.yang_parent_name = "ospf"
@@ -3987,7 +4331,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances, [], name, value)
 
 
-                class Ospfv3ProtocolInstance(Entity):
+                class Ospfv3ProtocolInstance(_Entity_):
                     """
                     Protocol samples for a particular OSPF v3
                     instance
@@ -4016,7 +4360,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
 
                         self.yang_name = "ospfv3-protocol-instance"
                         self.yang_parent_name = "ospfv3-protocol-instances"
@@ -4040,7 +4387,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, ['instance_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for an OSPV v3 instance
                         
@@ -4059,7 +4406,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ospfv3-protocol-instance"
@@ -4077,7 +4427,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -4289,7 +4639,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -4349,13 +4702,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Monitor.Ospf']['meta_info']
 
 
-
-
-
-
-        class Mpls(Entity):
+        class Mpls(_Entity_):
             """
             Collected MPLS data
             
@@ -4374,7 +4747,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Monitor.Mpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Monitor.Mpls, self).__init__()
 
                 self.yang_name = "mpls"
                 self.yang_parent_name = "monitor"
@@ -4395,7 +4771,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Monitor.Mpls, [], name, value)
 
 
-            class LdpNeighbors(Entity):
+            class LdpNeighbors(_Entity_):
                 """
                 LDP neighbors for which statistics are
                 collected
@@ -4415,7 +4791,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Mpls.LdpNeighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Mpls.LdpNeighbors, self).__init__()
 
                     self.yang_name = "ldp-neighbors"
                     self.yang_parent_name = "mpls"
@@ -4434,7 +4813,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors, [], name, value)
 
 
-                class LdpNeighbor(Entity):
+                class LdpNeighbor(_Entity_):
                     """
                     Samples for a particular LDP neighbor
                     
@@ -4462,7 +4841,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
 
                         self.yang_name = "ldp-neighbor"
                         self.yang_parent_name = "ldp-neighbors"
@@ -4486,7 +4868,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor, ['nbr'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Samples for a particular LDP neighbor
                         
@@ -4505,7 +4887,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "ldp-neighbor"
@@ -4523,7 +4908,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             LDP neighbor statistics sample
                             
@@ -4717,7 +5102,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -4773,13 +5161,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Mpls.LdpNeighbors']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Monitor.Mpls']['meta_info']
 
 
-
-
-
-
-        class Nodes(Entity):
+        class Nodes(_Entity_):
             """
             Nodes for which data is collected
             
@@ -4798,7 +5206,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Monitor.Nodes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Monitor.Nodes, self).__init__()
 
                 self.yang_name = "nodes"
                 self.yang_parent_name = "monitor"
@@ -4817,7 +5228,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Monitor.Nodes, [], name, value)
 
 
-            class Node(Entity):
+            class Node(_Entity_):
                 """
                 Node Instance
                 
@@ -4859,7 +5270,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Nodes.Node, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Nodes.Node, self).__init__()
 
                     self.yang_name = "node"
                     self.yang_parent_name = "nodes"
@@ -4891,7 +5305,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Nodes.Node, ['node_id'], name, value)
 
 
-                class SampleXr(Entity):
+                class SampleXr(_Entity_):
                     """
                     Node CPU data
                     
@@ -4910,7 +5324,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Nodes.Node.SampleXr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Nodes.Node.SampleXr, self).__init__()
 
                         self.yang_name = "sample-xr"
                         self.yang_parent_name = "node"
@@ -4928,7 +5345,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr, [], name, value)
 
 
-                    class Sample(Entity):
+                    class Sample(_Entity_):
                         """
                         Node CPU data sample
                         
@@ -4978,7 +5395,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, self).__init__()
 
                             self.yang_name = "sample"
                             self.yang_parent_name = "sample-xr"
@@ -5002,10 +5422,18 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.SampleXr']['meta_info']
 
 
-
-                class Processes(Entity):
+                class Processes(_Entity_):
                     """
                     Processes data
                     
@@ -5024,7 +5452,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Nodes.Node.Processes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Nodes.Node.Processes, self).__init__()
 
                         self.yang_name = "processes"
                         self.yang_parent_name = "node"
@@ -5042,7 +5473,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes, [], name, value)
 
 
-                    class Process(Entity):
+                    class Process(_Entity_):
                         """
                         Process data
                         
@@ -5070,7 +5501,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Nodes.Node.Processes.Process, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Nodes.Node.Processes.Process, self).__init__()
 
                             self.yang_name = "process"
                             self.yang_parent_name = "processes"
@@ -5093,7 +5527,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process, ['process_id'], name, value)
 
 
-                        class Samples(Entity):
+                        class Samples(_Entity_):
                             """
                             Process data
                             
@@ -5112,7 +5546,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples, self).__init__()
 
                                 self.yang_name = "samples"
                                 self.yang_parent_name = "process"
@@ -5130,7 +5567,7 @@ class PerfMgmt(Entity):
                                 self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples, [], name, value)
 
 
-                            class Sample(Entity):
+                            class Sample(_Entity_):
                                 """
                                 Process data sample
                                 
@@ -5191,7 +5628,10 @@ class PerfMgmt(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
 
                                     self.yang_name = "sample"
                                     self.yang_parent_name = "samples"
@@ -5217,12 +5657,28 @@ class PerfMgmt(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                    return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Processes.Process']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Processes']['meta_info']
 
 
-
-
-
-                class Samples(Entity):
+                class Samples(_Entity_):
                     """
                     Node Memory data
                     
@@ -5241,7 +5697,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Nodes.Node.Samples, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Nodes.Node.Samples, self).__init__()
 
                         self.yang_name = "samples"
                         self.yang_parent_name = "node"
@@ -5259,7 +5718,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples, [], name, value)
 
 
-                    class Sample(Entity):
+                    class Sample(_Entity_):
                         """
                         Node Memory data sample
                         
@@ -5313,7 +5772,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, self).__init__()
 
                             self.yang_name = "sample"
                             self.yang_parent_name = "samples"
@@ -5337,12 +5799,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Samples.Sample']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Nodes.Node.Samples']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Nodes.Node']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Monitor.Nodes']['meta_info']
 
 
-
-
-
-        class Bgp(Entity):
+        class Bgp(_Entity_):
             """
             Collected BGP data
             
@@ -5361,7 +5839,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Monitor.Bgp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Monitor.Bgp, self).__init__()
 
                 self.yang_name = "bgp"
                 self.yang_parent_name = "monitor"
@@ -5382,7 +5863,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Monitor.Bgp, [], name, value)
 
 
-            class BgpNeighbors(Entity):
+            class BgpNeighbors(_Entity_):
                 """
                 Neighbors for which statistics are collected
                 
@@ -5401,7 +5882,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Bgp.BgpNeighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Bgp.BgpNeighbors, self).__init__()
 
                     self.yang_name = "bgp-neighbors"
                     self.yang_parent_name = "bgp"
@@ -5420,7 +5904,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors, [], name, value)
 
 
-                class BgpNeighbor(Entity):
+                class BgpNeighbor(_Entity_):
                     """
                     Samples for particular neighbor
                     
@@ -5448,7 +5932,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
 
                         self.yang_name = "bgp-neighbor"
                         self.yang_parent_name = "bgp-neighbors"
@@ -5472,7 +5959,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor, ['ip_address'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Sample Table for a BGP neighbor
                         
@@ -5491,7 +5978,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "bgp-neighbor"
@@ -5509,7 +5999,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Neighbor statistics sample
                             
@@ -5613,7 +6103,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -5649,13 +6142,33 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Bgp.BgpNeighbors']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Monitor.Bgp']['meta_info']
 
 
-
-
-
-
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Collected Interface data
             
@@ -5688,7 +6201,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Monitor.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Monitor.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "monitor"
@@ -5717,7 +6233,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Monitor.Interface, [], name, value)
 
 
-            class GenericCounterInterfaces(Entity):
+            class GenericCounterInterfaces(_Entity_):
                 """
                 Interfaces for which Generic Counters are
                 collected
@@ -5737,7 +6253,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces, self).__init__()
 
                     self.yang_name = "generic-counter-interfaces"
                     self.yang_parent_name = "interface"
@@ -5756,7 +6275,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces, [], name, value)
 
 
-                class GenericCounterInterface(Entity):
+                class GenericCounterInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -5784,7 +6303,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
 
                         self.yang_name = "generic-counter-interface"
                         self.yang_parent_name = "generic-counter-interfaces"
@@ -5808,7 +6330,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Generic Counter samples for an interface
                         
@@ -5827,7 +6349,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "generic-counter-interface"
@@ -5845,7 +6370,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Generic Counters sample
                             
@@ -6061,7 +6586,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -6121,12 +6649,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Interface.GenericCounterInterfaces']['meta_info']
 
 
-
-
-
-            class BasicCounterInterfaces(Entity):
+            class BasicCounterInterfaces(_Entity_):
                 """
                 Interfaces for which Basic Counters are
                 collected
@@ -6146,7 +6690,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces, self).__init__()
 
                     self.yang_name = "basic-counter-interfaces"
                     self.yang_parent_name = "interface"
@@ -6165,7 +6712,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces, [], name, value)
 
 
-                class BasicCounterInterface(Entity):
+                class BasicCounterInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -6193,7 +6740,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
 
                         self.yang_name = "basic-counter-interface"
                         self.yang_parent_name = "basic-counter-interfaces"
@@ -6217,7 +6767,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Basic Counter samples for an interface
                         
@@ -6236,7 +6786,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "basic-counter-interface"
@@ -6254,7 +6807,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Basic Counters sample
                             
@@ -6380,7 +6933,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -6420,12 +6976,28 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Interface.BasicCounterInterfaces']['meta_info']
 
 
-
-
-
-            class DataRateInterfaces(Entity):
+            class DataRateInterfaces(_Entity_):
                 """
                 Interfaces for which Data Rates are collected
                 
@@ -6444,7 +7016,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Monitor.Interface.DataRateInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Monitor.Interface.DataRateInterfaces, self).__init__()
 
                     self.yang_name = "data-rate-interfaces"
                     self.yang_parent_name = "interface"
@@ -6463,7 +7038,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces, [], name, value)
 
 
-                class DataRateInterface(Entity):
+                class DataRateInterface(_Entity_):
                     """
                     Samples for a particular interface
                     
@@ -6491,7 +7066,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
 
                         self.yang_name = "data-rate-interface"
                         self.yang_parent_name = "data-rate-interfaces"
@@ -6515,7 +7093,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface, ['interface_name'], name, value)
 
 
-                    class Samples(Entity):
+                    class Samples(_Entity_):
                         """
                         Data Rate samples for an interface
                         
@@ -6534,7 +7112,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
 
                             self.yang_name = "samples"
                             self.yang_parent_name = "data-rate-interface"
@@ -6552,7 +7133,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples, [], name, value)
 
 
-                        class Sample(Entity):
+                        class Sample(_Entity_):
                             """
                             Data Rates sample
                             
@@ -6675,7 +7256,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
 
                                 self.yang_name = "sample"
                                 self.yang_parent_name = "samples"
@@ -6713,15 +7297,43 @@ class PerfMgmt(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                                return meta._meta_table['PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                            return meta._meta_table['PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                        return meta._meta_table['PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                    return meta._meta_table['PerfMgmt.Monitor.Interface.DataRateInterfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+                return meta._meta_table['PerfMgmt.Monitor.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+            return meta._meta_table['PerfMgmt.Monitor']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PerfMgmt()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_oper as meta
+        return meta._meta_table['PerfMgmt']['meta_info']
 
 

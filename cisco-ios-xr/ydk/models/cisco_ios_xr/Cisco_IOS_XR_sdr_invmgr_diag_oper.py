@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Diag(Entity):
+class Diag(_Entity_):
     """
     Diag information
     
@@ -40,7 +43,10 @@ class Diag(Entity):
     _revision = '2018-01-31'
 
     def __init__(self):
-        super(Diag, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Diag, self).__init__()
         self._top_entity = None
 
         self.yang_name = "diag"
@@ -61,7 +67,7 @@ class Diag(Entity):
         self._perform_setattr(Diag, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Table of racks
         
@@ -80,7 +86,10 @@ class Diag(Entity):
         _revision = '2018-01-31'
 
         def __init__(self):
-            super(Diag.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "diag"
@@ -99,7 +108,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Rack name
             
@@ -148,7 +157,10 @@ class Diag(Entity):
             _revision = '2018-01-31'
 
             def __init__(self):
-                super(Diag.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -184,7 +196,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Racks.Rack, ['rack_name'], name, value)
 
 
-            class PowerShelfs(Entity):
+            class PowerShelfs(_Entity_):
                 """
                 Table for rack power shelf 
                 
@@ -203,7 +215,10 @@ class Diag(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.PowerShelfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.PowerShelfs, self).__init__()
 
                     self.yang_name = "power-shelfs"
                     self.yang_parent_name = "rack"
@@ -221,7 +236,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.PowerShelfs, [], name, value)
 
 
-                class PowerShelf(Entity):
+                class PowerShelf(_Entity_):
                     """
                     Power shelf name
                     
@@ -249,7 +264,10 @@ class Diag(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.PowerShelfs.PowerShelf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.PowerShelfs.PowerShelf, self).__init__()
 
                         self.yang_name = "power-shelf"
                         self.yang_parent_name = "power-shelfs"
@@ -272,7 +290,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf, ['power_shelf_name'], name, value)
 
 
-                    class PowerSupplies(Entity):
+                    class PowerSupplies(_Entity_):
                         """
                         Table for rack power supply 
                         
@@ -291,7 +309,10 @@ class Diag(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies, self).__init__()
 
                             self.yang_name = "power-supplies"
                             self.yang_parent_name = "power-shelf"
@@ -309,7 +330,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies, [], name, value)
 
 
-                        class PowerSupply(Entity):
+                        class PowerSupply(_Entity_):
                             """
                             Power Supply name
                             
@@ -337,7 +358,10 @@ class Diag(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply, self).__init__()
 
                                 self.yang_name = "power-supply"
                                 self.yang_parent_name = "power-supplies"
@@ -360,7 +384,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply, ['power_supply_name'], name, value)
 
 
-                            class Information(Entity):
+                            class Information(_Entity_):
                                 """
                                 Basic information
                                 
@@ -892,7 +916,10 @@ class Diag(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, self).__init__()
 
                                     self.yang_name = "information"
                                     self.yang_parent_name = "power-supply"
@@ -1027,7 +1054,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
-                                class Rma(Entity):
+                                class Rma(_Entity_):
                                     """
                                     RMA Data
                                     
@@ -1066,7 +1093,10 @@ class Diag(Entity):
                                     _revision = '2018-01-31'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, self).__init__()
 
                                         self.yang_name = "rma"
                                         self.yang_parent_name = "information"
@@ -1088,14 +1118,38 @@ class Diag(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.PowerShelfs.PowerShelf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.PowerShelfs']['meta_info']
 
 
-
-
-
-
-
-            class FanTrays(Entity):
+            class FanTrays(_Entity_):
                 """
                 Table for rack fan trays
                 
@@ -1114,7 +1168,10 @@ class Diag(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.FanTrays, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.FanTrays, self).__init__()
 
                     self.yang_name = "fan-trays"
                     self.yang_parent_name = "rack"
@@ -1132,7 +1189,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.FanTrays, [], name, value)
 
 
-                class FanTray(Entity):
+                class FanTray(_Entity_):
                     """
                     Fan tray name
                     
@@ -1160,7 +1217,10 @@ class Diag(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.FanTrays.FanTray, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.FanTrays.FanTray, self).__init__()
 
                         self.yang_name = "fan-tray"
                         self.yang_parent_name = "fan-trays"
@@ -1183,7 +1243,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray, ['fan_tray_name'], name, value)
 
 
-                    class Fanses(Entity):
+                    class Fanses(_Entity_):
                         """
                         Table for rack fans 
                         
@@ -1202,7 +1262,10 @@ class Diag(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.FanTrays.FanTray.Fanses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.FanTrays.FanTray.Fanses, self).__init__()
 
                             self.yang_name = "fanses"
                             self.yang_parent_name = "fan-tray"
@@ -1220,7 +1283,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses, [], name, value)
 
 
-                        class Fans(Entity):
+                        class Fans(_Entity_):
                             """
                             Fan name
                             
@@ -1248,7 +1311,10 @@ class Diag(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans, self).__init__()
 
                                 self.yang_name = "fans"
                                 self.yang_parent_name = "fanses"
@@ -1271,7 +1337,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans, ['fans_name'], name, value)
 
 
-                            class Information(Entity):
+                            class Information(_Entity_):
                                 """
                                 Basic information
                                 
@@ -1803,7 +1869,10 @@ class Diag(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, self).__init__()
 
                                     self.yang_name = "information"
                                     self.yang_parent_name = "fans"
@@ -1938,7 +2007,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
-                                class Rma(Entity):
+                                class Rma(_Entity_):
                                     """
                                     RMA Data
                                     
@@ -1977,7 +2046,10 @@ class Diag(Entity):
                                     _revision = '2018-01-31'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, self).__init__()
 
                                         self.yang_name = "rma"
                                         self.yang_parent_name = "information"
@@ -1999,14 +2071,38 @@ class Diag(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Fanses']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.FanTrays']['meta_info']
 
 
-
-
-
-
-
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Table of slots
                 
@@ -2025,7 +2121,10 @@ class Diag(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -2043,7 +2142,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     Slot name
                     
@@ -2071,7 +2170,10 @@ class Diag(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -2094,7 +2196,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot, ['slot_name'], name, value)
 
 
-                    class Instances(Entity):
+                    class Instances(_Entity_):
                         """
                         Table of instances
                         
@@ -2113,7 +2215,10 @@ class Diag(Entity):
                         _revision = '2018-01-31'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.Slots.Slot.Instances, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.Slots.Slot.Instances, self).__init__()
 
                             self.yang_name = "instances"
                             self.yang_parent_name = "slot"
@@ -2131,7 +2236,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances, [], name, value)
 
 
-                        class Instance(Entity):
+                        class Instance(_Entity_):
                             """
                             instance number
                             
@@ -2159,7 +2264,10 @@ class Diag(Entity):
                             _revision = '2018-01-31'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
 
                                 self.yang_name = "instance"
                                 self.yang_parent_name = "instances"
@@ -2182,7 +2290,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance, ['name'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Detail information
                                 
@@ -2210,7 +2318,10 @@ class Diag(Entity):
                                 _revision = '2018-01-31'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "instance"
@@ -2233,7 +2344,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, ['node_operational_state'], name, value)
 
 
-                                class CardInstance(Entity):
+                                class CardInstance(_Entity_):
                                     """
                                     Card instance
                                     
@@ -2765,7 +2876,10 @@ class Diag(Entity):
                                     _revision = '2018-01-31'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, self).__init__()
 
                                         self.yang_name = "card-instance"
                                         self.yang_parent_name = "detail"
@@ -2900,7 +3014,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
-                                    class Rma(Entity):
+                                    class Rma(_Entity_):
                                         """
                                         RMA Data
                                         
@@ -2939,7 +3053,10 @@ class Diag(Entity):
                                         _revision = '2018-01-31'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, self).__init__()
 
                                             self.yang_name = "rma"
                                             self.yang_parent_name = "card-instance"
@@ -2961,15 +3078,43 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.Slots']['meta_info']
 
 
-
-
-
-
-
-
-            class Chassis(Entity):
+            class Chassis(_Entity_):
                 """
                 Chassis information
                 
@@ -3501,7 +3646,10 @@ class Diag(Entity):
                 _revision = '2018-01-31'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.Chassis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.Chassis, self).__init__()
 
                     self.yang_name = "chassis"
                     self.yang_parent_name = "rack"
@@ -3636,7 +3784,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.Chassis, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
-                class Rma(Entity):
+                class Rma(_Entity_):
                     """
                     RMA Data
                     
@@ -3675,7 +3823,10 @@ class Diag(Entity):
                     _revision = '2018-01-31'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.Chassis.Rma, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.Chassis.Rma, self).__init__()
 
                         self.yang_name = "rma"
                         self.yang_parent_name = "chassis"
@@ -3697,13 +3848,33 @@ class Diag(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.Chassis.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.Chassis.Rma']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.Chassis']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+                return meta._meta_table['Diag.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+            return meta._meta_table['Diag.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Diag()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
+        return meta._meta_table['Diag']['meta_info']
 
 

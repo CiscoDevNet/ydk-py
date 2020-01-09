@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,6 +51,12 @@ class GroupSnmpVersion(Enum):
     v3 = Enum.YLeaf(2, "v3")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['GroupSnmpVersion']
+
+
 class SnmpAccessLevel(Enum):
     """
     SnmpAccessLevel (Enum Class)
@@ -67,6 +76,12 @@ class SnmpAccessLevel(Enum):
     read_only = Enum.YLeaf(0, "read-only")
 
     read_write = Enum.YLeaf(1, "read-write")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpAccessLevel']
 
 
 class SnmpBulkstatFileFormat(Enum):
@@ -94,6 +109,12 @@ class SnmpBulkstatFileFormat(Enum):
     bulk_ascii = Enum.YLeaf(2, "bulk-ascii")
 
     bulk_binary = Enum.YLeaf(3, "bulk-binary")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpBulkstatFileFormat']
 
 
 class SnmpBulkstatSchema(Enum):
@@ -141,6 +162,12 @@ class SnmpBulkstatSchema(Enum):
     repeat_oid = Enum.YLeaf(6, "repeat-oid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpBulkstatSchema']
+
+
 class SnmpContext(Enum):
     """
     SnmpContext (Enum Class)
@@ -172,6 +199,12 @@ class SnmpContext(Enum):
     ospf = Enum.YLeaf(5, "ospf")
 
     ospfv3 = Enum.YLeaf(6, "ospfv3")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpContext']
 
 
 class SnmpDscpValue(Enum):
@@ -309,6 +342,12 @@ class SnmpDscpValue(Enum):
     cs7 = Enum.YLeaf(56, "cs7")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpDscpValue']
+
+
 class SnmpHashAlgorithm(Enum):
     """
     SnmpHashAlgorithm (Enum Class)
@@ -336,6 +375,12 @@ class SnmpHashAlgorithm(Enum):
     sha = Enum.YLeaf(2, "sha")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpHashAlgorithm']
+
+
 class SnmpMibViewInclusion(Enum):
     """
     SnmpMibViewInclusion (Enum Class)
@@ -357,6 +402,12 @@ class SnmpMibViewInclusion(Enum):
     excluded = Enum.YLeaf(2, "excluded")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpMibViewInclusion']
+
+
 class SnmpOwnerAccess(Enum):
     """
     SnmpOwnerAccess (Enum Class)
@@ -376,6 +427,12 @@ class SnmpOwnerAccess(Enum):
     sdr_owner = Enum.YLeaf(0, "sdr-owner")
 
     system_owner = Enum.YLeaf(1, "system-owner")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpOwnerAccess']
 
 
 class SnmpPrecedenceValue1(Enum):
@@ -435,6 +492,12 @@ class SnmpPrecedenceValue1(Enum):
     network = Enum.YLeaf(7, "network")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpPrecedenceValue1']
+
+
 class SnmpPrivAlgorithm(Enum):
     """
     SnmpPrivAlgorithm (Enum Class)
@@ -480,6 +543,12 @@ class SnmpPrivAlgorithm(Enum):
     aes256 = Enum.YLeaf(5, "aes256")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpPrivAlgorithm']
+
+
 class SnmpSecurityModel(Enum):
     """
     SnmpSecurityModel (Enum Class)
@@ -511,6 +580,12 @@ class SnmpSecurityModel(Enum):
     privacy = Enum.YLeaf(2, "privacy")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpSecurityModel']
+
+
 class SnmpTos(Enum):
     """
     SnmpTos (Enum Class)
@@ -532,6 +607,12 @@ class SnmpTos(Enum):
     dscp = Enum.YLeaf(1, "dscp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['SnmpTos']
+
+
 class Snmpacl(Enum):
     """
     Snmpacl (Enum Class)
@@ -551,6 +632,12 @@ class Snmpacl(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['Snmpacl']
 
 
 class UserSnmpVersion(Enum):
@@ -580,8 +667,14 @@ class UserSnmpVersion(Enum):
     v3 = Enum.YLeaf(3, "v3")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['UserSnmpVersion']
 
-class Snmp(Entity):
+
+
+class Snmp(_Entity_):
     """
     The heirarchy point for all the SNMP
     configurations
@@ -786,7 +879,10 @@ class Snmp(Entity):
     _revision = '2018-06-27'
 
     def __init__(self):
-        super(Snmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Snmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "snmp"
@@ -917,7 +1013,7 @@ class Snmp(Entity):
         self._perform_setattr(Snmp, ['inform_retries', 'trap_port', 'oid_poll_stats', 'trap_source', 'vrf_authentication_trap_disable', 'inform_timeout', 'trap_source_ipv6', 'packet_size', 'throttle_time', 'trap_source_ipv4', 'inform_pending'], name, value)
 
 
-    class EncryptedCommunityMaps(Entity):
+    class EncryptedCommunityMaps(_Entity_):
         """
         Container class to hold clear/encrypted
         communitie maps
@@ -935,7 +1031,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.EncryptedCommunityMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.EncryptedCommunityMaps, self).__init__()
 
             self.yang_name = "encrypted-community-maps"
             self.yang_parent_name = "snmp"
@@ -954,7 +1053,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.EncryptedCommunityMaps, [], name, value)
 
 
-        class EncryptedCommunityMap(Entity):
+        class EncryptedCommunityMap(_Entity_):
             """
             Clear/encrypted SNMP community map
             
@@ -988,7 +1087,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.EncryptedCommunityMaps.EncryptedCommunityMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.EncryptedCommunityMaps.EncryptedCommunityMap, self).__init__()
 
                 self.yang_name = "encrypted-community-map"
                 self.yang_parent_name = "encrypted-community-maps"
@@ -1013,10 +1115,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.EncryptedCommunityMaps.EncryptedCommunityMap, ['community_name', 'context', 'security', 'target_list'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.EncryptedCommunityMaps.EncryptedCommunityMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.EncryptedCommunityMaps']['meta_info']
 
 
-
-    class Views(Entity):
+    class Views(_Entity_):
         """
         Class to configure a SNMPv2 MIB view
         
@@ -1033,7 +1143,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Views, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Views, self).__init__()
 
             self.yang_name = "views"
             self.yang_parent_name = "snmp"
@@ -1052,7 +1165,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Views, [], name, value)
 
 
-        class View(Entity):
+        class View(_Entity_):
             """
             Name of the view
             
@@ -1083,7 +1196,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Views.View, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Views.View, self).__init__()
 
                 self.yang_name = "view"
                 self.yang_parent_name = "views"
@@ -1106,10 +1222,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Views.View, ['view_name', 'family', 'view_inclusion'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Views.View']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Views']['meta_info']
 
 
-
-    class Logging(Entity):
+    class Logging(_Entity_):
         """
         SNMP logging
         
@@ -1126,7 +1250,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Logging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Logging, self).__init__()
 
             self.yang_name = "logging"
             self.yang_parent_name = "snmp"
@@ -1147,7 +1274,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Logging, [], name, value)
 
 
-        class Threshold(Entity):
+        class Threshold(_Entity_):
             """
             SNMP logging threshold
             
@@ -1177,7 +1304,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Logging.Threshold, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Logging.Threshold, self).__init__()
 
                 self.yang_name = "threshold"
                 self.yang_parent_name = "logging"
@@ -1198,10 +1328,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Logging.Threshold, ['oid_processing', 'pdu_processing'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Logging.Threshold']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Logging']['meta_info']
 
 
-
-    class Administration(Entity):
+    class Administration(_Entity_):
         """
         Container class for SNMP administration
         
@@ -1223,7 +1361,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Administration, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Administration, self).__init__()
 
             self.yang_name = "administration"
             self.yang_parent_name = "snmp"
@@ -1248,7 +1389,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Administration, [], name, value)
 
 
-        class DefaultCommunities(Entity):
+        class DefaultCommunities(_Entity_):
             """
             Container class to hold unencrpted communities
             
@@ -1265,7 +1406,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Administration.DefaultCommunities, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Administration.DefaultCommunities, self).__init__()
 
                 self.yang_name = "default-communities"
                 self.yang_parent_name = "administration"
@@ -1284,7 +1428,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Administration.DefaultCommunities, [], name, value)
 
 
-            class DefaultCommunity(Entity):
+            class DefaultCommunity(_Entity_):
                 """
                 Unencrpted SNMP community string and access
                 priviledges
@@ -1339,7 +1483,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Administration.DefaultCommunities.DefaultCommunity, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Administration.DefaultCommunities.DefaultCommunity, self).__init__()
 
                     self.yang_name = "default-community"
                     self.yang_parent_name = "default-communities"
@@ -1372,10 +1519,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Administration.DefaultCommunities.DefaultCommunity, ['community_name', 'priviledge', 'view_name', 'v4acl_type', 'v4_access_list', 'v6acl_type', 'v6_access_list', 'owner'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Administration.DefaultCommunities.DefaultCommunity']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Administration.DefaultCommunities']['meta_info']
 
 
-
-        class EncryptedCommunities(Entity):
+        class EncryptedCommunities(_Entity_):
             """
             Container class to hold clear/encrypted
             communities
@@ -1393,7 +1548,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Administration.EncryptedCommunities, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Administration.EncryptedCommunities, self).__init__()
 
                 self.yang_name = "encrypted-communities"
                 self.yang_parent_name = "administration"
@@ -1412,7 +1570,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Administration.EncryptedCommunities, [], name, value)
 
 
-            class EncryptedCommunity(Entity):
+            class EncryptedCommunity(_Entity_):
                 """
                 Clear/encrypted SNMP community string and
                 access priviledges
@@ -1467,7 +1625,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Administration.EncryptedCommunities.EncryptedCommunity, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Administration.EncryptedCommunities.EncryptedCommunity, self).__init__()
 
                     self.yang_name = "encrypted-community"
                     self.yang_parent_name = "encrypted-communities"
@@ -1500,11 +1661,23 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Administration.EncryptedCommunities.EncryptedCommunity, ['community_name', 'priviledge', 'view_name', 'v4acl_type', 'v4_access_list', 'v6acl_type', 'v6_access_list', 'owner'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Administration.EncryptedCommunities.EncryptedCommunity']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Administration.EncryptedCommunities']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Administration']['meta_info']
 
 
-
-
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         The heirarchy point for SNMP Agent
         configurations
@@ -1522,7 +1695,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "snmp"
@@ -1543,7 +1719,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Agent, [], name, value)
 
 
-        class EngineId(Entity):
+        class EngineId(_Entity_):
             """
             SNMPv3 engineID
             
@@ -1565,7 +1741,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Agent.EngineId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Agent.EngineId, self).__init__()
 
                 self.yang_name = "engine-id"
                 self.yang_parent_name = "agent"
@@ -1589,7 +1768,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Agent.EngineId, ['local'], name, value)
 
 
-            class Remotes(Entity):
+            class Remotes(_Entity_):
                 """
                 SNMPv3 remote SNMP Entity
                 
@@ -1606,7 +1785,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Agent.EngineId.Remotes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Agent.EngineId.Remotes, self).__init__()
 
                     self.yang_name = "remotes"
                     self.yang_parent_name = "engine-id"
@@ -1625,7 +1807,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Agent.EngineId.Remotes, [], name, value)
 
 
-                class Remote(Entity):
+                class Remote(_Entity_):
                     """
                     engineID of the remote agent
                     
@@ -1662,7 +1844,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Agent.EngineId.Remotes.Remote, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Agent.EngineId.Remotes.Remote, self).__init__()
 
                         self.yang_name = "remote"
                         self.yang_parent_name = "remotes"
@@ -1685,12 +1870,28 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Agent.EngineId.Remotes.Remote, ['remote_address', 'remote_engine_id', 'port'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Agent.EngineId.Remotes.Remote']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Agent.EngineId.Remotes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Agent.EngineId']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Agent']['meta_info']
 
 
-
-
-
-    class Trap(Entity):
+    class Trap(_Entity_):
         """
         Class to hold trap configurations
         
@@ -1725,7 +1926,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Trap, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Trap, self).__init__()
 
             self.yang_name = "trap"
             self.yang_parent_name = "snmp"
@@ -1748,9 +1952,13 @@ class Snmp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.Trap, ['timeout', 'throttle_time', 'queue_length'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Trap']['meta_info']
 
 
-    class DropPacket(Entity):
+    class DropPacket(_Entity_):
         """
         SNMP packet drop config
         
@@ -1767,7 +1975,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.DropPacket, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.DropPacket, self).__init__()
 
             self.yang_name = "drop-packet"
             self.yang_parent_name = "snmp"
@@ -1786,9 +1997,13 @@ class Snmp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.DropPacket, ['unknown_user'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.DropPacket']['meta_info']
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         SNMP TOS bit for outgoing packets
         
@@ -1805,7 +2020,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "snmp"
@@ -1826,7 +2044,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Ipv6, [], name, value)
 
 
-        class Tos(Entity):
+        class Tos(_Entity_):
             """
             Type of TOS
             
@@ -1865,7 +2083,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Ipv6.Tos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Ipv6.Tos, self).__init__()
 
                 self.yang_name = "tos"
                 self.yang_parent_name = "ipv6"
@@ -1888,10 +2109,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Ipv6.Tos, ['type', 'precedence', 'dscp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Ipv6.Tos']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Ipv6']['meta_info']
 
 
-
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         SNMP TOS bit for outgoing packets
         
@@ -1908,7 +2137,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "snmp"
@@ -1929,7 +2161,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Ipv4, [], name, value)
 
 
-        class Tos(Entity):
+        class Tos(_Entity_):
             """
             Type of TOS
             
@@ -1968,7 +2200,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Ipv4.Tos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Ipv4.Tos, self).__init__()
 
                 self.yang_name = "tos"
                 self.yang_parent_name = "ipv4"
@@ -1991,10 +2226,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Ipv4.Tos, ['type', 'precedence', 'dscp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Ipv4.Tos']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Ipv4']['meta_info']
 
 
-
-    class System(Entity):
+    class System(_Entity_):
         """
         container to hold system information
         
@@ -2027,7 +2270,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.System, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.System, self).__init__()
 
             self.yang_name = "system"
             self.yang_parent_name = "snmp"
@@ -2050,9 +2296,13 @@ class Snmp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.System, ['chassis_id', 'location', 'contact'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.System']['meta_info']
 
 
-    class Target(Entity):
+    class Target(_Entity_):
         """
         SNMP target configurations
         
@@ -2069,7 +2319,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Target, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Target, self).__init__()
 
             self.yang_name = "target"
             self.yang_parent_name = "snmp"
@@ -2090,7 +2343,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Target, [], name, value)
 
 
-        class Targets(Entity):
+        class Targets(_Entity_):
             """
             List of targets
             
@@ -2107,7 +2360,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Target.Targets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Target.Targets, self).__init__()
 
                 self.yang_name = "targets"
                 self.yang_parent_name = "target"
@@ -2126,7 +2382,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Target.Targets, [], name, value)
 
 
-            class Target_(Entity):
+            class Target_(_Entity_):
                 """
                 Name of the target list
                 
@@ -2155,7 +2411,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Target.Targets.Target_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Target.Targets.Target_, self).__init__()
 
                     self.yang_name = "target"
                     self.yang_parent_name = "targets"
@@ -2183,7 +2442,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Target.Targets.Target_, ['target_list_name'], name, value)
 
 
-                class VrfNames(Entity):
+                class VrfNames(_Entity_):
                     """
                     List of VRF Name for a target list
                     
@@ -2200,7 +2459,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Target.Targets.Target_.VrfNames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Target.Targets.Target_.VrfNames, self).__init__()
 
                         self.yang_name = "vrf-names"
                         self.yang_parent_name = "target"
@@ -2218,7 +2480,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Target.Targets.Target_.VrfNames, [], name, value)
 
 
-                    class VrfName(Entity):
+                    class VrfName(_Entity_):
                         """
                         VRF name of the target
                         
@@ -2237,7 +2499,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Target.Targets.Target_.VrfNames.VrfName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Target.Targets.Target_.VrfNames.VrfName, self).__init__()
 
                             self.yang_name = "vrf-name"
                             self.yang_parent_name = "vrf-names"
@@ -2255,10 +2520,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Target.Targets.Target_.VrfNames.VrfName, ['name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Target.Targets.Target_.VrfNames.VrfName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Target.Targets.Target_.VrfNames']['meta_info']
 
 
-
-                class TargetAddresses(Entity):
+                class TargetAddresses(_Entity_):
                     """
                     SNMP Target address configurations
                     
@@ -2275,7 +2548,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Target.Targets.Target_.TargetAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Target.Targets.Target_.TargetAddresses, self).__init__()
 
                         self.yang_name = "target-addresses"
                         self.yang_parent_name = "target"
@@ -2293,7 +2569,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Target.Targets.Target_.TargetAddresses, [], name, value)
 
 
-                    class TargetAddress(Entity):
+                    class TargetAddress(_Entity_):
                         """
                         IP Address to be configured for the Target
                         
@@ -2318,7 +2594,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress, self).__init__()
 
                             self.yang_name = "target-address"
                             self.yang_parent_name = "target-addresses"
@@ -2336,13 +2615,33 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress, ['ip_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Target.Targets.Target_.TargetAddresses']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Target.Targets.Target_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Target.Targets']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Target']['meta_info']
 
 
-
-
-
-
-    class Notification(Entity):
+    class Notification(_Entity_):
         """
         Enable SNMP notifications
         
@@ -2351,10 +2650,10 @@ class Snmp(Entity):
         	SNMP notification configuration
         	**type**\:  :py:class:`Snmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Snmp_>`
         
-        .. attribute:: diametermib
+        .. attribute:: selective_vrf_download
         
-        	Enable SNMP diameter traps
-        	**type**\:  :py:class:`Diametermib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Diametermib>`
+        	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
+        	**type**\:  :py:class:`SelectiveVrfDownload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
         
         .. attribute:: vpls
         
@@ -2366,15 +2665,90 @@ class Snmp(Entity):
         	CISCO\-IETF\-PW\-MIB notification configuration
         	**type**\:  :py:class:`L2vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2vpn>`
         
+        .. attribute:: entity_
+        
+        	Enable ENTITY\-MIB notifications
+        	**type**\:  :py:class:`Entity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Entity>`
+        
+        .. attribute:: bridge
+        
+        	BRIDGE\-MIB notification configuration
+        	**type**\:  :py:class:`Bridge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bridge>`
+        
+        .. attribute:: rf
+        
+        	CISCO\-RF\-MIB notification configuration
+        	**type**\:  :py:class:`Rf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rf>`
+        
+        .. attribute:: ntp
+        
+        	CISCO\-NTP\-MIB notification configuration
+        	**type**\:  :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
+        
+        .. attribute:: otn
+        
+        	CISCO\-OTN\-IF\-MIB notification configuration
+        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Otn>`
+        
+        .. attribute:: addresspool_mib
+        
+        	Enable SNMP daps traps
+        	**type**\:  :py:class:`AddresspoolMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.AddresspoolMib>`
+        
+        .. attribute:: system
+        
+        	CISCO\-SYSTEM\-MIB notification configuration
+        	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
+        
+        .. attribute:: rsvp
+        
+        	Enable RSVP\-MIB notifications
+        	**type**\:  :py:class:`Rsvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
+        
+        .. attribute:: sensor
+        
+        	CISCO\-ENTITY\-SENSOR\-MIB notification configuration
+        	**type**\:  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Sensor>`
+        
+        .. attribute:: mpls_ldp
+        
+        	MPLS\-LDP\-STD\-MIB notification configuration
+        	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
+        
+        .. attribute:: subscriber_mib
+        
+        	Subscriber notification commands
+        	**type**\:  :py:class:`SubscriberMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib>`
+        
+        .. attribute:: flash
+        
+        	CISCO\-FLASH\-MIB notification configuration
+        	**type**\:  :py:class:`Flash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Flash>`
+        
+        .. attribute:: config_copy
+        
+        	CISCO\-CONFIG\-COPY\-MIB notification configuration
+        	**type**\:  :py:class:`ConfigCopy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigCopy>`
+        
+        .. attribute:: hsrp
+        
+        	CISCO\-HSRP\-MIB notification configuration
+        	**type**\:  :py:class:`Hsrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Hsrp>`
+        
+        .. attribute:: entity_redundancy
+        
+        	CISCO\-ENTITY\-REDUNDANCY\-MIB notification configuration
+        	**type**\:  :py:class:`EntityRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
+        
         .. attribute:: isis
         
         	Enable ISIS\-MIB notifications
         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isis>`
         
-        .. attribute:: config_man
+        .. attribute:: vrrp
         
-        	CISCO\-CONFIG\-MAN\-MIB notification configurations
-        	**type**\:  :py:class:`ConfigMan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
+        	VRRP\-MIB notification configuration
+        	**type**\:  :py:class:`Vrrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vrrp>`
         
         .. attribute:: ip_sec
         
@@ -2386,100 +2760,40 @@ class Snmp(Entity):
         	Enable CISCO\-IPSEC\-FLOW\-MONITOR\-MIB notifications
         	**type**\:  :py:class:`Isakmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Isakmp>`
         
-        .. attribute:: cfm
+        .. attribute:: cisco_entity_ext
         
-        	802.1ag Connectivity Fault Management MIB notification configuration
-        	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
-        
-        .. attribute:: oam
-        
-        	802.3 OAM MIB notification configuration
-        	**type**\:  :py:class:`Oam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
-        
-        .. attribute:: flash
-        
-        	CISCO\-FLASH\-MIB notification configuration
-        	**type**\:  :py:class:`Flash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Flash>`
-        
-        .. attribute:: frequency_synchronization
-        
-        	Frequency Synchronization trap configuration
-        	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FrequencySynchronization>`
-        
-        .. attribute:: entity_redundancy
-        
-        	CISCO\-ENTITY\-REDUNDANCY\-MIB notification configuration
-        	**type**\:  :py:class:`EntityRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityRedundancy>`
-        
-        .. attribute:: config_copy
-        
-        	CISCO\-CONFIG\-COPY\-MIB notification configuration
-        	**type**\:  :py:class:`ConfigCopy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigCopy>`
-        
-        .. attribute:: selective_vrf_download
-        
-        	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
-        	**type**\:  :py:class:`SelectiveVrfDownload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
-        
-        .. attribute:: system
-        
-        	CISCO\-SYSTEM\-MIB notification configuration
-        	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.System>`
-        
-        .. attribute:: bfd
-        
-        	CISCO\-IETF\-BFD\-MIB notification configuration
-        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bfd>`
-        
-        .. attribute:: addresspool_mib
-        
-        	Enable SNMP daps traps
-        	**type**\:  :py:class:`AddresspoolMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.AddresspoolMib>`
-        
-        .. attribute:: ntp
-        
-        	CISCO\-NTP\-MIB notification configuration
-        	**type**\:  :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ntp>`
-        
-        .. attribute:: rsvp
-        
-        	Enable RSVP\-MIB notifications
-        	**type**\:  :py:class:`Rsvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rsvp>`
-        
-        .. attribute:: bgp
-        
-        	BGP4\-MIB and CISCO\-BGP4\-MIB notification configuration
-        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp>`
-        
-        .. attribute:: hsrp
-        
-        	CISCO\-HSRP\-MIB notification configuration
-        	**type**\:  :py:class:`Hsrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Hsrp>`
+        	Enable CISCO\-ENTITY\-EXT\-MIB notifications
+        	**type**\:  :py:class:`CiscoEntityExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoEntityExt>`
         
         .. attribute:: ospf
         
         	OSPF\-MIB notification configuration
         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospf>`
         
-        .. attribute:: vrrp
+        .. attribute:: cfm
         
-        	VRRP\-MIB notification configuration
-        	**type**\:  :py:class:`Vrrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vrrp>`
+        	802.1ag Connectivity Fault Management MIB notification configuration
+        	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Cfm>`
         
-        .. attribute:: ospfv3
+        .. attribute:: l2tun
         
-        	OSPFv3\-MIB notification configuration
-        	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
+        	Enable SNMP l2tun traps
+        	**type**\:  :py:class:`L2tun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2tun>`
         
-        .. attribute:: ipsla
+        .. attribute:: bgp
         
-        	Enable SNMP RTTMON\-MIB IPSLA traps
-        	**type**\: bool
+        	BGP4\-MIB and CISCO\-BGP4\-MIB notification configuration
+        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp>`
         
-        .. attribute:: mpls_ldp
+        .. attribute:: entity_state
         
-        	MPLS\-LDP\-STD\-MIB notification configuration
-        	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsLdp>`
+        	ENTITY\-STATE\-MIB notification configuration
+        	**type**\:  :py:class:`EntityState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityState>`
+        
+        .. attribute:: frequency_synchronization
+        
+        	Frequency Synchronization trap configuration
+        	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FrequencySynchronization>`
         
         .. attribute:: mpls_te_p2mp
         
@@ -2496,75 +2810,60 @@ class Snmp(Entity):
         	CISCO\-IETF\-FRR\-MIB notification configuration
         	**type**\:  :py:class:`MplsFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsFrr>`
         
+        .. attribute:: oam
+        
+        	802.3 OAM MIB notification configuration
+        	**type**\:  :py:class:`Oam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Oam>`
+        
         .. attribute:: mpls_l3vpn
         
         	MPLS\-L3VPN\-STD\-MIB notification configuration
         	**type**\:  :py:class:`MplsL3vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsL3vpn>`
         
-        .. attribute:: optical
+        .. attribute:: config_man
         
-        	CISCO\-OPTICAL\-MIB notification configuration
-        	**type**\:  :py:class:`Optical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Optical>`
+        	CISCO\-CONFIG\-MAN\-MIB notification configurations
+        	**type**\:  :py:class:`ConfigMan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.ConfigMan>`
         
-        .. attribute:: optical_ots
+        .. attribute:: diametermib
         
-        	CISCO\-OPTICAL\-OTS\-MIB notification configuration
-        	**type**\:  :py:class:`OpticalOts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.OpticalOts>`
-        
-        .. attribute:: otn
-        
-        	CISCO\-OTN\-IF\-MIB notification configuration
-        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Otn>`
-        
-        .. attribute:: bridge
-        
-        	BRIDGE\-MIB notification configuration
-        	**type**\:  :py:class:`Bridge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bridge>`
-        
-        .. attribute:: sensor
-        
-        	CISCO\-ENTITY\-SENSOR\-MIB notification configuration
-        	**type**\:  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Sensor>`
-        
-        .. attribute:: cisco_entity_ext
-        
-        	Enable CISCO\-ENTITY\-EXT\-MIB notifications
-        	**type**\:  :py:class:`CiscoEntityExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.CiscoEntityExt>`
-        
-        .. attribute:: entity_
-        
-        	Enable ENTITY\-MIB notifications
-        	**type**\:  :py:class:`Entity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Entity>`
-        
-        .. attribute:: entity_state
-        
-        	ENTITY\-STATE\-MIB notification configuration
-        	**type**\:  :py:class:`EntityState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityState>`
+        	Enable SNMP diameter traps
+        	**type**\:  :py:class:`Diametermib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Diametermib>`
         
         .. attribute:: fru_control
         
         	CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification configuration
         	**type**\:  :py:class:`FruControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FruControl>`
         
-        .. attribute:: rf
-        
-        	CISCO\-RF\-MIB notification configuration
-        	**type**\:  :py:class:`Rf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rf>`
-        
         .. attribute:: syslog
         
         	CISCO\-SYSLOG\-MIB notification configuration
         	**type**\:  :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Syslog>`
         
-        .. attribute:: subscriber_mib
+        .. attribute:: ipsla
         
-        	Subscriber notification commands
-        	**type**\:  :py:class:`SubscriberMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib>`
+        	Enable SNMP RTTMON\-MIB IPSLA traps
+        	**type**\: bool
         
-        .. attribute:: l2tun
+        .. attribute:: bfd
         
-        	Enable SNMP l2tun traps
-        	**type**\:  :py:class:`L2tun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2tun>`
+        	CISCO\-IETF\-BFD\-MIB notification configuration
+        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bfd>`
+        
+        .. attribute:: optical_ots
+        
+        	CISCO\-OPTICAL\-OTS\-MIB notification configuration
+        	**type**\:  :py:class:`OpticalOts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.OpticalOts>`
+        
+        .. attribute:: optical
+        
+        	CISCO\-OPTICAL\-MIB notification configuration
+        	**type**\:  :py:class:`Optical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Optical>`
+        
+        .. attribute:: ospfv3
+        
+        	OSPFv3\-MIB notification configuration
+        	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
         
         
 
@@ -2574,14 +2873,17 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Notification, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Notification, self).__init__()
 
             self.yang_name = "notification"
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("snmp", ("snmp", Snmp.Notification.Snmp_)), ("Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib", ("diametermib", Snmp.Notification.Diametermib)), ("Cisco-IOS-XR-l2vpn-cfg:vpls", ("vpls", Snmp.Notification.Vpls)), ("Cisco-IOS-XR-l2vpn-cfg:l2vpn", ("l2vpn", Snmp.Notification.L2vpn)), ("Cisco-IOS-XR-clns-isis-cfg:isis", ("isis", Snmp.Notification.Isis)), ("Cisco-IOS-XR-config-mibs-cfg:config-man", ("config_man", Snmp.Notification.ConfigMan)), ("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:ip-sec", ("ip_sec", Snmp.Notification.IpSec)), ("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:isakmp", ("isakmp", Snmp.Notification.Isakmp)), ("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", ("cfm", Snmp.Notification.Cfm)), ("Cisco-IOS-XR-ethernet-link-oam-cfg:oam", ("oam", Snmp.Notification.Oam)), ("Cisco-IOS-XR-flashmib-cfg:flash", ("flash", Snmp.Notification.Flash)), ("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", ("frequency_synchronization", Snmp.Notification.FrequencySynchronization)), ("Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy", ("entity_redundancy", Snmp.Notification.EntityRedundancy)), ("Cisco-IOS-XR-infra-confcopymib-cfg:config-copy", ("config_copy", Snmp.Notification.ConfigCopy)), ("Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download", ("selective_vrf_download", Snmp.Notification.SelectiveVrfDownload)), ("Cisco-IOS-XR-infra-systemmib-cfg:system", ("system", Snmp.Notification.System)), ("Cisco-IOS-XR-ip-bfd-cfg:bfd", ("bfd", Snmp.Notification.Bfd)), ("Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib", ("addresspool_mib", Snmp.Notification.AddresspoolMib)), ("Cisco-IOS-XR-ip-ntp-cfg:ntp", ("ntp", Snmp.Notification.Ntp)), ("Cisco-IOS-XR-ip-rsvp-cfg:rsvp", ("rsvp", Snmp.Notification.Rsvp)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Snmp.Notification.Bgp)), ("Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp", ("hsrp", Snmp.Notification.Hsrp)), ("Cisco-IOS-XR-ipv4-ospf-cfg:ospf", ("ospf", Snmp.Notification.Ospf)), ("Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp", ("vrrp", Snmp.Notification.Vrrp)), ("Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3", ("ospfv3", Snmp.Notification.Ospfv3)), ("Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp", ("mpls_ldp", Snmp.Notification.MplsLdp)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp", ("mpls_te_p2mp", Snmp.Notification.MplsTeP2mp)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te", ("mpls_te", Snmp.Notification.MplsTe)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-frr", ("mpls_frr", Snmp.Notification.MplsFrr)), ("Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn", ("mpls_l3vpn", Snmp.Notification.MplsL3vpn)), ("Cisco-IOS-XR-opticalmib-cfg:optical", ("optical", Snmp.Notification.Optical)), ("Cisco-IOS-XR-opticalotsmib-cfg:optical-ots", ("optical_ots", Snmp.Notification.OpticalOts)), ("Cisco-IOS-XR-otnifmib-cfg:otn", ("otn", Snmp.Notification.Otn)), ("Cisco-IOS-XR-snmp-bridgemib-cfg:bridge", ("bridge", Snmp.Notification.Bridge)), ("Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor", ("sensor", Snmp.Notification.Sensor)), ("Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext", ("cisco_entity_ext", Snmp.Notification.CiscoEntityExt)), ("Cisco-IOS-XR-snmp-entitymib-cfg:entity", ("entity_", Snmp.Notification.Entity)), ("Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state", ("entity_state", Snmp.Notification.EntityState)), ("Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control", ("fru_control", Snmp.Notification.FruControl)), ("Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf", ("rf", Snmp.Notification.Rf)), ("Cisco-IOS-XR-snmp-syslogmib-cfg:syslog", ("syslog", Snmp.Notification.Syslog)), ("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib", ("subscriber_mib", Snmp.Notification.SubscriberMib)), ("Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun", ("l2tun", Snmp.Notification.L2tun))])
+            self._child_classes = OrderedDict([("snmp", ("snmp", Snmp.Notification.Snmp_)), ("Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download", ("selective_vrf_download", Snmp.Notification.SelectiveVrfDownload)), ("Cisco-IOS-XR-l2vpn-cfg:vpls", ("vpls", Snmp.Notification.Vpls)), ("Cisco-IOS-XR-l2vpn-cfg:l2vpn", ("l2vpn", Snmp.Notification.L2vpn)), ("Cisco-IOS-XR-snmp-entitymib-cfg:entity", ("entity_", Snmp.Notification.Entity)), ("Cisco-IOS-XR-snmp-bridgemib-cfg:bridge", ("bridge", Snmp.Notification.Bridge)), ("Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf", ("rf", Snmp.Notification.Rf)), ("Cisco-IOS-XR-ip-ntp-cfg:ntp", ("ntp", Snmp.Notification.Ntp)), ("Cisco-IOS-XR-otnifmib-cfg:otn", ("otn", Snmp.Notification.Otn)), ("Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib", ("addresspool_mib", Snmp.Notification.AddresspoolMib)), ("Cisco-IOS-XR-infra-systemmib-cfg:system", ("system", Snmp.Notification.System)), ("Cisco-IOS-XR-ip-rsvp-cfg:rsvp", ("rsvp", Snmp.Notification.Rsvp)), ("Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor", ("sensor", Snmp.Notification.Sensor)), ("Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp", ("mpls_ldp", Snmp.Notification.MplsLdp)), ("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib", ("subscriber_mib", Snmp.Notification.SubscriberMib)), ("Cisco-IOS-XR-flashmib-cfg:flash", ("flash", Snmp.Notification.Flash)), ("Cisco-IOS-XR-infra-confcopymib-cfg:config-copy", ("config_copy", Snmp.Notification.ConfigCopy)), ("Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp", ("hsrp", Snmp.Notification.Hsrp)), ("Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy", ("entity_redundancy", Snmp.Notification.EntityRedundancy)), ("Cisco-IOS-XR-clns-isis-cfg:isis", ("isis", Snmp.Notification.Isis)), ("Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp", ("vrrp", Snmp.Notification.Vrrp)), ("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:ip-sec", ("ip_sec", Snmp.Notification.IpSec)), ("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:isakmp", ("isakmp", Snmp.Notification.Isakmp)), ("Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext", ("cisco_entity_ext", Snmp.Notification.CiscoEntityExt)), ("Cisco-IOS-XR-ipv4-ospf-cfg:ospf", ("ospf", Snmp.Notification.Ospf)), ("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", ("cfm", Snmp.Notification.Cfm)), ("Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun", ("l2tun", Snmp.Notification.L2tun)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Snmp.Notification.Bgp)), ("Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state", ("entity_state", Snmp.Notification.EntityState)), ("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", ("frequency_synchronization", Snmp.Notification.FrequencySynchronization)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp", ("mpls_te_p2mp", Snmp.Notification.MplsTeP2mp)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te", ("mpls_te", Snmp.Notification.MplsTe)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-frr", ("mpls_frr", Snmp.Notification.MplsFrr)), ("Cisco-IOS-XR-ethernet-link-oam-cfg:oam", ("oam", Snmp.Notification.Oam)), ("Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn", ("mpls_l3vpn", Snmp.Notification.MplsL3vpn)), ("Cisco-IOS-XR-config-mibs-cfg:config-man", ("config_man", Snmp.Notification.ConfigMan)), ("Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib", ("diametermib", Snmp.Notification.Diametermib)), ("Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control", ("fru_control", Snmp.Notification.FruControl)), ("Cisco-IOS-XR-snmp-syslogmib-cfg:syslog", ("syslog", Snmp.Notification.Syslog)), ("Cisco-IOS-XR-ip-bfd-cfg:bfd", ("bfd", Snmp.Notification.Bfd)), ("Cisco-IOS-XR-opticalotsmib-cfg:optical-ots", ("optical_ots", Snmp.Notification.OpticalOts)), ("Cisco-IOS-XR-opticalmib-cfg:optical", ("optical", Snmp.Notification.Optical)), ("Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3", ("ospfv3", Snmp.Notification.Ospfv3))])
             self._leafs = OrderedDict([
                 ('ipsla', (YLeaf(YType.boolean, 'Cisco-IOS-XR-man-ipsla-cfg:ipsla'), ['bool'])),
             ])
@@ -2591,9 +2893,9 @@ class Snmp(Entity):
             self.snmp.parent = self
             self._children_name_map["snmp"] = "snmp"
 
-            self.diametermib = Snmp.Notification.Diametermib()
-            self.diametermib.parent = self
-            self._children_name_map["diametermib"] = "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
+            self.selective_vrf_download = Snmp.Notification.SelectiveVrfDownload()
+            self.selective_vrf_download.parent = self
+            self._children_name_map["selective_vrf_download"] = "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
 
             self.vpls = Snmp.Notification.Vpls()
             self.vpls.parent = self
@@ -2603,13 +2905,73 @@ class Snmp(Entity):
             self.l2vpn.parent = self
             self._children_name_map["l2vpn"] = "Cisco-IOS-XR-l2vpn-cfg:l2vpn"
 
+            self.entity_ = Snmp.Notification.Entity()
+            self.entity_.parent = self
+            self._children_name_map["entity_"] = "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
+
+            self.bridge = Snmp.Notification.Bridge()
+            self.bridge.parent = self
+            self._children_name_map["bridge"] = "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
+
+            self.rf = Snmp.Notification.Rf()
+            self.rf.parent = self
+            self._children_name_map["rf"] = "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
+
+            self.ntp = Snmp.Notification.Ntp()
+            self.ntp.parent = self
+            self._children_name_map["ntp"] = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+
+            self.otn = Snmp.Notification.Otn()
+            self.otn.parent = self
+            self._children_name_map["otn"] = "Cisco-IOS-XR-otnifmib-cfg:otn"
+
+            self.addresspool_mib = Snmp.Notification.AddresspoolMib()
+            self.addresspool_mib.parent = self
+            self._children_name_map["addresspool_mib"] = "Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib"
+
+            self.system = Snmp.Notification.System()
+            self.system.parent = self
+            self._children_name_map["system"] = "Cisco-IOS-XR-infra-systemmib-cfg:system"
+
+            self.rsvp = Snmp.Notification.Rsvp()
+            self.rsvp.parent = self
+            self._children_name_map["rsvp"] = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
+
+            self.sensor = Snmp.Notification.Sensor()
+            self.sensor.parent = self
+            self._children_name_map["sensor"] = "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
+
+            self.mpls_ldp = Snmp.Notification.MplsLdp()
+            self.mpls_ldp.parent = self
+            self._children_name_map["mpls_ldp"] = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
+
+            self.subscriber_mib = Snmp.Notification.SubscriberMib()
+            self.subscriber_mib.parent = self
+            self._children_name_map["subscriber_mib"] = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
+
+            self.flash = Snmp.Notification.Flash()
+            self.flash.parent = self
+            self._children_name_map["flash"] = "Cisco-IOS-XR-flashmib-cfg:flash"
+
+            self.config_copy = Snmp.Notification.ConfigCopy()
+            self.config_copy.parent = self
+            self._children_name_map["config_copy"] = "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
+
+            self.hsrp = Snmp.Notification.Hsrp()
+            self.hsrp.parent = self
+            self._children_name_map["hsrp"] = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+
+            self.entity_redundancy = Snmp.Notification.EntityRedundancy()
+            self.entity_redundancy.parent = self
+            self._children_name_map["entity_redundancy"] = "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
+
             self.isis = Snmp.Notification.Isis()
             self.isis.parent = self
             self._children_name_map["isis"] = "Cisco-IOS-XR-clns-isis-cfg:isis"
 
-            self.config_man = Snmp.Notification.ConfigMan()
-            self.config_man.parent = self
-            self._children_name_map["config_man"] = "Cisco-IOS-XR-config-mibs-cfg:config-man"
+            self.vrrp = Snmp.Notification.Vrrp()
+            self.vrrp.parent = self
+            self._children_name_map["vrrp"] = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
 
             self.ip_sec = Snmp.Notification.IpSec()
             self.ip_sec.parent = self
@@ -2619,77 +2981,33 @@ class Snmp(Entity):
             self.isakmp.parent = self
             self._children_name_map["isakmp"] = "Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:isakmp"
 
-            self.cfm = Snmp.Notification.Cfm()
-            self.cfm.parent = self
-            self._children_name_map["cfm"] = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
-
-            self.oam = Snmp.Notification.Oam()
-            self.oam.parent = self
-            self._children_name_map["oam"] = "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
-
-            self.flash = Snmp.Notification.Flash()
-            self.flash.parent = self
-            self._children_name_map["flash"] = "Cisco-IOS-XR-flashmib-cfg:flash"
-
-            self.frequency_synchronization = Snmp.Notification.FrequencySynchronization()
-            self.frequency_synchronization.parent = self
-            self._children_name_map["frequency_synchronization"] = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
-
-            self.entity_redundancy = Snmp.Notification.EntityRedundancy()
-            self.entity_redundancy.parent = self
-            self._children_name_map["entity_redundancy"] = "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
-
-            self.config_copy = Snmp.Notification.ConfigCopy()
-            self.config_copy.parent = self
-            self._children_name_map["config_copy"] = "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
-
-            self.selective_vrf_download = Snmp.Notification.SelectiveVrfDownload()
-            self.selective_vrf_download.parent = self
-            self._children_name_map["selective_vrf_download"] = "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
-
-            self.system = Snmp.Notification.System()
-            self.system.parent = self
-            self._children_name_map["system"] = "Cisco-IOS-XR-infra-systemmib-cfg:system"
-
-            self.bfd = Snmp.Notification.Bfd()
-            self.bfd.parent = self
-            self._children_name_map["bfd"] = "Cisco-IOS-XR-ip-bfd-cfg:bfd"
-
-            self.addresspool_mib = Snmp.Notification.AddresspoolMib()
-            self.addresspool_mib.parent = self
-            self._children_name_map["addresspool_mib"] = "Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib"
-
-            self.ntp = Snmp.Notification.Ntp()
-            self.ntp.parent = self
-            self._children_name_map["ntp"] = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
-
-            self.rsvp = Snmp.Notification.Rsvp()
-            self.rsvp.parent = self
-            self._children_name_map["rsvp"] = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
-
-            self.bgp = Snmp.Notification.Bgp()
-            self.bgp.parent = self
-            self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-
-            self.hsrp = Snmp.Notification.Hsrp()
-            self.hsrp.parent = self
-            self._children_name_map["hsrp"] = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+            self.cisco_entity_ext = Snmp.Notification.CiscoEntityExt()
+            self.cisco_entity_ext.parent = self
+            self._children_name_map["cisco_entity_ext"] = "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
 
             self.ospf = Snmp.Notification.Ospf()
             self.ospf.parent = self
             self._children_name_map["ospf"] = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf"
 
-            self.vrrp = Snmp.Notification.Vrrp()
-            self.vrrp.parent = self
-            self._children_name_map["vrrp"] = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+            self.cfm = Snmp.Notification.Cfm()
+            self.cfm.parent = self
+            self._children_name_map["cfm"] = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
 
-            self.ospfv3 = Snmp.Notification.Ospfv3()
-            self.ospfv3.parent = self
-            self._children_name_map["ospfv3"] = "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3"
+            self.l2tun = Snmp.Notification.L2tun()
+            self.l2tun.parent = self
+            self._children_name_map["l2tun"] = "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
 
-            self.mpls_ldp = Snmp.Notification.MplsLdp()
-            self.mpls_ldp.parent = self
-            self._children_name_map["mpls_ldp"] = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
+            self.bgp = Snmp.Notification.Bgp()
+            self.bgp.parent = self
+            self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+
+            self.entity_state = Snmp.Notification.EntityState()
+            self.entity_state.parent = self
+            self._children_name_map["entity_state"] = "Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state"
+
+            self.frequency_synchronization = Snmp.Notification.FrequencySynchronization()
+            self.frequency_synchronization.parent = self
+            self._children_name_map["frequency_synchronization"] = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
 
             self.mpls_te_p2mp = Snmp.Notification.MplsTeP2mp()
             self.mpls_te_p2mp.parent = self
@@ -2703,61 +3021,45 @@ class Snmp(Entity):
             self.mpls_frr.parent = self
             self._children_name_map["mpls_frr"] = "Cisco-IOS-XR-mpls-te-cfg:mpls-frr"
 
+            self.oam = Snmp.Notification.Oam()
+            self.oam.parent = self
+            self._children_name_map["oam"] = "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
+
             self.mpls_l3vpn = Snmp.Notification.MplsL3vpn()
             self.mpls_l3vpn.parent = self
             self._children_name_map["mpls_l3vpn"] = "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn"
 
-            self.optical = Snmp.Notification.Optical()
-            self.optical.parent = self
-            self._children_name_map["optical"] = "Cisco-IOS-XR-opticalmib-cfg:optical"
+            self.config_man = Snmp.Notification.ConfigMan()
+            self.config_man.parent = self
+            self._children_name_map["config_man"] = "Cisco-IOS-XR-config-mibs-cfg:config-man"
 
-            self.optical_ots = Snmp.Notification.OpticalOts()
-            self.optical_ots.parent = self
-            self._children_name_map["optical_ots"] = "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
-
-            self.otn = Snmp.Notification.Otn()
-            self.otn.parent = self
-            self._children_name_map["otn"] = "Cisco-IOS-XR-otnifmib-cfg:otn"
-
-            self.bridge = Snmp.Notification.Bridge()
-            self.bridge.parent = self
-            self._children_name_map["bridge"] = "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
-
-            self.sensor = Snmp.Notification.Sensor()
-            self.sensor.parent = self
-            self._children_name_map["sensor"] = "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
-
-            self.cisco_entity_ext = Snmp.Notification.CiscoEntityExt()
-            self.cisco_entity_ext.parent = self
-            self._children_name_map["cisco_entity_ext"] = "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
-
-            self.entity_ = Snmp.Notification.Entity()
-            self.entity_.parent = self
-            self._children_name_map["entity_"] = "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
-
-            self.entity_state = Snmp.Notification.EntityState()
-            self.entity_state.parent = self
-            self._children_name_map["entity_state"] = "Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state"
+            self.diametermib = Snmp.Notification.Diametermib()
+            self.diametermib.parent = self
+            self._children_name_map["diametermib"] = "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
 
             self.fru_control = Snmp.Notification.FruControl()
             self.fru_control.parent = self
             self._children_name_map["fru_control"] = "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control"
 
-            self.rf = Snmp.Notification.Rf()
-            self.rf.parent = self
-            self._children_name_map["rf"] = "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
-
             self.syslog = Snmp.Notification.Syslog()
             self.syslog.parent = self
             self._children_name_map["syslog"] = "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog"
 
-            self.subscriber_mib = Snmp.Notification.SubscriberMib()
-            self.subscriber_mib.parent = self
-            self._children_name_map["subscriber_mib"] = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
+            self.bfd = Snmp.Notification.Bfd()
+            self.bfd.parent = self
+            self._children_name_map["bfd"] = "Cisco-IOS-XR-ip-bfd-cfg:bfd"
 
-            self.l2tun = Snmp.Notification.L2tun()
-            self.l2tun.parent = self
-            self._children_name_map["l2tun"] = "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
+            self.optical_ots = Snmp.Notification.OpticalOts()
+            self.optical_ots.parent = self
+            self._children_name_map["optical_ots"] = "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
+
+            self.optical = Snmp.Notification.Optical()
+            self.optical.parent = self
+            self._children_name_map["optical"] = "Cisco-IOS-XR-opticalmib-cfg:optical"
+
+            self.ospfv3 = Snmp.Notification.Ospfv3()
+            self.ospfv3.parent = self
+            self._children_name_map["ospfv3"] = "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3"
             self._segment_path = lambda: "notification"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/%s" % self._segment_path()
             self._is_frozen = True
@@ -2766,7 +3068,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Notification, ['ipsla'], name, value)
 
 
-        class Snmp_(Entity):
+        class Snmp_(_Entity_):
             """
             SNMP notification configuration
             
@@ -2808,7 +3110,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Notification.Snmp_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Snmp_, self).__init__()
 
                 self.yang_name = "snmp"
                 self.yang_parent_name = "notification"
@@ -2837,75 +3142,59 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.Snmp_, ['authentication', 'cold_start', 'warm_start', 'enable', 'link_down', 'link_up'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Snmp_']['meta_info']
 
 
-        class Diametermib(Entity):
+        class SelectiveVrfDownload(_Entity_):
             """
-            Enable SNMP diameter traps
+            CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification
+            configuration
             
-            .. attribute:: protocolerror
+            .. attribute:: role_change
             
-            	Enable SNMP diameter protocol error notification
-            	**type**\: bool
-            
-            .. attribute:: permanentfail
-            
-            	Enable SNMP diameter permanent failure notification
-            	**type**\: bool
-            
-            .. attribute:: peerdown
-            
-            	Enable SNMP diameter peer connection down notification
-            	**type**\: bool
-            
-            .. attribute:: peerup
-            
-            	Enable SNMP diameter peer connection up notification
-            	**type**\: bool
-            
-            .. attribute:: transientfail
-            
-            	Enable SNMP diameter transient failure notification
-            	**type**\: bool
+            	Enable csvdEntityRoleChangeNotification notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
             """
 
-            _prefix = 'aaa-diameter-base-mib-cfg'
-            _revision = '2015-11-09'
+            _prefix = 'infra-rsi-cfg'
+            _revision = '2018-06-15'
 
             def __init__(self):
-                super(Snmp.Notification.Diametermib, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.SelectiveVrfDownload, self).__init__()
 
-                self.yang_name = "diametermib"
+                self.yang_name = "selective-vrf-download"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('protocolerror', (YLeaf(YType.boolean, 'protocolerror'), ['bool'])),
-                    ('permanentfail', (YLeaf(YType.boolean, 'permanentfail'), ['bool'])),
-                    ('peerdown', (YLeaf(YType.boolean, 'peerdown'), ['bool'])),
-                    ('peerup', (YLeaf(YType.boolean, 'peerup'), ['bool'])),
-                    ('transientfail', (YLeaf(YType.boolean, 'transientfail'), ['bool'])),
+                    ('role_change', (YLeaf(YType.empty, 'role-change'), ['Empty'])),
                 ])
-                self.protocolerror = None
-                self.permanentfail = None
-                self.peerdown = None
-                self.peerup = None
-                self.transientfail = None
-                self._segment_path = lambda: "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
+                self.role_change = None
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Diametermib, ['protocolerror', 'permanentfail', 'peerdown', 'peerup', 'transientfail'], name, value)
+                self._perform_setattr(Snmp.Notification.SelectiveVrfDownload, ['role_change'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.SelectiveVrfDownload']['meta_info']
 
 
-
-        class Vpls(Entity):
+        class Vpls(_Entity_):
             """
             CISCO\-IETF\-VPLS\-GENERIC\-MIB notification
             configuration
@@ -2938,7 +3227,10 @@ class Snmp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Snmp.Notification.Vpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Vpls, self).__init__()
 
                 self.yang_name = "vpls"
                 self.yang_parent_name = "notification"
@@ -2963,9 +3255,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.Vpls, ['full_clear', 'status', 'enable', 'full_raise'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Vpls']['meta_info']
 
 
-        class L2vpn(Entity):
+        class L2vpn(_Entity_):
             """
             CISCO\-IETF\-PW\-MIB notification configuration
             
@@ -2997,7 +3293,10 @@ class Snmp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(Snmp.Notification.L2vpn, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.L2vpn, self).__init__()
 
                 self.yang_name = "l2vpn"
                 self.yang_parent_name = "notification"
@@ -3022,9 +3321,799 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.L2vpn, ['cisco', 'enable', 'vc_down', 'vc_up'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.L2vpn']['meta_info']
 
 
-        class Isis(Entity):
+        class Entity(_Entity_):
+            """
+            Enable ENTITY\-MIB notifications
+            
+            .. attribute:: enable
+            
+            	Enable entityMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-entitymib-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Entity, self).__init__()
+
+                self.yang_name = "entity"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Entity, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Entity']['meta_info']
+
+
+        class Bridge(_Entity_):
+            """
+            BRIDGE\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable dot1dBridge notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-bridgemib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Bridge, self).__init__()
+
+                self.yang_name = "bridge"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Bridge, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Bridge']['meta_info']
+
+
+        class Rf(_Entity_):
+            """
+            CISCO\-RF\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoRFMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-mib-rfmib-cfg'
+            _revision = '2016-05-13'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Rf, self).__init__()
+
+                self.yang_name = "rf"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Rf, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Rf']['meta_info']
+
+
+        class Ntp(_Entity_):
+            """
+            CISCO\-NTP\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoNtpMIB notification configuration
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-ntp-cfg'
+            _revision = '2017-10-15'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Ntp, self).__init__()
+
+                self.yang_name = "ntp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Ntp, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Ntp']['meta_info']
+
+
+        class Otn(_Entity_):
+            """
+            CISCO\-OTN\-IF\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoOtnIfMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'otnifmib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Otn, self).__init__()
+
+                self.yang_name = "otn"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-otnifmib-cfg:otn"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Otn, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Otn']['meta_info']
+
+
+        class AddresspoolMib(_Entity_):
+            """
+            Enable SNMP daps traps
+            
+            .. attribute:: high
+            
+            	Enable SNMP Address Pool High Threshold trap
+            	**type**\: bool
+            
+            .. attribute:: low
+            
+            	Enable SNMP Address Pool Low Threshold trap
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'ip-daps-mib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.AddresspoolMib, self).__init__()
+
+                self.yang_name = "addresspool-mib"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('high', (YLeaf(YType.boolean, 'high'), ['bool'])),
+                    ('low', (YLeaf(YType.boolean, 'low'), ['bool'])),
+                ])
+                self.high = None
+                self.low = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.AddresspoolMib, ['high', 'low'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.AddresspoolMib']['meta_info']
+
+
+        class System(_Entity_):
+            """
+            CISCO\-SYSTEM\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoSystemMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'infra-systemmib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.System, self).__init__()
+
+                self.yang_name = "system"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-systemmib-cfg:system"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.System, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.System']['meta_info']
+
+
+        class Rsvp(_Entity_):
+            """
+            Enable RSVP\-MIB notifications
+            
+            .. attribute:: lost_flow
+            
+            	Enable lostFlow notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: new_flow
+            
+            	Enable newFlow notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: enable
+            
+            	Enable all RSVP notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2019-09-20'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Rsvp, self).__init__()
+
+                self.yang_name = "rsvp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lost_flow', (YLeaf(YType.empty, 'lost-flow'), ['Empty'])),
+                    ('new_flow', (YLeaf(YType.empty, 'new-flow'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.lost_flow = None
+                self.new_flow = None
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Rsvp, ['lost_flow', 'new_flow', 'enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Rsvp']['meta_info']
+
+
+        class Sensor(_Entity_):
+            """
+            CISCO\-ENTITY\-SENSOR\-MIB notification
+            configuration
+            
+            .. attribute:: enable
+            
+            	Enable entitySensorMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-ciscosensormib-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Sensor, self).__init__()
+
+                self.yang_name = "sensor"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Sensor, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Sensor']['meta_info']
+
+
+        class MplsLdp(_Entity_):
+            """
+            MPLS\-LDP\-STD\-MIB notification configuration
+            
+            .. attribute:: session_up
+            
+            	Enable mplsLdpSessionUp notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: init_session_threshold_exceeded
+            
+            	Enable mplsLdpInitSessionThresholdExceeded notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: session_down
+            
+            	Enable mplsLdpSessionDown notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-ldp-cfg'
+            _revision = '2018-06-15'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.MplsLdp, self).__init__()
+
+                self.yang_name = "mpls-ldp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('session_up', (YLeaf(YType.empty, 'session-up'), ['Empty'])),
+                    ('init_session_threshold_exceeded', (YLeaf(YType.empty, 'init-session-threshold-exceeded'), ['Empty'])),
+                    ('session_down', (YLeaf(YType.empty, 'session-down'), ['Empty'])),
+                ])
+                self.session_up = None
+                self.init_session_threshold_exceeded = None
+                self.session_down = None
+                self._segment_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.MplsLdp, ['session_up', 'init_session_threshold_exceeded', 'session_down'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.MplsLdp']['meta_info']
+
+
+        class SubscriberMib(_Entity_):
+            """
+            Subscriber notification commands
+            
+            .. attribute:: session_aggregate
+            
+            	Session aggregation
+            	**type**\:  :py:class:`SessionAggregate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib.SessionAggregate>`
+            
+            
+
+            """
+
+            _prefix = 'subscriber-session-mon-mibs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.SubscriberMib, self).__init__()
+
+                self.yang_name = "subscriber-mib"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("session-aggregate", ("session_aggregate", Snmp.Notification.SubscriberMib.SessionAggregate))])
+                self._leafs = OrderedDict()
+
+                self.session_aggregate = Snmp.Notification.SubscriberMib.SessionAggregate()
+                self.session_aggregate.parent = self
+                self._children_name_map["session_aggregate"] = "session-aggregate"
+                self._segment_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.SubscriberMib, [], name, value)
+
+
+            class SessionAggregate(_Entity_):
+                """
+                Session aggregation
+                
+                .. attribute:: node
+                
+                	Subscriber notification at node level
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: access_interface
+                
+                	Subscriber notification at access interface level
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-session-mon-mibs-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.SubscriberMib.SessionAggregate, self).__init__()
+
+                    self.yang_name = "session-aggregate"
+                    self.yang_parent_name = "subscriber-mib"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node', (YLeaf(YType.empty, 'node'), ['Empty'])),
+                        ('access_interface', (YLeaf(YType.empty, 'access-interface'), ['Empty'])),
+                    ])
+                    self.node = None
+                    self.access_interface = None
+                    self._segment_path = lambda: "session-aggregate"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.Notification.SubscriberMib.SessionAggregate, ['node', 'access_interface'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.SubscriberMib.SessionAggregate']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.SubscriberMib']['meta_info']
+
+
+        class Flash(_Entity_):
+            """
+            CISCO\-FLASH\-MIB notification configuration
+            
+            .. attribute:: insertion
+            
+            	Enable ciscoFlashDeviceInsertedNotif notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: removal
+            
+            	Enable ciscoFlashDeviceRemovedNotif notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'flashmib-cfg'
+            _revision = '2015-12-15'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Flash, self).__init__()
+
+                self.yang_name = "flash"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('insertion', (YLeaf(YType.empty, 'insertion'), ['Empty'])),
+                    ('removal', (YLeaf(YType.empty, 'removal'), ['Empty'])),
+                ])
+                self.insertion = None
+                self.removal = None
+                self._segment_path = lambda: "Cisco-IOS-XR-flashmib-cfg:flash"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Flash, ['insertion', 'removal'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Flash']['meta_info']
+
+
+        class ConfigCopy(_Entity_):
+            """
+            CISCO\-CONFIG\-COPY\-MIB notification configuration
+            
+            .. attribute:: completion
+            
+            	Enable ccCopyCompletion notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'infra-confcopymib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.ConfigCopy, self).__init__()
+
+                self.yang_name = "config-copy"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('completion', (YLeaf(YType.empty, 'completion'), ['Empty'])),
+                ])
+                self.completion = None
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.ConfigCopy, ['completion'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.ConfigCopy']['meta_info']
+
+
+        class Hsrp(_Entity_):
+            """
+            CISCO\-HSRP\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable CISCO\-HSRP\-MIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-hsrp-cfg'
+            _revision = '2017-11-05'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Hsrp, self).__init__()
+
+                self.yang_name = "hsrp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Hsrp, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Hsrp']['meta_info']
+
+
+        class EntityRedundancy(_Entity_):
+            """
+            CISCO\-ENTITY\-REDUNDANCY\-MIB notification
+            configuration
+            
+            .. attribute:: switchover
+            
+            	Enable switchover notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: enable
+            
+            	Enable CISCO\-ENTITY\-REDUNDANCY\-MIB notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: status
+            
+            	Enable status change notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ceredundancymib-cfg'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.EntityRedundancy, self).__init__()
+
+                self.yang_name = "entity-redundancy"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('status', (YLeaf(YType.empty, 'status'), ['Empty'])),
+                ])
+                self.switchover = None
+                self.enable = None
+                self.status = None
+                self._segment_path = lambda: "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.EntityRedundancy, ['switchover', 'enable', 'status'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.EntityRedundancy']['meta_info']
+
+
+        class Isis(_Entity_):
             """
             Enable ISIS\-MIB notifications
             
@@ -3169,7 +4258,10 @@ class Snmp(Entity):
             _revision = '2019-03-15'
 
             def __init__(self):
-                super(Snmp.Notification.Isis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Isis, self).__init__()
 
                 self.yang_name = "isis"
                 self.yang_parent_name = "notification"
@@ -3224,28 +4316,35 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.Isis, ['database_overflow', 'manual_address_drops', 'corrupted_lsp_detected', 'attempt_to_exceed_max_sequence', 'id_length_mismatch', 'max_area_address_mismatch', 'own_lsp_purge', 'sequence_number_skip', 'authentication_type_failure', 'authentication_failure', 'version_skew', 'area_mismatch', 'rejected_adjacency', 'lsp_too_large_to_propagate', 'originated_lsp_buffer_size_mismatch', 'protocols_supported_mismatch', 'adjacency_change', 'lsp_error_detected', 'all'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Isis']['meta_info']
 
 
-        class ConfigMan(Entity):
+        class Vrrp(_Entity_):
             """
-            CISCO\-CONFIG\-MAN\-MIB notification configurations
+            VRRP\-MIB notification configuration
             
             .. attribute:: enable
             
-            	Enable ciscoConfigManMIB notifications
+            	Enable VRRP\-MIB notifications
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
             """
 
-            _prefix = 'config-mibs-cfg'
-            _revision = '2015-09-29'
+            _prefix = 'ipv4-vrrp-cfg'
+            _revision = '2018-05-19'
 
             def __init__(self):
-                super(Snmp.Notification.ConfigMan, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Vrrp, self).__init__()
 
-                self.yang_name = "config-man"
+                self.yang_name = "vrrp"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
@@ -3255,16 +4354,20 @@ class Snmp(Entity):
                     ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-config-mibs-cfg:config-man"
+                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.ConfigMan, ['enable'], name, value)
+                self._perform_setattr(Snmp.Notification.Vrrp, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Vrrp']['meta_info']
 
 
-
-        class IpSec(Entity):
+        class IpSec(_Entity_):
             """
             Enable CISCO\-IPSEC\-FLOW\-MONITOR\-MIB
             notifications
@@ -3287,7 +4390,10 @@ class Snmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Snmp.Notification.IpSec, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.IpSec, self).__init__()
 
                 self.yang_name = "ip-sec"
                 self.yang_parent_name = "notification"
@@ -3308,9 +4414,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.IpSec, ['tunnel_stop', 'tunnel_start'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.IpSec']['meta_info']
 
 
-        class Isakmp(Entity):
+        class Isakmp(_Entity_):
             """
             Enable CISCO\-IPSEC\-FLOW\-MONITOR\-MIB
             notifications
@@ -3333,7 +4443,10 @@ class Snmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Snmp.Notification.Isakmp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Isakmp, self).__init__()
 
                 self.yang_name = "isakmp"
                 self.yang_parent_name = "notification"
@@ -3354,67 +4467,35 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Notification.Isakmp, ['tunnel_stop', 'tunnel_start'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Isakmp']['meta_info']
 
 
-        class Cfm(Entity):
+        class CiscoEntityExt(_Entity_):
             """
-            802.1ag Connectivity Fault Management MIB
-            notification configuration
+            Enable CISCO\-ENTITY\-EXT\-MIB notifications
             
             .. attribute:: enable
             
-            	Enable 802.1ag Connectivity Fault Management MIB notifications
+            	Enable CISCO\-ENTITY\-EXT\-MIB notifications
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
             """
 
-            _prefix = 'ethernet-cfm-cfg'
-            _revision = '2018-07-27'
-
-            def __init__(self):
-                super(Snmp.Notification.Cfm, self).__init__()
-
-                self.yang_name = "cfm"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Cfm, ['enable'], name, value)
-
-
-
-        class Oam(Entity):
-            """
-            802.3 OAM MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable 802.3 OAM MIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-link-oam-cfg'
+            _prefix = 'snmp-entityextmib-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Snmp.Notification.Oam, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.CiscoEntityExt, self).__init__()
 
-                self.yang_name = "oam"
+                self.yang_name = "cisco-entity-ext"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
@@ -3424,628 +4505,20 @@ class Snmp(Entity):
                     ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Oam, ['enable'], name, value)
+                self._perform_setattr(Snmp.Notification.CiscoEntityExt, ['enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.CiscoEntityExt']['meta_info']
 
 
-        class Flash(Entity):
-            """
-            CISCO\-FLASH\-MIB notification configuration
-            
-            .. attribute:: insertion
-            
-            	Enable ciscoFlashDeviceInsertedNotif notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: removal
-            
-            	Enable ciscoFlashDeviceRemovedNotif notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'flashmib-cfg'
-            _revision = '2015-12-15'
-
-            def __init__(self):
-                super(Snmp.Notification.Flash, self).__init__()
-
-                self.yang_name = "flash"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('insertion', (YLeaf(YType.empty, 'insertion'), ['Empty'])),
-                    ('removal', (YLeaf(YType.empty, 'removal'), ['Empty'])),
-                ])
-                self.insertion = None
-                self.removal = None
-                self._segment_path = lambda: "Cisco-IOS-XR-flashmib-cfg:flash"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Flash, ['insertion', 'removal'], name, value)
-
-
-
-        class FrequencySynchronization(Entity):
-            """
-            Frequency Synchronization trap configuration
-            
-            .. attribute:: enable
-            
-            	Enable Frequency Synchronization traps
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'freqsync-cfg'
-            _revision = '2017-09-30'
-
-            def __init__(self):
-                super(Snmp.Notification.FrequencySynchronization, self).__init__()
-
-                self.yang_name = "frequency-synchronization"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.FrequencySynchronization, ['enable'], name, value)
-
-
-
-        class EntityRedundancy(Entity):
-            """
-            CISCO\-ENTITY\-REDUNDANCY\-MIB notification
-            configuration
-            
-            .. attribute:: switchover
-            
-            	Enable switchover notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: enable
-            
-            	Enable CISCO\-ENTITY\-REDUNDANCY\-MIB notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: status
-            
-            	Enable status change notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-ceredundancymib-cfg'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.Notification.EntityRedundancy, self).__init__()
-
-                self.yang_name = "entity-redundancy"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                    ('status', (YLeaf(YType.empty, 'status'), ['Empty'])),
-                ])
-                self.switchover = None
-                self.enable = None
-                self.status = None
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.EntityRedundancy, ['switchover', 'enable', 'status'], name, value)
-
-
-
-        class ConfigCopy(Entity):
-            """
-            CISCO\-CONFIG\-COPY\-MIB notification configuration
-            
-            .. attribute:: completion
-            
-            	Enable ccCopyCompletion notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-confcopymib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.ConfigCopy, self).__init__()
-
-                self.yang_name = "config-copy"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('completion', (YLeaf(YType.empty, 'completion'), ['Empty'])),
-                ])
-                self.completion = None
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.ConfigCopy, ['completion'], name, value)
-
-
-
-        class SelectiveVrfDownload(Entity):
-            """
-            CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification
-            configuration
-            
-            .. attribute:: role_change
-            
-            	Enable csvdEntityRoleChangeNotification notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-rsi-cfg'
-            _revision = '2018-06-15'
-
-            def __init__(self):
-                super(Snmp.Notification.SelectiveVrfDownload, self).__init__()
-
-                self.yang_name = "selective-vrf-download"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('role_change', (YLeaf(YType.empty, 'role-change'), ['Empty'])),
-                ])
-                self.role_change = None
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.SelectiveVrfDownload, ['role_change'], name, value)
-
-
-
-        class System(Entity):
-            """
-            CISCO\-SYSTEM\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoSystemMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-systemmib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.System, self).__init__()
-
-                self.yang_name = "system"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-infra-systemmib-cfg:system"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.System, ['enable'], name, value)
-
-
-
-        class Bfd(Entity):
-            """
-            CISCO\-IETF\-BFD\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable CISCO\-IETF\-BFD\-MIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-bfd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.Bfd, self).__init__()
-
-                self.yang_name = "bfd"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Bfd, ['enable'], name, value)
-
-
-
-        class AddresspoolMib(Entity):
-            """
-            Enable SNMP daps traps
-            
-            .. attribute:: high
-            
-            	Enable SNMP Address Pool High Threshold trap
-            	**type**\: bool
-            
-            .. attribute:: low
-            
-            	Enable SNMP Address Pool Low Threshold trap
-            	**type**\: bool
-            
-            
-
-            """
-
-            _prefix = 'ip-daps-mib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.AddresspoolMib, self).__init__()
-
-                self.yang_name = "addresspool-mib"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('high', (YLeaf(YType.boolean, 'high'), ['bool'])),
-                    ('low', (YLeaf(YType.boolean, 'low'), ['bool'])),
-                ])
-                self.high = None
-                self.low = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.AddresspoolMib, ['high', 'low'], name, value)
-
-
-
-        class Ntp(Entity):
-            """
-            CISCO\-NTP\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoNtpMIB notification configuration
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-ntp-cfg'
-            _revision = '2017-10-15'
-
-            def __init__(self):
-                super(Snmp.Notification.Ntp, self).__init__()
-
-                self.yang_name = "ntp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Ntp, ['enable'], name, value)
-
-
-
-        class Rsvp(Entity):
-            """
-            Enable RSVP\-MIB notifications
-            
-            .. attribute:: lost_flow
-            
-            	Enable lostFlow notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: new_flow
-            
-            	Enable newFlow notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: enable
-            
-            	Enable all RSVP notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Snmp.Notification.Rsvp, self).__init__()
-
-                self.yang_name = "rsvp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('lost_flow', (YLeaf(YType.empty, 'lost-flow'), ['Empty'])),
-                    ('new_flow', (YLeaf(YType.empty, 'new-flow'), ['Empty'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.lost_flow = None
-                self.new_flow = None
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Rsvp, ['lost_flow', 'new_flow', 'enable'], name, value)
-
-
-
-        class Bgp(Entity):
-            """
-            BGP4\-MIB and CISCO\-BGP4\-MIB notification
-            configuration
-            
-            .. attribute:: bgp4mib
-            
-            	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications\: bgpEstablishedNotification, bgpBackwardTransNotification, cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded, cbgpPrefixThresholdClear
-            	**type**\:  :py:class:`Bgp4mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4mib>`
-            
-            .. attribute:: cisco_bgp4mib
-            
-            	Enable CISCO\-BGP4\-MIB v2 notifications\: cbgpPeer2EstablishedNotification, cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange, cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded, cbgpPeer2PrefixThresholdClear
-            	**type**\:  :py:class:`CiscoBgp4mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4mib>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-bgp-cfg'
-            _revision = '2018-06-15'
-
-            def __init__(self):
-                super(Snmp.Notification.Bgp, self).__init__()
-
-                self.yang_name = "bgp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("bgp4mib", ("bgp4mib", Snmp.Notification.Bgp.Bgp4mib)), ("cisco-bgp4mib", ("cisco_bgp4mib", Snmp.Notification.Bgp.CiscoBgp4mib))])
-                self._leafs = OrderedDict()
-
-                self.bgp4mib = Snmp.Notification.Bgp.Bgp4mib()
-                self.bgp4mib.parent = self
-                self._children_name_map["bgp4mib"] = "bgp4mib"
-
-                self.cisco_bgp4mib = Snmp.Notification.Bgp.CiscoBgp4mib()
-                self.cisco_bgp4mib.parent = self
-                self._children_name_map["cisco_bgp4mib"] = "cisco-bgp4mib"
-                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Bgp, [], name, value)
-
-
-            class Bgp4mib(Entity):
-                """
-                Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only
-                notifications\: bgpEstablishedNotification,
-                bgpBackwardTransNotification,
-                cbgpFsmStateChange, cbgpBackwardTransition,
-                cbgpPrefixThresholdExceeded,
-                cbgpPrefixThresholdClear.
-                
-                .. attribute:: enable
-                
-                	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: up_down
-                
-                	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only up/down notifications
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-06-15'
-
-                def __init__(self):
-                    super(Snmp.Notification.Bgp.Bgp4mib, self).__init__()
-
-                    self.yang_name = "bgp4mib"
-                    self.yang_parent_name = "bgp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                        ('up_down', (YLeaf(YType.empty, 'up-down'), ['Empty'])),
-                    ])
-                    self.enable = None
-                    self.up_down = None
-                    self._segment_path = lambda: "bgp4mib"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Notification.Bgp.Bgp4mib, ['enable', 'up_down'], name, value)
-
-
-
-            class CiscoBgp4mib(Entity):
-                """
-                Enable CISCO\-BGP4\-MIB v2 notifications\:
-                cbgpPeer2EstablishedNotification,
-                cbgpPeer2BackwardTransNotification,
-                cbgpPeer2FsmStateChange,
-                cbgpPeer2BackwardTransition,
-                cbgpPeer2PrefixThresholdExceeded,
-                cbgpPeer2PrefixThresholdClear.
-                
-                .. attribute:: enable
-                
-                	Enable CISCO\-BGP4\-MIB v2 notifications
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: up_down
-                
-                	Enable CISCO\-BGP4\-MIB v2 up/down notifications
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-bgp-cfg'
-                _revision = '2018-06-15'
-
-                def __init__(self):
-                    super(Snmp.Notification.Bgp.CiscoBgp4mib, self).__init__()
-
-                    self.yang_name = "cisco-bgp4mib"
-                    self.yang_parent_name = "bgp"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                        ('up_down', (YLeaf(YType.empty, 'up-down'), ['Empty'])),
-                    ])
-                    self.enable = None
-                    self.up_down = None
-                    self._segment_path = lambda: "cisco-bgp4mib"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Notification.Bgp.CiscoBgp4mib, ['enable', 'up_down'], name, value)
-
-
-
-
-        class Hsrp(Entity):
-            """
-            CISCO\-HSRP\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable CISCO\-HSRP\-MIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-hsrp-cfg'
-            _revision = '2017-11-05'
-
-            def __init__(self):
-                super(Snmp.Notification.Hsrp, self).__init__()
-
-                self.yang_name = "hsrp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Hsrp, ['enable'], name, value)
-
-
-
-        class Ospf(Entity):
+        class Ospf(_Entity_):
             """
             OSPF\-MIB notification configuration
             
@@ -4077,7 +4550,10 @@ class Snmp(Entity):
             _revision = '2018-05-14'
 
             def __init__(self):
-                super(Snmp.Notification.Ospf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Ospf, self).__init__()
 
                 self.yang_name = "ospf"
                 self.yang_parent_name = "notification"
@@ -4110,7 +4586,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Notification.Ospf, [], name, value)
 
 
-            class Lsa(Entity):
+            class Lsa(_Entity_):
                 """
                 SNMP notifications related to LSAs
                 
@@ -4132,7 +4608,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospf.Lsa, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospf.Lsa, self).__init__()
 
                     self.yang_name = "lsa"
                     self.yang_parent_name = "ospf"
@@ -4153,9 +4632,13 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospf.Lsa, ['max_age_lsa', 'originate_lsa'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospf.Lsa']['meta_info']
 
 
-            class StateChange(Entity):
+            class StateChange(_Entity_):
                 """
                 SNMP notifications for OSPF state change
                 
@@ -4187,7 +4670,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospf.StateChange, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospf.StateChange, self).__init__()
 
                     self.yang_name = "state-change"
                     self.yang_parent_name = "ospf"
@@ -4212,9 +4698,13 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospf.StateChange, ['interface', 'virtual_interface', 'virtual_neighbor', 'neighbor'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospf.StateChange']['meta_info']
 
 
-            class Retransmit(Entity):
+            class Retransmit(_Entity_):
                 """
                 SNMP notifications for packet retransmissions
                 
@@ -4236,7 +4726,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospf.Retransmit, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospf.Retransmit, self).__init__()
 
                     self.yang_name = "retransmit"
                     self.yang_parent_name = "ospf"
@@ -4257,9 +4750,13 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospf.Retransmit, ['virtual_packet', 'packet'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospf.Retransmit']['meta_info']
 
 
-            class Error(Entity):
+            class Error(_Entity_):
                 """
                 SNMP notifications for OSPF errors
                 
@@ -4301,7 +4798,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospf.Error, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospf.Error, self).__init__()
 
                     self.yang_name = "error"
                     self.yang_parent_name = "ospf"
@@ -4330,29 +4830,41 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospf.Error, ['config_error', 'authentication_failure', 'virtual_config_error', 'virtual_authentication_failure', 'bad_packet', 'virtual_bad_packet'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospf.Error']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Ospf']['meta_info']
 
 
-
-        class Vrrp(Entity):
+        class Cfm(_Entity_):
             """
-            VRRP\-MIB notification configuration
+            802.1ag Connectivity Fault Management MIB
+            notification configuration
             
             .. attribute:: enable
             
-            	Enable VRRP\-MIB notifications
+            	Enable 802.1ag Connectivity Fault Management MIB notifications
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
             """
 
-            _prefix = 'ipv4-vrrp-cfg'
-            _revision = '2018-05-19'
+            _prefix = 'ethernet-cfm-cfg'
+            _revision = '2018-07-27'
 
             def __init__(self):
-                super(Snmp.Notification.Vrrp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Cfm, self).__init__()
 
-                self.yang_name = "vrrp"
+                self.yang_name = "cfm"
                 self.yang_parent_name = "notification"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
@@ -4362,16 +4874,1102 @@ class Snmp(Entity):
                     ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+                self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Vrrp, ['enable'], name, value)
+                self._perform_setattr(Snmp.Notification.Cfm, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Cfm']['meta_info']
 
 
+        class L2tun(_Entity_):
+            """
+            Enable SNMP l2tun traps
+            
+            .. attribute:: tunnel_up
+            
+            	Enable L2TUN tunnel UP traps
+            	**type**\: bool
+            
+            .. attribute:: tunnel_down
+            
+            	Enable L2TUN tunnel DOWN traps
+            	**type**\: bool
+            
+            .. attribute:: pseudowire_status
+            
+            	Enable traps for L2TPv3 PW status
+            	**type**\: bool
+            
+            .. attribute:: sessions
+            
+            	Enable L2TUN sessions traps
+            	**type**\: bool
+            
+            
 
-        class Ospfv3(Entity):
+            """
+
+            _prefix = 'tunnel-l2tun-proto-mibs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.L2tun, self).__init__()
+
+                self.yang_name = "l2tun"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tunnel_up', (YLeaf(YType.boolean, 'tunnel-up'), ['bool'])),
+                    ('tunnel_down', (YLeaf(YType.boolean, 'tunnel-down'), ['bool'])),
+                    ('pseudowire_status', (YLeaf(YType.boolean, 'pseudowire-status'), ['bool'])),
+                    ('sessions', (YLeaf(YType.boolean, 'sessions'), ['bool'])),
+                ])
+                self.tunnel_up = None
+                self.tunnel_down = None
+                self.pseudowire_status = None
+                self.sessions = None
+                self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.L2tun, ['tunnel_up', 'tunnel_down', 'pseudowire_status', 'sessions'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.L2tun']['meta_info']
+
+
+        class Bgp(_Entity_):
+            """
+            BGP4\-MIB and CISCO\-BGP4\-MIB notification
+            configuration
+            
+            .. attribute:: bgp4mib
+            
+            	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications\: bgpEstablishedNotification, bgpBackwardTransNotification, cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded, cbgpPrefixThresholdClear
+            	**type**\:  :py:class:`Bgp4mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4mib>`
+            
+            .. attribute:: cisco_bgp4mib
+            
+            	Enable CISCO\-BGP4\-MIB v2 notifications\: cbgpPeer2EstablishedNotification, cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange, cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded, cbgpPeer2PrefixThresholdClear
+            	**type**\:  :py:class:`CiscoBgp4mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4mib>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-bgp-cfg'
+            _revision = '2018-06-15'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Bgp, self).__init__()
+
+                self.yang_name = "bgp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("bgp4mib", ("bgp4mib", Snmp.Notification.Bgp.Bgp4mib)), ("cisco-bgp4mib", ("cisco_bgp4mib", Snmp.Notification.Bgp.CiscoBgp4mib))])
+                self._leafs = OrderedDict()
+
+                self.bgp4mib = Snmp.Notification.Bgp.Bgp4mib()
+                self.bgp4mib.parent = self
+                self._children_name_map["bgp4mib"] = "bgp4mib"
+
+                self.cisco_bgp4mib = Snmp.Notification.Bgp.CiscoBgp4mib()
+                self.cisco_bgp4mib.parent = self
+                self._children_name_map["cisco_bgp4mib"] = "cisco-bgp4mib"
+                self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Bgp, [], name, value)
+
+
+            class Bgp4mib(_Entity_):
+                """
+                Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only
+                notifications\: bgpEstablishedNotification,
+                bgpBackwardTransNotification,
+                cbgpFsmStateChange, cbgpBackwardTransition,
+                cbgpPrefixThresholdExceeded,
+                cbgpPrefixThresholdClear.
+                
+                .. attribute:: enable
+                
+                	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: up_down
+                
+                	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only up/down notifications
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-bgp-cfg'
+                _revision = '2018-06-15'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Bgp.Bgp4mib, self).__init__()
+
+                    self.yang_name = "bgp4mib"
+                    self.yang_parent_name = "bgp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('up_down', (YLeaf(YType.empty, 'up-down'), ['Empty'])),
+                    ])
+                    self.enable = None
+                    self.up_down = None
+                    self._segment_path = lambda: "bgp4mib"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.Notification.Bgp.Bgp4mib, ['enable', 'up_down'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Bgp.Bgp4mib']['meta_info']
+
+
+            class CiscoBgp4mib(_Entity_):
+                """
+                Enable CISCO\-BGP4\-MIB v2 notifications\:
+                cbgpPeer2EstablishedNotification,
+                cbgpPeer2BackwardTransNotification,
+                cbgpPeer2FsmStateChange,
+                cbgpPeer2BackwardTransition,
+                cbgpPeer2PrefixThresholdExceeded,
+                cbgpPeer2PrefixThresholdClear.
+                
+                .. attribute:: enable
+                
+                	Enable CISCO\-BGP4\-MIB v2 notifications
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: up_down
+                
+                	Enable CISCO\-BGP4\-MIB v2 up/down notifications
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-bgp-cfg'
+                _revision = '2018-06-15'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Bgp.CiscoBgp4mib, self).__init__()
+
+                    self.yang_name = "cisco-bgp4mib"
+                    self.yang_parent_name = "bgp"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('up_down', (YLeaf(YType.empty, 'up-down'), ['Empty'])),
+                    ])
+                    self.enable = None
+                    self.up_down = None
+                    self._segment_path = lambda: "cisco-bgp4mib"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.Notification.Bgp.CiscoBgp4mib, ['enable', 'up_down'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Bgp.CiscoBgp4mib']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Bgp']['meta_info']
+
+
+        class EntityState(_Entity_):
+            """
+            ENTITY\-STATE\-MIB notification configuration
+            
+            .. attribute:: switchover
+            
+            	Enable ceStateExtStandbySwitchover notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: oper_status
+            
+            	Enable entStateOperEnable and entStateOperDisable notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-entstatemib-cfg'
+            _revision = '2015-07-27'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.EntityState, self).__init__()
+
+                self.yang_name = "entity-state"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
+                    ('oper_status', (YLeaf(YType.empty, 'oper-status'), ['Empty'])),
+                ])
+                self.switchover = None
+                self.oper_status = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.EntityState, ['switchover', 'oper_status'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.EntityState']['meta_info']
+
+
+        class FrequencySynchronization(_Entity_):
+            """
+            Frequency Synchronization trap configuration
+            
+            .. attribute:: enable
+            
+            	Enable Frequency Synchronization traps
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'freqsync-cfg'
+            _revision = '2017-09-30'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.FrequencySynchronization, self).__init__()
+
+                self.yang_name = "frequency-synchronization"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.FrequencySynchronization, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.FrequencySynchronization']['meta_info']
+
+
+        class MplsTeP2mp(_Entity_):
+            """
+            CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification
+            configuration
+            
+            .. attribute:: up
+            
+            	Enable cmplsTeP2mpTunnelDestUp notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: down
+            
+            	Enable cmplsTeP2mpTunnelDestDown notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2019-10-16'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.MplsTeP2mp, self).__init__()
+
+                self.yang_name = "mpls-te-p2mp"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('up', (YLeaf(YType.empty, 'up'), ['Empty'])),
+                    ('down', (YLeaf(YType.empty, 'down'), ['Empty'])),
+                ])
+                self.up = None
+                self.down = None
+                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.MplsTeP2mp, ['up', 'down'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.MplsTeP2mp']['meta_info']
+
+
+        class MplsTe(_Entity_):
+            """
+            MPLS\-TE\-STD\-MIB notification configuration
+            
+            .. attribute:: cisco_extension
+            
+            	CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification configuration
+            	**type**\:  :py:class:`CiscoExtension <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
+            
+            .. attribute:: cisco
+            
+            	Enable MPLS TE tunnel Cisco format (default IETF) notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: up
+            
+            	Enable mplsTunnelUp notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: reoptimize
+            
+            	Enable mplsTunnelReoptimized notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: reroute
+            
+            	Enable mplsTunnelRerouted notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: down
+            
+            	Enable mplsTunnelDown notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2019-10-16'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.MplsTe, self).__init__()
+
+                self.yang_name = "mpls-te"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("cisco-extension", ("cisco_extension", Snmp.Notification.MplsTe.CiscoExtension))])
+                self._leafs = OrderedDict([
+                    ('cisco', (YLeaf(YType.empty, 'cisco'), ['Empty'])),
+                    ('up', (YLeaf(YType.empty, 'up'), ['Empty'])),
+                    ('reoptimize', (YLeaf(YType.empty, 'reoptimize'), ['Empty'])),
+                    ('reroute', (YLeaf(YType.empty, 'reroute'), ['Empty'])),
+                    ('down', (YLeaf(YType.empty, 'down'), ['Empty'])),
+                ])
+                self.cisco = None
+                self.up = None
+                self.reoptimize = None
+                self.reroute = None
+                self.down = None
+
+                self.cisco_extension = Snmp.Notification.MplsTe.CiscoExtension()
+                self.cisco_extension.parent = self
+                self._children_name_map["cisco_extension"] = "cisco-extension"
+                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.MplsTe, ['cisco', 'up', 'reoptimize', 'reroute', 'down'], name, value)
+
+
+            class CiscoExtension(_Entity_):
+                """
+                CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification
+                configuration
+                
+                .. attribute:: preempt
+                
+                	Enable cmplsTunnelPreempt notification
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: insufficient_bandwidth
+                
+                	Enable cmplsTunnelInsuffBW notification
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: re_route_pending_clear
+                
+                	Enable cmplsTunnelReRoutePendingClear notification
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: bringup_fail
+                
+                	Enable cmplsTunnelBringupFail notification
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: re_route_pending
+                
+                	Enable cmplsTunnelReRoutePending notification
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2019-10-16'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.MplsTe.CiscoExtension, self).__init__()
+
+                    self.yang_name = "cisco-extension"
+                    self.yang_parent_name = "mpls-te"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('preempt', (YLeaf(YType.empty, 'preempt'), ['Empty'])),
+                        ('insufficient_bandwidth', (YLeaf(YType.empty, 'insufficient-bandwidth'), ['Empty'])),
+                        ('re_route_pending_clear', (YLeaf(YType.empty, 're-route-pending-clear'), ['Empty'])),
+                        ('bringup_fail', (YLeaf(YType.empty, 'bringup-fail'), ['Empty'])),
+                        ('re_route_pending', (YLeaf(YType.empty, 're-route-pending'), ['Empty'])),
+                    ])
+                    self.preempt = None
+                    self.insufficient_bandwidth = None
+                    self.re_route_pending_clear = None
+                    self.bringup_fail = None
+                    self.re_route_pending = None
+                    self._segment_path = lambda: "cisco-extension"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.Notification.MplsTe.CiscoExtension, ['preempt', 'insufficient_bandwidth', 're_route_pending_clear', 'bringup_fail', 're_route_pending'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.MplsTe.CiscoExtension']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.MplsTe']['meta_info']
+
+
+        class MplsFrr(_Entity_):
+            """
+            CISCO\-IETF\-FRR\-MIB notification configuration
+            
+            .. attribute:: unprotected
+            
+            	Enable cmplsFrrUnProtected notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: enable
+            
+            	Enable cmplsFrrMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: protected
+            
+            	Enable cmplsFrrProtected notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2019-10-16'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.MplsFrr, self).__init__()
+
+                self.yang_name = "mpls-frr"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('unprotected', (YLeaf(YType.empty, 'unprotected'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('protected', (YLeaf(YType.empty, 'protected'), ['Empty'])),
+                ])
+                self.unprotected = None
+                self.enable = None
+                self.protected = None
+                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-frr"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.MplsFrr, ['unprotected', 'enable', 'protected'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.MplsFrr']['meta_info']
+
+
+        class Oam(_Entity_):
+            """
+            802.3 OAM MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable 802.3 OAM MIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-link-oam-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Oam, self).__init__()
+
+                self.yang_name = "oam"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Oam, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Oam']['meta_info']
+
+
+        class MplsL3vpn(_Entity_):
+            """
+            MPLS\-L3VPN\-STD\-MIB notification configuration
+            
+            .. attribute:: max_threshold_reissue_notification_time
+            
+            	Time interval (secs) for re\-issuing max\-threshold notification
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: max_threshold_exceeded
+            
+            	Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: max_threshold_cleared
+            
+            	Enable mplsL3VpnNumVrfRouteMaxThreshCleared notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: mid_threshold_exceeded
+            
+            	Enable mplsL3VpnVrfRouteMidThreshExceeded notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: enable
+            
+            	Enable mplsL3VpnMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: vrf_down
+            
+            	Enable mplsL3VpnVrfDown notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: vrf_up
+            
+            	Enable mplsL3VpnVrfUp notification
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-vpn-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.MplsL3vpn, self).__init__()
+
+                self.yang_name = "mpls-l3vpn"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('max_threshold_reissue_notification_time', (YLeaf(YType.uint32, 'max-threshold-reissue-notification-time'), ['int'])),
+                    ('max_threshold_exceeded', (YLeaf(YType.empty, 'max-threshold-exceeded'), ['Empty'])),
+                    ('max_threshold_cleared', (YLeaf(YType.empty, 'max-threshold-cleared'), ['Empty'])),
+                    ('mid_threshold_exceeded', (YLeaf(YType.empty, 'mid-threshold-exceeded'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('vrf_down', (YLeaf(YType.empty, 'vrf-down'), ['Empty'])),
+                    ('vrf_up', (YLeaf(YType.empty, 'vrf-up'), ['Empty'])),
+                ])
+                self.max_threshold_reissue_notification_time = None
+                self.max_threshold_exceeded = None
+                self.max_threshold_cleared = None
+                self.mid_threshold_exceeded = None
+                self.enable = None
+                self.vrf_down = None
+                self.vrf_up = None
+                self._segment_path = lambda: "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.MplsL3vpn, ['max_threshold_reissue_notification_time', 'max_threshold_exceeded', 'max_threshold_cleared', 'mid_threshold_exceeded', 'enable', 'vrf_down', 'vrf_up'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.MplsL3vpn']['meta_info']
+
+
+        class ConfigMan(_Entity_):
+            """
+            CISCO\-CONFIG\-MAN\-MIB notification configurations
+            
+            .. attribute:: enable
+            
+            	Enable ciscoConfigManMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'config-mibs-cfg'
+            _revision = '2015-09-29'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.ConfigMan, self).__init__()
+
+                self.yang_name = "config-man"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-config-mibs-cfg:config-man"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.ConfigMan, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.ConfigMan']['meta_info']
+
+
+        class Diametermib(_Entity_):
+            """
+            Enable SNMP diameter traps
+            
+            .. attribute:: protocolerror
+            
+            	Enable SNMP diameter protocol error notification
+            	**type**\: bool
+            
+            .. attribute:: permanentfail
+            
+            	Enable SNMP diameter permanent failure notification
+            	**type**\: bool
+            
+            .. attribute:: peerdown
+            
+            	Enable SNMP diameter peer connection down notification
+            	**type**\: bool
+            
+            .. attribute:: peerup
+            
+            	Enable SNMP diameter peer connection up notification
+            	**type**\: bool
+            
+            .. attribute:: transientfail
+            
+            	Enable SNMP diameter transient failure notification
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-base-mib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Diametermib, self).__init__()
+
+                self.yang_name = "diametermib"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('protocolerror', (YLeaf(YType.boolean, 'protocolerror'), ['bool'])),
+                    ('permanentfail', (YLeaf(YType.boolean, 'permanentfail'), ['bool'])),
+                    ('peerdown', (YLeaf(YType.boolean, 'peerdown'), ['bool'])),
+                    ('peerup', (YLeaf(YType.boolean, 'peerup'), ['bool'])),
+                    ('transientfail', (YLeaf(YType.boolean, 'transientfail'), ['bool'])),
+                ])
+                self.protocolerror = None
+                self.permanentfail = None
+                self.peerdown = None
+                self.peerup = None
+                self.transientfail = None
+                self._segment_path = lambda: "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Diametermib, ['protocolerror', 'permanentfail', 'peerdown', 'peerup', 'transientfail'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Diametermib']['meta_info']
+
+
+        class FruControl(_Entity_):
+            """
+            CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification
+            configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoEntityFRUControlMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-frucontrolmib-cfg'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.FruControl, self).__init__()
+
+                self.yang_name = "fru-control"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.FruControl, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.FruControl']['meta_info']
+
+
+        class Syslog(_Entity_):
+            """
+            CISCO\-SYSLOG\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoSyslogMIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-syslogmib-cfg'
+            _revision = '2015-12-01'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Syslog, self).__init__()
+
+                self.yang_name = "syslog"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Syslog, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Syslog']['meta_info']
+
+
+        class Bfd(_Entity_):
+            """
+            CISCO\-IETF\-BFD\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable CISCO\-IETF\-BFD\-MIB notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-bfd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Bfd, self).__init__()
+
+                self.yang_name = "bfd"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Bfd, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Bfd']['meta_info']
+
+
+        class OpticalOts(_Entity_):
+            """
+            CISCO\-OPTICAL\-OTS\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable OpticalOtsmib notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'opticalotsmib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.OpticalOts, self).__init__()
+
+                self.yang_name = "optical-ots"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.OpticalOts, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.OpticalOts']['meta_info']
+
+
+        class Optical(_Entity_):
+            """
+            CISCO\-OPTICAL\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable Opticalmib notifications
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'opticalmib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Optical, self).__init__()
+
+                self.yang_name = "optical"
+                self.yang_parent_name = "notification"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ])
+                self.enable = None
+                self._segment_path = lambda: "Cisco-IOS-XR-opticalmib-cfg:optical"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Notification.Optical, ['enable'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Optical']['meta_info']
+
+
+        class Ospfv3(_Entity_):
             """
             OSPFv3\-MIB notification configuration
             
@@ -4393,7 +5991,10 @@ class Snmp(Entity):
             _revision = '2018-05-14'
 
             def __init__(self):
-                super(Snmp.Notification.Ospfv3, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Notification.Ospfv3, self).__init__()
 
                 self.yang_name = "ospfv3"
                 self.yang_parent_name = "notification"
@@ -4418,7 +6019,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Notification.Ospfv3, [], name, value)
 
 
-            class Error(Entity):
+            class Error(_Entity_):
                 """
                 SNMP notifications for OSPF errors
                 
@@ -4450,7 +6051,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospfv3.Error, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospfv3.Error, self).__init__()
 
                     self.yang_name = "error"
                     self.yang_parent_name = "ospfv3"
@@ -4475,9 +6079,13 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospfv3.Error, ['config_error', 'bad_packet', 'virtual_bad_packet', 'virtual_config_error'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospfv3.Error']['meta_info']
 
 
-            class StateChange(Entity):
+            class StateChange(_Entity_):
                 """
                 SNMP notifications for OSPF state change
                 
@@ -4529,7 +6137,10 @@ class Snmp(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Snmp.Notification.Ospfv3.StateChange, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Notification.Ospfv3.StateChange, self).__init__()
 
                     self.yang_name = "state-change"
                     self.yang_parent_name = "ospfv3"
@@ -4562,957 +6173,23 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Notification.Ospfv3.StateChange, ['restart_virtual_helper', 'nssa_translator', 'interface', 'restart', 'neighbor', 'virtual_interface', 'restart_helper', 'virtual_neighbor'], name, value)
 
-
-
-
-        class MplsLdp(Entity):
-            """
-            MPLS\-LDP\-STD\-MIB notification configuration
-            
-            .. attribute:: session_up
-            
-            	Enable mplsLdpSessionUp notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: init_session_threshold_exceeded
-            
-            	Enable mplsLdpInitSessionThresholdExceeded notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: session_down
-            
-            	Enable mplsLdpSessionDown notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-ldp-cfg'
-            _revision = '2018-06-15'
-
-            def __init__(self):
-                super(Snmp.Notification.MplsLdp, self).__init__()
-
-                self.yang_name = "mpls-ldp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('session_up', (YLeaf(YType.empty, 'session-up'), ['Empty'])),
-                    ('init_session_threshold_exceeded', (YLeaf(YType.empty, 'init-session-threshold-exceeded'), ['Empty'])),
-                    ('session_down', (YLeaf(YType.empty, 'session-down'), ['Empty'])),
-                ])
-                self.session_up = None
-                self.init_session_threshold_exceeded = None
-                self.session_down = None
-                self._segment_path = lambda: "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.MplsLdp, ['session_up', 'init_session_threshold_exceeded', 'session_down'], name, value)
-
-
-
-        class MplsTeP2mp(Entity):
-            """
-            CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification
-            configuration
-            
-            .. attribute:: up
-            
-            	Enable cmplsTeP2mpTunnelDestUp notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: down
-            
-            	Enable cmplsTeP2mpTunnelDestDown notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Snmp.Notification.MplsTeP2mp, self).__init__()
-
-                self.yang_name = "mpls-te-p2mp"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('up', (YLeaf(YType.empty, 'up'), ['Empty'])),
-                    ('down', (YLeaf(YType.empty, 'down'), ['Empty'])),
-                ])
-                self.up = None
-                self.down = None
-                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.MplsTeP2mp, ['up', 'down'], name, value)
-
-
-
-        class MplsTe(Entity):
-            """
-            MPLS\-TE\-STD\-MIB notification configuration
-            
-            .. attribute:: cisco_extension
-            
-            	CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification configuration
-            	**type**\:  :py:class:`CiscoExtension <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTe.CiscoExtension>`
-            
-            .. attribute:: cisco
-            
-            	Enable MPLS TE tunnel Cisco format (default IETF) notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: up
-            
-            	Enable mplsTunnelUp notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: reoptimize
-            
-            	Enable mplsTunnelReoptimized notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: reroute
-            
-            	Enable mplsTunnelRerouted notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: down
-            
-            	Enable mplsTunnelDown notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Snmp.Notification.MplsTe, self).__init__()
-
-                self.yang_name = "mpls-te"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("cisco-extension", ("cisco_extension", Snmp.Notification.MplsTe.CiscoExtension))])
-                self._leafs = OrderedDict([
-                    ('cisco', (YLeaf(YType.empty, 'cisco'), ['Empty'])),
-                    ('up', (YLeaf(YType.empty, 'up'), ['Empty'])),
-                    ('reoptimize', (YLeaf(YType.empty, 'reoptimize'), ['Empty'])),
-                    ('reroute', (YLeaf(YType.empty, 'reroute'), ['Empty'])),
-                    ('down', (YLeaf(YType.empty, 'down'), ['Empty'])),
-                ])
-                self.cisco = None
-                self.up = None
-                self.reoptimize = None
-                self.reroute = None
-                self.down = None
-
-                self.cisco_extension = Snmp.Notification.MplsTe.CiscoExtension()
-                self.cisco_extension.parent = self
-                self._children_name_map["cisco_extension"] = "cisco-extension"
-                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.MplsTe, ['cisco', 'up', 'reoptimize', 'reroute', 'down'], name, value)
-
-
-            class CiscoExtension(Entity):
-                """
-                CISCO\-MPLS\-TE\-STD\-EXT\-MIB notification
-                configuration
-                
-                .. attribute:: preempt
-                
-                	Enable cmplsTunnelPreempt notification
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: insufficient_bandwidth
-                
-                	Enable cmplsTunnelInsuffBW notification
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: re_route_pending_clear
-                
-                	Enable cmplsTunnelReRoutePendingClear notification
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: bringup_fail
-                
-                	Enable cmplsTunnelBringupFail notification
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: re_route_pending
-                
-                	Enable cmplsTunnelReRoutePending notification
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'mpls-te-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Snmp.Notification.MplsTe.CiscoExtension, self).__init__()
-
-                    self.yang_name = "cisco-extension"
-                    self.yang_parent_name = "mpls-te"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('preempt', (YLeaf(YType.empty, 'preempt'), ['Empty'])),
-                        ('insufficient_bandwidth', (YLeaf(YType.empty, 'insufficient-bandwidth'), ['Empty'])),
-                        ('re_route_pending_clear', (YLeaf(YType.empty, 're-route-pending-clear'), ['Empty'])),
-                        ('bringup_fail', (YLeaf(YType.empty, 'bringup-fail'), ['Empty'])),
-                        ('re_route_pending', (YLeaf(YType.empty, 're-route-pending'), ['Empty'])),
-                    ])
-                    self.preempt = None
-                    self.insufficient_bandwidth = None
-                    self.re_route_pending_clear = None
-                    self.bringup_fail = None
-                    self.re_route_pending = None
-                    self._segment_path = lambda: "cisco-extension"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Notification.MplsTe.CiscoExtension, ['preempt', 'insufficient_bandwidth', 're_route_pending_clear', 'bringup_fail', 're_route_pending'], name, value)
-
-
-
-
-        class MplsFrr(Entity):
-            """
-            CISCO\-IETF\-FRR\-MIB notification configuration
-            
-            .. attribute:: unprotected
-            
-            	Enable cmplsFrrUnProtected notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: enable
-            
-            	Enable cmplsFrrMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: protected
-            
-            	Enable cmplsFrrProtected notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Snmp.Notification.MplsFrr, self).__init__()
-
-                self.yang_name = "mpls-frr"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('unprotected', (YLeaf(YType.empty, 'unprotected'), ['Empty'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                    ('protected', (YLeaf(YType.empty, 'protected'), ['Empty'])),
-                ])
-                self.unprotected = None
-                self.enable = None
-                self.protected = None
-                self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-frr"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.MplsFrr, ['unprotected', 'enable', 'protected'], name, value)
-
-
-
-        class MplsL3vpn(Entity):
-            """
-            MPLS\-L3VPN\-STD\-MIB notification configuration
-            
-            .. attribute:: max_threshold_reissue_notification_time
-            
-            	Time interval (secs) for re\-issuing max\-threshold notification
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: second
-            
-            .. attribute:: max_threshold_exceeded
-            
-            	Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: max_threshold_cleared
-            
-            	Enable mplsL3VpnNumVrfRouteMaxThreshCleared notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: mid_threshold_exceeded
-            
-            	Enable mplsL3VpnVrfRouteMidThreshExceeded notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: enable
-            
-            	Enable mplsL3VpnMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: vrf_down
-            
-            	Enable mplsL3VpnVrfDown notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: vrf_up
-            
-            	Enable mplsL3VpnVrfUp notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-vpn-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Snmp.Notification.MplsL3vpn, self).__init__()
-
-                self.yang_name = "mpls-l3vpn"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('max_threshold_reissue_notification_time', (YLeaf(YType.uint32, 'max-threshold-reissue-notification-time'), ['int'])),
-                    ('max_threshold_exceeded', (YLeaf(YType.empty, 'max-threshold-exceeded'), ['Empty'])),
-                    ('max_threshold_cleared', (YLeaf(YType.empty, 'max-threshold-cleared'), ['Empty'])),
-                    ('mid_threshold_exceeded', (YLeaf(YType.empty, 'mid-threshold-exceeded'), ['Empty'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                    ('vrf_down', (YLeaf(YType.empty, 'vrf-down'), ['Empty'])),
-                    ('vrf_up', (YLeaf(YType.empty, 'vrf-up'), ['Empty'])),
-                ])
-                self.max_threshold_reissue_notification_time = None
-                self.max_threshold_exceeded = None
-                self.max_threshold_cleared = None
-                self.mid_threshold_exceeded = None
-                self.enable = None
-                self.vrf_down = None
-                self.vrf_up = None
-                self._segment_path = lambda: "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.MplsL3vpn, ['max_threshold_reissue_notification_time', 'max_threshold_exceeded', 'max_threshold_cleared', 'mid_threshold_exceeded', 'enable', 'vrf_down', 'vrf_up'], name, value)
-
-
-
-        class Optical(Entity):
-            """
-            CISCO\-OPTICAL\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable Opticalmib notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'opticalmib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.Optical, self).__init__()
-
-                self.yang_name = "optical"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-opticalmib-cfg:optical"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Optical, ['enable'], name, value)
-
-
-
-        class OpticalOts(Entity):
-            """
-            CISCO\-OPTICAL\-OTS\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable OpticalOtsmib notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'opticalotsmib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.OpticalOts, self).__init__()
-
-                self.yang_name = "optical-ots"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.OpticalOts, ['enable'], name, value)
-
-
-
-        class Otn(Entity):
-            """
-            CISCO\-OTN\-IF\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoOtnIfMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'otnifmib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.Otn, self).__init__()
-
-                self.yang_name = "otn"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-otnifmib-cfg:otn"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Otn, ['enable'], name, value)
-
-
-
-        class Bridge(Entity):
-            """
-            BRIDGE\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable dot1dBridge notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-bridgemib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.Bridge, self).__init__()
-
-                self.yang_name = "bridge"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Bridge, ['enable'], name, value)
-
-
-
-        class Sensor(Entity):
-            """
-            CISCO\-ENTITY\-SENSOR\-MIB notification
-            configuration
-            
-            .. attribute:: enable
-            
-            	Enable entitySensorMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-ciscosensormib-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Snmp.Notification.Sensor, self).__init__()
-
-                self.yang_name = "sensor"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Sensor, ['enable'], name, value)
-
-
-
-        class CiscoEntityExt(Entity):
-            """
-            Enable CISCO\-ENTITY\-EXT\-MIB notifications
-            
-            .. attribute:: enable
-            
-            	Enable CISCO\-ENTITY\-EXT\-MIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-entityextmib-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.CiscoEntityExt, self).__init__()
-
-                self.yang_name = "cisco-entity-ext"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.CiscoEntityExt, ['enable'], name, value)
-
-
-
-        class Entity(Entity):
-            """
-            Enable ENTITY\-MIB notifications
-            
-            .. attribute:: enable
-            
-            	Enable entityMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-entitymib-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Snmp.Notification.Entity, self).__init__()
-
-                self.yang_name = "entity"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Entity, ['enable'], name, value)
-
-
-
-        class EntityState(Entity):
-            """
-            ENTITY\-STATE\-MIB notification configuration
-            
-            .. attribute:: switchover
-            
-            	Enable ceStateExtStandbySwitchover notification
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: oper_status
-            
-            	Enable entStateOperEnable and entStateOperDisable notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-entstatemib-cfg'
-            _revision = '2015-07-27'
-
-            def __init__(self):
-                super(Snmp.Notification.EntityState, self).__init__()
-
-                self.yang_name = "entity-state"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
-                    ('oper_status', (YLeaf(YType.empty, 'oper-status'), ['Empty'])),
-                ])
-                self.switchover = None
-                self.oper_status = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.EntityState, ['switchover', 'oper_status'], name, value)
-
-
-
-        class FruControl(Entity):
-            """
-            CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification
-            configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoEntityFRUControlMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-frucontrolmib-cfg'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.Notification.FruControl, self).__init__()
-
-                self.yang_name = "fru-control"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.FruControl, ['enable'], name, value)
-
-
-
-        class Rf(Entity):
-            """
-            CISCO\-RF\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoRFMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-mib-rfmib-cfg'
-            _revision = '2016-05-13'
-
-            def __init__(self):
-                super(Snmp.Notification.Rf, self).__init__()
-
-                self.yang_name = "rf"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Rf, ['enable'], name, value)
-
-
-
-        class Syslog(Entity):
-            """
-            CISCO\-SYSLOG\-MIB notification configuration
-            
-            .. attribute:: enable
-            
-            	Enable ciscoSyslogMIB notifications
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'snmp-syslogmib-cfg'
-            _revision = '2015-12-01'
-
-            def __init__(self):
-                super(Snmp.Notification.Syslog, self).__init__()
-
-                self.yang_name = "syslog"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.enable = None
-                self._segment_path = lambda: "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.Syslog, ['enable'], name, value)
-
-
-
-        class SubscriberMib(Entity):
-            """
-            Subscriber notification commands
-            
-            .. attribute:: session_aggregate
-            
-            	Session aggregation
-            	**type**\:  :py:class:`SessionAggregate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SubscriberMib.SessionAggregate>`
-            
-            
-
-            """
-
-            _prefix = 'subscriber-session-mon-mibs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.SubscriberMib, self).__init__()
-
-                self.yang_name = "subscriber-mib"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("session-aggregate", ("session_aggregate", Snmp.Notification.SubscriberMib.SessionAggregate))])
-                self._leafs = OrderedDict()
-
-                self.session_aggregate = Snmp.Notification.SubscriberMib.SessionAggregate()
-                self.session_aggregate.parent = self
-                self._children_name_map["session_aggregate"] = "session-aggregate"
-                self._segment_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.SubscriberMib, [], name, value)
-
-
-            class SessionAggregate(Entity):
-                """
-                Session aggregation
-                
-                .. attribute:: node
-                
-                	Subscriber notification at node level
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: access_interface
-                
-                	Subscriber notification at access interface level
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'subscriber-session-mon-mibs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Snmp.Notification.SubscriberMib.SessionAggregate, self).__init__()
-
-                    self.yang_name = "session-aggregate"
-                    self.yang_parent_name = "subscriber-mib"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('node', (YLeaf(YType.empty, 'node'), ['Empty'])),
-                        ('access_interface', (YLeaf(YType.empty, 'access-interface'), ['Empty'])),
-                    ])
-                    self.node = None
-                    self.access_interface = None
-                    self._segment_path = lambda: "session-aggregate"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Notification.SubscriberMib.SessionAggregate, ['node', 'access_interface'], name, value)
-
-
-
-
-        class L2tun(Entity):
-            """
-            Enable SNMP l2tun traps
-            
-            .. attribute:: tunnel_up
-            
-            	Enable L2TUN tunnel UP traps
-            	**type**\: bool
-            
-            .. attribute:: tunnel_down
-            
-            	Enable L2TUN tunnel DOWN traps
-            	**type**\: bool
-            
-            .. attribute:: pseudowire_status
-            
-            	Enable traps for L2TPv3 PW status
-            	**type**\: bool
-            
-            .. attribute:: sessions
-            
-            	Enable L2TUN sessions traps
-            	**type**\: bool
-            
-            
-
-            """
-
-            _prefix = 'tunnel-l2tun-proto-mibs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.Notification.L2tun, self).__init__()
-
-                self.yang_name = "l2tun"
-                self.yang_parent_name = "notification"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('tunnel_up', (YLeaf(YType.boolean, 'tunnel-up'), ['bool'])),
-                    ('tunnel_down', (YLeaf(YType.boolean, 'tunnel-down'), ['bool'])),
-                    ('pseudowire_status', (YLeaf(YType.boolean, 'pseudowire-status'), ['bool'])),
-                    ('sessions', (YLeaf(YType.boolean, 'sessions'), ['bool'])),
-                ])
-                self.tunnel_up = None
-                self.tunnel_down = None
-                self.pseudowire_status = None
-                self.sessions = None
-                self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Notification.L2tun, ['tunnel_up', 'tunnel_down', 'pseudowire_status', 'sessions'], name, value)
-
-
-
-
-    class Correlator(Entity):
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Notification.Ospfv3.StateChange']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Ospfv3']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Notification']['meta_info']
+
+
+    class Correlator(_Entity_):
         """
         Configure properties of the trap correlator
         
@@ -5541,7 +6218,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Correlator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Correlator, self).__init__()
 
             self.yang_name = "correlator"
             self.yang_parent_name = "snmp"
@@ -5569,7 +6249,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Correlator, ['buffer_size'], name, value)
 
 
-        class Rules(Entity):
+        class Rules(_Entity_):
             """
             Table of configured rules
             
@@ -5586,7 +6266,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Correlator.Rules, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.Rules, self).__init__()
 
                 self.yang_name = "rules"
                 self.yang_parent_name = "correlator"
@@ -5605,7 +6288,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.Rules, [], name, value)
 
 
-            class Rule(Entity):
+            class Rule(_Entity_):
                 """
                 Rule name
                 
@@ -5648,7 +6331,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Correlator.Rules.Rule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Correlator.Rules.Rule, self).__init__()
 
                     self.yang_name = "rule"
                     self.yang_parent_name = "rules"
@@ -5682,7 +6368,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Correlator.Rules.Rule, ['name', 'timeout'], name, value)
 
 
-                class RootCauses(Entity):
+                class RootCauses(_Entity_):
                     """
                     Table of configured rootcause (only one entry
                     allowed)
@@ -5700,7 +6386,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Correlator.Rules.Rule.RootCauses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.Rules.Rule.RootCauses, self).__init__()
 
                         self.yang_name = "root-causes"
                         self.yang_parent_name = "rule"
@@ -5718,7 +6407,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.Rules.Rule.RootCauses, [], name, value)
 
 
-                    class RootCause(Entity):
+                    class RootCause(_Entity_):
                         """
                         The rootcause \- maximum of one can be
                         configured per rule
@@ -5746,7 +6435,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause, self).__init__()
 
                             self.yang_name = "root-cause"
                             self.yang_parent_name = "root-causes"
@@ -5771,7 +6463,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.Rules.Rule.RootCauses.RootCause, ['oid', 'created'], name, value)
 
 
-                        class VarBinds(Entity):
+                        class VarBinds(_Entity_):
                             """
                             Varbinds to match
                             
@@ -5788,7 +6480,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds, self).__init__()
 
                                 self.yang_name = "var-binds"
                                 self.yang_parent_name = "root-cause"
@@ -5806,7 +6501,7 @@ class Snmp(Entity):
                                 self._perform_setattr(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds, [], name, value)
 
 
-                            class VarBind(Entity):
+                            class VarBind(_Entity_):
                                 """
                                 Varbind match conditions
                                 
@@ -5828,7 +6523,10 @@ class Snmp(Entity):
                                 _revision = '2018-06-27'
 
                                 def __init__(self):
-                                    super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind, self).__init__()
 
                                     self.yang_name = "var-bind"
                                     self.yang_parent_name = "var-binds"
@@ -5851,7 +6549,7 @@ class Snmp(Entity):
                                     self._perform_setattr(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind, ['oid'], name, value)
 
 
-                                class Match(Entity):
+                                class Match(_Entity_):
                                     """
                                     VarBind match conditions
                                     
@@ -5873,7 +6571,10 @@ class Snmp(Entity):
                                     _revision = '2018-06-27'
 
                                     def __init__(self):
-                                        super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind.Match, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind.Match, self).__init__()
 
                                         self.yang_name = "match"
                                         self.yang_parent_name = "var-bind"
@@ -5893,13 +6594,33 @@ class Snmp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind.Match, ['value', 'index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                        return meta._meta_table['Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind.Match']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                    return meta._meta_table['Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds.VarBind']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Correlator.Rules.Rule.RootCauses.RootCause.VarBinds']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Correlator.Rules.Rule.RootCauses.RootCause']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Correlator.Rules.Rule.RootCauses']['meta_info']
 
 
-
-
-
-
-                class NonRootCauses(Entity):
+                class NonRootCauses(_Entity_):
                     """
                     Table of configured non\-rootcause
                     
@@ -5916,7 +6637,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Correlator.Rules.Rule.NonRootCauses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.Rules.Rule.NonRootCauses, self).__init__()
 
                         self.yang_name = "non-root-causes"
                         self.yang_parent_name = "rule"
@@ -5934,7 +6658,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.Rules.Rule.NonRootCauses, [], name, value)
 
 
-                    class NonRootCause(Entity):
+                    class NonRootCause(_Entity_):
                         """
                         A non\-rootcause
                         
@@ -5961,7 +6685,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause, self).__init__()
 
                             self.yang_name = "non-root-cause"
                             self.yang_parent_name = "non-root-causes"
@@ -5986,7 +6713,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause, ['oid', 'created'], name, value)
 
 
-                        class VarBinds(Entity):
+                        class VarBinds(_Entity_):
                             """
                             Varbinds to match
                             
@@ -6003,7 +6730,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds, self).__init__()
 
                                 self.yang_name = "var-binds"
                                 self.yang_parent_name = "non-root-cause"
@@ -6021,7 +6751,7 @@ class Snmp(Entity):
                                 self._perform_setattr(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds, [], name, value)
 
 
-                            class VarBind(Entity):
+                            class VarBind(_Entity_):
                                 """
                                 Varbind match conditions
                                 
@@ -6043,7 +6773,10 @@ class Snmp(Entity):
                                 _revision = '2018-06-27'
 
                                 def __init__(self):
-                                    super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind, self).__init__()
 
                                     self.yang_name = "var-bind"
                                     self.yang_parent_name = "var-binds"
@@ -6066,7 +6799,7 @@ class Snmp(Entity):
                                     self._perform_setattr(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind, ['oid'], name, value)
 
 
-                                class Match(Entity):
+                                class Match(_Entity_):
                                     """
                                     VarBind match conditions
                                     
@@ -6088,7 +6821,10 @@ class Snmp(Entity):
                                     _revision = '2018-06-27'
 
                                     def __init__(self):
-                                        super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind.Match, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind.Match, self).__init__()
 
                                         self.yang_name = "match"
                                         self.yang_parent_name = "var-bind"
@@ -6108,13 +6844,33 @@ class Snmp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind.Match, ['value', 'index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                        return meta._meta_table['Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind.Match']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                    return meta._meta_table['Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds.VarBind']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause.VarBinds']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Correlator.Rules.Rule.NonRootCauses.NonRootCause']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Correlator.Rules.Rule.NonRootCauses']['meta_info']
 
 
-
-
-
-
-                class AppliedTo(Entity):
+                class AppliedTo(_Entity_):
                     """
                     Applied to the Rule or Ruleset
                     
@@ -6136,7 +6892,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Correlator.Rules.Rule.AppliedTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.Rules.Rule.AppliedTo, self).__init__()
 
                         self.yang_name = "applied-to"
                         self.yang_parent_name = "rule"
@@ -6159,7 +6918,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.Rules.Rule.AppliedTo, ['all'], name, value)
 
 
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of configured hosts to apply rules to
                         
@@ -6176,7 +6935,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "applied-to"
@@ -6194,7 +6956,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A destination host
                             
@@ -6226,7 +6988,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -6246,13 +7011,33 @@ class Snmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host, ['ip_address', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Correlator.Rules.Rule.AppliedTo.Hosts.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Correlator.Rules.Rule.AppliedTo.Hosts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Correlator.Rules.Rule.AppliedTo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Correlator.Rules.Rule']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Correlator.Rules']['meta_info']
 
 
-
-
-
-
-        class RuleSets(Entity):
+        class RuleSets(_Entity_):
             """
             Table of configured rulesets
             
@@ -6269,7 +7054,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Correlator.RuleSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.RuleSets, self).__init__()
 
                 self.yang_name = "rule-sets"
                 self.yang_parent_name = "correlator"
@@ -6288,7 +7076,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.RuleSets, [], name, value)
 
 
-            class RuleSet(Entity):
+            class RuleSet(_Entity_):
                 """
                 Ruleset name
                 
@@ -6317,7 +7105,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Correlator.RuleSets.RuleSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Correlator.RuleSets.RuleSet, self).__init__()
 
                     self.yang_name = "rule-set"
                     self.yang_parent_name = "rule-sets"
@@ -6345,7 +7136,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet, ['name'], name, value)
 
 
-                class Rulenames(Entity):
+                class Rulenames(_Entity_):
                     """
                     Table of configured rulenames
                     
@@ -6362,7 +7153,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleSets.RuleSet.Rulenames, self).__init__()
 
                         self.yang_name = "rulenames"
                         self.yang_parent_name = "rule-set"
@@ -6380,7 +7174,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet.Rulenames, [], name, value)
 
 
-                    class Rulename(Entity):
+                    class Rulename(_Entity_):
                         """
                         A rulename
                         
@@ -6399,7 +7193,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename, self).__init__()
 
                             self.yang_name = "rulename"
                             self.yang_parent_name = "rulenames"
@@ -6417,10 +7214,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename, ['rulename'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet.Rulenames.Rulename']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet.Rulenames']['meta_info']
 
 
-
-                class AppliedTo(Entity):
+                class AppliedTo(_Entity_):
                     """
                     Applied to the Rule or Ruleset
                     
@@ -6442,7 +7247,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo, self).__init__()
 
                         self.yang_name = "applied-to"
                         self.yang_parent_name = "rule-set"
@@ -6465,7 +7273,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet.AppliedTo, ['all'], name, value)
 
 
-                    class Hosts(Entity):
+                    class Hosts(_Entity_):
                         """
                         Table of configured hosts to apply rules to
                         
@@ -6482,7 +7290,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts, self).__init__()
 
                             self.yang_name = "hosts"
                             self.yang_parent_name = "applied-to"
@@ -6500,7 +7311,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts, [], name, value)
 
 
-                        class Host(Entity):
+                        class Host(_Entity_):
                             """
                             A destination host
                             
@@ -6532,7 +7343,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host, self).__init__()
 
                                 self.yang_name = "host"
                                 self.yang_parent_name = "hosts"
@@ -6552,14 +7366,38 @@ class Snmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host, ['ip_address', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts.Host']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet.AppliedTo.Hosts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet.AppliedTo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Correlator.RuleSets.RuleSet']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Correlator.RuleSets']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Correlator']['meta_info']
 
 
-
-
-
-
-
-    class BulkStats(Entity):
+    class BulkStats(_Entity_):
         """
         SNMP bulk stats configuration commands
         
@@ -6595,7 +7433,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.BulkStats, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.BulkStats, self).__init__()
 
             self.yang_name = "bulk-stats"
             self.yang_parent_name = "snmp"
@@ -6627,7 +7468,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.BulkStats, ['memory'], name, value)
 
 
-        class Schemas(Entity):
+        class Schemas(_Entity_):
             """
             Configure schema definition
             
@@ -6644,7 +7485,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.BulkStats.Schemas, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.BulkStats.Schemas, self).__init__()
 
                 self.yang_name = "schemas"
                 self.yang_parent_name = "bulk-stats"
@@ -6663,7 +7507,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.BulkStats.Schemas, [], name, value)
 
 
-            class Schema(Entity):
+            class Schema(_Entity_):
                 """
                 The name of the Schema
                 
@@ -6710,7 +7554,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.BulkStats.Schemas.Schema, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.BulkStats.Schemas.Schema, self).__init__()
 
                     self.yang_name = "schema"
                     self.yang_parent_name = "schemas"
@@ -6739,7 +7586,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.BulkStats.Schemas.Schema, ['schema_name', 'type', 'schema_object_list', 'poll_interval'], name, value)
 
 
-                class Instance(Entity):
+                class Instance(_Entity_):
                     """
                     Object instance information
                     
@@ -6797,7 +7644,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.BulkStats.Schemas.Schema.Instance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.BulkStats.Schemas.Schema.Instance, self).__init__()
 
                         self.yang_name = "instance"
                         self.yang_parent_name = "schema"
@@ -6826,11 +7676,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.BulkStats.Schemas.Schema.Instance, ['type', 'instance', 'start', 'end', 'max', 'sub_interface'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.BulkStats.Schemas.Schema.Instance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.BulkStats.Schemas.Schema']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.BulkStats.Schemas']['meta_info']
 
 
-
-
-        class Objects(Entity):
+        class Objects(_Entity_):
             """
             Configure an Object List 
             
@@ -6847,7 +7709,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.BulkStats.Objects, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.BulkStats.Objects, self).__init__()
 
                 self.yang_name = "objects"
                 self.yang_parent_name = "bulk-stats"
@@ -6866,7 +7731,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.BulkStats.Objects, [], name, value)
 
 
-            class Object(Entity):
+            class Object(_Entity_):
                 """
                 Name of the object List
                 
@@ -6895,7 +7760,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.BulkStats.Objects.Object, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.BulkStats.Objects.Object, self).__init__()
 
                     self.yang_name = "object"
                     self.yang_parent_name = "objects"
@@ -6921,7 +7789,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.BulkStats.Objects.Object, ['object_list_name', 'type'], name, value)
 
 
-                class Objects_(Entity):
+                class Objects_(_Entity_):
                     """
                     Configure an object List
                     
@@ -6938,7 +7806,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.BulkStats.Objects.Object.Objects_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.BulkStats.Objects.Object.Objects_, self).__init__()
 
                         self.yang_name = "objects"
                         self.yang_parent_name = "object"
@@ -6956,7 +7827,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.BulkStats.Objects.Object.Objects_, [], name, value)
 
 
-                    class Object_(Entity):
+                    class Object_(_Entity_):
                         """
                         Object name or OID
                         
@@ -6973,7 +7844,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.BulkStats.Objects.Object.Objects_.Object_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.BulkStats.Objects.Object.Objects_.Object_, self).__init__()
 
                             self.yang_name = "object"
                             self.yang_parent_name = "objects"
@@ -6991,12 +7865,28 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.BulkStats.Objects.Object.Objects_.Object_, ['oid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.BulkStats.Objects.Object.Objects_.Object_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.BulkStats.Objects.Object.Objects_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.BulkStats.Objects.Object']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.BulkStats.Objects']['meta_info']
 
 
-
-
-
-        class Transfers(Entity):
+        class Transfers(_Entity_):
             """
             Periodicity for the transfer of bulk data in
             minutes
@@ -7014,7 +7904,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.BulkStats.Transfers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.BulkStats.Transfers, self).__init__()
 
                 self.yang_name = "transfers"
                 self.yang_parent_name = "bulk-stats"
@@ -7033,7 +7926,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.BulkStats.Transfers, [], name, value)
 
 
-            class Transfer(Entity):
+            class Transfer(_Entity_):
                 """
                 Name of bulk transfer
                 
@@ -7116,7 +8009,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.BulkStats.Transfers.Transfer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.BulkStats.Transfers.Transfer, self).__init__()
 
                     self.yang_name = "transfer"
                     self.yang_parent_name = "transfers"
@@ -7158,7 +8054,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.BulkStats.Transfers.Transfer, ['transfer_name', 'secondary', 'type', 'buffer_size', 'retain', 'format', 'retry', 'enable', 'primary', 'interval'], name, value)
 
 
-                class TransferSchemas(Entity):
+                class TransferSchemas(_Entity_):
                     """
                     Schema that contains objects to be collected
                     
@@ -7175,7 +8071,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.BulkStats.Transfers.Transfer.TransferSchemas, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.BulkStats.Transfers.Transfer.TransferSchemas, self).__init__()
 
                         self.yang_name = "transfer-schemas"
                         self.yang_parent_name = "transfer"
@@ -7193,7 +8092,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.BulkStats.Transfers.Transfer.TransferSchemas, [], name, value)
 
 
-                    class TransferSchema(Entity):
+                    class TransferSchema(_Entity_):
                         """
                         Schema that contains objects to be collected
                         
@@ -7212,7 +8111,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema, self).__init__()
 
                             self.yang_name = "transfer-schema"
                             self.yang_parent_name = "transfer-schemas"
@@ -7230,13 +8132,33 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema, ['schema_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.BulkStats.Transfers.Transfer.TransferSchemas']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.BulkStats.Transfers.Transfer']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.BulkStats.Transfers']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.BulkStats']['meta_info']
 
 
-
-
-
-
-    class DefaultCommunityMaps(Entity):
+    class DefaultCommunityMaps(_Entity_):
         """
         Container class to hold unencrpted community map
         
@@ -7253,7 +8175,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.DefaultCommunityMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.DefaultCommunityMaps, self).__init__()
 
             self.yang_name = "default-community-maps"
             self.yang_parent_name = "snmp"
@@ -7272,7 +8197,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.DefaultCommunityMaps, [], name, value)
 
 
-        class DefaultCommunityMap(Entity):
+        class DefaultCommunityMap(_Entity_):
             """
             Unencrpted SNMP community map name 
             
@@ -7306,7 +8231,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.DefaultCommunityMaps.DefaultCommunityMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.DefaultCommunityMaps.DefaultCommunityMap, self).__init__()
 
                 self.yang_name = "default-community-map"
                 self.yang_parent_name = "default-community-maps"
@@ -7331,10 +8259,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.DefaultCommunityMaps.DefaultCommunityMap, ['community_name', 'context', 'security', 'target_list'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.DefaultCommunityMaps.DefaultCommunityMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.DefaultCommunityMaps']['meta_info']
 
 
-
-    class OverloadControl(Entity):
+    class OverloadControl(_Entity_):
         """
         Set overload control params for handling
         incoming messages
@@ -7371,7 +8307,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.OverloadControl, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.OverloadControl, self).__init__()
 
             self.yang_name = "overload-control"
             self.yang_parent_name = "snmp"
@@ -7393,9 +8332,13 @@ class Snmp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.OverloadControl, ['drop_time', 'throttle_rate'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.OverloadControl']['meta_info']
 
 
-    class Timeouts(Entity):
+    class Timeouts(_Entity_):
         """
         SNMP timeouts
         
@@ -7462,7 +8405,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Timeouts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Timeouts, self).__init__()
 
             self.yang_name = "timeouts"
             self.yang_parent_name = "snmp"
@@ -7489,9 +8435,13 @@ class Snmp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.Timeouts, ['duplicates', 'in_qdrop', 'threshold', 'subagent', 'pdu_stats'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Timeouts']['meta_info']
 
 
-    class Users(Entity):
+    class Users(_Entity_):
         """
         Define a user who can access the SNMP engine
         
@@ -7508,7 +8458,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Users, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Users, self).__init__()
 
             self.yang_name = "users"
             self.yang_parent_name = "snmp"
@@ -7527,7 +8480,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Users, [], name, value)
 
 
-        class User(Entity):
+        class User(_Entity_):
             """
             Name of the user
             
@@ -7637,7 +8590,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Users.User, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Users.User, self).__init__()
 
                 self.yang_name = "user"
                 self.yang_parent_name = "users"
@@ -7686,10 +8642,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Users.User, ['user_name', 'group_name', 'version', 'authentication_password_configured', 'algorithm', 'authentication_password', 'privacy_password_configured', 'priv_algorithm', 'privacy_password', 'v4acl_type', 'v4_access_list', 'v6acl_type', 'v6_access_list', 'owner', 'remote_address', 'port'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Users.User']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Users']['meta_info']
 
 
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         SNMP VRF configuration commands
         
@@ -7706,7 +8670,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "snmp"
@@ -7725,7 +8692,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF name
             
@@ -7759,7 +8726,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -7791,7 +8761,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Vrfs.Vrf, ['name'], name, value)
 
 
-            class TrapHosts(Entity):
+            class TrapHosts(_Entity_):
                 """
                 Specify hosts to receive SNMP notifications
                 
@@ -7808,7 +8778,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Vrfs.Vrf.TrapHosts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Vrfs.Vrf.TrapHosts, self).__init__()
 
                     self.yang_name = "trap-hosts"
                     self.yang_parent_name = "vrf"
@@ -7826,7 +8799,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts, [], name, value)
 
 
-                class TrapHost(Entity):
+                class TrapHost(_Entity_):
                     """
                     Specify hosts to receive SNMP notifications
                     
@@ -7866,7 +8839,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost, self).__init__()
 
                         self.yang_name = "trap-host"
                         self.yang_parent_name = "trap-hosts"
@@ -7897,7 +8873,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost, ['ip_address'], name, value)
 
 
-                    class EncryptedUserCommunities(Entity):
+                    class EncryptedUserCommunities(_Entity_):
                         """
                         Container class for defining Clear/encrypt
                         communities for a trap host
@@ -7915,7 +8891,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities, self).__init__()
 
                             self.yang_name = "encrypted-user-communities"
                             self.yang_parent_name = "trap-host"
@@ -7933,7 +8912,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities, [], name, value)
 
 
-                        class EncryptedUserCommunity(Entity):
+                        class EncryptedUserCommunity(_Entity_):
                             """
                             Clear/Encrypt Community name associated with
                             a trap host
@@ -8001,7 +8980,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, self).__init__()
 
                                 self.yang_name = "encrypted-user-community"
                                 self.yang_parent_name = "encrypted-user-communities"
@@ -8031,10 +9013,18 @@ class Snmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.EncryptedUserCommunities']['meta_info']
 
 
-
-                    class InformHost(Entity):
+                    class InformHost(_Entity_):
                         """
                         Container class for defining notification type
                         for a Inform host
@@ -8057,7 +9047,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost, self).__init__()
 
                             self.yang_name = "inform-host"
                             self.yang_parent_name = "trap-host"
@@ -8081,7 +9074,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost, [], name, value)
 
 
-                        class InformUserCommunities(Entity):
+                        class InformUserCommunities(_Entity_):
                             """
                             Container class for defining communities for
                             a inform host
@@ -8099,7 +9092,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities, self).__init__()
 
                                 self.yang_name = "inform-user-communities"
                                 self.yang_parent_name = "inform-host"
@@ -8117,7 +9113,7 @@ class Snmp(Entity):
                                 self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities, [], name, value)
 
 
-                            class InformUserCommunity(Entity):
+                            class InformUserCommunity(_Entity_):
                                 """
                                 Unencrpted Community name associated with a
                                 inform host
@@ -8185,7 +9181,10 @@ class Snmp(Entity):
                                 _revision = '2018-06-27'
 
                                 def __init__(self):
-                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, self).__init__()
 
                                     self.yang_name = "inform-user-community"
                                     self.yang_parent_name = "inform-user-communities"
@@ -8215,10 +9214,18 @@ class Snmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                    return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformUserCommunities']['meta_info']
 
 
-
-                        class InformEncryptedUserCommunities(Entity):
+                        class InformEncryptedUserCommunities(_Entity_):
                             """
                             Container class for defining Clear/encrypt
                             communities for a inform host
@@ -8236,7 +9243,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, self).__init__()
 
                                 self.yang_name = "inform-encrypted-user-communities"
                                 self.yang_parent_name = "inform-host"
@@ -8254,7 +9264,7 @@ class Snmp(Entity):
                                 self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, [], name, value)
 
 
-                            class InformEncryptedUserCommunity(Entity):
+                            class InformEncryptedUserCommunity(_Entity_):
                                 """
                                 Clear/Encrypt Community name associated with
                                 a inform host
@@ -8322,7 +9332,10 @@ class Snmp(Entity):
                                 _revision = '2018-06-27'
 
                                 def __init__(self):
-                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, self).__init__()
 
                                     self.yang_name = "inform-encrypted-user-community"
                                     self.yang_parent_name = "inform-encrypted-user-communities"
@@ -8352,11 +9365,23 @@ class Snmp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                    return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.InformHost']['meta_info']
 
 
-
-
-                    class DefaultUserCommunities(Entity):
+                    class DefaultUserCommunities(_Entity_):
                         """
                         Container class for defining communities for a
                         trap host
@@ -8374,7 +9399,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities, self).__init__()
 
                             self.yang_name = "default-user-communities"
                             self.yang_parent_name = "trap-host"
@@ -8392,7 +9420,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities, [], name, value)
 
 
-                        class DefaultUserCommunity(Entity):
+                        class DefaultUserCommunity(_Entity_):
                             """
                             Unencrpted Community name associated with a
                             trap host
@@ -8460,7 +9488,10 @@ class Snmp(Entity):
                             _revision = '2018-06-27'
 
                             def __init__(self):
-                                super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, self).__init__()
 
                                 self.yang_name = "default-user-community"
                                 self.yang_parent_name = "default-user-communities"
@@ -8490,12 +9521,28 @@ class Snmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost.DefaultUserCommunities']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts.TrapHost']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Vrfs.Vrf.TrapHosts']['meta_info']
 
 
-
-
-
-            class Contexts(Entity):
+            class Contexts(_Entity_):
                 """
                 List of Context Names
                 
@@ -8512,7 +9559,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Vrfs.Vrf.Contexts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Vrfs.Vrf.Contexts, self).__init__()
 
                     self.yang_name = "contexts"
                     self.yang_parent_name = "vrf"
@@ -8530,7 +9580,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Vrfs.Vrf.Contexts, [], name, value)
 
 
-                class Context(Entity):
+                class Context(_Entity_):
                     """
                     Context Name
                     
@@ -8549,7 +9599,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Vrfs.Vrf.Contexts.Context, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Vrfs.Vrf.Contexts.Context, self).__init__()
 
                         self.yang_name = "context"
                         self.yang_parent_name = "contexts"
@@ -8567,10 +9620,18 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Vrfs.Vrf.Contexts.Context, ['context_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Vrfs.Vrf.Contexts.Context']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Vrfs.Vrf.Contexts']['meta_info']
 
 
-
-            class ContextMappings(Entity):
+            class ContextMappings(_Entity_):
                 """
                 List of context names
                 
@@ -8587,7 +9648,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.Vrfs.Vrf.ContextMappings, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Vrfs.Vrf.ContextMappings, self).__init__()
 
                     self.yang_name = "context-mappings"
                     self.yang_parent_name = "vrf"
@@ -8605,7 +9669,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Vrfs.Vrf.ContextMappings, [], name, value)
 
 
-                class ContextMapping(Entity):
+                class ContextMapping(_Entity_):
                     """
                     Context mapping name
                     
@@ -8644,7 +9708,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.Vrfs.Vrf.ContextMappings.ContextMapping, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Vrfs.Vrf.ContextMappings.ContextMapping, self).__init__()
 
                         self.yang_name = "context-mapping"
                         self.yang_parent_name = "context-mappings"
@@ -8670,12 +9737,28 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Vrfs.Vrf.ContextMappings.ContextMapping, ['context_mapping_name', 'context', 'instance_name', 'vrf_name', 'topology_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.Vrfs.Vrf.ContextMappings.ContextMapping']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.Vrfs.Vrf.ContextMappings']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Vrfs']['meta_info']
 
 
-
-
-
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Define a User Security Model group
         
@@ -8692,7 +9775,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "snmp"
@@ -8711,7 +9797,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Name of the group
             
@@ -8782,7 +9868,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -8821,10 +9910,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Groups.Group, ['name', 'snmp_version', 'security_model', 'notify_view', 'read_view', 'write_view', 'v4acl_type', 'v4_access_list', 'v6acl_type', 'v6_access_list', 'context_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Groups']['meta_info']
 
 
-
-    class TrapHosts(Entity):
+    class TrapHosts(_Entity_):
         """
         Specify hosts to receive SNMP notifications
         
@@ -8841,7 +9938,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.TrapHosts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.TrapHosts, self).__init__()
 
             self.yang_name = "trap-hosts"
             self.yang_parent_name = "snmp"
@@ -8860,7 +9960,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.TrapHosts, [], name, value)
 
 
-        class TrapHost(Entity):
+        class TrapHost(_Entity_):
             """
             Specify hosts to receive SNMP notifications
             
@@ -8900,7 +10000,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.TrapHosts.TrapHost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.TrapHosts.TrapHost, self).__init__()
 
                 self.yang_name = "trap-host"
                 self.yang_parent_name = "trap-hosts"
@@ -8932,7 +10035,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.TrapHosts.TrapHost, ['ip_address'], name, value)
 
 
-            class EncryptedUserCommunities(Entity):
+            class EncryptedUserCommunities(_Entity_):
                 """
                 Container class for defining Clear/encrypt
                 communities for a trap host
@@ -8950,7 +10053,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities, self).__init__()
 
                     self.yang_name = "encrypted-user-communities"
                     self.yang_parent_name = "trap-host"
@@ -8968,7 +10074,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities, [], name, value)
 
 
-                class EncryptedUserCommunity(Entity):
+                class EncryptedUserCommunity(_Entity_):
                     """
                     Clear/Encrypt Community name associated with
                     a trap host
@@ -9036,7 +10142,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, self).__init__()
 
                         self.yang_name = "encrypted-user-community"
                         self.yang_parent_name = "encrypted-user-communities"
@@ -9066,10 +10175,18 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.TrapHosts.TrapHost.EncryptedUserCommunities.EncryptedUserCommunity']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.TrapHosts.TrapHost.EncryptedUserCommunities']['meta_info']
 
 
-
-            class InformHost(Entity):
+            class InformHost(_Entity_):
                 """
                 Container class for defining notification type
                 for a Inform host
@@ -9092,7 +10209,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.TrapHosts.TrapHost.InformHost, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.TrapHosts.TrapHost.InformHost, self).__init__()
 
                     self.yang_name = "inform-host"
                     self.yang_parent_name = "trap-host"
@@ -9116,7 +10236,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.TrapHosts.TrapHost.InformHost, [], name, value)
 
 
-                class InformUserCommunities(Entity):
+                class InformUserCommunities(_Entity_):
                     """
                     Container class for defining communities for
                     a inform host
@@ -9134,7 +10254,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities, self).__init__()
 
                         self.yang_name = "inform-user-communities"
                         self.yang_parent_name = "inform-host"
@@ -9152,7 +10275,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities, [], name, value)
 
 
-                    class InformUserCommunity(Entity):
+                    class InformUserCommunity(_Entity_):
                         """
                         Unencrpted Community name associated with a
                         inform host
@@ -9220,7 +10343,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, self).__init__()
 
                             self.yang_name = "inform-user-community"
                             self.yang_parent_name = "inform-user-communities"
@@ -9250,10 +10376,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities.InformUserCommunity']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.TrapHosts.TrapHost.InformHost.InformUserCommunities']['meta_info']
 
 
-
-                class InformEncryptedUserCommunities(Entity):
+                class InformEncryptedUserCommunities(_Entity_):
                     """
                     Container class for defining Clear/encrypt
                     communities for a inform host
@@ -9271,7 +10405,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, self).__init__()
 
                         self.yang_name = "inform-encrypted-user-communities"
                         self.yang_parent_name = "inform-host"
@@ -9289,7 +10426,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities, [], name, value)
 
 
-                    class InformEncryptedUserCommunity(Entity):
+                    class InformEncryptedUserCommunity(_Entity_):
                         """
                         Clear/Encrypt Community name associated with
                         a inform host
@@ -9357,7 +10494,10 @@ class Snmp(Entity):
                         _revision = '2018-06-27'
 
                         def __init__(self):
-                            super(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, self).__init__()
 
                             self.yang_name = "inform-encrypted-user-community"
                             self.yang_parent_name = "inform-encrypted-user-communities"
@@ -9387,11 +10527,23 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities.InformEncryptedUserCommunity']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.TrapHosts.TrapHost.InformHost.InformEncryptedUserCommunities']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.TrapHosts.TrapHost.InformHost']['meta_info']
 
 
-
-
-            class DefaultUserCommunities(Entity):
+            class DefaultUserCommunities(_Entity_):
                 """
                 Container class for defining communities for a
                 trap host
@@ -9409,7 +10561,10 @@ class Snmp(Entity):
                 _revision = '2018-06-27'
 
                 def __init__(self):
-                    super(Snmp.TrapHosts.TrapHost.DefaultUserCommunities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.TrapHosts.TrapHost.DefaultUserCommunities, self).__init__()
 
                     self.yang_name = "default-user-communities"
                     self.yang_parent_name = "trap-host"
@@ -9427,7 +10582,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.TrapHosts.TrapHost.DefaultUserCommunities, [], name, value)
 
 
-                class DefaultUserCommunity(Entity):
+                class DefaultUserCommunity(_Entity_):
                     """
                     Unencrpted Community name associated with a
                     trap host
@@ -9495,7 +10650,10 @@ class Snmp(Entity):
                     _revision = '2018-06-27'
 
                     def __init__(self):
-                        super(Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, self).__init__()
 
                         self.yang_name = "default-user-community"
                         self.yang_parent_name = "default-user-communities"
@@ -9525,12 +10683,28 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity, ['community_name', 'port', 'version', 'security_level', 'basic_trap_types', 'advanced_trap_types1', 'advanced_trap_types2'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Snmp.TrapHosts.TrapHost.DefaultUserCommunities.DefaultUserCommunity']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Snmp.TrapHosts.TrapHost.DefaultUserCommunities']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.TrapHosts.TrapHost']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.TrapHosts']['meta_info']
 
 
-
-
-
-    class Contexts(Entity):
+    class Contexts(_Entity_):
         """
         List of Context Names
         
@@ -9547,7 +10721,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.Contexts, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Contexts, self).__init__()
 
             self.yang_name = "contexts"
             self.yang_parent_name = "snmp"
@@ -9566,7 +10743,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Contexts, [], name, value)
 
 
-        class Context(Entity):
+        class Context(_Entity_):
             """
             Context Name
             
@@ -9585,7 +10762,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.Contexts.Context, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Contexts.Context, self).__init__()
 
                 self.yang_name = "context"
                 self.yang_parent_name = "contexts"
@@ -9604,10 +10784,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Contexts.Context, ['context_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Contexts.Context']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.Contexts']['meta_info']
 
 
-
-    class ContextMappings(Entity):
+    class ContextMappings(_Entity_):
         """
         List of context names
         
@@ -9624,7 +10812,10 @@ class Snmp(Entity):
         _revision = '2018-06-27'
 
         def __init__(self):
-            super(Snmp.ContextMappings, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.ContextMappings, self).__init__()
 
             self.yang_name = "context-mappings"
             self.yang_parent_name = "snmp"
@@ -9643,7 +10834,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.ContextMappings, [], name, value)
 
 
-        class ContextMapping(Entity):
+        class ContextMapping(_Entity_):
             """
             Context mapping name
             
@@ -9682,7 +10873,10 @@ class Snmp(Entity):
             _revision = '2018-06-27'
 
             def __init__(self):
-                super(Snmp.ContextMappings.ContextMapping, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.ContextMappings.ContextMapping, self).__init__()
 
                 self.yang_name = "context-mapping"
                 self.yang_parent_name = "context-mappings"
@@ -9709,15 +10903,27 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.ContextMappings.ContextMapping, ['context_mapping_name', 'context', 'instance_name', 'vrf_name', 'topology_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.ContextMappings.ContextMapping']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Snmp.ContextMappings']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Snmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['Snmp']['meta_info']
 
 
-class Mib(Entity):
+class Mib(_Entity_):
     """
     mib
     
@@ -9725,6 +10931,31 @@ class Mib(Entity):
     
     	Notification log MIB configuration
     	**type**\:  :py:class:`NotificationLogMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.NotificationLogMib>`
+    
+    .. attribute:: entity_mib
+    
+    	Entity MIB
+    	**type**\:  :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.EntityMib>`
+    
+    .. attribute:: interface_mib
+    
+    	Interface MIB configuration
+    	**type**\:  :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib>`
+    
+    .. attribute:: sensor_mib_cache
+    
+    	Get cached Sesnsor MIB statistics
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
+    .. attribute:: subscriber
+    
+    	Subscriber threshold commands
+    	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber>`
+    
+    .. attribute:: cb_qosmib
+    
+    	CBQoSMIB configuration
+    	**type**\:  :py:class:`CbQosmib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib>`
     
     .. attribute:: mpls_te_mib
     
@@ -9751,31 +10982,6 @@ class Mib(Entity):
     	FRR MIB configuration
     	**type**\:  :py:class:`MplsFrrMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsFrrMib>`
     
-    .. attribute:: cb_qosmib
-    
-    	CBQoSMIB configuration
-    	**type**\:  :py:class:`CbQosmib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib>`
-    
-    .. attribute:: sensor_mib_cache
-    
-    	Get cached Sesnsor MIB statistics
-    	**type**\: :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: entity_mib
-    
-    	Entity MIB
-    	**type**\:  :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.EntityMib>`
-    
-    .. attribute:: interface_mib
-    
-    	Interface MIB configuration
-    	**type**\:  :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib>`
-    
-    .. attribute:: subscriber
-    
-    	Subscriber threshold commands
-    	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.Subscriber>`
-    
     
 
     """
@@ -9784,7 +10990,10 @@ class Mib(Entity):
     _revision = '2018-06-27'
 
     def __init__(self):
-        super(Mib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mib"
@@ -9792,7 +11001,7 @@ class Mib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib", ("notification_log_mib", Mib.NotificationLogMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib", ("mpls_te_mib", Mib.MplsTeMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib", ("mpls_p2mp_mib", Mib.MplsP2mpMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib", ("mpls_te_ext_std_mib", Mib.MplsTeExtStdMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib", ("mpls_te_ext_mib", Mib.MplsTeExtMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib", ("mpls_frr_mib", Mib.MplsFrrMib)), ("Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib", ("cb_qosmib", Mib.CbQosmib)), ("Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib", ("entity_mib", Mib.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib", ("interface_mib", Mib.InterfaceMib)), ("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber", ("subscriber", Mib.Subscriber))])
+        self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib", ("notification_log_mib", Mib.NotificationLogMib)), ("Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib", ("entity_mib", Mib.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib", ("interface_mib", Mib.InterfaceMib)), ("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber", ("subscriber", Mib.Subscriber)), ("Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib", ("cb_qosmib", Mib.CbQosmib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib", ("mpls_te_mib", Mib.MplsTeMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib", ("mpls_p2mp_mib", Mib.MplsP2mpMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib", ("mpls_te_ext_std_mib", Mib.MplsTeExtStdMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib", ("mpls_te_ext_mib", Mib.MplsTeExtMib)), ("Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib", ("mpls_frr_mib", Mib.MplsFrrMib))])
         self._leafs = OrderedDict([
             ('sensor_mib_cache', (YLeaf(YType.empty, 'Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor-mib-cache'), ['Empty'])),
         ])
@@ -9801,6 +11010,22 @@ class Mib(Entity):
         self.notification_log_mib = Mib.NotificationLogMib()
         self.notification_log_mib.parent = self
         self._children_name_map["notification_log_mib"] = "Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib"
+
+        self.entity_mib = Mib.EntityMib()
+        self.entity_mib.parent = self
+        self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib"
+
+        self.interface_mib = Mib.InterfaceMib()
+        self.interface_mib.parent = self
+        self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib"
+
+        self.subscriber = Mib.Subscriber()
+        self.subscriber.parent = self
+        self._children_name_map["subscriber"] = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber"
+
+        self.cb_qosmib = Mib.CbQosmib()
+        self.cb_qosmib.parent = self
+        self._children_name_map["cb_qosmib"] = "Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib"
 
         self.mpls_te_mib = Mib.MplsTeMib()
         self.mpls_te_mib.parent = self
@@ -9821,22 +11046,6 @@ class Mib(Entity):
         self.mpls_frr_mib = Mib.MplsFrrMib()
         self.mpls_frr_mib.parent = self
         self._children_name_map["mpls_frr_mib"] = "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib"
-
-        self.cb_qosmib = Mib.CbQosmib()
-        self.cb_qosmib.parent = self
-        self._children_name_map["cb_qosmib"] = "Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib"
-
-        self.entity_mib = Mib.EntityMib()
-        self.entity_mib.parent = self
-        self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib"
-
-        self.interface_mib = Mib.InterfaceMib()
-        self.interface_mib.parent = self
-        self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib"
-
-        self.subscriber = Mib.Subscriber()
-        self.subscriber.parent = self
-        self._children_name_map["subscriber"] = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber"
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib"
         self._is_frozen = True
 
@@ -9844,7 +11053,7 @@ class Mib(Entity):
         self._perform_setattr(Mib, ['sensor_mib_cache'], name, value)
 
 
-    class NotificationLogMib(Entity):
+    class NotificationLogMib(_Entity_):
         """
         Notification log MIB configuration
         
@@ -9889,7 +11098,10 @@ class Mib(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Mib.NotificationLogMib, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.NotificationLogMib, self).__init__()
 
             self.yang_name = "notification-log-mib"
             self.yang_parent_name = "mib"
@@ -9916,354 +11128,13 @@ class Mib(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Mib.NotificationLogMib, ['global_age_out', 'disable', 'default', 'global_size', 'default_size'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.NotificationLogMib']['meta_info']
 
 
-    class MplsTeMib(Entity):
-        """
-        MPLS TE MIB configuration
-        
-        .. attribute:: cache_garbage_collect_timer
-        
-        	Configure the cache garbage collector time for the mib
-        	**type**\: int
-        
-        	**range:** 0..3600
-        
-        	**units**\: second
-        
-        	**default value**\: 1800
-        
-        .. attribute:: cache_timer
-        
-        	Configure the cache time for the mib
-        	**type**\: int
-        
-        	**range:** 0..600
-        
-        	**units**\: second
-        
-        	**default value**\: 60
-        
-        
-
-        """
-
-        _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Mib.MplsTeMib, self).__init__()
-
-            self.yang_name = "mpls-te-mib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('cache_garbage_collect_timer', (YLeaf(YType.uint32, 'cache-garbage-collect-timer'), ['int'])),
-                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
-            ])
-            self.cache_garbage_collect_timer = None
-            self.cache_timer = None
-            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.MplsTeMib, ['cache_garbage_collect_timer', 'cache_timer'], name, value)
-
-
-
-    class MplsP2mpMib(Entity):
-        """
-        MPLS P2MP MIB configuration
-        
-        .. attribute:: cache_timer
-        
-        	Configure the cache time for the mib
-        	**type**\: int
-        
-        	**range:** 0..600
-        
-        	**units**\: second
-        
-        	**default value**\: 60
-        
-        
-
-        """
-
-        _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Mib.MplsP2mpMib, self).__init__()
-
-            self.yang_name = "mpls-p2mp-mib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
-            ])
-            self.cache_timer = None
-            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.MplsP2mpMib, ['cache_timer'], name, value)
-
-
-
-    class MplsTeExtStdMib(Entity):
-        """
-        MPLS TE EXT STD MIB configuration
-        
-        .. attribute:: cache_timer
-        
-        	Configure the cache time for the mib
-        	**type**\: int
-        
-        	**range:** 0..600
-        
-        	**units**\: second
-        
-        	**default value**\: 60
-        
-        
-
-        """
-
-        _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Mib.MplsTeExtStdMib, self).__init__()
-
-            self.yang_name = "mpls-te-ext-std-mib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
-            ])
-            self.cache_timer = None
-            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.MplsTeExtStdMib, ['cache_timer'], name, value)
-
-
-
-    class MplsTeExtMib(Entity):
-        """
-        MPLS TE EXT MIB configuration
-        
-        .. attribute:: cache_timer
-        
-        	Configure the cache time for the mib
-        	**type**\: int
-        
-        	**range:** 0..600
-        
-        	**units**\: second
-        
-        	**default value**\: 60
-        
-        
-
-        """
-
-        _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Mib.MplsTeExtMib, self).__init__()
-
-            self.yang_name = "mpls-te-ext-mib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
-            ])
-            self.cache_timer = None
-            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.MplsTeExtMib, ['cache_timer'], name, value)
-
-
-
-    class MplsFrrMib(Entity):
-        """
-        FRR MIB configuration
-        
-        .. attribute:: cache_timer
-        
-        	Configure the cache time for the mib
-        	**type**\: int
-        
-        	**range:** 0..600
-        
-        	**units**\: second
-        
-        	**default value**\: 60
-        
-        
-
-        """
-
-        _prefix = 'mpls-te-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Mib.MplsFrrMib, self).__init__()
-
-            self.yang_name = "mpls-frr-mib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
-            ])
-            self.cache_timer = None
-            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.MplsFrrMib, ['cache_timer'], name, value)
-
-
-
-    class CbQosmib(Entity):
-        """
-        CBQoSMIB configuration
-        
-        .. attribute:: cache
-        
-        	CBQoSMIB statistics data caching
-        	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib.Cache>`
-        
-        .. attribute:: member_interface_stats
-        
-        	Enable bundle member interface statistics retrieval
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: persist
-        
-        	Persist CBQoSMIB config, service\-policy and object indices
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'qos-mibs-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Mib.CbQosmib, self).__init__()
-
-            self.yang_name = "cb-qosmib"
-            self.yang_parent_name = "mib"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("cache", ("cache", Mib.CbQosmib.Cache))])
-            self._leafs = OrderedDict([
-                ('member_interface_stats', (YLeaf(YType.empty, 'member-interface-stats'), ['Empty'])),
-                ('persist', (YLeaf(YType.empty, 'persist'), ['Empty'])),
-            ])
-            self.member_interface_stats = None
-            self.persist = None
-
-            self.cache = Mib.CbQosmib.Cache()
-            self.cache.parent = self
-            self._children_name_map["cache"] = "cache"
-            self._segment_path = lambda: "Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Mib.CbQosmib, ['member_interface_stats', 'persist'], name, value)
-
-
-        class Cache(Entity):
-            """
-            CBQoSMIB statistics data caching
-            
-            .. attribute:: enable
-            
-            	Enable CBQoSMIB statistics data caching
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: refresh_time
-            
-            	Cache refresh time in seconds
-            	**type**\: int
-            
-            	**range:** 5..60
-            
-            	**units**\: second
-            
-            .. attribute:: service_policy_count
-            
-            	Maximum number of service policies to cache the statistics for
-            	**type**\: int
-            
-            	**range:** 1..5000
-            
-            
-
-            """
-
-            _prefix = 'qos-mibs-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Mib.CbQosmib.Cache, self).__init__()
-
-                self.yang_name = "cache"
-                self.yang_parent_name = "cb-qosmib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                    ('refresh_time', (YLeaf(YType.uint32, 'refresh-time'), ['int'])),
-                    ('service_policy_count', (YLeaf(YType.uint32, 'service-policy-count'), ['int'])),
-                ])
-                self.enable = None
-                self.refresh_time = None
-                self.service_policy_count = None
-                self._segment_path = lambda: "cache"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Mib.CbQosmib.Cache, ['enable', 'refresh_time', 'service_policy_count'], name, value)
-
-
-
-
-    class EntityMib(Entity):
+    class EntityMib(_Entity_):
         """
         Entity MIB
         
@@ -10280,7 +11151,10 @@ class Mib(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Mib.EntityMib, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.EntityMib, self).__init__()
 
             self.yang_name = "entity-mib"
             self.yang_parent_name = "mib"
@@ -10299,9 +11173,13 @@ class Mib(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Mib.EntityMib, ['entity_index_persistence'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.EntityMib']['meta_info']
 
 
-    class InterfaceMib(Entity):
+    class InterfaceMib(_Entity_):
         """
         Interface MIB configuration
         
@@ -10357,7 +11235,10 @@ class Mib(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Mib.InterfaceMib, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.InterfaceMib, self).__init__()
 
             self.yang_name = "interface-mib"
             self.yang_parent_name = "mib"
@@ -10397,7 +11278,7 @@ class Mib(Entity):
             self._perform_setattr(Mib.InterfaceMib, ['internal_cache', 'interface_alias_long', 'ip_subscriber', 'interface_index_persistence', 'statistics_cache'], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             Enter the SNMP interface configuration commands
             
@@ -10414,7 +11295,10 @@ class Mib(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Mib.InterfaceMib.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mib.InterfaceMib.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "interface-mib"
@@ -10433,7 +11317,7 @@ class Mib(Entity):
                 self._perform_setattr(Mib.InterfaceMib.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Interface to configure
                 
@@ -10462,7 +11346,10 @@ class Mib(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Mib.InterfaceMib.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.InterfaceMib.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -10485,10 +11372,18 @@ class Mib(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mib.InterfaceMib.Interfaces.Interface, ['interface_name', 'link_up_down', 'index_persistence'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.InterfaceMib.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.InterfaceMib.Interfaces']['meta_info']
 
 
-
-        class Notification(Entity):
+        class Notification(_Entity_):
             """
             MIB notification configuration
             
@@ -10505,7 +11400,10 @@ class Mib(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Mib.InterfaceMib.Notification, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mib.InterfaceMib.Notification, self).__init__()
 
                 self.yang_name = "notification"
                 self.yang_parent_name = "interface-mib"
@@ -10524,9 +11422,13 @@ class Mib(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Mib.InterfaceMib.Notification, ['link_ietf'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.InterfaceMib.Notification']['meta_info']
 
 
-        class Subsets(Entity):
+        class Subsets(_Entity_):
             """
             Add configuration for an interface subset
             
@@ -10543,7 +11445,10 @@ class Mib(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Mib.InterfaceMib.Subsets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mib.InterfaceMib.Subsets, self).__init__()
 
                 self.yang_name = "subsets"
                 self.yang_parent_name = "interface-mib"
@@ -10562,7 +11467,7 @@ class Mib(Entity):
                 self._perform_setattr(Mib.InterfaceMib.Subsets, [], name, value)
 
 
-            class Subset(Entity):
+            class Subset(_Entity_):
                 """
                 Subset priorityID to group ifNames based on
                 Regular Expression
@@ -10587,7 +11492,10 @@ class Mib(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Mib.InterfaceMib.Subsets.Subset, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.InterfaceMib.Subsets.Subset, self).__init__()
 
                     self.yang_name = "subset"
                     self.yang_parent_name = "subsets"
@@ -10611,7 +11519,7 @@ class Mib(Entity):
                     self._perform_setattr(Mib.InterfaceMib.Subsets.Subset, ['subset_id'], name, value)
 
 
-                class LinkUpDown(Entity):
+                class LinkUpDown(_Entity_):
                     """
                     SNMP linkUp and linkDown notifications
                     
@@ -10633,7 +11541,10 @@ class Mib(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Mib.InterfaceMib.Subsets.Subset.LinkUpDown, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.InterfaceMib.Subsets.Subset.LinkUpDown, self).__init__()
 
                         self.yang_name = "link-up-down"
                         self.yang_parent_name = "subset"
@@ -10653,12 +11564,28 @@ class Mib(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mib.InterfaceMib.Subsets.Subset.LinkUpDown, ['enable', 'regular_expression'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.InterfaceMib.Subsets.Subset.LinkUpDown']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.InterfaceMib.Subsets.Subset']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.InterfaceMib.Subsets']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.InterfaceMib']['meta_info']
 
 
-
-
-
-    class Subscriber(Entity):
+    class Subscriber(_Entity_):
         """
         Subscriber threshold commands
         
@@ -10675,7 +11602,10 @@ class Mib(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Mib.Subscriber, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.Subscriber, self).__init__()
 
             self.yang_name = "subscriber"
             self.yang_parent_name = "mib"
@@ -10696,7 +11626,7 @@ class Mib(Entity):
             self._perform_setattr(Mib.Subscriber, [], name, value)
 
 
-        class Threshold(Entity):
+        class Threshold(_Entity_):
             """
             Subscriber threshold commands
             
@@ -10728,7 +11658,10 @@ class Mib(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Mib.Subscriber.Threshold, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mib.Subscriber.Threshold, self).__init__()
 
                 self.yang_name = "threshold"
                 self.yang_parent_name = "subscriber"
@@ -10761,7 +11694,7 @@ class Mib(Entity):
                 self._perform_setattr(Mib.Subscriber.Threshold, [], name, value)
 
 
-            class Delta(Entity):
+            class Delta(_Entity_):
                 """
                 Delta loss keyword
                 
@@ -10783,7 +11716,10 @@ class Mib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mib.Subscriber.Threshold.Delta, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.Subscriber.Threshold.Delta, self).__init__()
 
                     self.yang_name = "delta"
                     self.yang_parent_name = "threshold"
@@ -10808,7 +11744,7 @@ class Mib(Entity):
                     self._perform_setattr(Mib.Subscriber.Threshold.Delta, [], name, value)
 
 
-                class Evaluation(Entity):
+                class Evaluation(_Entity_):
                     """
                     Evaluation keyword
                     
@@ -10830,7 +11766,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Delta.Evaluation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Delta.Evaluation, self).__init__()
 
                         self.yang_name = "evaluation"
                         self.yang_parent_name = "delta"
@@ -10855,7 +11794,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Delta.Evaluation, [], name, value)
 
 
-                    class AccessInterfaces(Entity):
+                    class AccessInterfaces(_Entity_):
                         """
                         Table of AccessInterface
                         
@@ -10872,7 +11811,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces, self).__init__()
 
                             self.yang_name = "access-interfaces"
                             self.yang_parent_name = "evaluation"
@@ -10891,7 +11833,7 @@ class Mib(Entity):
                             self._perform_setattr(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces, [], name, value)
 
 
-                        class AccessInterface(Entity):
+                        class AccessInterface(_Entity_):
                             """
                             Access interface
                             
@@ -10924,7 +11866,10 @@ class Mib(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface, self).__init__()
 
                                 self.yang_name = "access-interface"
                                 self.yang_parent_name = "access-interfaces"
@@ -10947,10 +11892,18 @@ class Mib(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface, ['interface_name', 'session_count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces.AccessInterface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Delta.Evaluation.AccessInterfaces']['meta_info']
 
 
-
-                    class Nodes(Entity):
+                    class Nodes(_Entity_):
                         """
                         Table of Node
                         
@@ -10967,7 +11920,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes, self).__init__()
 
                             self.yang_name = "nodes"
                             self.yang_parent_name = "evaluation"
@@ -10986,7 +11942,7 @@ class Mib(Entity):
                             self._perform_setattr(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes, [], name, value)
 
 
-                        class Node(Entity):
+                        class Node(_Entity_):
                             """
                             Rising node level
                             
@@ -11019,7 +11975,10 @@ class Mib(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node, self).__init__()
 
                                 self.yang_name = "node"
                                 self.yang_parent_name = "nodes"
@@ -11042,11 +12001,23 @@ class Mib(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node, ['node_name', 'session_count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Mib.Subscriber.Threshold.Delta.Evaluation.Nodes.Node']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Delta.Evaluation.Nodes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Delta.Evaluation']['meta_info']
 
 
-
-
-                class Percent(Entity):
+                class Percent(_Entity_):
                     """
                     Delta loss percent
                     
@@ -11068,7 +12039,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Delta.Percent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Delta.Percent, self).__init__()
 
                         self.yang_name = "percent"
                         self.yang_parent_name = "delta"
@@ -11093,7 +12067,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Delta.Percent, [], name, value)
 
 
-                    class AccessInterfaces(Entity):
+                    class AccessInterfaces(_Entity_):
                         """
                         Table of AccessInterface
                         
@@ -11110,7 +12084,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces, self).__init__()
 
                             self.yang_name = "access-interfaces"
                             self.yang_parent_name = "percent"
@@ -11129,7 +12106,7 @@ class Mib(Entity):
                             self._perform_setattr(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces, [], name, value)
 
 
-                        class AccessInterface(Entity):
+                        class AccessInterface(_Entity_):
                             """
                             Access interface
                             
@@ -11162,7 +12139,10 @@ class Mib(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface, self).__init__()
 
                                 self.yang_name = "access-interface"
                                 self.yang_parent_name = "access-interfaces"
@@ -11185,10 +12165,18 @@ class Mib(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface, ['interface_name', 'session_count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces.AccessInterface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Delta.Percent.AccessInterfaces']['meta_info']
 
 
-
-                    class Nodes(Entity):
+                    class Nodes(_Entity_):
                         """
                         Table of Node
                         
@@ -11205,7 +12193,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Delta.Percent.Nodes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Delta.Percent.Nodes, self).__init__()
 
                             self.yang_name = "nodes"
                             self.yang_parent_name = "percent"
@@ -11224,7 +12215,7 @@ class Mib(Entity):
                             self._perform_setattr(Mib.Subscriber.Threshold.Delta.Percent.Nodes, [], name, value)
 
 
-                        class Node(Entity):
+                        class Node(_Entity_):
                             """
                             Rising node level
                             
@@ -11257,7 +12248,10 @@ class Mib(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node, self).__init__()
 
                                 self.yang_name = "node"
                                 self.yang_parent_name = "nodes"
@@ -11280,12 +12274,28 @@ class Mib(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node, ['node_name', 'session_count', 'interval'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Mib.Subscriber.Threshold.Delta.Percent.Nodes.Node']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Delta.Percent.Nodes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Delta.Percent']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.Subscriber.Threshold.Delta']['meta_info']
 
 
-
-
-
-            class AccessInterfaceSub(Entity):
+            class AccessInterfaceSub(_Entity_):
                 """
                 Access interface for regular expression
                 
@@ -11302,7 +12312,10 @@ class Mib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mib.Subscriber.Threshold.AccessInterfaceSub, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.Subscriber.Threshold.AccessInterfaceSub, self).__init__()
 
                     self.yang_name = "access-interface-sub"
                     self.yang_parent_name = "threshold"
@@ -11323,7 +12336,7 @@ class Mib(Entity):
                     self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub, [], name, value)
 
 
-                class Subsets(Entity):
+                class Subsets(_Entity_):
                     """
                     Table of Subset
                     
@@ -11340,7 +12353,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets, self).__init__()
 
                         self.yang_name = "subsets"
                         self.yang_parent_name = "access-interface-sub"
@@ -11359,7 +12375,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets, [], name, value)
 
 
-                    class Subset(Entity):
+                    class Subset(_Entity_):
                         """
                         Subset command
                         
@@ -11383,7 +12399,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset, self).__init__()
 
                             self.yang_name = "subset"
                             self.yang_parent_name = "subsets"
@@ -11407,7 +12426,7 @@ class Mib(Entity):
                             self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset, ['subset_id'], name, value)
 
 
-                        class RegularExpression(Entity):
+                        class RegularExpression(_Entity_):
                             """
                             Regular expression
                             
@@ -11424,7 +12443,10 @@ class Mib(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression, self).__init__()
 
                                 self.yang_name = "regular-expression"
                                 self.yang_parent_name = "subset"
@@ -11444,7 +12466,7 @@ class Mib(Entity):
                                 self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression, [], name, value)
 
 
-                            class Notification(Entity):
+                            class Notification(_Entity_):
                                 """
                                 Notification keyword
                                 
@@ -11461,7 +12483,10 @@ class Mib(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification, self).__init__()
 
                                     self.yang_name = "notification"
                                     self.yang_parent_name = "regular-expression"
@@ -11481,7 +12506,7 @@ class Mib(Entity):
                                     self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification, [], name, value)
 
 
-                                class RisingFalling(Entity):
+                                class RisingFalling(_Entity_):
                                     """
                                     Rising\-falling threshold
                                     
@@ -11498,7 +12523,10 @@ class Mib(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling, self).__init__()
 
                                         self.yang_name = "rising-falling"
                                         self.yang_parent_name = "notification"
@@ -11516,14 +12544,38 @@ class Mib(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling, ['disable'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                        return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification.RisingFalling']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                    return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression.Notification']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                                return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset.RegularExpression']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets.Subset']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub.Subsets']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.Subscriber.Threshold.AccessInterfaceSub']['meta_info']
 
 
-
-
-
-
-
-            class Falling(Entity):
+            class Falling(_Entity_):
                 """
                 Falling threshold
                 
@@ -11545,7 +12597,10 @@ class Mib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mib.Subscriber.Threshold.Falling, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.Subscriber.Threshold.Falling, self).__init__()
 
                     self.yang_name = "falling"
                     self.yang_parent_name = "threshold"
@@ -11570,7 +12625,7 @@ class Mib(Entity):
                     self._perform_setattr(Mib.Subscriber.Threshold.Falling, [], name, value)
 
 
-                class AccessInterfaces(Entity):
+                class AccessInterfaces(_Entity_):
                     """
                     Table of AccessInterface
                     
@@ -11587,7 +12642,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Falling.AccessInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Falling.AccessInterfaces, self).__init__()
 
                         self.yang_name = "access-interfaces"
                         self.yang_parent_name = "falling"
@@ -11606,7 +12664,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Falling.AccessInterfaces, [], name, value)
 
 
-                    class AccessInterface(Entity):
+                    class AccessInterface(_Entity_):
                         """
                         Access interface
                         
@@ -11639,7 +12697,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface, self).__init__()
 
                             self.yang_name = "access-interface"
                             self.yang_parent_name = "access-interfaces"
@@ -11662,10 +12723,18 @@ class Mib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface, ['interface_name', 'session_count', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Falling.AccessInterfaces.AccessInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Falling.AccessInterfaces']['meta_info']
 
 
-
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Table of Node
                     
@@ -11682,7 +12751,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Falling.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Falling.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "falling"
@@ -11701,7 +12773,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Falling.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Rising node level
                         
@@ -11734,7 +12806,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Falling.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Falling.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -11757,11 +12832,23 @@ class Mib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mib.Subscriber.Threshold.Falling.Nodes.Node, ['node_name', 'session_count', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Falling.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Falling.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.Subscriber.Threshold.Falling']['meta_info']
 
 
-
-
-            class Rising(Entity):
+            class Rising(_Entity_):
                 """
                 Rising threshold
                 
@@ -11783,7 +12870,10 @@ class Mib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Mib.Subscriber.Threshold.Rising, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mib.Subscriber.Threshold.Rising, self).__init__()
 
                     self.yang_name = "rising"
                     self.yang_parent_name = "threshold"
@@ -11808,7 +12898,7 @@ class Mib(Entity):
                     self._perform_setattr(Mib.Subscriber.Threshold.Rising, [], name, value)
 
 
-                class AccessInterfaces(Entity):
+                class AccessInterfaces(_Entity_):
                     """
                     Table of AccessInterface
                     
@@ -11825,7 +12915,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Rising.AccessInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Rising.AccessInterfaces, self).__init__()
 
                         self.yang_name = "access-interfaces"
                         self.yang_parent_name = "rising"
@@ -11844,7 +12937,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Rising.AccessInterfaces, [], name, value)
 
 
-                    class AccessInterface(Entity):
+                    class AccessInterface(_Entity_):
                         """
                         Access interface
                         
@@ -11877,7 +12970,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface, self).__init__()
 
                             self.yang_name = "access-interface"
                             self.yang_parent_name = "access-interfaces"
@@ -11900,10 +12996,18 @@ class Mib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface, ['interface_name', 'session_count', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Rising.AccessInterfaces.AccessInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Rising.AccessInterfaces']['meta_info']
 
 
-
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Table of Node
                     
@@ -11920,7 +13024,10 @@ class Mib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Mib.Subscriber.Threshold.Rising.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mib.Subscriber.Threshold.Rising.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "rising"
@@ -11939,7 +13046,7 @@ class Mib(Entity):
                         self._perform_setattr(Mib.Subscriber.Threshold.Rising.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Rising node level
                         
@@ -11972,7 +13079,10 @@ class Mib(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Mib.Subscriber.Threshold.Rising.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mib.Subscriber.Threshold.Rising.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -11995,14 +13105,432 @@ class Mib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mib.Subscriber.Threshold.Rising.Nodes.Node, ['node_name', 'session_count', 'interval'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                            return meta._meta_table['Mib.Subscriber.Threshold.Rising.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                        return meta._meta_table['Mib.Subscriber.Threshold.Rising.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.Subscriber.Threshold.Rising']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.Subscriber.Threshold']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.Subscriber']['meta_info']
 
 
+    class CbQosmib(_Entity_):
+        """
+        CBQoSMIB configuration
+        
+        .. attribute:: cache
+        
+        	CBQoSMIB statistics data caching
+        	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib.Cache>`
+        
+        .. attribute:: member_interface_stats
+        
+        	Enable bundle member interface statistics retrieval
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: persist
+        
+        	Persist CBQoSMIB config, service\-policy and object indices
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'qos-mibs-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.CbQosmib, self).__init__()
+
+            self.yang_name = "cb-qosmib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("cache", ("cache", Mib.CbQosmib.Cache))])
+            self._leafs = OrderedDict([
+                ('member_interface_stats', (YLeaf(YType.empty, 'member-interface-stats'), ['Empty'])),
+                ('persist', (YLeaf(YType.empty, 'persist'), ['Empty'])),
+            ])
+            self.member_interface_stats = None
+            self.persist = None
+
+            self.cache = Mib.CbQosmib.Cache()
+            self.cache.parent = self
+            self._children_name_map["cache"] = "cache"
+            self._segment_path = lambda: "Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.CbQosmib, ['member_interface_stats', 'persist'], name, value)
 
 
+        class Cache(_Entity_):
+            """
+            CBQoSMIB statistics data caching
+            
+            .. attribute:: enable
+            
+            	Enable CBQoSMIB statistics data caching
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: refresh_time
+            
+            	Cache refresh time in seconds
+            	**type**\: int
+            
+            	**range:** 5..60
+            
+            	**units**\: second
+            
+            .. attribute:: service_policy_count
+            
+            	Maximum number of service policies to cache the statistics for
+            	**type**\: int
+            
+            	**range:** 1..5000
+            
+            
+
+            """
+
+            _prefix = 'qos-mibs-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mib.CbQosmib.Cache, self).__init__()
+
+                self.yang_name = "cache"
+                self.yang_parent_name = "cb-qosmib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('refresh_time', (YLeaf(YType.uint32, 'refresh-time'), ['int'])),
+                    ('service_policy_count', (YLeaf(YType.uint32, 'service-policy-count'), ['int'])),
+                ])
+                self.enable = None
+                self.refresh_time = None
+                self.service_policy_count = None
+                self._segment_path = lambda: "cache"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mib.CbQosmib.Cache, ['enable', 'refresh_time', 'service_policy_count'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.CbQosmib.Cache']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.CbQosmib']['meta_info']
+
+
+    class MplsTeMib(_Entity_):
+        """
+        MPLS TE MIB configuration
+        
+        .. attribute:: cache_garbage_collect_timer
+        
+        	Configure the cache garbage collector time for the mib
+        	**type**\: int
+        
+        	**range:** 0..3600
+        
+        	**units**\: second
+        
+        	**default value**\: 1800
+        
+        .. attribute:: cache_timer
+        
+        	Configure the cache time for the mib
+        	**type**\: int
+        
+        	**range:** 0..600
+        
+        	**units**\: second
+        
+        	**default value**\: 60
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2019-10-16'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.MplsTeMib, self).__init__()
+
+            self.yang_name = "mpls-te-mib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cache_garbage_collect_timer', (YLeaf(YType.uint32, 'cache-garbage-collect-timer'), ['int'])),
+                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
+            ])
+            self.cache_garbage_collect_timer = None
+            self.cache_timer = None
+            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.MplsTeMib, ['cache_garbage_collect_timer', 'cache_timer'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.MplsTeMib']['meta_info']
+
+
+    class MplsP2mpMib(_Entity_):
+        """
+        MPLS P2MP MIB configuration
+        
+        .. attribute:: cache_timer
+        
+        	Configure the cache time for the mib
+        	**type**\: int
+        
+        	**range:** 0..600
+        
+        	**units**\: second
+        
+        	**default value**\: 60
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2019-10-16'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.MplsP2mpMib, self).__init__()
+
+            self.yang_name = "mpls-p2mp-mib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
+            ])
+            self.cache_timer = None
+            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.MplsP2mpMib, ['cache_timer'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.MplsP2mpMib']['meta_info']
+
+
+    class MplsTeExtStdMib(_Entity_):
+        """
+        MPLS TE EXT STD MIB configuration
+        
+        .. attribute:: cache_timer
+        
+        	Configure the cache time for the mib
+        	**type**\: int
+        
+        	**range:** 0..600
+        
+        	**units**\: second
+        
+        	**default value**\: 60
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2019-10-16'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.MplsTeExtStdMib, self).__init__()
+
+            self.yang_name = "mpls-te-ext-std-mib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
+            ])
+            self.cache_timer = None
+            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.MplsTeExtStdMib, ['cache_timer'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.MplsTeExtStdMib']['meta_info']
+
+
+    class MplsTeExtMib(_Entity_):
+        """
+        MPLS TE EXT MIB configuration
+        
+        .. attribute:: cache_timer
+        
+        	Configure the cache time for the mib
+        	**type**\: int
+        
+        	**range:** 0..600
+        
+        	**units**\: second
+        
+        	**default value**\: 60
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2019-10-16'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.MplsTeExtMib, self).__init__()
+
+            self.yang_name = "mpls-te-ext-mib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
+            ])
+            self.cache_timer = None
+            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.MplsTeExtMib, ['cache_timer'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.MplsTeExtMib']['meta_info']
+
+
+    class MplsFrrMib(_Entity_):
+        """
+        FRR MIB configuration
+        
+        .. attribute:: cache_timer
+        
+        	Configure the cache time for the mib
+        	**type**\: int
+        
+        	**range:** 0..600
+        
+        	**units**\: second
+        
+        	**default value**\: 60
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2019-10-16'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mib.MplsFrrMib, self).__init__()
+
+            self.yang_name = "mpls-frr-mib"
+            self.yang_parent_name = "mib"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cache_timer', (YLeaf(YType.uint32, 'cache-timer'), ['int'])),
+            ])
+            self.cache_timer = None
+            self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-cfg:mib/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mib.MplsFrrMib, ['cache_timer'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.MplsFrrMib']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mib()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+        return meta._meta_table['Mib']['meta_info']
 
 

@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class AddrFamily(Enum):
     internetwork = Enum.YLeaf(2, "internetwork")
 
     ip_version6 = Enum.YLeaf(10, "ip-version6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['AddrFamily']
 
 
 class MessageTypeIcmp(Enum):
@@ -196,6 +205,12 @@ class MessageTypeIcmp(Enum):
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIcmp']
+
+
 class MessageTypeIcmp_(Enum):
     """
     MessageTypeIcmp\_ (Enum Class)
@@ -347,6 +362,12 @@ class MessageTypeIcmp_(Enum):
     mobile_registration_reply = Enum.YLeaf(36, "mobile-registration-reply")
 
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIcmp_']
 
 
 class MessageTypeIcmpv6(Enum):
@@ -568,6 +589,12 @@ class MessageTypeIcmpv6(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIcmpv6']
+
+
 class MessageTypeIcmpv6_(Enum):
     """
     MessageTypeIcmpv6\_ (Enum Class)
@@ -787,6 +814,12 @@ class MessageTypeIcmpv6_(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIcmpv6_']
+
+
 class MessageTypeIgmp(Enum):
     """
     MessageTypeIgmp (Enum Class)
@@ -876,6 +909,12 @@ class MessageTypeIgmp(Enum):
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIgmp']
+
+
 class MessageTypeIgmp_(Enum):
     """
     MessageTypeIgmp\_ (Enum Class)
@@ -963,6 +1002,12 @@ class MessageTypeIgmp_(Enum):
     multicast_router_solicitation = Enum.YLeaf(49, "multicast-router-solicitation")
 
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['MessageTypeIgmp_']
 
 
 class NsrDownReason(Enum):
@@ -1074,6 +1119,12 @@ class NsrDownReason(Enum):
     partner_deleted = Enum.YLeaf(15, "partner-deleted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['NsrDownReason']
+
+
 class NsrStatus(Enum):
     """
     NsrStatus (Enum Class)
@@ -1099,6 +1150,12 @@ class NsrStatus(Enum):
     up = Enum.YLeaf(1, "up")
 
     na = Enum.YLeaf(2, "na")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['NsrStatus']
 
 
 class Packet(Enum):
@@ -1132,6 +1189,12 @@ class Packet(Enum):
     igmp = Enum.YLeaf(2, "igmp")
 
     unknown = Enum.YLeaf(3, "unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['Packet']
 
 
 class PakPrio(Enum):
@@ -1187,6 +1250,12 @@ class PakPrio(Enum):
     crucial_packet = Enum.YLeaf(4, "crucial-packet")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['PakPrio']
+
+
 class Show(Enum):
     """
     Show (Enum Class)
@@ -1220,6 +1289,12 @@ class Show(Enum):
     packet_filter = Enum.YLeaf(3, "packet-filter")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['Show']
+
+
 class TcpAddressFamily(Enum):
     """
     TcpAddressFamily (Enum Class)
@@ -1239,6 +1314,12 @@ class TcpAddressFamily(Enum):
     ipv4 = Enum.YLeaf(2, "ipv4")
 
     ipv6 = Enum.YLeaf(10, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpAddressFamily']
 
 
 class TcpConnState(Enum):
@@ -1316,6 +1397,12 @@ class TcpConnState(Enum):
     time_wait = Enum.YLeaf(10, "time-wait")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpConnState']
+
+
 class TcpKeyInvalidReason(Enum):
     """
     TcpKeyInvalidReason (Enum Class)
@@ -1353,6 +1440,12 @@ class TcpKeyInvalidReason(Enum):
     send_id_invalid = Enum.YLeaf(3, "send-id-invalid")
 
     recv_id_invalid = Enum.YLeaf(4, "recv-id-invalid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpKeyInvalidReason']
 
 
 class TcpMacAlgo(Enum):
@@ -1430,6 +1523,12 @@ class TcpMacAlgo(Enum):
     hmac_sha_256 = Enum.YLeaf(10, "hmac-sha-256")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpMacAlgo']
+
+
 class TcpTimer(Enum):
     """
     TcpTimer (Enum Class)
@@ -1487,8 +1586,14 @@ class TcpTimer(Enum):
     throttle_timer = Enum.YLeaf(7, "throttle-timer")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpTimer']
 
-class TcpConnection(Entity):
+
+
+class TcpConnection(_Entity_):
     """
     TCP connection operational data
     
@@ -1507,7 +1612,10 @@ class TcpConnection(Entity):
     _revision = '2018-11-01'
 
     def __init__(self):
-        super(TcpConnection, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TcpConnection, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tcp-connection"
@@ -1528,7 +1636,7 @@ class TcpConnection(Entity):
         self._perform_setattr(TcpConnection, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of information about all nodes present on
         the system
@@ -1548,7 +1656,10 @@ class TcpConnection(Entity):
         _revision = '2018-11-01'
 
         def __init__(self):
-            super(TcpConnection.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TcpConnection.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "tcp-connection"
@@ -1567,7 +1678,7 @@ class TcpConnection(Entity):
             self._perform_setattr(TcpConnection.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a single node
             
@@ -1623,7 +1734,10 @@ class TcpConnection(Entity):
             _revision = '2018-11-01'
 
             def __init__(self):
-                super(TcpConnection.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TcpConnection.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1663,7 +1777,7 @@ class TcpConnection(Entity):
                 self._perform_setattr(TcpConnection.Nodes.Node, ['id'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistics of all TCP connections
                 
@@ -1696,7 +1810,10 @@ class TcpConnection(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpConnection.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpConnection.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -1724,7 +1841,7 @@ class TcpConnection(Entity):
                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics, [], name, value)
 
 
-                class Clients(Entity):
+                class Clients(_Entity_):
                     """
                     Table listing clients
                     
@@ -1743,7 +1860,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.Statistics.Clients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.Statistics.Clients, self).__init__()
 
                         self.yang_name = "clients"
                         self.yang_parent_name = "statistics"
@@ -1761,7 +1881,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Clients, [], name, value)
 
 
-                    class Client(Entity):
+                    class Client(_Entity_):
                         """
                         Describing Client ID
                         
@@ -1836,7 +1956,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
 
                             self.yang_name = "client"
                             self.yang_parent_name = "clients"
@@ -1866,10 +1989,18 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Clients.Client']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Clients']['meta_info']
 
 
-
-                class Pcbs(Entity):
+                class Pcbs(_Entity_):
                     """
                     Table listing the TCP connections for which
                     statistics are provided
@@ -1889,7 +2020,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.Statistics.Pcbs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.Statistics.Pcbs, self).__init__()
 
                         self.yang_name = "pcbs"
                         self.yang_parent_name = "statistics"
@@ -1907,7 +2041,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs, [], name, value)
 
 
-                    class Pcb(Entity):
+                    class Pcb(_Entity_):
                         """
                         Protocol Control Block ID
                         
@@ -2091,7 +2225,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, self).__init__()
 
                             self.yang_name = "pcb"
                             self.yang_parent_name = "pcbs"
@@ -2154,7 +2291,7 @@ class TcpConnection(Entity):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', 'pcb', 'vrf_id', 'packets_sent', 'xipc_pulse_received', 'segment_instruction_received', 'send_packets_queued', 'send_packets_queued_net_io', 'send_queue_failed', 'send_queue_net_io_failed', 'packets_received', 'receive_queue_failed', 'received_packets_queued', 'send_window_shrink_ignored', 'is_paw_socket', 'read_io_time', 'write_io_time'], name, value)
 
 
-                        class ReadIoCounts(Entity):
+                        class ReadIoCounts(_Entity_):
                             """
                             Read  I/O counts
                             
@@ -2202,7 +2339,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, self).__init__()
 
                                 self.yang_name = "read-io-counts"
                                 self.yang_parent_name = "pcb"
@@ -2226,9 +2366,13 @@ class TcpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts']['meta_info']
 
 
-                        class WriteIoCounts(Entity):
+                        class WriteIoCounts(_Entity_):
                             """
                             Write I/O counts
                             
@@ -2276,7 +2420,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, self).__init__()
 
                                 self.yang_name = "write-io-counts"
                                 self.yang_parent_name = "pcb"
@@ -2300,9 +2447,13 @@ class TcpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts']['meta_info']
 
 
-                        class AsyncSessionStats(Entity):
+                        class AsyncSessionStats(_Entity_):
                             """
                             Statistics of Async TCP Sessions
                             
@@ -2391,7 +2542,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, self).__init__()
 
                                 self.yang_name = "async-session-stats"
                                 self.yang_parent_name = "pcb"
@@ -2421,7 +2575,7 @@ class TcpConnection(Entity):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, ['async_session'], name, value)
 
 
-                            class DataWriteSuccessNum(Entity):
+                            class DataWriteSuccessNum(_Entity_):
                                 """
                                 Number of successful data write to XIPC
                                 
@@ -2442,7 +2596,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, self).__init__()
 
                                     self.yang_name = "data-write-success-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2460,9 +2617,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum']['meta_info']
 
 
-                            class DataReadSuccessNum(Entity):
+                            class DataReadSuccessNum(_Entity_):
                                 """
                                 Number of successful data read from XIPC
                                 
@@ -2483,7 +2644,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, self).__init__()
 
                                     self.yang_name = "data-read-success-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2501,9 +2665,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum']['meta_info']
 
 
-                            class DataWriteErrorNum(Entity):
+                            class DataWriteErrorNum(_Entity_):
                                 """
                                 Number of failed data write to XIPC
                                 
@@ -2524,7 +2692,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, self).__init__()
 
                                     self.yang_name = "data-write-error-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2542,9 +2713,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum']['meta_info']
 
 
-                            class DataReadErrorNum(Entity):
+                            class DataReadErrorNum(_Entity_):
                                 """
                                 Number of failed data read from XIPC
                                 
@@ -2565,7 +2740,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, self).__init__()
 
                                     self.yang_name = "data-read-error-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2583,9 +2761,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum']['meta_info']
 
 
-                            class ControlWriteSuccessNum(Entity):
+                            class ControlWriteSuccessNum(_Entity_):
                                 """
                                 Number of successful control write to XIPC
                                 
@@ -2606,7 +2788,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, self).__init__()
 
                                     self.yang_name = "control-write-success-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2624,9 +2809,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum']['meta_info']
 
 
-                            class ControlReadSuccessNum(Entity):
+                            class ControlReadSuccessNum(_Entity_):
                                 """
                                 Number of successful control read to XIPC
                                 
@@ -2647,7 +2836,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, self).__init__()
 
                                     self.yang_name = "control-read-success-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2665,9 +2857,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum']['meta_info']
 
 
-                            class ControlWriteErrorNum(Entity):
+                            class ControlWriteErrorNum(_Entity_):
                                 """
                                 Number of failed control write to XIPC
                                 
@@ -2688,7 +2884,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, self).__init__()
 
                                     self.yang_name = "control-write-error-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2706,9 +2905,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum']['meta_info']
 
 
-                            class ControlReadErrorNum(Entity):
+                            class ControlReadErrorNum(_Entity_):
                                 """
                                 Number of failed control read from XIPC
                                 
@@ -2729,7 +2932,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, self).__init__()
 
                                     self.yang_name = "control-read-error-num"
                                     self.yang_parent_name = "async-session-stats"
@@ -2747,9 +2953,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum']['meta_info']
 
 
-                            class DataWriteByte(Entity):
+                            class DataWriteByte(_Entity_):
                                 """
                                 Number of bytes data has been written
                                 
@@ -2772,7 +2982,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, self).__init__()
 
                                     self.yang_name = "data-write-byte"
                                     self.yang_parent_name = "async-session-stats"
@@ -2790,9 +3003,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte']['meta_info']
 
 
-                            class DataReadByte(Entity):
+                            class DataReadByte(_Entity_):
                                 """
                                 Number of bytes data has been read
                                 
@@ -2815,7 +3032,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, self).__init__()
 
                                     self.yang_name = "data-read-byte"
                                     self.yang_parent_name = "async-session-stats"
@@ -2833,12 +3053,28 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Pcbs']['meta_info']
 
 
-
-
-
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Summary statistics across all TCP connections
                     
@@ -3699,7 +3935,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.Statistics.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.Statistics.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "statistics"
@@ -3901,7 +4140,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs', 'sockbuf_pak_res_cur', 'sockbuf_pak_res_max', 'sock_async_double_free_prevent_count'], name, value)
 
 
-                    class IqsTotalIngpacket(Entity):
+                    class IqsTotalIngpacket(_Entity_):
                         """
                         Total Number of Ingress packets on TCP iqs
                         
@@ -3922,7 +4161,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, self).__init__()
 
                             self.yang_name = "iqs-total-ingpacket"
                             self.yang_parent_name = "summary"
@@ -3940,9 +4182,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket']['meta_info']
 
 
-                    class IqsTotalEgpacket(Entity):
+                    class IqsTotalEgpacket(_Entity_):
                         """
                         Total Number of Egress packets on TCP iqs
                         
@@ -3963,7 +4209,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, self).__init__()
 
                             self.yang_name = "iqs-total-egpacket"
                             self.yang_parent_name = "summary"
@@ -3981,11 +4230,23 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.Statistics.Summary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpConnection.Nodes.Node.Statistics']['meta_info']
 
 
-
-
-            class ExtendedInformation(Entity):
+            class ExtendedInformation(_Entity_):
                 """
                 Extended Filter related Information
                 
@@ -4004,7 +4265,10 @@ class TcpConnection(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpConnection.Nodes.Node.ExtendedInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpConnection.Nodes.Node.ExtendedInformation, self).__init__()
 
                     self.yang_name = "extended-information"
                     self.yang_parent_name = "node"
@@ -4024,7 +4288,7 @@ class TcpConnection(Entity):
                     self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation, [], name, value)
 
 
-                class DisplayTypes(Entity):
+                class DisplayTypes(_Entity_):
                     """
                     Table listing display types
                     
@@ -4043,7 +4307,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes, self).__init__()
 
                         self.yang_name = "display-types"
                         self.yang_parent_name = "extended-information"
@@ -4061,7 +4328,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes, [], name, value)
 
 
-                    class DisplayType(Entity):
+                    class DisplayType(_Entity_):
                         """
                         Describing particular display type
                         
@@ -4087,7 +4354,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, self).__init__()
 
                             self.yang_name = "display-type"
                             self.yang_parent_name = "display-types"
@@ -4108,7 +4378,7 @@ class TcpConnection(Entity):
                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, ['disp_type'], name, value)
 
 
-                        class ConnectionId(Entity):
+                        class ConnectionId(_Entity_):
                             """
                             Describing connection ID
                             
@@ -4177,7 +4447,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, self).__init__()
 
                                 self.yang_name = "connection-id"
                                 self.yang_parent_name = "display-type"
@@ -4214,7 +4487,7 @@ class TcpConnection(Entity):
                                 self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, ['pcb_id', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
 
 
-                            class LocalAddress(Entity):
+                            class LocalAddress(_Entity_):
                                 """
                                 Local IP address
                                 
@@ -4251,7 +4524,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, self).__init__()
 
                                     self.yang_name = "local-address"
                                     self.yang_parent_name = "connection-id"
@@ -4273,9 +4549,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress']['meta_info']
 
 
-                            class ForeignAddress(Entity):
+                            class ForeignAddress(_Entity_):
                                 """
                                 Remote IP address
                                 
@@ -4312,7 +4592,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, self).__init__()
 
                                     self.yang_name = "foreign-address"
                                     self.yang_parent_name = "connection-id"
@@ -4334,9 +4617,13 @@ class TcpConnection(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress']['meta_info']
 
 
-                            class Common(Entity):
+                            class Common(_Entity_):
                                 """
                                 Common PCB information
                                 
@@ -4362,7 +4649,10 @@ class TcpConnection(Entity):
                                 _revision = '2018-11-01'
 
                                 def __init__(self):
-                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, self).__init__()
 
                                     self.yang_name = "common"
                                     self.yang_parent_name = "connection-id"
@@ -4385,7 +4675,7 @@ class TcpConnection(Entity):
                                     self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, ['af_name'], name, value)
 
 
-                                class LptsPcb(Entity):
+                                class LptsPcb(_Entity_):
                                     """
                                     LPTS PCB information
                                     
@@ -4443,7 +4733,10 @@ class TcpConnection(Entity):
                                     _revision = '2018-11-01'
 
                                     def __init__(self):
-                                        super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, self).__init__()
 
                                         self.yang_name = "lpts-pcb"
                                         self.yang_parent_name = "common"
@@ -4478,7 +4771,7 @@ class TcpConnection(Entity):
                                         self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, ['ttl', 'flow_types_info'], name, value)
 
 
-                                    class Options(Entity):
+                                    class Options(_Entity_):
                                         """
                                         Receive options
                                         
@@ -4504,7 +4797,10 @@ class TcpConnection(Entity):
                                         _revision = '2018-11-01'
 
                                         def __init__(self):
-                                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, self).__init__()
 
                                             self.yang_name = "options"
                                             self.yang_parent_name = "lpts-pcb"
@@ -4524,9 +4820,13 @@ class TcpConnection(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                            return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options']['meta_info']
 
 
-                                    class LptsFlags(Entity):
+                                    class LptsFlags(_Entity_):
                                         """
                                         LPTS flags
                                         
@@ -4559,7 +4859,10 @@ class TcpConnection(Entity):
                                         _revision = '2018-11-01'
 
                                         def __init__(self):
-                                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, self).__init__()
 
                                             self.yang_name = "lpts-flags"
                                             self.yang_parent_name = "lpts-pcb"
@@ -4581,9 +4884,13 @@ class TcpConnection(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                            return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags']['meta_info']
 
 
-                                    class AcceptMask(Entity):
+                                    class AcceptMask(_Entity_):
                                         """
                                         AcceptMask
                                         
@@ -4637,7 +4944,10 @@ class TcpConnection(Entity):
                                         _revision = '2018-11-01'
 
                                         def __init__(self):
-                                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, self).__init__()
 
                                             self.yang_name = "accept-mask"
                                             self.yang_parent_name = "lpts-pcb"
@@ -4665,9 +4975,13 @@ class TcpConnection(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                            return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask']['meta_info']
 
 
-                                    class Filter(Entity):
+                                    class Filter(_Entity_):
                                         """
                                         Interface Filters
                                         
@@ -4772,7 +5086,10 @@ class TcpConnection(Entity):
                                         _revision = '2018-11-01'
 
                                         def __init__(self):
-                                            super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, self).__init__()
 
                                             self.yang_name = "filter"
                                             self.yang_parent_name = "lpts-pcb"
@@ -4817,7 +5134,7 @@ class TcpConnection(Entity):
                                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, ['interface_name', 'remote_length', 'local_length', 'receive_remote_port', 'receive_local_port', 'priority', 'ttl', 'flow_types_info'], name, value)
 
 
-                                        class PacketType(Entity):
+                                        class PacketType(_Entity_):
                                             """
                                             Protocol\-specific packet type
                                             
@@ -4866,7 +5183,10 @@ class TcpConnection(Entity):
                                             _revision = '2018-11-01'
 
                                             def __init__(self):
-                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, self).__init__()
 
                                                 self.yang_name = "packet-type"
                                                 self.yang_parent_name = "filter"
@@ -4892,9 +5212,13 @@ class TcpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                                return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType']['meta_info']
 
 
-                                        class RemoteAddress(Entity):
+                                        class RemoteAddress(_Entity_):
                                             """
                                             Remote address
                                             
@@ -4931,7 +5255,10 @@ class TcpConnection(Entity):
                                             _revision = '2018-11-01'
 
                                             def __init__(self):
-                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
 
                                                 self.yang_name = "remote-address"
                                                 self.yang_parent_name = "filter"
@@ -4953,9 +5280,13 @@ class TcpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                                return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress']['meta_info']
 
 
-                                        class LocalAddress(Entity):
+                                        class LocalAddress(_Entity_):
                                             """
                                             Local address
                                             
@@ -4992,7 +5323,10 @@ class TcpConnection(Entity):
                                             _revision = '2018-11-01'
 
                                             def __init__(self):
-                                                super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, self).__init__()
 
                                                 self.yang_name = "local-address"
                                                 self.yang_parent_name = "filter"
@@ -5014,16 +5348,48 @@ class TcpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                                return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                            return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                        return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                    return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpConnection.Nodes.Node.ExtendedInformation']['meta_info']
 
 
-
-
-
-
-
-
-
-            class DetailInformations(Entity):
+            class DetailInformations(_Entity_):
                 """
                 Table listing TCP connections for which
                 detailed information is provided
@@ -5043,7 +5409,10 @@ class TcpConnection(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpConnection.Nodes.Node.DetailInformations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpConnection.Nodes.Node.DetailInformations, self).__init__()
 
                     self.yang_name = "detail-informations"
                     self.yang_parent_name = "node"
@@ -5061,7 +5430,7 @@ class TcpConnection(Entity):
                     self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations, [], name, value)
 
 
-                class DetailInformation(Entity):
+                class DetailInformation(_Entity_):
                     """
                     Protocol Control Block ID
                     
@@ -5871,7 +6240,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, self).__init__()
 
                         self.yang_name = "detail-information"
                         self.yang_parent_name = "detail-informations"
@@ -6082,7 +6454,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', 'address_family', 'pcb', 'so', 'tcpcb', 'vrf_id', 'connection_state', 'established_time', 'local_pid', 'local_port', 'foreign_port', 'packet_priority', 'packet_tos', 'packet_ttl', 'hash_index', 'current_receive_queue_size', 'max_receive_queue_size', 'current_send_queue_size', 'max_send_queue_size', 'current_receive_queue_packet_size', 'max_receive_queue_packet_size', 'save_queue_size', 'send_initial_sequence_num', 'send_unack_sequence_num', 'send_next_sequence_num', 'send_max_sequence_num', 'send_window_size', 'send_congestion_window_size', 'receive_initial_sequence_num', 'receive_next_sequence_num', 'receive_adv_window_size', 'receive_window_size', 'mss', 'peer_mss', 'srtt', 'rtto', 'krtt', 'srtv', 'min_rtt', 'max_rtt', 'retries', 'ack_hold_time', 'giveup_time', 'keep_alive_time', 'syn_wait_time', 'rxsy_naclname', 'soft_error', 'sock_error', 'is_retrans_forever', 'min_mss', 'max_mss', 'connect_retries', 'connect_retry_interval', 'receive_window_scale', 'send_window_scale', 'request_receive_window_scale', 'rqst_send_wnd_scale', 'time_stamp_recent', 'time_stamp_recent_age', 'last_ack_sent', 'sendbuf_lowwat', 'recvbuf_lowwat', 'sendbuf_hiwat', 'recvbuf_hiwat', 'sendbuf_notify_thresh', 'recvbuf_datasize', 'queue_length', 'queue_zero_length', 'queue_limit', 'socket_error', 'auto_rearm', 'send_pdu_count', 'output_ifhandle', 'fib_pd_ctx_size', 'num_labels', 'local_app_instance'], name, value)
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         Local address
                         
@@ -6119,7 +6491,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "detail-information"
@@ -6141,9 +6516,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress']['meta_info']
 
 
-                    class ForeignAddress(Entity):
+                    class ForeignAddress(_Entity_):
                         """
                         Foreign address
                         
@@ -6180,7 +6559,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, self).__init__()
 
                             self.yang_name = "foreign-address"
                             self.yang_parent_name = "detail-information"
@@ -6202,9 +6584,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress']['meta_info']
 
 
-                    class SocketOptionFlags(Entity):
+                    class SocketOptionFlags(_Entity_):
                         """
                         Socket option flags
                         
@@ -6307,7 +6693,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, self).__init__()
 
                             self.yang_name = "socket-option-flags"
                             self.yang_parent_name = "detail-information"
@@ -6349,9 +6738,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, ['debug', 'accept_connection', 'reuse_address', 'keep_alive', 'dont_route', 'broadcast', 'use_loopback', 'linger', 'out_of_band_inline', 'reuse_port', 'nonblocking_io', 'snd_buf_scaled', 'rcv_buf_scaled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags']['meta_info']
 
 
-                    class SocketStateFlags(Entity):
+                    class SocketStateFlags(_Entity_):
                         """
                         Socket state flags
                         
@@ -6468,7 +6861,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, self).__init__()
 
                             self.yang_name = "socket-state-flags"
                             self.yang_parent_name = "detail-information"
@@ -6514,9 +6910,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, ['no_file_descriptor_reference', 'is_connected', 'is_connecting', 'is_disconnecting', 'cant_send_more', 'cant_receive_more', 'received_at_mark', 'privileged', 'block_close', 'async_io_notify', 'is_confirming', 'is_solock', 'is_detached', 'block_receive', 'block_send'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags']['meta_info']
 
 
-                    class FeatureFlags(Entity):
+                    class FeatureFlags(_Entity_):
                         """
                         Connection feature flags
                         
@@ -6591,7 +6991,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, self).__init__()
 
                             self.yang_name = "feature-flags"
                             self.yang_parent_name = "detail-information"
@@ -6625,9 +7028,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags']['meta_info']
 
 
-                    class StateFlags(Entity):
+                    class StateFlags(_Entity_):
                         """
                         Connection state flags
                         
@@ -6695,7 +7102,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, self).__init__()
 
                             self.yang_name = "state-flags"
                             self.yang_parent_name = "detail-information"
@@ -6727,9 +7137,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, ['nagle_wait', 'ack_needed', 'fin_sent', 'probing', 'need_push', 'pushed', 'in_syn_cache', 'path_mtu_ager'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags']['meta_info']
 
 
-                    class RequestFlags(Entity):
+                    class RequestFlags(_Entity_):
                         """
                         Connection request flags
                         
@@ -6804,7 +7218,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, self).__init__()
 
                             self.yang_name = "request-flags"
                             self.yang_parent_name = "detail-information"
@@ -6838,9 +7255,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags']['meta_info']
 
 
-                    class ReceiveBufStateFlags(Entity):
+                    class ReceiveBufStateFlags(_Entity_):
                         """
                         Receive buffer state flags
                         
@@ -6943,7 +7364,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, self).__init__()
 
                             self.yang_name = "receive-buf-state-flags"
                             self.yang_parent_name = "detail-information"
@@ -6985,9 +7409,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags']['meta_info']
 
 
-                    class SendBufStateFlags(Entity):
+                    class SendBufStateFlags(_Entity_):
                         """
                         Send buffer state flags
                         
@@ -7090,7 +7518,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, self).__init__()
 
                             self.yang_name = "send-buf-state-flags"
                             self.yang_parent_name = "detail-information"
@@ -7132,9 +7563,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select', 'packet_extended'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags']['meta_info']
 
 
-                    class FibPdCtx(Entity):
+                    class FibPdCtx(_Entity_):
                         """
                         Cached fib pd context
                         
@@ -7155,7 +7590,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, self).__init__()
 
                             self.yang_name = "fib-pd-ctx"
                             self.yang_parent_name = "detail-information"
@@ -7173,9 +7611,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx']['meta_info']
 
 
-                    class FibLabelOutput(Entity):
+                    class FibLabelOutput(_Entity_):
                         """
                         Cached Label stack
                         
@@ -7196,7 +7638,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, self).__init__()
 
                             self.yang_name = "fib-label-output"
                             self.yang_parent_name = "detail-information"
@@ -7214,9 +7659,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput']['meta_info']
 
 
-                    class Timer(Entity):
+                    class Timer(_Entity_):
                         """
                         Timers
                         
@@ -7262,7 +7711,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, self).__init__()
 
                             self.yang_name = "timer"
                             self.yang_parent_name = "detail-information"
@@ -7286,9 +7738,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, ['timer_type', 'timer_activations', 'timer_expirations', 'timer_next_activation'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer']['meta_info']
 
 
-                    class SackBlk(Entity):
+                    class SackBlk(_Entity_):
                         """
                         Seq nos. of sack blocks
                         
@@ -7318,7 +7774,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, self).__init__()
 
                             self.yang_name = "sack-blk"
                             self.yang_parent_name = "detail-information"
@@ -7338,9 +7797,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, ['start', 'end'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk']['meta_info']
 
 
-                    class SendSackHole(Entity):
+                    class SendSackHole(_Entity_):
                         """
                         Sorted list of sack holes
                         
@@ -7388,7 +7851,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, self).__init__()
 
                             self.yang_name = "send-sack-hole"
                             self.yang_parent_name = "detail-information"
@@ -7412,11 +7878,23 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, ['start', 'end', 'duplicated_ack', 'retransmitted'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations']['meta_info']
 
 
-
-
-            class Keychains(Entity):
+            class Keychains(_Entity_):
                 """
                 Table listing keychains configured for TCP\-AO.
                 
@@ -7435,7 +7913,10 @@ class TcpConnection(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpConnection.Nodes.Node.Keychains, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpConnection.Nodes.Node.Keychains, self).__init__()
 
                     self.yang_name = "keychains"
                     self.yang_parent_name = "node"
@@ -7453,7 +7934,7 @@ class TcpConnection(Entity):
                     self._perform_setattr(TcpConnection.Nodes.Node.Keychains, [], name, value)
 
 
-                class Keychain(Entity):
+                class Keychain(_Entity_):
                     """
                     Details of a keychain
                     
@@ -7532,7 +8013,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.Keychains.Keychain, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.Keychains.Keychain, self).__init__()
 
                         self.yang_name = "keychain"
                         self.yang_parent_name = "keychains"
@@ -7564,7 +8048,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain, ['keychain_name', 'chain_name', 'is_configured', 'desired_key_available', 'desired_key_id'], name, value)
 
 
-                    class Keys(Entity):
+                    class Keys(_Entity_):
                         """
                         Keys under this keychain
                         
@@ -7668,7 +8152,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, self).__init__()
 
                             self.yang_name = "keys"
                             self.yang_parent_name = "keychain"
@@ -7709,7 +8196,7 @@ class TcpConnection(Entity):
                             self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys, ['key_id', 'is_active', 'is_expired', 'is_valid', 'reason', 'send_id', 'recv_id', 'crypt_algo', 'is_configured', 'overlapping_key_available', 'overlapping_key'], name, value)
 
 
-                        class InvalidatedKey(Entity):
+                        class InvalidatedKey(_Entity_):
                             """
                             List of keys invalidated
                             
@@ -7730,7 +8217,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, self).__init__()
 
                                 self.yang_name = "invalidated-key"
                                 self.yang_parent_name = "keys"
@@ -7748,10 +8238,18 @@ class TcpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey, ['key_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.Keys.InvalidatedKey']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.Keys']['meta_info']
 
 
-
-                    class ActiveKey(Entity):
+                    class ActiveKey(_Entity_):
                         """
                         List of active keys
                         
@@ -7772,7 +8270,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, self).__init__()
 
                             self.yang_name = "active-key"
                             self.yang_parent_name = "keychain"
@@ -7790,9 +8291,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey, ['key_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.ActiveKey']['meta_info']
 
 
-                    class SendId(Entity):
+                    class SendId(_Entity_):
                         """
                         Send IDs under this keychain
                         
@@ -7820,7 +8325,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, self).__init__()
 
                             self.yang_name = "send-id"
                             self.yang_parent_name = "keychain"
@@ -7841,7 +8349,7 @@ class TcpConnection(Entity):
                             self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId, ['id'], name, value)
 
 
-                        class Keys(Entity):
+                        class Keys(_Entity_):
                             """
                             List of keys having this id
                             
@@ -7862,7 +8370,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, self).__init__()
 
                                 self.yang_name = "keys"
                                 self.yang_parent_name = "send-id"
@@ -7880,10 +8391,18 @@ class TcpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys, ['key_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.SendId.Keys']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.SendId']['meta_info']
 
 
-
-                    class ReceiveId(Entity):
+                    class ReceiveId(_Entity_):
                         """
                         Receive IDs under this keychain
                         
@@ -7911,7 +8430,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, self).__init__()
 
                             self.yang_name = "receive-id"
                             self.yang_parent_name = "keychain"
@@ -7932,7 +8454,7 @@ class TcpConnection(Entity):
                             self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId, ['id'], name, value)
 
 
-                        class Keys(Entity):
+                        class Keys(_Entity_):
                             """
                             List of keys having this id
                             
@@ -7953,7 +8475,10 @@ class TcpConnection(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, self).__init__()
 
                                 self.yang_name = "keys"
                                 self.yang_parent_name = "receive-id"
@@ -7971,12 +8496,28 @@ class TcpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys, ['key_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId.Keys']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain.ReceiveId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.Keychains.Keychain']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpConnection.Nodes.Node.Keychains']['meta_info']
 
 
-
-
-
-            class BriefInformations(Entity):
+            class BriefInformations(_Entity_):
                 """
                 Table listing connections for which brief
                 information is provided.Note that not all
@@ -7997,7 +8538,10 @@ class TcpConnection(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpConnection.Nodes.Node.BriefInformations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpConnection.Nodes.Node.BriefInformations, self).__init__()
 
                     self.yang_name = "brief-informations"
                     self.yang_parent_name = "node"
@@ -8015,7 +8559,7 @@ class TcpConnection(Entity):
                     self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations, [], name, value)
 
 
-                class BriefInformation(Entity):
+                class BriefInformation(_Entity_):
                     """
                     Brief information about a TCP connection
                     
@@ -8131,7 +8675,10 @@ class TcpConnection(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, self).__init__()
 
                         self.yang_name = "brief-information"
                         self.yang_parent_name = "brief-informations"
@@ -8176,7 +8723,7 @@ class TcpConnection(Entity):
                         self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', 'af_name', 'pcb', 'connection_state', 'local_pid', 'local_port', 'foreign_port', 'current_receive_queue_size', 'current_send_queue_size', 'vrf_id'], name, value)
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         Local address
                         
@@ -8213,7 +8760,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "brief-information"
@@ -8235,9 +8785,13 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress']['meta_info']
 
 
-                    class ForeignAddress(Entity):
+                    class ForeignAddress(_Entity_):
                         """
                         Foreign address
                         
@@ -8274,7 +8828,10 @@ class TcpConnection(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, self).__init__()
 
                             self.yang_name = "foreign-address"
                             self.yang_parent_name = "brief-information"
@@ -8296,18 +8853,42 @@ class TcpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations.BriefInformation']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                return meta._meta_table['TcpConnection.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+            return meta._meta_table['TcpConnection.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TcpConnection()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpConnection']['meta_info']
 
 
-class Tcp(Entity):
+class Tcp(_Entity_):
     """
     tcp
     
@@ -8326,7 +8907,10 @@ class Tcp(Entity):
     _revision = '2018-11-01'
 
     def __init__(self):
-        super(Tcp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Tcp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tcp"
@@ -8347,7 +8931,7 @@ class Tcp(Entity):
         self._perform_setattr(Tcp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific TCP operational data
         
@@ -8366,7 +8950,10 @@ class Tcp(Entity):
         _revision = '2018-11-01'
 
         def __init__(self):
-            super(Tcp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tcp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "tcp"
@@ -8385,7 +8972,7 @@ class Tcp(Entity):
             self._perform_setattr(Tcp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             TCP operational data for a particular node
             
@@ -8413,7 +9000,10 @@ class Tcp(Entity):
             _revision = '2018-11-01'
 
             def __init__(self):
-                super(Tcp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tcp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -8437,7 +9027,7 @@ class Tcp(Entity):
                 self._perform_setattr(Tcp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistical TCP operational data for a node
                 
@@ -8463,7 +9053,10 @@ class Tcp(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(Tcp.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tcp.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -8487,7 +9080,7 @@ class Tcp(Entity):
                     self._perform_setattr(Tcp.Nodes.Node.Statistics, [], name, value)
 
 
-                class Ipv4Traffic(Entity):
+                class Ipv4Traffic(_Entity_):
                     """
                     TCP Traffic statistics for IPv4
                     
@@ -8544,7 +9137,10 @@ class Tcp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(Tcp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tcp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
 
                         self.yang_name = "ipv4-traffic"
                         self.yang_parent_name = "statistics"
@@ -8570,9 +9166,13 @@ class Tcp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv4Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['Tcp.Nodes.Node.Statistics.Ipv4Traffic']['meta_info']
 
 
-                class Ipv6Traffic(Entity):
+                class Ipv6Traffic(_Entity_):
                     """
                     TCP Traffic statistics for IPv6
                     
@@ -8629,7 +9229,10 @@ class Tcp(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(Tcp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tcp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
 
                         self.yang_name = "ipv6-traffic"
                         self.yang_parent_name = "statistics"
@@ -8655,17 +9258,37 @@ class Tcp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv6Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['Tcp.Nodes.Node.Statistics.Ipv6Traffic']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['Tcp.Nodes.Node.Statistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                return meta._meta_table['Tcp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+            return meta._meta_table['Tcp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Tcp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['Tcp']['meta_info']
 
 
-class TcpNsr(Entity):
+class TcpNsr(_Entity_):
     """
     tcp nsr
     
@@ -8684,7 +9307,10 @@ class TcpNsr(Entity):
     _revision = '2018-11-01'
 
     def __init__(self):
-        super(TcpNsr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TcpNsr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tcp-nsr"
@@ -8705,7 +9331,7 @@ class TcpNsr(Entity):
         self._perform_setattr(TcpNsr, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of information about all nodes present on
         the system
@@ -8725,7 +9351,10 @@ class TcpNsr(Entity):
         _revision = '2018-11-01'
 
         def __init__(self):
-            super(TcpNsr.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TcpNsr.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "tcp-nsr"
@@ -8744,7 +9373,7 @@ class TcpNsr(Entity):
             self._perform_setattr(TcpNsr.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a single node
             
@@ -8793,7 +9422,10 @@ class TcpNsr(Entity):
             _revision = '2018-11-01'
 
             def __init__(self):
-                super(TcpNsr.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TcpNsr.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -8829,7 +9461,7 @@ class TcpNsr(Entity):
                 self._perform_setattr(TcpNsr.Nodes.Node, ['id'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Information about TCP NSR Sessions
                 
@@ -8855,7 +9487,10 @@ class TcpNsr(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpNsr.Nodes.Node.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpNsr.Nodes.Node.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "node"
@@ -8879,7 +9514,7 @@ class TcpNsr(Entity):
                     self._perform_setattr(TcpNsr.Nodes.Node.Session, [], name, value)
 
 
-                class BriefSessions(Entity):
+                class BriefSessions(_Entity_):
                     """
                     Information about TCP NSR Sessions
                     
@@ -8898,7 +9533,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Session.BriefSessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Session.BriefSessions, self).__init__()
 
                         self.yang_name = "brief-sessions"
                         self.yang_parent_name = "session"
@@ -8916,7 +9554,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions, [], name, value)
 
 
-                    class BriefSession(Entity):
+                    class BriefSession(_Entity_):
                         """
                         Brief information about NSR Sessions
                         
@@ -9031,7 +9669,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, self).__init__()
 
                             self.yang_name = "brief-session"
                             self.yang_parent_name = "brief-sessions"
@@ -9073,7 +9714,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication'], name, value)
 
 
-                        class LocalAddress(Entity):
+                        class LocalAddress(_Entity_):
                             """
                             Local address
                             
@@ -9094,7 +9735,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, self).__init__()
 
                                 self.yang_name = "local-address"
                                 self.yang_parent_name = "brief-session"
@@ -9112,9 +9756,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress']['meta_info']
 
 
-                        class ForeignAddress(Entity):
+                        class ForeignAddress(_Entity_):
                             """
                             Foreign address
                             
@@ -9135,7 +9783,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, self).__init__()
 
                                 self.yang_name = "foreign-address"
                                 self.yang_parent_name = "brief-session"
@@ -9153,11 +9804,23 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Session.BriefSessions']['meta_info']
 
 
-
-
-                class DetailSessions(Entity):
+                class DetailSessions(_Entity_):
                     """
                     Table about TCP NSR Sessions details
                     
@@ -9176,7 +9839,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Session.DetailSessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Session.DetailSessions, self).__init__()
 
                         self.yang_name = "detail-sessions"
                         self.yang_parent_name = "session"
@@ -9194,7 +9860,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions, [], name, value)
 
 
-                    class DetailSession(Entity):
+                    class DetailSession(_Entity_):
                         """
                         showing detailed information of NSR Sessions
                         
@@ -9621,7 +10287,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, self).__init__()
 
                             self.yang_name = "detail-session"
                             self.yang_parent_name = "detail-sessions"
@@ -9735,7 +10404,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'cookie', 'is_session_replicated', 'is_session_synced', 'fist_standby_sequence_number', 'fssn_offset', 'nsr_down_reason', 'nsr_down_time', 'sequence_number_of_init_sync', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'init_sync_flags', 'sequence_number_of_init_sync_up_stream', 'peer_endp_hdl_up_stream', 'init_sync_start_time_up_stream', 'init_sync_end_time_up_stream', 'fist_standby_sequence_number_up_stream', 'nsr_down_reason_up_stream', 'nsr_down_time_up_stream', 'sequence_number_of_init_sync_down_stream', 'peer_endp_hdl_down_stream', 'init_sync_start_time_down_stream', 'init_sync_end_time_down_stream', 'fist_standby_sequence_number_down_stream', 'nsr_down_reason_down_stream', 'nsr_down_time_down_stream', 'max_number_of_held_packet', 'max_number_of_held_packet_reach_time', 'max_number_of_held_internal_ack', 'max_number_of_held_internal_ack_reach_time'], name, value)
 
 
-                        class SetInformation(Entity):
+                        class SetInformation(_Entity_):
                             """
                             Sesson\-set information
                             
@@ -9901,7 +10570,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, self).__init__()
 
                                 self.yang_name = "set-information"
                                 self.yang_parent_name = "detail-session"
@@ -9953,9 +10625,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, ['sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation']['meta_info']
 
 
-                        class LocalAddress(Entity):
+                        class LocalAddress(_Entity_):
                             """
                             Local address
                             
@@ -9976,7 +10652,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, self).__init__()
 
                                 self.yang_name = "local-address"
                                 self.yang_parent_name = "detail-session"
@@ -9994,9 +10673,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress']['meta_info']
 
 
-                        class ForeignAddress(Entity):
+                        class ForeignAddress(_Entity_):
                             """
                             Foreign address
                             
@@ -10017,7 +10700,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, self).__init__()
 
                                 self.yang_name = "foreign-address"
                                 self.yang_parent_name = "detail-session"
@@ -10035,9 +10721,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress']['meta_info']
 
 
-                        class PacketHoldQueue(Entity):
+                        class PacketHoldQueue(_Entity_):
                             """
                             Sequence Number and datalength of each node in
                             hold\_pakqueue
@@ -10077,7 +10767,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, self).__init__()
 
                                 self.yang_name = "packet-hold-queue"
                                 self.yang_parent_name = "detail-session"
@@ -10099,9 +10792,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue']['meta_info']
 
 
-                        class InternalAckHoldQueue(Entity):
+                        class InternalAckHoldQueue(_Entity_):
                             """
                             Sequence Number and datalength of each node in
                             hold\_iackqueue
@@ -10141,7 +10838,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, self).__init__()
 
                                 self.yang_name = "internal-ack-hold-queue"
                                 self.yang_parent_name = "detail-session"
@@ -10163,12 +10863,28 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Session.DetailSessions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpNsr.Nodes.Node.Session']['meta_info']
 
 
-
-
-
-            class Client(Entity):
+            class Client(_Entity_):
                 """
                 Information about TCP NSR Client
                 
@@ -10194,7 +10910,10 @@ class TcpNsr(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpNsr.Nodes.Node.Client, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpNsr.Nodes.Node.Client, self).__init__()
 
                     self.yang_name = "client"
                     self.yang_parent_name = "node"
@@ -10218,7 +10937,7 @@ class TcpNsr(Entity):
                     self._perform_setattr(TcpNsr.Nodes.Node.Client, [], name, value)
 
 
-                class DetailClients(Entity):
+                class DetailClients(_Entity_):
                     """
                     Table about TCP NSR Client details
                     
@@ -10237,7 +10956,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Client.DetailClients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Client.DetailClients, self).__init__()
 
                         self.yang_name = "detail-clients"
                         self.yang_parent_name = "client"
@@ -10255,7 +10977,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients, [], name, value)
 
 
-                    class DetailClient(Entity):
+                    class DetailClient(_Entity_):
                         """
                         showing detailed information of NSR Clients
                         
@@ -10364,7 +11086,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, self).__init__()
 
                             self.yang_name = "detail-client"
                             self.yang_parent_name = "detail-clients"
@@ -10402,10 +11127,18 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions', 'connected_at', 'is_notification_registered'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Client.DetailClients.DetailClient']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Client.DetailClients']['meta_info']
 
 
-
-                class BriefClients(Entity):
+                class BriefClients(_Entity_):
                     """
                     Information about TCP NSR Client
                     
@@ -10424,7 +11157,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Client.BriefClients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Client.BriefClients, self).__init__()
 
                         self.yang_name = "brief-clients"
                         self.yang_parent_name = "client"
@@ -10442,7 +11178,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients, [], name, value)
 
 
-                    class BriefClient(Entity):
+                    class BriefClient(_Entity_):
                         """
                         Brief information about NSR Client
                         
@@ -10533,7 +11269,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, self).__init__()
 
                             self.yang_name = "brief-client"
                             self.yang_parent_name = "brief-clients"
@@ -10567,11 +11306,23 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Client.BriefClients.BriefClient']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Client.BriefClients']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpNsr.Nodes.Node.Client']['meta_info']
 
 
-
-
-            class SessionSet(Entity):
+            class SessionSet(_Entity_):
                 """
                 Information about TCP NSR Session Sets
                 
@@ -10597,7 +11348,10 @@ class TcpNsr(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpNsr.Nodes.Node.SessionSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpNsr.Nodes.Node.SessionSet, self).__init__()
 
                     self.yang_name = "session-set"
                     self.yang_parent_name = "node"
@@ -10621,7 +11375,7 @@ class TcpNsr(Entity):
                     self._perform_setattr(TcpNsr.Nodes.Node.SessionSet, [], name, value)
 
 
-                class DetailSets(Entity):
+                class DetailSets(_Entity_):
                     """
                     Table about TCP NSR Session Sets details
                     
@@ -10640,7 +11394,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.SessionSet.DetailSets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.SessionSet.DetailSets, self).__init__()
 
                         self.yang_name = "detail-sets"
                         self.yang_parent_name = "session-set"
@@ -10658,7 +11415,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets, [], name, value)
 
 
-                    class DetailSet(Entity):
+                    class DetailSet(_Entity_):
                         """
                         showing detailed information of NSR Session
                         Sets
@@ -10977,7 +11734,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, self).__init__()
 
                             self.yang_name = "detail-set"
                             self.yang_parent_name = "detail-sets"
@@ -11061,10 +11821,18 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', 'sscb', 'pid', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'sequence_number_of_init_sync', 'init_sync_timer', 'total_number_of_init_sync_sessions', 'number_of_init_synced_sessions', 'number_of_sessions_init_sync_failed', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'is_sscb_init_sync_ready', 'init_sync_ready_start_time', 'init_sync_ready_end_time', 'nsr_reset_time', 'is_audit_in_progress', 'audit_seq_number', 'audit_start_time', 'audit_end_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.SessionSet.DetailSets']['meta_info']
 
 
-
-                class BriefSets(Entity):
+                class BriefSets(_Entity_):
                     """
                     Information about TCP NSR Session Sets
                     
@@ -11083,7 +11851,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.SessionSet.BriefSets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.SessionSet.BriefSets, self).__init__()
 
                         self.yang_name = "brief-sets"
                         self.yang_parent_name = "session-set"
@@ -11101,7 +11872,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets, [], name, value)
 
 
-                    class BriefSet(Entity):
+                    class BriefSet(_Entity_):
                         """
                         Brief information about NSR Session Sets
                         
@@ -11276,7 +12047,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, self).__init__()
 
                             self.yang_name = "brief-set"
                             self.yang_parent_name = "brief-sets"
@@ -11330,11 +12104,23 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', 'sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.SessionSet.BriefSets']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpNsr.Nodes.Node.SessionSet']['meta_info']
 
 
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statis Information about TCP NSR connections
                 
@@ -11374,7 +12160,10 @@ class TcpNsr(Entity):
                 _revision = '2018-11-01'
 
                 def __init__(self):
-                    super(TcpNsr.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TcpNsr.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -11406,7 +12195,7 @@ class TcpNsr(Entity):
                     self._perform_setattr(TcpNsr.Nodes.Node.Statistics, [], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Summary statistics across all NSR connections
                     
@@ -11738,7 +12527,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Statistics.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Statistics.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "statistics"
@@ -11831,7 +12623,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary, ['last_cleared_time', 'number_of_connected_clients', 'number_of_disconnected_clients', 'number_of_current_clients', 'number_of_created_session_sets', 'number_of_destroyed_session_sets', 'number_of_current_session_sets', 'number_of_added_sessions', 'number_of_deleted_sessions', 'number_of_current_sessions', 'number_of_partner_node', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_held_packets', 'number_of_held_but_dropped_packets', 'number_of_held_internal_acks', 'number_of_held_but_dropped_internal_acks', 'number_of_sent_internal_acks', 'number_of_received_internal_acks', 'number_of_qad_receive_messages_drops', 'number_of_qad_receive_messages_unknowns', 'number_of_qad_receive_messages_accepts', 'number_of_qad_stale_receive_messages_drops', 'number_of_qad_transfer_message_sent', 'number_of_qad_transfer_message_drops', 'number_of_internal_ack_drops_no_pcb', 'number_of_internal_ack_drops_no_scbdp', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'held_packet_drops'], name, value)
 
 
-                    class SndCounters(Entity):
+                    class SndCounters(_Entity_):
                         """
                         Aggregate Send path counters
                         
@@ -11857,7 +12649,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, self).__init__()
 
                             self.yang_name = "snd-counters"
                             self.yang_parent_name = "summary"
@@ -11881,7 +12676,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, [], name, value)
 
 
-                        class Common(Entity):
+                        class Common(_Entity_):
                             """
                             Common send path counters
                             
@@ -12118,7 +12913,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, self).__init__()
 
                                 self.yang_name = "common"
                                 self.yang_parent_name = "snd-counters"
@@ -12184,9 +12982,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common']['meta_info']
 
 
-                        class AggrOnly(Entity):
+                        class AggrOnly(_Entity_):
                             """
                             Aggregate only send path counters
                             
@@ -12270,7 +13072,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, self).__init__()
 
                                 self.yang_name = "aggr-only"
                                 self.yang_parent_name = "snd-counters"
@@ -12302,10 +13107,18 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, ['data_xfer_rcv_drop_no_pcb', 'data_xfer_rcv_drop_no_scb_dp', 'seg_instr_rcv_drop_no_pcb', 'seg_instr_rcv_drop_no_scb_dp', 'nack_rcv_drop_no_pcb', 'nack_rcv_drop_no_scb_dp', 'cleanup_rcv_drop_no_pcb', 'cleanup_rcv_drop_no_scb_dp'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.SndCounters']['meta_info']
 
 
-
-                    class AuditCounters(Entity):
+                    class AuditCounters(_Entity_):
                         """
                         Aggregate Audit counters
                         
@@ -12331,7 +13144,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, self).__init__()
 
                             self.yang_name = "audit-counters"
                             self.yang_parent_name = "summary"
@@ -12355,7 +13171,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, [], name, value)
 
 
-                        class Common(Entity):
+                        class Common(_Entity_):
                             """
                             Common audit counters
                             
@@ -12592,7 +13408,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, self).__init__()
 
                                 self.yang_name = "common"
                                 self.yang_parent_name = "audit-counters"
@@ -12658,9 +13477,13 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, ['mark_session_set_send', 'mark_session_set_send_drop', 'mark_session_set_rcv', 'mark_session_set_rcv_drop', 'session_send', 'session_send_drop', 'session_rcv', 'session_rcv_drop', 'sweep_session_set_send', 'sweep_session_set_send_drop', 'sweep_session_set_rcv', 'sweep_session_set_rcv_drop', 'session_set_response_send', 'session_set_response_send_drop', 'session_set_response_rcv', 'session_set_response_rcv_drop', 'mark_session_set_ack_send', 'mark_session_set_ack_send_drop', 'mark_session_set_ack_rcv', 'mark_session_set_ack_rcv_drop', 'mark_session_set_nack_send', 'mark_session_set_nack_send_drop', 'mark_session_set_nack_rcv', 'mark_session_set_nack_rcv_drop', 'abort'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common']['meta_info']
 
 
-                        class AggrOnly(Entity):
+                        class AggrOnly(_Entity_):
                             """
                             Aggregate only audit counters
                             
@@ -12726,7 +13549,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, self).__init__()
 
                                 self.yang_name = "aggr-only"
                                 self.yang_parent_name = "audit-counters"
@@ -12754,10 +13580,18 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, ['mark_session_set_rcv_drop_aggr', 'session_rcv_drop_aggr', 'sweep_session_set_rcv_drop_aggr', 'session_set_response_rcv_drop_aggr', 'mark_session_set_ack_rcv_drop_aggr', 'mark_session_set_nack_rcv_drop_aggr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters']['meta_info']
 
 
-
-                    class NotificationStatistic(Entity):
+                    class NotificationStatistic(_Entity_):
                         """
                         Various types of notification stats
                         
@@ -12805,7 +13639,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, self).__init__()
 
                             self.yang_name = "notification-statistic"
                             self.yang_parent_name = "summary"
@@ -12829,10 +13666,18 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Statistics.Summary']['meta_info']
 
 
-
-                class StatisticClients(Entity):
+                class StatisticClients(_Entity_):
                     """
                     Table listing NSR connections for which
                     statistic information is provided
@@ -12852,7 +13697,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Statistics.StatisticClients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Statistics.StatisticClients, self).__init__()
 
                         self.yang_name = "statistic-clients"
                         self.yang_parent_name = "statistics"
@@ -12870,7 +13718,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients, [], name, value)
 
 
-                    class StatisticClient(Entity):
+                    class StatisticClient(_Entity_):
                         """
                         showing statistic information of NSR Clients
                         
@@ -12981,7 +13829,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, self).__init__()
 
                             self.yang_name = "statistic-client"
                             self.yang_parent_name = "statistic-clients"
@@ -13020,7 +13871,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'connected_at', 'number_of_created_sscb', 'number_of_deleted_sscb', 'last_cleared_time'], name, value)
 
 
-                        class NotificationStatistic(Entity):
+                        class NotificationStatistic(_Entity_):
                             """
                             Various types of notification stats
                             
@@ -13068,7 +13919,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, self).__init__()
 
                                 self.yang_name = "notification-statistic"
                                 self.yang_parent_name = "statistic-client"
@@ -13092,11 +13946,23 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticClients']['meta_info']
 
 
-
-
-                class StatisticSets(Entity):
+                class StatisticSets(_Entity_):
                     """
                     Table listing NSR connections for which
                     statistic information is provided
@@ -13116,7 +13982,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Statistics.StatisticSets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Statistics.StatisticSets, self).__init__()
 
                         self.yang_name = "statistic-sets"
                         self.yang_parent_name = "statistics"
@@ -13134,7 +14003,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets, [], name, value)
 
 
-                    class StatisticSet(Entity):
+                    class StatisticSet(_Entity_):
                         """
                         showing statistic information of NSR Session
                         Set
@@ -13230,7 +14099,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, self).__init__()
 
                             self.yang_name = "statistic-set"
                             self.yang_parent_name = "statistic-sets"
@@ -13264,10 +14136,18 @@ class TcpNsr(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', 'sscb', 'set_id', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_failover', 'number_of_nsr_resets', 'last_cleared_time'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticSets']['meta_info']
 
 
-
-                class StatisticSessions(Entity):
+                class StatisticSessions(_Entity_):
                     """
                     Table listing NSR connections for which
                     statistic information is provided
@@ -13287,7 +14167,10 @@ class TcpNsr(Entity):
                     _revision = '2018-11-01'
 
                     def __init__(self):
-                        super(TcpNsr.Nodes.Node.Statistics.StatisticSessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TcpNsr.Nodes.Node.Statistics.StatisticSessions, self).__init__()
 
                         self.yang_name = "statistic-sessions"
                         self.yang_parent_name = "statistics"
@@ -13305,7 +14188,7 @@ class TcpNsr(Entity):
                         self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions, [], name, value)
 
 
-                    class StatisticSession(Entity):
+                    class StatisticSession(_Entity_):
                         """
                         showing statistic information of TCP
                         connections
@@ -13426,7 +14309,10 @@ class TcpNsr(Entity):
                         _revision = '2018-11-01'
 
                         def __init__(self):
-                            super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, self).__init__()
 
                             self.yang_name = "statistic-session"
                             self.yang_parent_name = "statistic-sessions"
@@ -13469,7 +14355,7 @@ class TcpNsr(Entity):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', 'pcb', 'number_of_times_nsr_up', 'number_of_timers_nsr_down', 'number_of_times_nsr_disabled', 'number_of_times_nsr_fail_over', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'last_cleared_time'], name, value)
 
 
-                        class SndCounters(Entity):
+                        class SndCounters(_Entity_):
                             """
                             Send path counters for the PCB
                             
@@ -13706,7 +14592,10 @@ class TcpNsr(Entity):
                             _revision = '2018-11-01'
 
                             def __init__(self):
-                                super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, self).__init__()
 
                                 self.yang_name = "snd-counters"
                                 self.yang_parent_name = "statistic-session"
@@ -13772,15 +14661,43 @@ class TcpNsr(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                                return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                        return meta._meta_table['TcpNsr.Nodes.Node.Statistics.StatisticSessions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                    return meta._meta_table['TcpNsr.Nodes.Node.Statistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                return meta._meta_table['TcpNsr.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+            return meta._meta_table['TcpNsr.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TcpNsr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpNsr']['meta_info']
 
 

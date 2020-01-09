@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class NacmAction(Enum):
     permit = Enum.YLeaf(0, "permit")
 
     deny = Enum.YLeaf(1, "deny")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+        return meta._meta_table['NacmAction']
 
 
 class NacmRule(Enum):
@@ -68,8 +77,14 @@ class NacmRule(Enum):
     notification = Enum.YLeaf(2, "notification")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+        return meta._meta_table['NacmRule']
 
-class Nacm(Entity):
+
+
+class Nacm(_Entity_):
     """
     Parameters for NETCONF Access Control Model
     
@@ -116,7 +131,10 @@ class Nacm(Entity):
     _revision = '2017-09-30'
 
     def __init__(self):
-        super(Nacm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Nacm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nacm"
@@ -152,7 +170,7 @@ class Nacm(Entity):
         self._perform_setattr(Nacm, ['enable_nacm', 'write_default', 'exec_default', 'enable_external_groups', 'read_default'], name, value)
 
 
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         NETCONF Access Control Groups
         
@@ -169,7 +187,10 @@ class Nacm(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(Nacm.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nacm.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "nacm"
@@ -188,7 +209,7 @@ class Nacm(Entity):
             self._perform_setattr(Nacm.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             One NACM Group Entry
             
@@ -214,7 +235,10 @@ class Nacm(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(Nacm.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nacm.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -235,10 +259,18 @@ class Nacm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.Groups.Group, ['group_name', 'user_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                return meta._meta_table['Nacm.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+            return meta._meta_table['Nacm.Groups']['meta_info']
 
 
-
-    class RulelistClasses(Entity):
+    class RulelistClasses(_Entity_):
         """
         Contains all rule lists of NACM
         
@@ -255,7 +287,10 @@ class Nacm(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(Nacm.RulelistClasses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nacm.RulelistClasses, self).__init__()
 
             self.yang_name = "rulelist-classes"
             self.yang_parent_name = "nacm"
@@ -274,7 +309,7 @@ class Nacm(Entity):
             self._perform_setattr(Nacm.RulelistClasses, [], name, value)
 
 
-        class RulelistClass(Entity):
+        class RulelistClass(_Entity_):
             """
             Each rule list of NACM
             
@@ -310,7 +345,10 @@ class Nacm(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(Nacm.RulelistClasses.RulelistClass, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nacm.RulelistClasses.RulelistClass, self).__init__()
 
                 self.yang_name = "rulelist-class"
                 self.yang_parent_name = "rulelist-classes"
@@ -340,7 +378,7 @@ class Nacm(Entity):
                 self._perform_setattr(Nacm.RulelistClasses.RulelistClass, ['ordering_index', 'rulelist_name'], name, value)
 
 
-            class GroupNames(Entity):
+            class GroupNames(_Entity_):
                 """
                 List of groups that will be assigned with the
                 rule
@@ -360,7 +398,10 @@ class Nacm(Entity):
                 _revision = '2017-09-30'
 
                 def __init__(self):
-                    super(Nacm.RulelistClasses.RulelistClass.GroupNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Nacm.RulelistClasses.RulelistClass.GroupNames, self).__init__()
 
                     self.yang_name = "group-names"
                     self.yang_parent_name = "rulelist-class"
@@ -378,9 +419,13 @@ class Nacm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Nacm.RulelistClasses.RulelistClass.GroupNames, ['group_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                    return meta._meta_table['Nacm.RulelistClasses.RulelistClass.GroupNames']['meta_info']
 
 
-            class Rules(Entity):
+            class Rules(_Entity_):
                 """
                 Set of rules in a rulelist
                 
@@ -397,7 +442,10 @@ class Nacm(Entity):
                 _revision = '2017-09-30'
 
                 def __init__(self):
-                    super(Nacm.RulelistClasses.RulelistClass.Rules, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Nacm.RulelistClasses.RulelistClass.Rules, self).__init__()
 
                     self.yang_name = "rules"
                     self.yang_parent_name = "rulelist-class"
@@ -415,7 +463,7 @@ class Nacm(Entity):
                     self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules, [], name, value)
 
 
-                class Rule(Entity):
+                class Rule(_Entity_):
                     """
                     Each rule in a rulelist
                     
@@ -472,7 +520,10 @@ class Nacm(Entity):
                     _revision = '2017-09-30'
 
                     def __init__(self):
-                        super(Nacm.RulelistClasses.RulelistClass.Rules.Rule, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Nacm.RulelistClasses.RulelistClass.Rules.Rule, self).__init__()
 
                         self.yang_name = "rule"
                         self.yang_parent_name = "rules"
@@ -507,7 +558,7 @@ class Nacm(Entity):
                         self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules.Rule, ['ordering_index', 'rule_name', 'module_name', 'action', 'comment'], name, value)
 
 
-                    class RuleType(Entity):
+                    class RuleType(_Entity_):
                         """
                         Rule Type associated with this rule
                         
@@ -531,7 +582,10 @@ class Nacm(Entity):
                         _revision = '2017-09-30'
 
                         def __init__(self):
-                            super(Nacm.RulelistClasses.RulelistClass.Rules.Rule.RuleType, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Nacm.RulelistClasses.RulelistClass.Rules.Rule.RuleType, self).__init__()
 
                             self.yang_name = "rule-type"
                             self.yang_parent_name = "rule"
@@ -551,9 +605,13 @@ class Nacm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules.Rule.RuleType, ['type', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                            return meta._meta_table['Nacm.RulelistClasses.RulelistClass.Rules.Rule.RuleType']['meta_info']
 
 
-                    class AccessOperations(Entity):
+                    class AccessOperations(_Entity_):
                         """
                         Access operations associated with this rule
                         
@@ -607,7 +665,10 @@ class Nacm(Entity):
                         _revision = '2017-09-30'
 
                         def __init__(self):
-                            super(Nacm.RulelistClasses.RulelistClass.Rules.Rule.AccessOperations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Nacm.RulelistClasses.RulelistClass.Rules.Rule.AccessOperations, self).__init__()
 
                             self.yang_name = "access-operations"
                             self.yang_parent_name = "rule"
@@ -635,14 +696,38 @@ class Nacm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules.Rule.AccessOperations, ['create', 'read', 'update', 'delete', 'exec_', 'all'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                            return meta._meta_table['Nacm.RulelistClasses.RulelistClass.Rules.Rule.AccessOperations']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                        return meta._meta_table['Nacm.RulelistClasses.RulelistClass.Rules.Rule']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                    return meta._meta_table['Nacm.RulelistClasses.RulelistClass.Rules']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+                return meta._meta_table['Nacm.RulelistClasses.RulelistClass']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+            return meta._meta_table['Nacm.RulelistClasses']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Nacm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_nacm_cfg as meta
+        return meta._meta_table['Nacm']['meta_info']
 
 

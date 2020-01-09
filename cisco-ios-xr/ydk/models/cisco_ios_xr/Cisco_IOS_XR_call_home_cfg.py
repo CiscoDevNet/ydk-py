@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -69,6 +72,12 @@ class CallHomeDayOfWeek(Enum):
     friday = Enum.YLeaf(5, "friday")
 
     saturday = Enum.YLeaf(6, "saturday")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['CallHomeDayOfWeek']
 
 
 class CallHomeEventSeverity(Enum):
@@ -140,6 +149,12 @@ class CallHomeEventSeverity(Enum):
     catastrophic = Enum.YLeaf(9, "catastrophic")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['CallHomeEventSeverity']
+
+
 class CallHomeMailSendInterval(Enum):
     """
     CallHomeMailSendInterval (Enum Class)
@@ -167,6 +182,12 @@ class CallHomeMailSendInterval(Enum):
     monthly = Enum.YLeaf(2, "monthly")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['CallHomeMailSendInterval']
+
+
 class CallHomeTransMethod(Enum):
     """
     CallHomeTransMethod (Enum Class)
@@ -186,6 +207,12 @@ class CallHomeTransMethod(Enum):
     email = Enum.YLeaf(1, "email")
 
     http = Enum.YLeaf(2, "http")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['CallHomeTransMethod']
 
 
 class DataPrivacyLevel(Enum):
@@ -215,6 +242,12 @@ class DataPrivacyLevel(Enum):
     host_name = Enum.YLeaf(2, "host-name")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['DataPrivacyLevel']
+
+
 class SnapshotInterval(Enum):
     """
     SnapshotInterval (Enum Class)
@@ -242,8 +275,14 @@ class SnapshotInterval(Enum):
     monthly = Enum.YLeaf(2, "monthly")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['SnapshotInterval']
 
-class CallHome(Entity):
+
+
+class CallHome(_Entity_):
     """
     Set CallHome parameters
     
@@ -378,7 +417,10 @@ class CallHome(Entity):
     _revision = '2018-07-24'
 
     def __init__(self):
-        super(CallHome, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CallHome, self).__init__()
         self._top_entity = None
 
         self.yang_name = "call-home"
@@ -454,7 +496,7 @@ class CallHome(Entity):
         self._perform_setattr(CallHome, ['customer_id', 'phone_number', 'contact_smart_licensing', 'contact_email_address', 'rate_limit', 'site_id', 'vrf', 'street_address', 'source_interface', 'contract_id', 'reply_to', 'from_', 'active'], name, value)
 
 
-    class MailServers(Entity):
+    class MailServers(_Entity_):
         """
         List of call\-home mail\_server
         
@@ -471,7 +513,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.MailServers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.MailServers, self).__init__()
 
             self.yang_name = "mail-servers"
             self.yang_parent_name = "call-home"
@@ -490,7 +535,7 @@ class CallHome(Entity):
             self._perform_setattr(CallHome.MailServers, [], name, value)
 
 
-        class MailServer(Entity):
+        class MailServer(_Entity_):
             """
             Email server
             
@@ -514,7 +559,10 @@ class CallHome(Entity):
             _revision = '2018-07-24'
 
             def __init__(self):
-                super(CallHome.MailServers.MailServer, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CallHome.MailServers.MailServer, self).__init__()
 
                 self.yang_name = "mail-server"
                 self.yang_parent_name = "mail-servers"
@@ -535,10 +583,18 @@ class CallHome(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.MailServers.MailServer, ['mail_serv_address', 'priority'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                return meta._meta_table['CallHome.MailServers.MailServer']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.MailServers']['meta_info']
 
 
-
-    class SyslogThrottling(Entity):
+    class SyslogThrottling(_Entity_):
         """
         Enable or disable call\-home syslog message
         throttling
@@ -556,7 +612,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.SyslogThrottling, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.SyslogThrottling, self).__init__()
 
             self.yang_name = "syslog-throttling"
             self.yang_parent_name = "call-home"
@@ -575,9 +634,13 @@ class CallHome(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.SyslogThrottling, ['active'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.SyslogThrottling']['meta_info']
 
 
-    class HttpProxy(Entity):
+    class HttpProxy(_Entity_):
         """
         http proxy server address and port
         
@@ -601,7 +664,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.HttpProxy, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.HttpProxy, self).__init__()
 
             self.yang_name = "http-proxy"
             self.yang_parent_name = "call-home"
@@ -622,9 +688,13 @@ class CallHome(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.HttpProxy, ['server_address', 'port'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.HttpProxy']['meta_info']
 
 
-    class Profiles(Entity):
+    class Profiles(_Entity_):
         """
         List of profiles
         
@@ -641,7 +711,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.Profiles, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.Profiles, self).__init__()
 
             self.yang_name = "profiles"
             self.yang_parent_name = "call-home"
@@ -660,7 +733,7 @@ class CallHome(Entity):
             self._perform_setattr(CallHome.Profiles, [], name, value)
 
 
-        class Profile(Entity):
+        class Profile(_Entity_):
             """
             A specific profile
             
@@ -721,7 +794,10 @@ class CallHome(Entity):
             _revision = '2018-07-24'
 
             def __init__(self):
-                super(CallHome.Profiles.Profile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CallHome.Profiles.Profile, self).__init__()
 
                 self.yang_name = "profile"
                 self.yang_parent_name = "profiles"
@@ -765,7 +841,7 @@ class CallHome(Entity):
                 self._perform_setattr(CallHome.Profiles.Profile, ['profile_name', 'message_format', 'anonymous', 'message_size_limit', 'active'], name, value)
 
 
-            class ReportType(Entity):
+            class ReportType(_Entity_):
                 """
                 Choose what data to report
                 
@@ -787,7 +863,10 @@ class CallHome(Entity):
                 _revision = '2018-07-24'
 
                 def __init__(self):
-                    super(CallHome.Profiles.Profile.ReportType, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CallHome.Profiles.Profile.ReportType, self).__init__()
 
                     self.yang_name = "report-type"
                     self.yang_parent_name = "profile"
@@ -811,7 +890,7 @@ class CallHome(Entity):
                     self._perform_setattr(CallHome.Profiles.Profile.ReportType, [], name, value)
 
 
-                class ReportingCallhomeData(Entity):
+                class ReportingCallhomeData(_Entity_):
                     """
                     Report smart call\-home data
                     
@@ -828,7 +907,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, self).__init__()
 
                         self.yang_name = "reporting-callhome-data"
                         self.yang_parent_name = "report-type"
@@ -846,9 +928,13 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, ['enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.ReportType.ReportingCallhomeData']['meta_info']
 
 
-                class ReportingLicensingData(Entity):
+                class ReportingLicensingData(_Entity_):
                     """
                     Report smart licensing data
                     
@@ -865,7 +951,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, self).__init__()
 
                         self.yang_name = "reporting-licensing-data"
                         self.yang_parent_name = "report-type"
@@ -883,10 +972,18 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, ['enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.ReportType.ReportingLicensingData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                    return meta._meta_table['CallHome.Profiles.Profile.ReportType']['meta_info']
 
 
-
-            class Methods(Entity):
+            class Methods(_Entity_):
                 """
                 Transport method (http or email)
                 
@@ -903,7 +1000,10 @@ class CallHome(Entity):
                 _revision = '2018-07-24'
 
                 def __init__(self):
-                    super(CallHome.Profiles.Profile.Methods, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CallHome.Profiles.Profile.Methods, self).__init__()
 
                     self.yang_name = "methods"
                     self.yang_parent_name = "profile"
@@ -921,7 +1021,7 @@ class CallHome(Entity):
                     self._perform_setattr(CallHome.Profiles.Profile.Methods, [], name, value)
 
 
-                class Method(Entity):
+                class Method(_Entity_):
                     """
                     Transport method
                     
@@ -943,7 +1043,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.Methods.Method, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.Methods.Method, self).__init__()
 
                         self.yang_name = "method"
                         self.yang_parent_name = "methods"
@@ -963,10 +1066,18 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Methods.Method, ['method', 'enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.Methods.Method']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                    return meta._meta_table['CallHome.Profiles.Profile.Methods']['meta_info']
 
 
-
-            class Addresses(Entity):
+            class Addresses(_Entity_):
                 """
                 List of destination address
                 
@@ -983,7 +1094,10 @@ class CallHome(Entity):
                 _revision = '2018-07-24'
 
                 def __init__(self):
-                    super(CallHome.Profiles.Profile.Addresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CallHome.Profiles.Profile.Addresses, self).__init__()
 
                     self.yang_name = "addresses"
                     self.yang_parent_name = "profile"
@@ -1001,7 +1115,7 @@ class CallHome(Entity):
                     self._perform_setattr(CallHome.Profiles.Profile.Addresses, [], name, value)
 
 
-                class Address(Entity):
+                class Address(_Entity_):
                     """
                     A specific address
                     
@@ -1030,7 +1144,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.Addresses.Address, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.Addresses.Address, self).__init__()
 
                         self.yang_name = "address"
                         self.yang_parent_name = "addresses"
@@ -1052,10 +1169,18 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Addresses.Address, ['method', 'destination_addr', 'enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.Addresses.Address']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                    return meta._meta_table['CallHome.Profiles.Profile.Addresses']['meta_info']
 
 
-
-            class SubscribeAlertGroup(Entity):
+            class SubscribeAlertGroup(_Entity_):
                 """
                 Subscribe to alert\-group
                 
@@ -1097,7 +1222,10 @@ class CallHome(Entity):
                 _revision = '2018-07-24'
 
                 def __init__(self):
-                    super(CallHome.Profiles.Profile.SubscribeAlertGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CallHome.Profiles.Profile.SubscribeAlertGroup, self).__init__()
 
                     self.yang_name = "subscribe-alert-group"
                     self.yang_parent_name = "profile"
@@ -1137,7 +1265,7 @@ class CallHome(Entity):
                     self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup, [], name, value)
 
 
-                class Environment(Entity):
+                class Environment(_Entity_):
                     """
                     environmental info
                     
@@ -1154,7 +1282,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, self).__init__()
 
                         self.yang_name = "environment"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1172,9 +1303,13 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, ['severity'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Environment']['meta_info']
 
 
-                class Configuration(Entity):
+                class Configuration(_Entity_):
                     """
                     configuration info
                     
@@ -1196,7 +1331,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, self).__init__()
 
                         self.yang_name = "configuration"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1219,7 +1357,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, ['subscribe'], name, value)
 
 
-                    class Periodic(Entity):
+                    class Periodic(_Entity_):
                         """
                         Periodic call\-home message
                         
@@ -1262,7 +1400,10 @@ class CallHome(Entity):
                         _revision = '2018-07-24'
 
                         def __init__(self):
-                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, self).__init__()
 
                             self.yang_name = "periodic"
                             self.yang_parent_name = "configuration"
@@ -1288,10 +1429,18 @@ class CallHome(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                            return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration']['meta_info']
 
 
-
-                class Snapshot(Entity):
+                class Snapshot(_Entity_):
                     """
                     snapshot info
                     
@@ -1308,7 +1457,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, self).__init__()
 
                         self.yang_name = "snapshot"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1328,7 +1480,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, [], name, value)
 
 
-                    class Periodic(Entity):
+                    class Periodic(_Entity_):
                         """
                         Periodic call\-home message
                         
@@ -1371,7 +1523,10 @@ class CallHome(Entity):
                         _revision = '2018-07-24'
 
                         def __init__(self):
-                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, self).__init__()
 
                             self.yang_name = "periodic"
                             self.yang_parent_name = "snapshot"
@@ -1397,10 +1552,18 @@ class CallHome(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                            return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot']['meta_info']
 
 
-
-                class Inventory(Entity):
+                class Inventory(_Entity_):
                     """
                     inventory info
                     
@@ -1422,7 +1585,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, self).__init__()
 
                         self.yang_name = "inventory"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1445,7 +1611,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, ['subscribe'], name, value)
 
 
-                    class Periodic(Entity):
+                    class Periodic(_Entity_):
                         """
                         Periodic call\-home message
                         
@@ -1488,7 +1654,10 @@ class CallHome(Entity):
                         _revision = '2018-07-24'
 
                         def __init__(self):
-                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, self).__init__()
 
                             self.yang_name = "periodic"
                             self.yang_parent_name = "inventory"
@@ -1514,10 +1683,18 @@ class CallHome(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                            return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory']['meta_info']
 
 
-
-                class Crash(Entity):
+                class Crash(_Entity_):
                     """
                     Crash info
                     
@@ -1534,7 +1711,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, self).__init__()
 
                         self.yang_name = "crash"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1552,9 +1732,13 @@ class CallHome(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, ['subscribe'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Crash']['meta_info']
 
 
-                class Syslogs(Entity):
+                class Syslogs(_Entity_):
                     """
                     syslog info
                     
@@ -1571,7 +1755,10 @@ class CallHome(Entity):
                     _revision = '2018-07-24'
 
                     def __init__(self):
-                        super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, self).__init__()
 
                         self.yang_name = "syslogs"
                         self.yang_parent_name = "subscribe-alert-group"
@@ -1589,7 +1776,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, [], name, value)
 
 
-                    class Syslog(Entity):
+                    class Syslog(_Entity_):
                         """
                         Syslog message pattern to be matched
                         
@@ -1613,7 +1800,10 @@ class CallHome(Entity):
                         _revision = '2018-07-24'
 
                         def __init__(self):
-                            super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, self).__init__()
 
                             self.yang_name = "syslog"
                             self.yang_parent_name = "syslogs"
@@ -1633,13 +1823,33 @@ class CallHome(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, ['syslog_pattern', 'severity'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                            return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                        return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                    return meta._meta_table['CallHome.Profiles.Profile.SubscribeAlertGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                return meta._meta_table['CallHome.Profiles.Profile']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.Profiles']['meta_info']
 
 
-
-
-
-
-    class AlertGroups(Entity):
+    class AlertGroups(_Entity_):
         """
         List of alert\-group
         
@@ -1656,7 +1866,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.AlertGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.AlertGroups, self).__init__()
 
             self.yang_name = "alert-groups"
             self.yang_parent_name = "call-home"
@@ -1675,7 +1888,7 @@ class CallHome(Entity):
             self._perform_setattr(CallHome.AlertGroups, [], name, value)
 
 
-        class AlertGroup(Entity):
+        class AlertGroup(_Entity_):
             """
             A specific alert\-group
             
@@ -1704,7 +1917,10 @@ class CallHome(Entity):
             _revision = '2018-07-24'
 
             def __init__(self):
-                super(CallHome.AlertGroups.AlertGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CallHome.AlertGroups.AlertGroup, self).__init__()
 
                 self.yang_name = "alert-group"
                 self.yang_parent_name = "alert-groups"
@@ -1727,10 +1943,18 @@ class CallHome(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.AlertGroups.AlertGroup, ['alert_group_name', 'enable', 'disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                return meta._meta_table['CallHome.AlertGroups.AlertGroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.AlertGroups']['meta_info']
 
 
-
-    class DataPrivacies(Entity):
+    class DataPrivacies(_Entity_):
         """
         Set call\-home data\-privacy
         
@@ -1747,7 +1971,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.DataPrivacies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.DataPrivacies, self).__init__()
 
             self.yang_name = "data-privacies"
             self.yang_parent_name = "call-home"
@@ -1766,7 +1993,7 @@ class CallHome(Entity):
             self._perform_setattr(CallHome.DataPrivacies, [], name, value)
 
 
-        class DataPrivacy(Entity):
+        class DataPrivacy(_Entity_):
             """
             level hostname
             
@@ -1788,7 +2015,10 @@ class CallHome(Entity):
             _revision = '2018-07-24'
 
             def __init__(self):
-                super(CallHome.DataPrivacies.DataPrivacy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CallHome.DataPrivacies.DataPrivacy, self).__init__()
 
                 self.yang_name = "data-privacy"
                 self.yang_parent_name = "data-privacies"
@@ -1809,10 +2039,18 @@ class CallHome(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.DataPrivacies.DataPrivacy, ['host_name', 'level'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                return meta._meta_table['CallHome.DataPrivacies.DataPrivacy']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.DataPrivacies']['meta_info']
 
 
-
-    class AlertGroupConfig(Entity):
+    class AlertGroupConfig(_Entity_):
         """
         alert\-group config
         
@@ -1829,7 +2067,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.AlertGroupConfig, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.AlertGroupConfig, self).__init__()
 
             self.yang_name = "alert-group-config"
             self.yang_parent_name = "call-home"
@@ -1850,7 +2091,7 @@ class CallHome(Entity):
             self._perform_setattr(CallHome.AlertGroupConfig, [], name, value)
 
 
-        class SnapshotCommands(Entity):
+        class SnapshotCommands(_Entity_):
             """
             snapshot for adding CLI command
             
@@ -1867,7 +2108,10 @@ class CallHome(Entity):
             _revision = '2018-07-24'
 
             def __init__(self):
-                super(CallHome.AlertGroupConfig.SnapshotCommands, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CallHome.AlertGroupConfig.SnapshotCommands, self).__init__()
 
                 self.yang_name = "snapshot-commands"
                 self.yang_parent_name = "alert-group-config"
@@ -1886,7 +2130,7 @@ class CallHome(Entity):
                 self._perform_setattr(CallHome.AlertGroupConfig.SnapshotCommands, [], name, value)
 
 
-            class SnapshotCommand(Entity):
+            class SnapshotCommand(_Entity_):
                 """
                 A specific CLI cmd for snapshot
                 
@@ -1910,7 +2154,10 @@ class CallHome(Entity):
                 _revision = '2018-07-24'
 
                 def __init__(self):
-                    super(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, self).__init__()
 
                     self.yang_name = "snapshot-command"
                     self.yang_parent_name = "snapshot-commands"
@@ -1931,11 +2178,23 @@ class CallHome(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, ['command', 'active'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                    return meta._meta_table['CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+                return meta._meta_table['CallHome.AlertGroupConfig.SnapshotCommands']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.AlertGroupConfig']['meta_info']
 
 
-
-
-    class Authorization(Entity):
+    class Authorization(_Entity_):
         """
         Config aaa authorization, default username is
         callhome
@@ -1960,7 +2219,10 @@ class CallHome(Entity):
         _revision = '2018-07-24'
 
         def __init__(self):
-            super(CallHome.Authorization, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CallHome.Authorization, self).__init__()
 
             self.yang_name = "authorization"
             self.yang_parent_name = "call-home"
@@ -1981,10 +2243,18 @@ class CallHome(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.Authorization, ['username', 'active'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+            return meta._meta_table['CallHome.Authorization']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CallHome()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_call_home_cfg as meta
+        return meta._meta_table['CallHome']['meta_info']
 
 

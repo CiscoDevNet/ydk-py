@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,6 +51,12 @@ class DwdmControllerState(Enum):
     dwdm_ui_state_admin_down = Enum.YLeaf(2, "dwdm-ui-state-admin-down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['DwdmControllerState']
+
+
 class DwdmWaveChannelOwner(Enum):
     """
     DwdmWaveChannelOwner (Enum Class)
@@ -73,6 +82,12 @@ class DwdmWaveChannelOwner(Enum):
     configuration = Enum.YLeaf(1, "configuration")
 
     gmpls = Enum.YLeaf(2, "gmpls")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['DwdmWaveChannelOwner']
 
 
 class DwdmtasState(Enum):
@@ -106,6 +121,12 @@ class DwdmtasState(Enum):
     tas_oos_mt = Enum.YLeaf(2, "tas-oos-mt")
 
     tas_is_cfg = Enum.YLeaf(3, "tas-is-cfg")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['DwdmtasState']
 
 
 class G709apsByte(Enum):
@@ -153,6 +174,12 @@ class G709apsByte(Enum):
     pp_aps_unknown = Enum.YLeaf(255, "pp-aps-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709apsByte']
+
+
 class G709efecMode(Enum):
     """
     G709efecMode (Enum Class)
@@ -176,6 +203,12 @@ class G709efecMode(Enum):
     g975_1_i4 = Enum.YLeaf(1, "g975-1-i4")
 
     g975_1_i7 = Enum.YLeaf(2, "g975-1-i7")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709efecMode']
 
 
 class G709ppfsmMode(Enum):
@@ -203,6 +236,12 @@ class G709ppfsmMode(Enum):
     pp_default_mode = Enum.YLeaf(1, "pp-default-mode")
 
     pp_graceful_mode = Enum.YLeaf(2, "pp-graceful-mode")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709ppfsmMode']
 
 
 class G709ppfsmState(Enum):
@@ -280,6 +319,12 @@ class G709ppfsmState(Enum):
     regen_failed = Enum.YLeaf(10, "regen-failed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709ppfsmState']
+
+
 class G709ppintfState(Enum):
     """
     G709ppintfState (Enum Class)
@@ -305,6 +350,12 @@ class G709ppintfState(Enum):
     pp_intf_failing = Enum.YLeaf(1, "pp-intf-failing")
 
     pp_intf_down = Enum.YLeaf(2, "pp-intf-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709ppintfState']
 
 
 class G709prbsInterval(Enum):
@@ -514,6 +565,12 @@ class G709prbsInterval(Enum):
     previous_interval32 = Enum.YLeaf(32, "previous-interval32")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709prbsInterval']
+
+
 class G709prbsMode(Enum):
     """
     G709prbsMode (Enum Class)
@@ -545,6 +602,12 @@ class G709prbsMode(Enum):
     mode_source_sink = Enum.YLeaf(2, "mode-source-sink")
 
     mode_invalid = Enum.YLeaf(3, "mode-invalid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709prbsMode']
 
 
 class G709prbsPattern(Enum):
@@ -586,8 +649,14 @@ class G709prbsPattern(Enum):
     pattern_pn31 = Enum.YLeaf(4, "pattern-pn31")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['G709prbsPattern']
 
-class Dwdm(Entity):
+
+
+class Dwdm(_Entity_):
     """
     DWDM operational data
     
@@ -606,7 +675,10 @@ class Dwdm(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Dwdm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Dwdm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dwdm"
@@ -627,7 +699,7 @@ class Dwdm(Entity):
         self._perform_setattr(Dwdm, [], name, value)
 
 
-    class Ports(Entity):
+    class Ports(_Entity_):
         """
         All DWDM Port operational data
         
@@ -646,7 +718,10 @@ class Dwdm(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dwdm.Ports, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dwdm.Ports, self).__init__()
 
             self.yang_name = "ports"
             self.yang_parent_name = "dwdm"
@@ -665,7 +740,7 @@ class Dwdm(Entity):
             self._perform_setattr(Dwdm.Ports, [], name, value)
 
 
-        class Port(Entity):
+        class Port(_Entity_):
             """
             DWDM Port operational data
             
@@ -707,7 +782,10 @@ class Dwdm(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dwdm.Ports.Port, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dwdm.Ports.Port, self).__init__()
 
                 self.yang_name = "port"
                 self.yang_parent_name = "ports"
@@ -739,7 +817,7 @@ class Dwdm(Entity):
                 self._perform_setattr(Dwdm.Ports.Port, ['name'], name, value)
 
 
-            class Prbs(Entity):
+            class Prbs(_Entity_):
                 """
                 DWDM Port PRBS related data
                 
@@ -765,7 +843,10 @@ class Dwdm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dwdm.Ports.Port.Prbs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dwdm.Ports.Port.Prbs, self).__init__()
 
                     self.yang_name = "prbs"
                     self.yang_parent_name = "port"
@@ -789,7 +870,7 @@ class Dwdm(Entity):
                     self._perform_setattr(Dwdm.Ports.Port.Prbs, [], name, value)
 
 
-                class TwentyFourHoursBucket(Entity):
+                class TwentyFourHoursBucket(_Entity_):
                     """
                     Port 24\-hour PRBS statistics table
                     
@@ -808,7 +889,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket, self).__init__()
 
                         self.yang_name = "twenty-four-hours-bucket"
                         self.yang_parent_name = "prbs"
@@ -828,7 +912,7 @@ class Dwdm(Entity):
                         self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket, [], name, value)
 
 
-                    class TwentyFourHoursStatistics(Entity):
+                    class TwentyFourHoursStatistics(_Entity_):
                         """
                         Port 24\-hour PRBS statistics data
                         
@@ -861,7 +945,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, self).__init__()
 
                             self.yang_name = "twenty-four-hours-statistics"
                             self.yang_parent_name = "twenty-four-hours-bucket"
@@ -884,7 +971,7 @@ class Dwdm(Entity):
                             self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
 
 
-                        class PrbsEntry(Entity):
+                        class PrbsEntry(_Entity_):
                             """
                             History consists of 15\-minute/24\-hour intervals
                             
@@ -980,7 +1067,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, self).__init__()
 
                                 self.yang_name = "prbs-entry"
                                 self.yang_parent_name = "twenty-four-hours-statistics"
@@ -1016,11 +1106,23 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket']['meta_info']
 
 
-
-
-                class FifteenMinutesBucket(Entity):
+                class FifteenMinutesBucket(_Entity_):
                     """
                     Port 15\-minute PRBS statistics table
                     
@@ -1039,7 +1141,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket, self).__init__()
 
                         self.yang_name = "fifteen-minutes-bucket"
                         self.yang_parent_name = "prbs"
@@ -1059,7 +1164,7 @@ class Dwdm(Entity):
                         self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket, [], name, value)
 
 
-                    class FifteenMinutesStatistics(Entity):
+                    class FifteenMinutesStatistics(_Entity_):
                         """
                         Port 15\-minute PRBS statistics data
                         
@@ -1092,7 +1197,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, self).__init__()
 
                             self.yang_name = "fifteen-minutes-statistics"
                             self.yang_parent_name = "fifteen-minutes-bucket"
@@ -1115,7 +1223,7 @@ class Dwdm(Entity):
                             self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
 
 
-                        class PrbsEntry(Entity):
+                        class PrbsEntry(_Entity_):
                             """
                             History consists of 15\-minute/24\-hour intervals
                             
@@ -1211,7 +1319,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, self).__init__()
 
                                 self.yang_name = "prbs-entry"
                                 self.yang_parent_name = "fifteen-minutes-statistics"
@@ -1247,12 +1358,28 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Prbs.FifteenMinutesBucket']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                    return meta._meta_table['Dwdm.Ports.Port.Prbs']['meta_info']
 
 
-
-
-
-            class Optics(Entity):
+            class Optics(_Entity_):
                 """
                 DWDM Port optics operational data
                 
@@ -1271,7 +1398,10 @@ class Dwdm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dwdm.Ports.Port.Optics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dwdm.Ports.Port.Optics, self).__init__()
 
                     self.yang_name = "optics"
                     self.yang_parent_name = "port"
@@ -1291,7 +1421,7 @@ class Dwdm(Entity):
                     self._perform_setattr(Dwdm.Ports.Port.Optics, [], name, value)
 
 
-                class WaveInfo(Entity):
+                class WaveInfo(_Entity_):
                     """
                     DWDM port wavelength information data
                     
@@ -1330,7 +1460,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Optics.WaveInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Optics.WaveInfo, self).__init__()
 
                         self.yang_name = "wave-info"
                         self.yang_parent_name = "optics"
@@ -1352,10 +1485,18 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, ['wave_band', 'wave_channel_min', 'wave_channel_max'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Optics.WaveInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                    return meta._meta_table['Dwdm.Ports.Port.Optics']['meta_info']
 
 
-
-            class Info(Entity):
+            class Info(_Entity_):
                 """
                 DWDM port operational data
                 
@@ -1430,7 +1571,10 @@ class Dwdm(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dwdm.Ports.Port.Info, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dwdm.Ports.Port.Info, self).__init__()
 
                     self.yang_name = "info"
                     self.yang_parent_name = "port"
@@ -1477,7 +1621,7 @@ class Dwdm(Entity):
                     self._perform_setattr(Dwdm.Ports.Port.Info, ['controller_state', 'transport_admin_state', 'slice_state'], name, value)
 
 
-                class G709Info(Entity):
+                class G709Info(_Entity_):
                     """
                     G709 operational information
                     
@@ -1710,7 +1854,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.G709Info, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.G709Info, self).__init__()
 
                         self.yang_name = "g709-info"
                         self.yang_parent_name = "info"
@@ -1791,7 +1938,7 @@ class Dwdm(Entity):
                         self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, ['is_g709_enabled', 'is_fec_mode_default', 'fec_mode', 'remote_fec_mode', 'efec_mode', 'loopback_mode', 'ec', 'ec_accum', 'uc', 'fec_ber', 'fec_ber_man', 'q', 'q_margin', 'fe_cstr', 'qstr', 'qmargin_str', 'network_port_id', 'network_conn_id', 'is_prbs_enabled', 'g709_prbs_mode', 'g709_prbs_pattern', 'prbs_time_stamp'], name, value)
 
 
-                    class FecMismatch(Entity):
+                    class FecMismatch(_Entity_):
                         """
                         FEC mismatch alarm
                         
@@ -1833,7 +1980,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Info.G709Info.FecMismatch, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Info.G709Info.FecMismatch, self).__init__()
 
                             self.yang_name = "fec-mismatch"
                             self.yang_parent_name = "g709-info"
@@ -1857,9 +2007,13 @@ class Dwdm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.FecMismatch']['meta_info']
 
 
-                    class EcTca(Entity):
+                    class EcTca(_Entity_):
                         """
                         FEC Corrected bits TCA information
                         
@@ -1910,7 +2064,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Info.G709Info.EcTca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Info.G709Info.EcTca, self).__init__()
 
                             self.yang_name = "ec-tca"
                             self.yang_parent_name = "g709-info"
@@ -1936,9 +2093,13 @@ class Dwdm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.EcTca']['meta_info']
 
 
-                    class UcTca(Entity):
+                    class UcTca(_Entity_):
                         """
                         FEC uncorrected words TCA information
                         
@@ -1989,7 +2150,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Info.G709Info.UcTca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Info.G709Info.UcTca, self).__init__()
 
                             self.yang_name = "uc-tca"
                             self.yang_parent_name = "g709-info"
@@ -2015,9 +2179,13 @@ class Dwdm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.UcTca']['meta_info']
 
 
-                    class OtuInfo(Entity):
+                    class OtuInfo(_Entity_):
                         """
                         OTU layer information
                         
@@ -2222,7 +2390,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Info.G709Info.OtuInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo, self).__init__()
 
                             self.yang_name = "otu-info"
                             self.yang_parent_name = "g709-info"
@@ -2343,7 +2514,7 @@ class Dwdm(Entity):
                             self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, ['bei', 'bip'], name, value)
 
 
-                        class Los(Entity):
+                        class Los(_Entity_):
                             """
                             Loss of Signal information
                             
@@ -2385,7 +2556,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, self).__init__()
 
                                 self.yang_name = "los"
                                 self.yang_parent_name = "otu-info"
@@ -2409,9 +2583,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los']['meta_info']
 
 
-                        class Lof(Entity):
+                        class Lof(_Entity_):
                             """
                             Loss of Frame information
                             
@@ -2453,7 +2631,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, self).__init__()
 
                                 self.yang_name = "lof"
                                 self.yang_parent_name = "otu-info"
@@ -2477,9 +2658,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof']['meta_info']
 
 
-                        class Lom(Entity):
+                        class Lom(_Entity_):
                             """
                             Loss of MultiFrame information
                             
@@ -2521,7 +2706,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, self).__init__()
 
                                 self.yang_name = "lom"
                                 self.yang_parent_name = "otu-info"
@@ -2545,9 +2733,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom']['meta_info']
 
 
-                        class Oof(Entity):
+                        class Oof(_Entity_):
                             """
                             Out of Frame information
                             
@@ -2589,7 +2781,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, self).__init__()
 
                                 self.yang_name = "oof"
                                 self.yang_parent_name = "otu-info"
@@ -2613,9 +2808,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof']['meta_info']
 
 
-                        class Oom(Entity):
+                        class Oom(_Entity_):
                             """
                             Out of MultiFrame information
                             
@@ -2657,7 +2856,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, self).__init__()
 
                                 self.yang_name = "oom"
                                 self.yang_parent_name = "otu-info"
@@ -2681,9 +2883,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom']['meta_info']
 
 
-                        class Ais(Entity):
+                        class Ais(_Entity_):
                             """
                             Alarm Indication Signal information
                             
@@ -2725,7 +2931,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, self).__init__()
 
                                 self.yang_name = "ais"
                                 self.yang_parent_name = "otu-info"
@@ -2749,9 +2958,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais']['meta_info']
 
 
-                        class Iae(Entity):
+                        class Iae(_Entity_):
                             """
                             Incoming Alignment Error information
                             
@@ -2793,7 +3006,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, self).__init__()
 
                                 self.yang_name = "iae"
                                 self.yang_parent_name = "otu-info"
@@ -2817,9 +3033,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae']['meta_info']
 
 
-                        class Bdi(Entity):
+                        class Bdi(_Entity_):
                             """
                             Backward Defect Indication information
                             
@@ -2861,7 +3081,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, self).__init__()
 
                                 self.yang_name = "bdi"
                                 self.yang_parent_name = "otu-info"
@@ -2885,9 +3108,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi']['meta_info']
 
 
-                        class Tim(Entity):
+                        class Tim(_Entity_):
                             """
                             Trace Identifier Mismatch information
                             
@@ -2929,7 +3156,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, self).__init__()
 
                                 self.yang_name = "tim"
                                 self.yang_parent_name = "otu-info"
@@ -2953,9 +3183,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim']['meta_info']
 
 
-                        class Eoc(Entity):
+                        class Eoc(_Entity_):
                             """
                             GCC End of Channel information
                             
@@ -2997,7 +3231,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, self).__init__()
 
                                 self.yang_name = "eoc"
                                 self.yang_parent_name = "otu-info"
@@ -3021,9 +3258,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc']['meta_info']
 
 
-                        class SfBer(Entity):
+                        class SfBer(_Entity_):
                             """
                             Signal Fail  BER information
                             
@@ -3074,7 +3315,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, self).__init__()
 
                                 self.yang_name = "sf-ber"
                                 self.yang_parent_name = "otu-info"
@@ -3100,9 +3344,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer']['meta_info']
 
 
-                        class SdBer(Entity):
+                        class SdBer(_Entity_):
                             """
                             Signal Degrade BER information
                             
@@ -3153,7 +3401,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, self).__init__()
 
                                 self.yang_name = "sd-ber"
                                 self.yang_parent_name = "otu-info"
@@ -3179,9 +3430,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer']['meta_info']
 
 
-                        class PrefecSfBer(Entity):
+                        class PrefecSfBer(_Entity_):
                             """
                             Prefec Signal Fail BER information
                             
@@ -3232,7 +3487,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, self).__init__()
 
                                 self.yang_name = "prefec-sf-ber"
                                 self.yang_parent_name = "otu-info"
@@ -3258,9 +3516,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer']['meta_info']
 
 
-                        class PrefecSdBer(Entity):
+                        class PrefecSdBer(_Entity_):
                             """
                             Prefec Signal Degrade BER information
                             
@@ -3311,7 +3573,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, self).__init__()
 
                                 self.yang_name = "prefec-sd-ber"
                                 self.yang_parent_name = "otu-info"
@@ -3337,9 +3602,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer']['meta_info']
 
 
-                        class BbeTca(Entity):
+                        class BbeTca(_Entity_):
                             """
                              Backgound Block Error TCA information
                             
@@ -3390,7 +3659,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, self).__init__()
 
                                 self.yang_name = "bbe-tca"
                                 self.yang_parent_name = "otu-info"
@@ -3416,9 +3688,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca']['meta_info']
 
 
-                        class EsTca(Entity):
+                        class EsTca(_Entity_):
                             """
                             Errored Seconds TCA information
                             
@@ -3469,7 +3745,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, self).__init__()
 
                                 self.yang_name = "es-tca"
                                 self.yang_parent_name = "otu-info"
@@ -3495,9 +3774,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca']['meta_info']
 
 
-                        class Bbe(Entity):
+                        class Bbe(_Entity_):
                             """
                             Backgound Block Error information
                             
@@ -3518,7 +3801,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, self).__init__()
 
                                 self.yang_name = "bbe"
                                 self.yang_parent_name = "otu-info"
@@ -3536,9 +3822,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe']['meta_info']
 
 
-                        class Es(Entity):
+                        class Es(_Entity_):
                             """
                             Errored Seconds information 
                             
@@ -3559,7 +3849,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, self).__init__()
 
                                 self.yang_name = "es"
                                 self.yang_parent_name = "otu-info"
@@ -3577,9 +3870,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es']['meta_info']
 
 
-                        class Ses(Entity):
+                        class Ses(_Entity_):
                             """
                             Severly Errored Seconds information
                             
@@ -3600,7 +3897,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, self).__init__()
 
                                 self.yang_name = "ses"
                                 self.yang_parent_name = "otu-info"
@@ -3618,9 +3918,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses']['meta_info']
 
 
-                        class Uas(Entity):
+                        class Uas(_Entity_):
                             """
                             Unavailability Seconds information
                             
@@ -3641,7 +3945,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, self).__init__()
 
                                 self.yang_name = "uas"
                                 self.yang_parent_name = "otu-info"
@@ -3659,9 +3966,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas']['meta_info']
 
 
-                        class Fc(Entity):
+                        class Fc(_Entity_):
                             """
                             Failure Count information
                             
@@ -3682,7 +3993,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, self).__init__()
 
                                 self.yang_name = "fc"
                                 self.yang_parent_name = "otu-info"
@@ -3700,9 +4014,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc']['meta_info']
 
 
-                        class Bber(Entity):
+                        class Bber(_Entity_):
                             """
                             Backgound Block Error Rate information
                             
@@ -3723,7 +4041,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, self).__init__()
 
                                 self.yang_name = "bber"
                                 self.yang_parent_name = "otu-info"
@@ -3741,9 +4062,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber']['meta_info']
 
 
-                        class Esr(Entity):
+                        class Esr(_Entity_):
                             """
                             Errored Seconds Rate information
                             
@@ -3764,7 +4089,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, self).__init__()
 
                                 self.yang_name = "esr"
                                 self.yang_parent_name = "otu-info"
@@ -3782,9 +4110,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr']['meta_info']
 
 
-                        class Sesr(Entity):
+                        class Sesr(_Entity_):
                             """
                             Severly Errored Seconds Rate information
                             
@@ -3805,7 +4137,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, self).__init__()
 
                                 self.yang_name = "sesr"
                                 self.yang_parent_name = "otu-info"
@@ -3823,9 +4158,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr']['meta_info']
 
 
-                        class Tti(Entity):
+                        class Tti(_Entity_):
                             """
                             Trail Trace Identifier information
                             
@@ -4107,7 +4446,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, self).__init__()
 
                                 self.yang_name = "tti"
                                 self.yang_parent_name = "otu-info"
@@ -4183,10 +4525,18 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OtuInfo']['meta_info']
 
 
-
-                    class OduInfo(Entity):
+                    class OduInfo(_Entity_):
                         """
                         ODU layer Information
                         
@@ -4356,7 +4706,10 @@ class Dwdm(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dwdm.Ports.Port.Info.G709Info.OduInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo, self).__init__()
 
                             self.yang_name = "odu-info"
                             self.yang_parent_name = "g709-info"
@@ -4457,7 +4810,7 @@ class Dwdm(Entity):
                             self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, ['bip', 'bei'], name, value)
 
 
-                        class Oci(Entity):
+                        class Oci(_Entity_):
                             """
                             Open Connection Indiction information
                             
@@ -4499,7 +4852,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, self).__init__()
 
                                 self.yang_name = "oci"
                                 self.yang_parent_name = "odu-info"
@@ -4523,9 +4879,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci']['meta_info']
 
 
-                        class Ais(Entity):
+                        class Ais(_Entity_):
                             """
                             Alarm Indication Signal information
                             
@@ -4567,7 +4927,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, self).__init__()
 
                                 self.yang_name = "ais"
                                 self.yang_parent_name = "odu-info"
@@ -4591,9 +4954,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais']['meta_info']
 
 
-                        class Lck(Entity):
+                        class Lck(_Entity_):
                             """
                             Upstream Connection Locked information
                             
@@ -4635,7 +5002,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, self).__init__()
 
                                 self.yang_name = "lck"
                                 self.yang_parent_name = "odu-info"
@@ -4659,9 +5029,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck']['meta_info']
 
 
-                        class Bdi(Entity):
+                        class Bdi(_Entity_):
                             """
                             Backward Defect Indication information
                             
@@ -4703,7 +5077,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, self).__init__()
 
                                 self.yang_name = "bdi"
                                 self.yang_parent_name = "odu-info"
@@ -4727,9 +5104,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi']['meta_info']
 
 
-                        class Eoc(Entity):
+                        class Eoc(_Entity_):
                             """
                             GCC End of Channel information
                             
@@ -4771,7 +5152,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, self).__init__()
 
                                 self.yang_name = "eoc"
                                 self.yang_parent_name = "odu-info"
@@ -4795,9 +5179,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc']['meta_info']
 
 
-                        class Ptim(Entity):
+                        class Ptim(_Entity_):
                             """
                             Payload Type Identifier Mismatch information
                             
@@ -4839,7 +5227,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, self).__init__()
 
                                 self.yang_name = "ptim"
                                 self.yang_parent_name = "odu-info"
@@ -4863,9 +5254,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim']['meta_info']
 
 
-                        class Tim(Entity):
+                        class Tim(_Entity_):
                             """
                             Trace Identifier Mismatch information
                             
@@ -4907,7 +5302,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, self).__init__()
 
                                 self.yang_name = "tim"
                                 self.yang_parent_name = "odu-info"
@@ -4931,9 +5329,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim']['meta_info']
 
 
-                        class SfBer(Entity):
+                        class SfBer(_Entity_):
                             """
                             Signal Fail  BER information
                             
@@ -4984,7 +5386,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, self).__init__()
 
                                 self.yang_name = "sf-ber"
                                 self.yang_parent_name = "odu-info"
@@ -5010,9 +5415,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer']['meta_info']
 
 
-                        class SdBer(Entity):
+                        class SdBer(_Entity_):
                             """
                             Signal Degrade BER information
                             
@@ -5063,7 +5472,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, self).__init__()
 
                                 self.yang_name = "sd-ber"
                                 self.yang_parent_name = "odu-info"
@@ -5089,9 +5501,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer']['meta_info']
 
 
-                        class BbeTca(Entity):
+                        class BbeTca(_Entity_):
                             """
                             Background Block Error TCA information
                             
@@ -5142,7 +5558,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, self).__init__()
 
                                 self.yang_name = "bbe-tca"
                                 self.yang_parent_name = "odu-info"
@@ -5168,9 +5587,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca']['meta_info']
 
 
-                        class EsTca(Entity):
+                        class EsTca(_Entity_):
                             """
                             Errored Seconds TCA information
                             
@@ -5221,7 +5644,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, self).__init__()
 
                                 self.yang_name = "es-tca"
                                 self.yang_parent_name = "odu-info"
@@ -5247,9 +5673,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca']['meta_info']
 
 
-                        class Bbe(Entity):
+                        class Bbe(_Entity_):
                             """
                             Background Block Error information
                             
@@ -5270,7 +5700,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, self).__init__()
 
                                 self.yang_name = "bbe"
                                 self.yang_parent_name = "odu-info"
@@ -5288,9 +5721,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe']['meta_info']
 
 
-                        class Es(Entity):
+                        class Es(_Entity_):
                             """
                             Errored Seconds information
                             
@@ -5311,7 +5748,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, self).__init__()
 
                                 self.yang_name = "es"
                                 self.yang_parent_name = "odu-info"
@@ -5329,9 +5769,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Es']['meta_info']
 
 
-                        class Ses(Entity):
+                        class Ses(_Entity_):
                             """
                             Severly Errored Seconds information
                             
@@ -5352,7 +5796,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, self).__init__()
 
                                 self.yang_name = "ses"
                                 self.yang_parent_name = "odu-info"
@@ -5370,9 +5817,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses']['meta_info']
 
 
-                        class Uas(Entity):
+                        class Uas(_Entity_):
                             """
                             Unavailability Seconds information
                             
@@ -5393,7 +5844,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, self).__init__()
 
                                 self.yang_name = "uas"
                                 self.yang_parent_name = "odu-info"
@@ -5411,9 +5865,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas']['meta_info']
 
 
-                        class Fc(Entity):
+                        class Fc(_Entity_):
                             """
                             Failure count information
                             
@@ -5434,7 +5892,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, self).__init__()
 
                                 self.yang_name = "fc"
                                 self.yang_parent_name = "odu-info"
@@ -5452,9 +5913,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc']['meta_info']
 
 
-                        class Bber(Entity):
+                        class Bber(_Entity_):
                             """
                             Background Block Error Rate count information
                             
@@ -5475,7 +5940,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, self).__init__()
 
                                 self.yang_name = "bber"
                                 self.yang_parent_name = "odu-info"
@@ -5493,9 +5961,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber']['meta_info']
 
 
-                        class Esr(Entity):
+                        class Esr(_Entity_):
                             """
                             Errored Seconds Rate information
                             
@@ -5516,7 +5988,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, self).__init__()
 
                                 self.yang_name = "esr"
                                 self.yang_parent_name = "odu-info"
@@ -5534,9 +6009,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr']['meta_info']
 
 
-                        class Sesr(Entity):
+                        class Sesr(_Entity_):
                             """
                             Severly Errored Seconds Rate information
                             
@@ -5557,7 +6036,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, self).__init__()
 
                                 self.yang_name = "sesr"
                                 self.yang_parent_name = "odu-info"
@@ -5575,9 +6057,13 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, ['counter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr']['meta_info']
 
 
-                        class Tti(Entity):
+                        class Tti(_Entity_):
                             """
                             Trail Trace Identifier information
                             
@@ -5859,7 +6345,10 @@ class Dwdm(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, self).__init__()
 
                                 self.yang_name = "tti"
                                 self.yang_parent_name = "odu-info"
@@ -5935,11 +6424,23 @@ class Dwdm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                                return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                            return meta._meta_table['Dwdm.Ports.Port.Info.G709Info.OduInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.G709Info']['meta_info']
 
 
-
-
-                class OpticsInfo(Entity):
+                class OpticsInfo(_Entity_):
                     """
                     Optics operational information
                     
@@ -6294,7 +6795,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.OpticsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.OpticsInfo, self).__init__()
 
                         self.yang_name = "optics-info"
                         self.yang_parent_name = "info"
@@ -6388,9 +6892,13 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, ['optics_type', 'clock_source', 'wave_frequency_progressive_string', 'wavelength_progressive_string', 'is_wave_frequency_progressive_valid', 'wavelength_progressive', 'wave_band', 'wave_channel', 'wave_frequency', 'is_wave_frequency_valid', 'wave_channel_owner', 'gmpls_set_wave_channel', 'configured_wave_channel', 'default_wave_channel', 'transmit_power', 'transmit_power_threshold', 'laser_current_bias', 'laser_current_bias_threshold', 'receive_power', 'is_rx_los_threshold_supported', 'rx_los_threshold', 'transmit_power_min', 'transmit_power_max', 'transmit_power_avg', 'receive_power_min', 'receive_power_max', 'receive_power_avg', 'laser_bias_current_min', 'laser_bias_current_max', 'laser_bias_current_avg', 'chromatic_dispersion', 'differential_group_delay', 'polarization_mode_dispersion', 'signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'phase_noise', 'output_power_fail', 'input_power_fail'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.OpticsInfo']['meta_info']
 
 
-                class TdcInfo(Entity):
+                class TdcInfo(_Entity_):
                     """
                     TDC operational information
                     
@@ -6455,7 +6963,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.TdcInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.TdcInfo, self).__init__()
 
                         self.yang_name = "tdc-info"
                         self.yang_parent_name = "info"
@@ -6485,9 +6996,13 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, ['tdc_valid', 'major_alarm', 'operation_mode', 'tdc_status', 'dispersion_offset', 'reroute_ber', 'is_reroute_control_enabled'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.TdcInfo']['meta_info']
 
 
-                class NetworkSrlgInfo(Entity):
+                class NetworkSrlgInfo(_Entity_):
                     """
                     Network SRLG information
                     
@@ -6508,7 +7023,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.NetworkSrlgInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.NetworkSrlgInfo, self).__init__()
 
                         self.yang_name = "network-srlg-info"
                         self.yang_parent_name = "info"
@@ -6526,9 +7044,13 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, ['network_srlg'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.NetworkSrlgInfo']['meta_info']
 
 
-                class Proactive(Entity):
+                class Proactive(_Entity_):
                     """
                     Proactive protection information
                     
@@ -6761,7 +7283,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.Proactive, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.Proactive, self).__init__()
 
                         self.yang_name = "proactive"
                         self.yang_parent_name = "info"
@@ -6831,9 +7356,13 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, ['proactive_feature', 'proactive_mode', 'proactive_fsm_state', 'proactive_fsm_if_state', 'tas_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'default_trig_thresh_coeff', 'default_trig_thresh_power', 'default_rvrt_thresh_coeff', 'default_rvrt_thresh_power', 'trig_samples', 'rvrt_samples', 'trigger_window', 'revert_window', 'protection_trigger', 'interface_trigger', 'tx_aps', 'tx_aps_descr', 'rx_aps', 'rx_aps_descr', 'alarm_state', 'trig_ec_cnt', 'rvrt_ec_cnt', 'prefec_thresh_crossed'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.Proactive']['meta_info']
 
 
-                class SignalLog(Entity):
+                class SignalLog(_Entity_):
                     """
                     Signal log information
                     
@@ -6861,7 +7390,10 @@ class Dwdm(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dwdm.Ports.Port.Info.SignalLog, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dwdm.Ports.Port.Info.SignalLog, self).__init__()
 
                         self.yang_name = "signal-log"
                         self.yang_parent_name = "info"
@@ -6881,17 +7413,37 @@ class Dwdm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, ['is_log_enabled', 'log_filename'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Dwdm.Ports.Port.Info.SignalLog']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                    return meta._meta_table['Dwdm.Ports.Port.Info']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                return meta._meta_table['Dwdm.Ports.Port']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+            return meta._meta_table['Dwdm.Ports']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Dwdm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['Dwdm']['meta_info']
 
 
-class Vtxp(Entity):
+class Vtxp(_Entity_):
     """
     vtxp
     
@@ -6910,7 +7462,10 @@ class Vtxp(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Vtxp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vtxp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vtxp"
@@ -6931,7 +7486,7 @@ class Vtxp(Entity):
         self._perform_setattr(Vtxp, [], name, value)
 
 
-    class DwdmVtxp(Entity):
+    class DwdmVtxp(_Entity_):
         """
         DWDM operational data
         
@@ -6950,7 +7505,10 @@ class Vtxp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Vtxp.DwdmVtxp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vtxp.DwdmVtxp, self).__init__()
 
             self.yang_name = "dwdm-vtxp"
             self.yang_parent_name = "vtxp"
@@ -6971,7 +7529,7 @@ class Vtxp(Entity):
             self._perform_setattr(Vtxp.DwdmVtxp, [], name, value)
 
 
-        class PortVtxps(Entity):
+        class PortVtxps(_Entity_):
             """
             All DWDM Port operational data
             
@@ -6990,7 +7548,10 @@ class Vtxp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vtxp.DwdmVtxp.PortVtxps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vtxp.DwdmVtxp.PortVtxps, self).__init__()
 
                 self.yang_name = "port-vtxps"
                 self.yang_parent_name = "dwdm-vtxp"
@@ -7009,7 +7570,7 @@ class Vtxp(Entity):
                 self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps, [], name, value)
 
 
-            class PortVtxp(Entity):
+            class PortVtxp(_Entity_):
                 """
                 DWDM Port operational data
                 
@@ -7037,7 +7598,10 @@ class Vtxp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vtxp.DwdmVtxp.PortVtxps.PortVtxp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vtxp.DwdmVtxp.PortVtxps.PortVtxp, self).__init__()
 
                     self.yang_name = "port-vtxp"
                     self.yang_parent_name = "port-vtxps"
@@ -7061,7 +7625,7 @@ class Vtxp(Entity):
                     self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp, ['name'], name, value)
 
 
-                class Info(Entity):
+                class Info(_Entity_):
                     """
                     DWDM port operational data
                     
@@ -7080,7 +7644,10 @@ class Vtxp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, self).__init__()
 
                         self.yang_name = "info"
                         self.yang_parent_name = "port-vtxp"
@@ -7098,13 +7665,33 @@ class Vtxp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, ['vtxp_enable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                        return meta._meta_table['Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                    return meta._meta_table['Vtxp.DwdmVtxp.PortVtxps.PortVtxp']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+                return meta._meta_table['Vtxp.DwdmVtxp.PortVtxps']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+            return meta._meta_table['Vtxp.DwdmVtxp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Vtxp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_oper as meta
+        return meta._meta_table['Vtxp']['meta_info']
 
 

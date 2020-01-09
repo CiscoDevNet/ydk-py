@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Watchdog(Entity):
+class Watchdog(_Entity_):
     """
     watchdog
     
@@ -105,7 +108,10 @@ class Watchdog(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Watchdog, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Watchdog, self).__init__()
         self._top_entity = None
 
         self.yang_name = "watchdog"
@@ -145,7 +151,7 @@ class Watchdog(Entity):
         self._perform_setattr(Watchdog, ['threshold_memory_switchover', 'restart_deadlock_disable', 'monitor_qnet_timeout', 'monitor_cpuhog_timeout', 'monitor_procnto_timeout', 'overload_notification', 'restart_cpuhog_disable', 'restart_memoryhog_disable', 'overload_throttle_timeout'], name, value)
 
 
-    class ThresholdMemory(Entity):
+    class ThresholdMemory(_Entity_):
         """
         Memory thresholds
         
@@ -178,7 +184,10 @@ class Watchdog(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Watchdog.ThresholdMemory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Watchdog.ThresholdMemory, self).__init__()
 
             self.yang_name = "threshold-memory"
             self.yang_parent_name = "watchdog"
@@ -201,10 +210,18 @@ class Watchdog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Watchdog.ThresholdMemory, ['minor', 'severe', 'critical'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_cfg as meta
+            return meta._meta_table['Watchdog.ThresholdMemory']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Watchdog()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wd_cfg as meta
+        return meta._meta_table['Watchdog']['meta_info']
 
 

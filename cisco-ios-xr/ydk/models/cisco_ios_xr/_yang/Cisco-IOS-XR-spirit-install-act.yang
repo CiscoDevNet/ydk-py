@@ -2,10 +2,6 @@ module Cisco-IOS-XR-spirit-install-act {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-spirit-install-act";
   prefix install-act;
 
-  import ietf-inet-types {
-    prefix inet;
-  }
-
   organization
     "Cisco Systems, Inc.";
   contact
@@ -22,7 +18,7 @@ module Cisco-IOS-XR-spirit-install-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR action package configuration.
      
-     Copyright (c) 2016-2018 by Cisco Systems, Inc.
+     Copyright (c) 2016-2019 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2018-09-10 {

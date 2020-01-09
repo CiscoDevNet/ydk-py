@@ -257,9 +257,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-vlan {
 
   grouping switch-vlan-group {
     container vlan {
+      uses vlan-detail-group;
       uses vlan-summary-group;
       uses vlan-information-group;
-      uses vlan-detail-group;
       uses vlan-membership-group;
     }
   }

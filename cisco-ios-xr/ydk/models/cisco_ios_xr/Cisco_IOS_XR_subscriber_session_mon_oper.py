@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SessionMon(Entity):
+class SessionMon(_Entity_):
     """
     Sessionmon
     
@@ -40,7 +43,10 @@ class SessionMon(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SessionMon, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SessionMon, self).__init__()
         self._top_entity = None
 
         self.yang_name = "session-mon"
@@ -61,7 +67,7 @@ class SessionMon(Entity):
         self._perform_setattr(SessionMon, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Subscriber Sessionmon list of nodes
         
@@ -80,7 +86,10 @@ class SessionMon(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SessionMon.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionMon.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "session-mon"
@@ -99,7 +108,7 @@ class SessionMon(Entity):
             self._perform_setattr(SessionMon.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Subscriber sessionmon operational data for a
             particular node
@@ -142,7 +151,10 @@ class SessionMon(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SessionMon.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SessionMon.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -174,7 +186,7 @@ class SessionMon(Entity):
                 self._perform_setattr(SessionMon.Nodes.Node, ['node_id'], name, value)
 
 
-            class SessionMonStatistics(Entity):
+            class SessionMonStatistics(_Entity_):
                 """
                 Session Mon Statistics
                 
@@ -303,7 +315,10 @@ class SessionMon(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SessionMon.Nodes.Node.SessionMonStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionMon.Nodes.Node.SessionMonStatistics, self).__init__()
 
                     self.yang_name = "session-mon-statistics"
                     self.yang_parent_name = "node"
@@ -345,9 +360,13 @@ class SessionMon(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+                    return meta._meta_table['SessionMon.Nodes.Node.SessionMonStatistics']['meta_info']
 
 
-            class InterfaceAllStatistics(Entity):
+            class InterfaceAllStatistics(_Entity_):
                 """
                 Statistics Table
                 
@@ -366,7 +385,10 @@ class SessionMon(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SessionMon.Nodes.Node.InterfaceAllStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionMon.Nodes.Node.InterfaceAllStatistics, self).__init__()
 
                     self.yang_name = "interface-all-statistics"
                     self.yang_parent_name = "node"
@@ -384,7 +406,7 @@ class SessionMon(Entity):
                     self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics, [], name, value)
 
 
-                class InterfaceAllStatistic(Entity):
+                class InterfaceAllStatistic(_Entity_):
                     """
                     Statistics
                     
@@ -522,7 +544,10 @@ class SessionMon(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, self).__init__()
 
                         self.yang_name = "interface-all-statistic"
                         self.yang_parent_name = "interface-all-statistics"
@@ -566,10 +591,18 @@ class SessionMon(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+                        return meta._meta_table['SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+                    return meta._meta_table['SessionMon.Nodes.Node.InterfaceAllStatistics']['meta_info']
 
 
-
-            class LicenseStatistics(Entity):
+            class LicenseStatistics(_Entity_):
                 """
                 Smart license
                 
@@ -698,7 +731,10 @@ class SessionMon(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SessionMon.Nodes.Node.LicenseStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionMon.Nodes.Node.LicenseStatistics, self).__init__()
 
                     self.yang_name = "license-statistics"
                     self.yang_parent_name = "node"
@@ -740,12 +776,28 @@ class SessionMon(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+                    return meta._meta_table['SessionMon.Nodes.Node.LicenseStatistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+                return meta._meta_table['SessionMon.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+            return meta._meta_table['SessionMon.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SessionMon()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_session_mon_oper as meta
+        return meta._meta_table['SessionMon']['meta_info']
 
 

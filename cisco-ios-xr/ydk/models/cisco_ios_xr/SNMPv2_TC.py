@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class RowStatus(Enum):
     destroy = Enum.YLeaf(6, "destroy")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMPv2_TC as meta
+        return meta._meta_table['RowStatus']
+
+
 class StorageType(Enum):
     """
     StorageType (Enum Class)
@@ -69,6 +78,12 @@ class StorageType(Enum):
     readOnly = Enum.YLeaf(5, "readOnly")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMPv2_TC as meta
+        return meta._meta_table['StorageType']
+
+
 class TruthValue(Enum):
     """
     TruthValue (Enum Class)
@@ -82,6 +97,12 @@ class TruthValue(Enum):
     true = Enum.YLeaf(1, "true")
 
     false = Enum.YLeaf(2, "false")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMPv2_TC as meta
+        return meta._meta_table['TruthValue']
 
 
 

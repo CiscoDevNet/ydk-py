@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class EthernetAutoNegotiation(Enum):
     override = Enum.YLeaf(2, "override")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetAutoNegotiation']
+
+
 class EthernetDuplex(Enum):
     """
     EthernetDuplex (Enum Class)
@@ -62,6 +71,12 @@ class EthernetDuplex(Enum):
     half = Enum.YLeaf(1, "half")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetDuplex']
+
+
 class EthernetFec(Enum):
     """
     EthernetFec (Enum Class)
@@ -81,6 +96,12 @@ class EthernetFec(Enum):
     none = Enum.YLeaf(0, "none")
 
     standard = Enum.YLeaf(1, "standard")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetFec']
 
 
 class EthernetFlowCtrl(Enum):
@@ -110,6 +131,12 @@ class EthernetFlowCtrl(Enum):
     bidirectional = Enum.YLeaf(2, "bidirectional")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetFlowCtrl']
+
+
 class EthernetIpg(Enum):
     """
     EthernetIpg (Enum Class)
@@ -123,6 +150,12 @@ class EthernetIpg(Enum):
     """
 
     non_standard = Enum.YLeaf(16, "non-standard")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetIpg']
 
 
 class EthernetLoopback(Enum):
@@ -152,6 +185,12 @@ class EthernetLoopback(Enum):
     line = Enum.YLeaf(2, "line")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetLoopback']
+
+
 class EthernetPfc(Enum):
     """
     EthernetPfc (Enum Class)
@@ -165,6 +204,12 @@ class EthernetPfc(Enum):
     """
 
     on = Enum.YLeaf(1, "on")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetPfc']
 
 
 class EthernetSpeed(Enum):
@@ -192,6 +237,12 @@ class EthernetSpeed(Enum):
     Y_100 = Enum.YLeaf(100, "100")
 
     Y_1000 = Enum.YLeaf(1000, "1000")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetSpeed']
 
 
 

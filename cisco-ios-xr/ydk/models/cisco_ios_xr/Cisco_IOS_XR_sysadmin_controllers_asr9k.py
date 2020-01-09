@@ -16,8 +16,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Controller(Entity):
+class Controller(_Entity_):
     """
     
     
@@ -43,7 +46,10 @@ class Controller(Entity):
     _revision = '2017-11-10'
 
     def __init__(self):
-        super(Controller, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Controller, self).__init__()
         self._top_entity = None
 
         self.yang_name = "controller"
@@ -64,7 +70,7 @@ class Controller(Entity):
         self._perform_setattr(Controller, [], name, value)
 
 
-    class Switch(Entity):
+    class Switch(_Entity_):
         """
         
         
@@ -83,7 +89,10 @@ class Controller(Entity):
         _revision = '2017-11-10'
 
         def __init__(self):
-            super(Controller.Switch, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Controller.Switch, self).__init__()
 
             self.yang_name = "switch"
             self.yang_parent_name = "controller"
@@ -104,7 +113,7 @@ class Controller(Entity):
             self._perform_setattr(Controller.Switch, [], name, value)
 
 
-        class Oper(Entity):
+        class Oper(_Entity_):
             """
             Control Ethernet switch operational data.
             
@@ -207,7 +216,10 @@ class Controller(Entity):
             _revision = '2017-11-10'
 
             def __init__(self):
-                super(Controller.Switch.Oper, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Controller.Switch.Oper, self).__init__()
 
                 self.yang_name = "oper"
                 self.yang_parent_name = "switch"
@@ -276,7 +288,7 @@ class Controller(Entity):
                 self._perform_setattr(Controller.Switch.Oper, [], name, value)
 
 
-            class Reachable(Entity):
+            class Reachable(_Entity_):
                 """
                 
                 
@@ -295,7 +307,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Reachable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Reachable, self).__init__()
 
                     self.yang_name = "reachable"
                     self.yang_parent_name = "oper"
@@ -314,7 +329,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Reachable, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -347,7 +362,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Reachable.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Reachable.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "reachable"
@@ -370,10 +388,18 @@ class Controller(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Controller.Switch.Oper.Reachable.Location, ['rack', 'card', 'switch_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Reachable.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Reachable']['meta_info']
 
 
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 
                 
@@ -392,7 +418,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "oper"
@@ -411,7 +440,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Summary, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -458,7 +487,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Summary.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Summary.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "summary"
@@ -486,7 +518,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Summary.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
 
 
-                    class PortIter(Entity):
+                    class PortIter(_Entity_):
                         """
                         
                         
@@ -549,7 +581,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Summary.Location.PortIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Summary.Location.PortIter, self).__init__()
 
                             self.yang_name = "port-iter"
                             self.yang_parent_name = "location"
@@ -579,11 +614,23 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.Summary.Location.PortIter, ['port', 'phys_state', 'admin_state', 'port_speed', 'protocol_state', 'forwarding', 'connects_to'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Summary.Location.PortIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Summary.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Summary']['meta_info']
 
 
-
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 
                 
@@ -609,7 +656,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "oper"
@@ -634,7 +684,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Statistics, [], name, value)
 
 
-                class SummaryStatistics(Entity):
+                class SummaryStatistics(_Entity_):
                     """
                     
                     
@@ -653,7 +703,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Statistics.SummaryStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Statistics.SummaryStatistics, self).__init__()
 
                         self.yang_name = "summary-statistics"
                         self.yang_parent_name = "statistics"
@@ -672,7 +725,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -719,7 +772,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Statistics.SummaryStatistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Statistics.SummaryStatistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "summary-statistics"
@@ -747,7 +803,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
 
 
-                        class PortIter(Entity):
+                        class PortIter(_Entity_):
                             """
                             
                             
@@ -827,7 +883,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter, self).__init__()
 
                                 self.yang_name = "port-iter"
                                 self.yang_parent_name = "location"
@@ -859,11 +918,23 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter, ['port', 'phys_state', 'state_changes', 'sw_sum_tx_packets', 'sw_sum_rx_packets', 'sw_sum_tx_drops_errors', 'sw_sum_rx_drops_errors', 'connects_to'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Statistics.SummaryStatistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Statistics.SummaryStatistics']['meta_info']
 
 
-
-
-                class Detail(Entity):
+                class Detail(_Entity_):
                     """
                     
                     
@@ -882,7 +953,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Statistics.Detail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Statistics.Detail, self).__init__()
 
                         self.yang_name = "detail"
                         self.yang_parent_name = "statistics"
@@ -901,7 +975,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Statistics.Detail, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -941,7 +1015,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Statistics.Detail.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Statistics.Detail.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "detail"
@@ -967,7 +1044,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class PortIter(Entity):
+                        class PortIter(_Entity_):
                             """
                             
                             
@@ -1016,7 +1093,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Statistics.Detail.Location.PortIter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Statistics.Detail.Location.PortIter, self).__init__()
 
                                 self.yang_name = "port-iter"
                                 self.yang_parent_name = "location"
@@ -1045,7 +1125,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter, ['port', 'phys_state', 'port_speed', 'connects_to'], name, value)
 
 
-                            class Counters(Entity):
+                            class Counters(_Entity_):
                                 """
                                 
                                 
@@ -1354,7 +1434,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters, self).__init__()
 
                                     self.yang_name = "counters"
                                     self.yang_parent_name = "port-iter"
@@ -1436,13 +1519,33 @@ class Controller(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters, ['sw_det_rx_ucast_packets', 'sw_det_rx_mcast_packets', 'sw_det_rx_bcast_packets', 'sw_det_rx_flow_control', 'sw_det_rx_good_octets', 'sw_det_rx_bad_octets', 'sw_det_rx_fifo_overrun', 'sw_det_rx_undersize', 'sw_det_rx_fragments', 'sw_det_rx_oversize', 'sw_det_rx_jabber', 'sw_det_rx_errors', 'sw_det_rx_bad_crc', 'sw_det_rx_collisions', 'sw_det_rx_policing_drops', 'sw_det_tx_ucast_packets', 'sw_det_tx_mcast_packets', 'sw_det_tx_bcast_packets', 'sw_det_tx_flow_control', 'sw_det_tx_good_octets', 'sw_det_tx_deferred', 'sw_det_tx_fifo_unrun', 'sw_det_tx_mult_collision', 'sw_det_tx_excess_collision', 'sw_det_tx_late_collisions', 'sw_det_tx_policing_drops', 'sw_det_txq_drops', 'sw_det_rxtx_packets_64', 'sw_det_rxtx_packets_65_127', 'sw_det_rxtx_packets_128_255', 'sw_det_rxtx_packets_256_511', 'sw_det_rxtx_packets_512_1023', 'sw_det_rxtx_packets_1024_max'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Statistics.Detail.Location.PortIter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Statistics.Detail.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Statistics.Detail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Statistics']['meta_info']
 
 
-
-
-
-
-            class Mac(Entity):
+            class Mac(_Entity_):
                 """
                 
                 
@@ -1461,7 +1564,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Mac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Mac, self).__init__()
 
                     self.yang_name = "mac"
                     self.yang_parent_name = "oper"
@@ -1482,7 +1588,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Mac, [], name, value)
 
 
-                class MacStatistics(Entity):
+                class MacStatistics(_Entity_):
                     """
                     
                     
@@ -1501,7 +1607,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Mac.MacStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Mac.MacStatistics, self).__init__()
 
                         self.yang_name = "mac-statistics"
                         self.yang_parent_name = "mac"
@@ -1520,7 +1629,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -1560,7 +1669,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Mac.MacStatistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Mac.MacStatistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "mac-statistics"
@@ -1586,7 +1698,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class PortIter(Entity):
+                        class PortIter(_Entity_):
                             """
                             
                             
@@ -1614,7 +1726,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter, self).__init__()
 
                                 self.yang_name = "port-iter"
                                 self.yang_parent_name = "location"
@@ -1635,7 +1750,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter, ['port'], name, value)
 
 
-                            class MacEntry(Entity):
+                            class MacEntry(_Entity_):
                                 """
                                 
                                 
@@ -1677,7 +1792,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry, self).__init__()
 
                                     self.yang_name = "mac-entry"
                                     self.yang_parent_name = "port-iter"
@@ -1701,13 +1819,33 @@ class Controller(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry, ['id', 'base_reg', 'desc', 'value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Mac.MacStatistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Mac.MacStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Mac']['meta_info']
 
 
-
-
-
-
-            class Bridge(Entity):
+            class Bridge(_Entity_):
                 """
                 
                 
@@ -1726,7 +1864,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Bridge, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Bridge, self).__init__()
 
                     self.yang_name = "bridge"
                     self.yang_parent_name = "oper"
@@ -1747,7 +1888,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Bridge, [], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     
                     
@@ -1766,7 +1907,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Bridge.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Bridge.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "bridge"
@@ -1785,7 +1929,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -1832,7 +1976,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Bridge.Statistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Bridge.Statistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "statistics"
@@ -1859,7 +2006,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class IngressSetId(Entity):
+                        class IngressSetId(_Entity_):
                             """
                             
                             
@@ -1923,7 +2070,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId, self).__init__()
 
                                 self.yang_name = "ingress-set-id"
                                 self.yang_parent_name = "location"
@@ -1951,9 +2101,13 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId, ['ingress_set', 'ingress_set_name', 'ingress_frames', 'ingress_vlan_discards', 'ingress_security_discards', 'ingress_other_discards'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId']['meta_info']
 
 
-                        class EgressSetId(Entity):
+                        class EgressSetId(_Entity_):
                             """
                             
                             
@@ -2044,7 +2198,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId, self).__init__()
 
                                 self.yang_name = "egress-set-id"
                                 self.yang_parent_name = "location"
@@ -2078,12 +2235,28 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId, ['egress_set', 'egress_set_name', 'egress_ucast_frames', 'egress_mcast_frames', 'egress_bcast_frames', 'egress_discarded_frames', 'egress_txq_congestion', 'egress_ctrl_packets', 'egress_other_drops'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Bridge.Statistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Bridge.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Bridge']['meta_info']
 
 
-
-
-
-            class Fdb(Entity):
+            class Fdb(_Entity_):
                 """
                 
                 
@@ -2130,7 +2303,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Fdb, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Fdb, self).__init__()
 
                     self.yang_name = "fdb"
                     self.yang_parent_name = "oper"
@@ -2167,7 +2343,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Fdb, [], name, value)
 
 
-                class Vlan(Entity):
+                class Vlan(_Entity_):
                     """
                     
                     
@@ -2186,7 +2362,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Fdb.Vlan, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Fdb.Vlan, self).__init__()
 
                         self.yang_name = "vlan"
                         self.yang_parent_name = "fdb"
@@ -2205,7 +2384,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan, [], name, value)
 
 
-                    class VlanIter(Entity):
+                    class VlanIter(_Entity_):
                         """
                         
                         
@@ -2233,7 +2412,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Fdb.Vlan.VlanIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Fdb.Vlan.VlanIter, self).__init__()
 
                             self.yang_name = "vlan-iter"
                             self.yang_parent_name = "vlan"
@@ -2257,7 +2439,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter, ['vlan'], name, value)
 
 
-                        class SwitchFdbCommon(Entity):
+                        class SwitchFdbCommon(_Entity_):
                             """
                             
                             
@@ -2276,7 +2458,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon, self).__init__()
 
                                 self.yang_name = "switch-fdb-common"
                                 self.yang_parent_name = "vlan-iter"
@@ -2294,7 +2479,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon, [], name, value)
 
 
-                            class Location(Entity):
+                            class Location(_Entity_):
                                 """
                                 
                                 
@@ -2359,7 +2544,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location, self).__init__()
 
                                     self.yang_name = "location"
                                     self.yang_parent_name = "switch-fdb-common"
@@ -2392,7 +2580,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
 
 
-                                class FdbBlock(Entity):
+                                class FdbBlock(_Entity_):
                                     """
                                     
                                     
@@ -2411,7 +2599,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
 
                                         self.yang_name = "fdb-block"
                                         self.yang_parent_name = "location"
@@ -2429,7 +2620,7 @@ class Controller(Entity):
                                         self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock, [], name, value)
 
 
-                                    class FdbEntry(Entity):
+                                    class FdbEntry(_Entity_):
                                         """
                                         
                                         
@@ -2511,7 +2702,10 @@ class Controller(Entity):
                                         _revision = '2017-11-10'
 
                                         def __init__(self):
-                                            super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
 
                                             self.yang_name = "fdb-entry"
                                             self.yang_parent_name = "fdb-block"
@@ -2543,14 +2737,38 @@ class Controller(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan.VlanIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Fdb.Vlan']['meta_info']
 
 
-
-
-
-
-
-                class Mac(Entity):
+                class Mac(_Entity_):
                     """
                     
                     
@@ -2569,7 +2787,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Fdb.Mac, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Fdb.Mac, self).__init__()
 
                         self.yang_name = "mac"
                         self.yang_parent_name = "fdb"
@@ -2588,7 +2809,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Fdb.Mac, [], name, value)
 
 
-                    class MacIter(Entity):
+                    class MacIter(_Entity_):
                         """
                         
                         
@@ -2616,7 +2837,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Fdb.Mac.MacIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Fdb.Mac.MacIter, self).__init__()
 
                             self.yang_name = "mac-iter"
                             self.yang_parent_name = "mac"
@@ -2640,7 +2864,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter, ['mac'], name, value)
 
 
-                        class SwitchFdbCommon(Entity):
+                        class SwitchFdbCommon(_Entity_):
                             """
                             
                             
@@ -2659,7 +2883,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon, self).__init__()
 
                                 self.yang_name = "switch-fdb-common"
                                 self.yang_parent_name = "mac-iter"
@@ -2677,7 +2904,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon, [], name, value)
 
 
-                            class Location(Entity):
+                            class Location(_Entity_):
                                 """
                                 
                                 
@@ -2742,7 +2969,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location, self).__init__()
 
                                     self.yang_name = "location"
                                     self.yang_parent_name = "switch-fdb-common"
@@ -2775,7 +3005,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
 
 
-                                class FdbBlock(Entity):
+                                class FdbBlock(_Entity_):
                                     """
                                     
                                     
@@ -2794,7 +3024,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
 
                                         self.yang_name = "fdb-block"
                                         self.yang_parent_name = "location"
@@ -2812,7 +3045,7 @@ class Controller(Entity):
                                         self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock, [], name, value)
 
 
-                                    class FdbEntry(Entity):
+                                    class FdbEntry(_Entity_):
                                         """
                                         
                                         
@@ -2894,7 +3127,10 @@ class Controller(Entity):
                                         _revision = '2017-11-10'
 
                                         def __init__(self):
-                                            super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
 
                                             self.yang_name = "fdb-entry"
                                             self.yang_parent_name = "fdb-block"
@@ -2926,14 +3162,38 @@ class Controller(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Fdb.Mac.MacIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Fdb.Mac']['meta_info']
 
 
-
-
-
-
-
-                class Port(Entity):
+                class Port(_Entity_):
                     """
                     
                     
@@ -2952,7 +3212,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Fdb.Port, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Fdb.Port, self).__init__()
 
                         self.yang_name = "port"
                         self.yang_parent_name = "fdb"
@@ -2971,7 +3234,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Fdb.Port, [], name, value)
 
 
-                    class PortIter(Entity):
+                    class PortIter(_Entity_):
                         """
                         
                         
@@ -2999,7 +3262,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Fdb.Port.PortIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Fdb.Port.PortIter, self).__init__()
 
                             self.yang_name = "port-iter"
                             self.yang_parent_name = "port"
@@ -3023,7 +3289,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter, ['port'], name, value)
 
 
-                        class SwitchFdbCommon(Entity):
+                        class SwitchFdbCommon(_Entity_):
                             """
                             
                             
@@ -3042,7 +3308,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon, self).__init__()
 
                                 self.yang_name = "switch-fdb-common"
                                 self.yang_parent_name = "port-iter"
@@ -3060,7 +3329,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon, [], name, value)
 
 
-                            class Location(Entity):
+                            class Location(_Entity_):
                                 """
                                 
                                 
@@ -3125,7 +3394,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location, self).__init__()
 
                                     self.yang_name = "location"
                                     self.yang_parent_name = "switch-fdb-common"
@@ -3158,7 +3430,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
 
 
-                                class FdbBlock(Entity):
+                                class FdbBlock(_Entity_):
                                     """
                                     
                                     
@@ -3177,7 +3449,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock, self).__init__()
 
                                         self.yang_name = "fdb-block"
                                         self.yang_parent_name = "location"
@@ -3195,7 +3470,7 @@ class Controller(Entity):
                                         self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock, [], name, value)
 
 
-                                    class FdbEntry(Entity):
+                                    class FdbEntry(_Entity_):
                                         """
                                         
                                         
@@ -3277,7 +3552,10 @@ class Controller(Entity):
                                         _revision = '2017-11-10'
 
                                         def __init__(self):
-                                            super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
 
                                             self.yang_name = "fdb-entry"
                                             self.yang_parent_name = "fdb-block"
@@ -3309,14 +3587,38 @@ class Controller(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Fdb.Port.PortIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Fdb.Port']['meta_info']
 
 
-
-
-
-
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     
                     
@@ -3335,7 +3637,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Fdb.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Fdb.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "fdb"
@@ -3354,7 +3659,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3401,7 +3706,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Fdb.Statistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Fdb.Statistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "statistics"
@@ -3431,7 +3739,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class CounterInfo(Entity):
+                        class CounterInfo(_Entity_):
                             """
                             
                             
@@ -3619,7 +3927,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo, self).__init__()
 
                                 self.yang_name = "counter-info"
                                 self.yang_parent_name = "location"
@@ -3675,9 +3986,13 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo, ['fdb_shadow_entries', 'fdb_max_shadow_entries', 'fdb_max_hash_chain', 'fdb_entries_added', 'fdb_entries_deleted', 'fdb_entries_updated', 'fdb_flushes', 'fdb_address_updates', 'fdb_new_addresses', 'fdb_aged_updates', 'fdb_transplant_updates', 'fdb_forwarding_updates', 'fdb_address_insert_errors', 'fdb_address_update_errors', 'fdb_memory_errors', 'fdb_allocation_errors', 'fdb_address_updates_queued', 'fdb_address_queue_full', 'fdb_forwarding_updates_queued', 'fdb_forwarding_queue_full'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo']['meta_info']
 
 
-                        class CoreId(Entity):
+                        class CoreId(_Entity_):
                             """
                             
                             
@@ -3716,7 +4031,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.Statistics.Location.CoreId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.Statistics.Location.CoreId, self).__init__()
 
                                 self.yang_name = "core-id"
                                 self.yang_parent_name = "location"
@@ -3738,11 +4056,23 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CoreId, ['core', 'core_entries', 'core_static_entries'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.Statistics.Location.CoreId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Fdb.Statistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Fdb.Statistics']['meta_info']
 
 
-
-
-                class SwitchFdbCommon(Entity):
+                class SwitchFdbCommon(_Entity_):
                     """
                     
                     
@@ -3761,7 +4091,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Fdb.SwitchFdbCommon, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Fdb.SwitchFdbCommon, self).__init__()
 
                         self.yang_name = "switch-fdb-common"
                         self.yang_parent_name = "fdb"
@@ -3780,7 +4113,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3845,7 +4178,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "switch-fdb-common"
@@ -3879,7 +4215,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
 
 
-                        class FdbBlock(Entity):
+                        class FdbBlock(_Entity_):
                             """
                             
                             
@@ -3898,7 +4234,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock, self).__init__()
 
                                 self.yang_name = "fdb-block"
                                 self.yang_parent_name = "location"
@@ -3916,7 +4255,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock, [], name, value)
 
 
-                            class FdbEntry(Entity):
+                            class FdbEntry(_Entity_):
                                 """
                                 
                                 
@@ -3998,7 +4337,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry, self).__init__()
 
                                     self.yang_name = "fdb-entry"
                                     self.yang_parent_name = "fdb-block"
@@ -4030,15 +4372,42 @@ class Controller(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Fdb.SwitchFdbCommon']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Fdb']['meta_info']
 
 
-
-
-
-
-            class Vlan(Entity):
+            class Vlan(_Entity_):
                 """
                 
+                
+                .. attribute:: vlan_detail
+                
+                	
+                	**type**\:  :py:class:`VlanDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.VlanDetail>`
+                
+                	**config**\: False
                 
                 .. attribute:: rules
                 
@@ -4051,13 +4420,6 @@ class Controller(Entity):
                 
                 	
                 	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information>`
-                
-                	**config**\: False
-                
-                .. attribute:: vlan_detail
-                
-                	
-                	**type**\:  :py:class:`VlanDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.VlanDetail>`
                 
                 	**config**\: False
                 
@@ -4076,15 +4438,22 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Vlan, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Vlan, self).__init__()
 
                     self.yang_name = "vlan"
                     self.yang_parent_name = "oper"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("rules", ("rules", Controller.Switch.Oper.Vlan.Rules)), ("information", ("information", Controller.Switch.Oper.Vlan.Information)), ("vlan-detail", ("vlan_detail", Controller.Switch.Oper.Vlan.VlanDetail)), ("membership", ("membership", Controller.Switch.Oper.Vlan.Membership))])
+                    self._child_classes = OrderedDict([("vlan-detail", ("vlan_detail", Controller.Switch.Oper.Vlan.VlanDetail)), ("rules", ("rules", Controller.Switch.Oper.Vlan.Rules)), ("information", ("information", Controller.Switch.Oper.Vlan.Information)), ("membership", ("membership", Controller.Switch.Oper.Vlan.Membership))])
                     self._leafs = OrderedDict()
+
+                    self.vlan_detail = Controller.Switch.Oper.Vlan.VlanDetail()
+                    self.vlan_detail.parent = self
+                    self._children_name_map["vlan_detail"] = "vlan-detail"
 
                     self.rules = Controller.Switch.Oper.Vlan.Rules()
                     self.rules.parent = self
@@ -4093,10 +4462,6 @@ class Controller(Entity):
                     self.information = Controller.Switch.Oper.Vlan.Information()
                     self.information.parent = self
                     self._children_name_map["information"] = "information"
-
-                    self.vlan_detail = Controller.Switch.Oper.Vlan.VlanDetail()
-                    self.vlan_detail.parent = self
-                    self._children_name_map["vlan_detail"] = "vlan-detail"
 
                     self.membership = Controller.Switch.Oper.Vlan.Membership()
                     self.membership.parent = self
@@ -4109,711 +4474,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Vlan, [], name, value)
 
 
-                class Rules(Entity):
-                    """
-                    
-                    
-                    .. attribute:: location
-                    
-                    	
-                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location>`
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'calvados_controllers_asr9k'
-                    _revision = '2017-11-10'
-
-                    def __init__(self):
-                        super(Controller.Switch.Oper.Vlan.Rules, self).__init__()
-
-                        self.yang_name = "rules"
-                        self.yang_parent_name = "vlan"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Rules.Location))])
-                        self._leafs = OrderedDict()
-
-                        self.location = YList(self)
-                        self._segment_path = lambda: "rules"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules, [], name, value)
-
-
-                    class Location(Entity):
-                        """
-                        
-                        
-                        .. attribute:: rack  (key)
-                        
-                        	
-                        	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: card  (key)
-                        
-                        	Card that owns a switch of interest to display the VLAN configuration for
-                        	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: switch_id  (key)
-                        
-                        	Switch type
-                        	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: port_iter
-                        
-                        	
-                        	**type**\: list of  		 :py:class:`PortIter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter>`
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'calvados_controllers_asr9k'
-                        _revision = '2017-11-10'
-
-                        def __init__(self):
-                            super(Controller.Switch.Oper.Vlan.Rules.Location, self).__init__()
-
-                            self.yang_name = "location"
-                            self.yang_parent_name = "rules"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.Rules.Location.PortIter))])
-                            self._leafs = OrderedDict([
-                                ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
-                                ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
-                                ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
-                            ])
-                            self.rack = None
-                            self.card = None
-                            self.switch_id = None
-
-                            self.port_iter = YList(self)
-                            self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/rules/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
-
-
-                        class PortIter(Entity):
-                            """
-                            
-                            
-                            .. attribute:: port  (key)
-                            
-                            	Switch port
-                            	**type**\: int
-                            
-                            	**range:** 0..127
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: vlan_id
-                            
-                            	
-                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'calvados_controllers_asr9k'
-                            _revision = '2017-11-10'
-
-                            def __init__(self):
-                                super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, self).__init__()
-
-                                self.yang_name = "port-iter"
-                                self.yang_parent_name = "location"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['port']
-                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId))])
-                                self._leafs = OrderedDict([
-                                    ('port', (YLeaf(YType.int32, 'port'), ['int'])),
-                                ])
-                                self.port = None
-
-                                self.vlan_id = YList(self)
-                                self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, ['port'], name, value)
-
-
-                            class VlanId(Entity):
-                                """
-                                
-                                
-                                .. attribute:: vlan  (key)
-                                
-                                	This VLAN represents a VLAN membership for this switch port. Multiple rules may exist to support this VLAN
-                                	**type**\: int
-                                
-                                	**range:** 0..4095
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: rule_id
-                                
-                                	
-                                	**type**\: list of  		 :py:class:`RuleId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId>`
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'calvados_controllers_asr9k'
-                                _revision = '2017-11-10'
-
-                                def __init__(self):
-                                    super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, self).__init__()
-
-                                    self.yang_name = "vlan-id"
-                                    self.yang_parent_name = "port-iter"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['vlan']
-                                    self._child_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId))])
-                                    self._leafs = OrderedDict([
-                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
-                                    ])
-                                    self.vlan = None
-
-                                    self.rule_id = YList(self)
-                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, ['vlan'], name, value)
-
-
-                                class RuleId(Entity):
-                                    """
-                                    
-                                    
-                                    .. attribute:: direction
-                                    
-                                    	Packet direction this rule applies to
-                                    	**type**\:  :py:class:`SwitchDataDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchDataDirectionEnum>`
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: match_table
-                                    
-                                    	
-                                    	**type**\:  :py:class:`SwitchTableTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchTableTypeEnum>`
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: match_type
-                                    
-                                    	
-                                    	**type**\:  :py:class:`SwitchMatchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchMatchTypeEnum>`
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: match_vlan_id
-                                    
-                                    	
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4095
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: action
-                                    
-                                    	
-                                    	**type**\:  :py:class:`SwitchActionTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchActionTypeEnum>`
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: action_vlan_id
-                                    
-                                    	
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4095
-                                    
-                                    	**config**\: False
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'calvados_controllers_asr9k'
-                                    _revision = '2017-11-10'
-
-                                    def __init__(self):
-                                        super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, self).__init__()
-
-                                        self.yang_name = "rule-id"
-                                        self.yang_parent_name = "vlan-id"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchDataDirectionEnum', '')])),
-                                            ('match_table', (YLeaf(YType.enumeration, 'match-table'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchTableTypeEnum', '')])),
-                                            ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchMatchTypeEnum', '')])),
-                                            ('match_vlan_id', (YLeaf(YType.uint16, 'match-vlan-id'), ['int'])),
-                                            ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchActionTypeEnum', '')])),
-                                            ('action_vlan_id', (YLeaf(YType.uint16, 'action-vlan-id'), ['int'])),
-                                        ])
-                                        self.direction = None
-                                        self.match_table = None
-                                        self.match_type = None
-                                        self.match_vlan_id = None
-                                        self.action = None
-                                        self.action_vlan_id = None
-                                        self._segment_path = lambda: "rule-id"
-                                        self._is_frozen = True
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
-
-
-
-
-
-
-
-                class Information(Entity):
-                    """
-                    
-                    
-                    .. attribute:: location
-                    
-                    	
-                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location>`
-                    
-                    	**config**\: False
-                    
-                    .. attribute:: summary
-                    
-                    	
-                    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary>`
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'calvados_controllers_asr9k'
-                    _revision = '2017-11-10'
-
-                    def __init__(self):
-                        super(Controller.Switch.Oper.Vlan.Information, self).__init__()
-
-                        self.yang_name = "information"
-                        self.yang_parent_name = "vlan"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Information.Location)), ("summary", ("summary", Controller.Switch.Oper.Vlan.Information.Summary))])
-                        self._leafs = OrderedDict()
-
-                        self.summary = Controller.Switch.Oper.Vlan.Information.Summary()
-                        self.summary.parent = self
-                        self._children_name_map["summary"] = "summary"
-
-                        self.location = YList(self)
-                        self._segment_path = lambda: "information"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Vlan.Information, [], name, value)
-
-
-                    class Location(Entity):
-                        """
-                        
-                        
-                        .. attribute:: rack  (key)
-                        
-                        	
-                        	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: card  (key)
-                        
-                        	Card to list the switch VLAN information for
-                        	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: switch_id  (key)
-                        
-                        	Switch type
-                        	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: serial_num
-                        
-                        	Rack serial number
-                        	**type**\: str
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: sdr_id
-                        
-                        	
-                        	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId>`
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'calvados_controllers_asr9k'
-                        _revision = '2017-11-10'
-
-                        def __init__(self):
-                            super(Controller.Switch.Oper.Vlan.Information.Location, self).__init__()
-
-                            self.yang_name = "location"
-                            self.yang_parent_name = "information"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId))])
-                            self._leafs = OrderedDict([
-                                ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
-                                ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
-                                ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
-                                ('serial_num', (YLeaf(YType.str, 'serial-num'), ['str'])),
-                            ])
-                            self.rack = None
-                            self.card = None
-                            self.switch_id = None
-                            self.serial_num = None
-
-                            self.sdr_id = YList(self)
-                            self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
-
-
-                        class SdrId(Entity):
-                            """
-                            
-                            
-                            .. attribute:: sdr  (key)
-                            
-                            	
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: esd_sdr_name
-                            
-                            	
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: vlan_id
-                            
-                            	
-                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'calvados_controllers_asr9k'
-                            _revision = '2017-11-10'
-
-                            def __init__(self):
-                                super(Controller.Switch.Oper.Vlan.Information.Location.SdrId, self).__init__()
-
-                                self.yang_name = "sdr-id"
-                                self.yang_parent_name = "location"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['sdr']
-                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId))])
-                                self._leafs = OrderedDict([
-                                    ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
-                                    ('esd_sdr_name', (YLeaf(YType.str, 'esd-sdr-name'), ['str'])),
-                                ])
-                                self.sdr = None
-                                self.esd_sdr_name = None
-
-                                self.vlan_id = YList(self)
-                                self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
-
-
-                            class VlanId(Entity):
-                                """
-                                
-                                
-                                .. attribute:: vlan  (key)
-                                
-                                	
-                                	**type**\: int
-                                
-                                	**range:** 0..4095
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: vlan_hex
-                                
-                                	
-                                	**type**\: int
-                                
-                                	**range:** 0..4095
-                                
-                                	**refers to**\:  :py:class:`vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: vlan_use
-                                
-                                	
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'calvados_controllers_asr9k'
-                                _revision = '2017-11-10'
-
-                                def __init__(self):
-                                    super(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, self).__init__()
-
-                                    self.yang_name = "vlan-id"
-                                    self.yang_parent_name = "sdr-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['vlan']
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
-                                        ('vlan_hex', (YLeaf(YType.str, 'vlan-hex'), ['int'])),
-                                        ('vlan_use', (YLeaf(YType.str, 'vlan-use'), ['str'])),
-                                    ])
-                                    self.vlan = None
-                                    self.vlan_hex = None
-                                    self.vlan_use = None
-                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
-
-
-
-
-
-                    class Summary(Entity):
-                        """
-                        
-                        
-                        .. attribute:: sdr_id
-                        
-                        	
-                        	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId>`
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'calvados_controllers_asr9k'
-                        _revision = '2017-11-10'
-
-                        def __init__(self):
-                            super(Controller.Switch.Oper.Vlan.Information.Summary, self).__init__()
-
-                            self.yang_name = "summary"
-                            self.yang_parent_name = "information"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId))])
-                            self._leafs = OrderedDict()
-
-                            self.sdr_id = YList(self)
-                            self._segment_path = lambda: "summary"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary, [], name, value)
-
-
-                        class SdrId(Entity):
-                            """
-                            
-                            
-                            .. attribute:: sdr  (key)
-                            
-                            	
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: esd_sdr_name
-                            
-                            	
-                            	**type**\: str
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: vlan_id
-                            
-                            	
-                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'calvados_controllers_asr9k'
-                            _revision = '2017-11-10'
-
-                            def __init__(self):
-                                super(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, self).__init__()
-
-                                self.yang_name = "sdr-id"
-                                self.yang_parent_name = "summary"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self.ylist_key_names = ['sdr']
-                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId))])
-                                self._leafs = OrderedDict([
-                                    ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
-                                    ('esd_sdr_name', (YLeaf(YType.str, 'esd-sdr-name'), ['str'])),
-                                ])
-                                self.sdr = None
-                                self.esd_sdr_name = None
-
-                                self.vlan_id = YList(self)
-                                self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/summary/%s" % self._segment_path()
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, ['sdr', 'esd_sdr_name'], name, value)
-
-
-                            class VlanId(Entity):
-                                """
-                                
-                                
-                                .. attribute:: vlan  (key)
-                                
-                                	
-                                	**type**\: int
-                                
-                                	**range:** 0..4095
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: vlan_hex
-                                
-                                	
-                                	**type**\: int
-                                
-                                	**range:** 0..4095
-                                
-                                	**refers to**\:  :py:class:`vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: vlan_use
-                                
-                                	
-                                	**type**\: str
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'calvados_controllers_asr9k'
-                                _revision = '2017-11-10'
-
-                                def __init__(self):
-                                    super(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, self).__init__()
-
-                                    self.yang_name = "vlan-id"
-                                    self.yang_parent_name = "sdr-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['vlan']
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
-                                        ('vlan_hex', (YLeaf(YType.str, 'vlan-hex'), ['int'])),
-                                        ('vlan_use', (YLeaf(YType.str, 'vlan-use'), ['str'])),
-                                    ])
-                                    self.vlan = None
-                                    self.vlan_hex = None
-                                    self.vlan_use = None
-                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
-
-
-
-
-
-
-                class VlanDetail(Entity):
+                class VlanDetail(_Entity_):
                     """
                     
                     
@@ -4832,7 +4493,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Vlan.VlanDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Vlan.VlanDetail, self).__init__()
 
                         self.yang_name = "vlan-detail"
                         self.yang_parent_name = "vlan"
@@ -4851,7 +4515,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail, [], name, value)
 
 
-                    class VlanId(Entity):
+                    class VlanId(_Entity_):
                         """
                         
                         
@@ -4879,7 +4543,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, self).__init__()
 
                             self.yang_name = "vlan-id"
                             self.yang_parent_name = "vlan-detail"
@@ -4903,7 +4570,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, ['vlan'], name, value)
 
 
-                        class Rules(Entity):
+                        class Rules(_Entity_):
                             """
                             
                             
@@ -4922,7 +4589,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules, self).__init__()
 
                                 self.yang_name = "rules"
                                 self.yang_parent_name = "vlan-id"
@@ -4940,7 +4610,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules, [], name, value)
 
 
-                            class Location(Entity):
+                            class Location(_Entity_):
                                 """
                                 
                                 
@@ -4980,7 +4650,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, self).__init__()
 
                                     self.yang_name = "location"
                                     self.yang_parent_name = "rules"
@@ -5005,7 +4678,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                                class PortIter(Entity):
+                                class PortIter(_Entity_):
                                     """
                                     
                                     
@@ -5033,7 +4706,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, self).__init__()
 
                                         self.yang_name = "port-iter"
                                         self.yang_parent_name = "location"
@@ -5054,7 +4730,7 @@ class Controller(Entity):
                                         self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, ['port'], name, value)
 
 
-                                    class RuleId(Entity):
+                                    class RuleId(_Entity_):
                                         """
                                         
                                         
@@ -5112,7 +4788,10 @@ class Controller(Entity):
                                         _revision = '2017-11-10'
 
                                         def __init__(self):
-                                            super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, self).__init__()
 
                                             self.yang_name = "rule-id"
                                             self.yang_parent_name = "port-iter"
@@ -5140,14 +4819,826 @@ class Controller(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail.VlanId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Vlan.VlanDetail']['meta_info']
 
 
+                class Rules(_Entity_):
+                    """
+                    
+                    
+                    .. attribute:: location
+                    
+                    	
+                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'calvados_controllers_asr9k'
+                    _revision = '2017-11-10'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Vlan.Rules, self).__init__()
+
+                        self.yang_name = "rules"
+                        self.yang_parent_name = "vlan"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Rules.Location))])
+                        self._leafs = OrderedDict()
+
+                        self.location = YList(self)
+                        self._segment_path = lambda: "rules"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules, [], name, value)
 
 
+                    class Location(_Entity_):
+                        """
+                        
+                        
+                        .. attribute:: rack  (key)
+                        
+                        	
+                        	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: card  (key)
+                        
+                        	Card that owns a switch of interest to display the VLAN configuration for
+                        	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: switch_id  (key)
+                        
+                        	Switch type
+                        	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: port_iter
+                        
+                        	
+                        	**type**\: list of  		 :py:class:`PortIter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'calvados_controllers_asr9k'
+                        _revision = '2017-11-10'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Vlan.Rules.Location, self).__init__()
+
+                            self.yang_name = "location"
+                            self.yang_parent_name = "rules"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['rack','card','switch_id']
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.Rules.Location.PortIter))])
+                            self._leafs = OrderedDict([
+                                ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
+                                ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
+                                ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
+                            ])
+                            self.rack = None
+                            self.card = None
+                            self.switch_id = None
+
+                            self.port_iter = YList(self)
+                            self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/rules/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
+                        class PortIter(_Entity_):
+                            """
+                            
+                            
+                            .. attribute:: port  (key)
+                            
+                            	Switch port
+                            	**type**\: int
+                            
+                            	**range:** 0..127
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: vlan_id
+                            
+                            	
+                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId>`
+                            
+                            	**config**\: False
+                            
+                            
 
-                class Membership(Entity):
+                            """
+
+                            _prefix = 'calvados_controllers_asr9k'
+                            _revision = '2017-11-10'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, self).__init__()
+
+                                self.yang_name = "port-iter"
+                                self.yang_parent_name = "location"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['port']
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId))])
+                                self._leafs = OrderedDict([
+                                    ('port', (YLeaf(YType.int32, 'port'), ['int'])),
+                                ])
+                                self.port = None
+
+                                self.vlan_id = YList(self)
+                                self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, ['port'], name, value)
+
+
+                            class VlanId(_Entity_):
+                                """
+                                
+                                
+                                .. attribute:: vlan  (key)
+                                
+                                	This VLAN represents a VLAN membership for this switch port. Multiple rules may exist to support this VLAN
+                                	**type**\: int
+                                
+                                	**range:** 0..4095
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: rule_id
+                                
+                                	
+                                	**type**\: list of  		 :py:class:`RuleId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'calvados_controllers_asr9k'
+                                _revision = '2017-11-10'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, self).__init__()
+
+                                    self.yang_name = "vlan-id"
+                                    self.yang_parent_name = "port-iter"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vlan']
+                                    self._child_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId))])
+                                    self._leafs = OrderedDict([
+                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
+                                    ])
+                                    self.vlan = None
+
+                                    self.rule_id = YList(self)
+                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, ['vlan'], name, value)
+
+
+                                class RuleId(_Entity_):
+                                    """
+                                    
+                                    
+                                    .. attribute:: direction
+                                    
+                                    	Packet direction this rule applies to
+                                    	**type**\:  :py:class:`SwitchDataDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchDataDirectionEnum>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: match_table
+                                    
+                                    	
+                                    	**type**\:  :py:class:`SwitchTableTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchTableTypeEnum>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: match_type
+                                    
+                                    	
+                                    	**type**\:  :py:class:`SwitchMatchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchMatchTypeEnum>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: match_vlan_id
+                                    
+                                    	
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4095
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: action
+                                    
+                                    	
+                                    	**type**\:  :py:class:`SwitchActionTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchActionTypeEnum>`
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: action_vlan_id
+                                    
+                                    	
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4095
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'calvados_controllers_asr9k'
+                                    _revision = '2017-11-10'
+
+                                    def __init__(self):
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, self).__init__()
+
+                                        self.yang_name = "rule-id"
+                                        self.yang_parent_name = "vlan-id"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchDataDirectionEnum', '')])),
+                                            ('match_table', (YLeaf(YType.enumeration, 'match-table'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchTableTypeEnum', '')])),
+                                            ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchMatchTypeEnum', '')])),
+                                            ('match_vlan_id', (YLeaf(YType.uint16, 'match-vlan-id'), ['int'])),
+                                            ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchActionTypeEnum', '')])),
+                                            ('action_vlan_id', (YLeaf(YType.uint16, 'action-vlan-id'), ['int'])),
+                                        ])
+                                        self.direction = None
+                                        self.match_table = None
+                                        self.match_type = None
+                                        self.match_vlan_id = None
+                                        self.action = None
+                                        self.action_vlan_id = None
+                                        self._segment_path = lambda: "rule-id"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Vlan.Rules.Location.PortIter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Vlan.Rules.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Vlan.Rules']['meta_info']
+
+
+                class Information(_Entity_):
+                    """
+                    
+                    
+                    .. attribute:: location
+                    
+                    	
+                    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: summary
+                    
+                    	
+                    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'calvados_controllers_asr9k'
+                    _revision = '2017-11-10'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Vlan.Information, self).__init__()
+
+                        self.yang_name = "information"
+                        self.yang_parent_name = "vlan"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Information.Location)), ("summary", ("summary", Controller.Switch.Oper.Vlan.Information.Summary))])
+                        self._leafs = OrderedDict()
+
+                        self.summary = Controller.Switch.Oper.Vlan.Information.Summary()
+                        self.summary.parent = self
+                        self._children_name_map["summary"] = "summary"
+
+                        self.location = YList(self)
+                        self._segment_path = lambda: "information"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Controller.Switch.Oper.Vlan.Information, [], name, value)
+
+
+                    class Location(_Entity_):
+                        """
+                        
+                        
+                        .. attribute:: rack  (key)
+                        
+                        	
+                        	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: card  (key)
+                        
+                        	Card to list the switch VLAN information for
+                        	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: switch_id  (key)
+                        
+                        	Switch type
+                        	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: serial_num
+                        
+                        	Rack serial number
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: sdr_id
+                        
+                        	
+                        	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'calvados_controllers_asr9k'
+                        _revision = '2017-11-10'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Vlan.Information.Location, self).__init__()
+
+                            self.yang_name = "location"
+                            self.yang_parent_name = "information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['rack','card','switch_id']
+                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId))])
+                            self._leafs = OrderedDict([
+                                ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
+                                ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
+                                ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
+                                ('serial_num', (YLeaf(YType.str, 'serial-num'), ['str'])),
+                            ])
+                            self.rack = None
+                            self.card = None
+                            self.switch_id = None
+                            self.serial_num = None
+
+                            self.sdr_id = YList(self)
+                            self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
+
+
+                        class SdrId(_Entity_):
+                            """
+                            
+                            
+                            .. attribute:: sdr  (key)
+                            
+                            	
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: esd_sdr_name
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: vlan_id
+                            
+                            	
+                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'calvados_controllers_asr9k'
+                            _revision = '2017-11-10'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Vlan.Information.Location.SdrId, self).__init__()
+
+                                self.yang_name = "sdr-id"
+                                self.yang_parent_name = "location"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['sdr']
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId))])
+                                self._leafs = OrderedDict([
+                                    ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
+                                    ('esd_sdr_name', (YLeaf(YType.str, 'esd-sdr-name'), ['str'])),
+                                ])
+                                self.sdr = None
+                                self.esd_sdr_name = None
+
+                                self.vlan_id = YList(self)
+                                self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
+
+
+                            class VlanId(_Entity_):
+                                """
+                                
+                                
+                                .. attribute:: vlan  (key)
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4095
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: vlan_hex
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4095
+                                
+                                	**refers to**\:  :py:class:`vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: vlan_use
+                                
+                                	
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'calvados_controllers_asr9k'
+                                _revision = '2017-11-10'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, self).__init__()
+
+                                    self.yang_name = "vlan-id"
+                                    self.yang_parent_name = "sdr-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vlan']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
+                                        ('vlan_hex', (YLeaf(YType.str, 'vlan-hex'), ['int'])),
+                                        ('vlan_use', (YLeaf(YType.str, 'vlan-use'), ['str'])),
+                                    ])
+                                    self.vlan = None
+                                    self.vlan_hex = None
+                                    self.vlan_use = None
+                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Location.SdrId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Location']['meta_info']
+
+
+                    class Summary(_Entity_):
+                        """
+                        
+                        
+                        .. attribute:: sdr_id
+                        
+                        	
+                        	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'calvados_controllers_asr9k'
+                        _revision = '2017-11-10'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Vlan.Information.Summary, self).__init__()
+
+                            self.yang_name = "summary"
+                            self.yang_parent_name = "information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId))])
+                            self._leafs = OrderedDict()
+
+                            self.sdr_id = YList(self)
+                            self._segment_path = lambda: "summary"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary, [], name, value)
+
+
+                        class SdrId(_Entity_):
+                            """
+                            
+                            
+                            .. attribute:: sdr  (key)
+                            
+                            	
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: esd_sdr_name
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: vlan_id
+                            
+                            	
+                            	**type**\: list of  		 :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'calvados_controllers_asr9k'
+                            _revision = '2017-11-10'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, self).__init__()
+
+                                self.yang_name = "sdr-id"
+                                self.yang_parent_name = "summary"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self.ylist_key_names = ['sdr']
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId))])
+                                self._leafs = OrderedDict([
+                                    ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
+                                    ('esd_sdr_name', (YLeaf(YType.str, 'esd-sdr-name'), ['str'])),
+                                ])
+                                self.sdr = None
+                                self.esd_sdr_name = None
+
+                                self.vlan_id = YList(self)
+                                self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/summary/%s" % self._segment_path()
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, ['sdr', 'esd_sdr_name'], name, value)
+
+
+                            class VlanId(_Entity_):
+                                """
+                                
+                                
+                                .. attribute:: vlan  (key)
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4095
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: vlan_hex
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4095
+                                
+                                	**refers to**\:  :py:class:`vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: vlan_use
+                                
+                                	
+                                	**type**\: str
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'calvados_controllers_asr9k'
+                                _revision = '2017-11-10'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, self).__init__()
+
+                                    self.yang_name = "vlan-id"
+                                    self.yang_parent_name = "sdr-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vlan']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vlan', (YLeaf(YType.uint16, 'vlan'), ['int'])),
+                                        ('vlan_hex', (YLeaf(YType.str, 'vlan-hex'), ['int'])),
+                                        ('vlan_use', (YLeaf(YType.str, 'vlan-use'), ['str'])),
+                                    ])
+                                    self.vlan = None
+                                    self.vlan_hex = None
+                                    self.vlan_use = None
+                                    self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Summary.SdrId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Vlan.Information.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Vlan.Information']['meta_info']
+
+
+                class Membership(_Entity_):
                     """
                     
                     
@@ -5166,7 +5657,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Vlan.Membership, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Vlan.Membership, self).__init__()
 
                         self.yang_name = "membership"
                         self.yang_parent_name = "vlan"
@@ -5185,7 +5679,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Vlan.Membership, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -5225,7 +5719,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Vlan.Membership.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Vlan.Membership.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "membership"
@@ -5251,7 +5748,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class VlanId(Entity):
+                        class VlanId(_Entity_):
                             """
                             
                             
@@ -5292,7 +5789,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, self).__init__()
 
                                 self.yang_name = "vlan-id"
                                 self.yang_parent_name = "location"
@@ -5314,12 +5814,28 @@ class Controller(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, ['vlan', 'vlan_hex', 'port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Vlan.Membership.Location.VlanId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Vlan.Membership.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Vlan.Membership']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Vlan']['meta_info']
 
 
-
-
-
-            class Esd(Entity):
+            class Esd(_Entity_):
                 """
                 
                 
@@ -5338,7 +5854,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Esd, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Esd, self).__init__()
 
                     self.yang_name = "esd"
                     self.yang_parent_name = "oper"
@@ -5357,7 +5876,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Esd, [], name, value)
 
 
-                class Instance(Entity):
+                class Instance(_Entity_):
                     """
                     show traceable process instance names
                     
@@ -5383,7 +5902,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Esd.Instance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Esd.Instance, self).__init__()
 
                         self.yang_name = "instance"
                         self.yang_parent_name = "esd"
@@ -5405,7 +5927,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Esd.Instance, ['process_name'], name, value)
 
 
-                    class Trace(Entity):
+                    class Trace(_Entity_):
                         """
                         show traceable processes
                         
@@ -5431,7 +5953,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Esd.Instance.Trace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Esd.Instance.Trace, self).__init__()
 
                             self.yang_name = "trace"
                             self.yang_parent_name = "instance"
@@ -5452,7 +5977,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace, ['buffer'], name, value)
 
 
-                        class Location(Entity):
+                        class Location(_Entity_):
                             """
                             
                             
@@ -5478,7 +6003,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Esd.Instance.Trace.Location, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Esd.Instance.Trace.Location, self).__init__()
 
                                 self.yang_name = "location"
                                 self.yang_parent_name = "trace"
@@ -5499,7 +6027,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location, ['location_name'], name, value)
 
 
-                            class AllOptions(Entity):
+                            class AllOptions(_Entity_):
                                 """
                                 
                                 
@@ -5525,7 +6053,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, self).__init__()
 
                                     self.yang_name = "all-options"
                                     self.yang_parent_name = "location"
@@ -5546,7 +6077,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                                class TraceBlocks(Entity):
+                                class TraceBlocks(_Entity_):
                                     """
                                     
                                     
@@ -5565,7 +6096,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                                         self.yang_name = "trace-blocks"
                                         self.yang_parent_name = "all-options"
@@ -5583,14 +6117,38 @@ class Controller(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Esd.Instance.Trace.Location']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Esd.Instance.Trace']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Esd.Instance']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Esd']['meta_info']
 
 
-
-
-
-
-
-            class MgmtAgent(Entity):
+            class MgmtAgent(_Entity_):
                 """
                 
                 
@@ -5616,7 +6174,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.MgmtAgent, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.MgmtAgent, self).__init__()
 
                     self.yang_name = "mgmt-agent"
                     self.yang_parent_name = "oper"
@@ -5641,7 +6202,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.MgmtAgent, [], name, value)
 
 
-                class Esdma(Entity):
+                class Esdma(_Entity_):
                     """
                     
                     
@@ -5660,7 +6221,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.MgmtAgent.Esdma, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.MgmtAgent.Esdma, self).__init__()
 
                         self.yang_name = "esdma"
                         self.yang_parent_name = "mgmt-agent"
@@ -5679,7 +6243,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma, [], name, value)
 
 
-                    class Trace(Entity):
+                    class Trace(_Entity_):
                         """
                         show traceable processes
                         
@@ -5705,7 +6269,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, self).__init__()
 
                             self.yang_name = "trace"
                             self.yang_parent_name = "esdma"
@@ -5727,7 +6294,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, ['buffer'], name, value)
 
 
-                        class Location(Entity):
+                        class Location(_Entity_):
                             """
                             
                             
@@ -5753,7 +6320,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, self).__init__()
 
                                 self.yang_name = "location"
                                 self.yang_parent_name = "trace"
@@ -5774,7 +6344,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, ['location_name'], name, value)
 
 
-                            class AllOptions(Entity):
+                            class AllOptions(_Entity_):
                                 """
                                 
                                 
@@ -5800,7 +6370,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, self).__init__()
 
                                     self.yang_name = "all-options"
                                     self.yang_parent_name = "location"
@@ -5821,7 +6394,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                                class TraceBlocks(Entity):
+                                class TraceBlocks(_Entity_):
                                     """
                                     
                                     
@@ -5840,7 +6413,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                                         self.yang_name = "trace-blocks"
                                         self.yang_parent_name = "all-options"
@@ -5858,13 +6434,33 @@ class Controller(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Esdma.Trace']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Esdma']['meta_info']
 
 
-
-
-
-
-                class Connections(Entity):
+                class Connections(_Entity_):
                     """
                     
                     
@@ -5931,7 +6527,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.MgmtAgent.Connections, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.MgmtAgent.Connections, self).__init__()
 
                         self.yang_name = "connections"
                         self.yang_parent_name = "mgmt-agent"
@@ -5963,7 +6562,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections, ['sdr_nm_num_clients', 'esd_client_num_clients', 'mlap_client_num_clients'], name, value)
 
 
-                    class EsdmaInfo(Entity):
+                    class EsdmaInfo(_Entity_):
                         """
                         
                         
@@ -5990,7 +6589,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo, self).__init__()
 
                             self.yang_name = "esdma-info"
                             self.yang_parent_name = "connections"
@@ -6009,9 +6611,13 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo, ['active_esdma_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo']['meta_info']
 
 
-                    class SdrNmClientId(Entity):
+                    class SdrNmClientId(_Entity_):
                         """
                         
                         
@@ -6047,7 +6653,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId, self).__init__()
 
                             self.yang_name = "sdr-nm-client-id"
                             self.yang_parent_name = "connections"
@@ -6068,9 +6677,13 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId, ['sdr_nm_ip_address', 'sdr_nm_port_num'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId']['meta_info']
 
 
-                    class EsdClientId(Entity):
+                    class EsdClientId(_Entity_):
                         """
                         
                         
@@ -6127,7 +6740,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId, self).__init__()
 
                             self.yang_name = "esd-client-id"
                             self.yang_parent_name = "connections"
@@ -6154,9 +6770,13 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId, ['esd_client_ip_address', 'esd_client_port_num', 'esd_client_location', 'esd_client_switch_info_cached', 'esd_client_sdr_info_cached'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId']['meta_info']
 
 
-                    class MlapClientId(Entity):
+                    class MlapClientId(_Entity_):
                         """
                         
                         
@@ -6206,7 +6826,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId, self).__init__()
 
                             self.yang_name = "mlap-client-id"
                             self.yang_parent_name = "connections"
@@ -6231,13 +6854,32 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId, ['mlap_client_ip_address', 'mlap_client_port_num', 'mlap_client_location', 'mlap_client_switch_info_cached'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.MgmtAgent.Connections']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.MgmtAgent']['meta_info']
 
 
-
-
-            class Sdr(Entity):
+            class Sdr(_Entity_):
                 """
                 
+                
+                .. attribute:: sdr_detail
+                
+                	
+                	**type**\:  :py:class:`SdrDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail>`
+                
+                	**config**\: False
                 
                 .. attribute:: port_statistics
                 
@@ -6260,13 +6902,6 @@ class Controller(Entity):
                 
                 	**config**\: False
                 
-                .. attribute:: sdr_detail
-                
-                	
-                	**type**\:  :py:class:`SdrDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail>`
-                
-                	**config**\: False
-                
                 
 
                 """
@@ -6275,15 +6910,22 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Sdr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Sdr, self).__init__()
 
                     self.yang_name = "sdr"
                     self.yang_parent_name = "oper"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.PortStatistics)), ("global-statistics", ("global_statistics", Controller.Switch.Oper.Sdr.GlobalStatistics)), ("policers", ("policers", Controller.Switch.Oper.Sdr.Policers)), ("sdr-detail", ("sdr_detail", Controller.Switch.Oper.Sdr.SdrDetail))])
+                    self._child_classes = OrderedDict([("sdr-detail", ("sdr_detail", Controller.Switch.Oper.Sdr.SdrDetail)), ("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.PortStatistics)), ("global-statistics", ("global_statistics", Controller.Switch.Oper.Sdr.GlobalStatistics)), ("policers", ("policers", Controller.Switch.Oper.Sdr.Policers))])
                     self._leafs = OrderedDict()
+
+                    self.sdr_detail = Controller.Switch.Oper.Sdr.SdrDetail()
+                    self.sdr_detail.parent = self
+                    self._children_name_map["sdr_detail"] = "sdr-detail"
 
                     self.port_statistics = Controller.Switch.Oper.Sdr.PortStatistics()
                     self.port_statistics.parent = self
@@ -6296,10 +6938,6 @@ class Controller(Entity):
                     self.policers = Controller.Switch.Oper.Sdr.Policers()
                     self.policers.parent = self
                     self._children_name_map["policers"] = "policers"
-
-                    self.sdr_detail = Controller.Switch.Oper.Sdr.SdrDetail()
-                    self.sdr_detail.parent = self
-                    self._children_name_map["sdr_detail"] = "sdr-detail"
                     self._segment_path = lambda: "sdr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
                     self._is_frozen = True
@@ -6308,7 +6946,479 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Sdr, [], name, value)
 
 
-                class PortStatistics(Entity):
+                class SdrDetail(_Entity_):
+                    """
+                    
+                    
+                    .. attribute:: sdr_id
+                    
+                    	
+                    	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'calvados_controllers_asr9k'
+                    _revision = '2017-11-10'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Sdr.SdrDetail, self).__init__()
+
+                        self.yang_name = "sdr-detail"
+                        self.yang_parent_name = "sdr"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId))])
+                        self._leafs = OrderedDict()
+
+                        self.sdr_id = YList(self)
+                        self._segment_path = lambda: "sdr-detail"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/sdr/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail, [], name, value)
+
+
+                    class SdrId(_Entity_):
+                        """
+                        
+                        
+                        .. attribute:: sdr  (key)
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: port_statistics
+                        
+                        	
+                        	**type**\:  :py:class:`PortStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'calvados_controllers_asr9k'
+                        _revision = '2017-11-10'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, self).__init__()
+
+                            self.yang_name = "sdr-id"
+                            self.yang_parent_name = "sdr-detail"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['sdr']
+                            self._child_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics))])
+                            self._leafs = OrderedDict([
+                                ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
+                            ])
+                            self.sdr = None
+
+                            self.port_statistics = Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics()
+                            self.port_statistics.parent = self
+                            self._children_name_map["port_statistics"] = "port-statistics"
+                            self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/sdr/sdr-detail/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, ['sdr'], name, value)
+
+
+                        class PortStatistics(_Entity_):
+                            """
+                            
+                            
+                            .. attribute:: location
+                            
+                            	
+                            	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location>`
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'calvados_controllers_asr9k'
+                            _revision = '2017-11-10'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics, self).__init__()
+
+                                self.yang_name = "port-statistics"
+                                self.yang_parent_name = "sdr-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location))])
+                                self._leafs = OrderedDict()
+
+                                self.location = YList(self)
+                                self._segment_path = lambda: "port-statistics"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics, [], name, value)
+
+
+                            class Location(_Entity_):
+                                """
+                                
+                                
+                                .. attribute:: rack  (key)
+                                
+                                	
+                                	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: card  (key)
+                                
+                                	Card that owns a switch of interest
+                                	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: switch_id  (key)
+                                
+                                	Switch type
+                                	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: port_iter
+                                
+                                	
+                                	**type**\: list of  		 :py:class:`PortIter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter>`
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'calvados_controllers_asr9k'
+                                _revision = '2017-11-10'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, self).__init__()
+
+                                    self.yang_name = "location"
+                                    self.yang_parent_name = "port-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['rack','card','switch_id']
+                                    self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter))])
+                                    self._leafs = OrderedDict([
+                                        ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
+                                        ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
+                                        ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
+                                    ])
+                                    self.rack = None
+                                    self.card = None
+                                    self.switch_id = None
+
+                                    self.port_iter = YList(self)
+                                    self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
+
+
+                                class PortIter(_Entity_):
+                                    """
+                                    
+                                    
+                                    .. attribute:: port  (key)
+                                    
+                                    	Switch port
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..127
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: traffic_type_id
+                                    
+                                    	
+                                    	**type**\: list of  		 :py:class:`TrafficTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId>`
+                                    
+                                    	**config**\: False
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'calvados_controllers_asr9k'
+                                    _revision = '2017-11-10'
+
+                                    def __init__(self):
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, self).__init__()
+
+                                        self.yang_name = "port-iter"
+                                        self.yang_parent_name = "location"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['port']
+                                        self._child_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId))])
+                                        self._leafs = OrderedDict([
+                                            ('port', (YLeaf(YType.int32, 'port'), ['int'])),
+                                        ])
+                                        self.port = None
+
+                                        self.traffic_type_id = YList(self)
+                                        self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, ['port'], name, value)
+
+
+                                    class TrafficTypeId(_Entity_):
+                                        """
+                                        
+                                        
+                                        .. attribute:: traffic_type  (key)
+                                        
+                                        	
+                                        	**type**\:  :py:class:`EsdmaSdrTrafficType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSdrTrafficType>`
+                                        
+                                        	**config**\: False
+                                        
+                                        .. attribute:: direction_id
+                                        
+                                        	
+                                        	**type**\: list of  		 :py:class:`DirectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId>`
+                                        
+                                        	**config**\: False
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'calvados_controllers_asr9k'
+                                        _revision = '2017-11-10'
+
+                                        def __init__(self):
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, self).__init__()
+
+                                            self.yang_name = "traffic-type-id"
+                                            self.yang_parent_name = "port-iter"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['traffic_type']
+                                            self._child_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId))])
+                                            self._leafs = OrderedDict([
+                                                ('traffic_type', (YLeaf(YType.enumeration, 'traffic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSdrTrafficType', '')])),
+                                            ])
+                                            self.traffic_type = None
+
+                                            self.direction_id = YList(self)
+                                            self._segment_path = lambda: "traffic-type-id" + "[traffic-type='" + str(self.traffic_type) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, ['traffic_type'], name, value)
+
+
+                                        class DirectionId(_Entity_):
+                                            """
+                                            
+                                            
+                                            .. attribute:: direction  (key)
+                                            
+                                            	Packet direction this rule applies to
+                                            	**type**\:  :py:class:`SwitchDataDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchDataDirectionEnum>`
+                                            
+                                            	**config**\: False
+                                            
+                                            .. attribute:: traffic_class_id
+                                            
+                                            	
+                                            	**type**\: list of  		 :py:class:`TrafficClassId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId>`
+                                            
+                                            	**config**\: False
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'calvados_controllers_asr9k'
+                                            _revision = '2017-11-10'
+
+                                            def __init__(self):
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, self).__init__()
+
+                                                self.yang_name = "direction-id"
+                                                self.yang_parent_name = "traffic-type-id"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['direction']
+                                                self._child_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId))])
+                                                self._leafs = OrderedDict([
+                                                    ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchDataDirectionEnum', '')])),
+                                                ])
+                                                self.direction = None
+
+                                                self.traffic_class_id = YList(self)
+                                                self._segment_path = lambda: "direction-id" + "[direction='" + str(self.direction) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, ['direction'], name, value)
+
+
+                                            class TrafficClassId(_Entity_):
+                                                """
+                                                
+                                                
+                                                .. attribute:: tc  (key)
+                                                
+                                                	Traffic class (0\->7) for these statistics
+                                                	**type**\: int
+                                                
+                                                	**range:** \-1..7
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: green_packets
+                                                
+                                                	Counts packets within the committed information rate for a traffic class on this VLAN
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: yellow_packets
+                                                
+                                                	Counts packets above the committed information rate, but within the excess information rate for a traffic class on this VLAN
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
+                                                
+                                                .. attribute:: red_packets
+                                                
+                                                	Counts packets above the excess information rate for a traffic class on this VLAN. Generally, these packets are dropped
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'calvados_controllers_asr9k'
+                                                _revision = '2017-11-10'
+
+                                                def __init__(self):
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, self).__init__()
+
+                                                    self.yang_name = "traffic-class-id"
+                                                    self.yang_parent_name = "direction-id"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = ['tc']
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('tc', (YLeaf(YType.int8, 'tc'), ['int'])),
+                                                        ('green_packets', (YLeaf(YType.uint64, 'green-packets'), ['int'])),
+                                                        ('yellow_packets', (YLeaf(YType.uint64, 'yellow-packets'), ['int'])),
+                                                        ('red_packets', (YLeaf(YType.uint64, 'red-packets'), ['int'])),
+                                                    ])
+                                                    self.tc = None
+                                                    self.green_packets = None
+                                                    self.yellow_packets = None
+                                                    self.red_packets = None
+                                                    self._segment_path = lambda: "traffic-class-id" + "[tc='" + str(self.tc) + "']"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, ['tc', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                                    return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                                return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail.SdrId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Sdr.SdrDetail']['meta_info']
+
+
+                class PortStatistics(_Entity_):
                     """
                     
                     
@@ -6327,7 +7437,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Sdr.PortStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Sdr.PortStatistics, self).__init__()
 
                         self.yang_name = "port-statistics"
                         self.yang_parent_name = "sdr"
@@ -6346,7 +7459,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -6386,7 +7499,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Sdr.PortStatistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Sdr.PortStatistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "port-statistics"
@@ -6412,7 +7528,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class PortIter(Entity):
+                        class PortIter(_Entity_):
                             """
                             
                             
@@ -6440,7 +7556,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter, self).__init__()
 
                                 self.yang_name = "port-iter"
                                 self.yang_parent_name = "location"
@@ -6461,7 +7580,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter, ['port'], name, value)
 
 
-                            class SdrId(Entity):
+                            class SdrId(_Entity_):
                                 """
                                 
                                 
@@ -6496,7 +7615,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId, self).__init__()
 
                                     self.yang_name = "sdr-id"
                                     self.yang_parent_name = "port-iter"
@@ -6519,7 +7641,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
-                                class TrafficTypeId(Entity):
+                                class TrafficTypeId(_Entity_):
                                     """
                                     
                                     
@@ -6545,7 +7667,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId, self).__init__()
 
                                         self.yang_name = "traffic-type-id"
                                         self.yang_parent_name = "sdr-id"
@@ -6566,7 +7691,7 @@ class Controller(Entity):
                                         self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId, ['traffic_type'], name, value)
 
 
-                                    class DirectionId(Entity):
+                                    class DirectionId(_Entity_):
                                         """
                                         
                                         
@@ -6612,7 +7737,10 @@ class Controller(Entity):
                                         _revision = '2017-11-10'
 
                                         def __init__(self):
-                                            super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId, self).__init__()
 
                                             self.yang_name = "direction-id"
                                             self.yang_parent_name = "traffic-type-id"
@@ -6636,14 +7764,38 @@ class Controller(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId, ['direction', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                            return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Sdr.PortStatistics']['meta_info']
 
 
-
-
-
-
-
-                class GlobalStatistics(Entity):
+                class GlobalStatistics(_Entity_):
                     """
                     
                     
@@ -6662,7 +7814,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Sdr.GlobalStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Sdr.GlobalStatistics, self).__init__()
 
                         self.yang_name = "global-statistics"
                         self.yang_parent_name = "sdr"
@@ -6681,7 +7836,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -6721,7 +7876,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "global-statistics"
@@ -6747,7 +7905,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class SdrId(Entity):
+                        class SdrId(_Entity_):
                             """
                             
                             
@@ -6782,7 +7940,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId, self).__init__()
 
                                 self.yang_name = "sdr-id"
                                 self.yang_parent_name = "location"
@@ -6805,7 +7966,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
 
 
-                            class TrafficTypeId(Entity):
+                            class TrafficTypeId(_Entity_):
                                 """
                                 
                                 
@@ -6831,7 +7992,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId, self).__init__()
 
                                     self.yang_name = "traffic-type-id"
                                     self.yang_parent_name = "sdr-id"
@@ -6852,7 +8016,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId, ['traffic_type'], name, value)
 
 
-                                class TrafficClassId(Entity):
+                                class TrafficClassId(_Entity_):
                                     """
                                     
                                     
@@ -6900,7 +8064,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId, self).__init__()
 
                                         self.yang_name = "traffic-class-id"
                                         self.yang_parent_name = "traffic-type-id"
@@ -6924,13 +8091,33 @@ class Controller(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId, ['tc', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Sdr.GlobalStatistics.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Sdr.GlobalStatistics']['meta_info']
 
 
-
-
-
-
-                class Policers(Entity):
+                class Policers(_Entity_):
                     """
                     
                     
@@ -6949,7 +8136,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Sdr.Policers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Sdr.Policers, self).__init__()
 
                         self.yang_name = "policers"
                         self.yang_parent_name = "sdr"
@@ -6968,7 +8158,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Sdr.Policers, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -7015,7 +8205,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Sdr.Policers.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Sdr.Policers.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "policers"
@@ -7045,7 +8238,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                        class EsdPolicerStatus(Entity):
+                        class EsdPolicerStatus(_Entity_):
                             """
                             
                             
@@ -7064,7 +8257,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus, self).__init__()
 
                                 self.yang_name = "esd-policer-status"
                                 self.yang_parent_name = "location"
@@ -7084,7 +8280,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus, [], name, value)
 
 
-                            class IndentGroup(Entity):
+                            class IndentGroup(_Entity_):
                                 """
                                 
                                 
@@ -7164,7 +8360,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup, self).__init__()
 
                                     self.yang_name = "indent-group"
                                     self.yang_parent_name = "esd-policer-status"
@@ -7196,10 +8395,18 @@ class Controller(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup, ['esd_port_policing_enabled', 'esd_port_committed_burst_size', 'esd_port_peak_burst_size', 'esd_port_policer_mru', 'esd_global_policing_enabled', 'esd_global_committed_burst_size', 'esd_global_peak_burst_size', 'esd_global_policer_mru'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus']['meta_info']
 
 
-
-                        class SdrId(Entity):
+                        class SdrId(_Entity_):
                             """
                             
                             
@@ -7252,7 +8459,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.Sdr.Policers.Location.SdrId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.Sdr.Policers.Location.SdrId, self).__init__()
 
                                 self.yang_name = "sdr-id"
                                 self.yang_parent_name = "location"
@@ -7279,7 +8489,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId, ['sdr', 'esd_sdr_name', 'esd_sdr_cir', 'esd_sdr_pir'], name, value)
 
 
-                            class EsdSdrCosTypeIter(Entity):
+                            class EsdSdrCosTypeIter(_Entity_):
                                 """
                                 
                                 
@@ -7370,7 +8580,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter, self).__init__()
 
                                     self.yang_name = "esd-sdr-cos-type-iter"
                                     self.yang_parent_name = "sdr-id"
@@ -7404,429 +8617,33 @@ class Controller(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter, ['esd_sdr_cos_type', 'esd_sdr_cos_0', 'esd_sdr_cos_1', 'esd_sdr_cos_2', 'esd_sdr_cos_3', 'esd_sdr_cos_4', 'esd_sdr_cos_5', 'esd_sdr_cos_6', 'esd_sdr_cos_7'], name, value)
 
-
-
-
-
-
-                class SdrDetail(Entity):
-                    """
-                    
-                    
-                    .. attribute:: sdr_id
-                    
-                    	
-                    	**type**\: list of  		 :py:class:`SdrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId>`
-                    
-                    	**config**\: False
-                    
-                    
-
-                    """
-
-                    _prefix = 'calvados_controllers_asr9k'
-                    _revision = '2017-11-10'
-
-                    def __init__(self):
-                        super(Controller.Switch.Oper.Sdr.SdrDetail, self).__init__()
-
-                        self.yang_name = "sdr-detail"
-                        self.yang_parent_name = "sdr"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId))])
-                        self._leafs = OrderedDict()
-
-                        self.sdr_id = YList(self)
-                        self._segment_path = lambda: "sdr-detail"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/sdr/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail, [], name, value)
-
-
-                    class SdrId(Entity):
-                        """
-                        
-                        
-                        .. attribute:: sdr  (key)
-                        
-                        	
-                        	**type**\: int
-                        
-                        	**range:** 0..255
-                        
-                        	**config**\: False
-                        
-                        .. attribute:: port_statistics
-                        
-                        	
-                        	**type**\:  :py:class:`PortStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics>`
-                        
-                        	**config**\: False
-                        
-                        
-
-                        """
-
-                        _prefix = 'calvados_controllers_asr9k'
-                        _revision = '2017-11-10'
-
-                        def __init__(self):
-                            super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, self).__init__()
-
-                            self.yang_name = "sdr-id"
-                            self.yang_parent_name = "sdr-detail"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['sdr']
-                            self._child_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics))])
-                            self._leafs = OrderedDict([
-                                ('sdr', (YLeaf(YType.uint8, 'sdr'), ['int'])),
-                            ])
-                            self.sdr = None
-
-                            self.port_statistics = Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics()
-                            self.port_statistics.parent = self
-                            self._children_name_map["port_statistics"] = "port-statistics"
-                            self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/sdr/sdr-detail/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId, ['sdr'], name, value)
-
-
-                        class PortStatistics(Entity):
-                            """
-                            
-                            
-                            .. attribute:: location
-                            
-                            	
-                            	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'calvados_controllers_asr9k'
-                            _revision = '2017-11-10'
-
-                            def __init__(self):
-                                super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics, self).__init__()
-
-                                self.yang_name = "port-statistics"
-                                self.yang_parent_name = "sdr-id"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location))])
-                                self._leafs = OrderedDict()
-
-                                self.location = YList(self)
-                                self._segment_path = lambda: "port-statistics"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics, [], name, value)
-
-
-                            class Location(Entity):
-                                """
-                                
-                                
-                                .. attribute:: rack  (key)
-                                
-                                	
-                                	**type**\:  :py:class:`EsdmaRackNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaRackNumEnum>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: card  (key)
-                                
-                                	Card that owns a switch of interest
-                                	**type**\:  :py:class:`EsdmaCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaCpu>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: switch_id  (key)
-                                
-                                	Switch type
-                                	**type**\:  :py:class:`EsdmaSwitchTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSwitchTypeEnum>`
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: port_iter
-                                
-                                	
-                                	**type**\: list of  		 :py:class:`PortIter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter>`
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'calvados_controllers_asr9k'
-                                _revision = '2017-11-10'
-
-                                def __init__(self):
-                                    super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, self).__init__()
-
-                                    self.yang_name = "location"
-                                    self.yang_parent_name = "port-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter))])
-                                    self._leafs = OrderedDict([
-                                        ('rack', (YLeaf(YType.enumeration, 'rack'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaRackNumEnum', '')])),
-                                        ('card', (YLeaf(YType.enumeration, 'card'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaCpu', '')])),
-                                        ('switch_id', (YLeaf(YType.enumeration, 'switch-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSwitchTypeEnum', '')])),
-                                    ])
-                                    self.rack = None
-                                    self.card = None
-                                    self.switch_id = None
-
-                                    self.port_iter = YList(self)
-                                    self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location, ['rack', 'card', 'switch_id'], name, value)
-
-
-                                class PortIter(Entity):
-                                    """
-                                    
-                                    
-                                    .. attribute:: port  (key)
-                                    
-                                    	Switch port
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..127
-                                    
-                                    	**config**\: False
-                                    
-                                    .. attribute:: traffic_type_id
-                                    
-                                    	
-                                    	**type**\: list of  		 :py:class:`TrafficTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId>`
-                                    
-                                    	**config**\: False
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'calvados_controllers_asr9k'
-                                    _revision = '2017-11-10'
-
-                                    def __init__(self):
-                                        super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, self).__init__()
-
-                                        self.yang_name = "port-iter"
-                                        self.yang_parent_name = "location"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = ['port']
-                                        self._child_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId))])
-                                        self._leafs = OrderedDict([
-                                            ('port', (YLeaf(YType.int32, 'port'), ['int'])),
-                                        ])
-                                        self.port = None
-
-                                        self.traffic_type_id = YList(self)
-                                        self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
-                                        self._is_frozen = True
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter, ['port'], name, value)
-
-
-                                    class TrafficTypeId(Entity):
-                                        """
-                                        
-                                        
-                                        .. attribute:: traffic_type  (key)
-                                        
-                                        	
-                                        	**type**\:  :py:class:`EsdmaSdrTrafficType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.EsdmaSdrTrafficType>`
-                                        
-                                        	**config**\: False
-                                        
-                                        .. attribute:: direction_id
-                                        
-                                        	
-                                        	**type**\: list of  		 :py:class:`DirectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId>`
-                                        
-                                        	**config**\: False
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'calvados_controllers_asr9k'
-                                        _revision = '2017-11-10'
-
-                                        def __init__(self):
-                                            super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, self).__init__()
-
-                                            self.yang_name = "traffic-type-id"
-                                            self.yang_parent_name = "port-iter"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self.ylist_key_names = ['traffic_type']
-                                            self._child_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId))])
-                                            self._leafs = OrderedDict([
-                                                ('traffic_type', (YLeaf(YType.enumeration, 'traffic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'EsdmaSdrTrafficType', '')])),
-                                            ])
-                                            self.traffic_type = None
-
-                                            self.direction_id = YList(self)
-                                            self._segment_path = lambda: "traffic-type-id" + "[traffic-type='" + str(self.traffic_type) + "']"
-                                            self._is_frozen = True
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId, ['traffic_type'], name, value)
-
-
-                                        class DirectionId(Entity):
-                                            """
-                                            
-                                            
-                                            .. attribute:: direction  (key)
-                                            
-                                            	Packet direction this rule applies to
-                                            	**type**\:  :py:class:`SwitchDataDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types.SwitchDataDirectionEnum>`
-                                            
-                                            	**config**\: False
-                                            
-                                            .. attribute:: traffic_class_id
-                                            
-                                            	
-                                            	**type**\: list of  		 :py:class:`TrafficClassId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k.Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId>`
-                                            
-                                            	**config**\: False
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'calvados_controllers_asr9k'
-                                            _revision = '2017-11-10'
-
-                                            def __init__(self):
-                                                super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, self).__init__()
-
-                                                self.yang_name = "direction-id"
-                                                self.yang_parent_name = "traffic-type-id"
-                                                self.is_top_level_class = False
-                                                self.has_list_ancestor = True
-                                                self.ylist_key_names = ['direction']
-                                                self._child_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId))])
-                                                self._leafs = OrderedDict([
-                                                    ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ethsw_esdma_types', 'SwitchDataDirectionEnum', '')])),
-                                                ])
-                                                self.direction = None
-
-                                                self.traffic_class_id = YList(self)
-                                                self._segment_path = lambda: "direction-id" + "[direction='" + str(self.direction) + "']"
-                                                self._is_frozen = True
-
-                                            def __setattr__(self, name, value):
-                                                self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId, ['direction'], name, value)
-
-
-                                            class TrafficClassId(Entity):
-                                                """
-                                                
-                                                
-                                                .. attribute:: tc  (key)
-                                                
-                                                	Traffic class (0\->7) for these statistics
-                                                	**type**\: int
-                                                
-                                                	**range:** \-1..7
-                                                
-                                                	**config**\: False
-                                                
-                                                .. attribute:: green_packets
-                                                
-                                                	Counts packets within the committed information rate for a traffic class on this VLAN
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                	**config**\: False
-                                                
-                                                .. attribute:: yellow_packets
-                                                
-                                                	Counts packets above the committed information rate, but within the excess information rate for a traffic class on this VLAN
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                	**config**\: False
-                                                
-                                                .. attribute:: red_packets
-                                                
-                                                	Counts packets above the excess information rate for a traffic class on this VLAN. Generally, these packets are dropped
-                                                	**type**\: int
-                                                
-                                                	**range:** 0..18446744073709551615
-                                                
-                                                	**config**\: False
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'calvados_controllers_asr9k'
-                                                _revision = '2017-11-10'
-
-                                                def __init__(self):
-                                                    super(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, self).__init__()
-
-                                                    self.yang_name = "traffic-class-id"
-                                                    self.yang_parent_name = "direction-id"
-                                                    self.is_top_level_class = False
-                                                    self.has_list_ancestor = True
-                                                    self.ylist_key_names = ['tc']
-                                                    self._child_classes = OrderedDict([])
-                                                    self._leafs = OrderedDict([
-                                                        ('tc', (YLeaf(YType.int8, 'tc'), ['int'])),
-                                                        ('green_packets', (YLeaf(YType.uint64, 'green-packets'), ['int'])),
-                                                        ('yellow_packets', (YLeaf(YType.uint64, 'yellow-packets'), ['int'])),
-                                                        ('red_packets', (YLeaf(YType.uint64, 'red-packets'), ['int'])),
-                                                    ])
-                                                    self.tc = None
-                                                    self.green_packets = None
-                                                    self.yellow_packets = None
-                                                    self.red_packets = None
-                                                    self._segment_path = lambda: "traffic-class-id" + "[tc='" + str(self.tc) + "']"
-                                                    self._is_frozen = True
-
-                                                def __setattr__(self, name, value):
-                                                    self._perform_setattr(Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId, ['tc', 'green_packets', 'yellow_packets', 'red_packets'], name, value)
-
-
-
-
-
-
-
-
-
-
-
-            class PortState(Entity):
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.Sdr.Policers.Location.SdrId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Sdr.Policers.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Sdr.Policers']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Sdr']['meta_info']
+
+
+            class PortState(_Entity_):
                 """
                 
                 
@@ -7845,7 +8662,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.PortState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.PortState, self).__init__()
 
                     self.yang_name = "port-state"
                     self.yang_parent_name = "oper"
@@ -7864,7 +8684,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.PortState, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -7904,7 +8724,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.PortState.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.PortState.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "port-state"
@@ -7930,7 +8753,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.PortState.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                    class PortIter(Entity):
+                    class PortIter(_Entity_):
                         """
                         
                         
@@ -7951,7 +8774,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.PortState.Location.PortIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.PortState.Location.PortIter, self).__init__()
 
                             self.yang_name = "port-iter"
                             self.yang_parent_name = "location"
@@ -7969,11 +8795,23 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.PortState.Location.PortIter, ['port'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.PortState.Location.PortIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.PortState.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.PortState']['meta_info']
 
 
-
-
-            class Trunk(Entity):
+            class Trunk(_Entity_):
                 """
                 
                 
@@ -7992,7 +8830,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.Trunk, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.Trunk, self).__init__()
 
                     self.yang_name = "trunk"
                     self.yang_parent_name = "oper"
@@ -8011,7 +8852,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.Trunk, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -8067,7 +8908,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.Trunk.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.Trunk.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "trunk"
@@ -8097,7 +8941,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.Trunk.Location, ['rack', 'card', 'switch_id', 'trunk_member_count', 'trunk_name'], name, value)
 
 
-                    class TrunkMemberPortIter(Entity):
+                    class TrunkMemberPortIter(_Entity_):
                         """
                         
                         
@@ -8125,7 +8969,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter, self).__init__()
 
                             self.yang_name = "trunk-member-port-iter"
                             self.yang_parent_name = "location"
@@ -8145,11 +8992,23 @@ class Controller(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter, ['trunk_member_port', 'trunk_member_status'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.Trunk.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.Trunk']['meta_info']
 
 
-
-
-            class SwitchDebugCont(Entity):
+            class SwitchDebugCont(_Entity_):
                 """
                 
                 
@@ -8168,7 +9027,10 @@ class Controller(Entity):
                 _revision = '2017-11-10'
 
                 def __init__(self):
-                    super(Controller.Switch.Oper.SwitchDebugCont, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Controller.Switch.Oper.SwitchDebugCont, self).__init__()
 
                     self.yang_name = "switch-debug-cont"
                     self.yang_parent_name = "oper"
@@ -8189,7 +9051,7 @@ class Controller(Entity):
                     self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont, [], name, value)
 
 
-                class Debug(Entity):
+                class Debug(_Entity_):
                     """
                     
                     
@@ -8208,7 +9070,10 @@ class Controller(Entity):
                     _revision = '2017-11-10'
 
                     def __init__(self):
-                        super(Controller.Switch.Oper.SwitchDebugCont.Debug, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Controller.Switch.Oper.SwitchDebugCont.Debug, self).__init__()
 
                         self.yang_name = "debug"
                         self.yang_parent_name = "switch-debug-cont"
@@ -8229,7 +9094,7 @@ class Controller(Entity):
                         self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug, [], name, value)
 
 
-                    class Counters(Entity):
+                    class Counters(_Entity_):
                         """
                         
                         
@@ -8248,7 +9113,10 @@ class Controller(Entity):
                         _revision = '2017-11-10'
 
                         def __init__(self):
-                            super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "debug"
@@ -8267,7 +9135,7 @@ class Controller(Entity):
                             self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters, [], name, value)
 
 
-                        class Location(Entity):
+                        class Location(_Entity_):
                             """
                             
                             
@@ -8307,7 +9175,10 @@ class Controller(Entity):
                             _revision = '2017-11-10'
 
                             def __init__(self):
-                                super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, self).__init__()
 
                                 self.yang_name = "location"
                                 self.yang_parent_name = "counters"
@@ -8335,7 +9206,7 @@ class Controller(Entity):
                                 self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, ['rack', 'card', 'switch_id'], name, value)
 
 
-                            class Counters_(Entity):
+                            class Counters_(_Entity_):
                                 """
                                 
                                 
@@ -8550,7 +9421,10 @@ class Controller(Entity):
                                 _revision = '2017-11-10'
 
                                 def __init__(self):
-                                    super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, self).__init__()
 
                                     self.yang_name = "counters"
                                     self.yang_parent_name = "location"
@@ -8613,7 +9487,7 @@ class Controller(Entity):
                                     self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, ['phy_polling_enabled', 'tx_thread_wdog_cnt', 'rx_thread_wdog_cnt', 'task_lock_longest_wait_time', 'task_lock_longest_wait_event', 'task_lock_longest_held_time', 'task_lock_longest_held_event', 'task_unlock_longest_wait_time', 'task_unlock_longest_wait_event', 'dma_max_rx_dequeued_per_int', 'dma_rx_packets_dequeued', 'dma_rx_packet_dequeue_errors', 'dma_tx_packets_queued', 'dma_tx_packets_completed', 'dma_tx_packet_no_msg_errors', 'dma_tx_packet_msg_too_big_errors', 'dma_tx_packet_no_buffer_errors', 'dma_tx_packet_queue_errors', 'dma_tx_packet_completion_errors', 'dma_max_tx_freed_per_int', 'dma_tx_buf_alloc_count', 'dma_tx_buf_free_count'], name, value)
 
 
-                                class SwitchCore(Entity):
+                                class SwitchCore(_Entity_):
                                     """
                                     
                                     
@@ -8697,7 +9571,10 @@ class Controller(Entity):
                                     _revision = '2017-11-10'
 
                                     def __init__(self):
-                                        super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, self).__init__()
 
                                         self.yang_name = "switch-core"
                                         self.yang_parent_name = "counters"
@@ -8729,17 +9606,53 @@ class Controller(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, ['core', 'msi_count', 'aer_count', 'hp_count', 'wdog_count', 'core_task_lock_longest_wait_time', 'core_task_lock_longest_held_time', 'core_task_unlock_longest_wait_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                        return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                    return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                                return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                            return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont.Debug.Counters']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                        return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont.Debug']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                    return meta._meta_table['Controller.Switch.Oper.SwitchDebugCont']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+                return meta._meta_table['Controller.Switch.Oper']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+            return meta._meta_table['Controller.Switch']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Controller()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_controllers_asr9k as meta
+        return meta._meta_table['Controller']['meta_info']
 
 

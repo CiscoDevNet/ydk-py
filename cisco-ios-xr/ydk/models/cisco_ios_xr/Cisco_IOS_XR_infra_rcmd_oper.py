@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class RcmdBagEnableDisable(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdBagEnableDisable']
+
+
 class RcmdBagEnblDsbl(Enum):
     """
     RcmdBagEnblDsbl (Enum Class)
@@ -63,6 +72,12 @@ class RcmdBagEnblDsbl(Enum):
     enbl = Enum.YLeaf(1, "enbl")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdBagEnblDsbl']
+
+
 class RcmdBoolYesNo(Enum):
     """
     RcmdBoolYesNo (Enum Class)
@@ -82,6 +97,12 @@ class RcmdBoolYesNo(Enum):
     no = Enum.YLeaf(0, "no")
 
     yes = Enum.YLeaf(1, "yes")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdBoolYesNo']
 
 
 class RcmdChange(Enum):
@@ -123,6 +144,12 @@ class RcmdChange(Enum):
     no_change = Enum.YLeaf(4, "no-change")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdChange']
+
+
 class RcmdIsisLvl(Enum):
     """
     RcmdIsisLvl (Enum Class)
@@ -142,6 +169,12 @@ class RcmdIsisLvl(Enum):
     l1 = Enum.YLeaf(0, "l1")
 
     l2 = Enum.YLeaf(1, "l2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdIsisLvl']
 
 
 class RcmdIsisSpf(Enum):
@@ -177,6 +210,12 @@ class RcmdIsisSpf(Enum):
     partial_route = Enum.YLeaf(3, "partial-route")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdIsisSpf']
+
+
 class RcmdLdpEvent(Enum):
     """
     RcmdLdpEvent (Enum Class)
@@ -196,6 +235,12 @@ class RcmdLdpEvent(Enum):
     neighbor = Enum.YLeaf(1, "neighbor")
 
     adjacency = Enum.YLeaf(2, "adjacency")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdLdpEvent']
 
 
 class RcmdLinecardSpeed(Enum):
@@ -223,6 +268,12 @@ class RcmdLinecardSpeed(Enum):
     fastest = Enum.YLeaf(1, "fastest")
 
     slowest = Enum.YLeaf(2, "slowest")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdLinecardSpeed']
 
 
 class RcmdLsChange(Enum):
@@ -256,6 +307,12 @@ class RcmdLsChange(Enum):
     modify = Enum.YLeaf(2, "modify")
 
     noop = Enum.YLeaf(3, "noop")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdLsChange']
 
 
 class RcmdLsa(Enum):
@@ -315,6 +372,12 @@ class RcmdLsa(Enum):
     nssa = Enum.YLeaf(7, "nssa")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdLsa']
+
+
 class RcmdPriorityLevel(Enum):
     """
     RcmdPriorityLevel (Enum Class)
@@ -348,6 +411,12 @@ class RcmdPriorityLevel(Enum):
     low = Enum.YLeaf(3, "low")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdPriorityLevel']
+
+
 class RcmdProtocolId(Enum):
     """
     RcmdProtocolId (Enum Class)
@@ -375,6 +444,12 @@ class RcmdProtocolId(Enum):
     na = Enum.YLeaf(2, "na")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdProtocolId']
+
+
 class RcmdShowCompId(Enum):
     """
     RcmdShowCompId (Enum Class)
@@ -400,6 +475,12 @@ class RcmdShowCompId(Enum):
     isis = Enum.YLeaf(1, "isis")
 
     un_known = Enum.YLeaf(2, "un-known")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowCompId']
 
 
 class RcmdShowInstState(Enum):
@@ -433,6 +514,12 @@ class RcmdShowInstState(Enum):
     in_active = Enum.YLeaf(2, "in-active")
 
     na = Enum.YLeaf(3, "na")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowInstState']
 
 
 class RcmdShowIntfEvent(Enum):
@@ -522,6 +609,12 @@ class RcmdShowIntfEvent(Enum):
     ldp_no_sync = Enum.YLeaf(13, "ldp-no-sync")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowIntfEvent']
+
+
 class RcmdShowIpfrrLfa(Enum):
     """
     RcmdShowIpfrrLfa (Enum Class)
@@ -547,6 +640,12 @@ class RcmdShowIpfrrLfa(Enum):
     local = Enum.YLeaf(1, "local")
 
     remote = Enum.YLeaf(2, "remote")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowIpfrrLfa']
 
 
 class RcmdShowLdpConvState(Enum):
@@ -588,6 +687,12 @@ class RcmdShowLdpConvState(Enum):
     coverage_flapping = Enum.YLeaf(4, "coverage-flapping")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowLdpConvState']
+
+
 class RcmdShowLdpNeighbourStatus(Enum):
     """
     RcmdShowLdpNeighbourStatus (Enum Class)
@@ -607,6 +712,12 @@ class RcmdShowLdpNeighbourStatus(Enum):
     down = Enum.YLeaf(0, "down")
 
     up = Enum.YLeaf(1, "up")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowLdpNeighbourStatus']
 
 
 class RcmdShowLdpSessionState(Enum):
@@ -660,6 +771,12 @@ class RcmdShowLdpSessionState(Enum):
     total = Enum.YLeaf(6, "total")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowLdpSessionState']
+
+
 class RcmdShowMem(Enum):
     """
     RcmdShowMem (Enum Class)
@@ -705,6 +822,12 @@ class RcmdShowMem(Enum):
     unknown = Enum.YLeaf(5, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowMem']
+
+
 class RcmdShowNode(Enum):
     """
     RcmdShowNode (Enum Class)
@@ -732,6 +855,12 @@ class RcmdShowNode(Enum):
     rp = Enum.YLeaf(2, "rp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowNode']
+
+
 class RcmdShowPrcsState(Enum):
     """
     RcmdShowPrcsState (Enum Class)
@@ -757,6 +886,12 @@ class RcmdShowPrcsState(Enum):
     cpu = Enum.YLeaf(1, "cpu")
 
     memory = Enum.YLeaf(2, "memory")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowPrcsState']
 
 
 class RcmdShowRoute(Enum):
@@ -858,6 +993,12 @@ class RcmdShowRoute(Enum):
     default_attached = Enum.YLeaf(14, "default-attached")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowRoute']
+
+
 class RcmdShowRoutePathChange(Enum):
     """
     RcmdShowRoutePathChange (Enum Class)
@@ -877,6 +1018,12 @@ class RcmdShowRoutePathChange(Enum):
     primary = Enum.YLeaf(0, "primary")
 
     backup = Enum.YLeaf(1, "backup")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowRoutePathChange']
 
 
 class RcmdSpfState(Enum):
@@ -912,8 +1059,14 @@ class RcmdSpfState(Enum):
     no_route_change = Enum.YLeaf(3, "no-route-change")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdSpfState']
 
-class Rcmd(Entity):
+
+
+class Rcmd(_Entity_):
     """
     Show command for Route Convergence Monitoring &
     Diagnostics
@@ -982,7 +1135,10 @@ class Rcmd(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Rcmd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rcmd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rcmd"
@@ -1031,7 +1187,7 @@ class Rcmd(Entity):
         self._perform_setattr(Rcmd, [], name, value)
 
 
-    class Ospf(Entity):
+    class Ospf(_Entity_):
         """
         Operational data for OSPF
         
@@ -1050,7 +1206,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Ospf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Ospf, self).__init__()
 
             self.yang_name = "ospf"
             self.yang_parent_name = "rcmd"
@@ -1071,7 +1230,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Ospf, [], name, value)
 
 
-        class Instances(Entity):
+        class Instances(_Entity_):
             """
             Operational data
             
@@ -1090,7 +1249,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Ospf.Instances, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Ospf.Instances, self).__init__()
 
                 self.yang_name = "instances"
                 self.yang_parent_name = "ospf"
@@ -1109,7 +1271,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Ospf.Instances, [], name, value)
 
 
-            class Instance(Entity):
+            class Instance(_Entity_):
                 """
                 Operational data for a particular instance
                 
@@ -1200,7 +1362,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Ospf.Instances.Instance, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Ospf.Instances.Instance, self).__init__()
 
                     self.yang_name = "instance"
                     self.yang_parent_name = "instances"
@@ -1260,7 +1425,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Ospf.Instances.Instance, ['instance_name'], name, value)
 
 
-                class IpfrrEventSummaries(Entity):
+                class IpfrrEventSummaries(_Entity_):
                     """
                     OSPF IP\-FRR events summary data
                     
@@ -1279,7 +1444,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries, self).__init__()
 
                         self.yang_name = "ipfrr-event-summaries"
                         self.yang_parent_name = "instance"
@@ -1297,7 +1465,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries, [], name, value)
 
 
-                    class IpfrrEventSummary(Entity):
+                    class IpfrrEventSummary(_Entity_):
                         """
                         IP\-FRR Event data
                         
@@ -1431,7 +1599,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, self).__init__()
 
                             self.yang_name = "ipfrr-event-summary"
                             self.yang_parent_name = "ipfrr-event-summaries"
@@ -1475,7 +1646,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
-                        class IpfrrStatistic(Entity):
+                        class IpfrrStatistic(_Entity_):
                             """
                             IP\-Frr Statistics categorized by priority
                             
@@ -1555,7 +1726,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, self).__init__()
 
                                 self.yang_name = "ipfrr-statistic"
                                 self.yang_parent_name = "ipfrr-event-summary"
@@ -1587,9 +1761,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic']['meta_info']
 
 
-                        class RemoteNode(Entity):
+                        class RemoteNode(_Entity_):
                             """
                             Remote Node Information
                             
@@ -1649,7 +1827,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, self).__init__()
 
                                 self.yang_name = "remote-node"
                                 self.yang_parent_name = "ipfrr-event-summary"
@@ -1678,7 +1859,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, ['remote_node_id', 'interface_name', 'neighbour_address', 'path_count', 'in_use_time'], name, value)
 
 
-                            class PrimaryPath(Entity):
+                            class PrimaryPath(_Entity_):
                                 """
                                 Protected Primary Paths
                                 
@@ -1706,7 +1887,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, self).__init__()
 
                                     self.yang_name = "primary-path"
                                     self.yang_parent_name = "remote-node"
@@ -1726,12 +1910,28 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries']['meta_info']
 
 
-
-
-
-                class PrefixEventStatistics(Entity):
+                class PrefixEventStatistics(_Entity_):
                     """
                     OSPF Prefix events summary data
                     
@@ -1750,7 +1950,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics, self).__init__()
 
                         self.yang_name = "prefix-event-statistics"
                         self.yang_parent_name = "instance"
@@ -1768,7 +1971,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics, [], name, value)
 
 
-                    class PrefixEventStatistic(Entity):
+                    class PrefixEventStatistic(_Entity_):
                         """
                         Prefix Event statistics
                         
@@ -1922,7 +2125,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, self).__init__()
 
                             self.yang_name = "prefix-event-statistic"
                             self.yang_parent_name = "prefix-event-statistics"
@@ -1970,10 +2176,18 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventStatistics']['meta_info']
 
 
-
-                class SpfRunSummaries(Entity):
+                class SpfRunSummaries(_Entity_):
                     """
                     OSPF SPF run summary data
                     
@@ -1992,7 +2206,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries, self).__init__()
 
                         self.yang_name = "spf-run-summaries"
                         self.yang_parent_name = "instance"
@@ -2010,7 +2227,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries, [], name, value)
 
 
-                    class SpfRunSummary(Entity):
+                    class SpfRunSummary(_Entity_):
                         """
                         SPF Event data
                         
@@ -2052,7 +2269,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary, self).__init__()
 
                             self.yang_name = "spf-run-summary"
                             self.yang_parent_name = "spf-run-summaries"
@@ -2078,7 +2298,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary, ['spf_run_number'], name, value)
 
 
-                        class SpfSummary(Entity):
+                        class SpfSummary(_Entity_):
                             """
                             SPF summary information
                             
@@ -2175,7 +2395,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, self).__init__()
 
                                 self.yang_name = "spf-summary"
                                 self.yang_parent_name = "spf-run-summary"
@@ -2214,7 +2437,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, ['state', 'is_data_complete', 'threshold_exceeded', 'trigger_time', 'start_time', 'duration', 'total_dijkstra_runs', 'total_inter_area_and_external_batches', 'total_type12lsa_changes', 'total_type357lsa_changes'], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Convergence information summary on per\-priority
                                 basis
@@ -2269,7 +2492,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "spf-summary"
@@ -2304,7 +2530,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -2370,7 +2596,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -2398,9 +2627,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -2444,7 +2677,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -2468,9 +2704,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -2514,7 +2754,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -2538,9 +2781,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -2588,7 +2835,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -2612,11 +2862,23 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary']['meta_info']
 
 
-
-
-                        class DijkstraRun(Entity):
+                        class DijkstraRun(_Entity_):
                             """
                             List of Dijkstra runs
                             
@@ -2704,7 +2966,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun, self).__init__()
 
                                 self.yang_name = "dijkstra-run"
                                 self.yang_parent_name = "spf-run-summary"
@@ -2739,7 +3004,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun, ['dijkstra_run_number', 'area_id', 'threshold_exceeded', 'trigger_time', 'start_time', 'wait_time', 'duration'], name, value)
 
 
-                            class TriggerLsa(Entity):
+                            class TriggerLsa(_Entity_):
                                 """
                                 LSA that triggered the Dijkstra run
                                 
@@ -2797,7 +3062,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa, self).__init__()
 
                                     self.yang_name = "trigger-lsa"
                                     self.yang_parent_name = "dijkstra-run"
@@ -2825,9 +3093,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa']['meta_info']
 
 
-                            class Priority(Entity):
+                            class Priority(_Entity_):
                                 """
                                 Convergence information on per\-priority basis
                                 
@@ -2867,7 +3139,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority, self).__init__()
 
                                     self.yang_name = "priority"
                                     self.yang_parent_name = "dijkstra-run"
@@ -2891,7 +3166,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority, [], name, value)
 
 
-                                class PrioritySummary(Entity):
+                                class PrioritySummary(_Entity_):
                                     """
                                     Summary of the priority
                                     
@@ -2945,7 +3220,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary, self).__init__()
 
                                         self.yang_name = "priority-summary"
                                         self.yang_parent_name = "priority"
@@ -2980,7 +3258,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                    class RouteStatistics(Entity):
+                                    class RouteStatistics(_Entity_):
                                         """
                                         Route statistics
                                         
@@ -3046,7 +3324,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                             self.yang_name = "route-statistics"
                                             self.yang_parent_name = "priority-summary"
@@ -3074,9 +3355,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                    class IpConvergenceTime(Entity):
+                                    class IpConvergenceTime(_Entity_):
                                         """
                                         Convergence time for IP route programming
                                         
@@ -3120,7 +3405,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                             self.yang_name = "ip-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -3144,9 +3432,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                    class MplsConvergenceTime(Entity):
+                                    class MplsConvergenceTime(_Entity_):
                                         """
                                         Convergence time for MPLS label programming
                                         
@@ -3190,7 +3482,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                             self.yang_name = "mpls-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -3214,9 +3509,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                    class FrrStatistic(Entity):
+                                    class FrrStatistic(_Entity_):
                                         """
                                         Fast Re\-Route Statistics
                                         
@@ -3264,7 +3563,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic, self).__init__()
 
                                             self.yang_name = "frr-statistic"
                                             self.yang_parent_name = "priority-summary"
@@ -3288,10 +3590,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary']['meta_info']
 
 
-
-                                class ConvergenceTimeline(Entity):
+                                class ConvergenceTimeline(_Entity_):
                                     """
                                     Convergence timeline details
                                     
@@ -3373,7 +3683,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline, self).__init__()
 
                                         self.yang_name = "convergence-timeline"
                                         self.yang_parent_name = "priority"
@@ -3424,7 +3737,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                    class RouteOrigin(Entity):
+                                    class RouteOrigin(_Entity_):
                                         """
                                         Route origin (routing protocol)
                                         
@@ -3457,7 +3770,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                             self.yang_name = "route-origin"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3479,9 +3795,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                    class RiBv4Enter(Entity):
+                                    class RiBv4Enter(_Entity_):
                                         """
                                         Entry point of IPv4 RIB
                                         
@@ -3514,7 +3834,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                             self.yang_name = "ri-bv4-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3536,9 +3859,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                    class RiBv4Exit(Entity):
+                                    class RiBv4Exit(_Entity_):
                                         """
                                         Exit point from IPv4 RIB to FIBs
                                         
@@ -3571,7 +3898,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                             self.yang_name = "ri-bv4-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3593,9 +3923,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                    class RiBv4Redistribute(Entity):
+                                    class RiBv4Redistribute(_Entity_):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
                                         
@@ -3628,7 +3962,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                             self.yang_name = "ri-bv4-redistribute"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3650,9 +3987,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                    class LdpEnter(Entity):
+                                    class LdpEnter(_Entity_):
                                         """
                                         Entry point of LDP
                                         
@@ -3685,7 +4026,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                             self.yang_name = "ldp-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3707,9 +4051,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                    class LdpExit(Entity):
+                                    class LdpExit(_Entity_):
                                         """
                                         Exit point of LDP to LSD
                                         
@@ -3742,7 +4090,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                             self.yang_name = "ldp-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3764,9 +4115,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                    class LsdEnter(Entity):
+                                    class LsdEnter(_Entity_):
                                         """
                                         Entry point of LSD
                                         
@@ -3799,7 +4154,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                             self.yang_name = "lsd-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3821,9 +4179,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                    class LsdExit(Entity):
+                                    class LsdExit(_Entity_):
                                         """
                                         Exit point of LSD to FIBs
                                         
@@ -3856,7 +4218,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                             self.yang_name = "lsd-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3878,9 +4243,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                    class LcIp(Entity):
+                                    class LcIp(_Entity_):
                                         """
                                         List of Linecards' completion point for IP
                                         routes
@@ -3914,7 +4283,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                             self.yang_name = "lc-ip"
                                             self.yang_parent_name = "convergence-timeline"
@@ -3939,7 +4311,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -3972,7 +4344,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-ip"
@@ -3994,10 +4369,18 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                    class LcMpls(Entity):
+                                    class LcMpls(_Entity_):
                                         """
                                         List of Linecards' completion point for MPLS
                                         labels
@@ -4031,7 +4414,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                             self.yang_name = "lc-mpls"
                                             self.yang_parent_name = "convergence-timeline"
@@ -4056,7 +4442,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -4089,7 +4475,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-mpls"
@@ -4111,11 +4500,23 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                                class LeafNetworksAdded(Entity):
+                                class LeafNetworksAdded(_Entity_):
                                     """
                                     List of Leaf Networks Added
                                     
@@ -4145,7 +4546,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded, self).__init__()
 
                                         self.yang_name = "leaf-networks-added"
                                         self.yang_parent_name = "priority"
@@ -4165,9 +4569,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded']['meta_info']
 
 
-                                class LeafNetworksDeleted(Entity):
+                                class LeafNetworksDeleted(_Entity_):
                                     """
                                     List of Leaf Networks Deleted
                                     
@@ -4197,7 +4605,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted, self).__init__()
 
                                         self.yang_name = "leaf-networks-deleted"
                                         self.yang_parent_name = "priority"
@@ -4217,10 +4628,18 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority']['meta_info']
 
 
-
-                            class LsaProcessed(Entity):
+                            class LsaProcessed(_Entity_):
                                 """
                                 List of type 1/2 LSA changes processed
                                 
@@ -4278,7 +4697,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed, self).__init__()
 
                                     self.yang_name = "lsa-processed"
                                     self.yang_parent_name = "dijkstra-run"
@@ -4306,10 +4728,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun']['meta_info']
 
 
-
-                        class InterAreaAndExternal(Entity):
+                        class InterAreaAndExternal(_Entity_):
                             """
                             Inter\-area & external calculation information
                             
@@ -4328,7 +4758,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal, self).__init__()
 
                                 self.yang_name = "inter-area-and-external"
                                 self.yang_parent_name = "spf-run-summary"
@@ -4346,7 +4779,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal, [], name, value)
 
 
-                            class Priority(Entity):
+                            class Priority(_Entity_):
                                 """
                                 Convergence information on a per\-priority basis
                                 
@@ -4386,7 +4819,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority, self).__init__()
 
                                     self.yang_name = "priority"
                                     self.yang_parent_name = "inter-area-and-external"
@@ -4410,7 +4846,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority, [], name, value)
 
 
-                                class PrioritySummary(Entity):
+                                class PrioritySummary(_Entity_):
                                     """
                                     Summary of the priority
                                     
@@ -4484,7 +4920,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary, self).__init__()
 
                                         self.yang_name = "priority-summary"
                                         self.yang_parent_name = "priority"
@@ -4523,7 +4962,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary, ['level', 'threshold_exceeded', 'type3ls_as', 'type4ls_as', 'type57ls_as'], name, value)
 
 
-                                    class RouteStatistics(Entity):
+                                    class RouteStatistics(_Entity_):
                                         """
                                         Route statistics
                                         
@@ -4589,7 +5028,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                             self.yang_name = "route-statistics"
                                             self.yang_parent_name = "priority-summary"
@@ -4617,9 +5059,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                    class IpConvergenceTime(Entity):
+                                    class IpConvergenceTime(_Entity_):
                                         """
                                         Convergence time for IP route programming
                                         
@@ -4663,7 +5109,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                             self.yang_name = "ip-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -4687,9 +5136,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                    class MplsConvergenceTime(Entity):
+                                    class MplsConvergenceTime(_Entity_):
                                         """
                                         Convergence time for MPLS label programming
                                         
@@ -4733,7 +5186,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                             self.yang_name = "mpls-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -4757,10 +5213,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary']['meta_info']
 
 
-
-                                class ConvergenceTimeline(Entity):
+                                class ConvergenceTimeline(_Entity_):
                                     """
                                     Convergence timeline details
                                     
@@ -4842,7 +5306,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline, self).__init__()
 
                                         self.yang_name = "convergence-timeline"
                                         self.yang_parent_name = "priority"
@@ -4893,7 +5360,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                    class RouteOrigin(Entity):
+                                    class RouteOrigin(_Entity_):
                                         """
                                         Route origin (routing protocol)
                                         
@@ -4926,7 +5393,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                             self.yang_name = "route-origin"
                                             self.yang_parent_name = "convergence-timeline"
@@ -4948,9 +5418,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                    class RiBv4Enter(Entity):
+                                    class RiBv4Enter(_Entity_):
                                         """
                                         Entry point of IPv4 RIB
                                         
@@ -4983,7 +5457,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                             self.yang_name = "ri-bv4-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5005,9 +5482,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                    class RiBv4Exit(Entity):
+                                    class RiBv4Exit(_Entity_):
                                         """
                                         Exit point from IPv4 RIB to FIBs
                                         
@@ -5040,7 +5521,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                             self.yang_name = "ri-bv4-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5062,9 +5546,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                    class RiBv4Redistribute(Entity):
+                                    class RiBv4Redistribute(_Entity_):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
                                         
@@ -5097,7 +5585,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                             self.yang_name = "ri-bv4-redistribute"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5119,9 +5610,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                    class LdpEnter(Entity):
+                                    class LdpEnter(_Entity_):
                                         """
                                         Entry point of LDP
                                         
@@ -5154,7 +5649,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                             self.yang_name = "ldp-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5176,9 +5674,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                    class LdpExit(Entity):
+                                    class LdpExit(_Entity_):
                                         """
                                         Exit point of LDP to LSD
                                         
@@ -5211,7 +5713,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                             self.yang_name = "ldp-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5233,9 +5738,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                    class LsdEnter(Entity):
+                                    class LsdEnter(_Entity_):
                                         """
                                         Entry point of LSD
                                         
@@ -5268,7 +5777,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                             self.yang_name = "lsd-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5290,9 +5802,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                    class LsdExit(Entity):
+                                    class LsdExit(_Entity_):
                                         """
                                         Exit point of LSD to FIBs
                                         
@@ -5325,7 +5841,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                             self.yang_name = "lsd-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5347,9 +5866,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                    class LcIp(Entity):
+                                    class LcIp(_Entity_):
                                         """
                                         List of Linecards' completion point for IP
                                         routes
@@ -5383,7 +5906,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                             self.yang_name = "lc-ip"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5408,7 +5934,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -5441,7 +5967,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-ip"
@@ -5463,10 +5992,18 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                    class LcMpls(Entity):
+                                    class LcMpls(_Entity_):
                                         """
                                         List of Linecards' completion point for MPLS
                                         labels
@@ -5500,7 +6037,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                             self.yang_name = "lc-mpls"
                                             self.yang_parent_name = "convergence-timeline"
@@ -5525,7 +6065,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -5558,7 +6098,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-mpls"
@@ -5580,11 +6123,23 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                                class LeafNetworksAdded(Entity):
+                                class LeafNetworksAdded(_Entity_):
                                     """
                                     List of Leaf Networks Added
                                     
@@ -5614,7 +6169,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded, self).__init__()
 
                                         self.yang_name = "leaf-networks-added"
                                         self.yang_parent_name = "priority"
@@ -5634,9 +6192,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded']['meta_info']
 
 
-                                class LeafNetworksDeleted(Entity):
+                                class LeafNetworksDeleted(_Entity_):
                                     """
                                     List of Leaf Networks Deleted
                                     
@@ -5666,7 +6228,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted, self).__init__()
 
                                         self.yang_name = "leaf-networks-deleted"
                                         self.yang_parent_name = "priority"
@@ -5686,13 +6251,33 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunSummaries']['meta_info']
 
 
-
-
-
-
-                class IpfrrEventOfflines(Entity):
+                class IpfrrEventOfflines(_Entity_):
                     """
                     OSPF IP\-FRR Event offline data
                     
@@ -5711,7 +6296,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines, self).__init__()
 
                         self.yang_name = "ipfrr-event-offlines"
                         self.yang_parent_name = "instance"
@@ -5729,7 +6317,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines, [], name, value)
 
 
-                    class IpfrrEventOffline(Entity):
+                    class IpfrrEventOffline(_Entity_):
                         """
                         Offline operational data for particular OSPF
                         IP\-FRR Event
@@ -5864,7 +6452,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, self).__init__()
 
                             self.yang_name = "ipfrr-event-offline"
                             self.yang_parent_name = "ipfrr-event-offlines"
@@ -5908,7 +6499,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
-                        class IpfrrStatistic(Entity):
+                        class IpfrrStatistic(_Entity_):
                             """
                             IP\-Frr Statistics categorized by priority
                             
@@ -5988,7 +6579,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, self).__init__()
 
                                 self.yang_name = "ipfrr-statistic"
                                 self.yang_parent_name = "ipfrr-event-offline"
@@ -6020,9 +6614,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic']['meta_info']
 
 
-                        class RemoteNode(Entity):
+                        class RemoteNode(_Entity_):
                             """
                             Remote Node Information
                             
@@ -6082,7 +6680,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, self).__init__()
 
                                 self.yang_name = "remote-node"
                                 self.yang_parent_name = "ipfrr-event-offline"
@@ -6111,7 +6712,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, ['remote_node_id', 'interface_name', 'neighbour_address', 'path_count', 'in_use_time'], name, value)
 
 
-                            class PrimaryPath(Entity):
+                            class PrimaryPath(_Entity_):
                                 """
                                 Protected Primary Paths
                                 
@@ -6139,7 +6740,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, self).__init__()
 
                                     self.yang_name = "primary-path"
                                     self.yang_parent_name = "remote-node"
@@ -6159,12 +6763,28 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines']['meta_info']
 
 
-
-
-
-                class SpfRunOfflines(Entity):
+                class SpfRunOfflines(_Entity_):
                     """
                     OSPF SPF run offline data
                     
@@ -6183,7 +6803,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines, self).__init__()
 
                         self.yang_name = "spf-run-offlines"
                         self.yang_parent_name = "instance"
@@ -6201,7 +6824,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines, [], name, value)
 
 
-                    class SpfRunOffline(Entity):
+                    class SpfRunOffline(_Entity_):
                         """
                         Offline operational data for particular OSPF
                         SPF run
@@ -6244,7 +6867,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline, self).__init__()
 
                             self.yang_name = "spf-run-offline"
                             self.yang_parent_name = "spf-run-offlines"
@@ -6270,7 +6896,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline, ['spf_run_number'], name, value)
 
 
-                        class SpfSummary(Entity):
+                        class SpfSummary(_Entity_):
                             """
                             SPF summary information
                             
@@ -6367,7 +6993,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, self).__init__()
 
                                 self.yang_name = "spf-summary"
                                 self.yang_parent_name = "spf-run-offline"
@@ -6406,7 +7035,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, ['state', 'is_data_complete', 'threshold_exceeded', 'trigger_time', 'start_time', 'duration', 'total_dijkstra_runs', 'total_inter_area_and_external_batches', 'total_type12lsa_changes', 'total_type357lsa_changes'], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Convergence information summary on per\-priority
                                 basis
@@ -6461,7 +7090,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "spf-summary"
@@ -6496,7 +7128,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -6562,7 +7194,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -6590,9 +7225,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -6636,7 +7275,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -6660,9 +7302,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -6706,7 +7352,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -6730,9 +7379,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -6780,7 +7433,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -6804,11 +7460,23 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary']['meta_info']
 
 
-
-
-                        class DijkstraRun(Entity):
+                        class DijkstraRun(_Entity_):
                             """
                             List of Dijkstra runs
                             
@@ -6896,7 +7564,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun, self).__init__()
 
                                 self.yang_name = "dijkstra-run"
                                 self.yang_parent_name = "spf-run-offline"
@@ -6931,7 +7602,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun, ['dijkstra_run_number', 'area_id', 'threshold_exceeded', 'trigger_time', 'start_time', 'wait_time', 'duration'], name, value)
 
 
-                            class TriggerLsa(Entity):
+                            class TriggerLsa(_Entity_):
                                 """
                                 LSA that triggered the Dijkstra run
                                 
@@ -6989,7 +7660,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa, self).__init__()
 
                                     self.yang_name = "trigger-lsa"
                                     self.yang_parent_name = "dijkstra-run"
@@ -7017,9 +7691,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa']['meta_info']
 
 
-                            class Priority(Entity):
+                            class Priority(_Entity_):
                                 """
                                 Convergence information on per\-priority basis
                                 
@@ -7059,7 +7737,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority, self).__init__()
 
                                     self.yang_name = "priority"
                                     self.yang_parent_name = "dijkstra-run"
@@ -7083,7 +7764,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority, [], name, value)
 
 
-                                class PrioritySummary(Entity):
+                                class PrioritySummary(_Entity_):
                                     """
                                     Summary of the priority
                                     
@@ -7137,7 +7818,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary, self).__init__()
 
                                         self.yang_name = "priority-summary"
                                         self.yang_parent_name = "priority"
@@ -7172,7 +7856,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                    class RouteStatistics(Entity):
+                                    class RouteStatistics(_Entity_):
                                         """
                                         Route statistics
                                         
@@ -7238,7 +7922,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                             self.yang_name = "route-statistics"
                                             self.yang_parent_name = "priority-summary"
@@ -7266,9 +7953,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                    class IpConvergenceTime(Entity):
+                                    class IpConvergenceTime(_Entity_):
                                         """
                                         Convergence time for IP route programming
                                         
@@ -7312,7 +8003,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                             self.yang_name = "ip-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -7336,9 +8030,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                    class MplsConvergenceTime(Entity):
+                                    class MplsConvergenceTime(_Entity_):
                                         """
                                         Convergence time for MPLS label programming
                                         
@@ -7382,7 +8080,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                             self.yang_name = "mpls-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -7406,9 +8107,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                    class FrrStatistic(Entity):
+                                    class FrrStatistic(_Entity_):
                                         """
                                         Fast Re\-Route Statistics
                                         
@@ -7456,7 +8161,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic, self).__init__()
 
                                             self.yang_name = "frr-statistic"
                                             self.yang_parent_name = "priority-summary"
@@ -7480,10 +8188,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary']['meta_info']
 
 
-
-                                class ConvergenceTimeline(Entity):
+                                class ConvergenceTimeline(_Entity_):
                                     """
                                     Convergence timeline details
                                     
@@ -7565,7 +8281,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline, self).__init__()
 
                                         self.yang_name = "convergence-timeline"
                                         self.yang_parent_name = "priority"
@@ -7616,7 +8335,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                    class RouteOrigin(Entity):
+                                    class RouteOrigin(_Entity_):
                                         """
                                         Route origin (routing protocol)
                                         
@@ -7649,7 +8368,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                             self.yang_name = "route-origin"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7671,9 +8393,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                    class RiBv4Enter(Entity):
+                                    class RiBv4Enter(_Entity_):
                                         """
                                         Entry point of IPv4 RIB
                                         
@@ -7706,7 +8432,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                             self.yang_name = "ri-bv4-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7728,9 +8457,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                    class RiBv4Exit(Entity):
+                                    class RiBv4Exit(_Entity_):
                                         """
                                         Exit point from IPv4 RIB to FIBs
                                         
@@ -7763,7 +8496,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                             self.yang_name = "ri-bv4-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7785,9 +8521,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                    class RiBv4Redistribute(Entity):
+                                    class RiBv4Redistribute(_Entity_):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
                                         
@@ -7820,7 +8560,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                             self.yang_name = "ri-bv4-redistribute"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7842,9 +8585,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                    class LdpEnter(Entity):
+                                    class LdpEnter(_Entity_):
                                         """
                                         Entry point of LDP
                                         
@@ -7877,7 +8624,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                             self.yang_name = "ldp-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7899,9 +8649,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                    class LdpExit(Entity):
+                                    class LdpExit(_Entity_):
                                         """
                                         Exit point of LDP to LSD
                                         
@@ -7934,7 +8688,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                             self.yang_name = "ldp-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -7956,9 +8713,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                    class LsdEnter(Entity):
+                                    class LsdEnter(_Entity_):
                                         """
                                         Entry point of LSD
                                         
@@ -7991,7 +8752,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                             self.yang_name = "lsd-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -8013,9 +8777,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                    class LsdExit(Entity):
+                                    class LsdExit(_Entity_):
                                         """
                                         Exit point of LSD to FIBs
                                         
@@ -8048,7 +8816,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                             self.yang_name = "lsd-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -8070,9 +8841,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                    class LcIp(Entity):
+                                    class LcIp(_Entity_):
                                         """
                                         List of Linecards' completion point for IP
                                         routes
@@ -8106,7 +8881,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                             self.yang_name = "lc-ip"
                                             self.yang_parent_name = "convergence-timeline"
@@ -8131,7 +8909,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -8164,7 +8942,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-ip"
@@ -8186,10 +8967,18 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                    class LcMpls(Entity):
+                                    class LcMpls(_Entity_):
                                         """
                                         List of Linecards' completion point for MPLS
                                         labels
@@ -8223,7 +9012,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                             self.yang_name = "lc-mpls"
                                             self.yang_parent_name = "convergence-timeline"
@@ -8248,7 +9040,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -8281,7 +9073,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-mpls"
@@ -8303,11 +9098,23 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                                class LeafNetworksAdded(Entity):
+                                class LeafNetworksAdded(_Entity_):
                                     """
                                     List of Leaf Networks Added
                                     
@@ -8337,7 +9144,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded, self).__init__()
 
                                         self.yang_name = "leaf-networks-added"
                                         self.yang_parent_name = "priority"
@@ -8357,9 +9167,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded']['meta_info']
 
 
-                                class LeafNetworksDeleted(Entity):
+                                class LeafNetworksDeleted(_Entity_):
                                     """
                                     List of Leaf Networks Deleted
                                     
@@ -8389,7 +9203,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted, self).__init__()
 
                                         self.yang_name = "leaf-networks-deleted"
                                         self.yang_parent_name = "priority"
@@ -8409,10 +9226,18 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority']['meta_info']
 
 
-
-                            class LsaProcessed(Entity):
+                            class LsaProcessed(_Entity_):
                                 """
                                 List of type 1/2 LSA changes processed
                                 
@@ -8470,7 +9295,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed, self).__init__()
 
                                     self.yang_name = "lsa-processed"
                                     self.yang_parent_name = "dijkstra-run"
@@ -8498,10 +9326,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun']['meta_info']
 
 
-
-                        class InterAreaAndExternal(Entity):
+                        class InterAreaAndExternal(_Entity_):
                             """
                             Inter\-area & external calculation information
                             
@@ -8520,7 +9356,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal, self).__init__()
 
                                 self.yang_name = "inter-area-and-external"
                                 self.yang_parent_name = "spf-run-offline"
@@ -8538,7 +9377,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal, [], name, value)
 
 
-                            class Priority(Entity):
+                            class Priority(_Entity_):
                                 """
                                 Convergence information on a per\-priority basis
                                 
@@ -8578,7 +9417,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority, self).__init__()
 
                                     self.yang_name = "priority"
                                     self.yang_parent_name = "inter-area-and-external"
@@ -8602,7 +9444,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority, [], name, value)
 
 
-                                class PrioritySummary(Entity):
+                                class PrioritySummary(_Entity_):
                                     """
                                     Summary of the priority
                                     
@@ -8676,7 +9518,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary, self).__init__()
 
                                         self.yang_name = "priority-summary"
                                         self.yang_parent_name = "priority"
@@ -8715,7 +9560,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary, ['level', 'threshold_exceeded', 'type3ls_as', 'type4ls_as', 'type57ls_as'], name, value)
 
 
-                                    class RouteStatistics(Entity):
+                                    class RouteStatistics(_Entity_):
                                         """
                                         Route statistics
                                         
@@ -8781,7 +9626,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                             self.yang_name = "route-statistics"
                                             self.yang_parent_name = "priority-summary"
@@ -8809,9 +9657,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                    class IpConvergenceTime(Entity):
+                                    class IpConvergenceTime(_Entity_):
                                         """
                                         Convergence time for IP route programming
                                         
@@ -8855,7 +9707,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                             self.yang_name = "ip-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -8879,9 +9734,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                    class MplsConvergenceTime(Entity):
+                                    class MplsConvergenceTime(_Entity_):
                                         """
                                         Convergence time for MPLS label programming
                                         
@@ -8925,7 +9784,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                             self.yang_name = "mpls-convergence-time"
                                             self.yang_parent_name = "priority-summary"
@@ -8949,10 +9811,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary']['meta_info']
 
 
-
-                                class ConvergenceTimeline(Entity):
+                                class ConvergenceTimeline(_Entity_):
                                     """
                                     Convergence timeline details
                                     
@@ -9034,7 +9904,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline, self).__init__()
 
                                         self.yang_name = "convergence-timeline"
                                         self.yang_parent_name = "priority"
@@ -9085,7 +9958,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                    class RouteOrigin(Entity):
+                                    class RouteOrigin(_Entity_):
                                         """
                                         Route origin (routing protocol)
                                         
@@ -9118,7 +9991,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                             self.yang_name = "route-origin"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9140,9 +10016,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                    class RiBv4Enter(Entity):
+                                    class RiBv4Enter(_Entity_):
                                         """
                                         Entry point of IPv4 RIB
                                         
@@ -9175,7 +10055,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                             self.yang_name = "ri-bv4-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9197,9 +10080,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                    class RiBv4Exit(Entity):
+                                    class RiBv4Exit(_Entity_):
                                         """
                                         Exit point from IPv4 RIB to FIBs
                                         
@@ -9232,7 +10119,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                             self.yang_name = "ri-bv4-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9254,9 +10144,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                    class RiBv4Redistribute(Entity):
+                                    class RiBv4Redistribute(_Entity_):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
                                         
@@ -9289,7 +10183,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                             self.yang_name = "ri-bv4-redistribute"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9311,9 +10208,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                    class LdpEnter(Entity):
+                                    class LdpEnter(_Entity_):
                                         """
                                         Entry point of LDP
                                         
@@ -9346,7 +10247,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                             self.yang_name = "ldp-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9368,9 +10272,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                    class LdpExit(Entity):
+                                    class LdpExit(_Entity_):
                                         """
                                         Exit point of LDP to LSD
                                         
@@ -9403,7 +10311,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                             self.yang_name = "ldp-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9425,9 +10336,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                    class LsdEnter(Entity):
+                                    class LsdEnter(_Entity_):
                                         """
                                         Entry point of LSD
                                         
@@ -9460,7 +10375,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                             self.yang_name = "lsd-enter"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9482,9 +10400,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                    class LsdExit(Entity):
+                                    class LsdExit(_Entity_):
                                         """
                                         Exit point of LSD to FIBs
                                         
@@ -9517,7 +10439,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                             self.yang_name = "lsd-exit"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9539,9 +10464,13 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                    class LcIp(Entity):
+                                    class LcIp(_Entity_):
                                         """
                                         List of Linecards' completion point for IP
                                         routes
@@ -9575,7 +10504,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                             self.yang_name = "lc-ip"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9600,7 +10532,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -9633,7 +10565,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-ip"
@@ -9655,10 +10590,18 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                    class LcMpls(Entity):
+                                    class LcMpls(_Entity_):
                                         """
                                         List of Linecards' completion point for MPLS
                                         labels
@@ -9692,7 +10635,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                             self.yang_name = "lc-mpls"
                                             self.yang_parent_name = "convergence-timeline"
@@ -9717,7 +10663,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                        class FibComplete(Entity):
+                                        class FibComplete(_Entity_):
                                             """
                                             Completion point of FIB
                                             
@@ -9750,7 +10696,10 @@ class Rcmd(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                                 self.yang_name = "fib-complete"
                                                 self.yang_parent_name = "lc-mpls"
@@ -9772,11 +10721,23 @@ class Rcmd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                                class LeafNetworksAdded(Entity):
+                                class LeafNetworksAdded(_Entity_):
                                     """
                                     List of Leaf Networks Added
                                     
@@ -9806,7 +10767,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded, self).__init__()
 
                                         self.yang_name = "leaf-networks-added"
                                         self.yang_parent_name = "priority"
@@ -9826,9 +10790,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded']['meta_info']
 
 
-                                class LeafNetworksDeleted(Entity):
+                                class LeafNetworksDeleted(_Entity_):
                                     """
                                     List of Leaf Networks Deleted
                                     
@@ -9858,7 +10826,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted, self).__init__()
 
                                         self.yang_name = "leaf-networks-deleted"
                                         self.yang_parent_name = "priority"
@@ -9878,13 +10849,33 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SpfRunOfflines']['meta_info']
 
 
-
-
-
-
-                class SummaryExternalEventSummaries(Entity):
+                class SummaryExternalEventSummaries(_Entity_):
                     """
                     OSPF Summary\-External Prefix events summary
                     data
@@ -9904,7 +10895,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries, self).__init__()
 
                         self.yang_name = "summary-external-event-summaries"
                         self.yang_parent_name = "instance"
@@ -9922,7 +10916,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries, [], name, value)
 
 
-                    class SummaryExternalEventSummary(Entity):
+                    class SummaryExternalEventSummary(_Entity_):
                         """
                         OSPF Summary\-External Prefix Event data
                         
@@ -10072,7 +11066,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary, self).__init__()
 
                             self.yang_name = "summary-external-event-summary"
                             self.yang_parent_name = "summary-external-event-summaries"
@@ -10126,7 +11123,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -10170,7 +11167,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10194,9 +11194,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -10240,7 +11244,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10264,9 +11271,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -10317,7 +11328,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10344,7 +11358,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -10404,7 +11418,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -10432,10 +11449,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -10493,7 +11518,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10521,9 +11549,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -10605,7 +11637,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10641,7 +11676,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -10675,7 +11710,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -10697,9 +11735,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -10733,7 +11775,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -10755,10 +11800,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -10816,7 +11869,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "summary-external-event-summary"
@@ -10844,11 +11900,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries']['meta_info']
 
 
-
-
-                class PrefixEventSummaries(Entity):
+                class PrefixEventSummaries(_Entity_):
                     """
                     OSPF Prefix events summary data
                     
@@ -10867,7 +11935,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries, self).__init__()
 
                         self.yang_name = "prefix-event-summaries"
                         self.yang_parent_name = "instance"
@@ -10885,7 +11956,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries, [], name, value)
 
 
-                    class PrefixEventSummary(Entity):
+                    class PrefixEventSummary(_Entity_):
                         """
                         OSPF Prefix Event data
                         
@@ -11035,7 +12106,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, self).__init__()
 
                             self.yang_name = "prefix-event-summary"
                             self.yang_parent_name = "prefix-event-summaries"
@@ -11089,7 +12163,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -11133,7 +12207,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11157,9 +12234,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -11203,7 +12284,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11227,9 +12311,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -11280,7 +12368,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11307,7 +12398,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -11367,7 +12458,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -11395,10 +12489,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -11456,7 +12558,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11484,9 +12589,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -11568,7 +12677,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11604,7 +12716,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -11638,7 +12750,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -11660,9 +12775,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -11696,7 +12815,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -11718,10 +12840,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -11779,7 +12909,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -11807,11 +12940,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventSummaries']['meta_info']
 
 
-
-
-                class SummaryExternalEventOfflines(Entity):
+                class SummaryExternalEventOfflines(_Entity_):
                     """
                     OSPF Summary\-External Prefix events offline
                     data
@@ -11831,7 +12976,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines, self).__init__()
 
                         self.yang_name = "summary-external-event-offlines"
                         self.yang_parent_name = "instance"
@@ -11849,7 +12997,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines, [], name, value)
 
 
-                    class SummaryExternalEventOffline(Entity):
+                    class SummaryExternalEventOffline(_Entity_):
                         """
                         Offline operational data for particular OSPF
                         Prefix Event
@@ -12000,7 +13148,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline, self).__init__()
 
                             self.yang_name = "summary-external-event-offline"
                             self.yang_parent_name = "summary-external-event-offlines"
@@ -12054,7 +13205,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -12098,7 +13249,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12122,9 +13276,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -12168,7 +13326,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12192,9 +13353,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -12245,7 +13410,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12272,7 +13440,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -12332,7 +13500,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -12360,10 +13531,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -12421,7 +13600,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12449,9 +13631,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -12533,7 +13719,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12569,7 +13758,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -12603,7 +13792,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -12625,9 +13817,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -12661,7 +13857,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -12683,10 +13882,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -12744,7 +13951,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "summary-external-event-offline"
@@ -12772,11 +13982,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines']['meta_info']
 
 
-
-
-                class PrefixEventOfflines(Entity):
+                class PrefixEventOfflines(_Entity_):
                     """
                     OSPF Prefix events offline data
                     
@@ -12795,7 +14017,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines, self).__init__()
 
                         self.yang_name = "prefix-event-offlines"
                         self.yang_parent_name = "instance"
@@ -12813,7 +14038,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines, [], name, value)
 
 
-                    class PrefixEventOffline(Entity):
+                    class PrefixEventOffline(_Entity_):
                         """
                         Offline operational data for particular OSPF
                         Prefix Event
@@ -12964,7 +14189,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, self).__init__()
 
                             self.yang_name = "prefix-event-offline"
                             self.yang_parent_name = "prefix-event-offlines"
@@ -13018,7 +14246,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -13062,7 +14290,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13086,9 +14317,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -13132,7 +14367,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13156,9 +14394,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -13209,7 +14451,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13236,7 +14481,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -13296,7 +14541,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -13324,10 +14572,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -13385,7 +14641,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13413,9 +14672,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -13497,7 +14760,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13533,7 +14799,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -13567,7 +14833,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -13589,9 +14858,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -13625,7 +14898,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -13647,10 +14923,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -13708,7 +14992,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -13736,11 +15023,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.PrefixEventOfflines']['meta_info']
 
 
-
-
-                class SummaryExternalEventStatistics(Entity):
+                class SummaryExternalEventStatistics(_Entity_):
                     """
                     Summary\-External prefix monitoring statistics
                     
@@ -13896,7 +15195,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics, self).__init__()
 
                         self.yang_name = "summary-external-event-statistics"
                         self.yang_parent_name = "instance"
@@ -13944,12 +15246,28 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics, ['inter_area_routes', 'inter_area_added', 'inter_area_modified', 'inter_area_deleted', 'inter_area_critical', 'inter_area_high', 'inter_area_medium', 'inter_area_low', 'external_routes', 'external_added', 'external_modified', 'external_deleted', 'external_critical', 'external_high', 'external_medium', 'external_low'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Ospf.Instances.Instance']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Ospf.Instances']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Ospf']['meta_info']
 
 
-
-
-
-    class Server(Entity):
+    class Server(_Entity_):
         """
         Server Info
         
@@ -13975,7 +15293,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Server, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Server, self).__init__()
 
             self.yang_name = "server"
             self.yang_parent_name = "rcmd"
@@ -14000,7 +15321,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Server, [], name, value)
 
 
-        class Normal(Entity):
+        class Normal(_Entity_):
             """
             Server Info
             
@@ -14236,7 +15557,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Server.Normal, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Server.Normal, self).__init__()
 
                 self.yang_name = "normal"
                 self.yang_parent_name = "server"
@@ -14309,7 +15633,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Server.Normal, ['host_name', 'status', 'max_events', 'event_buffer_size', 'monitoring_interval', 'next_interval', 'max_interface_count', 'interface_count', 'node_rp_count', 'node_lc_count', 'diag_node_count', 'disabled_node_count', 'in_active_node_count', 'last_process_start_time', 'last_process_duration', 'last_process_state', 'process_count', 'spf_process_count', 'reports_archive_path', 'reports_archive_node', 'last_archival_status', 'last_archival_error', 'last_archival_error_time', 'archive_count', 'diagnostics_archive_path', 'diagnostics_archive_node'], name, value)
 
 
-            class ProtocolConfig(Entity):
+            class ProtocolConfig(_Entity_):
                 """
                 Protocol level configuration
                 
@@ -14335,7 +15659,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Server.Normal.ProtocolConfig, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Server.Normal.ProtocolConfig, self).__init__()
 
                     self.yang_name = "protocol-config"
                     self.yang_parent_name = "normal"
@@ -14357,7 +15684,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Server.Normal.ProtocolConfig, ['protocol_name'], name, value)
 
 
-                class Priority(Entity):
+                class Priority(_Entity_):
                     """
                     Priority level configuration
                     
@@ -14392,7 +15719,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Server.Normal.ProtocolConfig.Priority, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Server.Normal.ProtocolConfig.Priority, self).__init__()
 
                         self.yang_name = "priority"
                         self.yang_parent_name = "protocol-config"
@@ -14415,10 +15745,18 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Server.Normal.ProtocolConfig.Priority, ['priority_name', 'threshold', 'disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Server.Normal.ProtocolConfig.Priority']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Server.Normal.ProtocolConfig']['meta_info']
 
 
-
-            class ServerDetail(Entity):
+            class ServerDetail(_Entity_):
                 """
                 Detailed Information
                 
@@ -14455,7 +15793,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Server.Normal.ServerDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Server.Normal.ServerDetail, self).__init__()
 
                     self.yang_name = "server-detail"
                     self.yang_parent_name = "normal"
@@ -14479,7 +15820,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Server.Normal.ServerDetail, ['overload_suspend', 'memory_suspend'], name, value)
 
 
-                class TraceInformation(Entity):
+                class TraceInformation(_Entity_):
                     """
                     Trace Information
                     
@@ -14525,7 +15866,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Server.Normal.ServerDetail.TraceInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Server.Normal.ServerDetail.TraceInformation, self).__init__()
 
                         self.yang_name = "trace-information"
                         self.yang_parent_name = "server-detail"
@@ -14550,11 +15894,23 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Server.Normal.ServerDetail.TraceInformation, ['trace_name', 'total_stats', 'last_run_stats', 'error_stats'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Server.Normal.ServerDetail.TraceInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Server.Normal.ServerDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Server.Normal']['meta_info']
 
 
-
-
-        class Detail(Entity):
+        class Detail(_Entity_):
             """
             Server Info
             
@@ -14790,7 +16146,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Server.Detail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Server.Detail, self).__init__()
 
                 self.yang_name = "detail"
                 self.yang_parent_name = "server"
@@ -14863,7 +16222,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Server.Detail, ['host_name', 'status', 'max_events', 'event_buffer_size', 'monitoring_interval', 'next_interval', 'max_interface_count', 'interface_count', 'node_rp_count', 'node_lc_count', 'diag_node_count', 'disabled_node_count', 'in_active_node_count', 'last_process_start_time', 'last_process_duration', 'last_process_state', 'process_count', 'spf_process_count', 'reports_archive_path', 'reports_archive_node', 'last_archival_status', 'last_archival_error', 'last_archival_error_time', 'archive_count', 'diagnostics_archive_path', 'diagnostics_archive_node'], name, value)
 
 
-            class ProtocolConfig(Entity):
+            class ProtocolConfig(_Entity_):
                 """
                 Protocol level configuration
                 
@@ -14889,7 +16248,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Server.Detail.ProtocolConfig, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Server.Detail.ProtocolConfig, self).__init__()
 
                     self.yang_name = "protocol-config"
                     self.yang_parent_name = "detail"
@@ -14911,7 +16273,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Server.Detail.ProtocolConfig, ['protocol_name'], name, value)
 
 
-                class Priority(Entity):
+                class Priority(_Entity_):
                     """
                     Priority level configuration
                     
@@ -14946,7 +16308,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Server.Detail.ProtocolConfig.Priority, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Server.Detail.ProtocolConfig.Priority, self).__init__()
 
                         self.yang_name = "priority"
                         self.yang_parent_name = "protocol-config"
@@ -14969,10 +16334,18 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Server.Detail.ProtocolConfig.Priority, ['priority_name', 'threshold', 'disable'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Server.Detail.ProtocolConfig.Priority']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Server.Detail.ProtocolConfig']['meta_info']
 
 
-
-            class ServerDetail(Entity):
+            class ServerDetail(_Entity_):
                 """
                 Detailed Information
                 
@@ -15009,7 +16382,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Server.Detail.ServerDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Server.Detail.ServerDetail, self).__init__()
 
                     self.yang_name = "server-detail"
                     self.yang_parent_name = "detail"
@@ -15033,7 +16409,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Server.Detail.ServerDetail, ['overload_suspend', 'memory_suspend'], name, value)
 
 
-                class TraceInformation(Entity):
+                class TraceInformation(_Entity_):
                     """
                     Trace Information
                     
@@ -15079,7 +16455,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Server.Detail.ServerDetail.TraceInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Server.Detail.ServerDetail.TraceInformation, self).__init__()
 
                         self.yang_name = "trace-information"
                         self.yang_parent_name = "server-detail"
@@ -15104,12 +16483,28 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Server.Detail.ServerDetail.TraceInformation, ['trace_name', 'total_stats', 'last_run_stats', 'error_stats'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Server.Detail.ServerDetail.TraceInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Server.Detail.ServerDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Server.Detail']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Server']['meta_info']
 
 
-
-
-
-    class Node(Entity):
+    class Node(_Entity_):
         """
         Node Info
         
@@ -15128,7 +16523,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Node, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Node, self).__init__()
 
             self.yang_name = "node"
             self.yang_parent_name = "rcmd"
@@ -15147,7 +16545,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Node, [], name, value)
 
 
-        class NodeInformation(Entity):
+        class NodeInformation(_Entity_):
             """
             Node Info
             
@@ -15255,7 +16653,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Node.NodeInformation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Node.NodeInformation, self).__init__()
 
                 self.yang_name = "node-information"
                 self.yang_parent_name = "node"
@@ -15296,10 +16697,18 @@ class Rcmd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcmd.Node.NodeInformation, ['node_id', 'node_name', 'rack_id', 'last_update_time', 'fwd_referenced', 'node_type', 'software_state', 'card_state', 'node_state', 'status', 'diag_mode', 'redundancy_state'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Node.NodeInformation']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Node']['meta_info']
 
 
-
-    class Isis(Entity):
+    class Isis(_Entity_):
         """
         Operational data for ISIS
         
@@ -15318,7 +16727,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Isis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Isis, self).__init__()
 
             self.yang_name = "isis"
             self.yang_parent_name = "rcmd"
@@ -15339,7 +16751,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Isis, [], name, value)
 
 
-        class Instances(Entity):
+        class Instances(_Entity_):
             """
             Operational data
             
@@ -15358,7 +16770,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Isis.Instances, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Isis.Instances, self).__init__()
 
                 self.yang_name = "instances"
                 self.yang_parent_name = "isis"
@@ -15377,7 +16792,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Isis.Instances, [], name, value)
 
 
-            class Instance(Entity):
+            class Instance(_Entity_):
                 """
                 Operational data for a particular instance
                 
@@ -15454,7 +16869,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Isis.Instances.Instance, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Isis.Instances.Instance, self).__init__()
 
                     self.yang_name = "instance"
                     self.yang_parent_name = "instances"
@@ -15506,7 +16924,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Isis.Instances.Instance, ['instance_name'], name, value)
 
 
-                class IpfrrEventSummaries(Entity):
+                class IpfrrEventSummaries(_Entity_):
                     """
                     ISIS IP\-FRR events summary data
                     
@@ -15525,7 +16943,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries, self).__init__()
 
                         self.yang_name = "ipfrr-event-summaries"
                         self.yang_parent_name = "instance"
@@ -15543,7 +16964,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries, [], name, value)
 
 
-                    class IpfrrEventSummary(Entity):
+                    class IpfrrEventSummary(_Entity_):
                         """
                         IP\-FRR Event data
                         
@@ -15677,7 +17098,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, self).__init__()
 
                             self.yang_name = "ipfrr-event-summary"
                             self.yang_parent_name = "ipfrr-event-summaries"
@@ -15721,7 +17145,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
-                        class IpfrrStatistic(Entity):
+                        class IpfrrStatistic(_Entity_):
                             """
                             IP\-Frr Statistics categorized by priority
                             
@@ -15801,7 +17225,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, self).__init__()
 
                                 self.yang_name = "ipfrr-statistic"
                                 self.yang_parent_name = "ipfrr-event-summary"
@@ -15833,9 +17260,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic']['meta_info']
 
 
-                        class RemoteNode(Entity):
+                        class RemoteNode(_Entity_):
                             """
                             Remote Node Information
                             
@@ -15895,7 +17326,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, self).__init__()
 
                                 self.yang_name = "remote-node"
                                 self.yang_parent_name = "ipfrr-event-summary"
@@ -15924,7 +17358,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode, ['remote_node_id', 'interface_name', 'neighbour_address', 'path_count', 'in_use_time'], name, value)
 
 
-                            class PrimaryPath(Entity):
+                            class PrimaryPath(_Entity_):
                                 """
                                 Protected Primary Paths
                                 
@@ -15952,7 +17386,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, self).__init__()
 
                                     self.yang_name = "primary-path"
                                     self.yang_parent_name = "remote-node"
@@ -15972,12 +17409,28 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventSummaries']['meta_info']
 
 
-
-
-
-                class PrefixEventStatistics(Entity):
+                class PrefixEventStatistics(_Entity_):
                     """
                     ISIS Prefix events statistics data
                     
@@ -15996,7 +17449,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.PrefixEventStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.PrefixEventStatistics, self).__init__()
 
                         self.yang_name = "prefix-event-statistics"
                         self.yang_parent_name = "instance"
@@ -16014,7 +17470,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventStatistics, [], name, value)
 
 
-                    class PrefixEventStatistic(Entity):
+                    class PrefixEventStatistic(_Entity_):
                         """
                         Monitoring Statistics
                         
@@ -16168,7 +17624,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, self).__init__()
 
                             self.yang_name = "prefix-event-statistic"
                             self.yang_parent_name = "prefix-event-statistics"
@@ -16216,10 +17675,18 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventStatistics']['meta_info']
 
 
-
-                class SpfRunSummaries(Entity):
+                class SpfRunSummaries(_Entity_):
                     """
                     ISIS SPF run summary data
                     
@@ -16238,7 +17705,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries, self).__init__()
 
                         self.yang_name = "spf-run-summaries"
                         self.yang_parent_name = "instance"
@@ -16256,7 +17726,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries, [], name, value)
 
 
-                    class SpfRunSummary(Entity):
+                    class SpfRunSummary(_Entity_):
                         """
                         SPF Event data
                         
@@ -16342,7 +17812,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary, self).__init__()
 
                             self.yang_name = "spf-run-summary"
                             self.yang_parent_name = "spf-run-summaries"
@@ -16380,7 +17853,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary, ['spf_run_number', 'start_time', 'wait_time', 'reason'], name, value)
 
 
-                        class SpfSummary(Entity):
+                        class SpfSummary(_Entity_):
                             """
                             SPF summary information
                             
@@ -16466,7 +17939,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, self).__init__()
 
                                 self.yang_name = "spf-summary"
                                 self.yang_parent_name = "spf-run-summary"
@@ -16503,7 +17979,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary, ['topology', 'isis_level', 'type', 'threshold_exceeded', 'state', 'is_data_complete', 'trigger_time', 'duration', 'total_lsp_changes'], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Convergence information summary on per\-priority
                                 basis
@@ -16558,7 +18034,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "spf-summary"
@@ -16593,7 +18072,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -16659,7 +18138,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -16687,9 +18169,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -16733,7 +18219,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -16757,9 +18246,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -16803,7 +18296,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -16827,9 +18323,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -16877,7 +18377,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -16901,11 +18404,23 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary']['meta_info']
 
 
-
-
-                        class NodeStatistics(Entity):
+                        class NodeStatistics(_Entity_):
                             """
                             SPF Node statistics
                             
@@ -16971,7 +18486,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics, self).__init__()
 
                                 self.yang_name = "node-statistics"
                                 self.yang_parent_name = "spf-run-summary"
@@ -16999,9 +18517,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics']['meta_info']
 
 
-                        class TriggerLsp(Entity):
+                        class TriggerLsp(_Entity_):
                             """
                             Trigger LSP
                             
@@ -17043,7 +18565,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp, self).__init__()
 
                                 self.yang_name = "trigger-lsp"
                                 self.yang_parent_name = "spf-run-summary"
@@ -17067,9 +18592,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp']['meta_info']
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             Convergence information on per\-priority basis
                             
@@ -17109,7 +18638,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "spf-run-summary"
@@ -17133,7 +18665,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority, [], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Summary of the priority
                                 
@@ -17187,7 +18719,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "priority"
@@ -17222,7 +18757,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -17288,7 +18823,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -17316,9 +18854,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -17362,7 +18904,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -17386,9 +18931,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -17432,7 +18981,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -17456,9 +19008,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -17506,7 +19062,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -17530,10 +19089,18 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary']['meta_info']
 
 
-
-                            class ConvergenceTimeline(Entity):
+                            class ConvergenceTimeline(_Entity_):
                                 """
                                 Convergence timeline details
                                 
@@ -17615,7 +19182,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline, self).__init__()
 
                                     self.yang_name = "convergence-timeline"
                                     self.yang_parent_name = "priority"
@@ -17666,7 +19236,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                class RouteOrigin(Entity):
+                                class RouteOrigin(_Entity_):
                                     """
                                     Route origin (routing protocol)
                                     
@@ -17699,7 +19269,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                         self.yang_name = "route-origin"
                                         self.yang_parent_name = "convergence-timeline"
@@ -17721,9 +19294,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                class RiBv4Enter(Entity):
+                                class RiBv4Enter(_Entity_):
                                     """
                                     Entry point of IPv4 RIB
                                     
@@ -17756,7 +19333,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                         self.yang_name = "ri-bv4-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -17778,9 +19358,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                class RiBv4Exit(Entity):
+                                class RiBv4Exit(_Entity_):
                                     """
                                     Exit point from IPv4 RIB to FIBs
                                     
@@ -17813,7 +19397,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                         self.yang_name = "ri-bv4-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -17835,9 +19422,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                class RiBv4Redistribute(Entity):
+                                class RiBv4Redistribute(_Entity_):
                                     """
                                     Route Redistribute point from IPv4 RIB to LDP
                                     
@@ -17870,7 +19461,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                         self.yang_name = "ri-bv4-redistribute"
                                         self.yang_parent_name = "convergence-timeline"
@@ -17892,9 +19486,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                class LdpEnter(Entity):
+                                class LdpEnter(_Entity_):
                                     """
                                     Entry point of LDP
                                     
@@ -17927,7 +19525,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                         self.yang_name = "ldp-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -17949,9 +19550,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                class LdpExit(Entity):
+                                class LdpExit(_Entity_):
                                     """
                                     Exit point of LDP to LSD
                                     
@@ -17984,7 +19589,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                         self.yang_name = "ldp-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -18006,9 +19614,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                class LsdEnter(Entity):
+                                class LsdEnter(_Entity_):
                                     """
                                     Entry point of LSD
                                     
@@ -18041,7 +19653,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                         self.yang_name = "lsd-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -18063,9 +19678,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                class LsdExit(Entity):
+                                class LsdExit(_Entity_):
                                     """
                                     Exit point of LSD to FIBs
                                     
@@ -18098,7 +19717,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                         self.yang_name = "lsd-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -18120,9 +19742,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                class LcIp(Entity):
+                                class LcIp(_Entity_):
                                     """
                                     List of Linecards' completion point for IP
                                     routes
@@ -18156,7 +19782,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                         self.yang_name = "lc-ip"
                                         self.yang_parent_name = "convergence-timeline"
@@ -18181,7 +19810,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                    class FibComplete(Entity):
+                                    class FibComplete(_Entity_):
                                         """
                                         Completion point of FIB
                                         
@@ -18214,7 +19843,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                             self.yang_name = "fib-complete"
                                             self.yang_parent_name = "lc-ip"
@@ -18236,10 +19868,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                class LcMpls(Entity):
+                                class LcMpls(_Entity_):
                                     """
                                     List of Linecards' completion point for MPLS
                                     labels
@@ -18273,7 +19913,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                         self.yang_name = "lc-mpls"
                                         self.yang_parent_name = "convergence-timeline"
@@ -18298,7 +19941,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                    class FibComplete(Entity):
+                                    class FibComplete(_Entity_):
                                         """
                                         Completion point of FIB
                                         
@@ -18331,7 +19974,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                             self.yang_name = "fib-complete"
                                             self.yang_parent_name = "lc-mpls"
@@ -18353,11 +19999,23 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                            class LeafNetworksAdded(Entity):
+                            class LeafNetworksAdded(_Entity_):
                                 """
                                 List of Leaf Networks Added
                                 
@@ -18387,7 +20045,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded, self).__init__()
 
                                     self.yang_name = "leaf-networks-added"
                                     self.yang_parent_name = "priority"
@@ -18407,9 +20068,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded']['meta_info']
 
 
-                            class LeafNetworksDeleted(Entity):
+                            class LeafNetworksDeleted(_Entity_):
                                 """
                                 List of Leaf Networks Deleted
                                 
@@ -18439,7 +20104,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted, self).__init__()
 
                                     self.yang_name = "leaf-networks-deleted"
                                     self.yang_parent_name = "priority"
@@ -18459,10 +20127,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority']['meta_info']
 
 
-
-                        class LspProcessed(Entity):
+                        class LspProcessed(_Entity_):
                             """
                             List of LSP changes processed
                             
@@ -18504,7 +20180,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed, self).__init__()
 
                                 self.yang_name = "lsp-processed"
                                 self.yang_parent_name = "spf-run-summary"
@@ -18528,9 +20207,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed']['meta_info']
 
 
-                        class LspRegenerated(Entity):
+                        class LspRegenerated(_Entity_):
                             """
                             List of LSP regenerated
                             
@@ -18597,7 +20280,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated, self).__init__()
 
                                 self.yang_name = "lsp-regenerated"
                                 self.yang_parent_name = "spf-run-summary"
@@ -18627,11 +20313,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated, ['serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunSummaries']['meta_info']
 
 
-
-
-                class IpfrrEventOfflines(Entity):
+                class IpfrrEventOfflines(_Entity_):
                     """
                     ISIS IP\-FRR Event offline data
                     
@@ -18650,7 +20348,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines, self).__init__()
 
                         self.yang_name = "ipfrr-event-offlines"
                         self.yang_parent_name = "instance"
@@ -18668,7 +20369,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines, [], name, value)
 
 
-                    class IpfrrEventOffline(Entity):
+                    class IpfrrEventOffline(_Entity_):
                         """
                         Offline operational data for particular ISIS
                         IP\-FRR Event
@@ -18803,7 +20504,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, self).__init__()
 
                             self.yang_name = "ipfrr-event-offline"
                             self.yang_parent_name = "ipfrr-event-offlines"
@@ -18847,7 +20551,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
-                        class IpfrrStatistic(Entity):
+                        class IpfrrStatistic(_Entity_):
                             """
                             IP\-Frr Statistics categorized by priority
                             
@@ -18927,7 +20631,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, self).__init__()
 
                                 self.yang_name = "ipfrr-statistic"
                                 self.yang_parent_name = "ipfrr-event-offline"
@@ -18959,9 +20666,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic']['meta_info']
 
 
-                        class RemoteNode(Entity):
+                        class RemoteNode(_Entity_):
                             """
                             Remote Node Information
                             
@@ -19021,7 +20732,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, self).__init__()
 
                                 self.yang_name = "remote-node"
                                 self.yang_parent_name = "ipfrr-event-offline"
@@ -19050,7 +20764,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode, ['remote_node_id', 'interface_name', 'neighbour_address', 'path_count', 'in_use_time'], name, value)
 
 
-                            class PrimaryPath(Entity):
+                            class PrimaryPath(_Entity_):
                                 """
                                 Protected Primary Paths
                                 
@@ -19078,7 +20792,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, self).__init__()
 
                                     self.yang_name = "primary-path"
                                     self.yang_parent_name = "remote-node"
@@ -19098,12 +20815,28 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.IpfrrEventOfflines']['meta_info']
 
 
-
-
-
-                class SpfRunOfflines(Entity):
+                class SpfRunOfflines(_Entity_):
                     """
                     ISIS SPF run offline data
                     
@@ -19122,7 +20855,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines, self).__init__()
 
                         self.yang_name = "spf-run-offlines"
                         self.yang_parent_name = "instance"
@@ -19140,7 +20876,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines, [], name, value)
 
 
-                    class SpfRunOffline(Entity):
+                    class SpfRunOffline(_Entity_):
                         """
                         Offline operational data for particular ISIS
                         SPF run
@@ -19227,7 +20963,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline, self).__init__()
 
                             self.yang_name = "spf-run-offline"
                             self.yang_parent_name = "spf-run-offlines"
@@ -19265,7 +21004,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline, ['spf_run_number', 'start_time', 'wait_time', 'reason'], name, value)
 
 
-                        class SpfSummary(Entity):
+                        class SpfSummary(_Entity_):
                             """
                             SPF summary information
                             
@@ -19351,7 +21090,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, self).__init__()
 
                                 self.yang_name = "spf-summary"
                                 self.yang_parent_name = "spf-run-offline"
@@ -19388,7 +21130,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary, ['topology', 'isis_level', 'type', 'threshold_exceeded', 'state', 'is_data_complete', 'trigger_time', 'duration', 'total_lsp_changes'], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Convergence information summary on per\-priority
                                 basis
@@ -19443,7 +21185,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "spf-summary"
@@ -19478,7 +21223,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -19544,7 +21289,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -19572,9 +21320,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -19618,7 +21370,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -19642,9 +21397,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -19688,7 +21447,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -19712,9 +21474,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -19762,7 +21528,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -19786,11 +21555,23 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary']['meta_info']
 
 
-
-
-                        class NodeStatistics(Entity):
+                        class NodeStatistics(_Entity_):
                             """
                             SPF Node statistics
                             
@@ -19856,7 +21637,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics, self).__init__()
 
                                 self.yang_name = "node-statistics"
                                 self.yang_parent_name = "spf-run-offline"
@@ -19884,9 +21668,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics']['meta_info']
 
 
-                        class TriggerLsp(Entity):
+                        class TriggerLsp(_Entity_):
                             """
                             Trigger LSP
                             
@@ -19928,7 +21716,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp, self).__init__()
 
                                 self.yang_name = "trigger-lsp"
                                 self.yang_parent_name = "spf-run-offline"
@@ -19952,9 +21743,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp']['meta_info']
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             Convergence information on per\-priority basis
                             
@@ -19994,7 +21789,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "spf-run-offline"
@@ -20018,7 +21816,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority, [], name, value)
 
 
-                            class PrioritySummary(Entity):
+                            class PrioritySummary(_Entity_):
                                 """
                                 Summary of the priority
                                 
@@ -20072,7 +21870,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary, self).__init__()
 
                                     self.yang_name = "priority-summary"
                                     self.yang_parent_name = "priority"
@@ -20107,7 +21908,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary, ['level', 'threshold_exceeded'], name, value)
 
 
-                                class RouteStatistics(Entity):
+                                class RouteStatistics(_Entity_):
                                     """
                                     Route statistics
                                     
@@ -20173,7 +21974,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics, self).__init__()
 
                                         self.yang_name = "route-statistics"
                                         self.yang_parent_name = "priority-summary"
@@ -20201,9 +22005,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics']['meta_info']
 
 
-                                class IpConvergenceTime(Entity):
+                                class IpConvergenceTime(_Entity_):
                                     """
                                     Convergence time for IP route programming
                                     
@@ -20247,7 +22055,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime, self).__init__()
 
                                         self.yang_name = "ip-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -20271,9 +22082,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime']['meta_info']
 
 
-                                class MplsConvergenceTime(Entity):
+                                class MplsConvergenceTime(_Entity_):
                                     """
                                     Convergence time for MPLS label programming
                                     
@@ -20317,7 +22132,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime, self).__init__()
 
                                         self.yang_name = "mpls-convergence-time"
                                         self.yang_parent_name = "priority-summary"
@@ -20341,9 +22159,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime']['meta_info']
 
 
-                                class FrrStatistic(Entity):
+                                class FrrStatistic(_Entity_):
                                     """
                                     Fast Re\-Route Statistics
                                     
@@ -20391,7 +22213,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic, self).__init__()
 
                                         self.yang_name = "frr-statistic"
                                         self.yang_parent_name = "priority-summary"
@@ -20415,10 +22240,18 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary']['meta_info']
 
 
-
-                            class ConvergenceTimeline(Entity):
+                            class ConvergenceTimeline(_Entity_):
                                 """
                                 Convergence timeline details
                                 
@@ -20500,7 +22333,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline, self).__init__()
 
                                     self.yang_name = "convergence-timeline"
                                     self.yang_parent_name = "priority"
@@ -20551,7 +22387,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline, [], name, value)
 
 
-                                class RouteOrigin(Entity):
+                                class RouteOrigin(_Entity_):
                                     """
                                     Route origin (routing protocol)
                                     
@@ -20584,7 +22420,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin, self).__init__()
 
                                         self.yang_name = "route-origin"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20606,9 +22445,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin']['meta_info']
 
 
-                                class RiBv4Enter(Entity):
+                                class RiBv4Enter(_Entity_):
                                     """
                                     Entry point of IPv4 RIB
                                     
@@ -20641,7 +22484,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter, self).__init__()
 
                                         self.yang_name = "ri-bv4-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20663,9 +22509,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter']['meta_info']
 
 
-                                class RiBv4Exit(Entity):
+                                class RiBv4Exit(_Entity_):
                                     """
                                     Exit point from IPv4 RIB to FIBs
                                     
@@ -20698,7 +22548,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit, self).__init__()
 
                                         self.yang_name = "ri-bv4-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20720,9 +22573,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit']['meta_info']
 
 
-                                class RiBv4Redistribute(Entity):
+                                class RiBv4Redistribute(_Entity_):
                                     """
                                     Route Redistribute point from IPv4 RIB to LDP
                                     
@@ -20755,7 +22612,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute, self).__init__()
 
                                         self.yang_name = "ri-bv4-redistribute"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20777,9 +22637,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute']['meta_info']
 
 
-                                class LdpEnter(Entity):
+                                class LdpEnter(_Entity_):
                                     """
                                     Entry point of LDP
                                     
@@ -20812,7 +22676,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter, self).__init__()
 
                                         self.yang_name = "ldp-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20834,9 +22701,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter']['meta_info']
 
 
-                                class LdpExit(Entity):
+                                class LdpExit(_Entity_):
                                     """
                                     Exit point of LDP to LSD
                                     
@@ -20869,7 +22740,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit, self).__init__()
 
                                         self.yang_name = "ldp-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20891,9 +22765,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit']['meta_info']
 
 
-                                class LsdEnter(Entity):
+                                class LsdEnter(_Entity_):
                                     """
                                     Entry point of LSD
                                     
@@ -20926,7 +22804,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter, self).__init__()
 
                                         self.yang_name = "lsd-enter"
                                         self.yang_parent_name = "convergence-timeline"
@@ -20948,9 +22829,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter']['meta_info']
 
 
-                                class LsdExit(Entity):
+                                class LsdExit(_Entity_):
                                     """
                                     Exit point of LSD to FIBs
                                     
@@ -20983,7 +22868,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit, self).__init__()
 
                                         self.yang_name = "lsd-exit"
                                         self.yang_parent_name = "convergence-timeline"
@@ -21005,9 +22893,13 @@ class Rcmd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit']['meta_info']
 
 
-                                class LcIp(Entity):
+                                class LcIp(_Entity_):
                                     """
                                     List of Linecards' completion point for IP
                                     routes
@@ -21041,7 +22933,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp, self).__init__()
 
                                         self.yang_name = "lc-ip"
                                         self.yang_parent_name = "convergence-timeline"
@@ -21066,7 +22961,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp, ['node_name', 'speed'], name, value)
 
 
-                                    class FibComplete(Entity):
+                                    class FibComplete(_Entity_):
                                         """
                                         Completion point of FIB
                                         
@@ -21099,7 +22994,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete, self).__init__()
 
                                             self.yang_name = "fib-complete"
                                             self.yang_parent_name = "lc-ip"
@@ -21121,10 +23019,18 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp']['meta_info']
 
 
-
-                                class LcMpls(Entity):
+                                class LcMpls(_Entity_):
                                     """
                                     List of Linecards' completion point for MPLS
                                     labels
@@ -21158,7 +23064,10 @@ class Rcmd(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls, self).__init__()
 
                                         self.yang_name = "lc-mpls"
                                         self.yang_parent_name = "convergence-timeline"
@@ -21183,7 +23092,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls, ['node_name', 'speed'], name, value)
 
 
-                                    class FibComplete(Entity):
+                                    class FibComplete(_Entity_):
                                         """
                                         Completion point of FIB
                                         
@@ -21216,7 +23125,10 @@ class Rcmd(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete, self).__init__()
 
                                             self.yang_name = "fib-complete"
                                             self.yang_parent_name = "lc-mpls"
@@ -21238,11 +23150,23 @@ class Rcmd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline']['meta_info']
 
 
-
-
-                            class LeafNetworksAdded(Entity):
+                            class LeafNetworksAdded(_Entity_):
                                 """
                                 List of Leaf Networks Added
                                 
@@ -21272,7 +23196,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded, self).__init__()
 
                                     self.yang_name = "leaf-networks-added"
                                     self.yang_parent_name = "priority"
@@ -21292,9 +23219,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded']['meta_info']
 
 
-                            class LeafNetworksDeleted(Entity):
+                            class LeafNetworksDeleted(_Entity_):
                                 """
                                 List of Leaf Networks Deleted
                                 
@@ -21324,7 +23255,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted, self).__init__()
 
                                     self.yang_name = "leaf-networks-deleted"
                                     self.yang_parent_name = "priority"
@@ -21344,10 +23278,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority']['meta_info']
 
 
-
-                        class LspProcessed(Entity):
+                        class LspProcessed(_Entity_):
                             """
                             List of LSP changes processed
                             
@@ -21389,7 +23331,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed, self).__init__()
 
                                 self.yang_name = "lsp-processed"
                                 self.yang_parent_name = "spf-run-offline"
@@ -21413,9 +23358,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed']['meta_info']
 
 
-                        class LspRegenerated(Entity):
+                        class LspRegenerated(_Entity_):
                             """
                             List of LSP regenerated
                             
@@ -21482,7 +23431,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated, self).__init__()
 
                                 self.yang_name = "lsp-regenerated"
                                 self.yang_parent_name = "spf-run-offline"
@@ -21512,11 +23464,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated, ['serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.SpfRunOfflines']['meta_info']
 
 
-
-
-                class PrefixEventSummaries(Entity):
+                class PrefixEventSummaries(_Entity_):
                     """
                     ISIS Prefix events summary data
                     
@@ -21535,7 +23499,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries, self).__init__()
 
                         self.yang_name = "prefix-event-summaries"
                         self.yang_parent_name = "instance"
@@ -21553,7 +23520,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries, [], name, value)
 
 
-                    class PrefixEventSummary(Entity):
+                    class PrefixEventSummary(_Entity_):
                         """
                         Prefix Event data
                         
@@ -21703,7 +23670,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, self).__init__()
 
                             self.yang_name = "prefix-event-summary"
                             self.yang_parent_name = "prefix-event-summaries"
@@ -21757,7 +23727,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -21801,7 +23771,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -21825,9 +23798,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -21871,7 +23848,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -21895,9 +23875,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -21948,7 +23932,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -21975,7 +23962,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -22035,7 +24022,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -22063,10 +24053,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -22124,7 +24122,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -22152,9 +24153,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -22236,7 +24241,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -22272,7 +24280,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -22306,7 +24314,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -22328,9 +24339,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -22364,7 +24379,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -22386,10 +24404,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -22447,7 +24473,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "prefix-event-summary"
@@ -22475,11 +24504,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventSummaries']['meta_info']
 
 
-
-
-                class PrefixEventOfflines(Entity):
+                class PrefixEventOfflines(_Entity_):
                     """
                     ISIS Prefix events offline data
                     
@@ -22498,7 +24539,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines, self).__init__()
 
                         self.yang_name = "prefix-event-offlines"
                         self.yang_parent_name = "instance"
@@ -22516,7 +24560,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines, [], name, value)
 
 
-                    class PrefixEventOffline(Entity):
+                    class PrefixEventOffline(_Entity_):
                         """
                         Offline operational data for particular ISIS
                         Prefix Event
@@ -22667,7 +24711,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, self).__init__()
 
                             self.yang_name = "prefix-event-offline"
                             self.yang_parent_name = "prefix-event-offlines"
@@ -22721,7 +24768,7 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
 
 
-                        class IpConvergenceTime(Entity):
+                        class IpConvergenceTime(_Entity_):
                             """
                             Convergence time for IP route programming
                             
@@ -22765,7 +24812,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, self).__init__()
 
                                 self.yang_name = "ip-convergence-time"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -22789,9 +24839,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime']['meta_info']
 
 
-                        class MplsConvergenceTime(Entity):
+                        class MplsConvergenceTime(_Entity_):
                             """
                             Convergence time for MPLS label programming
                             
@@ -22835,7 +24889,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, self).__init__()
 
                                 self.yang_name = "mpls-convergence-time"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -22859,9 +24916,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime']['meta_info']
 
 
-                        class Path(Entity):
+                        class Path(_Entity_):
                             """
                             Path information
                             
@@ -22912,7 +24973,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, self).__init__()
 
                                 self.yang_name = "path"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -22939,7 +25003,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path, ['interface_name', 'neighbour_address', 'change_type', 'path_metric'], name, value)
 
 
-                            class LfaPath(Entity):
+                            class LfaPath(_Entity_):
                                 """
                                 Backup Path Informatoin
                                 
@@ -22999,7 +25063,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, self).__init__()
 
                                     self.yang_name = "lfa-path"
                                     self.yang_parent_name = "path"
@@ -23027,10 +25094,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path']['meta_info']
 
 
-
-                        class TriggerLsa(Entity):
+                        class TriggerLsa(_Entity_):
                             """
                             LSA that triggered this event
                             
@@ -23088,7 +25163,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, self).__init__()
 
                                 self.yang_name = "trigger-lsa"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -23116,9 +25194,13 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa']['meta_info']
 
 
-                        class TimeLine(Entity):
+                        class TimeLine(_Entity_):
                             """
                             Timeline information
                             
@@ -23200,7 +25282,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, self).__init__()
 
                                 self.yang_name = "time-line"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -23236,7 +25321,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine, ['route_origin', 'ri_bv4_enter', 'ri_bv4_exit', 'ri_bv4_redistribute', 'ldp_enter', 'ldp_exit', 'lsd_enter', 'lsd_exit'], name, value)
 
 
-                            class LcIp(Entity):
+                            class LcIp(_Entity_):
                                 """
                                 List of Linecards' completion point for IP
                                 routes
@@ -23270,7 +25355,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, self).__init__()
 
                                     self.yang_name = "lc-ip"
                                     self.yang_parent_name = "time-line"
@@ -23292,9 +25380,13 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp']['meta_info']
 
 
-                            class LcMpls(Entity):
+                            class LcMpls(_Entity_):
                                 """
                                 List of Linecards' completion point for MPLS
                                 labels
@@ -23328,7 +25420,10 @@ class Rcmd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, self).__init__()
 
                                     self.yang_name = "lc-mpls"
                                     self.yang_parent_name = "time-line"
@@ -23350,10 +25445,18 @@ class Rcmd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                    return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine']['meta_info']
 
 
-
-                        class LsaProcessed(Entity):
+                        class LsaProcessed(_Entity_):
                             """
                             List of LSAs processed
                             
@@ -23411,7 +25514,10 @@ class Rcmd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, self).__init__()
 
                                 self.yang_name = "lsa-processed"
                                 self.yang_parent_name = "prefix-event-offline"
@@ -23439,11 +25545,23 @@ class Rcmd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                                return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.PrefixEventOfflines']['meta_info']
 
 
-
-
-                class LspRegenerateds(Entity):
+                class LspRegenerateds(_Entity_):
                     """
                     Regenerated LSP data
                     
@@ -23462,7 +25580,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Isis.Instances.Instance.LspRegenerateds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Isis.Instances.Instance.LspRegenerateds, self).__init__()
 
                         self.yang_name = "lsp-regenerateds"
                         self.yang_parent_name = "instance"
@@ -23480,7 +25601,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Isis.Instances.Instance.LspRegenerateds, [], name, value)
 
 
-                    class LspRegenerated(Entity):
+                    class LspRegenerated(_Entity_):
                         """
                         Regenerated LSP data
                         
@@ -23556,7 +25677,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated, self).__init__()
 
                             self.yang_name = "lsp-regenerated"
                             self.yang_parent_name = "lsp-regenerateds"
@@ -23588,13 +25712,33 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated, ['serial_number', 'serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Isis.Instances.Instance.LspRegenerateds']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Isis.Instances.Instance']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Isis.Instances']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Isis']['meta_info']
 
 
-
-
-
-
-    class Memory(Entity):
+    class Memory(_Entity_):
         """
         Memory Info
         
@@ -23627,7 +25771,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Memory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Memory, self).__init__()
 
             self.yang_name = "memory"
             self.yang_parent_name = "rcmd"
@@ -23648,7 +25795,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Memory, [], name, value)
 
 
-        class MemoryInfo(Entity):
+        class MemoryInfo(_Entity_):
             """
             Memory Info
             
@@ -23719,7 +25866,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Memory.MemoryInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Memory.MemoryInfo, self).__init__()
 
                 self.yang_name = "memory-info"
                 self.yang_parent_name = "memory"
@@ -23750,9 +25900,13 @@ class Rcmd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcmd.Memory.MemoryInfo, ['structure_name', 'size', 'current_count', 'alloc_fails', 'alloc_count', 'freed_count', 'memory_type'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Memory.MemoryInfo']['meta_info']
 
 
-        class EdmMemoryInfo(Entity):
+        class EdmMemoryInfo(_Entity_):
             """
             Memory Info
             
@@ -23800,7 +25954,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Memory.EdmMemoryInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Memory.EdmMemoryInfo, self).__init__()
 
                 self.yang_name = "edm-memory-info"
                 self.yang_parent_name = "memory"
@@ -23825,9 +25982,13 @@ class Rcmd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcmd.Memory.EdmMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Memory.EdmMemoryInfo']['meta_info']
 
 
-        class StringMemoryInfo(Entity):
+        class StringMemoryInfo(_Entity_):
             """
             Memory Info
             
@@ -23875,7 +26036,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Memory.StringMemoryInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Memory.StringMemoryInfo, self).__init__()
 
                 self.yang_name = "string-memory-info"
                 self.yang_parent_name = "memory"
@@ -23900,10 +26064,18 @@ class Rcmd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcmd.Memory.StringMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Memory.StringMemoryInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Memory']['meta_info']
 
 
-
-    class Ldp(Entity):
+    class Ldp(_Entity_):
         """
         LDP data
         
@@ -23936,7 +26108,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Ldp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Ldp, self).__init__()
 
             self.yang_name = "ldp"
             self.yang_parent_name = "rcmd"
@@ -23965,7 +26140,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Ldp, [], name, value)
 
 
-        class Sessions(Entity):
+        class Sessions(_Entity_):
             """
             Session Events
             
@@ -23984,7 +26159,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Ldp.Sessions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Ldp.Sessions, self).__init__()
 
                 self.yang_name = "sessions"
                 self.yang_parent_name = "ldp"
@@ -24003,7 +26181,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Ldp.Sessions, [], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 Session
                 
@@ -24079,7 +26257,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Ldp.Sessions.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Ldp.Sessions.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "sessions"
@@ -24112,10 +26293,18 @@ class Rcmd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rcmd.Ldp.Sessions.Session, ['event_id', 'event_id_xr', 'event_type', 'event_time', 'lsr_id', 'interface_name', 'address', 'state'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Ldp.Sessions.Session']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Ldp.Sessions']['meta_info']
 
 
-
-        class RemoteLfaS(Entity):
+        class RemoteLfaS(_Entity_):
             """
             Remote LFA Coverage Events
             
@@ -24134,7 +26323,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Ldp.RemoteLfaS, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Ldp.RemoteLfaS, self).__init__()
 
                 self.yang_name = "remote-lfa-s"
                 self.yang_parent_name = "ldp"
@@ -24153,7 +26345,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Ldp.RemoteLfaS, [], name, value)
 
 
-            class RemoteLfa(Entity):
+            class RemoteLfa(_Entity_):
                 """
                 RemoteLFA
                 
@@ -24241,7 +26433,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Ldp.RemoteLfaS.RemoteLfa, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Ldp.RemoteLfaS.RemoteLfa, self).__init__()
 
                     self.yang_name = "remote-lfa"
                     self.yang_parent_name = "remote-lfa-s"
@@ -24277,7 +26472,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa, ['event_id', 'event_id_xr', 'end_of_calculation_time', 'igp_protocol', 'process_name', 'ipfrr_event_id', 'below_threshold'], name, value)
 
 
-                class SessionStatistic(Entity):
+                class SessionStatistic(_Entity_):
                     """
                     RLFA Statistics categorized by session state
                     
@@ -24350,7 +26545,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic, self).__init__()
 
                         self.yang_name = "session-statistic"
                         self.yang_parent_name = "remote-lfa"
@@ -24380,9 +26578,13 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic, ['session_state', 'session_count', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic']['meta_info']
 
 
-                class RemoteNode(Entity):
+                class RemoteNode(_Entity_):
                     """
                     Remote Node Information
                     
@@ -24480,7 +26682,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode, self).__init__()
 
                         self.yang_name = "remote-node"
                         self.yang_parent_name = "remote-lfa"
@@ -24516,9 +26721,13 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode, ['remote_node_id', 'lsr_id', 'transport_address', 'in_use_time', 'session_state', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode']['meta_info']
 
 
-                class Logs(Entity):
+                class Logs(_Entity_):
                     """
                     Logs Information
                     
@@ -24562,7 +26771,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs, self).__init__()
 
                         self.yang_name = "logs"
                         self.yang_parent_name = "remote-lfa"
@@ -24586,11 +26798,23 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs, ['log_time', 'label_coverage_state', 'route_count', 'remote_label_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Ldp.RemoteLfaS.RemoteLfa']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Ldp.RemoteLfaS']['meta_info']
 
 
-
-
-        class RemoteLfaSummaries(Entity):
+        class RemoteLfaSummaries(_Entity_):
             """
             Remote LFA Coverage Events
             
@@ -24609,7 +26833,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Ldp.RemoteLfaSummaries, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Ldp.RemoteLfaSummaries, self).__init__()
 
                 self.yang_name = "remote-lfa-summaries"
                 self.yang_parent_name = "ldp"
@@ -24628,7 +26855,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries, [], name, value)
 
 
-            class RemoteLfaSummary(Entity):
+            class RemoteLfaSummary(_Entity_):
                 """
                 Summary operational data for Remote LFA
                 
@@ -24716,7 +26943,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary, self).__init__()
 
                     self.yang_name = "remote-lfa-summary"
                     self.yang_parent_name = "remote-lfa-summaries"
@@ -24752,7 +26982,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary, ['event_id', 'event_id_xr', 'end_of_calculation_time', 'igp_protocol', 'process_name', 'ipfrr_event_id', 'below_threshold'], name, value)
 
 
-                class SessionStatistic(Entity):
+                class SessionStatistic(_Entity_):
                     """
                     RLFA Statistics categorized by session state
                     
@@ -24825,7 +27055,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic, self).__init__()
 
                         self.yang_name = "session-statistic"
                         self.yang_parent_name = "remote-lfa-summary"
@@ -24855,9 +27088,13 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic, ['session_state', 'session_count', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic']['meta_info']
 
 
-                class RemoteNode(Entity):
+                class RemoteNode(_Entity_):
                     """
                     Remote Node Information
                     
@@ -24955,7 +27192,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode, self).__init__()
 
                         self.yang_name = "remote-node"
                         self.yang_parent_name = "remote-lfa-summary"
@@ -24991,9 +27231,13 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode, ['remote_node_id', 'lsr_id', 'transport_address', 'in_use_time', 'session_state', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode']['meta_info']
 
 
-                class Logs(Entity):
+                class Logs(_Entity_):
                     """
                     Logs Information
                     
@@ -25037,7 +27281,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs, self).__init__()
 
                         self.yang_name = "logs"
                         self.yang_parent_name = "remote-lfa-summary"
@@ -25061,12 +27308,28 @@ class Rcmd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs, ['log_time', 'label_coverage_state', 'route_count', 'remote_label_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Ldp.RemoteLfaSummaries']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Ldp']['meta_info']
 
 
-
-
-
-    class Intf(Entity):
+    class Intf(_Entity_):
         """
         Interface data
         
@@ -25085,7 +27348,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Intf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Intf, self).__init__()
 
             self.yang_name = "intf"
             self.yang_parent_name = "rcmd"
@@ -25106,7 +27372,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Intf, [], name, value)
 
 
-        class Events(Entity):
+        class Events(_Entity_):
             """
             Events
             
@@ -25125,7 +27391,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Intf.Events, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Intf.Events, self).__init__()
 
                 self.yang_name = "events"
                 self.yang_parent_name = "intf"
@@ -25144,7 +27413,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Intf.Events, [], name, value)
 
 
-            class Event(Entity):
+            class Event(_Entity_):
                 """
                 Events
                 
@@ -25211,7 +27480,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Intf.Events.Event, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Intf.Events.Event, self).__init__()
 
                     self.yang_name = "event"
                     self.yang_parent_name = "events"
@@ -25242,11 +27514,23 @@ class Rcmd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rcmd.Intf.Events.Event, ['event_no', 'sequence_no', 'interface_name', 'component', 'event_type', 'event_time', 'primary_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Intf.Events.Event']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Intf.Events']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Intf']['meta_info']
 
 
-
-
-    class Process(Entity):
+    class Process(_Entity_):
         """
         Process information
         
@@ -25279,7 +27563,10 @@ class Rcmd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Rcmd.Process, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcmd.Process, self).__init__()
 
             self.yang_name = "process"
             self.yang_parent_name = "rcmd"
@@ -25308,7 +27595,7 @@ class Rcmd(Entity):
             self._perform_setattr(Rcmd.Process, [], name, value)
 
 
-        class Isis(Entity):
+        class Isis(_Entity_):
             """
             ISIS Process Information
             
@@ -25327,7 +27614,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Process.Isis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Process.Isis, self).__init__()
 
                 self.yang_name = "isis"
                 self.yang_parent_name = "process"
@@ -25346,7 +27636,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Isis, [], name, value)
 
 
-            class Process_(Entity):
+            class Process_(_Entity_):
                 """
                 Process Information
                 
@@ -25379,7 +27669,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Isis.Process_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Process.Isis.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "isis"
@@ -25403,7 +27696,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Process.Isis.Process_, ['protocol_id', 'process_name'], name, value)
 
 
-                class InstanceName(Entity):
+                class InstanceName(_Entity_):
                     """
                     Instance/VRF Name
                     
@@ -25508,7 +27801,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Isis.Process_.InstanceName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Process.Isis.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
@@ -25548,7 +27844,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Process.Isis.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
-                    class Instance(Entity):
+                    class Instance(_Entity_):
                         """
                         Instance Information
                         
@@ -25669,7 +27965,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Isis.Process_.InstanceName.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Process.Isis.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
@@ -25712,12 +28011,28 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Process.Isis.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Process.Isis.Process_.InstanceName.Instance']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Process.Isis.Process_.InstanceName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Process.Isis.Process_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Process.Isis']['meta_info']
 
 
-
-
-
-        class Ospf(Entity):
+        class Ospf(_Entity_):
             """
             OSPF Process Information
             
@@ -25736,7 +28051,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Process.Ospf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Process.Ospf, self).__init__()
 
                 self.yang_name = "ospf"
                 self.yang_parent_name = "process"
@@ -25755,7 +28073,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Ospf, [], name, value)
 
 
-            class Process_(Entity):
+            class Process_(_Entity_):
                 """
                 Process Information
                 
@@ -25788,7 +28106,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Ospf.Process_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Process.Ospf.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "ospf"
@@ -25812,7 +28133,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Process.Ospf.Process_, ['protocol_id', 'process_name'], name, value)
 
 
-                class InstanceName(Entity):
+                class InstanceName(_Entity_):
                     """
                     Instance/VRF Name
                     
@@ -25917,7 +28238,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Ospf.Process_.InstanceName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Process.Ospf.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
@@ -25957,7 +28281,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Process.Ospf.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
-                    class Instance(Entity):
+                    class Instance(_Entity_):
                         """
                         Instance Information
                         
@@ -26078,7 +28402,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Ospf.Process_.InstanceName.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Process.Ospf.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
@@ -26121,12 +28448,28 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Process.Ospf.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Process.Ospf.Process_.InstanceName.Instance']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Process.Ospf.Process_.InstanceName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Process.Ospf.Process_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Process.Ospf']['meta_info']
 
 
-
-
-
-        class Ldp(Entity):
+        class Ldp(_Entity_):
             """
             LDP Process Information
             
@@ -26145,7 +28488,10 @@ class Rcmd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rcmd.Process.Ldp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Rcmd.Process.Ldp, self).__init__()
 
                 self.yang_name = "ldp"
                 self.yang_parent_name = "process"
@@ -26164,7 +28510,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Ldp, [], name, value)
 
 
-            class Process_(Entity):
+            class Process_(_Entity_):
                 """
                 Process Information
                 
@@ -26197,7 +28543,10 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Ldp.Process_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Rcmd.Process.Ldp.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "ldp"
@@ -26221,7 +28570,7 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Process.Ldp.Process_, ['protocol_id', 'process_name'], name, value)
 
 
-                class InstanceName(Entity):
+                class InstanceName(_Entity_):
                     """
                     Instance/VRF Name
                     
@@ -26326,7 +28675,10 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Ldp.Process_.InstanceName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Rcmd.Process.Ldp.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
@@ -26366,7 +28718,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Process.Ldp.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
-                    class Instance(Entity):
+                    class Instance(_Entity_):
                         """
                         Instance Information
                         
@@ -26487,7 +28839,10 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Ldp.Process_.InstanceName.Instance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Rcmd.Process.Ldp.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
@@ -26530,14 +28885,38 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Process.Ldp.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                            return meta._meta_table['Rcmd.Process.Ldp.Process_.InstanceName.Instance']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                        return meta._meta_table['Rcmd.Process.Ldp.Process_.InstanceName']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                    return meta._meta_table['Rcmd.Process.Ldp.Process_']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+                return meta._meta_table['Rcmd.Process.Ldp']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+            return meta._meta_table['Rcmd.Process']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rcmd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['Rcmd']['meta_info']
 
 

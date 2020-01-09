@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -40,6 +43,12 @@ class LptsDynamicFlowConfig(Enum):
     flows_config = Enum.YLeaf(0, "flows-config")
 
     platform_config = Enum.YLeaf(1, "platform-config")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
+        return meta._meta_table['LptsDynamicFlowConfig']
 
 
 class LptsFlow(Enum):
@@ -725,6 +734,12 @@ class LptsFlow(Enum):
     platform_limit = Enum.YLeaf(99, "platform-limit")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
+        return meta._meta_table['LptsFlow']
+
+
 class LptsPreIFibPrecedenceNumber(Enum):
     """
     LptsPreIFibPrecedenceNumber (Enum Class)
@@ -784,6 +799,57 @@ class LptsPreIFibPrecedenceNumber(Enum):
     routine = Enum.YLeaf(0, "routine")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
+        return meta._meta_table['LptsPreIFibPrecedenceNumber']
+
+
+class LptsPunt(Enum):
+    """
+    LptsPunt (Enum Class)
+
+    Lpts punt
+
+    .. data:: mcast = 0
+
+    	Multicast packets
+
+    .. data:: bcast = 1
+
+    	Broadcast packets
+
+    .. data:: arp = 2
+
+    	ARP packets
+
+    .. data:: cdp = 3
+
+    	CDP packets
+
+    .. data:: lacp = 4
+
+    	LACP packets
+
+    """
+
+    mcast = Enum.YLeaf(0, "mcast")
+
+    bcast = Enum.YLeaf(1, "bcast")
+
+    arp = Enum.YLeaf(2, "arp")
+
+    cdp = Enum.YLeaf(3, "cdp")
+
+    lacp = Enum.YLeaf(4, "lacp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
+        return meta._meta_table['LptsPunt']
+
+
 class Lptsafi(Enum):
     """
     Lptsafi (Enum Class)
@@ -803,6 +869,12 @@ class Lptsafi(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
+        return meta._meta_table['Lptsafi']
 
 
 

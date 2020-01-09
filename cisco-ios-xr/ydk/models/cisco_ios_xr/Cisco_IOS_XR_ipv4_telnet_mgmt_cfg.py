@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Telnet(Entity):
+class Telnet(_Entity_):
     """
     Global Telnet configuration commands
     
@@ -38,7 +41,10 @@ class Telnet(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Telnet, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Telnet, self).__init__()
         self._top_entity = None
 
         self.yang_name = "telnet"
@@ -59,7 +65,7 @@ class Telnet(Entity):
         self._perform_setattr(Telnet, [], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF name for telnet service
         
@@ -76,7 +82,10 @@ class Telnet(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Telnet.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Telnet.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "telnet"
@@ -95,7 +104,7 @@ class Telnet(Entity):
             self._perform_setattr(Telnet.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF name for telnet service
             
@@ -119,7 +128,10 @@ class Telnet(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Telnet.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Telnet.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -143,7 +155,7 @@ class Telnet(Entity):
                 self._perform_setattr(Telnet.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 IPv4 configuration
                 
@@ -162,7 +174,10 @@ class Telnet(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Telnet.Vrfs.Vrf.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Telnet.Vrfs.Vrf.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "vrf"
@@ -180,12 +195,28 @@ class Telnet(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Telnet.Vrfs.Vrf.Ipv4, ['dscp'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_mgmt_cfg as meta
+                    return meta._meta_table['Telnet.Vrfs.Vrf.Ipv4']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_mgmt_cfg as meta
+                return meta._meta_table['Telnet.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_mgmt_cfg as meta
+            return meta._meta_table['Telnet.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Telnet()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_telnet_mgmt_cfg as meta
+        return meta._meta_table['Telnet']['meta_info']
 
 

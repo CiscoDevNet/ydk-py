@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -55,6 +58,12 @@ class ProcessState(Enum):
     DESELECTED = Enum.YLeaf(5, "DESELECTED")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['ProcessState']
+
+
 class ServiceRole(Enum):
     """
     ServiceRole (Enum Class)
@@ -74,6 +83,12 @@ class ServiceRole(Enum):
     STANDBY = Enum.YLeaf(2, "STANDBY")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['ServiceRole']
+
+
 class ServiceScope(Enum):
     """
     ServiceScope (Enum Class)
@@ -87,6 +102,12 @@ class ServiceScope(Enum):
     SYSTEM = Enum.YLeaf(0, "SYSTEM")
 
     RACK = Enum.YLeaf(1, "RACK")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['ServiceScope']
 
 
 class ServiceState(Enum):
@@ -108,6 +129,12 @@ class ServiceState(Enum):
     SS_ACK_PENDING = Enum.YLeaf(2, "SS_ACK_PENDING")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['ServiceState']
+
+
 class StartupMode(Enum):
     """
     StartupMode (Enum Class)
@@ -127,8 +154,14 @@ class StartupMode(Enum):
     ON_DEMAND = Enum.YLeaf(2, "ON-DEMAND")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['StartupMode']
 
-class Processes(Entity):
+
+
+class Processes(_Entity_):
     """
     Process Info
     
@@ -147,7 +180,10 @@ class Processes(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Processes, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Processes, self).__init__()
         self._top_entity = None
 
         self.yang_name = "processes"
@@ -166,7 +202,7 @@ class Processes(Entity):
         self._perform_setattr(Processes, [], name, value)
 
 
-    class AllLocations(Entity):
+    class AllLocations(_Entity_):
         """
         
         
@@ -216,7 +252,10 @@ class Processes(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Processes.AllLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Processes.AllLocations, self).__init__()
 
             self.yang_name = "all-locations"
             self.yang_parent_name = "processes"
@@ -242,7 +281,7 @@ class Processes(Entity):
             self._perform_setattr(Processes.AllLocations, ['location', 'ip_addr', 'pcbs'], name, value)
 
 
-        class Name(Entity):
+        class Name(_Entity_):
             """
             
             
@@ -413,7 +452,10 @@ class Processes(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Processes.AllLocations.Name, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Processes.AllLocations.Name, self).__init__()
 
                 self.yang_name = "name"
                 self.yang_parent_name = "all-locations"
@@ -472,7 +514,7 @@ class Processes(Entity):
                 self._perform_setattr(Processes.AllLocations.Name, ['proc_name', 'instance_id', 'path', 'startup_file', 'startup_mode', 'heart_beat_timeout', 'last_heart_beat_time', 'max_restarts', 'respawn_reset_timer', 'mandatory', 'maint_mode', 'args', 'proc_state', 'pid', 'proc_aborted', 'exit_status', 'respawns', 'start_time', 'ready_time', 'last_exit_time'], name, value)
 
 
-            class Services(Entity):
+            class Services(_Entity_):
                 """
                 
                 
@@ -591,7 +633,10 @@ class Processes(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Processes.AllLocations.Name.Services, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Processes.AllLocations.Name.Services, self).__init__()
 
                     self.yang_name = "services"
                     self.yang_parent_name = "name"
@@ -633,16 +678,32 @@ class Processes(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Processes.AllLocations.Name.Services, ['service_name', 'scope', 'redundancy', 'ha_ready', 'service_state', 'ha_role', 'new_ha_role', 'selected', 'ip1', 'ip2', 'svc_start_time', 'svc_ready_time', 'svc_haready_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                    return meta._meta_table['Processes.AllLocations.Name.Services']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                return meta._meta_table['Processes.AllLocations.Name']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+            return meta._meta_table['Processes.AllLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Processes()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['Processes']['meta_info']
 
 
-class ProcessManager(Entity):
+class ProcessManager(_Entity_):
     """
     Process Manager Info
     
@@ -661,7 +722,10 @@ class ProcessManager(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(ProcessManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ProcessManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "process-manager"
@@ -680,7 +744,7 @@ class ProcessManager(Entity):
         self._perform_setattr(ProcessManager, [], name, value)
 
 
-    class AllLocationsInfo(Entity):
+    class AllLocationsInfo(_Entity_):
         """
         
         
@@ -758,7 +822,10 @@ class ProcessManager(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(ProcessManager.AllLocationsInfo, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ProcessManager.AllLocationsInfo, self).__init__()
 
             self.yang_name = "all-locations-info"
             self.yang_parent_name = "process-manager"
@@ -791,14 +858,22 @@ class ProcessManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ProcessManager.AllLocationsInfo, ['location_info', 'ip_addr_info', 'pm_start_time', 'mand_proc_down', 'vmm_capi_up', 'wdmon_capi_up', 'wdmon_capi_timestamp', 'wdmon_num_capi_connects'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+            return meta._meta_table['ProcessManager.AllLocationsInfo']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ProcessManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['ProcessManager']['meta_info']
 
 
-class Pm(Entity):
+class Pm(_Entity_):
     """
     
     
@@ -817,7 +892,10 @@ class Pm(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Pm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pm"
@@ -838,7 +916,7 @@ class Pm(Entity):
         self._perform_setattr(Pm, [], name, value)
 
 
-    class Pm_(Entity):
+    class Pm_(_Entity_):
         """
         
         
@@ -857,7 +935,10 @@ class Pm(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Pm.Pm_, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pm.Pm_, self).__init__()
 
             self.yang_name = "pm"
             self.yang_parent_name = "pm"
@@ -876,7 +957,7 @@ class Pm(Entity):
             self._perform_setattr(Pm.Pm_, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -902,7 +983,10 @@ class Pm(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Pm.Pm_.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pm.Pm_.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "pm"
@@ -924,7 +1008,7 @@ class Pm(Entity):
                 self._perform_setattr(Pm.Pm_.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -950,7 +1034,10 @@ class Pm(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Pm.Pm_.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pm.Pm_.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -971,7 +1058,7 @@ class Pm(Entity):
                     self._perform_setattr(Pm.Pm_.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -997,7 +1084,10 @@ class Pm(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Pm.Pm_.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pm.Pm_.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -1018,7 +1108,7 @@ class Pm(Entity):
                         self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -1037,7 +1127,10 @@ class Pm(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -1055,14 +1148,38 @@ class Pm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                            return meta._meta_table['Pm.Pm_.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                        return meta._meta_table['Pm.Pm_.Trace.Location.AllOptions']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                    return meta._meta_table['Pm.Pm_.Trace.Location']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+                return meta._meta_table['Pm.Pm_.Trace']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+            return meta._meta_table['Pm.Pm_']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_pm as meta
+        return meta._meta_table['Pm']['meta_info']
 
 

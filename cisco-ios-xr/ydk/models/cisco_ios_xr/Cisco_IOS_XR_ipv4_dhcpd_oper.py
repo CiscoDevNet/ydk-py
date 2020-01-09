@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -46,6 +49,12 @@ class BagDhcpdIntfSrgRole(Enum):
     master = Enum.YLeaf(1, "master")
 
     slave = Enum.YLeaf(2, "slave")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['BagDhcpdIntfSrgRole']
 
 
 class BagDhcpdProxyState(Enum):
@@ -159,6 +168,12 @@ class BagDhcpdProxyState(Enum):
     max = Enum.YLeaf(16, "max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['BagDhcpdProxyState']
+
+
 class BroadcastFlag(Enum):
     """
     BroadcastFlag (Enum Class)
@@ -184,6 +199,12 @@ class BroadcastFlag(Enum):
     check = Enum.YLeaf(1, "check")
 
     unicast_always = Enum.YLeaf(2, "unicast-always")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['BroadcastFlag']
 
 
 class DhcpIssuPhase(Enum):
@@ -225,6 +246,12 @@ class DhcpIssuPhase(Enum):
     phase_aborted = Enum.YLeaf(4, "phase-aborted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['DhcpIssuPhase']
+
+
 class DhcpIssuRole(Enum):
     """
     DhcpIssuRole (Enum Class)
@@ -246,6 +273,12 @@ class DhcpIssuRole(Enum):
     role_secondary = Enum.YLeaf(1, "role-secondary")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['DhcpIssuRole']
+
+
 class DhcpIssuVersion(Enum):
     """
     DhcpIssuVersion (Enum Class)
@@ -265,6 +298,12 @@ class DhcpIssuVersion(Enum):
     version1 = Enum.YLeaf(0, "version1")
 
     version2 = Enum.YLeaf(1, "version2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['DhcpIssuVersion']
 
 
 class DhcpcIpv4State(Enum):
@@ -330,6 +369,12 @@ class DhcpcIpv4State(Enum):
     invalid = Enum.YLeaf(8, "invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['DhcpcIpv4State']
+
+
 class ProxyLeaseLimit(Enum):
     """
     ProxyLeaseLimit (Enum Class)
@@ -369,6 +414,12 @@ class ProxyLeaseLimit(Enum):
     remote_id_circuit_id = Enum.YLeaf(4, "remote-id-circuit-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['ProxyLeaseLimit']
+
+
 class RelayInfoAuthenticate(Enum):
     """
     RelayInfoAuthenticate (Enum Class)
@@ -388,6 +439,12 @@ class RelayInfoAuthenticate(Enum):
     received = Enum.YLeaf(0, "received")
 
     inserted = Enum.YLeaf(1, "inserted")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['RelayInfoAuthenticate']
 
 
 class RelayInfoPolicy(Enum):
@@ -423,6 +480,12 @@ class RelayInfoPolicy(Enum):
     encapsulate = Enum.YLeaf(3, "encapsulate")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['RelayInfoPolicy']
+
+
 class RelayInfoVpnMode(Enum):
     """
     RelayInfoVpnMode (Enum Class)
@@ -444,8 +507,14 @@ class RelayInfoVpnMode(Enum):
     cisco = Enum.YLeaf(1, "cisco")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['RelayInfoVpnMode']
 
-class DhcpClient(Entity):
+
+
+class DhcpClient(_Entity_):
     """
     DHCP client operational data
     
@@ -461,10 +530,13 @@ class DhcpClient(Entity):
     """
 
     _prefix = 'ipv4-dhcpd-oper'
-    _revision = '2018-09-20'
+    _revision = '2019-06-25'
 
     def __init__(self):
-        super(DhcpClient, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(DhcpClient, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dhcp-client"
@@ -485,7 +557,7 @@ class DhcpClient(Entity):
         self._perform_setattr(DhcpClient, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         DHCP client list of nodes
         
@@ -501,10 +573,13 @@ class DhcpClient(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2018-09-20'
+        _revision = '2019-06-25'
 
         def __init__(self):
-            super(DhcpClient.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(DhcpClient.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "dhcp-client"
@@ -523,7 +598,7 @@ class DhcpClient(Entity):
             self._perform_setattr(DhcpClient.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             DHCP client particular node name
             
@@ -555,10 +630,13 @@ class DhcpClient(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(DhcpClient.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(DhcpClient.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -586,7 +664,7 @@ class DhcpClient(Entity):
                 self._perform_setattr(DhcpClient.Nodes.Node, ['node_name'], name, value)
 
 
-            class ClientStats(Entity):
+            class ClientStats(_Entity_):
                 """
                 IPv4 DHCP client statistics table
                 
@@ -602,10 +680,13 @@ class DhcpClient(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(DhcpClient.Nodes.Node.ClientStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DhcpClient.Nodes.Node.ClientStats, self).__init__()
 
                     self.yang_name = "client-stats"
                     self.yang_parent_name = "node"
@@ -623,7 +704,7 @@ class DhcpClient(Entity):
                     self._perform_setattr(DhcpClient.Nodes.Node.ClientStats, [], name, value)
 
 
-                class ClientStat(Entity):
+                class ClientStat(_Entity_):
                     """
                     DHCP client binding statistics
                     
@@ -1091,10 +1172,13 @@ class DhcpClient(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(DhcpClient.Nodes.Node.ClientStats.ClientStat, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DhcpClient.Nodes.Node.ClientStats.ClientStat, self).__init__()
 
                         self.yang_name = "client-stat"
                         self.yang_parent_name = "client-stats"
@@ -1212,10 +1296,18 @@ class DhcpClient(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', 'interface_name', 'num_events_received', 'num_create_event_received', 'num_delete_event_received', 'num_reboot_event_received', 'num_reinit_event_received', 'num_packet_event_received', 'num_init_timer_eventi', 'num_t1_timer_event', 'num_t2_timer_event', 'num_lease_timer_event', 'num_vbind_timer_event', 'num_discovers_sent_successfully', 'num_requests_sent_successfully', 'num_releases_sent_successfully', 'num_renews_sent_successfully', 'num_rebinds_sent_successfully', 'num_declines_sent_successfully', 'num_request_after_reboot_sent', 'num_valid_offers_received', 'num_valid_acks_received', 'num_valid_nacks_received', 'num_unicast_packet_sent_successfully', 'num_broadcast_packet_sent_success', 'num_init_timer_start', 'num_init_timer_stop', 'num_t1_timer_start', 'num_t1_timer_stop', 'num_t2_timer_start', 'num_t2_timer_stop', 'num_lease_timer_start', 'num_lease_timer_stop', 'num_vbind_timer_start', 'num_vbind_timer_stop', 'num_invalid_events', 'num_discovers_failed', 'num_requests_failed', 'num_releases_failed', 'num_renews_failed', 'num_rebinds_failed', 'num_declines_failed', 'num_request_after_reboot_failed', 'num_invalid_offers', 'num_invalid_acks', 'num_invalid_nacks', 'num_invalid_packets', 'num_unicast_failed', 'num_broadcast_failed', 'num_xid_mismatch', 'num_vbind_failed'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['DhcpClient.Nodes.Node.ClientStats.ClientStat']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['DhcpClient.Nodes.Node.ClientStats']['meta_info']
 
 
-
-            class Clients(Entity):
+            class Clients(_Entity_):
                 """
                 IPv4 DHCP client table
                 
@@ -1231,10 +1323,13 @@ class DhcpClient(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(DhcpClient.Nodes.Node.Clients, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(DhcpClient.Nodes.Node.Clients, self).__init__()
 
                     self.yang_name = "clients"
                     self.yang_parent_name = "node"
@@ -1252,7 +1347,7 @@ class DhcpClient(Entity):
                     self._perform_setattr(DhcpClient.Nodes.Node.Clients, [], name, value)
 
 
-                class Client(Entity):
+                class Client(_Entity_):
                     """
                     Single DHCP client binding
                     
@@ -1374,10 +1469,13 @@ class DhcpClient(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(DhcpClient.Nodes.Node.Clients.Client, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(DhcpClient.Nodes.Node.Clients.Client, self).__init__()
 
                         self.yang_name = "client"
                         self.yang_parent_name = "clients"
@@ -1419,17 +1517,37 @@ class DhcpClient(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', 'interface_name', 'client_mac_address', 'client_id', 'ipv4_client_state', 'ipv4_address', 'ipv4_subnet_mask', 'ipv4_server_address', 'next_hop_ipv4_address', 'ipv4_lease_time', 'ipv4_renew_time', 'ipv4_rebind_time', 'ipv4_address_configured'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['DhcpClient.Nodes.Node.Clients.Client']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['DhcpClient.Nodes.Node.Clients']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['DhcpClient.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+            return meta._meta_table['DhcpClient.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = DhcpClient()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['DhcpClient']['meta_info']
 
 
-class Ipv4Dhcpd(Entity):
+class Ipv4Dhcpd(_Entity_):
     """
     ipv4 dhcpd
     
@@ -1452,10 +1570,13 @@ class Ipv4Dhcpd(Entity):
     """
 
     _prefix = 'ipv4-dhcpd-oper'
-    _revision = '2018-09-20'
+    _revision = '2019-06-25'
 
     def __init__(self):
-        super(Ipv4Dhcpd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4Dhcpd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-dhcpd"
@@ -1480,7 +1601,7 @@ class Ipv4Dhcpd(Entity):
         self._perform_setattr(Ipv4Dhcpd, [], name, value)
 
 
-    class Snoop(Entity):
+    class Snoop(_Entity_):
         """
         DHCP Snoop operational data
         
@@ -1524,10 +1645,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2018-09-20'
+        _revision = '2019-06-25'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Snoop, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Snoop, self).__init__()
 
             self.yang_name = "snoop"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -1564,7 +1688,7 @@ class Ipv4Dhcpd(Entity):
             self._perform_setattr(Ipv4Dhcpd.Snoop, [], name, value)
 
 
-        class Bindings(Entity):
+        class Bindings(_Entity_):
             """
             DHCP Snoop Bindings
             
@@ -1580,10 +1704,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Bindings, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Snoop.Bindings, self).__init__()
 
                 self.yang_name = "bindings"
                 self.yang_parent_name = "snoop"
@@ -1602,7 +1729,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings, [], name, value)
 
 
-            class Binding(Entity):
+            class Binding(_Entity_):
                 """
                 DHCP Snoop binding
                 
@@ -1719,10 +1846,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Bindings.Binding, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Snoop.Bindings.Binding, self).__init__()
 
                     self.yang_name = "binding"
                     self.yang_parent_name = "bindings"
@@ -1763,10 +1893,18 @@ class Ipv4Dhcpd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', 'snoop_binding_ch_addr', 'snoop_binding_ch_addr_len', 'snoop_binding_i_addr', 'snoop_binding_client_id', 'snoop_binding_client_id_len', 'snoop_binding_state', 'snoop_binding_lease', 'snoop_binding_lease_start_time', 'snoop_binding_profile_name', 'snoop_bindng_interface_name', 'snoop_binding_bridge_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Snoop.Bindings.Binding']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Snoop.Bindings']['meta_info']
 
 
-
-        class BindingStatistics(Entity):
+        class BindingStatistics(_Entity_):
             """
             DHCP snoop binding statistics
             
@@ -1793,10 +1931,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Snoop.BindingStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Snoop.BindingStatistics, self).__init__()
 
                 self.yang_name = "binding-statistics"
                 self.yang_parent_name = "snoop"
@@ -1817,9 +1958,13 @@ class Ipv4Dhcpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, ['snoop_binding_total', 'snoop_binding_timestamp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Snoop.BindingStatistics']['meta_info']
 
 
-        class StatisticsInfo(Entity):
+        class StatisticsInfo(_Entity_):
             """
             DHCP snoop statistics info
             
@@ -1837,10 +1982,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Snoop.StatisticsInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Snoop.StatisticsInfo, self).__init__()
 
                 self.yang_name = "statistics-info"
                 self.yang_parent_name = "snoop"
@@ -1859,9 +2007,13 @@ class Ipv4Dhcpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, ['snoop_stats_timestamp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Snoop.StatisticsInfo']['meta_info']
 
 
-        class Profiles(Entity):
+        class Profiles(_Entity_):
             """
             DHCP Snoop Profile
             
@@ -1877,10 +2029,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Profiles, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Snoop.Profiles, self).__init__()
 
                 self.yang_name = "profiles"
                 self.yang_parent_name = "snoop"
@@ -1899,7 +2054,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles, [], name, value)
 
 
-            class Profile(Entity):
+            class Profile(_Entity_):
                 """
                 DHCP Snoop profile
                 
@@ -1971,10 +2126,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Profiles.Profile, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Snoop.Profiles.Profile, self).__init__()
 
                     self.yang_name = "profile"
                     self.yang_parent_name = "profiles"
@@ -2005,10 +2163,18 @@ class Ipv4Dhcpd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', 'snoop_profile_name', 'snoop_profile_uid', 'snoop_profile_relay_info_option', 'snoop_profile_relay_info_allow_untrusted', 'snoop_profile_relay_info_policy', 'snoop_profile_trusted'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Snoop.Profiles.Profile']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Snoop.Profiles']['meta_info']
 
 
-
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             DHCP Snoop Statistics
             
@@ -2024,10 +2190,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Snoop.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "snoop"
@@ -2046,7 +2215,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics, [], name, value)
 
 
-            class Statistic(Entity):
+            class Statistic(_Entity_):
                 """
                 DHCP Snoop bridge domain statistics
                 
@@ -2082,10 +2251,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Statistics.Statistic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Snoop.Statistics.Statistic, self).__init__()
 
                     self.yang_name = "statistic"
                     self.yang_parent_name = "statistics"
@@ -2108,11 +2280,23 @@ class Ipv4Dhcpd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', 'snoop_statistics_bridge_name', 'snoop_statistic'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Snoop.Statistics.Statistic']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Snoop.Statistics']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+            return meta._meta_table['Ipv4Dhcpd.Snoop']['meta_info']
 
 
-
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         IPv4 DHCPD operational data for a particular
         location
@@ -2129,10 +2313,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2018-09-20'
+        _revision = '2019-06-25'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -2151,7 +2338,7 @@ class Ipv4Dhcpd(Entity):
             self._perform_setattr(Ipv4Dhcpd.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Location. For eg., 0/1/CPU0
             
@@ -2204,10 +2391,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2018-09-20'
+            _revision = '2019-06-25'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -2247,7 +2437,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node, ['nodeid'], name, value)
 
 
-            class Proxy(Entity):
+            class Proxy(_Entity_):
                 """
                 IPv4 DHCP proxy operational data
                 
@@ -2298,10 +2488,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Proxy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy, self).__init__()
 
                     self.yang_name = "proxy"
                     self.yang_parent_name = "node"
@@ -2341,7 +2534,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy, [], name, value)
 
 
-                class StatisticsInfo(Entity):
+                class StatisticsInfo(_Entity_):
                     """
                     DHCP proxy stats info
                     
@@ -2359,10 +2552,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, self).__init__()
 
                         self.yang_name = "statistics-info"
                         self.yang_parent_name = "proxy"
@@ -2380,9 +2576,13 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo']['meta_info']
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCP proxy list of VRF names
                     
@@ -2398,10 +2598,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "proxy"
@@ -2419,7 +2622,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv4 DHCP proxy VRF name
                         
@@ -2444,10 +2647,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -2470,7 +2676,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv4 DHCP proxy statistics
                             
@@ -2577,10 +2783,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -2652,7 +2861,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Discover(Entity):
+                            class Discover(_Entity_):
                                 """
                                 DHCP discover packets
                                 
@@ -2688,10 +2897,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, self).__init__()
 
                                     self.yang_name = "discover"
                                     self.yang_parent_name = "statistics"
@@ -2713,9 +2925,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover']['meta_info']
 
 
-                            class Offer(Entity):
+                            class Offer(_Entity_):
                                 """
                                 DHCP offer packets
                                 
@@ -2751,10 +2967,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, self).__init__()
 
                                     self.yang_name = "offer"
                                     self.yang_parent_name = "statistics"
@@ -2776,9 +2995,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCP request packets
                                 
@@ -2814,10 +3037,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -2839,9 +3065,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCP decline packets
                                 
@@ -2877,10 +3107,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -2902,9 +3135,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Ack(Entity):
+                            class Ack(_Entity_):
                                 """
                                 DHCP ack packets
                                 
@@ -2940,10 +3177,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, self).__init__()
 
                                     self.yang_name = "ack"
                                     self.yang_parent_name = "statistics"
@@ -2965,9 +3205,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack']['meta_info']
 
 
-                            class Nak(Entity):
+                            class Nak(_Entity_):
                                 """
                                 DHCP nak packets
                                 
@@ -3003,10 +3247,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, self).__init__()
 
                                     self.yang_name = "nak"
                                     self.yang_parent_name = "statistics"
@@ -3028,9 +3275,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCP release packets
                                 
@@ -3066,10 +3317,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -3091,9 +3345,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCP inform packets
                                 
@@ -3129,10 +3387,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -3154,9 +3415,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCP lease query packets
                                 
@@ -3192,10 +3457,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -3217,9 +3485,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseNotAssigned(Entity):
+                            class LeaseNotAssigned(_Entity_):
                                 """
                                 DHCP lease not assigned
                                 
@@ -3255,10 +3527,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
 
                                     self.yang_name = "lease-not-assigned"
                                     self.yang_parent_name = "statistics"
@@ -3280,9 +3555,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned']['meta_info']
 
 
-                            class LeaseUnknown(Entity):
+                            class LeaseUnknown(_Entity_):
                                 """
                                 DHCP lease unknown
                                 
@@ -3318,10 +3597,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
 
                                     self.yang_name = "lease-unknown"
                                     self.yang_parent_name = "statistics"
@@ -3343,9 +3625,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown']['meta_info']
 
 
-                            class LeaseActive(Entity):
+                            class LeaseActive(_Entity_):
                                 """
                                 DHCP lease active
                                 
@@ -3381,10 +3667,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
 
                                     self.yang_name = "lease-active"
                                     self.yang_parent_name = "statistics"
@@ -3406,9 +3695,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive']['meta_info']
 
 
-                            class BootpRequest(Entity):
+                            class BootpRequest(_Entity_):
                                 """
                                 DHCP BOOTP request
                                 
@@ -3444,10 +3737,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
 
                                     self.yang_name = "bootp-request"
                                     self.yang_parent_name = "statistics"
@@ -3469,9 +3765,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest']['meta_info']
 
 
-                            class BootpReply(Entity):
+                            class BootpReply(_Entity_):
                                 """
                                 DHCP BOOTP reply
                                 
@@ -3507,10 +3807,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
 
                                     self.yang_name = "bootp-reply"
                                     self.yang_parent_name = "statistics"
@@ -3532,12 +3835,28 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs']['meta_info']
 
 
-
-
-
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     IPv4 DHCP proxy profile
                     
@@ -3553,10 +3872,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "proxy"
@@ -3574,7 +3896,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         IPv4 DHCP proxy profile
                         
@@ -3723,10 +4045,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -3783,7 +4108,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', 'is_relay_option_enabled', 'relay_policy', 'relay_authenticate', 'is_relay_allow_untrusted_enabled', 'is_relay_optionvpn_enabled', 'relay_optionvpn_enabled_mode', 'is_relay_check', 'is_move_allowed', 'proxy_broadcast_flag_policy', 'proxy_profile_client_lease_time', 'proxy_lease_limit_type', 'proxy_lease_limit_count', 'profile_helper_address', 'vrf_name', 'gi_addr'], name, value)
 
 
-                        class VrfReferences(Entity):
+                        class VrfReferences(_Entity_):
                             """
                             VRF references
                             
@@ -3799,10 +4124,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, self).__init__()
 
                                 self.yang_name = "vrf-references"
                                 self.yang_parent_name = "profile"
@@ -3820,7 +4148,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, [], name, value)
 
 
-                            class Ipv4DhcpdProxyVrfReference(Entity):
+                            class Ipv4DhcpdProxyVrfReference(_Entity_):
                                 """
                                 ipv4 dhcpd proxy vrf reference
                                 
@@ -3845,10 +4173,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, self).__init__()
 
                                     self.yang_name = "ipv4-dhcpd-proxy-vrf-reference"
                                     self.yang_parent_name = "vrf-references"
@@ -3871,7 +4202,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
 
 
-                                class NextVrf(Entity):
+                                class NextVrf(_Entity_):
                                     """
                                     next vrf
                                     
@@ -3880,10 +4211,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-oper'
-                                    _revision = '2018-09-20'
+                                    _revision = '2019-06-25'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf, self).__init__()
 
                                         self.yang_name = "next-vrf"
                                         self.yang_parent_name = "ipv4-dhcpd-proxy-vrf-reference"
@@ -3895,11 +4229,23 @@ class Ipv4Dhcpd(Entity):
                                         self._segment_path = lambda: "next-vrf"
                                         self._is_frozen = True
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference.NextVrf']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences']['meta_info']
 
 
-
-
-                        class InterfaceReferences(Entity):
+                        class InterfaceReferences(_Entity_):
                             """
                             Interface references
                             
@@ -3915,10 +4261,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, self).__init__()
 
                                 self.yang_name = "interface-references"
                                 self.yang_parent_name = "profile"
@@ -3936,7 +4285,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, [], name, value)
 
 
-                            class Ipv4DhcpdProxyInterfaceReference(Entity):
+                            class Ipv4DhcpdProxyInterfaceReference(_Entity_):
                                 """
                                 ipv4 dhcpd proxy interface reference
                                 
@@ -3961,10 +4310,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, self).__init__()
 
                                     self.yang_name = "ipv4-dhcpd-proxy-interface-reference"
                                     self.yang_parent_name = "interface-references"
@@ -3987,7 +4339,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
 
 
-                                class NextInterface(Entity):
+                                class NextInterface(_Entity_):
                                     """
                                     next interface
                                     
@@ -3996,10 +4348,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-oper'
-                                    _revision = '2018-09-20'
+                                    _revision = '2019-06-25'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface, self).__init__()
 
                                         self.yang_name = "next-interface"
                                         self.yang_parent_name = "ipv4-dhcpd-proxy-interface-reference"
@@ -4011,13 +4366,33 @@ class Ipv4Dhcpd(Entity):
                                         self._segment_path = lambda: "next-interface"
                                         self._is_frozen = True
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference.NextInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Profiles']['meta_info']
 
 
-
-
-
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCP proxy statistics
                     
@@ -4033,10 +4408,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "proxy"
@@ -4054,7 +4432,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, [], name, value)
 
 
-                    class Ipv4DhcpdProxyStat(Entity):
+                    class Ipv4DhcpdProxyStat(_Entity_):
                         """
                         ipv4 dhcpd proxy stat
                         
@@ -4079,10 +4457,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-proxy-stat"
                             self.yang_parent_name = "statistics"
@@ -4105,7 +4486,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Proxy statistics
                             
@@ -4141,10 +4522,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-proxy-stat"
@@ -4166,11 +4550,23 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Statistics']['meta_info']
 
 
-
-
-                class DisconnectHistories(Entity):
+                class DisconnectHistories(_Entity_):
                     """
                     DHCP proxy disconnect history
                     
@@ -4186,10 +4582,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
 
                         self.yang_name = "disconnect-histories"
                         self.yang_parent_name = "proxy"
@@ -4207,7 +4606,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories, [], name, value)
 
 
-                    class DisconnectHistory(Entity):
+                    class DisconnectHistory(_Entity_):
                         """
                         Single DHCP proxy disconnect history
                         
@@ -4270,10 +4669,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
 
                             self.yang_name = "disconnect-history"
                             self.yang_parent_name = "disconnect-histories"
@@ -4301,10 +4703,18 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'mac_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.DisconnectHistories']['meta_info']
 
 
-
-                class Binding(Entity):
+                class Binding(_Entity_):
                     """
                     DHCP proxy bindings
                     
@@ -4327,10 +4737,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding, self).__init__()
 
                         self.yang_name = "binding"
                         self.yang_parent_name = "proxy"
@@ -4354,7 +4767,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding, [], name, value)
 
 
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         DHCP proxy client bindings
                         
@@ -4370,10 +4783,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "binding"
@@ -4391,7 +4807,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients, [], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Single DHCP proxy binding
                             
@@ -4704,6 +5120,15 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: srg_group_id
+                            
+                            	srg group id
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            	**config**\: False
+                            
                             .. attribute:: event_history
                             
                             	event history
@@ -4718,10 +5143,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "clients"
@@ -4765,6 +5193,7 @@ class Ipv4Dhcpd(Entity):
                                     ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
                                     ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
                                     ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('srg_group_id', (YLeaf(YType.uint16, 'srg-group-id'), ['int'])),
                                     ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
                                 self.client_id = None
@@ -4802,17 +5231,26 @@ class Ipv4Dhcpd(Entity):
                                 self.param_response = None
                                 self.session_start_time_epoch = None
                                 self.srg_state = None
+                                self.srg_group_id = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'srg_group_id', 'event_history'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients']['meta_info']
 
 
-
-
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         DHCP proxy binding summary
                         
@@ -4992,10 +5430,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "binding"
@@ -5049,11 +5490,23 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy.Binding']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Proxy']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 IPv4 DHCP proxy/server Interface
                 
@@ -5069,10 +5522,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -5090,7 +5546,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IPv4 DHCP proxy/server interface info
                     
@@ -5185,10 +5641,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -5224,10 +5683,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', 'intf_ifhandle', 'vrf_name', 'intf_mode', 'intf_is_ambiguous', 'intf_profile_name', 'intf_lease_limit_type', 'intf_lease_limit_count', 'srg_role', 'mac_throttle'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Interfaces']['meta_info']
 
 
-
-            class Base(Entity):
+            class Base(_Entity_):
                 """
                 IPv4 DHCP base operational data
                 
@@ -5235,6 +5702,13 @@ class Ipv4Dhcpd(Entity):
                 
                 	DHCP base statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
+                
+                	**config**\: False
+                
+                .. attribute:: drops
+                
+                	DHCP base drop statistics
+                	**type**\:  :py:class:`Drops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Drops>`
                 
                 	**config**\: False
                 
@@ -5271,22 +5745,29 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Base, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Nodes.Node.Base, self).__init__()
 
                     self.yang_name = "base"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics)), ("issu-status", ("issu_status", Ipv4Dhcpd.Nodes.Node.Base.IssuStatus)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Base.Vrfs)), ("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Base.Profiles)), ("database", ("database", Ipv4Dhcpd.Nodes.Node.Base.Database))])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics)), ("drops", ("drops", Ipv4Dhcpd.Nodes.Node.Base.Drops)), ("issu-status", ("issu_status", Ipv4Dhcpd.Nodes.Node.Base.IssuStatus)), ("vrfs", ("vrfs", Ipv4Dhcpd.Nodes.Node.Base.Vrfs)), ("profiles", ("profiles", Ipv4Dhcpd.Nodes.Node.Base.Profiles)), ("database", ("database", Ipv4Dhcpd.Nodes.Node.Base.Database))])
                     self._leafs = OrderedDict()
 
                     self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
+
+                    self.drops = Ipv4Dhcpd.Nodes.Node.Base.Drops()
+                    self.drops.parent = self
+                    self._children_name_map["drops"] = "drops"
 
                     self.issu_status = Ipv4Dhcpd.Nodes.Node.Base.IssuStatus()
                     self.issu_status.parent = self
@@ -5310,7 +5791,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base, [], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCP base statistics
                     
@@ -5326,10 +5807,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "base"
@@ -5347,7 +5831,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics, [], name, value)
 
 
-                    class Ipv4DhcpdProxyStat(Entity):
+                    class Ipv4DhcpdProxyStat(_Entity_):
                         """
                         ipv4 dhcpd proxy stat
                         
@@ -5372,10 +5856,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-proxy-stat"
                             self.yang_parent_name = "statistics"
@@ -5398,7 +5885,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Proxy statistics
                             
@@ -5434,10 +5921,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-proxy-stat"
@@ -5459,11 +5949,71 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Statistics']['meta_info']
 
 
+                class Drops(_Entity_):
+                    """
+                    DHCP base drop statistics
+                    
+                    .. attribute:: rate_limit_hit
+                    
+                    	base Drop statistics
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2019-06-25'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Drops, self).__init__()
+
+                        self.yang_name = "drops"
+                        self.yang_parent_name = "base"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rate_limit_hit', (YLeaf(YType.uint64, 'rate-limit-hit'), ['int'])),
+                        ])
+                        self.rate_limit_hit = None
+                        self._segment_path = lambda: "drops"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Drops, ['rate_limit_hit'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Drops']['meta_info']
 
 
-                class IssuStatus(Entity):
+                class IssuStatus(_Entity_):
                     """
                     IPv4 DHCP ISSU status
                     
@@ -5562,10 +6112,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, self).__init__()
 
                         self.yang_name = "issu-status"
                         self.yang_parent_name = "base"
@@ -5601,9 +6154,13 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, ['issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'issu_ready_issu_mgr_connection', 'issu_ready_entries_replicate'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.IssuStatus']['meta_info']
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCP base list of VRF names
                     
@@ -5619,10 +6176,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "base"
@@ -5640,7 +6200,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv4 DHCP base VRF name
                         
@@ -5665,10 +6225,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -5691,7 +6254,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv4 DHCP base statistics
                             
@@ -5798,10 +6361,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -5873,7 +6439,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Discover(Entity):
+                            class Discover(_Entity_):
                                 """
                                 DHCP discover packets
                                 
@@ -5909,10 +6475,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, self).__init__()
 
                                     self.yang_name = "discover"
                                     self.yang_parent_name = "statistics"
@@ -5934,9 +6503,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover']['meta_info']
 
 
-                            class Offer(Entity):
+                            class Offer(_Entity_):
                                 """
                                 DHCP offer packets
                                 
@@ -5972,10 +6545,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, self).__init__()
 
                                     self.yang_name = "offer"
                                     self.yang_parent_name = "statistics"
@@ -5997,9 +6573,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCP request packets
                                 
@@ -6035,10 +6615,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -6060,9 +6643,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCP decline packets
                                 
@@ -6098,10 +6685,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -6123,9 +6713,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Ack(Entity):
+                            class Ack(_Entity_):
                                 """
                                 DHCP ack packets
                                 
@@ -6161,10 +6755,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, self).__init__()
 
                                     self.yang_name = "ack"
                                     self.yang_parent_name = "statistics"
@@ -6186,9 +6783,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack']['meta_info']
 
 
-                            class Nak(Entity):
+                            class Nak(_Entity_):
                                 """
                                 DHCP nak packets
                                 
@@ -6224,10 +6825,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, self).__init__()
 
                                     self.yang_name = "nak"
                                     self.yang_parent_name = "statistics"
@@ -6249,9 +6853,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCP release packets
                                 
@@ -6287,10 +6895,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -6312,9 +6923,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCP inform packets
                                 
@@ -6350,10 +6965,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -6375,9 +6993,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCP lease query packets
                                 
@@ -6413,10 +7035,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -6438,9 +7063,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseNotAssigned(Entity):
+                            class LeaseNotAssigned(_Entity_):
                                 """
                                 DHCP lease not assigned
                                 
@@ -6476,10 +7105,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
 
                                     self.yang_name = "lease-not-assigned"
                                     self.yang_parent_name = "statistics"
@@ -6501,9 +7133,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned']['meta_info']
 
 
-                            class LeaseUnknown(Entity):
+                            class LeaseUnknown(_Entity_):
                                 """
                                 DHCP lease unknown
                                 
@@ -6539,10 +7175,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
 
                                     self.yang_name = "lease-unknown"
                                     self.yang_parent_name = "statistics"
@@ -6564,9 +7203,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown']['meta_info']
 
 
-                            class LeaseActive(Entity):
+                            class LeaseActive(_Entity_):
                                 """
                                 DHCP lease active
                                 
@@ -6602,10 +7245,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
 
                                     self.yang_name = "lease-active"
                                     self.yang_parent_name = "statistics"
@@ -6627,9 +7273,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive']['meta_info']
 
 
-                            class BootpRequest(Entity):
+                            class BootpRequest(_Entity_):
                                 """
                                 DHCP BOOTP request
                                 
@@ -6665,10 +7315,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
 
                                     self.yang_name = "bootp-request"
                                     self.yang_parent_name = "statistics"
@@ -6690,9 +7343,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest']['meta_info']
 
 
-                            class BootpReply(Entity):
+                            class BootpReply(_Entity_):
                                 """
                                 DHCP BOOTP reply
                                 
@@ -6728,10 +7385,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
 
                                     self.yang_name = "bootp-reply"
                                     self.yang_parent_name = "statistics"
@@ -6753,12 +7413,28 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Vrfs']['meta_info']
 
 
-
-
-
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     IPv4 DHCP Base profile
                     
@@ -6774,10 +7450,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "base"
@@ -6795,7 +7474,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         IPv4 DHCP base profile
                         
@@ -6879,10 +7558,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -6921,7 +7603,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', 'base_default_profile_name', 'default_profile_mode', 'relay_authenticate', 'remote_id', 'child_profile_count', 'intf_ref_count'], name, value)
 
 
-                        class InterfaceReferences(Entity):
+                        class InterfaceReferences(_Entity_):
                             """
                             Interface references
                             
@@ -6937,10 +7619,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, self).__init__()
 
                                 self.yang_name = "interface-references"
                                 self.yang_parent_name = "profile"
@@ -6958,7 +7643,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, [], name, value)
 
 
-                            class Ipv4DhcpdBaseInterfaceReference(Entity):
+                            class Ipv4DhcpdBaseInterfaceReference(_Entity_):
                                 """
                                 ipv4 dhcpd base interface reference
                                 
@@ -6983,10 +7668,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, self).__init__()
 
                                     self.yang_name = "ipv4-dhcpd-base-interface-reference"
                                     self.yang_parent_name = "interface-references"
@@ -7009,7 +7697,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, ['base_reference_interface_name'], name, value)
 
 
-                                class NextInterface(Entity):
+                                class NextInterface(_Entity_):
                                     """
                                     next interface
                                     
@@ -7018,10 +7706,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-oper'
-                                    _revision = '2018-09-20'
+                                    _revision = '2019-06-25'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface, self).__init__()
 
                                         self.yang_name = "next-interface"
                                         self.yang_parent_name = "ipv4-dhcpd-base-interface-reference"
@@ -7033,11 +7724,23 @@ class Ipv4Dhcpd(Entity):
                                         self._segment_path = lambda: "next-interface"
                                         self._is_frozen = True
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference.NextInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences']['meta_info']
 
 
-
-
-                        class ChildProfileInfo(Entity):
+                        class ChildProfileInfo(_Entity_):
                             """
                             child profile info
                             
@@ -7053,10 +7756,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, self).__init__()
 
                                 self.yang_name = "child-profile-info"
                                 self.yang_parent_name = "profile"
@@ -7074,7 +7780,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, [], name, value)
 
 
-                            class Ipv4DhcpdBaseChildProfileInfo(Entity):
+                            class Ipv4DhcpdBaseChildProfileInfo(_Entity_):
                                 """
                                 ipv4 dhcpd base child profile info
                                 
@@ -7135,10 +7841,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, self).__init__()
 
                                     self.yang_name = "ipv4-dhcpd-base-child-profile-info"
                                     self.yang_parent_name = "child-profile-info"
@@ -7169,7 +7878,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, ['base_child_profile_name', 'mode', 'matched_option_code', 'matched_option_len', 'option_data'], name, value)
 
 
-                                class NextChildProfileInfo(Entity):
+                                class NextChildProfileInfo(_Entity_):
                                     """
                                     next child profile info
                                     
@@ -7178,10 +7887,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-oper'
-                                    _revision = '2018-09-20'
+                                    _revision = '2019-06-25'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo, self).__init__()
 
                                         self.yang_name = "next-child-profile-info"
                                         self.yang_parent_name = "ipv4-dhcpd-base-child-profile-info"
@@ -7193,13 +7905,33 @@ class Ipv4Dhcpd(Entity):
                                         self._segment_path = lambda: "next-child-profile-info"
                                         self._is_frozen = True
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Profiles']['meta_info']
 
 
-
-
-
-
-                class Database(Entity):
+                class Database(_Entity_):
                     """
                     IPv4 DHCP database
                     
@@ -7354,10 +8086,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Database, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Database, self).__init__()
 
                         self.yang_name = "database"
                         self.yang_parent_name = "base"
@@ -7405,10 +8140,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base.Database']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Base']['meta_info']
 
 
-
-            class Server(Entity):
+            class Server(_Entity_):
                 """
                 IPv4 DHCP Server operational data
                 
@@ -7459,10 +8202,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Server, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Nodes.Node.Server, self).__init__()
 
                     self.yang_name = "server"
                     self.yang_parent_name = "node"
@@ -7502,7 +8248,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server, [], name, value)
 
 
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     IPv4 DHCP Server profile
                     
@@ -7518,10 +8264,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "server"
@@ -7539,7 +8288,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         IPv4 DHCP server profile
                         
@@ -7779,10 +8528,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -7852,10 +8604,18 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', 'server_profile_name_xr', 'secure_arp', 'requested_address_check', 'server_id_check', 'duplicate_mac_address_check', 'duplicate_ip_address_check', 'is_move_allowed', 'bcast_policy', 'giaddr_policy', 'subnet_mask', 'server_pool_name', 'server_profile_lease', 'server_profile_netbios_node_type', 'server_bootfile_name', 'server_domain_name', 'server_profileiedge_check', 'server_profile_server_dns_count', 'server_profiledefault_router_count', 'server_profile_netbios_name_svr_count', 'server_profile_time_svr_count', 'lease_limit_type', 'lease_limit_count', 'server_profile_dns', 'server_profile_default_router', 'server_profile_netbious_name_server', 'server_profile_time_server'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Profiles']['meta_info']
 
 
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCP Server statistics
                     
@@ -7871,10 +8631,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "server"
@@ -7892,7 +8655,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics, [], name, value)
 
 
-                    class Ipv4DhcpdProxyStat(Entity):
+                    class Ipv4DhcpdProxyStat(_Entity_):
                         """
                         ipv4 dhcpd proxy stat
                         
@@ -7917,10 +8680,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-proxy-stat"
                             self.yang_parent_name = "statistics"
@@ -7943,7 +8709,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Proxy statistics
                             
@@ -7979,10 +8745,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-proxy-stat"
@@ -8004,11 +8773,23 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Statistics']['meta_info']
 
 
-
-
-                class Binding(Entity):
+                class Binding(_Entity_):
                     """
                     DHCP server bindings
                     
@@ -8031,10 +8812,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.Binding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding, self).__init__()
 
                         self.yang_name = "binding"
                         self.yang_parent_name = "server"
@@ -8058,7 +8842,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         DHCP server binding summary
                         
@@ -8238,10 +9022,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "binding"
@@ -8295,9 +9082,13 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary']['meta_info']
 
 
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         DHCP server client bindings
                         
@@ -8313,10 +9104,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "binding"
@@ -8334,7 +9128,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, [], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Single DHCP Server binding
                             
@@ -8647,6 +9441,15 @@ class Ipv4Dhcpd(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: srg_group_id
+                            
+                            	srg group id
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            	**config**\: False
+                            
                             .. attribute:: event_history
                             
                             	event history
@@ -8661,10 +9464,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "clients"
@@ -8708,6 +9514,7 @@ class Ipv4Dhcpd(Entity):
                                     ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
                                     ('session_start_time_epoch', (YLeaf(YType.uint64, 'session-start-time-epoch'), ['int'])),
                                     ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('srg_group_id', (YLeaf(YType.uint16, 'srg-group-id'), ['int'])),
                                     ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
                                 self.client_id = None
@@ -8745,18 +9552,31 @@ class Ipv4Dhcpd(Entity):
                                 self.param_response = None
                                 self.session_start_time_epoch = None
                                 self.srg_state = None
+                                self.srg_group_id = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'selected_profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time_epoch', 'srg_state', 'srg_group_id', 'event_history'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Binding']['meta_info']
 
 
-
-
-
-                class DisconnectHistories(Entity):
+                class DisconnectHistories(_Entity_):
                     """
                     DHCP server disconnect history
                     
@@ -8772,10 +9592,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories, self).__init__()
 
                         self.yang_name = "disconnect-histories"
                         self.yang_parent_name = "server"
@@ -8793,7 +9616,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories, [], name, value)
 
 
-                    class DisconnectHistory(Entity):
+                    class DisconnectHistory(_Entity_):
                         """
                         Single DHCP server disconnect history
                         
@@ -8856,10 +9679,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
 
                             self.yang_name = "disconnect-history"
                             self.yang_parent_name = "disconnect-histories"
@@ -8887,10 +9713,18 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'mac_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories.DisconnectHistory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.DisconnectHistories']['meta_info']
 
 
-
-                class StatisticsInfo(Entity):
+                class StatisticsInfo(_Entity_):
                     """
                     DHCP proxy stats info
                     
@@ -8908,10 +9742,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, self).__init__()
 
                         self.yang_name = "statistics-info"
                         self.yang_parent_name = "server"
@@ -8929,9 +9766,13 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo']['meta_info']
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCP Server list of VRF names
                     
@@ -8947,10 +9788,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "server"
@@ -8968,7 +9812,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv4 DHCP server VRF name
                         
@@ -8993,10 +9837,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -9019,7 +9866,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv4 DHCP server statistics
                             
@@ -9126,10 +9973,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -9201,7 +10051,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Discover(Entity):
+                            class Discover(_Entity_):
                                 """
                                 DHCP discover packets
                                 
@@ -9237,10 +10087,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, self).__init__()
 
                                     self.yang_name = "discover"
                                     self.yang_parent_name = "statistics"
@@ -9262,9 +10115,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover']['meta_info']
 
 
-                            class Offer(Entity):
+                            class Offer(_Entity_):
                                 """
                                 DHCP offer packets
                                 
@@ -9300,10 +10157,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, self).__init__()
 
                                     self.yang_name = "offer"
                                     self.yang_parent_name = "statistics"
@@ -9325,9 +10185,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCP request packets
                                 
@@ -9363,10 +10227,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -9388,9 +10255,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCP decline packets
                                 
@@ -9426,10 +10297,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -9451,9 +10325,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Ack(Entity):
+                            class Ack(_Entity_):
                                 """
                                 DHCP ack packets
                                 
@@ -9489,10 +10367,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, self).__init__()
 
                                     self.yang_name = "ack"
                                     self.yang_parent_name = "statistics"
@@ -9514,9 +10395,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack']['meta_info']
 
 
-                            class Nak(Entity):
+                            class Nak(_Entity_):
                                 """
                                 DHCP nak packets
                                 
@@ -9552,10 +10437,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, self).__init__()
 
                                     self.yang_name = "nak"
                                     self.yang_parent_name = "statistics"
@@ -9577,9 +10465,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCP release packets
                                 
@@ -9615,10 +10507,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -9640,9 +10535,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCP inform packets
                                 
@@ -9678,10 +10577,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -9703,9 +10605,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCP lease query packets
                                 
@@ -9741,10 +10647,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -9766,9 +10675,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseNotAssigned(Entity):
+                            class LeaseNotAssigned(_Entity_):
                                 """
                                 DHCP lease not assigned
                                 
@@ -9804,10 +10717,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
 
                                     self.yang_name = "lease-not-assigned"
                                     self.yang_parent_name = "statistics"
@@ -9829,9 +10745,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned']['meta_info']
 
 
-                            class LeaseUnknown(Entity):
+                            class LeaseUnknown(_Entity_):
                                 """
                                 DHCP lease unknown
                                 
@@ -9867,10 +10787,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
 
                                     self.yang_name = "lease-unknown"
                                     self.yang_parent_name = "statistics"
@@ -9892,9 +10815,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown']['meta_info']
 
 
-                            class LeaseActive(Entity):
+                            class LeaseActive(_Entity_):
                                 """
                                 DHCP lease active
                                 
@@ -9930,10 +10857,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
 
                                     self.yang_name = "lease-active"
                                     self.yang_parent_name = "statistics"
@@ -9955,9 +10885,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive']['meta_info']
 
 
-                            class BootpRequest(Entity):
+                            class BootpRequest(_Entity_):
                                 """
                                 DHCP BOOTP request
                                 
@@ -9993,10 +10927,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
 
                                     self.yang_name = "bootp-request"
                                     self.yang_parent_name = "statistics"
@@ -10018,9 +10955,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest']['meta_info']
 
 
-                            class BootpReply(Entity):
+                            class BootpReply(_Entity_):
                                 """
                                 DHCP BOOTP reply
                                 
@@ -10056,10 +10997,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
 
                                     self.yang_name = "bootp-reply"
                                     self.yang_parent_name = "statistics"
@@ -10081,13 +11025,33 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server.Vrfs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Server']['meta_info']
 
 
-
-
-
-
-            class Relay(Entity):
+            class Relay(_Entity_):
                 """
                 IPv4 DHCPD Relay operational data
                 
@@ -10124,10 +11088,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2018-09-20'
+                _revision = '2019-06-25'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Relay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Nodes.Node.Relay, self).__init__()
 
                     self.yang_name = "relay"
                     self.yang_parent_name = "node"
@@ -10159,7 +11126,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay, [], name, value)
 
 
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     DHCP Relay Profiles
                     
@@ -10175,10 +11142,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "relay"
@@ -10196,7 +11166,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         DHCP Relay profile
                         
@@ -10347,10 +11317,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -10398,10 +11371,18 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', 'relay_profile_name', 'relay_profile_uid', 'relay_profile_helper_count', 'relay_profile_relay_info_option', 'relay_profile_relay_info_policy', 'relay_profile_relay_info_allow_untrusted', 'relay_profile_relay_info_optionvpn', 'relay_profile_relay_info_optionvpn_mode', 'relay_profile_relay_info_check', 'relay_profile_gi_addr_policy', 'relay_profile_broadcast_flag_policy', 'relay_profile_mac_mismatch_action', 'relay_profile_helper_address', 'relay_profile_helper_vrf', 'relay_profile_gi_addr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Profiles']['meta_info']
 
 
-
-                class StatisticsInfo(Entity):
+                class StatisticsInfo(_Entity_):
                     """
                     DHCP relay statistics info
                     
@@ -10419,10 +11400,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, self).__init__()
 
                         self.yang_name = "statistics-info"
                         self.yang_parent_name = "relay"
@@ -10440,9 +11424,13 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, ['relay_stats_timestamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo']['meta_info']
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCP Relay VRF statistics
                     
@@ -10458,10 +11446,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "relay"
@@ -10479,7 +11470,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, [], name, value)
 
 
-                    class Ipv4DhcpdRelayStat(Entity):
+                    class Ipv4DhcpdRelayStat(_Entity_):
                         """
                         ipv4 dhcpd relay stat
                         
@@ -10504,10 +11495,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-relay-stat"
                             self.yang_parent_name = "statistics"
@@ -10530,7 +11524,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, ['relay_statistics_vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Public relay statistics
                             
@@ -10566,10 +11560,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-relay-stat"
@@ -10591,11 +11588,23 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Statistics']['meta_info']
 
 
-
-
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCP relay list of VRF names
                     
@@ -10611,10 +11620,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2018-09-20'
+                    _revision = '2019-06-25'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "relay"
@@ -10632,7 +11644,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv4 DHCP relay VRF name
                         
@@ -10657,10 +11669,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2018-09-20'
+                        _revision = '2019-06-25'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -10683,7 +11698,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class VrfStatistics(Entity):
+                        class VrfStatistics(_Entity_):
                             """
                             IPv4 DHCP relay statistics
                             
@@ -10790,10 +11805,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2018-09-20'
+                            _revision = '2019-06-25'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, self).__init__()
 
                                 self.yang_name = "vrf-statistics"
                                 self.yang_parent_name = "vrf"
@@ -10865,7 +11883,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, [], name, value)
 
 
-                            class Discover(Entity):
+                            class Discover(_Entity_):
                                 """
                                 DHCP discover packets
                                 
@@ -10901,10 +11919,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, self).__init__()
 
                                     self.yang_name = "discover"
                                     self.yang_parent_name = "vrf-statistics"
@@ -10926,9 +11947,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover']['meta_info']
 
 
-                            class Offer(Entity):
+                            class Offer(_Entity_):
                                 """
                                 DHCP offer packets
                                 
@@ -10964,10 +11989,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, self).__init__()
 
                                     self.yang_name = "offer"
                                     self.yang_parent_name = "vrf-statistics"
@@ -10989,9 +12017,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCP request packets
                                 
@@ -11027,10 +12059,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11052,9 +12087,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCP decline packets
                                 
@@ -11090,10 +12129,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11115,9 +12157,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline']['meta_info']
 
 
-                            class Ack(Entity):
+                            class Ack(_Entity_):
                                 """
                                 DHCP ack packets
                                 
@@ -11153,10 +12199,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, self).__init__()
 
                                     self.yang_name = "ack"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11178,9 +12227,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack']['meta_info']
 
 
-                            class Nak(Entity):
+                            class Nak(_Entity_):
                                 """
                                 DHCP nak packets
                                 
@@ -11216,10 +12269,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, self).__init__()
 
                                     self.yang_name = "nak"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11241,9 +12297,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCP release packets
                                 
@@ -11279,10 +12339,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11304,9 +12367,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCP inform packets
                                 
@@ -11342,10 +12409,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11367,9 +12437,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCP lease query packets
                                 
@@ -11405,10 +12479,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11430,9 +12507,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseNotAssigned(Entity):
+                            class LeaseNotAssigned(_Entity_):
                                 """
                                 DHCP lease not assigned
                                 
@@ -11468,10 +12549,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, self).__init__()
 
                                     self.yang_name = "lease-not-assigned"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11493,9 +12577,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned']['meta_info']
 
 
-                            class LeaseUnknown(Entity):
+                            class LeaseUnknown(_Entity_):
                                 """
                                 DHCP lease unknown
                                 
@@ -11531,10 +12619,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, self).__init__()
 
                                     self.yang_name = "lease-unknown"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11556,9 +12647,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown']['meta_info']
 
 
-                            class LeaseActive(Entity):
+                            class LeaseActive(_Entity_):
                                 """
                                 DHCP lease active
                                 
@@ -11594,10 +12689,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, self).__init__()
 
                                     self.yang_name = "lease-active"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11619,9 +12717,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive']['meta_info']
 
 
-                            class BootpRequest(Entity):
+                            class BootpRequest(_Entity_):
                                 """
                                 DHCP BOOTP request
                                 
@@ -11657,10 +12759,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, self).__init__()
 
                                     self.yang_name = "bootp-request"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11682,9 +12787,13 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest']['meta_info']
 
 
-                            class BootpReply(Entity):
+                            class BootpReply(_Entity_):
                                 """
                                 DHCP BOOTP reply
                                 
@@ -11720,10 +12829,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2018-09-20'
+                                _revision = '2019-06-25'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, self).__init__()
 
                                     self.yang_name = "bootp-reply"
                                     self.yang_parent_name = "vrf-statistics"
@@ -11745,16 +12857,48 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                                return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                            return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                        return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay.Vrfs']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                    return meta._meta_table['Ipv4Dhcpd.Nodes.Node.Relay']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+                return meta._meta_table['Ipv4Dhcpd.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+            return meta._meta_table['Ipv4Dhcpd.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4Dhcpd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_oper as meta
+        return meta._meta_table['Ipv4Dhcpd']['meta_info']
 
 

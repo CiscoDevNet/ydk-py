@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,13 +51,19 @@ class AaaServiceAccounting(Enum):
     brief = Enum.YLeaf(2, "brief")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_aaacore_cfg as meta
+        return meta._meta_table['AaaServiceAccounting']
+
+
 class NasPortValue(Enum):
     """
     NasPortValue (Enum Class)
 
     Nas port value
 
-    .. data:: async = 0
+    .. data:: async_ = 0
 
     	Async(0)
 
@@ -152,7 +161,7 @@ class NasPortValue(Enum):
 
     """
 
-    async = Enum.YLeaf(0, "async")
+    async_ = Enum.YLeaf(0, "async")
 
     sync = Enum.YLeaf(1, "sync")
 
@@ -199,6 +208,12 @@ class NasPortValue(Enum):
     virtual_ipoeovlan = Enum.YLeaf(43, "virtual-ipoeovlan")
 
     virtual_ipoeoqinq = Enum.YLeaf(44, "virtual-ipoeoqinq")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_aaacore_cfg as meta
+        return meta._meta_table['NasPortValue']
 
 
 

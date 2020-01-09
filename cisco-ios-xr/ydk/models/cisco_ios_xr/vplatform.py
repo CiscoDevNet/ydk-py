@@ -7,8 +7,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class VirtualPlatform(Entity):
+class VirtualPlatform(_Entity_):
     """
     
     
@@ -78,7 +81,10 @@ class VirtualPlatform(Entity):
     _revision = '2015-08-30'
 
     def __init__(self):
-        super(VirtualPlatform, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(VirtualPlatform, self).__init__()
         self._top_entity = None
 
         self.yang_name = "virtual-platform"
@@ -123,7 +129,7 @@ class VirtualPlatform(Entity):
         self._perform_setattr(VirtualPlatform, [], name, value)
 
 
-    class Vplatform(Entity):
+    class Vplatform(_Entity_):
         """
         
         
@@ -142,7 +148,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Vplatform, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Vplatform, self).__init__()
 
             self.yang_name = "vplatform"
             self.yang_parent_name = "virtual-platform"
@@ -161,7 +170,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Vplatform, [], name, value)
 
 
-        class Summary(Entity):
+        class Summary(_Entity_):
             """
             
             
@@ -180,7 +189,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Vplatform.Summary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Vplatform.Summary, self).__init__()
 
                 self.yang_name = "summary"
                 self.yang_parent_name = "vplatform"
@@ -199,10 +211,18 @@ class VirtualPlatform(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualPlatform.Vplatform.Summary, ['lines'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Vplatform.Summary']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Vplatform']['meta_info']
 
 
-
-    class Udi(Entity):
+    class Udi(_Entity_):
         """
         
         
@@ -221,7 +241,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Udi, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Udi, self).__init__()
 
             self.yang_name = "udi"
             self.yang_parent_name = "virtual-platform"
@@ -242,7 +265,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Udi, [], name, value)
 
 
-        class History(Entity):
+        class History(_Entity_):
             """
             
             
@@ -261,7 +284,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Udi.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Udi.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "udi"
@@ -280,7 +306,7 @@ class VirtualPlatform(Entity):
                 self._perform_setattr(VirtualPlatform.Udi.History, [], name, value)
 
 
-            class UdiHis(Entity):
+            class UdiHis(_Entity_):
                 """
                 
                 
@@ -299,7 +325,10 @@ class VirtualPlatform(Entity):
                 _revision = '2015-08-30'
 
                 def __init__(self):
-                    super(VirtualPlatform.Udi.History.UdiHis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VirtualPlatform.Udi.History.UdiHis, self).__init__()
 
                     self.yang_name = "udi_his"
                     self.yang_parent_name = "history"
@@ -318,11 +347,23 @@ class VirtualPlatform(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualPlatform.Udi.History.UdiHis, ['history_records'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                    return meta._meta_table['VirtualPlatform.Udi.History.UdiHis']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Udi.History']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Udi']['meta_info']
 
 
-
-
-    class Cpu(Entity):
+    class Cpu(_Entity_):
         """
         
         
@@ -341,7 +382,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Cpu, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Cpu, self).__init__()
 
             self.yang_name = "cpu"
             self.yang_parent_name = "virtual-platform"
@@ -362,7 +406,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Cpu, [], name, value)
 
 
-        class History(Entity):
+        class History(_Entity_):
             """
             
             
@@ -381,7 +425,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Cpu.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Cpu.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "cpu"
@@ -400,7 +447,7 @@ class VirtualPlatform(Entity):
                 self._perform_setattr(VirtualPlatform.Cpu.History, [], name, value)
 
 
-            class CpuUtl(Entity):
+            class CpuUtl(_Entity_):
                 """
                 
                 
@@ -419,7 +466,10 @@ class VirtualPlatform(Entity):
                 _revision = '2015-08-30'
 
                 def __init__(self):
-                    super(VirtualPlatform.Cpu.History.CpuUtl, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VirtualPlatform.Cpu.History.CpuUtl, self).__init__()
 
                     self.yang_name = "cpu_utl"
                     self.yang_parent_name = "history"
@@ -438,11 +488,23 @@ class VirtualPlatform(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualPlatform.Cpu.History.CpuUtl, ['history_records'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                    return meta._meta_table['VirtualPlatform.Cpu.History.CpuUtl']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Cpu.History']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Cpu']['meta_info']
 
 
-
-
-    class Processor(Entity):
+    class Processor(_Entity_):
         """
         
         
@@ -461,7 +523,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Processor, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Processor, self).__init__()
 
             self.yang_name = "processor"
             self.yang_parent_name = "virtual-platform"
@@ -482,7 +547,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Processor, [], name, value)
 
 
-        class History(Entity):
+        class History(_Entity_):
             """
             
             
@@ -501,7 +566,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Processor.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Processor.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "processor"
@@ -520,7 +588,7 @@ class VirtualPlatform(Entity):
                 self._perform_setattr(VirtualPlatform.Processor.History, [], name, value)
 
 
-            class ProcInfo(Entity):
+            class ProcInfo(_Entity_):
                 """
                 
                 
@@ -539,7 +607,10 @@ class VirtualPlatform(Entity):
                 _revision = '2015-08-30'
 
                 def __init__(self):
-                    super(VirtualPlatform.Processor.History.ProcInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VirtualPlatform.Processor.History.ProcInfo, self).__init__()
 
                     self.yang_name = "proc_info"
                     self.yang_parent_name = "history"
@@ -558,11 +629,23 @@ class VirtualPlatform(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualPlatform.Processor.History.ProcInfo, ['history_records'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                    return meta._meta_table['VirtualPlatform.Processor.History.ProcInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Processor.History']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Processor']['meta_info']
 
 
-
-
-    class Memory(Entity):
+    class Memory(_Entity_):
         """
         
         
@@ -581,7 +664,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Memory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Memory, self).__init__()
 
             self.yang_name = "memory"
             self.yang_parent_name = "virtual-platform"
@@ -602,7 +688,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Memory, [], name, value)
 
 
-        class History(Entity):
+        class History(_Entity_):
             """
             
             
@@ -621,7 +707,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Memory.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Memory.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "memory"
@@ -640,7 +729,7 @@ class VirtualPlatform(Entity):
                 self._perform_setattr(VirtualPlatform.Memory.History, [], name, value)
 
 
-            class MemUsg(Entity):
+            class MemUsg(_Entity_):
                 """
                 
                 
@@ -659,7 +748,10 @@ class VirtualPlatform(Entity):
                 _revision = '2015-08-30'
 
                 def __init__(self):
-                    super(VirtualPlatform.Memory.History.MemUsg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VirtualPlatform.Memory.History.MemUsg, self).__init__()
 
                     self.yang_name = "mem_usg"
                     self.yang_parent_name = "history"
@@ -678,11 +770,23 @@ class VirtualPlatform(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualPlatform.Memory.History.MemUsg, ['history_records'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                    return meta._meta_table['VirtualPlatform.Memory.History.MemUsg']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Memory.History']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Memory']['meta_info']
 
 
-
-
-    class Disk(Entity):
+    class Disk(_Entity_):
         """
         
         
@@ -701,7 +805,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Disk, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Disk, self).__init__()
 
             self.yang_name = "disk"
             self.yang_parent_name = "virtual-platform"
@@ -722,7 +829,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Disk, [], name, value)
 
 
-        class History(Entity):
+        class History(_Entity_):
             """
             
             
@@ -741,7 +848,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Disk.History, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Disk.History, self).__init__()
 
                 self.yang_name = "history"
                 self.yang_parent_name = "disk"
@@ -760,7 +870,7 @@ class VirtualPlatform(Entity):
                 self._perform_setattr(VirtualPlatform.Disk.History, [], name, value)
 
 
-            class DiskUtl(Entity):
+            class DiskUtl(_Entity_):
                 """
                 
                 
@@ -779,7 +889,10 @@ class VirtualPlatform(Entity):
                 _revision = '2015-08-30'
 
                 def __init__(self):
-                    super(VirtualPlatform.Disk.History.DiskUtl, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(VirtualPlatform.Disk.History.DiskUtl, self).__init__()
 
                     self.yang_name = "disk_utl"
                     self.yang_parent_name = "history"
@@ -798,11 +911,23 @@ class VirtualPlatform(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualPlatform.Disk.History.DiskUtl, ['history_records'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                    return meta._meta_table['VirtualPlatform.Disk.History.DiskUtl']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Disk.History']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Disk']['meta_info']
 
 
-
-
-    class Action(Entity):
+    class Action(_Entity_):
         """
         
         
@@ -821,7 +946,10 @@ class VirtualPlatform(Entity):
         _revision = '2015-08-30'
 
         def __init__(self):
-            super(VirtualPlatform.Action, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(VirtualPlatform.Action, self).__init__()
 
             self.yang_name = "Action"
             self.yang_parent_name = "virtual-platform"
@@ -840,7 +968,7 @@ class VirtualPlatform(Entity):
             self._perform_setattr(VirtualPlatform.Action, [], name, value)
 
 
-        class Udi(Entity):
+        class Udi(_Entity_):
             """
             UDI Operations
             
@@ -852,7 +980,10 @@ class VirtualPlatform(Entity):
             _revision = '2015-08-30'
 
             def __init__(self):
-                super(VirtualPlatform.Action.Udi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(VirtualPlatform.Action.Udi, self).__init__()
 
                 self.yang_name = "udi"
                 self.yang_parent_name = "Action"
@@ -865,11 +996,23 @@ class VirtualPlatform(Entity):
                 self._absolute_path = lambda: "vplatform:virtual-platform/Action/%s" % self._segment_path()
                 self._is_frozen = True
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+                return meta._meta_table['VirtualPlatform.Action.Udi']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+            return meta._meta_table['VirtualPlatform.Action']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = VirtualPlatform()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _vplatform as meta
+        return meta._meta_table['VirtualPlatform']['meta_info']
 
 

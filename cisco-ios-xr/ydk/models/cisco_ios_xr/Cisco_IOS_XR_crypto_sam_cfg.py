@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class CryptoSamAction(Enum):
     terminate = Enum.YLeaf(2, "terminate")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
+        return meta._meta_table['CryptoSamAction']
 
-class Sam(Entity):
+
+
+class Sam(_Entity_):
     """
     Software Authentication Manager (SAM) Config
     
@@ -61,7 +70,10 @@ class Sam(Entity):
     _revision = '2017-11-21'
 
     def __init__(self):
-        super(Sam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Sam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sam"
@@ -81,7 +93,7 @@ class Sam(Entity):
         self._perform_setattr(Sam, [], name, value)
 
 
-    class PromptInterval(Entity):
+    class PromptInterval(_Entity_):
         """
         Set prompt interval at reboot time
         
@@ -113,7 +125,10 @@ class Sam(Entity):
         _revision = '2017-11-21'
 
         def __init__(self):
-            super(Sam.PromptInterval, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Sam.PromptInterval, self).__init__()
 
             self.yang_name = "prompt-interval"
             self.yang_parent_name = "sam"
@@ -135,10 +150,18 @@ class Sam(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.PromptInterval, ['action', 'prompt_time'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
+            return meta._meta_table['Sam.PromptInterval']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Sam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
+        return meta._meta_table['Sam']['meta_info']
 
 

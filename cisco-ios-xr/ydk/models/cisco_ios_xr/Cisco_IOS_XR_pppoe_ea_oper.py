@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PppoeEa(Entity):
+class PppoeEa(_Entity_):
     """
     PPPoE Ea data
     
@@ -40,7 +43,10 @@ class PppoeEa(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(PppoeEa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PppoeEa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pppoe-ea"
@@ -61,7 +67,7 @@ class PppoeEa(Entity):
         self._perform_setattr(PppoeEa, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         PPPOE\_EA list of nodes
         
@@ -80,7 +86,10 @@ class PppoeEa(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(PppoeEa.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PppoeEa.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "pppoe-ea"
@@ -99,7 +108,7 @@ class PppoeEa(Entity):
             self._perform_setattr(PppoeEa.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             PPPOE\-EA operational data for a particular node
             
@@ -134,7 +143,10 @@ class PppoeEa(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PppoeEa.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PppoeEa.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -162,7 +174,7 @@ class PppoeEa(Entity):
                 self._perform_setattr(PppoeEa.Nodes.Node, ['node_name'], name, value)
 
 
-            class ParentInterfaceIds(Entity):
+            class ParentInterfaceIds(_Entity_):
                 """
                 PPPoE parent interface info
                 
@@ -181,7 +193,10 @@ class PppoeEa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PppoeEa.Nodes.Node.ParentInterfaceIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeEa.Nodes.Node.ParentInterfaceIds, self).__init__()
 
                     self.yang_name = "parent-interface-ids"
                     self.yang_parent_name = "node"
@@ -199,7 +214,7 @@ class PppoeEa(Entity):
                     self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds, [], name, value)
 
 
-                class ParentInterfaceId(Entity):
+                class ParentInterfaceId(_Entity_):
                     """
                     PPPoE parent interface info
                     
@@ -243,7 +258,10 @@ class PppoeEa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, self).__init__()
 
                         self.yang_name = "parent-interface-id"
                         self.yang_parent_name = "parent-interface-ids"
@@ -270,7 +288,7 @@ class PppoeEa(Entity):
                         self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', 'interface', 'is_in_sync'], name, value)
 
 
-                    class SrgvMac(Entity):
+                    class SrgvMac(_Entity_):
                         """
                         SRG VMac\-address
                         
@@ -291,7 +309,10 @@ class PppoeEa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, self).__init__()
 
                             self.yang_name = "srgv-mac"
                             self.yang_parent_name = "parent-interface-id"
@@ -309,11 +330,23 @@ class PppoeEa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, ['macaddr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                            return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                        return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                    return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds']['meta_info']
 
 
-
-
-            class InterfaceIds(Entity):
+            class InterfaceIds(_Entity_):
                 """
                 PPPoE interface info
                 
@@ -332,7 +365,10 @@ class PppoeEa(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PppoeEa.Nodes.Node.InterfaceIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PppoeEa.Nodes.Node.InterfaceIds, self).__init__()
 
                     self.yang_name = "interface-ids"
                     self.yang_parent_name = "node"
@@ -350,7 +386,7 @@ class PppoeEa(Entity):
                     self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds, [], name, value)
 
 
-                class InterfaceId(Entity):
+                class InterfaceId(_Entity_):
                     """
                     PPPoE interface info
                     
@@ -458,7 +494,10 @@ class PppoeEa(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, self).__init__()
 
                         self.yang_name = "interface-id"
                         self.yang_parent_name = "interface-ids"
@@ -505,7 +544,7 @@ class PppoeEa(Entity):
                         self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', 'interface', 'session_id', 'parent_interface', 'is_priority_set', 'priority', 'is_in_sync', 'is_platform_created', 'vlanid'], name, value)
 
 
-                    class PeerMac(Entity):
+                    class PeerMac(_Entity_):
                         """
                         Peer Mac\-address
                         
@@ -526,7 +565,10 @@ class PppoeEa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, self).__init__()
 
                             self.yang_name = "peer-mac"
                             self.yang_parent_name = "interface-id"
@@ -544,9 +586,13 @@ class PppoeEa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, ['macaddr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac']['meta_info']
 
 
-                    class LocalMac(Entity):
+                    class LocalMac(_Entity_):
                         """
                         Local Mac\-address
                         
@@ -567,7 +613,10 @@ class PppoeEa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, self).__init__()
 
                             self.yang_name = "local-mac"
                             self.yang_parent_name = "interface-id"
@@ -585,9 +634,13 @@ class PppoeEa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, ['macaddr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac']['meta_info']
 
 
-                    class SrgvMac(Entity):
+                    class SrgvMac(_Entity_):
                         """
                         SRG VMac\-address
                         
@@ -608,7 +661,10 @@ class PppoeEa(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, self).__init__()
 
                             self.yang_name = "srgv-mac"
                             self.yang_parent_name = "interface-id"
@@ -626,14 +682,38 @@ class PppoeEa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, ['macaddr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                        return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                    return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+                return meta._meta_table['PppoeEa.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+            return meta._meta_table['PppoeEa.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PppoeEa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
+        return meta._meta_table['PppoeEa']['meta_info']
 
 

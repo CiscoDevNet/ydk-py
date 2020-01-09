@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Oper(Entity):
+class Oper(_Entity_):
     """
     
     
@@ -93,7 +96,10 @@ class Oper(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Oper, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Oper, self).__init__()
         self._top_entity = None
 
         self.yang_name = "oper"
@@ -140,7 +146,7 @@ class Oper(Entity):
         self._perform_setattr(Oper, [], name, value)
 
 
-    class ShelfMgr(Entity):
+    class ShelfMgr(_Entity_):
         """
         
         
@@ -159,7 +165,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.ShelfMgr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.ShelfMgr, self).__init__()
 
             self.yang_name = "shelf_mgr"
             self.yang_parent_name = "oper"
@@ -178,7 +187,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.ShelfMgr, [], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             show traceable processes
             
@@ -204,7 +213,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.ShelfMgr.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.ShelfMgr.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "shelf_mgr"
@@ -226,7 +238,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.ShelfMgr.Trace, ['buffer'], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -252,7 +264,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.ShelfMgr.Trace.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.ShelfMgr.Trace.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "trace"
@@ -273,7 +288,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.ShelfMgr.Trace.Location, ['location_name'], name, value)
 
 
-                class AllOptions(Entity):
+                class AllOptions(_Entity_):
                     """
                     
                     
@@ -299,7 +314,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.ShelfMgr.Trace.Location.AllOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.ShelfMgr.Trace.Location.AllOptions, self).__init__()
 
                         self.yang_name = "all-options"
                         self.yang_parent_name = "location"
@@ -320,7 +338,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                    class TraceBlocks(Entity):
+                    class TraceBlocks(_Entity_):
                         """
                         
                         
@@ -339,7 +357,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                             self.yang_name = "trace-blocks"
                             self.yang_parent_name = "all-options"
@@ -357,13 +378,33 @@ class Oper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.ShelfMgr.Trace.Location.AllOptions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.ShelfMgr.Trace.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.ShelfMgr.Trace']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.ShelfMgr']['meta_info']
 
 
-
-
-
-
-    class Platform(Entity):
+    class Platform(_Entity_):
         """
         
         
@@ -396,7 +437,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.Platform, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Platform, self).__init__()
 
             self.yang_name = "platform"
             self.yang_parent_name = "oper"
@@ -425,7 +469,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.Platform, [], name, value)
 
 
-        class Summary(Entity):
+        class Summary(_Entity_):
             """
             
             
@@ -444,7 +488,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Platform.Summary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Platform.Summary, self).__init__()
 
                 self.yang_name = "summary"
                 self.yang_parent_name = "platform"
@@ -463,7 +510,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Platform.Summary, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -491,7 +538,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Platform.Summary.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Platform.Summary.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "summary"
@@ -515,7 +565,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Platform.Summary.Location, ['location'], name, value)
 
 
-                class SummaryData(Entity):
+                class SummaryData(_Entity_):
                     """
                     
                     
@@ -555,7 +605,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.Platform.Summary.Location.SummaryData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.Platform.Summary.Location.SummaryData, self).__init__()
 
                         self.yang_name = "summary-data"
                         self.yang_parent_name = "location"
@@ -579,11 +632,23 @@ class Oper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Platform.Summary.Location.SummaryData, ['card_type', 'hw_state', 'sw_state', 'config_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.Platform.Summary.Location.SummaryData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Platform.Summary.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Platform.Summary']['meta_info']
 
 
-
-
-        class Detail(Entity):
+        class Detail(_Entity_):
             """
             
             
@@ -602,7 +667,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Platform.Detail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Platform.Detail, self).__init__()
 
                 self.yang_name = "detail"
                 self.yang_parent_name = "platform"
@@ -621,7 +689,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Platform.Detail, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -649,7 +717,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Platform.Detail.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Platform.Detail.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "detail"
@@ -673,7 +744,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Platform.Detail.Location, ['location'], name, value)
 
 
-                class DetailData(Entity):
+                class DetailData(_Entity_):
                     """
                     
                     
@@ -748,7 +819,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.Platform.Detail.Location.DetailData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.Platform.Detail.Location.DetailData, self).__init__()
 
                         self.yang_name = "detail-data"
                         self.yang_parent_name = "location"
@@ -782,11 +856,23 @@ class Oper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Platform.Detail.Location.DetailData, ['pid', 'description', 'vid_sn', 'hw_state', 'sw_state', 'config_wordy', 'hw_ver', 'last_event', 'last_ev_reason_str'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.Platform.Detail.Location.DetailData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Platform.Detail.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Platform.Detail']['meta_info']
 
 
-
-
-        class Slices(Entity):
+        class Slices(_Entity_):
             """
             
             
@@ -805,7 +891,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Platform.Slices, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Platform.Slices, self).__init__()
 
                 self.yang_name = "slices"
                 self.yang_parent_name = "platform"
@@ -824,7 +913,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Platform.Slices, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -852,7 +941,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Platform.Slices.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Platform.Slices.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "slices"
@@ -874,7 +966,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Platform.Slices.Location, ['location'], name, value)
 
 
-                class SliceValues(Entity):
+                class SliceValues(_Entity_):
                     """
                     
                     
@@ -902,7 +994,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.Platform.Slices.Location.SliceValues, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.Platform.Slices.Location.SliceValues, self).__init__()
 
                         self.yang_name = "slice_values"
                         self.yang_parent_name = "location"
@@ -925,7 +1020,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.Platform.Slices.Location.SliceValues, ['slice_idx'], name, value)
 
 
-                    class Slice(Entity):
+                    class Slice(_Entity_):
                         """
                         
                         
@@ -960,7 +1055,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.Platform.Slices.Location.SliceValues.Slice, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.Platform.Slices.Location.SliceValues.Slice, self).__init__()
 
                             self.yang_name = "slice"
                             self.yang_parent_name = "slice_values"
@@ -982,13 +1080,33 @@ class Oper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.Platform.Slices.Location.SliceValues.Slice, ['slice_num', 'admin_state', 'oper_state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.Platform.Slices.Location.SliceValues.Slice']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.Platform.Slices.Location.SliceValues']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Platform.Slices.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Platform.Slices']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.Platform']['meta_info']
 
 
-
-
-
-
-    class Chassis(Entity):
+    class Chassis(_Entity_):
         """
         
         
@@ -1007,7 +1125,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.Chassis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Chassis, self).__init__()
 
             self.yang_name = "chassis"
             self.yang_parent_name = "oper"
@@ -1028,7 +1149,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.Chassis, [], name, value)
 
 
-        class Brief(Entity):
+        class Brief(_Entity_):
             """
             
             
@@ -1047,7 +1168,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Chassis.Brief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Chassis.Brief, self).__init__()
 
                 self.yang_name = "brief"
                 self.yang_parent_name = "chassis"
@@ -1066,7 +1190,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Chassis.Brief, [], name, value)
 
 
-            class ChassisSerial(Entity):
+            class ChassisSerial(_Entity_):
                 """
                 
                 
@@ -1092,7 +1216,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Chassis.Brief.ChassisSerial, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Chassis.Brief.ChassisSerial, self).__init__()
 
                     self.yang_name = "chassis_serial"
                     self.yang_parent_name = "brief"
@@ -1116,7 +1243,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Chassis.Brief.ChassisSerial, ['serial_number'], name, value)
 
 
-                class BriefData(Entity):
+                class BriefData(_Entity_):
                     """
                     
                     
@@ -1163,7 +1290,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.Chassis.Brief.ChassisSerial.BriefData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.Chassis.Brief.ChassisSerial.BriefData, self).__init__()
 
                         self.yang_name = "brief-data"
                         self.yang_parent_name = "chassis_serial"
@@ -1189,12 +1319,28 @@ class Oper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Chassis.Brief.ChassisSerial.BriefData, ['racknum', 'rack_type', 'rack_state', 'data_plane', 'ctrl_plane'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.Chassis.Brief.ChassisSerial.BriefData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Chassis.Brief.ChassisSerial']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Chassis.Brief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.Chassis']['meta_info']
 
 
-
-
-
-    class Reload(Entity):
+    class Reload(_Entity_):
         """
         
         
@@ -1213,7 +1359,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.Reload, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Reload, self).__init__()
 
             self.yang_name = "reload"
             self.yang_parent_name = "oper"
@@ -1234,7 +1383,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.Reload, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             
             
@@ -1253,7 +1402,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Reload.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Reload.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "reload"
@@ -1272,7 +1424,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Reload.Rack, [], name, value)
 
 
-            class Racks(Entity):
+            class Racks(_Entity_):
                 """
                 
                 
@@ -1291,7 +1443,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Reload.Rack.Racks, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Reload.Rack.Racks, self).__init__()
 
                     self.yang_name = "racks"
                     self.yang_parent_name = "rack"
@@ -1310,11 +1465,23 @@ class Oper(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Reload.Rack.Racks, ['rack'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Reload.Rack.Racks']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Reload.Rack']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.Reload']['meta_info']
 
 
-
-
-    class RebootHistory(Entity):
+    class RebootHistory(_Entity_):
         """
         
         
@@ -1347,7 +1514,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.RebootHistory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.RebootHistory, self).__init__()
 
             self.yang_name = "reboot-history"
             self.yang_parent_name = "oper"
@@ -1376,7 +1546,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.RebootHistory, [], name, value)
 
 
-        class Card(Entity):
+        class Card(_Entity_):
             """
             
             
@@ -1395,7 +1565,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.RebootHistory.Card, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.RebootHistory.Card, self).__init__()
 
                 self.yang_name = "card"
                 self.yang_parent_name = "reboot-history"
@@ -1414,7 +1587,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.RebootHistory.Card, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1442,7 +1615,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.RebootHistory.Card.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.RebootHistory.Card.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "card"
@@ -1464,7 +1640,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.RebootHistory.Card.Location, ['location'], name, value)
 
 
-                class Events(Entity):
+                class Events(_Entity_):
                     """
                     
                     
@@ -1492,7 +1668,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.RebootHistory.Card.Location.Events, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.RebootHistory.Card.Location.Events, self).__init__()
 
                         self.yang_name = "events"
                         self.yang_parent_name = "location"
@@ -1515,7 +1694,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.RebootHistory.Card.Location.Events, ['event_idx'], name, value)
 
 
-                    class Event(Entity):
+                    class Event(_Entity_):
                         """
                         
                         
@@ -1564,7 +1743,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.RebootHistory.Card.Location.Events.Event, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.RebootHistory.Card.Location.Events.Event, self).__init__()
 
                             self.yang_name = "event"
                             self.yang_parent_name = "events"
@@ -1590,12 +1772,28 @@ class Oper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.RebootHistory.Card.Location.Events.Event']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.RebootHistory.Card.Location.Events']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.RebootHistory.Card.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.RebootHistory.Card']['meta_info']
 
 
-
-
-
-        class AdminVm(Entity):
+        class AdminVm(_Entity_):
             """
             
             
@@ -1614,7 +1812,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.RebootHistory.AdminVm, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.RebootHistory.AdminVm, self).__init__()
 
                 self.yang_name = "admin-vm"
                 self.yang_parent_name = "reboot-history"
@@ -1633,7 +1834,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.RebootHistory.AdminVm, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1661,7 +1862,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.RebootHistory.AdminVm.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.RebootHistory.AdminVm.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "admin-vm"
@@ -1683,7 +1887,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.RebootHistory.AdminVm.Location, ['location'], name, value)
 
 
-                class Events(Entity):
+                class Events(_Entity_):
                     """
                     
                     
@@ -1711,7 +1915,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.RebootHistory.AdminVm.Location.Events, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.RebootHistory.AdminVm.Location.Events, self).__init__()
 
                         self.yang_name = "events"
                         self.yang_parent_name = "location"
@@ -1734,7 +1941,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.RebootHistory.AdminVm.Location.Events, ['event_idx'], name, value)
 
 
-                    class Event(Entity):
+                    class Event(_Entity_):
                         """
                         
                         
@@ -1783,7 +1990,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.RebootHistory.AdminVm.Location.Events.Event, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.RebootHistory.AdminVm.Location.Events.Event, self).__init__()
 
                             self.yang_name = "event"
                             self.yang_parent_name = "events"
@@ -1809,12 +2019,28 @@ class Oper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.RebootHistory.AdminVm.Location.Events.Event']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.RebootHistory.AdminVm.Location.Events']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.RebootHistory.AdminVm.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.RebootHistory.AdminVm']['meta_info']
 
 
-
-
-
-        class Reverse(Entity):
+        class Reverse(_Entity_):
             """
             
             
@@ -1840,7 +2066,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.RebootHistory.Reverse, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.RebootHistory.Reverse, self).__init__()
 
                 self.yang_name = "reverse"
                 self.yang_parent_name = "reboot-history"
@@ -1865,7 +2094,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.RebootHistory.Reverse, [], name, value)
 
 
-            class Card(Entity):
+            class Card(_Entity_):
                 """
                 
                 
@@ -1884,7 +2113,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.RebootHistory.Reverse.Card, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.RebootHistory.Reverse.Card, self).__init__()
 
                     self.yang_name = "card"
                     self.yang_parent_name = "reverse"
@@ -1903,7 +2135,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.RebootHistory.Reverse.Card, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -1931,7 +2163,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.RebootHistory.Reverse.Card.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.RebootHistory.Reverse.Card.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "card"
@@ -1953,7 +2188,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location, ['location'], name, value)
 
 
-                    class Events(Entity):
+                    class Events(_Entity_):
                         """
                         
                         
@@ -1981,7 +2216,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.RebootHistory.Reverse.Card.Location.Events, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.RebootHistory.Reverse.Card.Location.Events, self).__init__()
 
                             self.yang_name = "events"
                             self.yang_parent_name = "location"
@@ -2004,7 +2242,7 @@ class Oper(Entity):
                             self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location.Events, ['event_idx'], name, value)
 
 
-                        class Event(Entity):
+                        class Event(_Entity_):
                             """
                             
                             
@@ -2053,7 +2291,10 @@ class Oper(Entity):
                             _revision = '2018-04-09'
 
                             def __init__(self):
-                                super(Oper.RebootHistory.Reverse.Card.Location.Events.Event, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Oper.RebootHistory.Reverse.Card.Location.Events.Event, self).__init__()
 
                                 self.yang_name = "event"
                                 self.yang_parent_name = "events"
@@ -2079,12 +2320,28 @@ class Oper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                                return meta._meta_table['Oper.RebootHistory.Reverse.Card.Location.Events.Event']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.RebootHistory.Reverse.Card.Location.Events']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.RebootHistory.Reverse.Card.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.RebootHistory.Reverse.Card']['meta_info']
 
 
-
-
-
-            class AdminVm(Entity):
+            class AdminVm(_Entity_):
                 """
                 
                 
@@ -2103,7 +2360,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.RebootHistory.Reverse.AdminVm, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.RebootHistory.Reverse.AdminVm, self).__init__()
 
                     self.yang_name = "admin-vm"
                     self.yang_parent_name = "reverse"
@@ -2122,7 +2382,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -2150,7 +2410,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.RebootHistory.Reverse.AdminVm.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.RebootHistory.Reverse.AdminVm.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "admin-vm"
@@ -2172,7 +2435,7 @@ class Oper(Entity):
                         self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location, ['location'], name, value)
 
 
-                    class Events(Entity):
+                    class Events(_Entity_):
                         """
                         
                         
@@ -2200,7 +2463,10 @@ class Oper(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Oper.RebootHistory.Reverse.AdminVm.Location.Events, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Oper.RebootHistory.Reverse.AdminVm.Location.Events, self).__init__()
 
                             self.yang_name = "events"
                             self.yang_parent_name = "location"
@@ -2223,7 +2489,7 @@ class Oper(Entity):
                             self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location.Events, ['event_idx'], name, value)
 
 
-                        class Event(Entity):
+                        class Event(_Entity_):
                             """
                             
                             
@@ -2272,7 +2538,10 @@ class Oper(Entity):
                             _revision = '2018-04-09'
 
                             def __init__(self):
-                                super(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, self).__init__()
 
                                 self.yang_name = "event"
                                 self.yang_parent_name = "events"
@@ -2298,14 +2567,38 @@ class Oper(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                                return meta._meta_table['Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Oper.RebootHistory.Reverse.AdminVm.Location.Events']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.RebootHistory.Reverse.AdminVm.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.RebootHistory.Reverse.AdminVm']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.RebootHistory.Reverse']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.RebootHistory']['meta_info']
 
 
-
-
-
-
-
-    class Interface(Entity):
+    class Interface(_Entity_):
         """
         
         
@@ -2331,7 +2624,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.Interface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Interface, self).__init__()
 
             self.yang_name = "interface"
             self.yang_parent_name = "oper"
@@ -2355,7 +2651,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.Interface, ['ifname'], name, value)
 
 
-        class InterfaceData(Entity):
+        class InterfaceData(_Entity_):
             """
             
             
@@ -2552,7 +2848,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Interface.InterfaceData, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Interface.InterfaceData, self).__init__()
 
                 self.yang_name = "interface-data"
                 self.yang_parent_name = "interface"
@@ -2610,10 +2909,18 @@ class Oper(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Interface.InterfaceData, ['mac', 'ipv4', 'flagstr', 'port_status', 'mtu', 'metric', 'rx_pak', 'rx_errors', 'rx_dropped', 'rx_overruns', 'rx_frame', 'tx_pak', 'tx_errors', 'tx_dropped', 'tx_overruns', 'tx_carrier', 'collisions', 'tx_queuelen', 'rx_bytes', 'tx_bytes', 'intf_num'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Interface.InterfaceData']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.Interface']['meta_info']
 
 
-
-    class ReloadVm(Entity):
+    class ReloadVm(_Entity_):
         """
         
         
@@ -2632,7 +2939,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.ReloadVm, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.ReloadVm, self).__init__()
 
             self.yang_name = "reload_vm"
             self.yang_parent_name = "oper"
@@ -2651,7 +2961,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.ReloadVm, [], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -2670,7 +2980,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.ReloadVm.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.ReloadVm.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "reload_vm"
@@ -2689,10 +3002,18 @@ class Oper(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.ReloadVm.Location, ['location'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.ReloadVm.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.ReloadVm']['meta_info']
 
 
-
-    class Macpool(Entity):
+    class Macpool(_Entity_):
         """
         
         
@@ -2711,7 +3032,10 @@ class Oper(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Oper.Macpool, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Oper.Macpool, self).__init__()
 
             self.yang_name = "macpool"
             self.yang_parent_name = "oper"
@@ -2732,7 +3056,7 @@ class Oper(Entity):
             self._perform_setattr(Oper.Macpool, [], name, value)
 
 
-        class Brief(Entity):
+        class Brief(_Entity_):
             """
             
             
@@ -2751,7 +3075,10 @@ class Oper(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Oper.Macpool.Brief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Oper.Macpool.Brief, self).__init__()
 
                 self.yang_name = "brief"
                 self.yang_parent_name = "macpool"
@@ -2770,7 +3097,7 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Macpool.Brief, [], name, value)
 
 
-            class Rack(Entity):
+            class Rack(_Entity_):
                 """
                 
                 
@@ -2796,7 +3123,10 @@ class Oper(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Oper.Macpool.Brief.Rack, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Oper.Macpool.Brief.Rack, self).__init__()
 
                     self.yang_name = "rack"
                     self.yang_parent_name = "brief"
@@ -2820,7 +3150,7 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Macpool.Brief.Rack, ['serial_number'], name, value)
 
 
-                class BriefData(Entity):
+                class BriefData(_Entity_):
                     """
                     
                     
@@ -2873,7 +3203,10 @@ class Oper(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Oper.Macpool.Brief.Rack.BriefData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Oper.Macpool.Brief.Rack.BriefData, self).__init__()
 
                         self.yang_name = "brief-data"
                         self.yang_parent_name = "rack"
@@ -2899,17 +3232,37 @@ class Oper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Macpool.Brief.Rack.BriefData, ['racknum', 'mac_base', 'mac_count', 'is_selected', 'allocated_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Oper.Macpool.Brief.Rack.BriefData']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Oper.Macpool.Brief.Rack']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Oper.Macpool.Brief']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Oper.Macpool']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Oper()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+        return meta._meta_table['Oper']['meta_info']
 
 
-class Config(Entity):
+class Config(_Entity_):
     """
     
     
@@ -2941,7 +3294,10 @@ class Config(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Config, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Config, self).__init__()
         self._top_entity = None
 
         self.yang_name = "config"
@@ -2974,7 +3330,7 @@ class Config(Entity):
         self._perform_setattr(Config, [], name, value)
 
 
-    class Chassis(Entity):
+    class Chassis(_Entity_):
         """
         
         
@@ -2991,7 +3347,10 @@ class Config(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Config.Chassis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.Chassis, self).__init__()
 
             self.yang_name = "chassis"
             self.yang_parent_name = "config"
@@ -3010,7 +3369,7 @@ class Config(Entity):
             self._perform_setattr(Config.Chassis, [], name, value)
 
 
-        class Serial(Entity):
+        class Serial(_Entity_):
             """
             
             
@@ -3038,7 +3397,10 @@ class Config(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Config.Chassis.Serial, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Config.Chassis.Serial, self).__init__()
 
                 self.yang_name = "serial"
                 self.yang_parent_name = "chassis"
@@ -3059,10 +3421,18 @@ class Config(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Chassis.Serial, ['serial', 'rack'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Config.Chassis.Serial']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Config.Chassis']['meta_info']
 
 
-
-    class Interface(Entity):
+    class Interface(_Entity_):
         """
         
         
@@ -3079,7 +3449,10 @@ class Config(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Config.Interface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.Interface, self).__init__()
 
             self.yang_name = "interface"
             self.yang_parent_name = "config"
@@ -3100,7 +3473,7 @@ class Config(Entity):
             self._perform_setattr(Config.Interface, [], name, value)
 
 
-        class MgmtEth(Entity):
+        class MgmtEth(_Entity_):
             """
             
             
@@ -3117,7 +3490,10 @@ class Config(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Config.Interface.MgmtEth, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Config.Interface.MgmtEth, self).__init__()
 
                 self.yang_name = "MgmtEth"
                 self.yang_parent_name = "interface"
@@ -3136,7 +3512,7 @@ class Config(Entity):
                 self._perform_setattr(Config.Interface.MgmtEth, [], name, value)
 
 
-            class Locport(Entity):
+            class Locport(_Entity_):
                 """
                 
                 
@@ -3205,7 +3581,10 @@ class Config(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Config.Interface.MgmtEth.Locport, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Config.Interface.MgmtEth.Locport, self).__init__()
 
                     self.yang_name = "locport"
                     self.yang_parent_name = "MgmtEth"
@@ -3245,7 +3624,7 @@ class Config(Entity):
                     self._perform_setattr(Config.Interface.MgmtEth.Locport, ['rack', 'slot', 'intf', 'port', 'shutdown', 'mtu', 'default_gw'], name, value)
 
 
-                class Ipv4(Entity):
+                class Ipv4(_Entity_):
                     """
                     
                     
@@ -3264,7 +3643,10 @@ class Config(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Config.Interface.MgmtEth.Locport.Ipv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Config.Interface.MgmtEth.Locport.Ipv4, self).__init__()
 
                         self.yang_name = "ipv4"
                         self.yang_parent_name = "locport"
@@ -3282,9 +3664,13 @@ class Config(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Config.Interface.MgmtEth.Locport.Ipv4, ['address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Config.Interface.MgmtEth.Locport.Ipv4']['meta_info']
 
 
-                class Arp(Entity):
+                class Arp(_Entity_):
                     """
                     
                     
@@ -3301,7 +3687,10 @@ class Config(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Config.Interface.MgmtEth.Locport.Arp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Config.Interface.MgmtEth.Locport.Arp, self).__init__()
 
                         self.yang_name = "arp"
                         self.yang_parent_name = "locport"
@@ -3319,7 +3708,7 @@ class Config(Entity):
                         self._perform_setattr(Config.Interface.MgmtEth.Locport.Arp, [], name, value)
 
 
-                    class Ip(Entity):
+                    class Ip(_Entity_):
                         """
                         
                         
@@ -3349,7 +3738,10 @@ class Config(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Config.Interface.MgmtEth.Locport.Arp.Ip, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Config.Interface.MgmtEth.Locport.Arp.Ip, self).__init__()
 
                             self.yang_name = "ip"
                             self.yang_parent_name = "arp"
@@ -3369,13 +3761,33 @@ class Config(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Config.Interface.MgmtEth.Locport.Arp.Ip, ['ip', 'mac'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                            return meta._meta_table['Config.Interface.MgmtEth.Locport.Arp.Ip']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                        return meta._meta_table['Config.Interface.MgmtEth.Locport.Arp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                    return meta._meta_table['Config.Interface.MgmtEth.Locport']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Config.Interface.MgmtEth']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Config.Interface']['meta_info']
 
 
-
-
-
-
-    class Domain(Entity):
+    class Domain(_Entity_):
         """
         
         
@@ -3397,7 +3809,10 @@ class Config(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Config.Domain, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.Domain, self).__init__()
 
             self.yang_name = "domain"
             self.yang_parent_name = "config"
@@ -3417,7 +3832,7 @@ class Config(Entity):
             self._perform_setattr(Config.Domain, [], name, value)
 
 
-        class Name(Entity):
+        class Name(_Entity_):
             """
             
             
@@ -3434,7 +3849,10 @@ class Config(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Config.Domain.Name, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Config.Domain.Name, self).__init__()
 
                 self.yang_name = "name"
                 self.yang_parent_name = "domain"
@@ -3453,9 +3871,13 @@ class Config(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Domain.Name, ['name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Config.Domain.Name']['meta_info']
 
 
-        class NameServer(Entity):
+        class NameServer(_Entity_):
             """
             
             
@@ -3474,7 +3896,10 @@ class Config(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Config.Domain.NameServer, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Config.Domain.NameServer, self).__init__()
 
                 self.yang_name = "name-server"
                 self.yang_parent_name = "domain"
@@ -3493,10 +3918,18 @@ class Config(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Domain.NameServer, ['name_server'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+                return meta._meta_table['Config.Domain.NameServer']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Config.Domain']['meta_info']
 
 
-
-    class VirtualMacaddrRange(Entity):
+    class VirtualMacaddrRange(_Entity_):
         """
         
         
@@ -3522,7 +3955,10 @@ class Config(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Config.VirtualMacaddrRange, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.VirtualMacaddrRange, self).__init__()
 
             self.yang_name = "virtual-macaddr-range"
             self.yang_parent_name = "config"
@@ -3543,14 +3979,22 @@ class Config(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Config.VirtualMacaddrRange, ['base', 'count'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+            return meta._meta_table['Config.VirtualMacaddrRange']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+        return meta._meta_table['Config']['meta_info']
 
 
-class Actions(Entity):
+class Actions(_Entity_):
     """
     
     
@@ -3562,7 +4006,10 @@ class Actions(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Actions, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Actions, self).__init__()
         self._top_entity = None
 
         self.yang_name = "actions"
@@ -3579,5 +4026,9 @@ class Actions(Entity):
         self._top_entity = Actions()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_sm as meta
+        return meta._meta_table['Actions']['meta_info']
 
 

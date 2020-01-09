@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class NextHopType(Enum):
     default_next_hop = Enum.YLeaf(2, "default-next-hop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+        return meta._meta_table['NextHopType']
 
-class Ipv4AclAndPrefixList(Entity):
+
+
+class Ipv4AclAndPrefixList(_Entity_):
     """
     IPv4 ACL configuration data
     
@@ -69,7 +78,10 @@ class Ipv4AclAndPrefixList(Entity):
     _revision = '2018-05-08'
 
     def __init__(self):
-        super(Ipv4AclAndPrefixList, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4AclAndPrefixList, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-acl-and-prefix-list"
@@ -98,7 +110,7 @@ class Ipv4AclAndPrefixList(Entity):
         self._perform_setattr(Ipv4AclAndPrefixList, [], name, value)
 
 
-    class Accesses(Entity):
+    class Accesses(_Entity_):
         """
         Table of access lists.  Entries in this table
         and the AccessListExistenceTable table must be
@@ -117,7 +129,10 @@ class Ipv4AclAndPrefixList(Entity):
         _revision = '2018-05-08'
 
         def __init__(self):
-            super(Ipv4AclAndPrefixList.Accesses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4AclAndPrefixList.Accesses, self).__init__()
 
             self.yang_name = "accesses"
             self.yang_parent_name = "ipv4-acl-and-prefix-list"
@@ -136,7 +151,7 @@ class Ipv4AclAndPrefixList(Entity):
             self._perform_setattr(Ipv4AclAndPrefixList.Accesses, [], name, value)
 
 
-        class Access(Entity):
+        class Access(_Entity_):
             """
             An ACL
             
@@ -160,7 +175,10 @@ class Ipv4AclAndPrefixList(Entity):
             _revision = '2018-05-08'
 
             def __init__(self):
-                super(Ipv4AclAndPrefixList.Accesses.Access, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4AclAndPrefixList.Accesses.Access, self).__init__()
 
                 self.yang_name = "access"
                 self.yang_parent_name = "accesses"
@@ -184,7 +202,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access, ['access_list_name'], name, value)
 
 
-            class AccessListEntries(Entity):
+            class AccessListEntries(_Entity_):
                 """
                 ACL entry table; contains list of ACEs
                 
@@ -201,7 +219,10 @@ class Ipv4AclAndPrefixList(Entity):
                 _revision = '2018-05-08'
 
                 def __init__(self):
-                    super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries, self).__init__()
 
                     self.yang_name = "access-list-entries"
                     self.yang_parent_name = "access"
@@ -219,7 +240,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries, [], name, value)
 
 
-                class AccessListEntry(Entity):
+                class AccessListEntry(_Entity_):
                     """
                     An ACL entry; either a description (remark)
                     or an ACE to match against
@@ -254,7 +275,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: protocol2
                     
-                    	Protocol2 to match. It is used in upper bound (range operator). Any value not in the permissible range will  be rejected
+                    	Protocol2 to match. It is used in upper bound (range operator). Any value not in the permissible range will be rejected
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv4AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclProtocolNumber>`
@@ -333,7 +354,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: igmp_message_type
                     
-                    	IGMP message type to match. Leave unspecified if  no message type comparison is to be done
+                    	IGMP message type to match. Leave unspecified if no message type comparison is to be done
                     	**type**\: union of the below types:
                     
                     		**type**\:  :py:class:`Ipv4AclIgmpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIgmpNumber>`
@@ -389,7 +410,7 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     .. attribute:: fragments
                     
-                    	Check non\-initial fragments. Item is mutually  exclusive with TCP, SCTP, UDP, IGMP and ICMP  comparions and with logging
+                    	Check non\-initial fragments. Item is mutually exclusive with TCP, SCTP, UDP, IGMP and ICMP comparions and with logging
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: remark
@@ -442,7 +463,10 @@ class Ipv4AclAndPrefixList(Entity):
                     _revision = '2018-05-08'
 
                     def __init__(self):
-                        super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
 
                         self.yang_name = "access-list-entry"
                         self.yang_parent_name = "access-list-entries"
@@ -545,7 +569,7 @@ class Ipv4AclAndPrefixList(Entity):
                         self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'protocol_operator', 'protocol', 'protocol2', 'fragment_type', 'counter_name', 'igmp_message_type', 'precedence', 'log_option', 'capture', 'icmp_off', 'qos_group', 'set_ttl', 'fragments', 'remark', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'sequence_str'], name, value)
 
 
-                    class SourceNetwork(Entity):
+                    class SourceNetwork(_Entity_):
                         """
                         Source network settings.
                         
@@ -558,14 +582,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: source_wild_card_bits
                         
-                        	Wildcard bits to apply to source address  (if specified), leave unspecified for no  wildcarding
+                        	Wildcard bits to apply to source address (if specified), leave unspecified for no wildcarding
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: source_prefix_length
                         
-                        	Prefix length to apply to source address  (if specified), leave unspecified for no  wildcarding
+                        	Prefix length to apply to source address (if specified), leave unspecified for no wildcarding
                         	**type**\: int
                         
                         	**range:** 0..32
@@ -578,7 +602,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
 
                             self.yang_name = "source-network"
                             self.yang_parent_name = "access-list-entry"
@@ -600,9 +627,13 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits', 'source_prefix_length'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork']['meta_info']
 
 
-                    class DestinationNetwork(Entity):
+                    class DestinationNetwork(_Entity_):
                         """
                         Destination network settings.
                         
@@ -615,14 +646,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: destination_wild_card_bits
                         
-                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no  wildcarding
+                        	Wildcard bits to apply to destination address (if specified), leave unspecified for no wildcarding
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: destination_prefix_length
                         
-                        	Prefix length to apply to destination address  (if specified), leave unspecified for no  wildcarding
+                        	Prefix length to apply to destination address (if specified), leave unspecified for no wildcarding
                         	**type**\: int
                         
                         	**range:** 0..32
@@ -635,7 +666,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
 
                             self.yang_name = "destination-network"
                             self.yang_parent_name = "access-list-entry"
@@ -657,15 +691,19 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits', 'destination_prefix_length'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork']['meta_info']
 
 
-                    class SourcePort(Entity):
+                    class SourcePort(_Entity_):
                         """
                         Source port settings.
                         
                         .. attribute:: source_operator
                         
-                        	Source port comparison operator. This is a required  field if any source port value is given, otherwise, config will be rejected. Leave unspecified if no source port comparison is to be done
+                        	Source port comparison operator. This is a required field if any source port value is given, otherwise, config will be rejected. Leave unspecified if no source port comparison is to be done
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: first_source_port
@@ -698,7 +736,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, self).__init__()
 
                             self.yang_name = "source-port"
                             self.yang_parent_name = "access-list-entry"
@@ -720,9 +761,13 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, ['source_operator', 'first_source_port', 'second_source_port'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort']['meta_info']
 
 
-                    class DestinationPort(Entity):
+                    class DestinationPort(_Entity_):
                         """
                         Destination port settings.
                         
@@ -761,7 +806,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, self).__init__()
 
                             self.yang_name = "destination-port"
                             self.yang_parent_name = "access-list-entry"
@@ -783,15 +831,19 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, ['destination_operator', 'first_destination_port', 'second_destination_port'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort']['meta_info']
 
 
-                    class Icmp(Entity):
+                    class Icmp(_Entity_):
                         """
                         ICMP settings.
                         
                         .. attribute:: icmp_type_code
                         
-                        	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
+                        	Well known ICMP message code types to match, leave unspecified if ICMP message code type comparion is not to be performed
                         	**type**\:  :py:class:`Ipv4AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIcmpTypeCodeEnum>`
                         
                         
@@ -802,7 +854,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, self).__init__()
 
                             self.yang_name = "icmp"
                             self.yang_parent_name = "access-list-entry"
@@ -820,15 +875,19 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, ['icmp_type_code'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp']['meta_info']
 
 
-                    class Tcp(Entity):
+                    class Tcp(_Entity_):
                         """
                         TCP settings.
                         
                         .. attribute:: tcp_bits_match_operator
                         
-                        	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
+                        	TCP Bits match operator. Leave unspecified if flexible comparison of TCP bits is not required
                         	**type**\:  :py:class:`Ipv4AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpMatchOperatorEnum>`
                         
                         .. attribute:: tcp_bits
@@ -838,7 +897,7 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         .. attribute:: tcp_bits_mask
                         
-                        	TCP bits mask to use for flexible TCP matching. Leave unspecified if tcp\-bits\-match\-operator is  unspecified
+                        	TCP bits mask to use for flexible TCP matching. Leave unspecified if tcp\-bits\-match\-operator is unspecified
                         	**type**\:  :py:class:`Ipv4AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumber>`
                         
                         
@@ -849,7 +908,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, self).__init__()
 
                             self.yang_name = "tcp"
                             self.yang_parent_name = "access-list-entry"
@@ -871,15 +933,19 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, ['tcp_bits_match_operator', 'tcp_bits', 'tcp_bits_mask'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp']['meta_info']
 
 
-                    class PacketLength(Entity):
+                    class PacketLength(_Entity_):
                         """
                         Packet length settings.
                         
                         .. attribute:: packet_length_operator
                         
-                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config  will be rejected
+                        	Packet length operator applicable if packet length is to be compared. This is a required field if any packet\-length value is given, otherwise, config will be rejected
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: packet_length_min
@@ -904,7 +970,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, self).__init__()
 
                             self.yang_name = "packet-length"
                             self.yang_parent_name = "access-list-entry"
@@ -926,9 +995,13 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, ['packet_length_operator', 'packet_length_min', 'packet_length_max'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength']['meta_info']
 
 
-                    class TimeToLive(Entity):
+                    class TimeToLive(_Entity_):
                         """
                         TTL settings.
                         
@@ -959,7 +1032,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, self).__init__()
 
                             self.yang_name = "time-to-live"
                             self.yang_parent_name = "access-list-entry"
@@ -981,9 +1057,13 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, ['time_to_live_operator', 'time_to_live_min', 'time_to_live_max'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive']['meta_info']
 
 
-                    class FragmentOffset(Entity):
+                    class FragmentOffset(_Entity_):
                         """
                         Fragment\-offset settings.
                         
@@ -1014,7 +1094,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset, self).__init__()
 
                             self.yang_name = "fragment-offset"
                             self.yang_parent_name = "access-list-entry"
@@ -1036,9 +1119,13 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset, ['fragment_offset_operator', 'fragment_offset_1', 'fragment_offset_2'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset']['meta_info']
 
 
-                    class NextHop(Entity):
+                    class NextHop(_Entity_):
                         """
                         Next\-hop settings.
                         
@@ -1070,7 +1157,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, self).__init__()
 
                             self.yang_name = "next-hop"
                             self.yang_parent_name = "access-list-entry"
@@ -1101,7 +1191,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, ['next_hop_type'], name, value)
 
 
-                        class NextHop1(Entity):
+                        class NextHop1(_Entity_):
                             """
                             The first next\-hop settings.
                             
@@ -1134,7 +1224,10 @@ class Ipv4AclAndPrefixList(Entity):
                             _revision = '2018-05-08'
 
                             def __init__(self):
-                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, self).__init__()
 
                                 self.yang_name = "next-hop-1"
                                 self.yang_parent_name = "next-hop"
@@ -1156,9 +1249,13 @@ class Ipv4AclAndPrefixList(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                                return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1']['meta_info']
 
 
-                        class NextHop2(Entity):
+                        class NextHop2(_Entity_):
                             """
                             The second next\-hop settings.
                             
@@ -1191,7 +1288,10 @@ class Ipv4AclAndPrefixList(Entity):
                             _revision = '2018-05-08'
 
                             def __init__(self):
-                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, self).__init__()
 
                                 self.yang_name = "next-hop-2"
                                 self.yang_parent_name = "next-hop"
@@ -1213,9 +1313,13 @@ class Ipv4AclAndPrefixList(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                                return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2']['meta_info']
 
 
-                        class NextHop3(Entity):
+                        class NextHop3(_Entity_):
                             """
                             The third next\-hop settings.
                             
@@ -1248,7 +1352,10 @@ class Ipv4AclAndPrefixList(Entity):
                             _revision = '2018-05-08'
 
                             def __init__(self):
-                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, self).__init__()
 
                                 self.yang_name = "next-hop-3"
                                 self.yang_parent_name = "next-hop"
@@ -1270,21 +1377,29 @@ class Ipv4AclAndPrefixList(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, ['next_hop', 'vrf_name', 'track_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                                return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info']
 
 
-
-                    class Dscp(Entity):
+                    class Dscp(_Entity_):
                         """
                         DSCP settings.
                         
                         .. attribute:: dscp_operator
                         
-                        	DSCP operator is applicable only when DSCP  range is configured. Leave unspecified if  DSCP range is not required
+                        	DSCP operator is applicable only when DSCP range is configured. Leave unspecified if DSCP range is not required
                         	**type**\:  :py:class:`Ipv4AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum>`
                         
                         .. attribute:: dscp_min
                         
-                        	Mininum DSCP value for comparison. It can be used for the  lower bound (range operator) or single value (equal, less, greater..etc). Any value not in the permissible range will be rejected. Leave unspecified otherwise
+                        	Mininum DSCP value for comparison. It can be used for the lower bound (range operator) or single value (equal, less, greater..etc). Any value not in the permissible range will be rejected. Leave unspecified otherwise
                         	**type**\: union of the below types:
                         
                         		**type**\:  :py:class:`Ipv4AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumber>`
@@ -1312,7 +1427,10 @@ class Ipv4AclAndPrefixList(Entity):
                         _revision = '2018-05-08'
 
                         def __init__(self):
-                            super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp, self).__init__()
 
                             self.yang_name = "dscp"
                             self.yang_parent_name = "access-list-entry"
@@ -1334,13 +1452,33 @@ class Ipv4AclAndPrefixList(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp, ['dscp_operator', 'dscp_min', 'dscp_max'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                        return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                    return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+            return meta._meta_table['Ipv4AclAndPrefixList.Accesses']['meta_info']
 
 
-
-
-
-
-    class Prefixes(Entity):
+    class Prefixes(_Entity_):
         """
         Table of ACL prefix lists.  Entries in this
         table and the PrefixListExistenceTable table
@@ -1359,7 +1497,10 @@ class Ipv4AclAndPrefixList(Entity):
         _revision = '2018-05-08'
 
         def __init__(self):
-            super(Ipv4AclAndPrefixList.Prefixes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4AclAndPrefixList.Prefixes, self).__init__()
 
             self.yang_name = "prefixes"
             self.yang_parent_name = "ipv4-acl-and-prefix-list"
@@ -1378,7 +1519,7 @@ class Ipv4AclAndPrefixList(Entity):
             self._perform_setattr(Ipv4AclAndPrefixList.Prefixes, [], name, value)
 
 
-        class Prefix(Entity):
+        class Prefix(_Entity_):
             """
             Name of a prefix list
             
@@ -1400,7 +1541,10 @@ class Ipv4AclAndPrefixList(Entity):
             _revision = '2018-05-08'
 
             def __init__(self):
-                super(Ipv4AclAndPrefixList.Prefixes.Prefix, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4AclAndPrefixList.Prefixes.Prefix, self).__init__()
 
                 self.yang_name = "prefix"
                 self.yang_parent_name = "prefixes"
@@ -1424,7 +1568,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._perform_setattr(Ipv4AclAndPrefixList.Prefixes.Prefix, ['prefix_list_name'], name, value)
 
 
-            class PrefixListEntries(Entity):
+            class PrefixListEntries(_Entity_):
                 """
                 Sequence of entries forming a prefix list
                 
@@ -1441,7 +1585,10 @@ class Ipv4AclAndPrefixList(Entity):
                 _revision = '2018-05-08'
 
                 def __init__(self):
-                    super(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries, self).__init__()
 
                     self.yang_name = "prefix-list-entries"
                     self.yang_parent_name = "prefix"
@@ -1459,7 +1606,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries, [], name, value)
 
 
-                class PrefixListEntry(Entity):
+                class PrefixListEntry(_Entity_):
                     """
                     A prefix list entry; either a description
                     (remark) or a prefix to match against
@@ -1539,7 +1686,10 @@ class Ipv4AclAndPrefixList(Entity):
                     _revision = '2018-05-08'
 
                     def __init__(self):
-                        super(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry, self).__init__()
 
                         self.yang_name = "prefix-list-entry"
                         self.yang_parent_name = "prefix-list-entries"
@@ -1577,12 +1727,28 @@ class Ipv4AclAndPrefixList(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry, ['sequence_number', 'grant', 'prefix', 'netmask', 'match_exact_length', 'exact_prefix_length', 'match_max_length', 'max_prefix_length', 'match_min_length', 'min_prefix_length', 'remark'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                        return meta._meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                    return meta._meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                return meta._meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+            return meta._meta_table['Ipv4AclAndPrefixList.Prefixes']['meta_info']
 
 
-
-
-
-    class LogUpdate(Entity):
+    class LogUpdate(_Entity_):
         """
         Control access lists log updates
         
@@ -1608,7 +1774,10 @@ class Ipv4AclAndPrefixList(Entity):
         _revision = '2018-05-08'
 
         def __init__(self):
-            super(Ipv4AclAndPrefixList.LogUpdate, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4AclAndPrefixList.LogUpdate, self).__init__()
 
             self.yang_name = "log-update"
             self.yang_parent_name = "ipv4-acl-and-prefix-list"
@@ -1629,10 +1798,18 @@ class Ipv4AclAndPrefixList(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4AclAndPrefixList.LogUpdate, ['threshold', 'rate'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+            return meta._meta_table['Ipv4AclAndPrefixList.LogUpdate']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4AclAndPrefixList()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+        return meta._meta_table['Ipv4AclAndPrefixList']['meta_info']
 
 

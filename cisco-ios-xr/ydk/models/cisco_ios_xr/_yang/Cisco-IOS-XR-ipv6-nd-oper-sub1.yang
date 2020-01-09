@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv6-nd-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-26 {
+    description
+      "changing dns lifetime range.";
+  }
   revision 2019-02-18 {
     description
       "Fixing yang usability warnings.";

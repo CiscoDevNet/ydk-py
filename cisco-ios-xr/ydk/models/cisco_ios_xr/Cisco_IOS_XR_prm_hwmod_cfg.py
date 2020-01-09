@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class UrpfConfig(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_cfg as meta
+        return meta._meta_table['UrpfConfig']
 
-class HardwareModule(Entity):
+
+
+class HardwareModule(_Entity_):
     """
     HardwareModule
     
@@ -64,7 +73,10 @@ class HardwareModule(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(HardwareModule, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModule, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module"
@@ -88,7 +100,7 @@ class HardwareModule(Entity):
         self._perform_setattr(HardwareModule, ['urpf'], name, value)
 
 
-    class Loadbalancing(Entity):
+    class Loadbalancing(_Entity_):
         """
         Loadbalance option
         
@@ -105,7 +117,10 @@ class HardwareModule(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HardwareModule.Loadbalancing, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModule.Loadbalancing, self).__init__()
 
             self.yang_name = "loadbalancing"
             self.yang_parent_name = "hardware-module"
@@ -126,7 +141,7 @@ class HardwareModule(Entity):
             self._perform_setattr(HardwareModule.Loadbalancing, [], name, value)
 
 
-        class Bgp3107(Entity):
+        class Bgp3107(_Entity_):
             """
             BGP LU
             
@@ -143,7 +158,10 @@ class HardwareModule(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(HardwareModule.Loadbalancing.Bgp3107, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModule.Loadbalancing.Bgp3107, self).__init__()
 
                 self.yang_name = "bgp3107"
                 self.yang_parent_name = "loadbalancing"
@@ -164,7 +182,7 @@ class HardwareModule(Entity):
                 self._perform_setattr(HardwareModule.Loadbalancing.Bgp3107, [], name, value)
 
 
-            class Ecmp(Entity):
+            class Ecmp(_Entity_):
                 """
                 ECMP 
                 
@@ -181,7 +199,10 @@ class HardwareModule(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(HardwareModule.Loadbalancing.Bgp3107.Ecmp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(HardwareModule.Loadbalancing.Bgp3107.Ecmp, self).__init__()
 
                     self.yang_name = "ecmp"
                     self.yang_parent_name = "bgp3107"
@@ -200,12 +221,28 @@ class HardwareModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModule.Loadbalancing.Bgp3107.Ecmp, ['enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_cfg as meta
+                    return meta._meta_table['HardwareModule.Loadbalancing.Bgp3107.Ecmp']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_cfg as meta
+                return meta._meta_table['HardwareModule.Loadbalancing.Bgp3107']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_cfg as meta
+            return meta._meta_table['HardwareModule.Loadbalancing']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_prm_hwmod_cfg as meta
+        return meta._meta_table['HardwareModule']['meta_info']
 
 

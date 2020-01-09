@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -282,6 +285,12 @@ class AddrFamily(Enum):
     srp = Enum.YLeaf(41, "srp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['AddrFamily']
+
+
 class LptsPcbQuery(Enum):
     """
     LptsPcbQuery (Enum Class)
@@ -313,6 +322,12 @@ class LptsPcbQuery(Enum):
     interface = Enum.YLeaf(2, "interface")
 
     packet = Enum.YLeaf(3, "packet")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['LptsPcbQuery']
 
 
 class MessageTypeIcmp(Enum):
@@ -468,6 +483,12 @@ class MessageTypeIcmp(Enum):
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIcmp']
+
+
 class MessageTypeIcmp_(Enum):
     """
     MessageTypeIcmp\_ (Enum Class)
@@ -619,6 +640,12 @@ class MessageTypeIcmp_(Enum):
     mobile_registration_reply = Enum.YLeaf(36, "mobile-registration-reply")
 
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIcmp_']
 
 
 class MessageTypeIcmpv6(Enum):
@@ -840,6 +867,12 @@ class MessageTypeIcmpv6(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIcmpv6']
+
+
 class MessageTypeIcmpv6_(Enum):
     """
     MessageTypeIcmpv6\_ (Enum Class)
@@ -1059,6 +1092,12 @@ class MessageTypeIcmpv6_(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIcmpv6_']
+
+
 class MessageTypeIgmp(Enum):
     """
     MessageTypeIgmp (Enum Class)
@@ -1146,6 +1185,12 @@ class MessageTypeIgmp(Enum):
     multicast_router_solicitation = Enum.YLeaf(49, "multicast-router-solicitation")
 
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIgmp']
 
 
 class MessageTypeIgmp_(Enum):
@@ -1237,6 +1282,12 @@ class MessageTypeIgmp_(Enum):
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['MessageTypeIgmp_']
+
+
 class Packet(Enum):
     """
     Packet (Enum Class)
@@ -1270,6 +1321,12 @@ class Packet(Enum):
     unknown = Enum.YLeaf(3, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['Packet']
+
+
 class UdpAddressFamily(Enum):
     """
     UdpAddressFamily (Enum Class)
@@ -1291,8 +1348,14 @@ class UdpAddressFamily(Enum):
     ipv6 = Enum.YLeaf(10, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['UdpAddressFamily']
 
-class Udp(Entity):
+
+
+class Udp(_Entity_):
     """
     IP UDP Operational Data
     
@@ -1311,7 +1374,10 @@ class Udp(Entity):
     _revision = '2018-08-09'
 
     def __init__(self):
-        super(Udp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Udp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "udp"
@@ -1332,7 +1398,7 @@ class Udp(Entity):
         self._perform_setattr(Udp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific UDP operational data
         
@@ -1351,7 +1417,10 @@ class Udp(Entity):
         _revision = '2018-08-09'
 
         def __init__(self):
-            super(Udp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Udp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "udp"
@@ -1370,7 +1439,7 @@ class Udp(Entity):
             self._perform_setattr(Udp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             UDP operational data for a particular node
             
@@ -1398,7 +1467,10 @@ class Udp(Entity):
             _revision = '2018-08-09'
 
             def __init__(self):
-                super(Udp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Udp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1422,7 +1494,7 @@ class Udp(Entity):
                 self._perform_setattr(Udp.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistical UDP operational data for a node
                 
@@ -1448,7 +1520,10 @@ class Udp(Entity):
                 _revision = '2018-08-09'
 
                 def __init__(self):
-                    super(Udp.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Udp.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -1472,7 +1547,7 @@ class Udp(Entity):
                     self._perform_setattr(Udp.Nodes.Node.Statistics, [], name, value)
 
 
-                class Ipv4Traffic(Entity):
+                class Ipv4Traffic(_Entity_):
                     """
                     UDP Traffic statistics for IPv4
                     
@@ -1538,7 +1613,10 @@ class Udp(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
 
                         self.yang_name = "ipv4-traffic"
                         self.yang_parent_name = "statistics"
@@ -1566,9 +1644,13 @@ class Udp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv4Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['Udp.Nodes.Node.Statistics.Ipv4Traffic']['meta_info']
 
 
-                class Ipv6Traffic(Entity):
+                class Ipv6Traffic(_Entity_):
                     """
                     UDP Traffic statistics for IPv6
                     
@@ -1634,7 +1716,10 @@ class Udp(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
 
                         self.yang_name = "ipv6-traffic"
                         self.yang_parent_name = "statistics"
@@ -1662,17 +1747,37 @@ class Udp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv6Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['Udp.Nodes.Node.Statistics.Ipv6Traffic']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                    return meta._meta_table['Udp.Nodes.Node.Statistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                return meta._meta_table['Udp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+            return meta._meta_table['Udp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Udp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['Udp']['meta_info']
 
 
-class UdpConnection(Entity):
+class UdpConnection(_Entity_):
     """
     udp connection
     
@@ -1691,7 +1796,10 @@ class UdpConnection(Entity):
     _revision = '2018-08-09'
 
     def __init__(self):
-        super(UdpConnection, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(UdpConnection, self).__init__()
         self._top_entity = None
 
         self.yang_name = "udp-connection"
@@ -1712,7 +1820,7 @@ class UdpConnection(Entity):
         self._perform_setattr(UdpConnection, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of UDP connections nodes
         
@@ -1731,7 +1839,10 @@ class UdpConnection(Entity):
         _revision = '2018-08-09'
 
         def __init__(self):
-            super(UdpConnection.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(UdpConnection.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "udp-connection"
@@ -1750,7 +1861,7 @@ class UdpConnection(Entity):
             self._perform_setattr(UdpConnection.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Information about a particular node
             
@@ -1799,7 +1910,10 @@ class UdpConnection(Entity):
             _revision = '2018-08-09'
 
             def __init__(self):
-                super(UdpConnection.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(UdpConnection.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1835,7 +1949,7 @@ class UdpConnection(Entity):
                 self._perform_setattr(UdpConnection.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistics of UDP connections
                 
@@ -1868,7 +1982,10 @@ class UdpConnection(Entity):
                 _revision = '2018-08-09'
 
                 def __init__(self):
-                    super(UdpConnection.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(UdpConnection.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -1896,7 +2013,7 @@ class UdpConnection(Entity):
                     self._perform_setattr(UdpConnection.Nodes.Node.Statistics, [], name, value)
 
 
-                class Clients(Entity):
+                class Clients(_Entity_):
                     """
                     Table listing clients
                     
@@ -1915,7 +2032,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
 
                         self.yang_name = "clients"
                         self.yang_parent_name = "statistics"
@@ -1933,7 +2053,7 @@ class UdpConnection(Entity):
                         self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients, [], name, value)
 
 
-                    class Client(Entity):
+                    class Client(_Entity_):
                         """
                         Describing Client ID
                         
@@ -2008,7 +2128,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
 
                             self.yang_name = "client"
                             self.yang_parent_name = "clients"
@@ -2038,10 +2161,18 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Clients.Client']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Clients']['meta_info']
 
 
-
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     Summary statistics across all UDP connections
                     
@@ -2143,7 +2274,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "statistics"
@@ -2179,9 +2313,13 @@ class UdpConnection(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['received_total_packets', 'received_no_port_packets', 'received_bad_checksum_packets', 'received_too_short_packets', 'received_drop_packets', 'sent_total_packets', 'sent_error_packets', 'forward_broadcast_packets', 'cloned_packets', 'failed_clone_packets'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Summary']['meta_info']
 
 
-                class PcbStatistics(Entity):
+                class PcbStatistics(_Entity_):
                     """
                     Table listing the UDP connections for which
                     statistics are provided
@@ -2201,7 +2339,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
 
                         self.yang_name = "pcb-statistics"
                         self.yang_parent_name = "statistics"
@@ -2219,7 +2360,7 @@ class UdpConnection(Entity):
                         self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics, [], name, value)
 
 
-                    class PcbStatistic(Entity):
+                    class PcbStatistic(_Entity_):
                         """
                         Satistics associated with a particular PCB
                         
@@ -2270,7 +2411,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
 
                             self.yang_name = "pcb-statistic"
                             self.yang_parent_name = "pcb-statistics"
@@ -2301,7 +2445,7 @@ class UdpConnection(Entity):
                             self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
 
 
-                        class Send(Entity):
+                        class Send(_Entity_):
                             """
                             UDP send statistics
                             
@@ -2369,7 +2513,10 @@ class UdpConnection(Entity):
                             _revision = '2018-08-09'
 
                             def __init__(self):
-                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
 
                                 self.yang_name = "send"
                                 self.yang_parent_name = "pcb-statistic"
@@ -2397,9 +2544,13 @@ class UdpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['received_application_bytes', 'received_xipc_pulses', 'sent_network_packets', 'sent_net_io_packets', 'failed_queued_network_packets', 'failed_queued_net_io_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send']['meta_info']
 
 
-                        class Receive(Entity):
+                        class Receive(_Entity_):
                             """
                             UDP receive statistics
                             
@@ -2456,7 +2607,10 @@ class UdpConnection(Entity):
                             _revision = '2018-08-09'
 
                             def __init__(self):
-                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
 
                                 self.yang_name = "receive"
                                 self.yang_parent_name = "pcb-statistic"
@@ -2482,12 +2636,28 @@ class UdpConnection(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['received_network_packets', 'failed_queued_application_packets', 'queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_socket_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                    return meta._meta_table['UdpConnection.Nodes.Node.Statistics']['meta_info']
 
 
-
-
-
-            class Lpts(Entity):
+            class Lpts(_Entity_):
                 """
                 LPTS statistical data
                 
@@ -2506,7 +2676,10 @@ class UdpConnection(Entity):
                 _revision = '2018-08-09'
 
                 def __init__(self):
-                    super(UdpConnection.Nodes.Node.Lpts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(UdpConnection.Nodes.Node.Lpts, self).__init__()
 
                     self.yang_name = "lpts"
                     self.yang_parent_name = "node"
@@ -2526,7 +2699,7 @@ class UdpConnection(Entity):
                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts, [], name, value)
 
 
-                class Queries(Entity):
+                class Queries(_Entity_):
                     """
                     List of query options
                     
@@ -2545,7 +2718,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.Lpts.Queries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.Lpts.Queries, self).__init__()
 
                         self.yang_name = "queries"
                         self.yang_parent_name = "lpts"
@@ -2563,7 +2739,7 @@ class UdpConnection(Entity):
                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries, [], name, value)
 
 
-                    class Query(Entity):
+                    class Query(_Entity_):
                         """
                         Query option
                         
@@ -2589,7 +2765,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__init__()
 
                             self.yang_name = "query"
                             self.yang_parent_name = "queries"
@@ -2612,7 +2791,7 @@ class UdpConnection(Entity):
                             self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query, ['query_name'], name, value)
 
 
-                        class Pcbs(Entity):
+                        class Pcbs(_Entity_):
                             """
                             List of PCBs
                             
@@ -2631,7 +2810,10 @@ class UdpConnection(Entity):
                             _revision = '2018-08-09'
 
                             def __init__(self):
-                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__init__()
 
                                 self.yang_name = "pcbs"
                                 self.yang_parent_name = "query"
@@ -2649,7 +2831,7 @@ class UdpConnection(Entity):
                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, [], name, value)
 
 
-                            class Pcb(Entity):
+                            class Pcb(_Entity_):
                                 """
                                 A PCB information
                                 
@@ -2718,7 +2900,10 @@ class UdpConnection(Entity):
                                 _revision = '2018-08-09'
 
                                 def __init__(self):
-                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__init__()
 
                                     self.yang_name = "pcb"
                                     self.yang_parent_name = "pcbs"
@@ -2755,7 +2940,7 @@ class UdpConnection(Entity):
                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
 
 
-                                class LocalAddress(Entity):
+                                class LocalAddress(_Entity_):
                                     """
                                     Local IP address
                                     
@@ -2792,7 +2977,10 @@ class UdpConnection(Entity):
                                     _revision = '2018-08-09'
 
                                     def __init__(self):
-                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
 
                                         self.yang_name = "local-address"
                                         self.yang_parent_name = "pcb"
@@ -2814,9 +3002,13 @@ class UdpConnection(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress']['meta_info']
 
 
-                                class ForeignAddress(Entity):
+                                class ForeignAddress(_Entity_):
                                     """
                                     Remote IP address
                                     
@@ -2853,7 +3045,10 @@ class UdpConnection(Entity):
                                     _revision = '2018-08-09'
 
                                     def __init__(self):
-                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
 
                                         self.yang_name = "foreign-address"
                                         self.yang_parent_name = "pcb"
@@ -2875,9 +3070,13 @@ class UdpConnection(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress']['meta_info']
 
 
-                                class Common(Entity):
+                                class Common(_Entity_):
                                     """
                                     Common PCB information
                                     
@@ -2903,7 +3102,10 @@ class UdpConnection(Entity):
                                     _revision = '2018-08-09'
 
                                     def __init__(self):
-                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__init__()
 
                                         self.yang_name = "common"
                                         self.yang_parent_name = "pcb"
@@ -2926,7 +3128,7 @@ class UdpConnection(Entity):
                                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, ['af_name'], name, value)
 
 
-                                    class LptsPcb(Entity):
+                                    class LptsPcb(_Entity_):
                                         """
                                         LPTS PCB information
                                         
@@ -2984,7 +3186,10 @@ class UdpConnection(Entity):
                                         _revision = '2018-08-09'
 
                                         def __init__(self):
-                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__init__()
 
                                             self.yang_name = "lpts-pcb"
                                             self.yang_parent_name = "common"
@@ -3019,7 +3224,7 @@ class UdpConnection(Entity):
                                             self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, ['ttl', 'flow_types_info'], name, value)
 
 
-                                        class Options(Entity):
+                                        class Options(_Entity_):
                                             """
                                             Receive options
                                             
@@ -3045,7 +3250,10 @@ class UdpConnection(Entity):
                                             _revision = '2018-08-09'
 
                                             def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
 
                                                 self.yang_name = "options"
                                                 self.yang_parent_name = "lpts-pcb"
@@ -3065,9 +3273,13 @@ class UdpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options']['meta_info']
 
 
-                                        class LptsFlags(Entity):
+                                        class LptsFlags(_Entity_):
                                             """
                                             LPTS flags
                                             
@@ -3100,7 +3312,10 @@ class UdpConnection(Entity):
                                             _revision = '2018-08-09'
 
                                             def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
 
                                                 self.yang_name = "lpts-flags"
                                                 self.yang_parent_name = "lpts-pcb"
@@ -3122,9 +3337,13 @@ class UdpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags']['meta_info']
 
 
-                                        class AcceptMask(Entity):
+                                        class AcceptMask(_Entity_):
                                             """
                                             AcceptMask
                                             
@@ -3178,7 +3397,10 @@ class UdpConnection(Entity):
                                             _revision = '2018-08-09'
 
                                             def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__init__()
 
                                                 self.yang_name = "accept-mask"
                                                 self.yang_parent_name = "lpts-pcb"
@@ -3206,9 +3428,13 @@ class UdpConnection(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask']['meta_info']
 
 
-                                        class Filter(Entity):
+                                        class Filter(_Entity_):
                                             """
                                             Interface Filters
                                             
@@ -3313,7 +3539,10 @@ class UdpConnection(Entity):
                                             _revision = '2018-08-09'
 
                                             def __init__(self):
-                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__init__()
 
                                                 self.yang_name = "filter"
                                                 self.yang_parent_name = "lpts-pcb"
@@ -3358,7 +3587,7 @@ class UdpConnection(Entity):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, ['interface_name', 'remote_length', 'local_length', 'receive_remote_port', 'receive_local_port', 'priority', 'ttl', 'flow_types_info'], name, value)
 
 
-                                            class PacketType(Entity):
+                                            class PacketType(_Entity_):
                                                 """
                                                 Protocol\-specific packet type
                                                 
@@ -3407,7 +3636,10 @@ class UdpConnection(Entity):
                                                 _revision = '2018-08-09'
 
                                                 def __init__(self):
-                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__init__()
 
                                                     self.yang_name = "packet-type"
                                                     self.yang_parent_name = "filter"
@@ -3433,9 +3665,13 @@ class UdpConnection(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType']['meta_info']
 
 
-                                            class RemoteAddress(Entity):
+                                            class RemoteAddress(_Entity_):
                                                 """
                                                 Remote address
                                                 
@@ -3472,7 +3708,10 @@ class UdpConnection(Entity):
                                                 _revision = '2018-08-09'
 
                                                 def __init__(self):
-                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
 
                                                     self.yang_name = "remote-address"
                                                     self.yang_parent_name = "filter"
@@ -3494,9 +3733,13 @@ class UdpConnection(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress']['meta_info']
 
 
-                                            class LocalAddress(Entity):
+                                            class LocalAddress(_Entity_):
                                                 """
                                                 Local address
                                                 
@@ -3533,7 +3776,10 @@ class UdpConnection(Entity):
                                                 _revision = '2018-08-09'
 
                                                 def __init__(self):
-                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
 
                                                     self.yang_name = "local-address"
                                                     self.yang_parent_name = "filter"
@@ -3555,17 +3801,53 @@ class UdpConnection(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                            return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts']['meta_info']
 
 
-
-
-
-
-
-
-
-
-            class PcbDetails(Entity):
+            class PcbDetails(_Entity_):
                 """
                 Detail information for list of UDP connections
                 .
@@ -3585,7 +3867,10 @@ class UdpConnection(Entity):
                 _revision = '2018-08-09'
 
                 def __init__(self):
-                    super(UdpConnection.Nodes.Node.PcbDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(UdpConnection.Nodes.Node.PcbDetails, self).__init__()
 
                     self.yang_name = "pcb-details"
                     self.yang_parent_name = "node"
@@ -3603,7 +3888,7 @@ class UdpConnection(Entity):
                     self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails, [], name, value)
 
 
-                class PcbDetail(Entity):
+                class PcbDetail(_Entity_):
                     """
                     Detail information about a UDP connection
                     
@@ -3706,7 +3991,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__init__()
 
                         self.yang_name = "pcb-detail"
                         self.yang_parent_name = "pcb-details"
@@ -3751,7 +4039,7 @@ class UdpConnection(Entity):
                         self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         Local address
                         
@@ -3788,7 +4076,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "pcb-detail"
@@ -3810,9 +4101,13 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress']['meta_info']
 
 
-                    class ForeignAddress(Entity):
+                    class ForeignAddress(_Entity_):
                         """
                         Foreign address
                         
@@ -3849,7 +4144,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
 
                             self.yang_name = "foreign-address"
                             self.yang_parent_name = "pcb-detail"
@@ -3871,9 +4169,13 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress']['meta_info']
 
 
-                    class PcbFlags(Entity):
+                    class PcbFlags(_Entity_):
                         """
                         PCB flags
                         
@@ -4032,7 +4334,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags, self).__init__()
 
                             self.yang_name = "pcb-flags"
                             self.yang_parent_name = "pcb-detail"
@@ -4090,11 +4395,23 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags, ['recv_opts', 'recv_ret_opts', 'recv_dest_addr', 'header_include', 'recv_intf', 'recv_header', 'mcast_loopback', 'recv_l2_header', 'recv_packet_info', 'router_alert', 'recv_hop_limit', 'recv_routing_header', 'recv_hop_header', 'recv_dest_header', 'recv_traffic_class', 'recv_ip_sec', 'recv_tabel_id', 'recv_pak_priority', 'conn_limit', 'opt_handled', 'bind_local'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail.PcbFlags']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                    return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails']['meta_info']
 
 
-
-
-            class PcbBriefs(Entity):
+            class PcbBriefs(_Entity_):
                 """
                 Brief information for list of UDP connections.
                 
@@ -4113,7 +4430,10 @@ class UdpConnection(Entity):
                 _revision = '2018-08-09'
 
                 def __init__(self):
-                    super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
 
                     self.yang_name = "pcb-briefs"
                     self.yang_parent_name = "node"
@@ -4131,7 +4451,7 @@ class UdpConnection(Entity):
                     self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs, [], name, value)
 
 
-                class PcbBrief(Entity):
+                class PcbBrief(_Entity_):
                     """
                     Brief information about a UDP connection
                     
@@ -4218,7 +4538,10 @@ class UdpConnection(Entity):
                     _revision = '2018-08-09'
 
                     def __init__(self):
-                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
 
                         self.yang_name = "pcb-brief"
                         self.yang_parent_name = "pcb-briefs"
@@ -4257,7 +4580,7 @@ class UdpConnection(Entity):
                         self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
 
 
-                    class LocalAddress(Entity):
+                    class LocalAddress(_Entity_):
                         """
                         Local address
                         
@@ -4294,7 +4617,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
 
                             self.yang_name = "local-address"
                             self.yang_parent_name = "pcb-brief"
@@ -4316,9 +4642,13 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress']['meta_info']
 
 
-                    class ForeignAddress(Entity):
+                    class ForeignAddress(_Entity_):
                         """
                         Foreign address
                         
@@ -4355,7 +4685,10 @@ class UdpConnection(Entity):
                         _revision = '2018-08-09'
 
                         def __init__(self):
-                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
 
                             self.yang_name = "foreign-address"
                             self.yang_parent_name = "pcb-brief"
@@ -4377,14 +4710,38 @@ class UdpConnection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                            return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                        return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                    return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+                return meta._meta_table['UdpConnection.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+            return meta._meta_table['UdpConnection.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = UdpConnection()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
+        return meta._meta_table['UdpConnection']['meta_info']
 
 

@@ -25,6 +25,10 @@ module Cisco-IOS-XR-mpls-te-datatypes {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-30 {
+    description
+      "extra leaves in mpls.traffic-eng.attribute-set.auto-backup.logging.events.lsp-status";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";

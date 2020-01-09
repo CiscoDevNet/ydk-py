@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ltrace(Entity):
+class Ltrace(_Entity_):
     """
     ASCII ltrace data
     
@@ -40,7 +43,10 @@ class Ltrace(Entity):
     _revision = '2018-01-21'
 
     def __init__(self):
-        super(Ltrace, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ltrace, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ltrace"
@@ -61,7 +67,7 @@ class Ltrace(Entity):
         self._perform_setattr(Ltrace, [], name, value)
 
 
-    class Features(Entity):
+    class Features(_Entity_):
         """
         feature
         
@@ -80,7 +86,10 @@ class Ltrace(Entity):
         _revision = '2018-01-21'
 
         def __init__(self):
-            super(Ltrace.Features, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ltrace.Features, self).__init__()
 
             self.yang_name = "features"
             self.yang_parent_name = "ltrace"
@@ -99,7 +108,7 @@ class Ltrace(Entity):
             self._perform_setattr(Ltrace.Features, [], name, value)
 
 
-        class Feature(Entity):
+        class Feature(_Entity_):
             """
             feature
             
@@ -136,7 +145,10 @@ class Ltrace(Entity):
             _revision = '2018-01-21'
 
             def __init__(self):
-                super(Ltrace.Features.Feature, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ltrace.Features.Feature, self).__init__()
 
                 self.yang_name = "feature"
                 self.yang_parent_name = "features"
@@ -162,7 +174,7 @@ class Ltrace(Entity):
                 self._perform_setattr(Ltrace.Features.Feature, ['feature_name', 'trace_buf'], name, value)
 
 
-            class Traces(Entity):
+            class Traces(_Entity_):
                 """
                 trace
                 
@@ -181,7 +193,10 @@ class Ltrace(Entity):
                 _revision = '2018-01-21'
 
                 def __init__(self):
-                    super(Ltrace.Features.Feature.Traces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ltrace.Features.Feature.Traces, self).__init__()
 
                     self.yang_name = "traces"
                     self.yang_parent_name = "feature"
@@ -200,7 +215,7 @@ class Ltrace(Entity):
                     self._perform_setattr(Ltrace.Features.Feature.Traces, [], name, value)
 
 
-                class Trace(Entity):
+                class Trace(_Entity_):
                     """
                     trace
                     
@@ -235,7 +250,10 @@ class Ltrace(Entity):
                     _revision = '2018-01-21'
 
                     def __init__(self):
-                        super(Ltrace.Features.Feature.Traces.Trace, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ltrace.Features.Feature.Traces.Trace, self).__init__()
 
                         self.yang_name = "trace"
                         self.yang_parent_name = "traces"
@@ -258,13 +276,33 @@ class Ltrace(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ltrace.Features.Feature.Traces.Trace, ['ltrace_id', 'timestamp', 'line'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ascii_ltrace_oper as meta
+                        return meta._meta_table['Ltrace.Features.Feature.Traces.Trace']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ascii_ltrace_oper as meta
+                    return meta._meta_table['Ltrace.Features.Feature.Traces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ascii_ltrace_oper as meta
+                return meta._meta_table['Ltrace.Features.Feature']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ascii_ltrace_oper as meta
+            return meta._meta_table['Ltrace.Features']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ltrace()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ascii_ltrace_oper as meta
+        return meta._meta_table['Ltrace']['meta_info']
 
 

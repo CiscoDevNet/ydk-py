@@ -28,7 +28,7 @@ module Cisco-IOS-XR-asr9k-lpts-oper {
      This module contains definitions
      for the following management objects:
        platform-lptsp-ifib-static: ASR9K platform ifib operational
-         data 
+         data
        platform-lptsp-ifib: platform lptsp ifib
        platform-lptsp-ifib-np-stats: platform lptsp ifib np stats
      

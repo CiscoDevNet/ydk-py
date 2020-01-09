@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ptp(Entity):
+class Ptp(_Entity_):
     """
     PTP global configuration
     
@@ -51,7 +54,7 @@ class Ptp(Entity):
     
     .. attribute:: uncalibrated_clock_class
     
-    	Clock class to be used while acquiring phase\-lock to a parent clock. Note that this is deprecated and should not be  used
+    	Clock class to be used while acquiring phase\-lock to a parent clock. Note that this is deprecated and should not be used
     	**type**\: int
     
     	**range:** 0..255
@@ -130,7 +133,10 @@ class Ptp(Entity):
     _revision = '2017-02-02'
 
     def __init__(self):
-        super(Ptp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ptp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ptp"
@@ -191,7 +197,7 @@ class Ptp(Entity):
         self._perform_setattr(Ptp, ['uncalibrated_clock_class', 'time_of_day_priority', 'frequency_priority', 'startup_clock_class', 'enable', 'min_clock_class', 'physical_layer_frequency', 'freerun_clock_class'], name, value)
 
 
-    class Clock(Entity):
+    class Clock(_Entity_):
         """
         PTP local clock configuration
         
@@ -259,7 +265,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.Clock, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.Clock, self).__init__()
 
             self.yang_name = "clock"
             self.yang_parent_name = "ptp"
@@ -297,7 +306,7 @@ class Ptp(Entity):
             self._perform_setattr(Ptp.Clock, ['timescale', 'domain', 'priority2', 'time_source', 'priority1', 'clock_class'], name, value)
 
 
-        class Profile(Entity):
+        class Profile(_Entity_):
             """
             Local clock PTP profile
             
@@ -321,7 +330,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.Clock.Profile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.Clock.Profile, self).__init__()
 
                 self.yang_name = "profile"
                 self.yang_parent_name = "clock"
@@ -342,9 +354,13 @@ class Ptp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.Clock.Profile, ['clock_profile', 'telecom_clock_type'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.Clock.Profile']['meta_info']
 
 
-        class Identity(Entity):
+        class Identity(_Entity_):
             """
             Local clock identity
             
@@ -375,7 +391,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.Clock.Identity, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.Clock.Identity, self).__init__()
 
                 self.yang_name = "identity"
                 self.yang_parent_name = "clock"
@@ -398,10 +417,18 @@ class Ptp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.Clock.Identity, ['clock_id_type', 'mac_address', 'eui'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.Clock.Identity']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.Clock']['meta_info']
 
 
-
-    class Profiles(Entity):
+    class Profiles(_Entity_):
         """
         Table for profile configuration
         
@@ -418,7 +445,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.Profiles, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.Profiles, self).__init__()
 
             self.yang_name = "profiles"
             self.yang_parent_name = "ptp"
@@ -437,7 +467,7 @@ class Ptp(Entity):
             self._perform_setattr(Ptp.Profiles, [], name, value)
 
 
-        class Profile(Entity):
+        class Profile(_Entity_):
             """
             Profile configuration
             
@@ -665,7 +695,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.Profiles.Profile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.Profiles.Profile, self).__init__()
 
                 self.yang_name = "profile"
                 self.yang_parent_name = "profiles"
@@ -757,7 +790,7 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.Profiles.Profile, ['profile_name', 'sync_grant_duration', 'general_cos', 'sync_timeout', 'transport', 'announce_timeout', 'cos', 'ipv4ttl', 'port_state', 'delay_response_timeout', 'delay_response_grant_duration', 'event_cos', 'dscp', 'ipv6_hop_limit', 'general_dscp', 'clock_operation', 'announce_grant_duration', 'unicast_grant_invalid_request', 'event_dscp'], name, value)
 
 
-            class AnnounceInterval(Entity):
+            class AnnounceInterval(_Entity_):
                 """
                 Announce interval
                 
@@ -783,7 +816,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.AnnounceInterval, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.AnnounceInterval, self).__init__()
 
                     self.yang_name = "announce-interval"
                     self.yang_parent_name = "profile"
@@ -803,9 +839,13 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, ['time_type', 'time_period'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.AnnounceInterval']['meta_info']
 
 
-            class Interop(Entity):
+            class Interop(_Entity_):
                 """
                 Table for interop configuration
                 
@@ -839,7 +879,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.Interop, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.Interop, self).__init__()
 
                     self.yang_name = "interop"
                     self.yang_parent_name = "profile"
@@ -868,7 +911,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.Interop, ['profile', 'domain'], name, value)
 
 
-                class EgressConversion(Entity):
+                class EgressConversion(_Entity_):
                     """
                     Iteroperation configuration to be used on
                     egress
@@ -921,7 +964,10 @@ class Ptp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Ptp.Profiles.Profile.Interop.EgressConversion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ptp.Profiles.Profile.Interop.EgressConversion, self).__init__()
 
                         self.yang_name = "egress-conversion"
                         self.yang_parent_name = "interop"
@@ -952,7 +998,7 @@ class Ptp(Entity):
                         self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
 
 
-                    class ClockClassMappings(Entity):
+                    class ClockClassMappings(_Entity_):
                         """
                         Table for specific mappings for given clock
                         class values
@@ -970,7 +1016,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings, self).__init__()
 
                             self.yang_name = "clock-class-mappings"
                             self.yang_parent_name = "egress-conversion"
@@ -988,7 +1037,7 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings, [], name, value)
 
 
-                        class ClockClassMapping(Entity):
+                        class ClockClassMapping(_Entity_):
                             """
                             Mapping for a given clock class value
                             
@@ -1016,7 +1065,10 @@ class Ptp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
 
                                 self.yang_name = "clock-class-mapping"
                                 self.yang_parent_name = "clock-class-mappings"
@@ -1036,11 +1088,23 @@ class Ptp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                                return meta._meta_table['Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                        return meta._meta_table['Ptp.Profiles.Profile.Interop.EgressConversion']['meta_info']
 
 
-
-
-                class IngressConversion(Entity):
+                class IngressConversion(_Entity_):
                     """
                     Iteroperation configuration to be used on
                     ingress
@@ -1093,7 +1157,10 @@ class Ptp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Ptp.Profiles.Profile.Interop.IngressConversion, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ptp.Profiles.Profile.Interop.IngressConversion, self).__init__()
 
                         self.yang_name = "ingress-conversion"
                         self.yang_parent_name = "interop"
@@ -1124,7 +1191,7 @@ class Ptp(Entity):
                         self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
 
 
-                    class ClockClassMappings(Entity):
+                    class ClockClassMappings(_Entity_):
                         """
                         Table for specific mappings for given clock
                         class values
@@ -1142,7 +1209,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings, self).__init__()
 
                             self.yang_name = "clock-class-mappings"
                             self.yang_parent_name = "ingress-conversion"
@@ -1160,7 +1230,7 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings, [], name, value)
 
 
-                        class ClockClassMapping(Entity):
+                        class ClockClassMapping(_Entity_):
                             """
                             Mapping for a given clock class value
                             
@@ -1188,7 +1258,10 @@ class Ptp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
 
                                 self.yang_name = "clock-class-mapping"
                                 self.yang_parent_name = "clock-class-mappings"
@@ -1208,12 +1281,28 @@ class Ptp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                                return meta._meta_table['Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                        return meta._meta_table['Ptp.Profiles.Profile.Interop.IngressConversion']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.Interop']['meta_info']
 
 
-
-
-
-            class SourceIpv4Address(Entity):
+            class SourceIpv4Address(_Entity_):
                 """
                 Source IPv4 Address
                 
@@ -1237,7 +1326,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.SourceIpv4Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.SourceIpv4Address, self).__init__()
 
                     self.yang_name = "source-ipv4-address"
                     self.yang_parent_name = "profile"
@@ -1257,9 +1349,13 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, ['enable', 'source_ip'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.SourceIpv4Address']['meta_info']
 
 
-            class Slaves(Entity):
+            class Slaves(_Entity_):
                 """
                 Table for slave configuration
                 
@@ -1276,7 +1372,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.Slaves, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.Slaves, self).__init__()
 
                     self.yang_name = "slaves"
                     self.yang_parent_name = "profile"
@@ -1294,7 +1393,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.Slaves, [], name, value)
 
 
-                class Slave(Entity):
+                class Slave(_Entity_):
                     """
                     Slave configuration
                     
@@ -1321,7 +1420,10 @@ class Ptp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Ptp.Profiles.Profile.Slaves.Slave, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ptp.Profiles.Profile.Slaves.Slave, self).__init__()
 
                         self.yang_name = "slave"
                         self.yang_parent_name = "slaves"
@@ -1343,7 +1445,7 @@ class Ptp(Entity):
                         self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, ['transport'], name, value)
 
 
-                    class Ethernet(Entity):
+                    class Ethernet(_Entity_):
                         """
                         ethernet
                         
@@ -1367,7 +1469,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, self).__init__()
 
                             self.yang_name = "ethernet"
                             self.yang_parent_name = "slave"
@@ -1387,9 +1492,13 @@ class Ptp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Slaves.Slave.Ethernet']['meta_info']
 
 
-                    class Ipv4OrIpv6(Entity):
+                    class Ipv4OrIpv6(_Entity_):
                         """
                         ipv4 or ipv6
                         
@@ -1419,7 +1528,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, self).__init__()
 
                             self.yang_name = "ipv4-or-ipv6"
                             self.yang_parent_name = "slave"
@@ -1439,11 +1551,23 @@ class Ptp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                        return meta._meta_table['Ptp.Profiles.Profile.Slaves.Slave']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.Slaves']['meta_info']
 
 
-
-
-            class SyncInterval(Entity):
+            class SyncInterval(_Entity_):
                 """
                 Sync interval
                 
@@ -1469,7 +1593,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.SyncInterval, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.SyncInterval, self).__init__()
 
                     self.yang_name = "sync-interval"
                     self.yang_parent_name = "profile"
@@ -1489,9 +1616,13 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, ['time_type', 'time_period'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.SyncInterval']['meta_info']
 
 
-            class Masters(Entity):
+            class Masters(_Entity_):
                 """
                 Table for master configuration
                 
@@ -1508,7 +1639,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.Masters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.Masters, self).__init__()
 
                     self.yang_name = "masters"
                     self.yang_parent_name = "profile"
@@ -1526,7 +1660,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.Masters, [], name, value)
 
 
-                class Master(Entity):
+                class Master(_Entity_):
                     """
                     Master configuration
                     
@@ -1553,7 +1687,10 @@ class Ptp(Entity):
                     _revision = '2017-02-02'
 
                     def __init__(self):
-                        super(Ptp.Profiles.Profile.Masters.Master, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ptp.Profiles.Profile.Masters.Master, self).__init__()
 
                         self.yang_name = "master"
                         self.yang_parent_name = "masters"
@@ -1575,7 +1712,7 @@ class Ptp(Entity):
                         self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, ['transport'], name, value)
 
 
-                    class Ethernet(Entity):
+                    class Ethernet(_Entity_):
                         """
                         ethernet
                         
@@ -1627,7 +1764,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Masters.Master.Ethernet, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Masters.Master.Ethernet, self).__init__()
 
                             self.yang_name = "ethernet"
                             self.yang_parent_name = "master"
@@ -1657,7 +1797,7 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, ['master_mac_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
-                        class DelayAsymmetry(Entity):
+                        class DelayAsymmetry(_Entity_):
                             """
                             The delay asymmetry for this master
                             
@@ -1687,7 +1827,10 @@ class Ptp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, self).__init__()
 
                                 self.yang_name = "delay-asymmetry"
                                 self.yang_parent_name = "ethernet"
@@ -1708,10 +1851,18 @@ class Ptp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                                return meta._meta_table['Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Masters.Master.Ethernet']['meta_info']
 
 
-
-                    class Ipv4OrIpv6(Entity):
+                    class Ipv4OrIpv6(_Entity_):
                         """
                         ipv4 or ipv6
                         
@@ -1769,7 +1920,10 @@ class Ptp(Entity):
                         _revision = '2017-02-02'
 
                         def __init__(self):
-                            super(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, self).__init__()
 
                             self.yang_name = "ipv4-or-ipv6"
                             self.yang_parent_name = "master"
@@ -1799,7 +1953,7 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, ['master_ip_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
-                        class DelayAsymmetry(Entity):
+                        class DelayAsymmetry(_Entity_):
                             """
                             The delay asymmetry for this master
                             
@@ -1829,7 +1983,10 @@ class Ptp(Entity):
                             _revision = '2017-02-02'
 
                             def __init__(self):
-                                super(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, self).__init__()
 
                                 self.yang_name = "delay-asymmetry"
                                 self.yang_parent_name = "ipv4-or-ipv6"
@@ -1850,12 +2007,28 @@ class Ptp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                                return meta._meta_table['Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                            return meta._meta_table['Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                        return meta._meta_table['Ptp.Profiles.Profile.Masters.Master']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.Masters']['meta_info']
 
 
-
-
-
-            class Communication(Entity):
+            class Communication(_Entity_):
                 """
                 Communication model
                 
@@ -1886,7 +2059,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.Communication, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.Communication, self).__init__()
 
                     self.yang_name = "communication"
                     self.yang_parent_name = "profile"
@@ -1908,9 +2084,13 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.Communication, ['model', 'target_address_set', 'target_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.Communication']['meta_info']
 
 
-            class DelayRequestMinimumInterval(Entity):
+            class DelayRequestMinimumInterval(_Entity_):
                 """
                 Minimum delay request interval
                 
@@ -1936,7 +2116,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.DelayRequestMinimumInterval, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.DelayRequestMinimumInterval, self).__init__()
 
                     self.yang_name = "delay-request-minimum-interval"
                     self.yang_parent_name = "profile"
@@ -1956,9 +2139,13 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.DelayRequestMinimumInterval']['meta_info']
 
 
-            class SourceIpv6Address(Entity):
+            class SourceIpv6Address(_Entity_):
                 """
                 Source IPv6 Address
                 
@@ -1982,7 +2169,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.Profiles.Profile.SourceIpv6Address, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.Profiles.Profile.SourceIpv6Address, self).__init__()
 
                     self.yang_name = "source-ipv6-address"
                     self.yang_parent_name = "profile"
@@ -2002,11 +2192,23 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.Profiles.Profile.SourceIpv6Address']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.Profiles.Profile']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.Profiles']['meta_info']
 
 
-
-
-    class UtcOffset(Entity):
+    class UtcOffset(_Entity_):
         """
         UTC offset configuration
         
@@ -2039,7 +2241,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.UtcOffset, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.UtcOffset, self).__init__()
 
             self.yang_name = "utc-offset"
             self.yang_parent_name = "ptp"
@@ -2066,7 +2271,7 @@ class Ptp(Entity):
             self._perform_setattr(Ptp.UtcOffset, ['base_offset'], name, value)
 
 
-        class LeapSecondFile(Entity):
+        class LeapSecondFile(_Entity_):
             """
             Source file containing leap second information
             
@@ -2096,7 +2301,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.UtcOffset.LeapSecondFile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.UtcOffset.LeapSecondFile, self).__init__()
 
                 self.yang_name = "leap-second-file"
                 self.yang_parent_name = "utc-offset"
@@ -2118,9 +2326,13 @@ class Ptp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, ['source_url', 'polling_frequency'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.UtcOffset.LeapSecondFile']['meta_info']
 
 
-        class ScheduledOffsets(Entity):
+        class ScheduledOffsets(_Entity_):
             """
             Table for scheduled UTC offset configuration
             
@@ -2137,7 +2349,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.UtcOffset.ScheduledOffsets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.UtcOffset.ScheduledOffsets, self).__init__()
 
                 self.yang_name = "scheduled-offsets"
                 self.yang_parent_name = "utc-offset"
@@ -2156,7 +2371,7 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets, [], name, value)
 
 
-            class ScheduledOffset(Entity):
+            class ScheduledOffset(_Entity_):
                 """
                 Scheduled UTC offset configuration
                 
@@ -2186,7 +2401,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, self).__init__()
 
                     self.yang_name = "scheduled-offset"
                     self.yang_parent_name = "scheduled-offsets"
@@ -2207,11 +2425,23 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, ['date', 'offset'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.UtcOffset.ScheduledOffsets']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.UtcOffset']['meta_info']
 
 
-
-
-    class Logging(Entity):
+    class Logging(_Entity_):
         """
         PTP logging configuration
         
@@ -2233,7 +2463,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.Logging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.Logging, self).__init__()
 
             self.yang_name = "logging"
             self.yang_parent_name = "ptp"
@@ -2258,7 +2491,7 @@ class Ptp(Entity):
             self._perform_setattr(Ptp.Logging, [], name, value)
 
 
-        class BestMasterClock(Entity):
+        class BestMasterClock(_Entity_):
             """
             PTP best master clock logging configuration
             
@@ -2275,7 +2508,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.Logging.BestMasterClock, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.Logging.BestMasterClock, self).__init__()
 
                 self.yang_name = "best-master-clock"
                 self.yang_parent_name = "logging"
@@ -2294,9 +2530,13 @@ class Ptp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.Logging.BestMasterClock, ['changes'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.Logging.BestMasterClock']['meta_info']
 
 
-        class Servo(Entity):
+        class Servo(_Entity_):
             """
             PTP PD Servo logging configuration
             
@@ -2313,7 +2553,10 @@ class Ptp(Entity):
             _revision = '2017-05-20'
 
             def __init__(self):
-                super(Ptp.Logging.Servo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.Logging.Servo, self).__init__()
 
                 self.yang_name = "servo"
                 self.yang_parent_name = "logging"
@@ -2332,10 +2575,18 @@ class Ptp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.Logging.Servo, ['events'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.Logging.Servo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.Logging']['meta_info']
 
 
-
-    class UncalibratedClockClass2(Entity):
+    class UncalibratedClockClass2(_Entity_):
         """
         Clock class to be used while acquiring
         phase\-lock to a parent clock.
@@ -2364,7 +2615,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.UncalibratedClockClass2, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.UncalibratedClockClass2, self).__init__()
 
             self.yang_name = "uncalibrated-clock-class2"
             self.yang_parent_name = "ptp"
@@ -2386,9 +2640,13 @@ class Ptp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.UncalibratedClockClass2, ['clock_class', 'unless_from_holdover'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.UncalibratedClockClass2']['meta_info']
 
 
-    class TransparentClock(Entity):
+    class TransparentClock(_Entity_):
         """
         Transparent clock configuration
         
@@ -2405,7 +2663,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.TransparentClock, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.TransparentClock, self).__init__()
 
             self.yang_name = "transparent-clock"
             self.yang_parent_name = "ptp"
@@ -2426,7 +2687,7 @@ class Ptp(Entity):
             self._perform_setattr(Ptp.TransparentClock, [], name, value)
 
 
-        class Domains(Entity):
+        class Domains(_Entity_):
             """
             Table of domains containing transparent clock
             configuration
@@ -2444,7 +2705,10 @@ class Ptp(Entity):
             _revision = '2017-02-02'
 
             def __init__(self):
-                super(Ptp.TransparentClock.Domains, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ptp.TransparentClock.Domains, self).__init__()
 
                 self.yang_name = "domains"
                 self.yang_parent_name = "transparent-clock"
@@ -2463,7 +2727,7 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.TransparentClock.Domains, [], name, value)
 
 
-            class Domain(Entity):
+            class Domain(_Entity_):
                 """
                 Transparent clock domain configuration
                 
@@ -2482,7 +2746,10 @@ class Ptp(Entity):
                 _revision = '2017-02-02'
 
                 def __init__(self):
-                    super(Ptp.TransparentClock.Domains.Domain, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ptp.TransparentClock.Domains.Domain, self).__init__()
 
                     self.yang_name = "domain"
                     self.yang_parent_name = "domains"
@@ -2501,11 +2768,23 @@ class Ptp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.TransparentClock.Domains.Domain, ['domain'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                    return meta._meta_table['Ptp.TransparentClock.Domains.Domain']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+                return meta._meta_table['Ptp.TransparentClock.Domains']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.TransparentClock']['meta_info']
 
 
-
-
-    class VirtualPort(Entity):
+    class VirtualPort(_Entity_):
         """
         PTP virtual port configuration
         
@@ -2564,7 +2843,10 @@ class Ptp(Entity):
         _revision = '2017-02-02'
 
         def __init__(self):
-            super(Ptp.VirtualPort, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ptp.VirtualPort, self).__init__()
 
             self.yang_name = "virtual-port"
             self.yang_parent_name = "ptp"
@@ -2595,10 +2877,18 @@ class Ptp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.VirtualPort, ['clock_accuracy', 'enable', 'priority2', 'local_priority', 'offset_scaled_log_variance', 'priority1', 'clock_class'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+            return meta._meta_table['Ptp.VirtualPort']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ptp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_cfg as meta
+        return meta._meta_table['Ptp']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -71,6 +74,12 @@ class PmThresholdOp(Enum):
     rg = Enum.YLeaf(7, "rg")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+        return meta._meta_table['PmThresholdOp']
+
+
 class PmThresholdRearm(Enum):
     """
     PmThresholdRearm (Enum Class)
@@ -100,8 +109,14 @@ class PmThresholdRearm(Enum):
     toggle = Enum.YLeaf(2, "toggle")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+        return meta._meta_table['PmThresholdRearm']
 
-class PerfMgmt(Entity):
+
+
+class PerfMgmt(_Entity_):
     """
     Performance Management configuration & operations
     
@@ -138,7 +153,10 @@ class PerfMgmt(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(PerfMgmt, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PerfMgmt, self).__init__()
         self._top_entity = None
 
         self.yang_name = "perf-mgmt"
@@ -175,7 +193,7 @@ class PerfMgmt(Entity):
         self._perform_setattr(PerfMgmt, [], name, value)
 
 
-    class Resources(Entity):
+    class Resources(_Entity_):
         """
         Resources configuration
         
@@ -204,7 +222,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Resources, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Resources, self).__init__()
 
             self.yang_name = "resources"
             self.yang_parent_name = "perf-mgmt"
@@ -232,7 +253,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Resources, [], name, value)
 
 
-        class TftpResources(Entity):
+        class TftpResources(_Entity_):
             """
             Configure the TFTP server IP address and
             directory name
@@ -270,7 +291,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Resources.TftpResources, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Resources.TftpResources, self).__init__()
 
                 self.yang_name = "tftp-resources"
                 self.yang_parent_name = "resources"
@@ -294,9 +318,13 @@ class PerfMgmt(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.TftpResources, ['server_address', 'directory', 'vrf_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Resources.TftpResources']['meta_info']
 
 
-        class DumpLocal(Entity):
+        class DumpLocal(_Entity_):
             """
             Configure local dump parameters
             
@@ -313,7 +341,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Resources.DumpLocal, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Resources.DumpLocal, self).__init__()
 
                 self.yang_name = "dump-local"
                 self.yang_parent_name = "resources"
@@ -332,9 +363,13 @@ class PerfMgmt(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.DumpLocal, ['enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Resources.DumpLocal']['meta_info']
 
 
-        class MemoryResources(Entity):
+        class MemoryResources(_Entity_):
             """
             Configure the memory usage limits of
             performance management
@@ -365,7 +400,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Resources.MemoryResources, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Resources.MemoryResources, self).__init__()
 
                 self.yang_name = "memory-resources"
                 self.yang_parent_name = "resources"
@@ -386,10 +424,18 @@ class PerfMgmt(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.MemoryResources, ['max_limit', 'min_reserved'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Resources.MemoryResources']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+            return meta._meta_table['PerfMgmt.Resources']['meta_info']
 
 
-
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Templates for collection of statistics
         
@@ -451,7 +497,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "perf-mgmt"
@@ -508,7 +557,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Statistics, [], name, value)
 
 
-        class GenericCounterInterface(Entity):
+        class GenericCounterInterface(_Entity_):
             """
             Interface Generic GenericCounter collection
             templates
@@ -526,7 +575,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.GenericCounterInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.GenericCounterInterface, self).__init__()
 
                 self.yang_name = "generic-counter-interface"
                 self.yang_parent_name = "statistics"
@@ -547,7 +599,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -564,7 +616,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.GenericCounterInterface.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.GenericCounterInterface.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "generic-counter-interface"
@@ -583,7 +638,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -637,7 +692,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -666,11 +724,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.GenericCounterInterface.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.GenericCounterInterface.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.GenericCounterInterface']['meta_info']
 
 
-
-
-        class ProcessNode(Entity):
+        class ProcessNode(_Entity_):
             """
             Node Process collection templates
             
@@ -687,7 +757,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.ProcessNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.ProcessNode, self).__init__()
 
                 self.yang_name = "process-node"
                 self.yang_parent_name = "statistics"
@@ -708,7 +781,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.ProcessNode, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -725,7 +798,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.ProcessNode.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.ProcessNode.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "process-node"
@@ -744,7 +820,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.ProcessNode.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -798,7 +874,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.ProcessNode.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.ProcessNode.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -827,11 +906,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.ProcessNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.ProcessNode.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.ProcessNode.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.ProcessNode']['meta_info']
 
 
-
-
-        class BasicCounterInterface(Entity):
+        class BasicCounterInterface(_Entity_):
             """
             Interface BasicCounter collection templates
             
@@ -848,7 +939,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.BasicCounterInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.BasicCounterInterface, self).__init__()
 
                 self.yang_name = "basic-counter-interface"
                 self.yang_parent_name = "statistics"
@@ -869,7 +963,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -886,7 +980,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.BasicCounterInterface.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.BasicCounterInterface.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "basic-counter-interface"
@@ -905,7 +1002,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -959,7 +1056,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -988,11 +1088,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.BasicCounterInterface.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.BasicCounterInterface.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.BasicCounterInterface']['meta_info']
 
 
-
-
-        class Ospfv3Protocol(Entity):
+        class Ospfv3Protocol(_Entity_):
             """
             OSPF v3 Protocol collection templates
             
@@ -1009,7 +1121,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.Ospfv3Protocol, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.Ospfv3Protocol, self).__init__()
 
                 self.yang_name = "ospfv3-protocol"
                 self.yang_parent_name = "statistics"
@@ -1030,7 +1145,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1047,7 +1162,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.Ospfv3Protocol.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.Ospfv3Protocol.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "ospfv3-protocol"
@@ -1066,7 +1184,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1120,7 +1238,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1149,11 +1270,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.Ospfv3Protocol.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.Ospfv3Protocol']['meta_info']
 
 
-
-
-        class CpuNode(Entity):
+        class CpuNode(_Entity_):
             """
             Node CPU collection templates
             
@@ -1170,7 +1303,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.CpuNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.CpuNode, self).__init__()
 
                 self.yang_name = "cpu-node"
                 self.yang_parent_name = "statistics"
@@ -1191,7 +1327,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.CpuNode, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1208,7 +1344,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.CpuNode.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.CpuNode.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "cpu-node"
@@ -1227,7 +1366,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.CpuNode.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1281,7 +1420,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.CpuNode.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.CpuNode.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1310,11 +1452,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.CpuNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.CpuNode.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.CpuNode.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.CpuNode']['meta_info']
 
 
-
-
-        class DataRateInterface(Entity):
+        class DataRateInterface(_Entity_):
             """
             Interface DataRate collection templates
             
@@ -1331,7 +1485,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.DataRateInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.DataRateInterface, self).__init__()
 
                 self.yang_name = "data-rate-interface"
                 self.yang_parent_name = "statistics"
@@ -1352,7 +1509,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.DataRateInterface, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1369,7 +1526,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.DataRateInterface.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.DataRateInterface.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "data-rate-interface"
@@ -1388,7 +1548,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.DataRateInterface.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1442,7 +1602,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.DataRateInterface.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.DataRateInterface.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1471,11 +1634,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.DataRateInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.DataRateInterface.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.DataRateInterface.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.DataRateInterface']['meta_info']
 
 
-
-
-        class MemoryNode(Entity):
+        class MemoryNode(_Entity_):
             """
             Node Memory collection templates
             
@@ -1492,7 +1667,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.MemoryNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.MemoryNode, self).__init__()
 
                 self.yang_name = "memory-node"
                 self.yang_parent_name = "statistics"
@@ -1513,7 +1691,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.MemoryNode, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1530,7 +1708,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.MemoryNode.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.MemoryNode.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "memory-node"
@@ -1549,7 +1730,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.MemoryNode.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1603,7 +1784,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.MemoryNode.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.MemoryNode.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1632,11 +1816,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.MemoryNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.MemoryNode.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.MemoryNode.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.MemoryNode']['meta_info']
 
 
-
-
-        class LdpMpls(Entity):
+        class LdpMpls(_Entity_):
             """
             MPLS LDP collection templates
             
@@ -1653,7 +1849,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.LdpMpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.LdpMpls, self).__init__()
 
                 self.yang_name = "ldp-mpls"
                 self.yang_parent_name = "statistics"
@@ -1674,7 +1873,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.LdpMpls, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1691,7 +1890,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.LdpMpls.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.LdpMpls.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "ldp-mpls"
@@ -1710,7 +1912,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.LdpMpls.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1764,7 +1966,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.LdpMpls.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.LdpMpls.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1793,11 +1998,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.LdpMpls.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.LdpMpls.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.LdpMpls.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.LdpMpls']['meta_info']
 
 
-
-
-        class Bgp(Entity):
+        class Bgp(_Entity_):
             """
             BGP collection templates
             
@@ -1814,7 +2031,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.Bgp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.Bgp, self).__init__()
 
                 self.yang_name = "bgp"
                 self.yang_parent_name = "statistics"
@@ -1835,7 +2055,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.Bgp, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -1852,7 +2072,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.Bgp.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.Bgp.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "bgp"
@@ -1871,7 +2094,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.Bgp.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -1925,7 +2148,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.Bgp.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.Bgp.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -1954,11 +2180,23 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Bgp.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.Bgp.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.Bgp.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.Bgp']['meta_info']
 
 
-
-
-        class Ospfv2Protocol(Entity):
+        class Ospfv2Protocol(_Entity_):
             """
             OSPF v2 Protocol collection templates
             
@@ -1975,7 +2213,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Statistics.Ospfv2Protocol, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Statistics.Ospfv2Protocol, self).__init__()
 
                 self.yang_name = "ospfv2-protocol"
                 self.yang_parent_name = "statistics"
@@ -1996,7 +2237,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol, [], name, value)
 
 
-            class Templates(Entity):
+            class Templates(_Entity_):
                 """
                 Template name
                 
@@ -2013,7 +2254,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Statistics.Ospfv2Protocol.Templates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Statistics.Ospfv2Protocol.Templates, self).__init__()
 
                     self.yang_name = "templates"
                     self.yang_parent_name = "ospfv2-protocol"
@@ -2032,7 +2276,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol.Templates, [], name, value)
 
 
-                class Template(Entity):
+                class Template(_Entity_):
                     """
                     A template instance
                     
@@ -2086,7 +2330,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, self).__init__()
 
                         self.yang_name = "template"
                         self.yang_parent_name = "templates"
@@ -2115,12 +2362,28 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Statistics.Ospfv2Protocol.Templates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Statistics.Ospfv2Protocol']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+            return meta._meta_table['PerfMgmt.Statistics']['meta_info']
 
 
-
-
-
-    class Enable(Entity):
+    class Enable(_Entity_):
         """
         Start data collection and/or threshold
         monitoring
@@ -2148,7 +2411,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Enable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Enable, self).__init__()
 
             self.yang_name = "enable"
             self.yang_parent_name = "perf-mgmt"
@@ -2177,7 +2443,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Enable, [], name, value)
 
 
-        class Threshold(Entity):
+        class Threshold(_Entity_):
             """
             Start threshold monitoring using a defined
             template
@@ -2240,7 +2506,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Enable.Threshold, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Enable.Threshold, self).__init__()
 
                 self.yang_name = "threshold"
                 self.yang_parent_name = "enable"
@@ -2297,7 +2566,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Enable.Threshold, [], name, value)
 
 
-            class Ospfv3Protocol(Entity):
+            class Ospfv3Protocol(_Entity_):
                 """
                 Threshold monitoring for OSPF v3 Protocol
                 
@@ -2314,7 +2583,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.Ospfv3Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.Ospfv3Protocol, self).__init__()
 
                     self.yang_name = "ospfv3-protocol"
                     self.yang_parent_name = "threshold"
@@ -2333,9 +2605,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv3Protocol, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.Ospfv3Protocol']['meta_info']
 
 
-            class Bgp(Entity):
+            class Bgp(_Entity_):
                 """
                 Threshold monitoring for BGP
                 
@@ -2352,7 +2628,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.Bgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.Bgp, self).__init__()
 
                     self.yang_name = "bgp"
                     self.yang_parent_name = "threshold"
@@ -2371,9 +2650,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Bgp, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.Bgp']['meta_info']
 
 
-            class DataRateInterface(Entity):
+            class DataRateInterface(_Entity_):
                 """
                 Threshold monitoring for Interface  data\-rates
                 
@@ -2390,7 +2673,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.DataRateInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.DataRateInterface, self).__init__()
 
                     self.yang_name = "data-rate-interface"
                     self.yang_parent_name = "threshold"
@@ -2409,9 +2695,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.DataRateInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.DataRateInterface']['meta_info']
 
 
-            class Ospfv2Protocol(Entity):
+            class Ospfv2Protocol(_Entity_):
                 """
                 Threshold monitoring for OSPF v2 Protocol
                 
@@ -2428,7 +2718,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.Ospfv2Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.Ospfv2Protocol, self).__init__()
 
                     self.yang_name = "ospfv2-protocol"
                     self.yang_parent_name = "threshold"
@@ -2447,9 +2740,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv2Protocol, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.Ospfv2Protocol']['meta_info']
 
 
-            class MemoryNode(Entity):
+            class MemoryNode(_Entity_):
                 """
                 Threshold monitoring for memory
                 
@@ -2471,7 +2768,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.MemoryNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.MemoryNode, self).__init__()
 
                     self.yang_name = "memory-node"
                     self.yang_parent_name = "threshold"
@@ -2496,7 +2796,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode, [], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -2513,7 +2813,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "memory-node"
@@ -2532,7 +2835,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -2556,7 +2859,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -2577,10 +2883,18 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.MemoryNode.Nodes']['meta_info']
 
 
-
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -2597,7 +2911,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "memory-node"
@@ -2616,10 +2933,18 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.MemoryNode.NodeAll']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.MemoryNode']['meta_info']
 
 
-
-            class GenericCounterInterface(Entity):
+            class GenericCounterInterface(_Entity_):
                 """
                 Threshold monitoring for Interface
                 generic\-counters
@@ -2637,7 +2962,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.GenericCounterInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.GenericCounterInterface, self).__init__()
 
                     self.yang_name = "generic-counter-interface"
                     self.yang_parent_name = "threshold"
@@ -2656,9 +2984,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.GenericCounterInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.GenericCounterInterface']['meta_info']
 
 
-            class CpuNode(Entity):
+            class CpuNode(_Entity_):
                 """
                 Threshold monitoring for CPU
                 
@@ -2680,7 +3012,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.CpuNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.CpuNode, self).__init__()
 
                     self.yang_name = "cpu-node"
                     self.yang_parent_name = "threshold"
@@ -2705,7 +3040,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode, [], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -2722,7 +3057,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.CpuNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.CpuNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "cpu-node"
@@ -2741,7 +3079,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -2765,7 +3103,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -2786,10 +3127,18 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.CpuNode.Nodes']['meta_info']
 
 
-
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -2806,7 +3155,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "cpu-node"
@@ -2825,10 +3177,18 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.CpuNode.NodeAll']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.CpuNode']['meta_info']
 
 
-
-            class LdpMpls(Entity):
+            class LdpMpls(_Entity_):
                 """
                 Threshold monitoring for LDP
                 
@@ -2845,7 +3205,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.LdpMpls, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.LdpMpls, self).__init__()
 
                     self.yang_name = "ldp-mpls"
                     self.yang_parent_name = "threshold"
@@ -2864,9 +3227,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.LdpMpls, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.LdpMpls']['meta_info']
 
 
-            class ProcessNode(Entity):
+            class ProcessNode(_Entity_):
                 """
                 Threshold monitoring for process
                 
@@ -2888,7 +3255,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.ProcessNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.ProcessNode, self).__init__()
 
                     self.yang_name = "process-node"
                     self.yang_parent_name = "threshold"
@@ -2913,7 +3283,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode, [], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -2930,7 +3300,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "process-node"
@@ -2949,7 +3322,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -2973,7 +3346,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -2994,10 +3370,18 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.ProcessNode.Nodes']['meta_info']
 
 
-
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -3014,7 +3398,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "process-node"
@@ -3033,10 +3420,18 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Threshold.ProcessNode.NodeAll']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.ProcessNode']['meta_info']
 
 
-
-            class BasicCounterInterface(Entity):
+            class BasicCounterInterface(_Entity_):
                 """
                 Threshold monitoring for Interface
                 basic\-counters
@@ -3054,7 +3449,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Threshold.BasicCounterInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Threshold.BasicCounterInterface, self).__init__()
 
                     self.yang_name = "basic-counter-interface"
                     self.yang_parent_name = "threshold"
@@ -3073,10 +3471,18 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.BasicCounterInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Threshold.BasicCounterInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Enable.Threshold']['meta_info']
 
 
-
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             Start periodic collection using a defined a
             template
@@ -3139,7 +3545,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Enable.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Enable.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "enable"
@@ -3196,7 +3605,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Enable.Statistics, [], name, value)
 
 
-            class GenericCounterInterface(Entity):
+            class GenericCounterInterface(_Entity_):
                 """
                 Statistics collection for generic\-counters
                 
@@ -3213,7 +3622,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.GenericCounterInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.GenericCounterInterface, self).__init__()
 
                     self.yang_name = "generic-counter-interface"
                     self.yang_parent_name = "statistics"
@@ -3232,9 +3644,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.GenericCounterInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.GenericCounterInterface']['meta_info']
 
 
-            class Bgp(Entity):
+            class Bgp(_Entity_):
                 """
                 Data collection for BGP
                 
@@ -3251,7 +3667,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.Bgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.Bgp, self).__init__()
 
                     self.yang_name = "bgp"
                     self.yang_parent_name = "statistics"
@@ -3270,9 +3689,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Bgp, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.Bgp']['meta_info']
 
 
-            class Ospfv2Protocol(Entity):
+            class Ospfv2Protocol(_Entity_):
                 """
                 Data collection for OSPF v2 Protocol
                 
@@ -3289,7 +3712,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.Ospfv2Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.Ospfv2Protocol, self).__init__()
 
                     self.yang_name = "ospfv2-protocol"
                     self.yang_parent_name = "statistics"
@@ -3308,9 +3734,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv2Protocol, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.Ospfv2Protocol']['meta_info']
 
 
-            class Ospfv3Protocol(Entity):
+            class Ospfv3Protocol(_Entity_):
                 """
                 Data collection for OSPF v3 Protocol
                 
@@ -3327,7 +3757,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.Ospfv3Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.Ospfv3Protocol, self).__init__()
 
                     self.yang_name = "ospfv3-protocol"
                     self.yang_parent_name = "statistics"
@@ -3346,9 +3779,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv3Protocol, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.Ospfv3Protocol']['meta_info']
 
 
-            class CpuNode(Entity):
+            class CpuNode(_Entity_):
                 """
                 Collection for CPU
                 
@@ -3370,7 +3807,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.CpuNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.CpuNode, self).__init__()
 
                     self.yang_name = "cpu-node"
                     self.yang_parent_name = "statistics"
@@ -3395,7 +3835,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode, [], name, value)
 
 
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -3412,7 +3852,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "cpu-node"
@@ -3431,9 +3874,13 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.CpuNode.NodeAll']['meta_info']
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -3450,7 +3897,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.CpuNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.CpuNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "cpu-node"
@@ -3469,7 +3919,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -3493,7 +3943,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -3514,11 +3967,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.CpuNode.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.CpuNode']['meta_info']
 
 
-
-
-            class BasicCounterInterface(Entity):
+            class BasicCounterInterface(_Entity_):
                 """
                 Statistics collection for basic\-counters
                 
@@ -3535,7 +4000,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.BasicCounterInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.BasicCounterInterface, self).__init__()
 
                     self.yang_name = "basic-counter-interface"
                     self.yang_parent_name = "statistics"
@@ -3554,9 +4022,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.BasicCounterInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.BasicCounterInterface']['meta_info']
 
 
-            class ProcessNode(Entity):
+            class ProcessNode(_Entity_):
                 """
                 Collection for process
                 
@@ -3578,7 +4050,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.ProcessNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.ProcessNode, self).__init__()
 
                     self.yang_name = "process-node"
                     self.yang_parent_name = "statistics"
@@ -3603,7 +4078,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode, [], name, value)
 
 
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -3620,7 +4095,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "process-node"
@@ -3639,9 +4117,13 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.ProcessNode.NodeAll']['meta_info']
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -3658,7 +4140,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "process-node"
@@ -3677,7 +4162,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -3701,7 +4186,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -3722,11 +4210,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.ProcessNode.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.ProcessNode']['meta_info']
 
 
-
-
-            class DataRateInterface(Entity):
+            class DataRateInterface(_Entity_):
                 """
                 Statistics collection for generic\-counters
                 
@@ -3743,7 +4243,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.DataRateInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.DataRateInterface, self).__init__()
 
                     self.yang_name = "data-rate-interface"
                     self.yang_parent_name = "statistics"
@@ -3762,9 +4265,13 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.DataRateInterface, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.DataRateInterface']['meta_info']
 
 
-            class MemoryNode(Entity):
+            class MemoryNode(_Entity_):
                 """
                 Collection for memory
                 
@@ -3786,7 +4293,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.MemoryNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.MemoryNode, self).__init__()
 
                     self.yang_name = "memory-node"
                     self.yang_parent_name = "statistics"
@@ -3811,7 +4321,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode, [], name, value)
 
 
-                class NodeAll(Entity):
+                class NodeAll(_Entity_):
                     """
                     All the the nodes
                     
@@ -3828,7 +4338,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, self).__init__()
 
                         self.yang_name = "node-all"
                         self.yang_parent_name = "memory-node"
@@ -3847,9 +4360,13 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, ['template_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.MemoryNode.NodeAll']['meta_info']
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -3866,7 +4383,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "memory-node"
@@ -3885,7 +4405,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -3909,7 +4429,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -3930,11 +4453,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.Statistics.MemoryNode.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.MemoryNode']['meta_info']
 
 
-
-
-            class LdpMpls(Entity):
+            class LdpMpls(_Entity_):
                 """
                 Collection for labels distribution protocol
                 
@@ -3951,7 +4486,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.Statistics.LdpMpls, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.Statistics.LdpMpls, self).__init__()
 
                     self.yang_name = "ldp-mpls"
                     self.yang_parent_name = "statistics"
@@ -3970,10 +4508,18 @@ class PerfMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.LdpMpls, ['template_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.Statistics.LdpMpls']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Enable.Statistics']['meta_info']
 
 
-
-        class MonitorEnable(Entity):
+        class MonitorEnable(_Entity_):
             """
             Start data collection for a monitored instance
             
@@ -4035,7 +4581,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Enable.MonitorEnable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Enable.MonitorEnable, self).__init__()
 
                 self.yang_name = "monitor-enable"
                 self.yang_parent_name = "enable"
@@ -4092,7 +4641,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Enable.MonitorEnable, [], name, value)
 
 
-            class LdpMpls(Entity):
+            class LdpMpls(_Entity_):
                 """
                 Monitoring for LDP
                 
@@ -4109,7 +4658,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.LdpMpls, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.LdpMpls, self).__init__()
 
                     self.yang_name = "ldp-mpls"
                     self.yang_parent_name = "monitor-enable"
@@ -4130,7 +4682,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls, [], name, value)
 
 
-                class Sessions(Entity):
+                class Sessions(_Entity_):
                     """
                     LDP session specification
                     
@@ -4147,7 +4699,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions, self).__init__()
 
                         self.yang_name = "sessions"
                         self.yang_parent_name = "ldp-mpls"
@@ -4166,7 +4721,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions, [], name, value)
 
 
-                    class Session(Entity):
+                    class Session(_Entity_):
                         """
                         IP address of the LDP Session
                         
@@ -4190,7 +4745,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, self).__init__()
 
                             self.yang_name = "session"
                             self.yang_parent_name = "sessions"
@@ -4211,11 +4769,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, ['session', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.LdpMpls']['meta_info']
 
 
-
-
-            class Ospfv3Protocol(Entity):
+            class Ospfv3Protocol(_Entity_):
                 """
                 Monitor OSPF v3 Protocol
                 
@@ -4232,7 +4802,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, self).__init__()
 
                     self.yang_name = "ospfv3-protocol"
                     self.yang_parent_name = "monitor-enable"
@@ -4253,7 +4826,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, [], name, value)
 
 
-                class OspfInstances(Entity):
+                class OspfInstances(_Entity_):
                     """
                     Monitor an instance
                     
@@ -4270,7 +4843,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances, self).__init__()
 
                         self.yang_name = "ospf-instances"
                         self.yang_parent_name = "ospfv3-protocol"
@@ -4289,7 +4865,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances, [], name, value)
 
 
-                    class OspfInstance(Entity):
+                    class OspfInstance(_Entity_):
                         """
                         Instance being monitored
                         
@@ -4313,7 +4889,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, self).__init__()
 
                             self.yang_name = "ospf-instance"
                             self.yang_parent_name = "ospf-instances"
@@ -4334,11 +4913,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol']['meta_info']
 
 
-
-
-            class GenericCounters(Entity):
+            class GenericCounters(_Entity_):
                 """
                 Monitoring for generic\-counters
                 
@@ -4355,7 +4946,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.GenericCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.GenericCounters, self).__init__()
 
                     self.yang_name = "generic-counters"
                     self.yang_parent_name = "monitor-enable"
@@ -4376,7 +4970,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Monitor an Interface
                     
@@ -4393,7 +4987,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "generic-counters"
@@ -4412,7 +5009,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface being Monitored
                         
@@ -4436,7 +5033,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -4457,11 +5057,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.GenericCounters']['meta_info']
 
 
-
-
-            class Process(Entity):
+            class Process(_Entity_):
                 """
                 Collection for a single process
                 
@@ -4478,7 +5090,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Process, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Process, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "monitor-enable"
@@ -4499,7 +5114,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process, [], name, value)
 
 
-                class ProcessNodes(Entity):
+                class ProcessNodes(_Entity_):
                     """
                     Node specification
                     
@@ -4516,7 +5131,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes, self).__init__()
 
                         self.yang_name = "process-nodes"
                         self.yang_parent_name = "process"
@@ -4535,7 +5153,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes, [], name, value)
 
 
-                    class ProcessNode(Entity):
+                    class ProcessNode(_Entity_):
                         """
                         Node instance
                         
@@ -4559,7 +5177,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode, self).__init__()
 
                             self.yang_name = "process-node"
                             self.yang_parent_name = "process-nodes"
@@ -4583,7 +5204,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode, ['node_id'], name, value)
 
 
-                        class Pids(Entity):
+                        class Pids(_Entity_):
                             """
                             Process ID specification
                             
@@ -4600,7 +5221,10 @@ class PerfMgmt(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids, self).__init__()
 
                                 self.yang_name = "pids"
                                 self.yang_parent_name = "process-node"
@@ -4618,7 +5242,7 @@ class PerfMgmt(Entity):
                                 self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids, [], name, value)
 
 
-                            class Pid(Entity):
+                            class Pid(_Entity_):
                                 """
                                 Specify an existing template for data
                                 collection
@@ -4643,7 +5267,10 @@ class PerfMgmt(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, self).__init__()
 
                                     self.yang_name = "pid"
                                     self.yang_parent_name = "pids"
@@ -4663,13 +5290,33 @@ class PerfMgmt(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, ['pid', 'template_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                                return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Process']['meta_info']
 
 
-
-
-
-
-            class BasicCounters(Entity):
+            class BasicCounters(_Entity_):
                 """
                 Monitoring for basic\-counters
                 
@@ -4686,7 +5333,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.BasicCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.BasicCounters, self).__init__()
 
                     self.yang_name = "basic-counters"
                     self.yang_parent_name = "monitor-enable"
@@ -4707,7 +5357,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Monitor an Interface
                     
@@ -4724,7 +5374,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "basic-counters"
@@ -4743,7 +5396,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface being Monitored
                         
@@ -4767,7 +5420,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -4788,11 +5444,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.BasicCounters']['meta_info']
 
 
-
-
-            class Memory(Entity):
+            class Memory(_Entity_):
                 """
                 Collection for memory
                 
@@ -4809,7 +5477,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Memory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Memory, self).__init__()
 
                     self.yang_name = "memory"
                     self.yang_parent_name = "monitor-enable"
@@ -4830,7 +5501,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory, [], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -4847,7 +5518,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "memory"
@@ -4866,7 +5540,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -4890,7 +5564,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -4911,11 +5588,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Memory.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Memory']['meta_info']
 
 
-
-
-            class Ospfv2Protocol(Entity):
+            class Ospfv2Protocol(_Entity_):
                 """
                 Monitor OSPF v2 Protocol
                 
@@ -4932,7 +5621,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, self).__init__()
 
                     self.yang_name = "ospfv2-protocol"
                     self.yang_parent_name = "monitor-enable"
@@ -4953,7 +5645,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, [], name, value)
 
 
-                class OspfInstances(Entity):
+                class OspfInstances(_Entity_):
                     """
                     Monitor an instance
                     
@@ -4970,7 +5662,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances, self).__init__()
 
                         self.yang_name = "ospf-instances"
                         self.yang_parent_name = "ospfv2-protocol"
@@ -4989,7 +5684,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances, [], name, value)
 
 
-                    class OspfInstance(Entity):
+                    class OspfInstance(_Entity_):
                         """
                         Instance being monitored
                         
@@ -5013,7 +5708,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, self).__init__()
 
                             self.yang_name = "ospf-instance"
                             self.yang_parent_name = "ospf-instances"
@@ -5034,11 +5732,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol']['meta_info']
 
 
-
-
-            class Cpu(Entity):
+            class Cpu(_Entity_):
                 """
                 Collection for CPU
                 
@@ -5055,7 +5765,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Cpu, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Cpu, self).__init__()
 
                     self.yang_name = "cpu"
                     self.yang_parent_name = "monitor-enable"
@@ -5076,7 +5789,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu, [], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Node specification
                     
@@ -5093,7 +5806,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "cpu"
@@ -5112,7 +5828,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes, [], name, value)
 
 
-                    class Node(Entity):
+                    class Node(_Entity_):
                         """
                         Node instance
                         
@@ -5136,7 +5852,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, self).__init__()
 
                             self.yang_name = "node"
                             self.yang_parent_name = "nodes"
@@ -5157,11 +5876,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, ['node_id', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Cpu.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Cpu']['meta_info']
 
 
-
-
-            class Bgp(Entity):
+            class Bgp(_Entity_):
                 """
                 Monitor BGP protocol
                 
@@ -5178,7 +5909,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.Bgp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.Bgp, self).__init__()
 
                     self.yang_name = "bgp"
                     self.yang_parent_name = "monitor-enable"
@@ -5199,7 +5933,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp, [], name, value)
 
 
-                class Neighbors(Entity):
+                class Neighbors(_Entity_):
                     """
                     Monitor BGP protocol for a BGP peer
                     
@@ -5216,7 +5950,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "bgp"
@@ -5235,7 +5972,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         Neighbor being monitored
                         
@@ -5259,7 +5996,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -5280,11 +6020,23 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, ['peer_address', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.Bgp']['meta_info']
 
 
-
-
-            class DataRates(Entity):
+            class DataRates(_Entity_):
                 """
                 Monitoring for data\-rates
                 
@@ -5301,7 +6053,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Enable.MonitorEnable.DataRates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Enable.MonitorEnable.DataRates, self).__init__()
 
                     self.yang_name = "data-rates"
                     self.yang_parent_name = "monitor-enable"
@@ -5322,7 +6077,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Monitor an Interface
                     
@@ -5339,7 +6094,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "data-rates"
@@ -5358,7 +6116,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface being Monitored
                         
@@ -5382,7 +6140,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -5403,13 +6164,33 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Enable.MonitorEnable.DataRates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Enable.MonitorEnable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+            return meta._meta_table['PerfMgmt.Enable']['meta_info']
 
 
-
-
-
-
-    class RegExpGroups(Entity):
+    class RegExpGroups(_Entity_):
         """
         Configure regular expression group
         
@@ -5426,7 +6207,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.RegExpGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.RegExpGroups, self).__init__()
 
             self.yang_name = "reg-exp-groups"
             self.yang_parent_name = "perf-mgmt"
@@ -5445,7 +6229,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.RegExpGroups, [], name, value)
 
 
-        class RegExpGroup(Entity):
+        class RegExpGroup(_Entity_):
             """
             Specify regular expression group name
             
@@ -5469,7 +6253,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.RegExpGroups.RegExpGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.RegExpGroups.RegExpGroup, self).__init__()
 
                 self.yang_name = "reg-exp-group"
                 self.yang_parent_name = "reg-exp-groups"
@@ -5493,7 +6280,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup, ['reg_exp_group_name'], name, value)
 
 
-            class RegExps(Entity):
+            class RegExps(_Entity_):
                 """
                 Configure regular expression
                 
@@ -5510,7 +6297,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps, self).__init__()
 
                     self.yang_name = "reg-exps"
                     self.yang_parent_name = "reg-exp-group"
@@ -5528,7 +6318,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup.RegExps, [], name, value)
 
 
-                class RegExp(Entity):
+                class RegExp(_Entity_):
                     """
                     Specify regular expression index number
                     
@@ -5556,7 +6346,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, self).__init__()
 
                         self.yang_name = "reg-exp"
                         self.yang_parent_name = "reg-exps"
@@ -5576,12 +6369,28 @@ class PerfMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, ['reg_exp_index', 'reg_exp_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.RegExpGroups.RegExpGroup.RegExps']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.RegExpGroups.RegExpGroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+            return meta._meta_table['PerfMgmt.RegExpGroups']['meta_info']
 
 
-
-
-
-    class Threshold(Entity):
+    class Threshold(_Entity_):
         """
         Container for threshold templates
         
@@ -5643,7 +6452,10 @@ class PerfMgmt(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(PerfMgmt.Threshold, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerfMgmt.Threshold, self).__init__()
 
             self.yang_name = "threshold"
             self.yang_parent_name = "perf-mgmt"
@@ -5700,7 +6512,7 @@ class PerfMgmt(Entity):
             self._perform_setattr(PerfMgmt.Threshold, [], name, value)
 
 
-        class GenericCounterInterface(Entity):
+        class GenericCounterInterface(_Entity_):
             """
             Interface Generic Counter threshold
             configuration
@@ -5718,7 +6530,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.GenericCounterInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.GenericCounterInterface, self).__init__()
 
                 self.yang_name = "generic-counter-interface"
                 self.yang_parent_name = "threshold"
@@ -5739,7 +6554,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface, [], name, value)
 
 
-            class GenericCounterInterfaceTemplates(Entity):
+            class GenericCounterInterfaceTemplates(_Entity_):
                 """
                 Interface Generic Counter threshold templates
                 
@@ -5756,7 +6571,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates, self).__init__()
 
                     self.yang_name = "generic-counter-interface-templates"
                     self.yang_parent_name = "generic-counter-interface"
@@ -5775,7 +6593,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates, [], name, value)
 
 
-                class GenericCounterInterfaceTemplate(Entity):
+                class GenericCounterInterfaceTemplate(_Entity_):
                     """
                     Interface Generic Counter threshold template
                     instance
@@ -5958,7 +6776,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate, self).__init__()
 
                         self.yang_name = "generic-counter-interface-template"
                         self.yang_parent_name = "generic-counter-interface-templates"
@@ -6044,7 +6865,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
 
 
-                    class InOctets(Entity):
+                    class InOctets(_Entity_):
                         """
                         Number of inbound octets/bytes
                         
@@ -6094,7 +6915,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, self).__init__()
 
                             self.yang_name = "in-octets"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6123,9 +6947,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets']['meta_info']
 
 
-                    class InUcastPkts(Entity):
+                    class InUcastPkts(_Entity_):
                         """
                         Number of inbound unicast packets
                         
@@ -6175,7 +7003,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, self).__init__()
 
                             self.yang_name = "in-ucast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6204,9 +7035,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts']['meta_info']
 
 
-                    class OutUcastPkts(Entity):
+                    class OutUcastPkts(_Entity_):
                         """
                         Number of outbound unicast packets
                         
@@ -6256,7 +7091,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, self).__init__()
 
                             self.yang_name = "out-ucast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6285,9 +7123,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts']['meta_info']
 
 
-                    class OutBroadcastPkts(Entity):
+                    class OutBroadcastPkts(_Entity_):
                         """
                         Number of outbound broadcast packets
                         
@@ -6337,7 +7179,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, self).__init__()
 
                             self.yang_name = "out-broadcast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6366,9 +7211,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts']['meta_info']
 
 
-                    class OutMulticastPkts(Entity):
+                    class OutMulticastPkts(_Entity_):
                         """
                         Number of outbound multicast packets
                         
@@ -6418,7 +7267,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, self).__init__()
 
                             self.yang_name = "out-multicast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6447,9 +7299,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts']['meta_info']
 
 
-                    class InputOverrun(Entity):
+                    class InputOverrun(_Entity_):
                         """
                         Number of inbound packets with overrun
                         errors
@@ -6500,7 +7356,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, self).__init__()
 
                             self.yang_name = "input-overrun"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6529,9 +7388,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun']['meta_info']
 
 
-                    class OutOctets(Entity):
+                    class OutOctets(_Entity_):
                         """
                         Number of outbound octets/bytes
                         
@@ -6581,7 +7444,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, self).__init__()
 
                             self.yang_name = "out-octets"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6610,9 +7476,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets']['meta_info']
 
 
-                    class OutputUnderrun(Entity):
+                    class OutputUnderrun(_Entity_):
                         """
                         Number of outbound packets with underrun
                         errors
@@ -6663,7 +7533,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, self).__init__()
 
                             self.yang_name = "output-underrun"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6692,9 +7565,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun']['meta_info']
 
 
-                    class InputTotalErrors(Entity):
+                    class InputTotalErrors(_Entity_):
                         """
                         Number of inbound incorrect packets
                         discarded
@@ -6745,7 +7622,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, self).__init__()
 
                             self.yang_name = "input-total-errors"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6774,9 +7654,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors']['meta_info']
 
 
-                    class OutputTotalDrops(Entity):
+                    class OutputTotalDrops(_Entity_):
                         """
                         Number of outbound correct packets discarded
                         
@@ -6826,7 +7710,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
 
                             self.yang_name = "output-total-drops"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6855,9 +7742,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops']['meta_info']
 
 
-                    class InputCrc(Entity):
+                    class InputCrc(_Entity_):
                         """
                         Number of inbound packets discarded with
                         incorrect CRC
@@ -6908,7 +7799,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, self).__init__()
 
                             self.yang_name = "input-crc"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -6937,9 +7831,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc']['meta_info']
 
 
-                    class InBroadcastPkts(Entity):
+                    class InBroadcastPkts(_Entity_):
                         """
                         Number of inbound broadcast packets
                         
@@ -6989,7 +7887,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, self).__init__()
 
                             self.yang_name = "in-broadcast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7018,9 +7919,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts']['meta_info']
 
 
-                    class InMulticastPkts(Entity):
+                    class InMulticastPkts(_Entity_):
                         """
                         Number of inbound multicast packets
                         
@@ -7070,7 +7975,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, self).__init__()
 
                             self.yang_name = "in-multicast-pkts"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7099,9 +8007,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts']['meta_info']
 
 
-                    class OutPackets(Entity):
+                    class OutPackets(_Entity_):
                         """
                         Number of outbound packets
                         
@@ -7151,7 +8063,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, self).__init__()
 
                             self.yang_name = "out-packets"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7180,9 +8095,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets']['meta_info']
 
 
-                    class OutputTotalErrors(Entity):
+                    class OutputTotalErrors(_Entity_):
                         """
                         Number of outbound incorrect packets
                         discarded
@@ -7233,7 +8152,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
 
                             self.yang_name = "output-total-errors"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7262,9 +8184,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors']['meta_info']
 
 
-                    class InPackets(Entity):
+                    class InPackets(_Entity_):
                         """
                         Number of inbound packets
                         
@@ -7314,7 +8240,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, self).__init__()
 
                             self.yang_name = "in-packets"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7343,9 +8272,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets']['meta_info']
 
 
-                    class InputUnknownProto(Entity):
+                    class InputUnknownProto(_Entity_):
                         """
                         Number of inbound packets discarded with
                         unknown protocol
@@ -7396,7 +8329,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, self).__init__()
 
                             self.yang_name = "input-unknown-proto"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7425,9 +8361,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto']['meta_info']
 
 
-                    class InputQueueDrops(Entity):
+                    class InputQueueDrops(_Entity_):
                         """
                         Number of input queue drops
                         
@@ -7477,7 +8417,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, self).__init__()
 
                             self.yang_name = "input-queue-drops"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7506,9 +8449,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops']['meta_info']
 
 
-                    class InputTotalDrops(Entity):
+                    class InputTotalDrops(_Entity_):
                         """
                         Number of inbound correct packets discarded
                         
@@ -7558,7 +8505,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, self).__init__()
 
                             self.yang_name = "input-total-drops"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7587,9 +8537,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops']['meta_info']
 
 
-                    class InputFrame(Entity):
+                    class InputFrame(_Entity_):
                         """
                         Number of inbound packets with framing
                         errors
@@ -7640,7 +8594,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, self).__init__()
 
                             self.yang_name = "input-frame"
                             self.yang_parent_name = "generic-counter-interface-template"
@@ -7669,12 +8626,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.GenericCounterInterface']['meta_info']
 
 
-
-
-
-        class LdpMpls(Entity):
+        class LdpMpls(_Entity_):
             """
             MPLS LDP threshold configuration
             
@@ -7691,7 +8664,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.LdpMpls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.LdpMpls, self).__init__()
 
                 self.yang_name = "ldp-mpls"
                 self.yang_parent_name = "threshold"
@@ -7712,7 +8688,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.LdpMpls, [], name, value)
 
 
-            class LdpMplsTemplates(Entity):
+            class LdpMplsTemplates(_Entity_):
                 """
                 MPLS LDP threshold templates
                 
@@ -7729,7 +8705,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates, self).__init__()
 
                     self.yang_name = "ldp-mpls-templates"
                     self.yang_parent_name = "ldp-mpls"
@@ -7748,7 +8727,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates, [], name, value)
 
 
-                class LdpMplsTemplate(Entity):
+                class LdpMplsTemplate(_Entity_):
                     """
                     MPLS LDP threshold template instance
                     
@@ -7902,7 +8881,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate, self).__init__()
 
                         self.yang_name = "ldp-mpls-template"
                         self.yang_parent_name = "ldp-mpls-templates"
@@ -7978,7 +8960,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class AddressWithdrawMsgsRcvd(Entity):
+                    class AddressWithdrawMsgsRcvd(_Entity_):
                         """
                         Number of Address Withdraw messages received
                         
@@ -8028,7 +9010,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, self).__init__()
 
                             self.yang_name = "address-withdraw-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8057,9 +9042,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd']['meta_info']
 
 
-                    class LabelWithdrawMsgsRcvd(Entity):
+                    class LabelWithdrawMsgsRcvd(_Entity_):
                         """
                         Number of Label Withdraw messages received
                         
@@ -8109,7 +9098,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, self).__init__()
 
                             self.yang_name = "label-withdraw-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8138,9 +9130,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd']['meta_info']
 
 
-                    class AddressWithdrawMsgsSent(Entity):
+                    class AddressWithdrawMsgsSent(_Entity_):
                         """
                         Number of Address Withdraw messages sent
                         
@@ -8190,7 +9186,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, self).__init__()
 
                             self.yang_name = "address-withdraw-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8219,9 +9218,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent']['meta_info']
 
 
-                    class LabelWithdrawMsgsSent(Entity):
+                    class LabelWithdrawMsgsSent(_Entity_):
                         """
                         Number of Label Withdraw messages sent
                         
@@ -8271,7 +9274,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, self).__init__()
 
                             self.yang_name = "label-withdraw-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8300,9 +9306,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent']['meta_info']
 
 
-                    class NotificationMsgsRcvd(Entity):
+                    class NotificationMsgsRcvd(_Entity_):
                         """
                         Number of Notification messages received
                         
@@ -8352,7 +9362,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, self).__init__()
 
                             self.yang_name = "notification-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8381,9 +9394,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd']['meta_info']
 
 
-                    class TotalMsgsRcvd(Entity):
+                    class TotalMsgsRcvd(_Entity_):
                         """
                         Total number of messages received
                         
@@ -8433,7 +9450,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, self).__init__()
 
                             self.yang_name = "total-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8462,9 +9482,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd']['meta_info']
 
 
-                    class NotificationMsgsSent(Entity):
+                    class NotificationMsgsSent(_Entity_):
                         """
                         Number of Notification messages sent
                         
@@ -8514,7 +9538,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, self).__init__()
 
                             self.yang_name = "notification-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8543,9 +9570,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent']['meta_info']
 
 
-                    class TotalMsgsSent(Entity):
+                    class TotalMsgsSent(_Entity_):
                         """
                         Total number of messages sent
                         
@@ -8595,7 +9626,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, self).__init__()
 
                             self.yang_name = "total-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8624,9 +9658,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent']['meta_info']
 
 
-                    class LabelReleaseMsgsRcvd(Entity):
+                    class LabelReleaseMsgsRcvd(_Entity_):
                         """
                         Number of LAbel Release messages received
                         
@@ -8676,7 +9714,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, self).__init__()
 
                             self.yang_name = "label-release-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8705,9 +9746,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd']['meta_info']
 
 
-                    class InitMsgsRcvd(Entity):
+                    class InitMsgsRcvd(_Entity_):
                         """
                         Number of Init messages received
                         
@@ -8757,7 +9802,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, self).__init__()
 
                             self.yang_name = "init-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8786,9 +9834,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd']['meta_info']
 
 
-                    class LabelReleaseMsgsSent(Entity):
+                    class LabelReleaseMsgsSent(_Entity_):
                         """
                         Number of Label Release messages sent
                         
@@ -8838,7 +9890,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, self).__init__()
 
                             self.yang_name = "label-release-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8867,9 +9922,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent']['meta_info']
 
 
-                    class InitMsgsSent(Entity):
+                    class InitMsgsSent(_Entity_):
                         """
                         Number of Init messages sent
                         
@@ -8919,7 +9978,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, self).__init__()
 
                             self.yang_name = "init-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -8948,9 +10010,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent']['meta_info']
 
 
-                    class LabelMappingMsgsRcvd(Entity):
+                    class LabelMappingMsgsRcvd(_Entity_):
                         """
                         Number of Label Mapping messages received
                         
@@ -9000,7 +10066,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, self).__init__()
 
                             self.yang_name = "label-mapping-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9029,9 +10098,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd']['meta_info']
 
 
-                    class KeepaliveMsgsRcvd(Entity):
+                    class KeepaliveMsgsRcvd(_Entity_):
                         """
                         Number of Keepalive messages received
                         
@@ -9081,7 +10154,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, self).__init__()
 
                             self.yang_name = "keepalive-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9110,9 +10186,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd']['meta_info']
 
 
-                    class LabelMappingMsgsSent(Entity):
+                    class LabelMappingMsgsSent(_Entity_):
                         """
                         Number of Label Mapping messages sent
                         
@@ -9162,7 +10242,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, self).__init__()
 
                             self.yang_name = "label-mapping-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9191,9 +10274,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent']['meta_info']
 
 
-                    class KeepaliveMsgsSent(Entity):
+                    class KeepaliveMsgsSent(_Entity_):
                         """
                         Number of Keepalive messages sent
                         
@@ -9243,7 +10330,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, self).__init__()
 
                             self.yang_name = "keepalive-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9272,9 +10362,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent']['meta_info']
 
 
-                    class AddressMsgsRcvd(Entity):
+                    class AddressMsgsRcvd(_Entity_):
                         """
                         Number of Address messages received
                         
@@ -9324,7 +10418,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, self).__init__()
 
                             self.yang_name = "address-msgs-rcvd"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9353,9 +10450,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd']['meta_info']
 
 
-                    class AddressMsgsSent(Entity):
+                    class AddressMsgsSent(_Entity_):
                         """
                         Number of Address messages sent
                         
@@ -9405,7 +10506,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, self).__init__()
 
                             self.yang_name = "address-msgs-sent"
                             self.yang_parent_name = "ldp-mpls-template"
@@ -9434,12 +10538,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.LdpMpls']['meta_info']
 
 
-
-
-
-        class BasicCounterInterface(Entity):
+        class BasicCounterInterface(_Entity_):
             """
             Interface Basic Counter threshold configuration
             
@@ -9456,7 +10576,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.BasicCounterInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.BasicCounterInterface, self).__init__()
 
                 self.yang_name = "basic-counter-interface"
                 self.yang_parent_name = "threshold"
@@ -9477,7 +10600,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface, [], name, value)
 
 
-            class BasicCounterInterfaceTemplates(Entity):
+            class BasicCounterInterfaceTemplates(_Entity_):
                 """
                 Interface Basic Counter threshold templates
                 
@@ -9494,7 +10617,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates, self).__init__()
 
                     self.yang_name = "basic-counter-interface-templates"
                     self.yang_parent_name = "basic-counter-interface"
@@ -9513,7 +10639,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates, [], name, value)
 
 
-                class BasicCounterInterfaceTemplate(Entity):
+                class BasicCounterInterfaceTemplate(_Entity_):
                     """
                     Interface Basic Counter threshold template
                     instance
@@ -9626,7 +10752,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate, self).__init__()
 
                         self.yang_name = "basic-counter-interface-template"
                         self.yang_parent_name = "basic-counter-interface-templates"
@@ -9682,7 +10811,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
 
 
-                    class InOctets(Entity):
+                    class InOctets(_Entity_):
                         """
                         Number of inbound octets/bytes
                         
@@ -9732,7 +10861,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, self).__init__()
 
                             self.yang_name = "in-octets"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -9761,9 +10893,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets']['meta_info']
 
 
-                    class OutOctets(Entity):
+                    class OutOctets(_Entity_):
                         """
                         Number of outbound octets/bytes
                         
@@ -9813,7 +10949,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, self).__init__()
 
                             self.yang_name = "out-octets"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -9842,9 +10981,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets']['meta_info']
 
 
-                    class OutputQueueDrops(Entity):
+                    class OutputQueueDrops(_Entity_):
                         """
                         Number of outbound queue drops
                         
@@ -9894,7 +11037,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, self).__init__()
 
                             self.yang_name = "output-queue-drops"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -9923,9 +11069,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops']['meta_info']
 
 
-                    class InputTotalErrors(Entity):
+                    class InputTotalErrors(_Entity_):
                         """
                         Number of inbound incorrect packets
                         discarded
@@ -9976,7 +11126,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, self).__init__()
 
                             self.yang_name = "input-total-errors"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10005,9 +11158,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors']['meta_info']
 
 
-                    class OutputTotalDrops(Entity):
+                    class OutputTotalDrops(_Entity_):
                         """
                         Number of outbound correct packets discarded
                         
@@ -10057,7 +11214,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
 
                             self.yang_name = "output-total-drops"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10086,9 +11246,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops']['meta_info']
 
 
-                    class OutPackets(Entity):
+                    class OutPackets(_Entity_):
                         """
                         Number of outbound packets
                         
@@ -10138,7 +11302,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, self).__init__()
 
                             self.yang_name = "out-packets"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10167,9 +11334,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets']['meta_info']
 
 
-                    class OutputTotalErrors(Entity):
+                    class OutputTotalErrors(_Entity_):
                         """
                         Number of outbound incorrect packets
                         discarded
@@ -10220,7 +11391,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
 
                             self.yang_name = "output-total-errors"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10249,9 +11423,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors']['meta_info']
 
 
-                    class InPackets(Entity):
+                    class InPackets(_Entity_):
                         """
                         Number of inbound packets
                         
@@ -10301,7 +11479,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, self).__init__()
 
                             self.yang_name = "in-packets"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10330,9 +11511,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets']['meta_info']
 
 
-                    class InputQueueDrops(Entity):
+                    class InputQueueDrops(_Entity_):
                         """
                         Number of input queue drops
                         
@@ -10382,7 +11567,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, self).__init__()
 
                             self.yang_name = "input-queue-drops"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10411,9 +11599,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops']['meta_info']
 
 
-                    class InputTotalDrops(Entity):
+                    class InputTotalDrops(_Entity_):
                         """
                         Number of inbound correct packets discarded
                         
@@ -10463,7 +11655,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, self).__init__()
 
                             self.yang_name = "input-total-drops"
                             self.yang_parent_name = "basic-counter-interface-template"
@@ -10492,12 +11687,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.BasicCounterInterface']['meta_info']
 
 
-
-
-
-        class Bgp(Entity):
+        class Bgp(_Entity_):
             """
             BGP threshold configuration
             
@@ -10514,7 +11725,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.Bgp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.Bgp, self).__init__()
 
                 self.yang_name = "bgp"
                 self.yang_parent_name = "threshold"
@@ -10535,7 +11749,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.Bgp, [], name, value)
 
 
-            class BgpTemplates(Entity):
+            class BgpTemplates(_Entity_):
                 """
                 BGP threshold templates
                 
@@ -10552,7 +11766,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.Bgp.BgpTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.Bgp.BgpTemplates, self).__init__()
 
                     self.yang_name = "bgp-templates"
                     self.yang_parent_name = "bgp"
@@ -10571,7 +11788,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates, [], name, value)
 
 
-                class BgpTemplate(Entity):
+                class BgpTemplate(_Entity_):
                     """
                     BGP threshold template instance
                     
@@ -10655,7 +11872,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate, self).__init__()
 
                         self.yang_name = "bgp-template"
                         self.yang_parent_name = "bgp-templates"
@@ -10701,7 +11921,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class OutputUpdateMessages(Entity):
+                    class OutputUpdateMessages(_Entity_):
                         """
                         Number of update messages sent
                         
@@ -10751,7 +11971,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, self).__init__()
 
                             self.yang_name = "output-update-messages"
                             self.yang_parent_name = "bgp-template"
@@ -10780,9 +12003,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages']['meta_info']
 
 
-                    class ErrorsReceived(Entity):
+                    class ErrorsReceived(_Entity_):
                         """
                         Number of error notifications received
                         
@@ -10832,7 +12059,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, self).__init__()
 
                             self.yang_name = "errors-received"
                             self.yang_parent_name = "bgp-template"
@@ -10861,9 +12091,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived']['meta_info']
 
 
-                    class ConnEstablished(Entity):
+                    class ConnEstablished(_Entity_):
                         """
                         Number of times the connection was
                         established
@@ -10914,7 +12148,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, self).__init__()
 
                             self.yang_name = "conn-established"
                             self.yang_parent_name = "bgp-template"
@@ -10943,9 +12180,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished']['meta_info']
 
 
-                    class OutputMessages(Entity):
+                    class OutputMessages(_Entity_):
                         """
                         Number of messages sent
                         
@@ -10995,7 +12236,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, self).__init__()
 
                             self.yang_name = "output-messages"
                             self.yang_parent_name = "bgp-template"
@@ -11024,9 +12268,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages']['meta_info']
 
 
-                    class ConnDropped(Entity):
+                    class ConnDropped(_Entity_):
                         """
                         Number of times the connection was dropped
                         
@@ -11076,7 +12324,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, self).__init__()
 
                             self.yang_name = "conn-dropped"
                             self.yang_parent_name = "bgp-template"
@@ -11105,9 +12356,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped']['meta_info']
 
 
-                    class InputUpdateMessages(Entity):
+                    class InputUpdateMessages(_Entity_):
                         """
                         Number of update messages received
                         
@@ -11157,7 +12412,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, self).__init__()
 
                             self.yang_name = "input-update-messages"
                             self.yang_parent_name = "bgp-template"
@@ -11186,9 +12444,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages']['meta_info']
 
 
-                    class ErrorsSent(Entity):
+                    class ErrorsSent(_Entity_):
                         """
                         Number of error notifications sent
                         
@@ -11238,7 +12500,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, self).__init__()
 
                             self.yang_name = "errors-sent"
                             self.yang_parent_name = "bgp-template"
@@ -11267,9 +12532,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent']['meta_info']
 
 
-                    class InputMessages(Entity):
+                    class InputMessages(_Entity_):
                         """
                         Number of messages received
                         
@@ -11319,7 +12588,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, self).__init__()
 
                             self.yang_name = "input-messages"
                             self.yang_parent_name = "bgp-template"
@@ -11348,12 +12620,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.Bgp.BgpTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.Bgp']['meta_info']
 
 
-
-
-
-        class Ospfv2Protocol(Entity):
+        class Ospfv2Protocol(_Entity_):
             """
             OSPF v2 Protocol threshold configuration
             
@@ -11370,7 +12658,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.Ospfv2Protocol, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.Ospfv2Protocol, self).__init__()
 
                 self.yang_name = "ospfv2-protocol"
                 self.yang_parent_name = "threshold"
@@ -11391,7 +12682,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol, [], name, value)
 
 
-            class Ospfv2ProtocolTemplates(Entity):
+            class Ospfv2ProtocolTemplates(_Entity_):
                 """
                 OSPF v2 Protocol threshold templates
                 
@@ -11408,7 +12699,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates, self).__init__()
 
                     self.yang_name = "ospfv2-protocol-templates"
                     self.yang_parent_name = "ospfv2-protocol"
@@ -11427,7 +12721,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates, [], name, value)
 
 
-                class Ospfv2ProtocolTemplate(Entity):
+                class Ospfv2ProtocolTemplate(_Entity_):
                     """
                     OSPF v2 Protocol threshold template instance
                     
@@ -11602,7 +12896,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate, self).__init__()
 
                         self.yang_name = "ospfv2-protocol-template"
                         self.yang_parent_name = "ospfv2-protocol-templates"
@@ -11687,7 +12984,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class ChecksumErrors(Entity):
+                    class ChecksumErrors(_Entity_):
                         """
                         Number of packets received with checksum
                         errors
@@ -11738,7 +13035,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, self).__init__()
 
                             self.yang_name = "checksum-errors"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -11767,9 +13067,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors']['meta_info']
 
 
-                    class InputLsaAcksLsa(Entity):
+                    class InputLsaAcksLsa(_Entity_):
                         """
                         Number of LSA received in LSA Acknowledgements
                         
@@ -11819,7 +13123,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, self).__init__()
 
                             self.yang_name = "input-lsa-acks-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -11848,9 +13155,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa']['meta_info']
 
 
-                    class OutputDbDsLsa(Entity):
+                    class OutputDbDsLsa(_Entity_):
                         """
                         Number of LSA sent in DBD packets
                         
@@ -11900,7 +13211,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, self).__init__()
 
                             self.yang_name = "output-db-ds-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -11929,9 +13243,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa']['meta_info']
 
 
-                    class InputDbDsLsa(Entity):
+                    class InputDbDsLsa(_Entity_):
                         """
                         Number of LSA received in DBD packets
                         
@@ -11981,7 +13299,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, self).__init__()
 
                             self.yang_name = "input-db-ds-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12010,9 +13331,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa']['meta_info']
 
 
-                    class InputLsaUpdates(Entity):
+                    class InputLsaUpdates(_Entity_):
                         """
                         Number of LSA Updates received
                         
@@ -12062,7 +13387,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, self).__init__()
 
                             self.yang_name = "input-lsa-updates"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12091,9 +13419,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates']['meta_info']
 
 
-                    class OutputDbDs(Entity):
+                    class OutputDbDs(_Entity_):
                         """
                         Number of DBD packets sent
                         
@@ -12143,7 +13475,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, self).__init__()
 
                             self.yang_name = "output-db-ds"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12172,9 +13507,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs']['meta_info']
 
 
-                    class OutputLsaUpdatesLsa(Entity):
+                    class OutputLsaUpdatesLsa(_Entity_):
                         """
                         Number of LSA sent in LSA Updates
                         
@@ -12224,7 +13563,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
 
                             self.yang_name = "output-lsa-updates-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12253,9 +13595,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa']['meta_info']
 
 
-                    class InputDbDs(Entity):
+                    class InputDbDs(_Entity_):
                         """
                         Number of DBD packets received
                         
@@ -12305,7 +13651,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, self).__init__()
 
                             self.yang_name = "input-db-ds"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12334,9 +13683,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs']['meta_info']
 
 
-                    class InputLsaUpdatesLsa(Entity):
+                    class InputLsaUpdatesLsa(_Entity_):
                         """
                         Number of LSA received in LSA Updates
                         
@@ -12386,7 +13739,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
 
                             self.yang_name = "input-lsa-updates-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12415,9 +13771,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa']['meta_info']
 
 
-                    class OutputPackets(Entity):
+                    class OutputPackets(_Entity_):
                         """
                         Total number of packets sent
                         
@@ -12467,7 +13827,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, self).__init__()
 
                             self.yang_name = "output-packets"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12496,9 +13859,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets']['meta_info']
 
 
-                    class InputPackets(Entity):
+                    class InputPackets(_Entity_):
                         """
                         Total number of packets received
                         
@@ -12548,7 +13915,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, self).__init__()
 
                             self.yang_name = "input-packets"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12577,9 +13947,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets']['meta_info']
 
 
-                    class OutputHelloPackets(Entity):
+                    class OutputHelloPackets(_Entity_):
                         """
                         Total number of packets sent
                         
@@ -12629,7 +14003,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, self).__init__()
 
                             self.yang_name = "output-hello-packets"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12658,9 +14035,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets']['meta_info']
 
 
-                    class InputHelloPackets(Entity):
+                    class InputHelloPackets(_Entity_):
                         """
                         Number of Hello packets received
                         
@@ -12710,7 +14091,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, self).__init__()
 
                             self.yang_name = "input-hello-packets"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12739,9 +14123,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets']['meta_info']
 
 
-                    class OutputLsRequests(Entity):
+                    class OutputLsRequests(_Entity_):
                         """
                         Number of LS Requests sent
                         
@@ -12791,7 +14179,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, self).__init__()
 
                             self.yang_name = "output-ls-requests"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12820,9 +14211,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests']['meta_info']
 
 
-                    class OutputLsaAcksLsa(Entity):
+                    class OutputLsaAcksLsa(_Entity_):
                         """
                         Number of LSA sent in LSA Acknowledgements
                         
@@ -12872,7 +14267,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
 
                             self.yang_name = "output-lsa-acks-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12901,9 +14299,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa']['meta_info']
 
 
-                    class OutputLsaAcks(Entity):
+                    class OutputLsaAcks(_Entity_):
                         """
                         Number of LSA Acknowledgements sent
                         
@@ -12953,7 +14355,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, self).__init__()
 
                             self.yang_name = "output-lsa-acks"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -12982,9 +14387,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks']['meta_info']
 
 
-                    class InputLsaAcks(Entity):
+                    class InputLsaAcks(_Entity_):
                         """
                         Number of LSA Acknowledgements received
                         
@@ -13034,7 +14443,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, self).__init__()
 
                             self.yang_name = "input-lsa-acks"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -13063,9 +14475,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks']['meta_info']
 
 
-                    class OutputLsaUpdates(Entity):
+                    class OutputLsaUpdates(_Entity_):
                         """
                         Number of LSA Updates sent
                         
@@ -13115,7 +14531,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, self).__init__()
 
                             self.yang_name = "output-lsa-updates"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -13144,9 +14563,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates']['meta_info']
 
 
-                    class OutputLsRequestsLsa(Entity):
+                    class OutputLsRequestsLsa(_Entity_):
                         """
                         Number of LSA sent in LS Requests
                         
@@ -13196,7 +14619,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
 
                             self.yang_name = "output-ls-requests-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -13225,9 +14651,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa']['meta_info']
 
 
-                    class InputLsRequestsLsa(Entity):
+                    class InputLsRequestsLsa(_Entity_):
                         """
                         Number of LSA received in LS Requests
                         
@@ -13277,7 +14707,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, self).__init__()
 
                             self.yang_name = "input-ls-requests-lsa"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -13306,9 +14739,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa']['meta_info']
 
 
-                    class InputLsRequests(Entity):
+                    class InputLsRequests(_Entity_):
                         """
                         Number of LS Requests received
                         
@@ -13358,7 +14795,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, self).__init__()
 
                             self.yang_name = "input-ls-requests"
                             self.yang_parent_name = "ospfv2-protocol-template"
@@ -13387,12 +14827,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.Ospfv2Protocol']['meta_info']
 
 
-
-
-
-        class CpuNode(Entity):
+        class CpuNode(_Entity_):
             """
             Node CPU threshold configuration
             
@@ -13409,7 +14865,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.CpuNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.CpuNode, self).__init__()
 
                 self.yang_name = "cpu-node"
                 self.yang_parent_name = "threshold"
@@ -13430,7 +14889,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.CpuNode, [], name, value)
 
 
-            class CpuNodeTemplates(Entity):
+            class CpuNodeTemplates(_Entity_):
                 """
                 Node CPU threshold configuration templates
                 
@@ -13447,7 +14906,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates, self).__init__()
 
                     self.yang_name = "cpu-node-templates"
                     self.yang_parent_name = "cpu-node"
@@ -13466,7 +14928,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates, [], name, value)
 
 
-                class CpuNodeTemplate(Entity):
+                class CpuNodeTemplate(_Entity_):
                     """
                     Node CPU threshold configuration template
                     instances
@@ -13509,7 +14971,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate, self).__init__()
 
                         self.yang_name = "cpu-node-template"
                         self.yang_parent_name = "cpu-node-templates"
@@ -13537,7 +15002,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class AverageCpuUsed(Entity):
+                    class AverageCpuUsed(_Entity_):
                         """
                         Average %CPU utilization
                         
@@ -13587,7 +15052,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, self).__init__()
 
                             self.yang_name = "average-cpu-used"
                             self.yang_parent_name = "cpu-node-template"
@@ -13616,9 +15084,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed']['meta_info']
 
 
-                    class NoProcesses(Entity):
+                    class NoProcesses(_Entity_):
                         """
                         Number of processes
                         
@@ -13668,7 +15140,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, self).__init__()
 
                             self.yang_name = "no-processes"
                             self.yang_parent_name = "cpu-node-template"
@@ -13697,12 +15172,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.CpuNode.CpuNodeTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.CpuNode']['meta_info']
 
 
-
-
-
-        class DataRateInterface(Entity):
+        class DataRateInterface(_Entity_):
             """
             Interface Data Rates threshold configuration
             
@@ -13719,7 +15210,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.DataRateInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.DataRateInterface, self).__init__()
 
                 self.yang_name = "data-rate-interface"
                 self.yang_parent_name = "threshold"
@@ -13740,7 +15234,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.DataRateInterface, [], name, value)
 
 
-            class DataRateInterfaceTemplates(Entity):
+            class DataRateInterfaceTemplates(_Entity_):
                 """
                 Interface Data Rates threshold templates
                 
@@ -13757,7 +15251,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates, self).__init__()
 
                     self.yang_name = "data-rate-interface-templates"
                     self.yang_parent_name = "data-rate-interface"
@@ -13776,7 +15273,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates, [], name, value)
 
 
-                class DataRateInterfaceTemplate(Entity):
+                class DataRateInterfaceTemplate(_Entity_):
                     """
                     Interface Data Rates threshold template
                     instance
@@ -13882,7 +15379,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate, self).__init__()
 
                         self.yang_name = "data-rate-interface-template"
                         self.yang_parent_name = "data-rate-interface-templates"
@@ -13935,7 +15435,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
 
 
-                    class InputDataRate(Entity):
+                    class InputDataRate(_Entity_):
                         """
                         Input data rate in kbps
                         
@@ -13985,7 +15485,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, self).__init__()
 
                             self.yang_name = "input-data-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14014,9 +15517,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate']['meta_info']
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Bandwidth in kbps
                         
@@ -14066,7 +15573,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14095,9 +15605,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth']['meta_info']
 
 
-                    class OutputPacketRate(Entity):
+                    class OutputPacketRate(_Entity_):
                         """
                         Number of Output packets per second
                         
@@ -14147,7 +15661,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, self).__init__()
 
                             self.yang_name = "output-packet-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14176,9 +15693,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate']['meta_info']
 
 
-                    class InputPeakPkts(Entity):
+                    class InputPeakPkts(_Entity_):
                         """
                         Maximum number of input packets per second
                         
@@ -14228,7 +15749,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, self).__init__()
 
                             self.yang_name = "input-peak-pkts"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14257,9 +15781,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts']['meta_info']
 
 
-                    class OutputPeakRate(Entity):
+                    class OutputPeakRate(_Entity_):
                         """
                         Peak output data rate in kbps
                         
@@ -14309,7 +15837,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, self).__init__()
 
                             self.yang_name = "output-peak-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14338,9 +15869,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate']['meta_info']
 
 
-                    class OutputDataRate(Entity):
+                    class OutputDataRate(_Entity_):
                         """
                         Output data rate in kbps
                         
@@ -14390,7 +15925,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, self).__init__()
 
                             self.yang_name = "output-data-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14419,9 +15957,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate']['meta_info']
 
 
-                    class InputPacketRate(Entity):
+                    class InputPacketRate(_Entity_):
                         """
                         Number of input packets per second
                         
@@ -14471,7 +16013,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, self).__init__()
 
                             self.yang_name = "input-packet-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14500,9 +16045,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate']['meta_info']
 
 
-                    class OutputPeakPkts(Entity):
+                    class OutputPeakPkts(_Entity_):
                         """
                         Maximum number of output packets per second
                         
@@ -14552,7 +16101,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, self).__init__()
 
                             self.yang_name = "output-peak-pkts"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14581,9 +16133,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts']['meta_info']
 
 
-                    class InputPeakRate(Entity):
+                    class InputPeakRate(_Entity_):
                         """
                         Peak input data rate in kbps
                         
@@ -14633,7 +16189,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, self).__init__()
 
                             self.yang_name = "input-peak-rate"
                             self.yang_parent_name = "data-rate-interface-template"
@@ -14662,12 +16221,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.DataRateInterface']['meta_info']
 
 
-
-
-
-        class ProcessNode(Entity):
+        class ProcessNode(_Entity_):
             """
             Node Process threshold configuration
             
@@ -14684,7 +16259,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.ProcessNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.ProcessNode, self).__init__()
 
                 self.yang_name = "process-node"
                 self.yang_parent_name = "threshold"
@@ -14705,7 +16283,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.ProcessNode, [], name, value)
 
 
-            class ProcessNodeTemplates(Entity):
+            class ProcessNodeTemplates(_Entity_):
                 """
                 Node Memory threshold templates
                 
@@ -14722,7 +16300,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates, self).__init__()
 
                     self.yang_name = "process-node-templates"
                     self.yang_parent_name = "process-node"
@@ -14741,7 +16322,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates, [], name, value)
 
 
-                class ProcessNodeTemplate(Entity):
+                class ProcessNodeTemplate(_Entity_):
                     """
                     Node Memory threshold template instance
                     
@@ -14790,7 +16371,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate, self).__init__()
 
                         self.yang_name = "process-node-template"
                         self.yang_parent_name = "process-node-templates"
@@ -14821,7 +16405,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class AverageCpuUsed(Entity):
+                    class AverageCpuUsed(_Entity_):
                         """
                         Average %CPU utilization
                         
@@ -14871,7 +16455,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, self).__init__()
 
                             self.yang_name = "average-cpu-used"
                             self.yang_parent_name = "process-node-template"
@@ -14900,9 +16487,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed']['meta_info']
 
 
-                    class PeakMemory(Entity):
+                    class PeakMemory(_Entity_):
                         """
                         Max memory (KBytes) used since startup time
                         
@@ -14952,7 +16543,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, self).__init__()
 
                             self.yang_name = "peak-memory"
                             self.yang_parent_name = "process-node-template"
@@ -14981,9 +16575,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory']['meta_info']
 
 
-                    class NoThreads(Entity):
+                    class NoThreads(_Entity_):
                         """
                         Number of threads
                         
@@ -15033,7 +16631,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, self).__init__()
 
                             self.yang_name = "no-threads"
                             self.yang_parent_name = "process-node-template"
@@ -15062,12 +16663,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.ProcessNode']['meta_info']
 
 
-
-
-
-        class MemoryNode(Entity):
+        class MemoryNode(_Entity_):
             """
             Node Memory threshold configuration
             
@@ -15084,7 +16701,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.MemoryNode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.MemoryNode, self).__init__()
 
                 self.yang_name = "memory-node"
                 self.yang_parent_name = "threshold"
@@ -15105,7 +16725,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.MemoryNode, [], name, value)
 
 
-            class MemoryNodeTemplates(Entity):
+            class MemoryNodeTemplates(_Entity_):
                 """
                 Node Memory threshold configuration templates
                 
@@ -15122,7 +16742,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates, self).__init__()
 
                     self.yang_name = "memory-node-templates"
                     self.yang_parent_name = "memory-node"
@@ -15141,7 +16764,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates, [], name, value)
 
 
-                class MemoryNodeTemplate(Entity):
+                class MemoryNodeTemplate(_Entity_):
                     """
                     Node Memory threshold configuration template
                     instance
@@ -15184,7 +16807,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate, self).__init__()
 
                         self.yang_name = "memory-node-template"
                         self.yang_parent_name = "memory-node-templates"
@@ -15212,7 +16838,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class PeakMemory(Entity):
+                    class PeakMemory(_Entity_):
                         """
                         Maximum memory (KBytes) used
                         
@@ -15262,7 +16888,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, self).__init__()
 
                             self.yang_name = "peak-memory"
                             self.yang_parent_name = "memory-node-template"
@@ -15291,9 +16920,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory']['meta_info']
 
 
-                    class CurrMemory(Entity):
+                    class CurrMemory(_Entity_):
                         """
                         Current memory (Bytes) in use
                         
@@ -15343,7 +16976,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, self).__init__()
 
                             self.yang_name = "curr-memory"
                             self.yang_parent_name = "memory-node-template"
@@ -15372,12 +17008,28 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.MemoryNode']['meta_info']
 
 
-
-
-
-        class Ospfv3Protocol(Entity):
+        class Ospfv3Protocol(_Entity_):
             """
             OSPF v2 Protocol threshold configuration
             
@@ -15394,7 +17046,10 @@ class PerfMgmt(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(PerfMgmt.Threshold.Ospfv3Protocol, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerfMgmt.Threshold.Ospfv3Protocol, self).__init__()
 
                 self.yang_name = "ospfv3-protocol"
                 self.yang_parent_name = "threshold"
@@ -15415,7 +17070,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol, [], name, value)
 
 
-            class Ospfv3ProtocolTemplates(Entity):
+            class Ospfv3ProtocolTemplates(_Entity_):
                 """
                 OSPF v2 Protocol threshold templates
                 
@@ -15432,7 +17087,10 @@ class PerfMgmt(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates, self).__init__()
 
                     self.yang_name = "ospfv3-protocol-templates"
                     self.yang_parent_name = "ospfv3-protocol"
@@ -15451,7 +17109,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates, [], name, value)
 
 
-                class Ospfv3ProtocolTemplate(Entity):
+                class Ospfv3ProtocolTemplate(_Entity_):
                     """
                     OSPF v2 Protocol threshold template instance
                     
@@ -15619,7 +17277,10 @@ class PerfMgmt(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate, self).__init__()
 
                         self.yang_name = "ospfv3-protocol-template"
                         self.yang_parent_name = "ospfv3-protocol-templates"
@@ -15701,7 +17362,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate, ['template_name', 'sample_interval'], name, value)
 
 
-                    class InputLsaAcksLsa(Entity):
+                    class InputLsaAcksLsa(_Entity_):
                         """
                         Number of LSA received in LSA Acknowledgements
                         
@@ -15751,7 +17412,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, self).__init__()
 
                             self.yang_name = "input-lsa-acks-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -15780,9 +17444,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa']['meta_info']
 
 
-                    class OutputDbDsLsa(Entity):
+                    class OutputDbDsLsa(_Entity_):
                         """
                         Number of LSA sent in DBD packets
                         
@@ -15832,7 +17500,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, self).__init__()
 
                             self.yang_name = "output-db-ds-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -15861,9 +17532,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa']['meta_info']
 
 
-                    class InputDbDsLsa(Entity):
+                    class InputDbDsLsa(_Entity_):
                         """
                         Number of LSA received in DBD packets
                         
@@ -15913,7 +17588,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, self).__init__()
 
                             self.yang_name = "input-db-ds-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -15942,9 +17620,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa']['meta_info']
 
 
-                    class InputLsaUpdates(Entity):
+                    class InputLsaUpdates(_Entity_):
                         """
                         Number of LSA Updates received
                         
@@ -15994,7 +17676,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, self).__init__()
 
                             self.yang_name = "input-lsa-updates"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16023,9 +17708,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates']['meta_info']
 
 
-                    class OutputDbDs(Entity):
+                    class OutputDbDs(_Entity_):
                         """
                         Number of DBD packets sent
                         
@@ -16075,7 +17764,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, self).__init__()
 
                             self.yang_name = "output-db-ds"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16104,9 +17796,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs']['meta_info']
 
 
-                    class OutputLsaUpdatesLsa(Entity):
+                    class OutputLsaUpdatesLsa(_Entity_):
                         """
                         Number of LSA sent in LSA Updates
                         
@@ -16156,7 +17852,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
 
                             self.yang_name = "output-lsa-updates-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16185,9 +17884,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa']['meta_info']
 
 
-                    class InputDbDs(Entity):
+                    class InputDbDs(_Entity_):
                         """
                         Number of DBD packets received
                         
@@ -16237,7 +17940,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, self).__init__()
 
                             self.yang_name = "input-db-ds"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16266,9 +17972,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs']['meta_info']
 
 
-                    class InputLsaUpdatesLsa(Entity):
+                    class InputLsaUpdatesLsa(_Entity_):
                         """
                         Number of LSA received in LSA Updates
                         
@@ -16318,7 +18028,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
 
                             self.yang_name = "input-lsa-updates-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16347,9 +18060,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa']['meta_info']
 
 
-                    class OutputPackets(Entity):
+                    class OutputPackets(_Entity_):
                         """
                         Total number of packets sent
                         
@@ -16399,7 +18116,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, self).__init__()
 
                             self.yang_name = "output-packets"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16428,9 +18148,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets']['meta_info']
 
 
-                    class InputPackets(Entity):
+                    class InputPackets(_Entity_):
                         """
                         Total number of packets received
                         
@@ -16480,7 +18204,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, self).__init__()
 
                             self.yang_name = "input-packets"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16509,9 +18236,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets']['meta_info']
 
 
-                    class OutputHelloPackets(Entity):
+                    class OutputHelloPackets(_Entity_):
                         """
                         Total number of packets sent
                         
@@ -16561,7 +18292,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, self).__init__()
 
                             self.yang_name = "output-hello-packets"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16590,9 +18324,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets']['meta_info']
 
 
-                    class InputHelloPackets(Entity):
+                    class InputHelloPackets(_Entity_):
                         """
                         Number of Hello packets received
                         
@@ -16642,7 +18380,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, self).__init__()
 
                             self.yang_name = "input-hello-packets"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16671,9 +18412,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets']['meta_info']
 
 
-                    class OutputLsRequests(Entity):
+                    class OutputLsRequests(_Entity_):
                         """
                         Number of LS Requests sent
                         
@@ -16723,7 +18468,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, self).__init__()
 
                             self.yang_name = "output-ls-requests"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16752,9 +18500,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests']['meta_info']
 
 
-                    class OutputLsaAcksLsa(Entity):
+                    class OutputLsaAcksLsa(_Entity_):
                         """
                         Number of LSA sent in LSA Acknowledgements
                         
@@ -16804,7 +18556,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
 
                             self.yang_name = "output-lsa-acks-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16833,9 +18588,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa']['meta_info']
 
 
-                    class OutputLsaAcks(Entity):
+                    class OutputLsaAcks(_Entity_):
                         """
                         Number of LSA Acknowledgements sent
                         
@@ -16885,7 +18644,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, self).__init__()
 
                             self.yang_name = "output-lsa-acks"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16914,9 +18676,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks']['meta_info']
 
 
-                    class InputLsaAcks(Entity):
+                    class InputLsaAcks(_Entity_):
                         """
                         Number of LSA Acknowledgements received
                         
@@ -16966,7 +18732,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, self).__init__()
 
                             self.yang_name = "input-lsa-acks"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -16995,9 +18764,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks']['meta_info']
 
 
-                    class OutputLsaUpdates(Entity):
+                    class OutputLsaUpdates(_Entity_):
                         """
                         Number of LSA Updates sent
                         
@@ -17047,7 +18820,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, self).__init__()
 
                             self.yang_name = "output-lsa-updates"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -17076,9 +18852,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates']['meta_info']
 
 
-                    class OutputLsRequestsLsa(Entity):
+                    class OutputLsRequestsLsa(_Entity_):
                         """
                         Number of LSA sent in LS Requests
                         
@@ -17128,7 +18908,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
 
                             self.yang_name = "output-ls-requests-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -17157,9 +18940,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa']['meta_info']
 
 
-                    class InputLsRequestsLsa(Entity):
+                    class InputLsRequestsLsa(_Entity_):
                         """
                         Number of LSA received in LS Requests
                         
@@ -17209,7 +18996,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, self).__init__()
 
                             self.yang_name = "input-ls-requests-lsa"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -17238,9 +19028,13 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa']['meta_info']
 
 
-                    class InputLsRequests(Entity):
+                    class InputLsRequests(_Entity_):
                         """
                         Number of LS Requests received
                         
@@ -17290,7 +19084,10 @@ class PerfMgmt(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, self).__init__()
 
                             self.yang_name = "input-ls-requests"
                             self.yang_parent_name = "ospfv3-protocol-template"
@@ -17319,14 +19116,38 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                            return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                        return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                    return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+                return meta._meta_table['PerfMgmt.Threshold.Ospfv3Protocol']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+            return meta._meta_table['PerfMgmt.Threshold']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PerfMgmt()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_manageability_perfmgmt_cfg as meta
+        return meta._meta_table['PerfMgmt']['meta_info']
 
 

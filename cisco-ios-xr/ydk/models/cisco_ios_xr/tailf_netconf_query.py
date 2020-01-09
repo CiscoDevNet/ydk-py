@@ -20,8 +20,11 @@ Finally 'stop\-query' is used to clean up query resources on the
 server.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -30,7 +33,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class StartQuery(Entity):
+class StartQuery(_Entity_):
     """
     
     
@@ -52,7 +55,10 @@ class StartQuery(Entity):
     _revision = '2017-01-06'
 
     def __init__(self):
-        super(StartQuery, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(StartQuery, self).__init__()
         self._top_entity = None
 
         self.yang_name = "start-query"
@@ -74,7 +80,7 @@ class StartQuery(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -128,7 +134,10 @@ class StartQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(StartQuery.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(StartQuery.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "start-query"
@@ -158,7 +167,7 @@ class StartQuery(Entity):
             self._perform_setattr(StartQuery.Input, ['foreach', 'sort_by', 'limit', 'offset', 'timeout'], name, value)
 
 
-        class Select(Entity):
+        class Select(_Entity_):
             """
             A list of expressions that define what to return from each
             node in the node set returned by the 'foreach' expression.
@@ -188,7 +197,10 @@ class StartQuery(Entity):
             _revision = '2017-01-06'
 
             def __init__(self):
-                super(StartQuery.Input.Select, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(StartQuery.Input.Select, self).__init__()
 
                 self.yang_name = "select"
                 self.yang_parent_name = "input"
@@ -260,10 +272,24 @@ class StartQuery(Entity):
                 inline = Enum.YLeaf(3, "inline")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                    return meta._meta_table['StartQuery.Input.Select.ResultType']
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                return meta._meta_table['StartQuery.Input.Select']['meta_info']
 
-    class Output(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['StartQuery.Input']['meta_info']
+
+
+    class Output(_Entity_):
         """
         
         
@@ -282,7 +308,10 @@ class StartQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(StartQuery.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(StartQuery.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "start-query"
@@ -301,14 +330,22 @@ class StartQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(StartQuery.Output, ['query_handle'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['StartQuery.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = StartQuery()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+        return meta._meta_table['StartQuery']['meta_info']
 
 
-class FetchQueryResult(Entity):
+class FetchQueryResult(_Entity_):
     """
     
     
@@ -330,7 +367,10 @@ class FetchQueryResult(Entity):
     _revision = '2017-01-06'
 
     def __init__(self):
-        super(FetchQueryResult, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FetchQueryResult, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fetch-query-result"
@@ -352,7 +392,7 @@ class FetchQueryResult(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -371,7 +411,10 @@ class FetchQueryResult(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(FetchQueryResult.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FetchQueryResult.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "fetch-query-result"
@@ -390,9 +433,13 @@ class FetchQueryResult(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(FetchQueryResult.Input, ['query_handle'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['FetchQueryResult.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -409,7 +456,10 @@ class FetchQueryResult(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(FetchQueryResult.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FetchQueryResult.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "fetch-query-result"
@@ -430,7 +480,7 @@ class FetchQueryResult(Entity):
             self._perform_setattr(FetchQueryResult.Output, [], name, value)
 
 
-        class QueryResult(Entity):
+        class QueryResult(_Entity_):
             """
             
             
@@ -447,7 +497,10 @@ class FetchQueryResult(Entity):
             _revision = '2017-01-06'
 
             def __init__(self):
-                super(FetchQueryResult.Output.QueryResult, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FetchQueryResult.Output.QueryResult, self).__init__()
 
                 self.yang_name = "query-result"
                 self.yang_parent_name = "output"
@@ -466,7 +519,7 @@ class FetchQueryResult(Entity):
                 self._perform_setattr(FetchQueryResult.Output.QueryResult, [], name, value)
 
 
-            class Result(Entity):
+            class Result(_Entity_):
                 """
                 There will be one result for each node in the node set
                 produced by evaluating the 'foreach' expression.
@@ -484,7 +537,10 @@ class FetchQueryResult(Entity):
                 _revision = '2017-01-06'
 
                 def __init__(self):
-                    super(FetchQueryResult.Output.QueryResult.Result, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FetchQueryResult.Output.QueryResult.Result, self).__init__()
 
                     self.yang_name = "result"
                     self.yang_parent_name = "query-result"
@@ -503,7 +559,7 @@ class FetchQueryResult(Entity):
                     self._perform_setattr(FetchQueryResult.Output.QueryResult.Result, [], name, value)
 
 
-                class Select(Entity):
+                class Select(_Entity_):
                     """
                     
                     
@@ -535,7 +591,10 @@ class FetchQueryResult(Entity):
                     _revision = '2017-01-06'
 
                     def __init__(self):
-                        super(FetchQueryResult.Output.QueryResult.Result.Select, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FetchQueryResult.Output.QueryResult.Result.Select, self).__init__()
 
                         self.yang_name = "select"
                         self.yang_parent_name = "result"
@@ -560,17 +619,37 @@ class FetchQueryResult(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FetchQueryResult.Output.QueryResult.Result.Select, ['label', 'path', 'value', 'data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                        return meta._meta_table['FetchQueryResult.Output.QueryResult.Result.Select']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                    return meta._meta_table['FetchQueryResult.Output.QueryResult.Result']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                return meta._meta_table['FetchQueryResult.Output.QueryResult']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['FetchQueryResult.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FetchQueryResult()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+        return meta._meta_table['FetchQueryResult']['meta_info']
 
 
-class ImmediateQuery(Entity):
+class ImmediateQuery(_Entity_):
     """
     
     
@@ -592,7 +671,10 @@ class ImmediateQuery(Entity):
     _revision = '2017-01-06'
 
     def __init__(self):
-        super(ImmediateQuery, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ImmediateQuery, self).__init__()
         self._top_entity = None
 
         self.yang_name = "immediate-query"
@@ -614,7 +696,7 @@ class ImmediateQuery(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -668,7 +750,10 @@ class ImmediateQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(ImmediateQuery.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ImmediateQuery.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "immediate-query"
@@ -698,7 +783,7 @@ class ImmediateQuery(Entity):
             self._perform_setattr(ImmediateQuery.Input, ['foreach', 'sort_by', 'limit', 'offset', 'timeout'], name, value)
 
 
-        class Select(Entity):
+        class Select(_Entity_):
             """
             A list of expressions that define what to return from each
             node in the node set returned by the 'foreach' expression.
@@ -728,7 +813,10 @@ class ImmediateQuery(Entity):
             _revision = '2017-01-06'
 
             def __init__(self):
-                super(ImmediateQuery.Input.Select, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ImmediateQuery.Input.Select, self).__init__()
 
                 self.yang_name = "select"
                 self.yang_parent_name = "input"
@@ -800,10 +888,24 @@ class ImmediateQuery(Entity):
                 inline = Enum.YLeaf(3, "inline")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                    return meta._meta_table['ImmediateQuery.Input.Select.ResultType']
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                return meta._meta_table['ImmediateQuery.Input.Select']['meta_info']
 
-    class Output(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['ImmediateQuery.Input']['meta_info']
+
+
+    class Output(_Entity_):
         """
         
         
@@ -820,7 +922,10 @@ class ImmediateQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(ImmediateQuery.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ImmediateQuery.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "immediate-query"
@@ -841,7 +946,7 @@ class ImmediateQuery(Entity):
             self._perform_setattr(ImmediateQuery.Output, [], name, value)
 
 
-        class QueryResult(Entity):
+        class QueryResult(_Entity_):
             """
             
             
@@ -858,7 +963,10 @@ class ImmediateQuery(Entity):
             _revision = '2017-01-06'
 
             def __init__(self):
-                super(ImmediateQuery.Output.QueryResult, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ImmediateQuery.Output.QueryResult, self).__init__()
 
                 self.yang_name = "query-result"
                 self.yang_parent_name = "output"
@@ -877,7 +985,7 @@ class ImmediateQuery(Entity):
                 self._perform_setattr(ImmediateQuery.Output.QueryResult, [], name, value)
 
 
-            class Result(Entity):
+            class Result(_Entity_):
                 """
                 There will be one result for each node in the node set
                 produced by evaluating the 'foreach' expression.
@@ -895,7 +1003,10 @@ class ImmediateQuery(Entity):
                 _revision = '2017-01-06'
 
                 def __init__(self):
-                    super(ImmediateQuery.Output.QueryResult.Result, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ImmediateQuery.Output.QueryResult.Result, self).__init__()
 
                     self.yang_name = "result"
                     self.yang_parent_name = "query-result"
@@ -914,7 +1025,7 @@ class ImmediateQuery(Entity):
                     self._perform_setattr(ImmediateQuery.Output.QueryResult.Result, [], name, value)
 
 
-                class Select(Entity):
+                class Select(_Entity_):
                     """
                     
                     
@@ -946,7 +1057,10 @@ class ImmediateQuery(Entity):
                     _revision = '2017-01-06'
 
                     def __init__(self):
-                        super(ImmediateQuery.Output.QueryResult.Result.Select, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ImmediateQuery.Output.QueryResult.Result.Select, self).__init__()
 
                         self.yang_name = "select"
                         self.yang_parent_name = "result"
@@ -971,17 +1085,37 @@ class ImmediateQuery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ImmediateQuery.Output.QueryResult.Result.Select, ['label', 'path', 'value', 'data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                        return meta._meta_table['ImmediateQuery.Output.QueryResult.Result.Select']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                    return meta._meta_table['ImmediateQuery.Output.QueryResult.Result']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+                return meta._meta_table['ImmediateQuery.Output.QueryResult']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['ImmediateQuery.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ImmediateQuery()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+        return meta._meta_table['ImmediateQuery']['meta_info']
 
 
-class ResetQuery(Entity):
+class ResetQuery(_Entity_):
     """
     
     
@@ -998,7 +1132,10 @@ class ResetQuery(Entity):
     _revision = '2017-01-06'
 
     def __init__(self):
-        super(ResetQuery, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ResetQuery, self).__init__()
         self._top_entity = None
 
         self.yang_name = "reset-query"
@@ -1016,7 +1153,7 @@ class ResetQuery(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1053,7 +1190,10 @@ class ResetQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(ResetQuery.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ResetQuery.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "reset-query"
@@ -1076,14 +1216,22 @@ class ResetQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ResetQuery.Input, ['query_handle', 'offset', 'timeout'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['ResetQuery.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ResetQuery()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+        return meta._meta_table['ResetQuery']['meta_info']
 
 
-class StopQuery(Entity):
+class StopQuery(_Entity_):
     """
     
     
@@ -1100,7 +1248,10 @@ class StopQuery(Entity):
     _revision = '2017-01-06'
 
     def __init__(self):
-        super(StopQuery, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(StopQuery, self).__init__()
         self._top_entity = None
 
         self.yang_name = "stop-query"
@@ -1118,7 +1269,7 @@ class StopQuery(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -1137,7 +1288,10 @@ class StopQuery(Entity):
         _revision = '2017-01-06'
 
         def __init__(self):
-            super(StopQuery.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(StopQuery.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "stop-query"
@@ -1156,10 +1310,18 @@ class StopQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(StopQuery.Input, ['query_handle'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+            return meta._meta_table['StopQuery.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = StopQuery()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_netconf_query as meta
+        return meta._meta_table['StopQuery']['meta_info']
 
 

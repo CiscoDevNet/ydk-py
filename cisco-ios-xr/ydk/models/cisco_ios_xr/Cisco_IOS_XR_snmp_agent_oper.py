@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class DupReqDropStatus(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+        return meta._meta_table['DupReqDropStatus']
 
 
 class SnmpCorrRuleState(Enum):
@@ -68,6 +77,12 @@ class SnmpCorrRuleState(Enum):
     rule_applied_all = Enum.YLeaf(2, "rule-applied-all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+        return meta._meta_table['SnmpCorrRuleState']
+
+
 class SnmpCorrVbindMatch(Enum):
     """
     SnmpCorrVbindMatch (Enum Class)
@@ -89,8 +104,14 @@ class SnmpCorrVbindMatch(Enum):
     value = Enum.YLeaf(1, "value")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+        return meta._meta_table['SnmpCorrVbindMatch']
 
-class Snmp(Entity):
+
+
+class Snmp(_Entity_):
     """
     SNMP operational data
     
@@ -136,6 +157,13 @@ class Snmp(Entity):
     
     	**config**\: False
     
+    .. attribute:: sensor_mib
+    
+    	SNMP sensor MIB information
+    	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
+    
+    	**config**\: False
+    
     .. attribute:: entity_mib
     
     	SNMP entity mib
@@ -150,13 +178,6 @@ class Snmp(Entity):
     
     	**config**\: False
     
-    .. attribute:: sensor_mib
-    
-    	SNMP sensor MIB information
-    	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
-    
-    	**config**\: False
-    
     
 
     """
@@ -165,7 +186,10 @@ class Snmp(Entity):
     _revision = '2018-07-20'
 
     def __init__(self):
-        super(Snmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Snmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "snmp"
@@ -173,7 +197,7 @@ class Snmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib))])
+        self._child_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib))])
         self._leafs = OrderedDict()
 
         self.trap_servers = Snmp.TrapServers()
@@ -200,6 +224,10 @@ class Snmp(Entity):
         self.if_indexes.parent = self
         self._children_name_map["if_indexes"] = "if-indexes"
 
+        self.sensor_mib = Snmp.SensorMib()
+        self.sensor_mib.parent = self
+        self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
+
         self.entity_mib = Snmp.EntityMib()
         self.entity_mib.parent = self
         self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
@@ -207,10 +235,6 @@ class Snmp(Entity):
         self.interface_mib = Snmp.InterfaceMib()
         self.interface_mib.parent = self
         self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
-
-        self.sensor_mib = Snmp.SensorMib()
-        self.sensor_mib.parent = self
-        self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp"
         self._is_frozen = True
 
@@ -218,7 +242,7 @@ class Snmp(Entity):
         self._perform_setattr(Snmp, [], name, value)
 
 
-    class TrapServers(Entity):
+    class TrapServers(_Entity_):
         """
         List of trap hosts
         
@@ -237,7 +261,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.TrapServers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.TrapServers, self).__init__()
 
             self.yang_name = "trap-servers"
             self.yang_parent_name = "snmp"
@@ -256,7 +283,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.TrapServers, [], name, value)
 
 
-        class TrapServer(Entity):
+        class TrapServer(_Entity_):
             """
             Trap server and port to which the trap is to be
             sent and statistics
@@ -321,7 +348,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.TrapServers.TrapServer, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.TrapServers.TrapServer, self).__init__()
 
                 self.yang_name = "trap-server"
                 self.yang_parent_name = "trap-servers"
@@ -350,10 +380,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.TrapServers.TrapServer, ['trap_host', 'port', 'number_of_pkts_in_trap_q', 'max_q_length_of_trap_q', 'number_of_pkts_sent', 'number_of_pkts_dropped'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.TrapServers.TrapServer']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.TrapServers']['meta_info']
 
 
-
-    class Information(Entity):
+    class Information(_Entity_):
         """
         SNMP operational information
         
@@ -540,7 +578,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.Information, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Information, self).__init__()
 
             self.yang_name = "information"
             self.yang_parent_name = "snmp"
@@ -657,7 +698,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Information, [], name, value)
 
 
-        class Hosts(Entity):
+        class Hosts(_Entity_):
             """
             SNMP host information
             
@@ -676,7 +717,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.Hosts, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.Hosts, self).__init__()
 
                 self.yang_name = "hosts"
                 self.yang_parent_name = "information"
@@ -695,7 +739,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.Hosts, [], name, value)
 
 
-            class Host(Entity):
+            class Host(_Entity_):
                 """
                 SNMP target host name
                 
@@ -723,7 +767,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.Hosts.Host, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.Hosts.Host, self).__init__()
 
                     self.yang_name = "host"
                     self.yang_parent_name = "hosts"
@@ -745,7 +792,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.Hosts.Host, ['name'], name, value)
 
 
-                class HostInformation(Entity):
+                class HostInformation(_Entity_):
                     """
                     Host name ,udp\-port , user, security model
                     and level
@@ -809,7 +856,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Hosts.Host.HostInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Hosts.Host.HostInformation, self).__init__()
 
                         self.yang_name = "host-information"
                         self.yang_parent_name = "host"
@@ -839,11 +889,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', 'snmp_target_address_t_host', 'snmp_target_address_port', 'snmp_target_addresstype', 'snmp_target_params_security_model', 'snmp_target_params_security_name', 'snmp_target_params_security_level'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Hosts.Host.HostInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.Hosts.Host']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.Hosts']['meta_info']
 
 
-
-
-        class SystemUpTime(Entity):
+        class SystemUpTime(_Entity_):
             """
             System up time
             
@@ -862,7 +924,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.SystemUpTime, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.SystemUpTime, self).__init__()
 
                 self.yang_name = "system-up-time"
                 self.yang_parent_name = "information"
@@ -881,9 +946,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemUpTime, ['system_up_time_edm'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.SystemUpTime']['meta_info']
 
 
-        class NmsAddresses(Entity):
+        class NmsAddresses(_Entity_):
             """
             SNMP request type summary 
             
@@ -902,7 +971,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.NmsAddresses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.NmsAddresses, self).__init__()
 
                 self.yang_name = "nms-addresses"
                 self.yang_parent_name = "information"
@@ -921,7 +993,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.NmsAddresses, [], name, value)
 
 
-            class NmsAddress(Entity):
+            class NmsAddress(_Entity_):
                 """
                 NMS address
                 
@@ -994,7 +1066,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.NmsAddresses.NmsAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.NmsAddresses.NmsAddress, self).__init__()
 
                     self.yang_name = "nms-address"
                     self.yang_parent_name = "nms-addresses"
@@ -1025,10 +1100,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, ['nms_addr', 'nms_address', 'get_request_count', 'getnext_request_count', 'getbulk_request_count', 'set_request_count', 'test_request_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.NmsAddresses.NmsAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.NmsAddresses']['meta_info']
 
 
-
-        class EngineId(Entity):
+        class EngineId(_Entity_):
             """
             SNMP engine ID
             
@@ -1047,7 +1130,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.EngineId, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.EngineId, self).__init__()
 
                 self.yang_name = "engine-id"
                 self.yang_parent_name = "information"
@@ -1066,9 +1152,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.EngineId, ['engine_id'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.EngineId']['meta_info']
 
 
-        class RxQueue(Entity):
+        class RxQueue(_Entity_):
             """
             SNMP rx queue statistics
             
@@ -1157,7 +1247,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.RxQueue, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.RxQueue, self).__init__()
 
                 self.yang_name = "rx-queue"
                 self.yang_parent_name = "information"
@@ -1192,7 +1285,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.RxQueue, ['qlen', 'in_min', 'in_avg', 'in_max', 'pend_min', 'pend_avg', 'pend_max'], name, value)
 
 
-            class IncomingQ(Entity):
+            class IncomingQ(_Entity_):
                 """
                 incoming q
                 
@@ -1231,7 +1324,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.RxQueue.IncomingQ, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.RxQueue.IncomingQ, self).__init__()
 
                     self.yang_name = "incoming-q"
                     self.yang_parent_name = "rx-queue"
@@ -1254,9 +1350,13 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, ['min', 'avg', 'max'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.RxQueue.IncomingQ']['meta_info']
 
 
-            class PendingQ(Entity):
+            class PendingQ(_Entity_):
                 """
                 pending q
                 
@@ -1295,7 +1395,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.RxQueue.PendingQ, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.RxQueue.PendingQ, self).__init__()
 
                     self.yang_name = "pending-q"
                     self.yang_parent_name = "rx-queue"
@@ -1318,10 +1421,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.RxQueue.PendingQ, ['min', 'avg', 'max'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.RxQueue.PendingQ']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.RxQueue']['meta_info']
 
 
-
-        class SystemName(Entity):
+        class SystemName(_Entity_):
             """
             System name
             
@@ -1340,7 +1451,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.SystemName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.SystemName, self).__init__()
 
                 self.yang_name = "system-name"
                 self.yang_parent_name = "information"
@@ -1359,9 +1473,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemName, ['system_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.SystemName']['meta_info']
 
 
-        class RequestTypeDetail(Entity):
+        class RequestTypeDetail(_Entity_):
             """
             SNMP request type details 
             
@@ -1380,7 +1498,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.RequestTypeDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.RequestTypeDetail, self).__init__()
 
                 self.yang_name = "request-type-detail"
                 self.yang_parent_name = "information"
@@ -1401,7 +1522,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.RequestTypeDetail, [], name, value)
 
 
-            class NmsAddresses(Entity):
+            class NmsAddresses(_Entity_):
                 """
                 snmp request type details 
                 
@@ -1420,7 +1541,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.RequestTypeDetail.NmsAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.RequestTypeDetail.NmsAddresses, self).__init__()
 
                     self.yang_name = "nms-addresses"
                     self.yang_parent_name = "request-type-detail"
@@ -1439,7 +1563,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses, [], name, value)
 
 
-                class NmsAddress(Entity):
+                class NmsAddress(_Entity_):
                     """
                     NMS address
                     
@@ -1514,7 +1638,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, self).__init__()
 
                         self.yang_name = "nms-address"
                         self.yang_parent_name = "nms-addresses"
@@ -1545,11 +1672,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, ['nms_addr', 'total_count', 'agent_request_count', 'interface_request_count', 'entity_request_count', 'route_request_count', 'infra_request_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.RequestTypeDetail.NmsAddresses']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.RequestTypeDetail']['meta_info']
 
 
-
-
-        class DuplicateDrop(Entity):
+        class DuplicateDrop(_Entity_):
             """
             Duplicate request status, count, time 
             
@@ -1652,7 +1791,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.DuplicateDrop, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.DuplicateDrop, self).__init__()
 
                 self.yang_name = "duplicate-drop"
                 self.yang_parent_name = "information"
@@ -1691,9 +1833,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.DuplicateDrop, ['duplicate_request_status', 'last_status_change_time', 'duplicate_drop_configured_timeout', 'duplicate_dropped_requests', 'retry_processed_requests', 'first_enable_time', 'latest_duplicate_dropped_requests', 'latest_retry_processed_requests', 'duplicate_request_latest_enable_time', 'duplicate_drop_enable_count', 'duplicate_drop_disable_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.DuplicateDrop']['meta_info']
 
 
-        class BulkStatsTransfers(Entity):
+        class BulkStatsTransfers(_Entity_):
             """
             List of bulkstats transfer on the system
             
@@ -1712,7 +1858,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.BulkStatsTransfers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.BulkStatsTransfers, self).__init__()
 
                 self.yang_name = "bulk-stats-transfers"
                 self.yang_parent_name = "information"
@@ -1731,7 +1880,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.BulkStatsTransfers, [], name, value)
 
 
-            class BulkStatsTransfer(Entity):
+            class BulkStatsTransfer(_Entity_):
                 """
                 SNMP bulkstats transfer name
                 
@@ -1800,7 +1949,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, self).__init__()
 
                     self.yang_name = "bulk-stats-transfer"
                     self.yang_parent_name = "bulk-stats-transfers"
@@ -1831,10 +1983,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, ['transfer_name', 'transfer_name_xr', 'url_primary', 'url_secondary', 'retained_file', 'time_left', 'retry_left'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.BulkStatsTransfers.BulkStatsTransfer']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.BulkStatsTransfers']['meta_info']
 
 
-
-        class TrapInfos(Entity):
+        class TrapInfos(_Entity_):
             """
             SNMP trap OID
             
@@ -1853,7 +2013,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.TrapInfos, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.TrapInfos, self).__init__()
 
                 self.yang_name = "trap-infos"
                 self.yang_parent_name = "information"
@@ -1872,7 +2035,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.TrapInfos, [], name, value)
 
 
-            class TrapInfo(Entity):
+            class TrapInfo(_Entity_):
                 """
                 SNMP Trap infomation like server , port and
                 trapOID
@@ -1933,7 +2096,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.TrapInfos.TrapInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.TrapInfos.TrapInfo, self).__init__()
 
                     self.yang_name = "trap-info"
                     self.yang_parent_name = "trap-infos"
@@ -1963,7 +2129,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
 
 
-                class TrapOiDinfo(Entity):
+                class TrapOiDinfo(_Entity_):
                     """
                     Per trap OID statistics
                     
@@ -2023,7 +2189,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, self).__init__()
 
                         self.yang_name = "trap-oi-dinfo"
                         self.yang_parent_name = "trap-info"
@@ -2052,11 +2221,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.TrapInfos.TrapInfo']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.TrapInfos']['meta_info']
 
 
-
-
-        class PollOids(Entity):
+        class PollOids(_Entity_):
             """
             OID list for poll PDU
             
@@ -2075,7 +2256,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.PollOids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.PollOids, self).__init__()
 
                 self.yang_name = "poll-oids"
                 self.yang_parent_name = "information"
@@ -2094,7 +2278,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.PollOids, [], name, value)
 
 
-            class PollOid(Entity):
+            class PollOid(_Entity_):
                 """
                 PDU drop info for OID
                 
@@ -2140,7 +2324,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.PollOids.PollOid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.PollOids.PollOid, self).__init__()
 
                     self.yang_name = "poll-oid"
                     self.yang_parent_name = "poll-oids"
@@ -2165,10 +2352,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.PollOids.PollOid, ['object_id', 'nms_count', 'nms', 'request_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.PollOids.PollOid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.PollOids']['meta_info']
 
 
-
-        class InfomDetails(Entity):
+        class InfomDetails(_Entity_):
             """
             SNMP trap OID
             
@@ -2187,7 +2382,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.InfomDetails, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.InfomDetails, self).__init__()
 
                 self.yang_name = "infom-details"
                 self.yang_parent_name = "information"
@@ -2206,7 +2404,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.InfomDetails, [], name, value)
 
 
-            class InfomDetail(Entity):
+            class InfomDetail(_Entity_):
                 """
                 SNMP Trap infomation like server , port and
                 trapOID
@@ -2267,7 +2465,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.InfomDetails.InfomDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.InfomDetails.InfomDetail, self).__init__()
 
                     self.yang_name = "infom-detail"
                     self.yang_parent_name = "infom-details"
@@ -2297,7 +2498,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
 
 
-                class TrapOiDinfo(Entity):
+                class TrapOiDinfo(_Entity_):
                     """
                     Per trap OID statistics
                     
@@ -2357,7 +2558,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, self).__init__()
 
                         self.yang_name = "trap-oi-dinfo"
                         self.yang_parent_name = "infom-detail"
@@ -2386,11 +2590,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.InfomDetails.InfomDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.InfomDetails']['meta_info']
 
 
-
-
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             SNMP statistics
             
@@ -2672,7 +2888,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "information"
@@ -2749,9 +2968,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Statistics, ['packets_received', 'bad_versions_received', 'bad_community_names_received', 'bad_community_uses_received', 'asn_parse_errors_received', 'silent_drop_count', 'proxy_drop_count', 'too_big_packet_received', 'max_packet_size', 'no_such_names_received', 'bad_values_received', 'read_only_received', 'total_general_errors', 'total_requested_variables', 'total_set_variables_received', 'get_requests_received', 'get_next_requests_received', 'set_requests_received', 'get_responses_received', 'traps_received', 'total_packets_sent', 'too_big_packets_sent', 'no_such_names_sent', 'bad_values_sent', 'general_errors_sent', 'get_requests_sent', 'get_next_request_sent', 'set_requests_sent', 'get_responses_sent', 'traps_sent'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.Statistics']['meta_info']
 
 
-        class IncomingQueue(Entity):
+        class IncomingQueue(_Entity_):
             """
             Incoming queue details 
             
@@ -2779,7 +3002,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.IncomingQueue, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.IncomingQueue, self).__init__()
 
                 self.yang_name = "incoming-queue"
                 self.yang_parent_name = "information"
@@ -2801,7 +3027,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.IncomingQueue, ['queue_count'], name, value)
 
 
-            class InqEntry(Entity):
+            class InqEntry(_Entity_):
                 """
                 Each Entry Details.
                 
@@ -2854,7 +3080,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.IncomingQueue.InqEntry, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.IncomingQueue.InqEntry, self).__init__()
 
                     self.yang_name = "inq-entry"
                     self.yang_parent_name = "incoming-queue"
@@ -2881,10 +3110,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, ['address_of_queue', 'request_count', 'processed_request_count', 'last_access_time', 'priority'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.IncomingQueue.InqEntry']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.IncomingQueue']['meta_info']
 
 
-
-        class ContextMapping(Entity):
+        class ContextMapping(_Entity_):
             """
             Context name, features name, topology name,
             instance
@@ -2904,7 +3141,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.ContextMapping, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.ContextMapping, self).__init__()
 
                 self.yang_name = "context-mapping"
                 self.yang_parent_name = "information"
@@ -2923,7 +3163,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.ContextMapping, [], name, value)
 
 
-            class ContexMapping(Entity):
+            class ContexMapping(_Entity_):
                 """
                 Context Mapping
                 
@@ -2970,7 +3210,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.ContextMapping.ContexMapping, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.ContextMapping.ContexMapping, self).__init__()
 
                     self.yang_name = "contex-mapping"
                     self.yang_parent_name = "context-mapping"
@@ -2997,10 +3240,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, ['context', 'feature_name', 'instance', 'topology', 'feature'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.ContextMapping.ContexMapping']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.ContextMapping']['meta_info']
 
 
-
-        class TrapOids(Entity):
+        class TrapOids(_Entity_):
             """
             SNMP trap OID
             
@@ -3019,7 +3270,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.TrapOids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.TrapOids, self).__init__()
 
                 self.yang_name = "trap-oids"
                 self.yang_parent_name = "information"
@@ -3038,7 +3292,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.TrapOids, [], name, value)
 
 
-            class TrapOid(Entity):
+            class TrapOid(_Entity_):
                 """
                 SNMP trap 
                 
@@ -3075,7 +3329,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.TrapOids.TrapOid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.TrapOids.TrapOid, self).__init__()
 
                     self.yang_name = "trap-oid"
                     self.yang_parent_name = "trap-oids"
@@ -3098,10 +3355,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.TrapOids.TrapOid, ['trap_oid', 'trap_oid_count', 'trap_oid_xr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.TrapOids.TrapOid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.TrapOids']['meta_info']
 
 
-
-        class NmSpackets(Entity):
+        class NmSpackets(_Entity_):
             """
             SNMP overload statistics 
             
@@ -3120,7 +3385,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.NmSpackets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.NmSpackets, self).__init__()
 
                 self.yang_name = "nm-spackets"
                 self.yang_parent_name = "information"
@@ -3139,7 +3407,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.NmSpackets, [], name, value)
 
 
-            class NmSpacket(Entity):
+            class NmSpacket(_Entity_):
                 """
                 NMS packet drop count
                 
@@ -3192,7 +3460,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.NmSpackets.NmSpacket, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.NmSpackets.NmSpacket, self).__init__()
 
                     self.yang_name = "nm-spacket"
                     self.yang_parent_name = "nm-spackets"
@@ -3219,10 +3490,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, ['packetcount', 'number_of_nmsq_pkts_dropped', 'number_of_pkts_dropped', 'overload_start_time', 'overload_end_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.NmSpackets.NmSpacket']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.NmSpackets']['meta_info']
 
 
-
-        class Mibs(Entity):
+        class Mibs(_Entity_):
             """
             List of MIBS supported on the system
             
@@ -3241,7 +3520,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.Mibs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.Mibs, self).__init__()
 
                 self.yang_name = "mibs"
                 self.yang_parent_name = "information"
@@ -3260,7 +3542,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.Mibs, [], name, value)
 
 
-            class Mib(Entity):
+            class Mib(_Entity_):
                 """
                 SNMP MIB Name
                 
@@ -3295,7 +3577,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.Mibs.Mib, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.Mibs.Mib, self).__init__()
 
                     self.yang_name = "mib"
                     self.yang_parent_name = "mibs"
@@ -3323,7 +3608,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.Mibs.Mib, ['name'], name, value)
 
 
-                class Oids(Entity):
+                class Oids(_Entity_):
                     """
                     List of OIDs per MIB
                     
@@ -3342,7 +3627,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Mibs.Mib.Oids, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Mibs.Mib.Oids, self).__init__()
 
                         self.yang_name = "oids"
                         self.yang_parent_name = "mib"
@@ -3360,7 +3648,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Mibs.Mib.Oids, [], name, value)
 
 
-                    class Oid(Entity):
+                    class Oid(_Entity_):
                         """
                         Object identifiers of a mib
                         
@@ -3388,7 +3676,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Information.Mibs.Mib.Oids.Oid, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Information.Mibs.Mib.Oids.Oid, self).__init__()
 
                             self.yang_name = "oid"
                             self.yang_parent_name = "oids"
@@ -3408,10 +3699,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, ['oid', 'oid_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Information.Mibs.Mib.Oids.Oid']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Mibs.Mib.Oids']['meta_info']
 
 
-
-                class MibInformation(Entity):
+                class MibInformation(_Entity_):
                     """
                     MIB state and information
                     
@@ -3483,7 +3782,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Mibs.Mib.MibInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Mibs.Mib.MibInformation, self).__init__()
 
                         self.yang_name = "mib-information"
                         self.yang_parent_name = "mib"
@@ -3515,11 +3817,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, ['mib_name', 'dll_name', 'mib_config_filename', 'is_mib_loaded', 'dll_capabilities', 'trap_strings', 'timeout', 'load_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Mibs.Mib.MibInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.Mibs.Mib']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.Mibs']['meta_info']
 
 
-
-
-        class SerialNumbers(Entity):
+        class SerialNumbers(_Entity_):
             """
             SNMP statistics pdu 
             
@@ -3538,7 +3852,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.SerialNumbers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.SerialNumbers, self).__init__()
 
                 self.yang_name = "serial-numbers"
                 self.yang_parent_name = "information"
@@ -3557,7 +3874,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.SerialNumbers, [], name, value)
 
 
-            class SerialNumber(Entity):
+            class SerialNumber(_Entity_):
                 """
                 Serial number
                 
@@ -3682,7 +3999,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.SerialNumbers.SerialNumber, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.SerialNumbers.SerialNumber, self).__init__()
 
                     self.yang_name = "serial-number"
                     self.yang_parent_name = "serial-numbers"
@@ -3725,10 +4045,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, ['number', 'req_id', 'port', 'nms', 'request_id', 'port_xr', 'pdu_type', 'error_status', 'serial_num', 'input_q', 'output_q', 'pending_q', 'response_out'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.SerialNumbers.SerialNumber']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.SerialNumbers']['meta_info']
 
 
-
-        class DropNmsAddresses(Entity):
+        class DropNmsAddresses(_Entity_):
             """
             NMS list for drop PDU
             
@@ -3747,7 +4075,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.DropNmsAddresses, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.DropNmsAddresses, self).__init__()
 
                 self.yang_name = "drop-nms-addresses"
                 self.yang_parent_name = "information"
@@ -3766,7 +4097,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.DropNmsAddresses, [], name, value)
 
 
-            class DropNmsAddress(Entity):
+            class DropNmsAddress(_Entity_):
                 """
                 PDU drop info for NMS
                 
@@ -3875,7 +4206,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.DropNmsAddresses.DropNmsAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.DropNmsAddresses.DropNmsAddress, self).__init__()
 
                     self.yang_name = "drop-nms-address"
                     self.yang_parent_name = "drop-nms-addresses"
@@ -3914,10 +4248,18 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, ['nms_addr', 'nms_address', 'incoming_q_count', 'threshold_incoming_q_count', 'encode_count', 'duplicate_count', 'stack_count', 'aipc_count', 'overload_count', 'timeout_count', 'internal_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.DropNmsAddresses.DropNmsAddress']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.DropNmsAddresses']['meta_info']
 
 
-
-        class Views(Entity):
+        class Views(_Entity_):
             """
             SNMP view information
             
@@ -3936,7 +4278,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.Views, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.Views, self).__init__()
 
                 self.yang_name = "views"
                 self.yang_parent_name = "information"
@@ -3955,7 +4300,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.Views, [], name, value)
 
 
-            class View(Entity):
+            class View(_Entity_):
                 """
                 SNMP target view name
                 
@@ -3983,7 +4328,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.Views.View, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.Views.View, self).__init__()
 
                     self.yang_name = "view"
                     self.yang_parent_name = "views"
@@ -4005,7 +4353,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.Views.View, ['name'], name, value)
 
 
-                class ViewInformation(Entity):
+                class ViewInformation(_Entity_):
                     """
                     View name ,familytype, storagetype and status
                     
@@ -4047,7 +4395,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Views.View.ViewInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Views.View.ViewInformation, self).__init__()
 
                         self.yang_name = "view-information"
                         self.yang_parent_name = "view"
@@ -4071,11 +4422,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', 'snmp_view_family_type', 'snmp_view_family_storage_type', 'snmp_view_family_status'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Views.View.ViewInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.Views.View']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.Views']['meta_info']
 
 
-
-
-        class SystemDescr(Entity):
+        class SystemDescr(_Entity_):
             """
             System description
             
@@ -4094,7 +4457,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.SystemDescr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.SystemDescr, self).__init__()
 
                 self.yang_name = "system-descr"
                 self.yang_parent_name = "information"
@@ -4113,9 +4479,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemDescr, ['sys_descr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.SystemDescr']['meta_info']
 
 
-        class Tables(Entity):
+        class Tables(_Entity_):
             """
             List of table
             
@@ -4141,7 +4511,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.Tables, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.Tables, self).__init__()
 
                 self.yang_name = "tables"
                 self.yang_parent_name = "information"
@@ -4166,7 +4539,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.Tables, [], name, value)
 
 
-            class Groups(Entity):
+            class Groups(_Entity_):
                 """
                 List of vacmAccessTable
                 
@@ -4185,7 +4558,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.Tables.Groups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.Tables.Groups, self).__init__()
 
                     self.yang_name = "groups"
                     self.yang_parent_name = "tables"
@@ -4204,7 +4580,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.Tables.Groups, [], name, value)
 
 
-                class Group(Entity):
+                class Group(_Entity_):
                     """
                     SNMP group name
                     
@@ -4232,7 +4608,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Tables.Groups.Group, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Tables.Groups.Group, self).__init__()
 
                         self.yang_name = "group"
                         self.yang_parent_name = "groups"
@@ -4256,7 +4635,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Tables.Groups.Group, ['name'], name, value)
 
 
-                    class GroupInformations(Entity):
+                    class GroupInformations(_Entity_):
                         """
                         Group Model
                         
@@ -4275,7 +4654,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Information.Tables.Groups.Group.GroupInformations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Information.Tables.Groups.Group.GroupInformations, self).__init__()
 
                             self.yang_name = "group-informations"
                             self.yang_parent_name = "group"
@@ -4293,7 +4675,7 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations, [], name, value)
 
 
-                        class GroupInformation(Entity):
+                        class GroupInformation(_Entity_):
                             """
                             Group name ,status  and information
                             
@@ -4353,7 +4735,10 @@ class Snmp(Entity):
                             _revision = '2018-07-20'
 
                             def __init__(self):
-                                super(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, self).__init__()
 
                                 self.yang_name = "group-information"
                                 self.yang_parent_name = "group-informations"
@@ -4381,12 +4766,28 @@ class Snmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, ['modelnumber', 'level', 'vacm_access_read_view_name', 'vacm_access_write_view_name', 'vacm_access_notify_view_name', 'vacm_access_status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                                return meta._meta_table['Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Information.Tables.Groups.Group.GroupInformations']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Tables.Groups.Group']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.Tables.Groups']['meta_info']
 
 
-
-
-
-            class UserEngineIds(Entity):
+            class UserEngineIds(_Entity_):
                 """
                 List of User
                 
@@ -4405,7 +4806,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.Tables.UserEngineIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.Tables.UserEngineIds, self).__init__()
 
                     self.yang_name = "user-engine-ids"
                     self.yang_parent_name = "tables"
@@ -4424,7 +4828,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.Tables.UserEngineIds, [], name, value)
 
 
-                class UserEngineId(Entity):
+                class UserEngineId(_Entity_):
                     """
                     SNMP engineId
                     
@@ -4452,7 +4856,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Information.Tables.UserEngineIds.UserEngineId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Information.Tables.UserEngineIds.UserEngineId, self).__init__()
 
                         self.yang_name = "user-engine-id"
                         self.yang_parent_name = "user-engine-ids"
@@ -4474,7 +4881,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId, ['engine_id'], name, value)
 
 
-                    class UserName(Entity):
+                    class UserName(_Entity_):
                         """
                         User name ,storage type ,status 
                         
@@ -4513,7 +4920,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, self).__init__()
 
                             self.yang_name = "user-name"
                             self.yang_parent_name = "user-engine-id"
@@ -4535,12 +4945,28 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', 'usm_user_storage_type', 'usm_user_status'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Information.Tables.UserEngineIds.UserEngineId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.Tables.UserEngineIds']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.Tables']['meta_info']
 
 
-
-
-
-        class SystemOid(Entity):
+        class SystemOid(_Entity_):
             """
             System object ID
             
@@ -4559,7 +4985,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.SystemOid, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.SystemOid, self).__init__()
 
                 self.yang_name = "system-oid"
                 self.yang_parent_name = "information"
@@ -4578,9 +5007,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemOid, ['sys_obj_id'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.SystemOid']['meta_info']
 
 
-        class TrapQueue(Entity):
+        class TrapQueue(_Entity_):
             """
             SNMP trap queue statistics
             
@@ -4626,7 +5059,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Information.TrapQueue, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Information.TrapQueue, self).__init__()
 
                 self.yang_name = "trap-queue"
                 self.yang_parent_name = "information"
@@ -4652,7 +5088,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.TrapQueue, ['trap_min', 'trap_avg', 'trap_max'], name, value)
 
 
-            class TrapQ(Entity):
+            class TrapQ(_Entity_):
                 """
                 trap q
                 
@@ -4691,7 +5127,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Information.TrapQueue.TrapQ, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Information.TrapQueue.TrapQ, self).__init__()
 
                     self.yang_name = "trap-q"
                     self.yang_parent_name = "trap-queue"
@@ -4714,11 +5153,23 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, ['min', 'avg', 'max'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Information.TrapQueue.TrapQ']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Information.TrapQueue']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.Information']['meta_info']
 
 
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         List of interfaces
         
@@ -4737,7 +5188,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "snmp"
@@ -4756,7 +5210,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Interface Name
             
@@ -4788,7 +5242,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -4809,10 +5266,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Interfaces.Interface, ['name', 'interface_index'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.Interfaces']['meta_info']
 
 
-
-    class Correlator(Entity):
+    class Correlator(_Entity_):
         """
         Trap Correlator operational data
         
@@ -4852,7 +5317,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.Correlator, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.Correlator, self).__init__()
 
             self.yang_name = "correlator"
             self.yang_parent_name = "snmp"
@@ -4885,7 +5353,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.Correlator, [], name, value)
 
 
-        class RuleDetails(Entity):
+        class RuleDetails(_Entity_):
             """
             Table that contains the database of correlation
             rule details
@@ -4905,7 +5373,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Correlator.RuleDetails, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.RuleDetails, self).__init__()
 
                 self.yang_name = "rule-details"
                 self.yang_parent_name = "correlator"
@@ -4924,7 +5395,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.RuleDetails, [], name, value)
 
 
-            class RuleDetail(Entity):
+            class RuleDetail(_Entity_):
                 """
                 Details of one of the correlation rules
                 
@@ -4982,7 +5453,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Correlator.RuleDetails.RuleDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Correlator.RuleDetails.RuleDetail, self).__init__()
 
                     self.yang_name = "rule-detail"
                     self.yang_parent_name = "rule-details"
@@ -5015,7 +5489,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, ['rule_name', 'timeout'], name, value)
 
 
-                class RuleSummary(Entity):
+                class RuleSummary(_Entity_):
                     """
                     Rule summary, name, etc
                     
@@ -5050,7 +5524,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
 
                         self.yang_name = "rule-summary"
                         self.yang_parent_name = "rule-detail"
@@ -5072,9 +5549,13 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary']['meta_info']
 
 
-                class RootCause(Entity):
+                class RootCause(_Entity_):
                     """
                     OID/VarBinds defining the rootcause match
                     conditions.
@@ -5101,7 +5582,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, self).__init__()
 
                         self.yang_name = "root-cause"
                         self.yang_parent_name = "rule-detail"
@@ -5122,7 +5606,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, ['oid'], name, value)
 
 
-                    class VarBind(Entity):
+                    class VarBind(_Entity_):
                         """
                         VarBinds of the trap
                         
@@ -5155,7 +5639,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, self).__init__()
 
                             self.yang_name = "var-bind"
                             self.yang_parent_name = "root-cause"
@@ -5177,10 +5664,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.RootCause']['meta_info']
 
 
-
-                class NonRootCause(Entity):
+                class NonRootCause(_Entity_):
                     """
                     OIDs/VarBinds defining the nonrootcause match
                     conditions.
@@ -5207,7 +5702,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause, self).__init__()
 
                         self.yang_name = "non-root-cause"
                         self.yang_parent_name = "rule-detail"
@@ -5228,7 +5726,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause, ['oid'], name, value)
 
 
-                    class VarBind(Entity):
+                    class VarBind(_Entity_):
                         """
                         VarBinds of the trap
                         
@@ -5261,7 +5759,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind, self).__init__()
 
                             self.yang_name = "var-bind"
                             self.yang_parent_name = "non-root-cause"
@@ -5283,10 +5784,18 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause.VarBind']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.NonRootCause']['meta_info']
 
 
-
-                class ApplyHost(Entity):
+                class ApplyHost(_Entity_):
                     """
                     Hosts (IP/port) to which the rule is applied
                     
@@ -5314,7 +5823,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, self).__init__()
 
                         self.yang_name = "apply-host"
                         self.yang_parent_name = "rule-detail"
@@ -5334,11 +5846,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, ['ip_address', 'port'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Correlator.RuleDetails.RuleDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Correlator.RuleDetails']['meta_info']
 
 
-
-
-        class BufferStatus(Entity):
+        class BufferStatus(_Entity_):
             """
             Describes buffer utilization and parameters
             configured
@@ -5369,7 +5893,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Correlator.BufferStatus, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.BufferStatus, self).__init__()
 
                 self.yang_name = "buffer-status"
                 self.yang_parent_name = "correlator"
@@ -5390,9 +5917,13 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Correlator.BufferStatus, ['current_size', 'configured_size'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Correlator.BufferStatus']['meta_info']
 
 
-        class RuleSetDetails(Entity):
+        class RuleSetDetails(_Entity_):
             """
             Table that contains the ruleset detail info
             
@@ -5411,7 +5942,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Correlator.RuleSetDetails, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.RuleSetDetails, self).__init__()
 
                 self.yang_name = "rule-set-details"
                 self.yang_parent_name = "correlator"
@@ -5430,7 +5964,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.RuleSetDetails, [], name, value)
 
 
-            class RuleSetDetail(Entity):
+            class RuleSetDetail(_Entity_):
                 """
                 Detail of one of the correlation rulesets
                 
@@ -5465,7 +5999,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
 
                     self.yang_name = "rule-set-detail"
                     self.yang_parent_name = "rule-set-details"
@@ -5489,7 +6026,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', 'rule_set_name_xr'], name, value)
 
 
-                class Rules(Entity):
+                class Rules(_Entity_):
                     """
                     Rules contained in a ruleset
                     
@@ -5524,7 +6061,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
 
                         self.yang_name = "rules"
                         self.yang_parent_name = "rule-set-detail"
@@ -5546,11 +6086,23 @@ class Snmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Correlator.RuleSetDetails.RuleSetDetail']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Correlator.RuleSetDetails']['meta_info']
 
 
-
-
-        class Traps(Entity):
+        class Traps(_Entity_):
             """
             Correlated traps Table
             
@@ -5569,7 +6121,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.Correlator.Traps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.Correlator.Traps, self).__init__()
 
                 self.yang_name = "traps"
                 self.yang_parent_name = "correlator"
@@ -5588,7 +6143,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.Traps, [], name, value)
 
 
-            class Trap(Entity):
+            class Trap(_Entity_):
                 """
                 One of the correlated traps
                 
@@ -5639,7 +6194,10 @@ class Snmp(Entity):
                 _revision = '2018-07-20'
 
                 def __init__(self):
-                    super(Snmp.Correlator.Traps.Trap, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.Correlator.Traps.Trap, self).__init__()
 
                     self.yang_name = "trap"
                     self.yang_parent_name = "traps"
@@ -5669,7 +6227,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Correlator.Traps.Trap, ['entry_id', 'correlation_id', 'is_root_cause', 'rule_name'], name, value)
 
 
-                class TrapInfo(Entity):
+                class TrapInfo(_Entity_):
                     """
                     Correlated trap information
                     
@@ -5717,7 +6275,10 @@ class Snmp(Entity):
                     _revision = '2018-07-20'
 
                     def __init__(self):
-                        super(Snmp.Correlator.Traps.Trap.TrapInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.Correlator.Traps.Trap.TrapInfo, self).__init__()
 
                         self.yang_name = "trap-info"
                         self.yang_parent_name = "trap"
@@ -5742,7 +6303,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, ['oid', 'relative_timestamp', 'timestamp'], name, value)
 
 
-                    class VarBind(Entity):
+                    class VarBind(_Entity_):
                         """
                         VarBinds on the trap
                         
@@ -5768,7 +6329,10 @@ class Snmp(Entity):
                         _revision = '2018-07-20'
 
                         def __init__(self):
-                            super(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, self).__init__()
 
                             self.yang_name = "var-bind"
                             self.yang_parent_name = "trap-info"
@@ -5788,13 +6352,33 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, ['oid', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.Correlator.Traps.Trap.TrapInfo.VarBind']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.Correlator.Traps.Trap.TrapInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.Correlator.Traps.Trap']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.Correlator.Traps']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.Correlator']['meta_info']
 
 
-
-
-
-
-    class InterfaceIndexes(Entity):
+    class InterfaceIndexes(_Entity_):
         """
         List of index
         
@@ -5813,7 +6397,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.InterfaceIndexes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.InterfaceIndexes, self).__init__()
 
             self.yang_name = "interface-indexes"
             self.yang_parent_name = "snmp"
@@ -5832,7 +6419,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.InterfaceIndexes, [], name, value)
 
 
-        class InterfaceIndex(Entity):
+        class InterfaceIndex(_Entity_):
             """
             Interface Index
             
@@ -5862,7 +6449,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.InterfaceIndexes.InterfaceIndex, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceIndexes.InterfaceIndex, self).__init__()
 
                 self.yang_name = "interface-index"
                 self.yang_parent_name = "interface-indexes"
@@ -5883,10 +6473,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, ['interface_index', 'interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceIndexes.InterfaceIndex']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.InterfaceIndexes']['meta_info']
 
 
-
-    class IfIndexes(Entity):
+    class IfIndexes(_Entity_):
         """
         List of ifnames
         
@@ -5905,7 +6503,10 @@ class Snmp(Entity):
         _revision = '2018-07-20'
 
         def __init__(self):
-            super(Snmp.IfIndexes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.IfIndexes, self).__init__()
 
             self.yang_name = "if-indexes"
             self.yang_parent_name = "snmp"
@@ -5924,7 +6525,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.IfIndexes, [], name, value)
 
 
-        class IfIndex(Entity):
+        class IfIndex(_Entity_):
             """
             Interface Index
             
@@ -5952,7 +6553,10 @@ class Snmp(Entity):
             _revision = '2018-07-20'
 
             def __init__(self):
-                super(Snmp.IfIndexes.IfIndex, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.IfIndexes.IfIndex, self).__init__()
 
                 self.yang_name = "if-index"
                 self.yang_parent_name = "if-indexes"
@@ -5973,780 +6577,18 @@ class Snmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.IfIndexes.IfIndex, ['interface_index', 'interface_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.IfIndexes.IfIndex']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.IfIndexes']['meta_info']
 
 
-    class EntityMib(Entity):
-        """
-        SNMP entity mib
-        
-        .. attribute:: entity_physical_indexes
-        
-        	SNMP entity mib
-        	**type**\:  :py:class:`EntityPhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'snmp-entitymib-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Snmp.EntityMib, self).__init__()
-
-            self.yang_name = "entity-mib"
-            self.yang_parent_name = "snmp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("entity-physical-indexes", ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes))])
-            self._leafs = OrderedDict()
-
-            self.entity_physical_indexes = Snmp.EntityMib.EntityPhysicalIndexes()
-            self.entity_physical_indexes.parent = self
-            self._children_name_map["entity_physical_indexes"] = "entity-physical-indexes"
-            self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Snmp.EntityMib, [], name, value)
-
-
-        class EntityPhysicalIndexes(Entity):
-            """
-            SNMP entity mib
-            
-            .. attribute:: entity_physical_index
-            
-            	SNMP entPhysical index number
-            	**type**\: list of  		 :py:class:`EntityPhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-entitymib-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Snmp.EntityMib.EntityPhysicalIndexes, self).__init__()
-
-                self.yang_name = "entity-physical-indexes"
-                self.yang_parent_name = "entity-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("entity-physical-index", ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex))])
-                self._leafs = OrderedDict()
-
-                self.entity_physical_index = YList(self)
-                self._segment_path = lambda: "entity-physical-indexes"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes, [], name, value)
-
-
-            class EntityPhysicalIndex(Entity):
-                """
-                SNMP entPhysical index number
-                
-                .. attribute:: entity_phynum  (key)
-                
-                	Entity physical index
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                	**config**\: False
-                
-                .. attribute:: physical_index
-                
-                	entPhysicalIndex
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_name
-                
-                	entPhysicalName
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: location
-                
-                	invmgr EDM path
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_descr
-                
-                	EntPhysicalDescription
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_firmware_rev
-                
-                	entphysicalFirmwareRev
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_hardware_rev
-                
-                	entphysicalHardwareRev
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_modelname
-                
-                	entphysicalModelName
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_serial_num
-                
-                	entphysicalSerialNum
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_software_rev
-                
-                	entphysicalSoftwareRev
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: ent_physical_mfg_name
-                
-                	entphysicalMfgName
-                	**type**\: str
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-entitymib-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, self).__init__()
-
-                    self.yang_name = "entity-physical-index"
-                    self.yang_parent_name = "entity-physical-indexes"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['entity_phynum']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('entity_phynum', (YLeaf(YType.str, 'entity-phynum'), ['str'])),
-                        ('physical_index', (YLeaf(YType.uint32, 'physical-index'), ['int'])),
-                        ('ent_physical_name', (YLeaf(YType.str, 'ent-physical-name'), ['str'])),
-                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
-                        ('ent_physical_descr', (YLeaf(YType.str, 'ent-physical-descr'), ['str'])),
-                        ('ent_physical_firmware_rev', (YLeaf(YType.str, 'ent-physical-firmware-rev'), ['str'])),
-                        ('ent_physical_hardware_rev', (YLeaf(YType.str, 'ent-physical-hardware-rev'), ['str'])),
-                        ('ent_physical_modelname', (YLeaf(YType.str, 'ent-physical-modelname'), ['str'])),
-                        ('ent_physical_serial_num', (YLeaf(YType.str, 'ent-physical-serial-num'), ['str'])),
-                        ('ent_physical_software_rev', (YLeaf(YType.str, 'ent-physical-software-rev'), ['str'])),
-                        ('ent_physical_mfg_name', (YLeaf(YType.str, 'ent-physical-mfg-name'), ['str'])),
-                    ])
-                    self.entity_phynum = None
-                    self.physical_index = None
-                    self.ent_physical_name = None
-                    self.location = None
-                    self.ent_physical_descr = None
-                    self.ent_physical_firmware_rev = None
-                    self.ent_physical_hardware_rev = None
-                    self.ent_physical_modelname = None
-                    self.ent_physical_serial_num = None
-                    self.ent_physical_software_rev = None
-                    self.ent_physical_mfg_name = None
-                    self._segment_path = lambda: "entity-physical-index" + "[entity-phynum='" + str(self.entity_phynum) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/entity-physical-indexes/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', 'physical_index', 'ent_physical_name', 'location', 'ent_physical_descr', 'ent_physical_firmware_rev', 'ent_physical_hardware_rev', 'ent_physical_modelname', 'ent_physical_serial_num', 'ent_physical_software_rev', 'ent_physical_mfg_name'], name, value)
-
-
-
-
-
-    class InterfaceMib(Entity):
-        """
-        SNMP IF\-MIB information
-        
-        .. attribute:: interfaces
-        
-        	Interfaces ifIndex information
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces>`
-        
-        	**config**\: False
-        
-        .. attribute:: interface_connectors
-        
-        	Interfaces ifConnectorPresent information
-        	**type**\:  :py:class:`InterfaceConnectors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors>`
-        
-        	**config**\: False
-        
-        .. attribute:: interface_aliases
-        
-        	Interfaces ifAlias information
-        	**type**\:  :py:class:`InterfaceAliases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases>`
-        
-        	**config**\: False
-        
-        .. attribute:: notification_interfaces
-        
-        	Interfaces Notification information
-        	**type**\:  :py:class:`NotificationInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces>`
-        
-        	**config**\: False
-        
-        .. attribute:: interface_stack_statuses
-        
-        	Interfaces ifstackstatus information
-        	**type**\:  :py:class:`InterfaceStackStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses>`
-        
-        	**config**\: False
-        
-        
-
-        """
-
-        _prefix = 'snmp-ifmib-oper'
-        _revision = '2015-01-07'
-
-        def __init__(self):
-            super(Snmp.InterfaceMib, self).__init__()
-
-            self.yang_name = "interface-mib"
-            self.yang_parent_name = "snmp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("interfaces", ("interfaces", Snmp.InterfaceMib.Interfaces)), ("interface-connectors", ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors)), ("interface-aliases", ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases)), ("notification-interfaces", ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces)), ("interface-stack-statuses", ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses))])
-            self._leafs = OrderedDict()
-
-            self.interfaces = Snmp.InterfaceMib.Interfaces()
-            self.interfaces.parent = self
-            self._children_name_map["interfaces"] = "interfaces"
-
-            self.interface_connectors = Snmp.InterfaceMib.InterfaceConnectors()
-            self.interface_connectors.parent = self
-            self._children_name_map["interface_connectors"] = "interface-connectors"
-
-            self.interface_aliases = Snmp.InterfaceMib.InterfaceAliases()
-            self.interface_aliases.parent = self
-            self._children_name_map["interface_aliases"] = "interface-aliases"
-
-            self.notification_interfaces = Snmp.InterfaceMib.NotificationInterfaces()
-            self.notification_interfaces.parent = self
-            self._children_name_map["notification_interfaces"] = "notification-interfaces"
-
-            self.interface_stack_statuses = Snmp.InterfaceMib.InterfaceStackStatuses()
-            self.interface_stack_statuses.parent = self
-            self._children_name_map["interface_stack_statuses"] = "interface-stack-statuses"
-            self._segment_path = lambda: "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Snmp.InterfaceMib, [], name, value)
-
-
-        class Interfaces(Entity):
-            """
-            Interfaces ifIndex information
-            
-            .. attribute:: interface
-            
-            	ifIndex for a specific Interface Name
-            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces.Interface>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-ifmib-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.InterfaceMib.Interfaces, self).__init__()
-
-                self.yang_name = "interfaces"
-                self.yang_parent_name = "interface-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("interface", ("interface", Snmp.InterfaceMib.Interfaces.Interface))])
-                self._leafs = OrderedDict()
-
-                self.interface = YList(self)
-                self._segment_path = lambda: "interfaces"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceMib.Interfaces, [], name, value)
-
-
-            class Interface(Entity):
-                """
-                ifIndex for a specific Interface Name
-                
-                .. attribute:: interface_name  (key)
-                
-                	Interface Name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: if_index
-                
-                	Interface Index
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-ifmib-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    super(Snmp.InterfaceMib.Interfaces.Interface, self).__init__()
-
-                    self.yang_name = "interface"
-                    self.yang_parent_name = "interfaces"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                        ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
-                    ])
-                    self.interface_name = None
-                    self.if_index = None
-                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interfaces/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', 'if_index'], name, value)
-
-
-
-
-        class InterfaceConnectors(Entity):
-            """
-            Interfaces ifConnectorPresent information
-            
-            .. attribute:: interface_connector
-            
-            	ifConnectorPresent for a specific Interface Name
-            	**type**\: list of  		 :py:class:`InterfaceConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-ifmib-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.InterfaceMib.InterfaceConnectors, self).__init__()
-
-                self.yang_name = "interface-connectors"
-                self.yang_parent_name = "interface-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("interface-connector", ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector))])
-                self._leafs = OrderedDict()
-
-                self.interface_connector = YList(self)
-                self._segment_path = lambda: "interface-connectors"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors, [], name, value)
-
-
-            class InterfaceConnector(Entity):
-                """
-                ifConnectorPresent for a specific Interface
-                Name
-                
-                .. attribute:: interface_name  (key)
-                
-                	Interface Name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: if_connector_present
-                
-                	Interface ifConnector
-                	**type**\: str
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-ifmib-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    super(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, self).__init__()
-
-                    self.yang_name = "interface-connector"
-                    self.yang_parent_name = "interface-connectors"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                        ('if_connector_present', (YLeaf(YType.str, 'if-connector-present'), ['str'])),
-                    ])
-                    self.interface_name = None
-                    self.if_connector_present = None
-                    self._segment_path = lambda: "interface-connector" + "[interface-name='" + str(self.interface_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-connectors/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', 'if_connector_present'], name, value)
-
-
-
-
-        class InterfaceAliases(Entity):
-            """
-            Interfaces ifAlias information
-            
-            .. attribute:: interface_alias
-            
-            	ifAlias for a specific Interface Name
-            	**type**\: list of  		 :py:class:`InterfaceAlias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-ifmib-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.InterfaceMib.InterfaceAliases, self).__init__()
-
-                self.yang_name = "interface-aliases"
-                self.yang_parent_name = "interface-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("interface-alias", ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias))])
-                self._leafs = OrderedDict()
-
-                self.interface_alias = YList(self)
-                self._segment_path = lambda: "interface-aliases"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases, [], name, value)
-
-
-            class InterfaceAlias(Entity):
-                """
-                ifAlias for a specific Interface Name
-                
-                .. attribute:: interface_name  (key)
-                
-                	Interface Name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: if_alias
-                
-                	Interface ifAlias
-                	**type**\: str
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-ifmib-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    super(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, self).__init__()
-
-                    self.yang_name = "interface-alias"
-                    self.yang_parent_name = "interface-aliases"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                        ('if_alias', (YLeaf(YType.str, 'if-alias'), ['str'])),
-                    ])
-                    self.interface_name = None
-                    self.if_alias = None
-                    self._segment_path = lambda: "interface-alias" + "[interface-name='" + str(self.interface_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-aliases/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', 'if_alias'], name, value)
-
-
-
-
-        class NotificationInterfaces(Entity):
-            """
-            Interfaces Notification information
-            
-            .. attribute:: notification_interface
-            
-            	Notification for specific Interface Name
-            	**type**\: list of  		 :py:class:`NotificationInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-ifmib-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.InterfaceMib.NotificationInterfaces, self).__init__()
-
-                self.yang_name = "notification-interfaces"
-                self.yang_parent_name = "interface-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("notification-interface", ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface))])
-                self._leafs = OrderedDict()
-
-                self.notification_interface = YList(self)
-                self._segment_path = lambda: "notification-interfaces"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces, [], name, value)
-
-
-            class NotificationInterface(Entity):
-                """
-                Notification for specific Interface Name
-                
-                .. attribute:: interface_name  (key)
-                
-                	Interface Name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                	**config**\: False
-                
-                .. attribute:: link_up_down_notif_status
-                
-                	LinkUpDown notification status
-                	**type**\:  :py:class:`LinkUpDownStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper.LinkUpDownStatus>`
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-ifmib-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    super(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, self).__init__()
-
-                    self.yang_name = "notification-interface"
-                    self.yang_parent_name = "notification-interfaces"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
-                        ('link_up_down_notif_status', (YLeaf(YType.enumeration, 'link-up-down-notif-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper', 'LinkUpDownStatus', '')])),
-                    ])
-                    self.interface_name = None
-                    self.link_up_down_notif_status = None
-                    self._segment_path = lambda: "notification-interface" + "[interface-name='" + str(self.interface_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/notification-interfaces/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', 'link_up_down_notif_status'], name, value)
-
-
-
-
-        class InterfaceStackStatuses(Entity):
-            """
-            Interfaces ifstackstatus information
-            
-            .. attribute:: interface_stack_status
-            
-            	ifstatus for a pair of Interface
-            	**type**\: list of  		 :py:class:`InterfaceStackStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus>`
-            
-            	**config**\: False
-            
-            
-
-            """
-
-            _prefix = 'snmp-ifmib-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                super(Snmp.InterfaceMib.InterfaceStackStatuses, self).__init__()
-
-                self.yang_name = "interface-stack-statuses"
-                self.yang_parent_name = "interface-mib"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("interface-stack-status", ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus))])
-                self._leafs = OrderedDict()
-
-                self.interface_stack_status = YList(self)
-                self._segment_path = lambda: "interface-stack-statuses"
-                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses, [], name, value)
-
-
-            class InterfaceStackStatus(Entity):
-                """
-                ifstatus for a pair of Interface
-                
-                .. attribute:: interface_stack_status  (key)
-                
-                	StackHigherLayer.StackLowerLayer
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                	**config**\: False
-                
-                .. attribute:: if_stack_higher_layer
-                
-                	Higher Layer Index
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: if_stack_lower_layer
-                
-                	Lowyer Layer Index
-                	**type**\: str
-                
-                	**config**\: False
-                
-                .. attribute:: if_stack_status
-                
-                	Interface ifStackStaus info
-                	**type**\: str
-                
-                	**config**\: False
-                
-                
-
-                """
-
-                _prefix = 'snmp-ifmib-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    super(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, self).__init__()
-
-                    self.yang_name = "interface-stack-status"
-                    self.yang_parent_name = "interface-stack-statuses"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_stack_status']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface_stack_status', (YLeaf(YType.str, 'interface-stack-status'), ['str'])),
-                        ('if_stack_higher_layer', (YLeaf(YType.str, 'if-stack-higher-layer'), ['str'])),
-                        ('if_stack_lower_layer', (YLeaf(YType.str, 'if-stack-lower-layer'), ['str'])),
-                        ('if_stack_status', (YLeaf(YType.str, 'if-stack-status'), ['str'])),
-                    ])
-                    self.interface_stack_status = None
-                    self.if_stack_higher_layer = None
-                    self.if_stack_lower_layer = None
-                    self.if_stack_status = None
-                    self._segment_path = lambda: "interface-stack-status" + "[interface-stack-status='" + str(self.interface_stack_status) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-stack-statuses/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', 'if_stack_higher_layer', 'if_stack_lower_layer', 'if_stack_status'], name, value)
-
-
-
-
-
-    class SensorMib(Entity):
+    class SensorMib(_Entity_):
         """
         SNMP sensor MIB information
         
@@ -6772,7 +6614,10 @@ class Snmp(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Snmp.SensorMib, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.SensorMib, self).__init__()
 
             self.yang_name = "sensor-mib"
             self.yang_parent_name = "snmp"
@@ -6797,7 +6642,7 @@ class Snmp(Entity):
             self._perform_setattr(Snmp.SensorMib, [], name, value)
 
 
-        class PhysicalIndexes(Entity):
+        class PhysicalIndexes(_Entity_):
             """
             List of physical index table for threshold
             value
@@ -6817,7 +6662,10 @@ class Snmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Snmp.SensorMib.PhysicalIndexes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.SensorMib.PhysicalIndexes, self).__init__()
 
                 self.yang_name = "physical-indexes"
                 self.yang_parent_name = "sensor-mib"
@@ -6836,7 +6684,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.SensorMib.PhysicalIndexes, [], name, value)
 
 
-            class PhysicalIndex(Entity):
+            class PhysicalIndex(_Entity_):
                 """
                 Threshold value for physical index
                 
@@ -6864,7 +6712,10 @@ class Snmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, self).__init__()
 
                     self.yang_name = "physical-index"
                     self.yang_parent_name = "physical-indexes"
@@ -6888,7 +6739,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, ['index'], name, value)
 
 
-                class ThresholdIndexes(Entity):
+                class ThresholdIndexes(_Entity_):
                     """
                     List of threshold index
                     
@@ -6907,7 +6758,10 @@ class Snmp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, self).__init__()
 
                         self.yang_name = "threshold-indexes"
                         self.yang_parent_name = "physical-index"
@@ -6925,7 +6779,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, [], name, value)
 
 
-                    class ThresholdIndex(Entity):
+                    class ThresholdIndex(_Entity_):
                         """
                         Threshold value for threshold index
                         
@@ -6996,7 +6850,10 @@ class Snmp(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, self).__init__()
 
                             self.yang_name = "threshold-index"
                             self.yang_parent_name = "threshold-indexes"
@@ -7026,12 +6883,28 @@ class Snmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.SensorMib.PhysicalIndexes']['meta_info']
 
 
-
-
-
-        class EntPhyIndexes(Entity):
+        class EntPhyIndexes(_Entity_):
             """
             List of physical index 
             
@@ -7050,7 +6923,10 @@ class Snmp(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Snmp.SensorMib.EntPhyIndexes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.SensorMib.EntPhyIndexes, self).__init__()
 
                 self.yang_name = "ent-phy-indexes"
                 self.yang_parent_name = "sensor-mib"
@@ -7069,7 +6945,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.SensorMib.EntPhyIndexes, [], name, value)
 
 
-            class EntPhyIndex(Entity):
+            class EntPhyIndex(_Entity_):
                 """
                 Sensor value for physical index
                 
@@ -7207,7 +7083,10 @@ class Snmp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, self).__init__()
 
                     self.yang_name = "ent-phy-index"
                     self.yang_parent_name = "ent-phy-indexes"
@@ -7252,12 +7131,896 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, ['index', 'field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'measured_entity'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.SensorMib.EntPhyIndexes.EntPhyIndex']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.SensorMib.EntPhyIndexes']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.SensorMib']['meta_info']
 
 
+    class EntityMib(_Entity_):
+        """
+        SNMP entity mib
+        
+        .. attribute:: entity_physical_indexes
+        
+        	SNMP entity mib
+        	**type**\:  :py:class:`EntityPhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'snmp-entitymib-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.EntityMib, self).__init__()
+
+            self.yang_name = "entity-mib"
+            self.yang_parent_name = "snmp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("entity-physical-indexes", ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes))])
+            self._leafs = OrderedDict()
+
+            self.entity_physical_indexes = Snmp.EntityMib.EntityPhysicalIndexes()
+            self.entity_physical_indexes.parent = self
+            self._children_name_map["entity_physical_indexes"] = "entity-physical-indexes"
+            self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.EntityMib, [], name, value)
+
+
+        class EntityPhysicalIndexes(_Entity_):
+            """
+            SNMP entity mib
+            
+            .. attribute:: entity_physical_index
+            
+            	SNMP entPhysical index number
+            	**type**\: list of  		 :py:class:`EntityPhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-entitymib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.EntityMib.EntityPhysicalIndexes, self).__init__()
+
+                self.yang_name = "entity-physical-indexes"
+                self.yang_parent_name = "entity-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("entity-physical-index", ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex))])
+                self._leafs = OrderedDict()
+
+                self.entity_physical_index = YList(self)
+                self._segment_path = lambda: "entity-physical-indexes"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes, [], name, value)
+
+
+            class EntityPhysicalIndex(_Entity_):
+                """
+                SNMP entPhysical index number
+                
+                .. attribute:: entity_phynum  (key)
+                
+                	Entity physical index
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
+                
+                .. attribute:: physical_index
+                
+                	entPhysicalIndex
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_name
+                
+                	entPhysicalName
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: location
+                
+                	invmgr EDM path
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_descr
+                
+                	EntPhysicalDescription
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_firmware_rev
+                
+                	entphysicalFirmwareRev
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_hardware_rev
+                
+                	entphysicalHardwareRev
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_modelname
+                
+                	entphysicalModelName
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_serial_num
+                
+                	entphysicalSerialNum
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_software_rev
+                
+                	entphysicalSoftwareRev
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: ent_physical_mfg_name
+                
+                	entphysicalMfgName
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-entitymib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, self).__init__()
+
+                    self.yang_name = "entity-physical-index"
+                    self.yang_parent_name = "entity-physical-indexes"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['entity_phynum']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('entity_phynum', (YLeaf(YType.str, 'entity-phynum'), ['str'])),
+                        ('physical_index', (YLeaf(YType.uint32, 'physical-index'), ['int'])),
+                        ('ent_physical_name', (YLeaf(YType.str, 'ent-physical-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('ent_physical_descr', (YLeaf(YType.str, 'ent-physical-descr'), ['str'])),
+                        ('ent_physical_firmware_rev', (YLeaf(YType.str, 'ent-physical-firmware-rev'), ['str'])),
+                        ('ent_physical_hardware_rev', (YLeaf(YType.str, 'ent-physical-hardware-rev'), ['str'])),
+                        ('ent_physical_modelname', (YLeaf(YType.str, 'ent-physical-modelname'), ['str'])),
+                        ('ent_physical_serial_num', (YLeaf(YType.str, 'ent-physical-serial-num'), ['str'])),
+                        ('ent_physical_software_rev', (YLeaf(YType.str, 'ent-physical-software-rev'), ['str'])),
+                        ('ent_physical_mfg_name', (YLeaf(YType.str, 'ent-physical-mfg-name'), ['str'])),
+                    ])
+                    self.entity_phynum = None
+                    self.physical_index = None
+                    self.ent_physical_name = None
+                    self.location = None
+                    self.ent_physical_descr = None
+                    self.ent_physical_firmware_rev = None
+                    self.ent_physical_hardware_rev = None
+                    self.ent_physical_modelname = None
+                    self.ent_physical_serial_num = None
+                    self.ent_physical_software_rev = None
+                    self.ent_physical_mfg_name = None
+                    self._segment_path = lambda: "entity-physical-index" + "[entity-phynum='" + str(self.entity_phynum) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/entity-physical-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', 'physical_index', 'ent_physical_name', 'location', 'ent_physical_descr', 'ent_physical_firmware_rev', 'ent_physical_hardware_rev', 'ent_physical_modelname', 'ent_physical_serial_num', 'ent_physical_software_rev', 'ent_physical_mfg_name'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.EntityMib.EntityPhysicalIndexes']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.EntityMib']['meta_info']
+
+
+    class InterfaceMib(_Entity_):
+        """
+        SNMP IF\-MIB information
+        
+        .. attribute:: interfaces
+        
+        	Interfaces ifIndex information
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces>`
+        
+        	**config**\: False
+        
+        .. attribute:: interface_connectors
+        
+        	Interfaces ifConnectorPresent information
+        	**type**\:  :py:class:`InterfaceConnectors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors>`
+        
+        	**config**\: False
+        
+        .. attribute:: interface_aliases
+        
+        	Interfaces ifAlias information
+        	**type**\:  :py:class:`InterfaceAliases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases>`
+        
+        	**config**\: False
+        
+        .. attribute:: notification_interfaces
+        
+        	Interfaces Notification information
+        	**type**\:  :py:class:`NotificationInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces>`
+        
+        	**config**\: False
+        
+        .. attribute:: interface_stack_statuses
+        
+        	Interfaces ifstackstatus information
+        	**type**\:  :py:class:`InterfaceStackStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'snmp-ifmib-oper'
+        _revision = '2015-01-07'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Snmp.InterfaceMib, self).__init__()
+
+            self.yang_name = "interface-mib"
+            self.yang_parent_name = "snmp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", Snmp.InterfaceMib.Interfaces)), ("interface-connectors", ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors)), ("interface-aliases", ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases)), ("notification-interfaces", ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces)), ("interface-stack-statuses", ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses))])
+            self._leafs = OrderedDict()
+
+            self.interfaces = Snmp.InterfaceMib.Interfaces()
+            self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+
+            self.interface_connectors = Snmp.InterfaceMib.InterfaceConnectors()
+            self.interface_connectors.parent = self
+            self._children_name_map["interface_connectors"] = "interface-connectors"
+
+            self.interface_aliases = Snmp.InterfaceMib.InterfaceAliases()
+            self.interface_aliases.parent = self
+            self._children_name_map["interface_aliases"] = "interface-aliases"
+
+            self.notification_interfaces = Snmp.InterfaceMib.NotificationInterfaces()
+            self.notification_interfaces.parent = self
+            self._children_name_map["notification_interfaces"] = "notification-interfaces"
+
+            self.interface_stack_statuses = Snmp.InterfaceMib.InterfaceStackStatuses()
+            self.interface_stack_statuses.parent = self
+            self._children_name_map["interface_stack_statuses"] = "interface-stack-statuses"
+            self._segment_path = lambda: "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.InterfaceMib, [], name, value)
+
+
+        class Interfaces(_Entity_):
+            """
+            Interfaces ifIndex information
+            
+            .. attribute:: interface
+            
+            	ifIndex for a specific Interface Name
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces.Interface>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceMib.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "interface-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("interface", ("interface", Snmp.InterfaceMib.Interfaces.Interface))])
+                self._leafs = OrderedDict()
+
+                self.interface = YList(self)
+                self._segment_path = lambda: "interfaces"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.InterfaceMib.Interfaces, [], name, value)
+
+
+            class Interface(_Entity_):
+                """
+                ifIndex for a specific Interface Name
+                
+                .. attribute:: interface_name  (key)
+                
+                	Interface Name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
+                
+                .. attribute:: if_index
+                
+                	Interface Index
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.InterfaceMib.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['interface_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
+                    ])
+                    self.interface_name = None
+                    self.if_index = None
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', 'if_index'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.InterfaceMib.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceMib.Interfaces']['meta_info']
+
+
+        class InterfaceConnectors(_Entity_):
+            """
+            Interfaces ifConnectorPresent information
+            
+            .. attribute:: interface_connector
+            
+            	ifConnectorPresent for a specific Interface Name
+            	**type**\: list of  		 :py:class:`InterfaceConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceMib.InterfaceConnectors, self).__init__()
+
+                self.yang_name = "interface-connectors"
+                self.yang_parent_name = "interface-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("interface-connector", ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector))])
+                self._leafs = OrderedDict()
+
+                self.interface_connector = YList(self)
+                self._segment_path = lambda: "interface-connectors"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors, [], name, value)
+
+
+            class InterfaceConnector(_Entity_):
+                """
+                ifConnectorPresent for a specific Interface
+                Name
+                
+                .. attribute:: interface_name  (key)
+                
+                	Interface Name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
+                
+                .. attribute:: if_connector_present
+                
+                	Interface ifConnector
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, self).__init__()
+
+                    self.yang_name = "interface-connector"
+                    self.yang_parent_name = "interface-connectors"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['interface_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_connector_present', (YLeaf(YType.str, 'if-connector-present'), ['str'])),
+                    ])
+                    self.interface_name = None
+                    self.if_connector_present = None
+                    self._segment_path = lambda: "interface-connector" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-connectors/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', 'if_connector_present'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceMib.InterfaceConnectors']['meta_info']
+
+
+        class InterfaceAliases(_Entity_):
+            """
+            Interfaces ifAlias information
+            
+            .. attribute:: interface_alias
+            
+            	ifAlias for a specific Interface Name
+            	**type**\: list of  		 :py:class:`InterfaceAlias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceMib.InterfaceAliases, self).__init__()
+
+                self.yang_name = "interface-aliases"
+                self.yang_parent_name = "interface-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("interface-alias", ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias))])
+                self._leafs = OrderedDict()
+
+                self.interface_alias = YList(self)
+                self._segment_path = lambda: "interface-aliases"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases, [], name, value)
+
+
+            class InterfaceAlias(_Entity_):
+                """
+                ifAlias for a specific Interface Name
+                
+                .. attribute:: interface_name  (key)
+                
+                	Interface Name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
+                
+                .. attribute:: if_alias
+                
+                	Interface ifAlias
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, self).__init__()
+
+                    self.yang_name = "interface-alias"
+                    self.yang_parent_name = "interface-aliases"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['interface_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_alias', (YLeaf(YType.str, 'if-alias'), ['str'])),
+                    ])
+                    self.interface_name = None
+                    self.if_alias = None
+                    self._segment_path = lambda: "interface-alias" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-aliases/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', 'if_alias'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceMib.InterfaceAliases']['meta_info']
+
+
+        class NotificationInterfaces(_Entity_):
+            """
+            Interfaces Notification information
+            
+            .. attribute:: notification_interface
+            
+            	Notification for specific Interface Name
+            	**type**\: list of  		 :py:class:`NotificationInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceMib.NotificationInterfaces, self).__init__()
+
+                self.yang_name = "notification-interfaces"
+                self.yang_parent_name = "interface-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("notification-interface", ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface))])
+                self._leafs = OrderedDict()
+
+                self.notification_interface = YList(self)
+                self._segment_path = lambda: "notification-interfaces"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces, [], name, value)
+
+
+            class NotificationInterface(_Entity_):
+                """
+                Notification for specific Interface Name
+                
+                .. attribute:: interface_name  (key)
+                
+                	Interface Name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
+                
+                .. attribute:: link_up_down_notif_status
+                
+                	LinkUpDown notification status
+                	**type**\:  :py:class:`LinkUpDownStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper.LinkUpDownStatus>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, self).__init__()
+
+                    self.yang_name = "notification-interface"
+                    self.yang_parent_name = "notification-interfaces"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['interface_name']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('link_up_down_notif_status', (YLeaf(YType.enumeration, 'link-up-down-notif-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper', 'LinkUpDownStatus', '')])),
+                    ])
+                    self.interface_name = None
+                    self.link_up_down_notif_status = None
+                    self._segment_path = lambda: "notification-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/notification-interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', 'link_up_down_notif_status'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceMib.NotificationInterfaces']['meta_info']
+
+
+        class InterfaceStackStatuses(_Entity_):
+            """
+            Interfaces ifstackstatus information
+            
+            .. attribute:: interface_stack_status
+            
+            	ifstatus for a pair of Interface
+            	**type**\: list of  		 :py:class:`InterfaceStackStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Snmp.InterfaceMib.InterfaceStackStatuses, self).__init__()
+
+                self.yang_name = "interface-stack-statuses"
+                self.yang_parent_name = "interface-mib"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("interface-stack-status", ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus))])
+                self._leafs = OrderedDict()
+
+                self.interface_stack_status = YList(self)
+                self._segment_path = lambda: "interface-stack-statuses"
+                self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses, [], name, value)
+
+
+            class InterfaceStackStatus(_Entity_):
+                """
+                ifstatus for a pair of Interface
+                
+                .. attribute:: interface_stack_status  (key)
+                
+                	StackHigherLayer.StackLowerLayer
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
+                
+                .. attribute:: if_stack_higher_layer
+                
+                	Higher Layer Index
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: if_stack_lower_layer
+                
+                	Lowyer Layer Index
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: if_stack_status
+                
+                	Interface ifStackStaus info
+                	**type**\: str
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, self).__init__()
+
+                    self.yang_name = "interface-stack-status"
+                    self.yang_parent_name = "interface-stack-statuses"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['interface_stack_status']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_stack_status', (YLeaf(YType.str, 'interface-stack-status'), ['str'])),
+                        ('if_stack_higher_layer', (YLeaf(YType.str, 'if-stack-higher-layer'), ['str'])),
+                        ('if_stack_lower_layer', (YLeaf(YType.str, 'if-stack-lower-layer'), ['str'])),
+                        ('if_stack_status', (YLeaf(YType.str, 'if-stack-status'), ['str'])),
+                    ])
+                    self.interface_stack_status = None
+                    self.if_stack_higher_layer = None
+                    self.if_stack_lower_layer = None
+                    self.if_stack_status = None
+                    self._segment_path = lambda: "interface-stack-status" + "[interface-stack-status='" + str(self.interface_stack_status) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-stack-statuses/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', 'if_stack_higher_layer', 'if_stack_lower_layer', 'if_stack_status'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.InterfaceMib.InterfaceStackStatuses']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.InterfaceMib']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Snmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+        return meta._meta_table['Snmp']['meta_info']
 
 

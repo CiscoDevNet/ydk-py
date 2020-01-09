@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class BgpOcAfi(Enum):
     ipv4 = Enum.YLeaf(0, "ipv4")
 
     ipv6 = Enum.YLeaf(5, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+        return meta._meta_table['BgpOcAfi']
 
 
 class BgpOcInvalidRouteReason(Enum):
@@ -80,6 +89,12 @@ class BgpOcInvalidRouteReason(Enum):
     invalid_as_confed_loop = Enum.YLeaf(5, "invalid-as-confed-loop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+        return meta._meta_table['BgpOcInvalidRouteReason']
+
+
 class BgpOcOriginAttr(Enum):
     """
     BgpOcOriginAttr (Enum Class)
@@ -107,8 +122,14 @@ class BgpOcOriginAttr(Enum):
     incomplete = Enum.YLeaf(2, "incomplete")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+        return meta._meta_table['BgpOcOriginAttr']
 
-class OcBgp(Entity):
+
+
+class OcBgp(_Entity_):
     """
     OC\-BGP operational data
     
@@ -127,7 +148,10 @@ class OcBgp(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(OcBgp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(OcBgp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "oc-bgp"
@@ -148,7 +172,7 @@ class OcBgp(Entity):
         self._perform_setattr(OcBgp, [], name, value)
 
 
-    class BgpRib(Entity):
+    class BgpRib(_Entity_):
         """
         BGP\-RIB operational data
         
@@ -167,7 +191,10 @@ class OcBgp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(OcBgp.BgpRib, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(OcBgp.BgpRib, self).__init__()
 
             self.yang_name = "bgp-rib"
             self.yang_parent_name = "oc-bgp"
@@ -188,7 +215,7 @@ class OcBgp(Entity):
             self._perform_setattr(OcBgp.BgpRib, [], name, value)
 
 
-        class AfiSafiTable(Entity):
+        class AfiSafiTable(_Entity_):
             """
             AFI\-SAFIs information
             
@@ -214,7 +241,10 @@ class OcBgp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(OcBgp.BgpRib.AfiSafiTable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(OcBgp.BgpRib.AfiSafiTable, self).__init__()
 
                 self.yang_name = "afi-safi-table"
                 self.yang_parent_name = "bgp-rib"
@@ -239,7 +269,7 @@ class OcBgp(Entity):
                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable, [], name, value)
 
 
-            class Ipv4Unicast(Entity):
+            class Ipv4Unicast(_Entity_):
                 """
                 IPv4 Unicast
                 
@@ -265,7 +295,10 @@ class OcBgp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, self).__init__()
 
                     self.yang_name = "ipv4-unicast"
                     self.yang_parent_name = "afi-safi-table"
@@ -290,7 +323,7 @@ class OcBgp(Entity):
                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, [], name, value)
 
 
-                class LocRib(Entity):
+                class LocRib(_Entity_):
                     """
                     Local rib route table
                     
@@ -316,7 +349,10 @@ class OcBgp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, self).__init__()
 
                         self.yang_name = "loc-rib"
                         self.yang_parent_name = "ipv4-unicast"
@@ -341,7 +377,7 @@ class OcBgp(Entity):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, [], name, value)
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         routes table
                         
@@ -360,7 +396,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "loc-rib"
@@ -379,7 +418,7 @@ class OcBgp(Entity):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes, [], name, value)
 
 
-                        class Route(Entity):
+                        class Route(_Entity_):
                             """
                             route entry
                             
@@ -486,7 +525,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "routes"
@@ -536,7 +578,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                            class PrefixName(Entity):
+                            class PrefixName(_Entity_):
                                 """
                                 Prefix
                                 
@@ -564,7 +606,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
 
                                     self.yang_name = "prefix-name"
                                     self.yang_parent_name = "route"
@@ -588,7 +633,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                class Prefix(Entity):
+                                class Prefix(_Entity_):
                                     """
                                     Prefix
                                     
@@ -625,7 +670,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                         self.yang_name = "prefix"
                                         self.yang_parent_name = "prefix-name"
@@ -648,10 +696,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName']['meta_info']
 
 
-
-                            class RouteAttrList(Entity):
+                            class RouteAttrList(_Entity_):
                                 """
                                 RouteAttributesList
                                 
@@ -730,7 +786,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
 
                                     self.yang_name = "route-attr-list"
                                     self.yang_parent_name = "route"
@@ -770,7 +829,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                class NextHop(Entity):
+                                class NextHop(_Entity_):
                                     """
                                     NextHopAddress
                                     
@@ -807,7 +866,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                         self.yang_name = "next-hop"
                                         self.yang_parent_name = "route-attr-list"
@@ -830,9 +892,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                class AggregratorAttributes(Entity):
+                                class AggregratorAttributes(_Entity_):
                                     """
                                     AggregatorList
                                     
@@ -871,7 +937,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                         self.yang_name = "aggregrator-attributes"
                                         self.yang_parent_name = "route-attr-list"
@@ -894,9 +963,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                class Community(Entity):
+                                class Community(_Entity_):
                                     """
                                     CommunityArray
                                     
@@ -915,7 +988,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                         self.yang_name = "community"
                                         self.yang_parent_name = "route-attr-list"
@@ -934,10 +1010,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                            class ExtAttributesList(Entity):
+                            class ExtAttributesList(_Entity_):
                                 """
                                 ExtAttributesList
                                 
@@ -999,7 +1083,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
 
                                     self.yang_name = "ext-attributes-list"
                                     self.yang_parent_name = "route"
@@ -1028,7 +1115,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                class ExtCommunity(Entity):
+                                class ExtCommunity(_Entity_):
                                     """
                                     ExtendedCommunityArray
                                     
@@ -1047,7 +1134,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                         self.yang_name = "ext-community"
                                         self.yang_parent_name = "ext-attributes-list"
@@ -1066,9 +1156,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                class UnknownAttributes(Entity):
+                                class UnknownAttributes(_Entity_):
                                     """
                                     UnknownAttributes
                                     
@@ -1107,7 +1201,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                         self.yang_name = "unknown-attributes"
                                         self.yang_parent_name = "ext-attributes-list"
@@ -1130,10 +1227,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                            class LastModifiedDate(Entity):
+                            class LastModifiedDate(_Entity_):
                                 """
                                 LastModifiedDate
                                 
@@ -1152,7 +1257,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
 
                                     self.yang_name = "last-modified-date"
                                     self.yang_parent_name = "route"
@@ -1171,9 +1279,13 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                            class LastUpdateRecieved(Entity):
+                            class LastUpdateRecieved(_Entity_):
                                 """
                                 LastUpdateRecieved
                                 
@@ -1192,7 +1304,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                     self.yang_name = "last-update-recieved"
                                     self.yang_parent_name = "route"
@@ -1211,11 +1326,23 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes']['meta_info']
 
 
-
-
-                    class NumRoutes(Entity):
+                    class NumRoutes(_Entity_):
                         """
                         Number of routes in adjacency rib out\-bound
                         post\-policy table
@@ -1237,7 +1364,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes, self).__init__()
 
                             self.yang_name = "num-routes"
                             self.yang_parent_name = "loc-rib"
@@ -1256,10 +1386,18 @@ class OcBgp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes, ['num_routes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib']['meta_info']
 
 
-
-                class OpenConfigNeighbors(Entity):
+                class OpenConfigNeighbors(_Entity_):
                     """
                     Neighbor list
                     
@@ -1278,7 +1416,10 @@ class OcBgp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors, self).__init__()
 
                         self.yang_name = "open-config-neighbors"
                         self.yang_parent_name = "ipv4-unicast"
@@ -1297,7 +1438,7 @@ class OcBgp(Entity):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors, [], name, value)
 
 
-                    class OpenConfigNeighbor(Entity):
+                    class OpenConfigNeighbor(_Entity_):
                         """
                         Neighbor name
                         
@@ -1352,7 +1493,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
 
                             self.yang_name = "open-config-neighbor"
                             self.yang_parent_name = "open-config-neighbors"
@@ -1388,7 +1532,7 @@ class OcBgp(Entity):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor, ['neighbor_address'], name, value)
 
 
-                        class AdjRibInPost(Entity):
+                        class AdjRibInPost(_Entity_):
                             """
                             Adjacency rib in\-bound post\-policy table
                             
@@ -1414,7 +1558,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
 
                                 self.yang_name = "adj-rib-in-post"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -1438,7 +1585,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -1457,7 +1604,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -1475,7 +1625,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -1582,7 +1732,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -1631,7 +1784,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -1659,7 +1812,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -1682,7 +1838,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -1719,7 +1875,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -1741,10 +1900,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -1823,7 +1990,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -1862,7 +2032,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -1899,7 +2069,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -1921,9 +2094,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -1962,7 +2139,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -1984,9 +2164,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -2005,7 +2189,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -2023,10 +2210,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -2088,7 +2283,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -2116,7 +2314,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -2135,7 +2333,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -2153,9 +2354,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -2194,7 +2399,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -2216,10 +2424,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -2238,7 +2454,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -2256,9 +2475,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -2277,7 +2500,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -2295,11 +2521,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -2321,7 +2559,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -2339,10 +2580,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost']['meta_info']
 
 
-
-                        class AdjRibOutPost(Entity):
+                        class AdjRibOutPost(_Entity_):
                             """
                             Adjacency rib out\-bound post\-policy table
                             
@@ -2368,7 +2617,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
 
                                 self.yang_name = "adj-rib-out-post"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -2392,7 +2644,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -2411,7 +2663,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -2429,7 +2684,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -2536,7 +2791,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -2585,7 +2843,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -2613,7 +2871,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -2636,7 +2897,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -2673,7 +2934,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -2695,10 +2959,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -2777,7 +3049,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -2816,7 +3091,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -2853,7 +3128,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -2875,9 +3153,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -2916,7 +3198,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -2938,9 +3223,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -2959,7 +3248,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -2977,10 +3269,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -3042,7 +3342,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -3070,7 +3373,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -3089,7 +3392,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -3107,9 +3413,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -3148,7 +3458,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -3170,10 +3483,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -3192,7 +3513,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -3210,9 +3534,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -3231,7 +3559,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -3249,11 +3580,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -3275,7 +3618,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -3293,10 +3639,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost']['meta_info']
 
 
-
-                        class AdjRibOutPre(Entity):
+                        class AdjRibOutPre(_Entity_):
                             """
                             Adjacency rib out\-bound pre\-policy table
                             
@@ -3322,7 +3676,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
 
                                 self.yang_name = "adj-rib-out-pre"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -3346,7 +3703,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -3365,7 +3722,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -3383,7 +3743,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -3490,7 +3850,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -3539,7 +3902,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -3567,7 +3930,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -3590,7 +3956,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -3627,7 +3993,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -3649,10 +4018,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -3731,7 +4108,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -3770,7 +4150,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -3807,7 +4187,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -3829,9 +4212,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -3870,7 +4257,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -3892,9 +4282,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -3913,7 +4307,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -3931,10 +4328,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -3996,7 +4401,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -4024,7 +4432,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -4043,7 +4451,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -4061,9 +4472,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -4102,7 +4517,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -4124,10 +4542,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -4146,7 +4572,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -4164,9 +4593,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -4185,7 +4618,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -4203,11 +4639,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -4229,7 +4677,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -4247,10 +4698,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre']['meta_info']
 
 
-
-                        class AdjRibInPre(Entity):
+                        class AdjRibInPre(_Entity_):
                             """
                             Adjacency rib in\-bound pre\-policy table
                             
@@ -4276,7 +4735,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
 
                                 self.yang_name = "adj-rib-in-pre"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -4300,7 +4762,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -4319,7 +4781,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -4337,7 +4802,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -4444,7 +4909,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -4493,7 +4961,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -4521,7 +4989,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -4544,7 +5015,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -4581,7 +5052,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -4603,10 +5077,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -4685,7 +5167,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -4724,7 +5209,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -4761,7 +5246,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -4783,9 +5271,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -4824,7 +5316,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -4846,9 +5341,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -4867,7 +5366,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -4885,10 +5387,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -4950,7 +5460,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -4978,7 +5491,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -4997,7 +5510,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -5015,9 +5531,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -5056,7 +5576,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -5078,10 +5601,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -5100,7 +5631,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -5118,9 +5652,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -5139,7 +5677,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -5157,11 +5698,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -5183,7 +5736,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -5201,13 +5757,33 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast']['meta_info']
 
 
-
-
-
-
-            class Ipv6Unicast(Entity):
+            class Ipv6Unicast(_Entity_):
                 """
                 IPv6 Unicast
                 
@@ -5233,7 +5809,10 @@ class OcBgp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, self).__init__()
 
                     self.yang_name = "ipv6-unicast"
                     self.yang_parent_name = "afi-safi-table"
@@ -5258,7 +5837,7 @@ class OcBgp(Entity):
                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, [], name, value)
 
 
-                class LocRib(Entity):
+                class LocRib(_Entity_):
                     """
                     Local rib route table
                     
@@ -5284,7 +5863,10 @@ class OcBgp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, self).__init__()
 
                         self.yang_name = "loc-rib"
                         self.yang_parent_name = "ipv6-unicast"
@@ -5309,7 +5891,7 @@ class OcBgp(Entity):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, [], name, value)
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         routes table
                         
@@ -5328,7 +5910,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "loc-rib"
@@ -5347,7 +5932,7 @@ class OcBgp(Entity):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes, [], name, value)
 
 
-                        class Route(Entity):
+                        class Route(_Entity_):
                             """
                             route entry
                             
@@ -5454,7 +6039,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "routes"
@@ -5504,7 +6092,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                            class PrefixName(Entity):
+                            class PrefixName(_Entity_):
                                 """
                                 Prefix
                                 
@@ -5532,7 +6120,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
 
                                     self.yang_name = "prefix-name"
                                     self.yang_parent_name = "route"
@@ -5556,7 +6147,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                class Prefix(Entity):
+                                class Prefix(_Entity_):
                                     """
                                     Prefix
                                     
@@ -5593,7 +6184,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                         self.yang_name = "prefix"
                                         self.yang_parent_name = "prefix-name"
@@ -5616,10 +6210,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName']['meta_info']
 
 
-
-                            class RouteAttrList(Entity):
+                            class RouteAttrList(_Entity_):
                                 """
                                 RouteAttributesList
                                 
@@ -5698,7 +6300,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
 
                                     self.yang_name = "route-attr-list"
                                     self.yang_parent_name = "route"
@@ -5738,7 +6343,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                class NextHop(Entity):
+                                class NextHop(_Entity_):
                                     """
                                     NextHopAddress
                                     
@@ -5775,7 +6380,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                         self.yang_name = "next-hop"
                                         self.yang_parent_name = "route-attr-list"
@@ -5798,9 +6406,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                class AggregratorAttributes(Entity):
+                                class AggregratorAttributes(_Entity_):
                                     """
                                     AggregatorList
                                     
@@ -5839,7 +6451,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                         self.yang_name = "aggregrator-attributes"
                                         self.yang_parent_name = "route-attr-list"
@@ -5862,9 +6477,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                class Community(Entity):
+                                class Community(_Entity_):
                                     """
                                     CommunityArray
                                     
@@ -5883,7 +6502,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                         self.yang_name = "community"
                                         self.yang_parent_name = "route-attr-list"
@@ -5902,10 +6524,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                            class ExtAttributesList(Entity):
+                            class ExtAttributesList(_Entity_):
                                 """
                                 ExtAttributesList
                                 
@@ -5967,7 +6597,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
 
                                     self.yang_name = "ext-attributes-list"
                                     self.yang_parent_name = "route"
@@ -5996,7 +6629,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                class ExtCommunity(Entity):
+                                class ExtCommunity(_Entity_):
                                     """
                                     ExtendedCommunityArray
                                     
@@ -6015,7 +6648,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                         self.yang_name = "ext-community"
                                         self.yang_parent_name = "ext-attributes-list"
@@ -6034,9 +6670,13 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                class UnknownAttributes(Entity):
+                                class UnknownAttributes(_Entity_):
                                     """
                                     UnknownAttributes
                                     
@@ -6075,7 +6715,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                         self.yang_name = "unknown-attributes"
                                         self.yang_parent_name = "ext-attributes-list"
@@ -6098,10 +6741,18 @@ class OcBgp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                            class LastModifiedDate(Entity):
+                            class LastModifiedDate(_Entity_):
                                 """
                                 LastModifiedDate
                                 
@@ -6120,7 +6771,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
 
                                     self.yang_name = "last-modified-date"
                                     self.yang_parent_name = "route"
@@ -6139,9 +6793,13 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                            class LastUpdateRecieved(Entity):
+                            class LastUpdateRecieved(_Entity_):
                                 """
                                 LastUpdateRecieved
                                 
@@ -6160,7 +6818,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                     self.yang_name = "last-update-recieved"
                                     self.yang_parent_name = "route"
@@ -6179,11 +6840,23 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes']['meta_info']
 
 
-
-
-                    class NumRoutes(Entity):
+                    class NumRoutes(_Entity_):
                         """
                         Number of routes in adjacency rib out\-bound
                         post\-policy table
@@ -6205,7 +6878,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes, self).__init__()
 
                             self.yang_name = "num-routes"
                             self.yang_parent_name = "loc-rib"
@@ -6224,10 +6900,18 @@ class OcBgp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes, ['num_routes'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib']['meta_info']
 
 
-
-                class OpenConfigNeighbors(Entity):
+                class OpenConfigNeighbors(_Entity_):
                     """
                     Neighbor list
                     
@@ -6246,7 +6930,10 @@ class OcBgp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors, self).__init__()
 
                         self.yang_name = "open-config-neighbors"
                         self.yang_parent_name = "ipv6-unicast"
@@ -6265,7 +6952,7 @@ class OcBgp(Entity):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors, [], name, value)
 
 
-                    class OpenConfigNeighbor(Entity):
+                    class OpenConfigNeighbor(_Entity_):
                         """
                         Neighbor name
                         
@@ -6320,7 +7007,10 @@ class OcBgp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
 
                             self.yang_name = "open-config-neighbor"
                             self.yang_parent_name = "open-config-neighbors"
@@ -6356,7 +7046,7 @@ class OcBgp(Entity):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor, ['neighbor_address'], name, value)
 
 
-                        class AdjRibInPost(Entity):
+                        class AdjRibInPost(_Entity_):
                             """
                             Adjacency rib in\-bound post\-policy table
                             
@@ -6382,7 +7072,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
 
                                 self.yang_name = "adj-rib-in-post"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -6406,7 +7099,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -6425,7 +7118,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -6443,7 +7139,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -6550,7 +7246,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -6599,7 +7298,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -6627,7 +7326,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -6650,7 +7352,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -6687,7 +7389,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -6709,10 +7414,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -6791,7 +7504,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -6830,7 +7546,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -6867,7 +7583,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -6889,9 +7608,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -6930,7 +7653,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -6952,9 +7678,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -6973,7 +7703,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -6991,10 +7724,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -7056,7 +7797,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -7084,7 +7828,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -7103,7 +7847,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -7121,9 +7868,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -7162,7 +7913,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -7184,10 +7938,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -7206,7 +7968,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -7224,9 +7989,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -7245,7 +8014,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -7263,11 +8035,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -7289,7 +8073,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -7307,10 +8094,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost']['meta_info']
 
 
-
-                        class AdjRibOutPost(Entity):
+                        class AdjRibOutPost(_Entity_):
                             """
                             Adjacency rib out\-bound post\-policy table
                             
@@ -7336,7 +8131,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
 
                                 self.yang_name = "adj-rib-out-post"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -7360,7 +8158,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -7379,7 +8177,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -7397,7 +8198,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -7504,7 +8305,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -7553,7 +8357,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -7581,7 +8385,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -7604,7 +8411,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -7641,7 +8448,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -7663,10 +8473,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -7745,7 +8563,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -7784,7 +8605,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -7821,7 +8642,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -7843,9 +8667,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -7884,7 +8712,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -7906,9 +8737,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -7927,7 +8762,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -7945,10 +8783,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -8010,7 +8856,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -8038,7 +8887,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -8057,7 +8906,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -8075,9 +8927,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -8116,7 +8972,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -8138,10 +8997,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -8160,7 +9027,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -8178,9 +9048,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -8199,7 +9073,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -8217,11 +9094,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -8243,7 +9132,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -8261,10 +9153,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost']['meta_info']
 
 
-
-                        class AdjRibOutPre(Entity):
+                        class AdjRibOutPre(_Entity_):
                             """
                             Adjacency rib out\-bound pre\-policy table
                             
@@ -8290,7 +9190,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
 
                                 self.yang_name = "adj-rib-out-pre"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -8314,7 +9217,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -8333,7 +9236,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -8351,7 +9257,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -8458,7 +9364,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -8507,7 +9416,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -8535,7 +9444,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -8558,7 +9470,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -8595,7 +9507,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -8617,10 +9532,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -8699,7 +9622,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -8738,7 +9664,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -8775,7 +9701,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -8797,9 +9726,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -8838,7 +9771,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -8860,9 +9796,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -8881,7 +9821,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -8899,10 +9842,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -8964,7 +9915,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -8992,7 +9946,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -9011,7 +9965,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -9029,9 +9986,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -9070,7 +10031,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -9092,10 +10056,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -9114,7 +10086,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -9132,9 +10107,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -9153,7 +10132,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -9171,11 +10153,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -9197,7 +10191,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -9215,10 +10212,18 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre']['meta_info']
 
 
-
-                        class AdjRibInPre(Entity):
+                        class AdjRibInPre(_Entity_):
                             """
                             Adjacency rib in\-bound pre\-policy table
                             
@@ -9244,7 +10249,10 @@ class OcBgp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
 
                                 self.yang_name = "adj-rib-in-pre"
                                 self.yang_parent_name = "open-config-neighbor"
@@ -9268,7 +10276,7 @@ class OcBgp(Entity):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 routes table
                                 
@@ -9287,7 +10295,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -9305,7 +10316,7 @@ class OcBgp(Entity):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     route entry
                                     
@@ -9412,7 +10423,10 @@ class OcBgp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -9461,7 +10475,7 @@ class OcBgp(Entity):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class PrefixName(Entity):
+                                    class PrefixName(_Entity_):
                                         """
                                         Prefix
                                         
@@ -9489,7 +10503,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
 
                                             self.yang_name = "prefix-name"
                                             self.yang_parent_name = "route"
@@ -9512,7 +10529,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
 
 
-                                        class Prefix(Entity):
+                                        class Prefix(_Entity_):
                                             """
                                             Prefix
                                             
@@ -9549,7 +10566,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
 
                                                 self.yang_name = "prefix"
                                                 self.yang_parent_name = "prefix-name"
@@ -9571,10 +10591,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName']['meta_info']
 
 
-
-                                    class RouteAttrList(Entity):
+                                    class RouteAttrList(_Entity_):
                                         """
                                         RouteAttributesList
                                         
@@ -9653,7 +10681,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
 
                                             self.yang_name = "route-attr-list"
                                             self.yang_parent_name = "route"
@@ -9692,7 +10723,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
 
 
-                                        class NextHop(Entity):
+                                        class NextHop(_Entity_):
                                             """
                                             NextHopAddress
                                             
@@ -9729,7 +10760,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
 
                                                 self.yang_name = "next-hop"
                                                 self.yang_parent_name = "route-attr-list"
@@ -9751,9 +10785,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop']['meta_info']
 
 
-                                        class AggregratorAttributes(Entity):
+                                        class AggregratorAttributes(_Entity_):
                                             """
                                             AggregatorList
                                             
@@ -9792,7 +10830,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
 
                                                 self.yang_name = "aggregrator-attributes"
                                                 self.yang_parent_name = "route-attr-list"
@@ -9814,9 +10855,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes']['meta_info']
 
 
-                                        class Community(Entity):
+                                        class Community(_Entity_):
                                             """
                                             CommunityArray
                                             
@@ -9835,7 +10880,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
 
                                                 self.yang_name = "community"
                                                 self.yang_parent_name = "route-attr-list"
@@ -9853,10 +10901,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList']['meta_info']
 
 
-
-                                    class ExtAttributesList(Entity):
+                                    class ExtAttributesList(_Entity_):
                                         """
                                         ExtAttributesList
                                         
@@ -9918,7 +10974,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
 
                                             self.yang_name = "ext-attributes-list"
                                             self.yang_parent_name = "route"
@@ -9946,7 +11005,7 @@ class OcBgp(Entity):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
 
 
-                                        class ExtCommunity(Entity):
+                                        class ExtCommunity(_Entity_):
                                             """
                                             ExtendedCommunityArray
                                             
@@ -9965,7 +11024,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
 
                                                 self.yang_name = "ext-community"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -9983,9 +11045,13 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity']['meta_info']
 
 
-                                        class UnknownAttributes(Entity):
+                                        class UnknownAttributes(_Entity_):
                                             """
                                             UnknownAttributes
                                             
@@ -10024,7 +11090,10 @@ class OcBgp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
 
                                                 self.yang_name = "unknown-attributes"
                                                 self.yang_parent_name = "ext-attributes-list"
@@ -10046,10 +11115,18 @@ class OcBgp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList']['meta_info']
 
 
-
-                                    class LastModifiedDate(Entity):
+                                    class LastModifiedDate(_Entity_):
                                         """
                                         LastModifiedDate
                                         
@@ -10068,7 +11145,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
 
                                             self.yang_name = "last-modified-date"
                                             self.yang_parent_name = "route"
@@ -10086,9 +11166,13 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate']['meta_info']
 
 
-                                    class LastUpdateRecieved(Entity):
+                                    class LastUpdateRecieved(_Entity_):
                                         """
                                         LastUpdateRecieved
                                         
@@ -10107,7 +11191,10 @@ class OcBgp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
 
                                             self.yang_name = "last-update-recieved"
                                             self.yang_parent_name = "route"
@@ -10125,11 +11212,23 @@ class OcBgp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes']['meta_info']
 
 
-
-
-                            class NumRoutes(Entity):
+                            class NumRoutes(_Entity_):
                                 """
                                 Number of routes in adjacency rib out\-bound
                                 post\-policy table
@@ -10151,7 +11250,10 @@ class OcBgp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
 
                                     self.yang_name = "num-routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -10169,16 +11271,48 @@ class OcBgp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, ['num_routes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                            return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                        return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                    return meta._meta_table['OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+                return meta._meta_table['OcBgp.BgpRib.AfiSafiTable']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+            return meta._meta_table['OcBgp.BgpRib']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = OcBgp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_oc_oper as meta
+        return meta._meta_table['OcBgp']['meta_info']
 
 

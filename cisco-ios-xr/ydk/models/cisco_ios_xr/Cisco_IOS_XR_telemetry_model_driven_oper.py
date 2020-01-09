@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -65,6 +68,12 @@ class MdtDestStateEnum(Enum):
     dest_channel_not_found = Enum.YLeaf(5, "dest-channel-not-found")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtDestStateEnum']
+
+
 class MdtEncodingEnum(Enum):
     """
     MdtEncodingEnum (Enum Class)
@@ -96,6 +105,12 @@ class MdtEncodingEnum(Enum):
     self_describing_gpb = Enum.YLeaf(3, "self-describing-gpb")
 
     json = Enum.YLeaf(4, "json")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtEncodingEnum']
 
 
 class MdtInternalPathStatus(Enum):
@@ -173,6 +188,12 @@ class MdtInternalPathStatus(Enum):
     event_ing_err = Enum.YLeaf(10, "event-ing-err")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtInternalPathStatus']
+
+
 class MdtIp(Enum):
     """
     MdtIp (Enum Class)
@@ -192,6 +213,12 @@ class MdtIp(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtIp']
 
 
 class MdtSourceQosMarking(Enum):
@@ -329,6 +356,12 @@ class MdtSourceQosMarking(Enum):
     dscp_cs7 = Enum.YLeaf(56, "dscp-cs7")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtSourceQosMarking']
+
+
 class MdtSubsStateEnum(Enum):
     """
     MdtSubsStateEnum (Enum Class)
@@ -354,6 +387,12 @@ class MdtSubsStateEnum(Enum):
     active = Enum.YLeaf(1, "active")
 
     paused = Enum.YLeaf(2, "paused")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtSubsStateEnum']
 
 
 class MdtTransportEnum(Enum):
@@ -395,8 +434,14 @@ class MdtTransportEnum(Enum):
     dialin = Enum.YLeaf(6, "dialin")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtTransportEnum']
 
-class TelemetryModelDriven(Entity):
+
+
+class TelemetryModelDriven(_Entity_):
     """
     Telemetry operational data
     
@@ -436,7 +481,10 @@ class TelemetryModelDriven(Entity):
     _revision = '2017-09-27'
 
     def __init__(self):
-        super(TelemetryModelDriven, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TelemetryModelDriven, self).__init__()
         self._top_entity = None
 
         self.yang_name = "telemetry-model-driven"
@@ -469,7 +517,7 @@ class TelemetryModelDriven(Entity):
         self._perform_setattr(TelemetryModelDriven, [], name, value)
 
 
-    class Destinations(Entity):
+    class Destinations(_Entity_):
         """
         Telemetry Destinations
         
@@ -488,7 +536,10 @@ class TelemetryModelDriven(Entity):
         _revision = '2017-09-27'
 
         def __init__(self):
-            super(TelemetryModelDriven.Destinations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetryModelDriven.Destinations, self).__init__()
 
             self.yang_name = "destinations"
             self.yang_parent_name = "telemetry-model-driven"
@@ -507,7 +558,7 @@ class TelemetryModelDriven(Entity):
             self._perform_setattr(TelemetryModelDriven.Destinations, [], name, value)
 
 
-        class Destination(Entity):
+        class Destination(_Entity_):
             """
             Telemetry Destination
             
@@ -551,7 +602,10 @@ class TelemetryModelDriven(Entity):
             _revision = '2017-09-27'
 
             def __init__(self):
-                super(TelemetryModelDriven.Destinations.Destination, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetryModelDriven.Destinations.Destination, self).__init__()
 
                 self.yang_name = "destination"
                 self.yang_parent_name = "destinations"
@@ -577,7 +631,7 @@ class TelemetryModelDriven(Entity):
                 self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', 'id', 'configured'], name, value)
 
 
-            class Destination_(Entity):
+            class Destination_(_Entity_):
                 """
                 list of destinations defined in this group
                 
@@ -603,7 +657,10 @@ class TelemetryModelDriven(Entity):
                 _revision = '2017-09-27'
 
                 def __init__(self):
-                    super(TelemetryModelDriven.Destinations.Destination.Destination_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetryModelDriven.Destinations.Destination.Destination_, self).__init__()
 
                     self.yang_name = "destination"
                     self.yang_parent_name = "destination"
@@ -625,7 +682,7 @@ class TelemetryModelDriven(Entity):
                     self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_, [], name, value)
 
 
-                class Destination_(Entity):
+                class Destination_(_Entity_):
                     """
                     Destination
                     
@@ -776,7 +833,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, self).__init__()
 
                         self.yang_name = "destination"
                         self.yang_parent_name = "destination"
@@ -829,7 +889,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
 
 
-                    class DestIpAddress(Entity):
+                    class DestIpAddress(_Entity_):
                         """
                         Destination IP Address
                         
@@ -866,7 +926,10 @@ class TelemetryModelDriven(Entity):
                         _revision = '2017-09-27'
 
                         def __init__(self):
-                            super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, self).__init__()
 
                             self.yang_name = "dest-ip-address"
                             self.yang_parent_name = "destination"
@@ -888,10 +951,18 @@ class TelemetryModelDriven(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination_']['meta_info']
 
 
-
-                class CollectionGroup(Entity):
+                class CollectionGroup(_Entity_):
                     """
                     List of collection groups for this destination
                     group
@@ -1067,7 +1138,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, self).__init__()
 
                         self.yang_name = "collection-group"
                         self.yang_parent_name = "destination"
@@ -1121,7 +1195,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops', 'strict_timer'], name, value)
 
 
-                    class CollectionPath(Entity):
+                    class CollectionPath(_Entity_):
                         """
                         Array of information for sensor paths within
                         collection group
@@ -1155,7 +1229,10 @@ class TelemetryModelDriven(Entity):
                         _revision = '2017-09-27'
 
                         def __init__(self):
-                            super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, self).__init__()
 
                             self.yang_name = "collection-path"
                             self.yang_parent_name = "collection-group"
@@ -1177,9 +1254,13 @@ class TelemetryModelDriven(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath']['meta_info']
 
 
-                    class InternalCollectionGroup(Entity):
+                    class InternalCollectionGroup(_Entity_):
                         """
                         Array of information for sysdb paths within
                         collection group
@@ -1435,7 +1516,10 @@ class TelemetryModelDriven(Entity):
                         _revision = '2017-09-27'
 
                         def __init__(self):
-                            super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, self).__init__()
 
                             self.yang_name = "internal-collection-group"
                             self.yang_parent_name = "collection-group"
@@ -1505,13 +1589,33 @@ class TelemetryModelDriven(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                    return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                return meta._meta_table['TelemetryModelDriven.Destinations.Destination']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+            return meta._meta_table['TelemetryModelDriven.Destinations']['meta_info']
 
 
-
-
-
-
-    class Subscriptions(Entity):
+    class Subscriptions(_Entity_):
         """
         Telemetry Subscriptions
         
@@ -1530,7 +1634,10 @@ class TelemetryModelDriven(Entity):
         _revision = '2017-09-27'
 
         def __init__(self):
-            super(TelemetryModelDriven.Subscriptions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetryModelDriven.Subscriptions, self).__init__()
 
             self.yang_name = "subscriptions"
             self.yang_parent_name = "telemetry-model-driven"
@@ -1549,7 +1656,7 @@ class TelemetryModelDriven(Entity):
             self._perform_setattr(TelemetryModelDriven.Subscriptions, [], name, value)
 
 
-        class Subscription(Entity):
+        class Subscription(_Entity_):
             """
             Telemetry Subscription
             
@@ -1584,7 +1691,10 @@ class TelemetryModelDriven(Entity):
             _revision = '2017-09-27'
 
             def __init__(self):
-                super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
 
                 self.yang_name = "subscription"
                 self.yang_parent_name = "subscriptions"
@@ -1610,7 +1720,7 @@ class TelemetryModelDriven(Entity):
                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription, ['subscription_id'], name, value)
 
 
-            class Subscription_(Entity):
+            class Subscription_(_Entity_):
                 """
                 Subscription
                 
@@ -1664,7 +1774,10 @@ class TelemetryModelDriven(Entity):
                 _revision = '2017-09-27'
 
                 def __init__(self):
-                    super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, self).__init__()
 
                     self.yang_name = "subscription"
                     self.yang_parent_name = "subscription"
@@ -1694,7 +1807,7 @@ class TelemetryModelDriven(Entity):
                     self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, ['id', 'state', 'source_qos_marking'], name, value)
 
 
-                class SourceInterface(Entity):
+                class SourceInterface(_Entity_):
                     """
                     configured source interface
                     
@@ -1747,7 +1860,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, self).__init__()
 
                         self.yang_name = "source-interface"
                         self.yang_parent_name = "subscription"
@@ -1773,9 +1889,13 @@ class TelemetryModelDriven(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, ['interface_name', 'state', 'ipv4_address', 'ipv6_address', 'vrf_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface']['meta_info']
 
 
-                class SensorProfile(Entity):
+                class SensorProfile(_Entity_):
                     """
                     List of sensor groups within a subscription
                     
@@ -1819,7 +1939,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, self).__init__()
 
                         self.yang_name = "sensor-profile"
                         self.yang_parent_name = "subscription"
@@ -1846,7 +1969,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, ['sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
 
 
-                    class SensorGroup(Entity):
+                    class SensorGroup(_Entity_):
                         """
                         sensor group
                         
@@ -1881,7 +2004,10 @@ class TelemetryModelDriven(Entity):
                         _revision = '2017-09-27'
 
                         def __init__(self):
-                            super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, self).__init__()
 
                             self.yang_name = "sensor-group"
                             self.yang_parent_name = "sensor-profile"
@@ -1904,7 +2030,7 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, ['id', 'configured'], name, value)
 
 
-                        class SensorPath(Entity):
+                        class SensorPath(_Entity_):
                             """
                             Array of information for sensor paths within
                             sensor group
@@ -1938,7 +2064,10 @@ class TelemetryModelDriven(Entity):
                             _revision = '2017-09-27'
 
                             def __init__(self):
-                                super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, self).__init__()
 
                                 self.yang_name = "sensor-path"
                                 self.yang_parent_name = "sensor-group"
@@ -1960,11 +2089,23 @@ class TelemetryModelDriven(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile']['meta_info']
 
 
-
-
-                class DestinationGrp(Entity):
+                class DestinationGrp(_Entity_):
                     """
                     Array of destinations within a subscription
                     
@@ -1999,7 +2140,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, self).__init__()
 
                         self.yang_name = "destination-grp"
                         self.yang_parent_name = "subscription"
@@ -2022,7 +2166,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, ['id', 'configured'], name, value)
 
 
-                    class Destination(Entity):
+                    class Destination(_Entity_):
                         """
                         list of destinations defined in this group
                         
@@ -2173,7 +2317,10 @@ class TelemetryModelDriven(Entity):
                         _revision = '2017-09-27'
 
                         def __init__(self):
-                            super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, self).__init__()
 
                             self.yang_name = "destination"
                             self.yang_parent_name = "destination-grp"
@@ -2226,7 +2373,7 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, ['id', 'sub_id_str', 'dest_port', 'encoding', 'transport', 'vrf', 'vrf_id', 'state', 'udp_mtu', 'tls', 'tls_host', 'total_num_of_packets_sent', 'total_num_of_bytes_sent', 'last_collection_time', 'dscp', 'sub_id'], name, value)
 
 
-                        class DestIpAddress(Entity):
+                        class DestIpAddress(_Entity_):
                             """
                             Destination IP Address
                             
@@ -2263,7 +2410,10 @@ class TelemetryModelDriven(Entity):
                             _revision = '2017-09-27'
 
                             def __init__(self):
-                                super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, self).__init__()
 
                                 self.yang_name = "dest-ip-address"
                                 self.yang_parent_name = "destination"
@@ -2285,12 +2435,28 @@ class TelemetryModelDriven(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, ['ip_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_']['meta_info']
 
 
-
-
-
-            class CollectionGroup(Entity):
+            class CollectionGroup(_Entity_):
                 """
                 List of collection groups active for this
                 subscription
@@ -2466,7 +2632,10 @@ class TelemetryModelDriven(Entity):
                 _revision = '2017-09-27'
 
                 def __init__(self):
-                    super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, self).__init__()
 
                     self.yang_name = "collection-group"
                     self.yang_parent_name = "subscription"
@@ -2520,7 +2689,7 @@ class TelemetryModelDriven(Entity):
                     self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, ['id', 'cadence', 'total_collections', 'encoding', 'last_collection_start_time', 'last_collection_end_time', 'max_collection_time', 'min_collection_time', 'min_total_time', 'max_total_time', 'avg_total_time', 'total_other_errors', 'total_on_data_instances', 'total_not_ready', 'total_send_errors', 'total_send_drops', 'strict_timer'], name, value)
 
 
-                class CollectionPath(Entity):
+                class CollectionPath(_Entity_):
                     """
                     Array of information for sensor paths within
                     collection group
@@ -2554,7 +2723,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, self).__init__()
 
                         self.yang_name = "collection-path"
                         self.yang_parent_name = "collection-group"
@@ -2576,9 +2748,13 @@ class TelemetryModelDriven(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, ['path', 'state', 'status_str'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath']['meta_info']
 
 
-                class InternalCollectionGroup(Entity):
+                class InternalCollectionGroup(_Entity_):
                     """
                     Array of information for sysdb paths within
                     collection group
@@ -2834,7 +3010,10 @@ class TelemetryModelDriven(Entity):
                     _revision = '2017-09-27'
 
                     def __init__(self):
-                        super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, self).__init__()
 
                         self.yang_name = "internal-collection-group"
                         self.yang_parent_name = "collection-group"
@@ -2904,12 +3083,28 @@ class TelemetryModelDriven(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, ['path', 'cadence', 'total_get_count', 'total_list_count', 'total_datalist_count', 'total_finddata_count', 'total_get_bulk_count', 'total_item_count', 'total_get_errors', 'total_list_errors', 'total_datalist_errors', 'total_finddata_errors', 'total_get_bulk_errors', 'total_encode_errors', 'total_encode_notready', 'total_send_errors', 'total_send_drops', 'total_sent_bytes', 'total_send_packets', 'total_send_bytes_dropped', 'total_collections', 'total_collections_missed', 'max_collection_time', 'min_collection_time', 'avg_collection_time', 'collection_method', 'status'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+            return meta._meta_table['TelemetryModelDriven.Subscriptions']['meta_info']
 
 
-
-
-
-    class SensorGroups(Entity):
+    class SensorGroups(_Entity_):
         """
         Telemetry Sensor Groups
         
@@ -2928,7 +3123,10 @@ class TelemetryModelDriven(Entity):
         _revision = '2017-09-27'
 
         def __init__(self):
-            super(TelemetryModelDriven.SensorGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetryModelDriven.SensorGroups, self).__init__()
 
             self.yang_name = "sensor-groups"
             self.yang_parent_name = "telemetry-model-driven"
@@ -2947,7 +3145,7 @@ class TelemetryModelDriven(Entity):
             self._perform_setattr(TelemetryModelDriven.SensorGroups, [], name, value)
 
 
-        class SensorGroup(Entity):
+        class SensorGroup(_Entity_):
             """
             Telemetry Sensor Groups
             
@@ -2991,7 +3189,10 @@ class TelemetryModelDriven(Entity):
             _revision = '2017-09-27'
 
             def __init__(self):
-                super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
 
                 self.yang_name = "sensor-group"
                 self.yang_parent_name = "sensor-groups"
@@ -3017,7 +3218,7 @@ class TelemetryModelDriven(Entity):
                 self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', 'id', 'configured'], name, value)
 
 
-            class SensorPath(Entity):
+            class SensorPath(_Entity_):
                 """
                 Array of information for sensor paths within
                 sensor group
@@ -3051,7 +3252,10 @@ class TelemetryModelDriven(Entity):
                 _revision = '2017-09-27'
 
                 def __init__(self):
-                    super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, self).__init__()
 
                     self.yang_name = "sensor-path"
                     self.yang_parent_name = "sensor-group"
@@ -3073,11 +3277,23 @@ class TelemetryModelDriven(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, ['path', 'state', 'status_str'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                    return meta._meta_table['TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+                return meta._meta_table['TelemetryModelDriven.SensorGroups.SensorGroup']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+            return meta._meta_table['TelemetryModelDriven.SensorGroups']['meta_info']
 
 
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Telemetry Summary info
         
@@ -3269,7 +3485,10 @@ class TelemetryModelDriven(Entity):
         _revision = '2017-09-27'
 
         def __init__(self):
-            super(TelemetryModelDriven.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetryModelDriven.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "telemetry-model-driven"
@@ -3326,10 +3545,18 @@ class TelemetryModelDriven(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.Summary, ['num_of_subscriptions', 'num_of_active_subscriptions', 'num_of_paused_subscriptions', 'num_of_destination_groups', 'num_of_destinations', 'num_of_tcp_dialouts', 'num_of_udp_dialouts', 'num_of_grpc_tls_dialouts', 'num_of_grpc_non_tls_dialouts', 'num_of_dialins', 'num_of_active_destinations', 'num_of_connected_sessions', 'num_of_connecting_sessions', 'num_of_sensor_groups', 'num_of_unique_sensor_paths', 'num_of_sensor_paths', 'num_of_not_resolved_sensor_paths', 'num_of_active_sensor_paths', 'max_sensor_paths', 'max_containers_per_path'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+            return meta._meta_table['TelemetryModelDriven.Summary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TelemetryModelDriven()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['TelemetryModelDriven']['meta_info']
 
 

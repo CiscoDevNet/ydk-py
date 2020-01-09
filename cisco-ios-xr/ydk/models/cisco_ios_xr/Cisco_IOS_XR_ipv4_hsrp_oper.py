@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class HsrpBAf(Enum):
     count = Enum.YLeaf(2, "count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['HsrpBAf']
+
+
 class HsrpBfdSessionState(Enum):
     """
     HsrpBfdSessionState (Enum Class)
@@ -78,6 +87,12 @@ class HsrpBfdSessionState(Enum):
     bfd_state_up = Enum.YLeaf(2, "bfd-state-up")
 
     bfd_state_down = Enum.YLeaf(3, "bfd-state-down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['HsrpBfdSessionState']
 
 
 class HsrpStateChangeReason(Enum):
@@ -251,6 +266,12 @@ class HsrpStateChangeReason(Enum):
     state_change_max = Enum.YLeaf(26, "state-change-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['HsrpStateChangeReason']
+
+
 class HsrpVmacState(Enum):
     """
     HsrpVmacState (Enum Class)
@@ -282,6 +303,12 @@ class HsrpVmacState(Enum):
     active = Enum.YLeaf(2, "active")
 
     reserving = Enum.YLeaf(3, "reserving")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['HsrpVmacState']
 
 
 class StandbyGrpState(Enum):
@@ -329,8 +356,14 @@ class StandbyGrpState(Enum):
     state_active = Enum.YLeaf(6, "state-active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['StandbyGrpState']
 
-class Hsrp(Entity):
+
+
+class Hsrp(_Entity_):
     """
     HSRP operational data
     
@@ -377,7 +410,10 @@ class Hsrp(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Hsrp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Hsrp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hsrp"
@@ -414,7 +450,7 @@ class Hsrp(Entity):
         self._perform_setattr(Hsrp, [], name, value)
 
 
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         IPv4 HSRP information
         
@@ -447,7 +483,10 @@ class Hsrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Hsrp.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Hsrp.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "hsrp"
@@ -476,7 +515,7 @@ class Hsrp(Entity):
             self._perform_setattr(Hsrp.Ipv4, [], name, value)
 
 
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             The HSRP standby group table
             
@@ -495,7 +534,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv4.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv4.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "ipv4"
@@ -514,7 +556,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv4.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 An HSRP standby group
                 
@@ -1160,7 +1202,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv4.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv4.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -1331,7 +1376,7 @@ class Hsrp(Entity):
                     self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
 
 
-                class ResignSentTime(Entity):
+                class ResignSentTime(_Entity_):
                     """
                     Time last resign was sent
                     
@@ -1365,7 +1410,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__init__()
 
                         self.yang_name = "resign-sent-time"
                         self.yang_parent_name = "group"
@@ -1385,9 +1433,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.ResignSentTime']['meta_info']
 
 
-                class ResignReceivedTime(Entity):
+                class ResignReceivedTime(_Entity_):
                     """
                     Time last resign was received
                     
@@ -1421,7 +1473,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__init__()
 
                         self.yang_name = "resign-received-time"
                         self.yang_parent_name = "group"
@@ -1441,9 +1496,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.ResignReceivedTime']['meta_info']
 
 
-                class CoupSentTime(Entity):
+                class CoupSentTime(_Entity_):
                     """
                     Time last coup was sent
                     
@@ -1477,7 +1536,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__init__()
 
                         self.yang_name = "coup-sent-time"
                         self.yang_parent_name = "group"
@@ -1497,9 +1559,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.CoupSentTime']['meta_info']
 
 
-                class CoupReceivedTime(Entity):
+                class CoupReceivedTime(_Entity_):
                     """
                     Time last coup was received
                     
@@ -1533,7 +1599,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__init__()
 
                         self.yang_name = "coup-received-time"
                         self.yang_parent_name = "group"
@@ -1553,9 +1622,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.CoupReceivedTime']['meta_info']
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     HSRP Group statistics
                     
@@ -1702,7 +1775,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "group"
@@ -1748,9 +1824,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.Statistics']['meta_info']
 
 
-                class GlobalAddress(Entity):
+                class GlobalAddress(_Entity_):
                     """
                     Global virtual IPv6 addresses
                     
@@ -1771,7 +1851,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__init__()
 
                         self.yang_name = "global-address"
                         self.yang_parent_name = "group"
@@ -1789,9 +1872,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.GlobalAddress']['meta_info']
 
 
-                class StateChangeHistory(Entity):
+                class StateChangeHistory(_Entity_):
                     """
                     State change history
                     
@@ -1831,7 +1918,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__init__()
 
                         self.yang_name = "state-change-history"
                         self.yang_parent_name = "group"
@@ -1858,7 +1948,7 @@ class Hsrp(Entity):
                         self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
 
 
-                    class Time(Entity):
+                    class Time(_Entity_):
                         """
                         Time of state change
                         
@@ -1892,7 +1982,10 @@ class Hsrp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__init__()
 
                             self.yang_name = "time"
                             self.yang_parent_name = "state-change-history"
@@ -1912,12 +2005,28 @@ class Hsrp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                            return meta._meta_table['Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.StateChangeHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv4.Groups.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv4.Groups']['meta_info']
 
 
-
-
-
-        class TrackedInterfaces(Entity):
+        class TrackedInterfaces(_Entity_):
             """
             The HSRP tracked interfaces table
             
@@ -1936,7 +2045,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv4.TrackedInterfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv4.TrackedInterfaces, self).__init__()
 
                 self.yang_name = "tracked-interfaces"
                 self.yang_parent_name = "ipv4"
@@ -1955,7 +2067,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces, [], name, value)
 
 
-            class TrackedInterface(Entity):
+            class TrackedInterface(_Entity_):
                 """
                 An HSRP tracked interface entry
                 
@@ -2044,7 +2156,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__init__()
 
                     self.yang_name = "tracked-interface"
                     self.yang_parent_name = "tracked-interfaces"
@@ -2079,10 +2194,18 @@ class Hsrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv4.TrackedInterfaces.TrackedInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv4.TrackedInterfaces']['meta_info']
 
 
-
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             The HSRP interface information table
             
@@ -2101,7 +2224,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv4.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv4.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "ipv4"
@@ -2120,7 +2246,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv4.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 A HSRP interface entry
                 
@@ -2164,7 +2290,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv4.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv4.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -2192,7 +2321,7 @@ class Hsrp(Entity):
                     self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     HSRP Interface Statistics
                     
@@ -2285,7 +2414,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "interface"
@@ -2319,12 +2451,28 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv4.Interfaces.Interface.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv4.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv4.Interfaces']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+            return meta._meta_table['Hsrp.Ipv4']['meta_info']
 
 
-
-
-
-    class MgoSessions(Entity):
+    class MgoSessions(_Entity_):
         """
         HSRP MGO session table
         
@@ -2343,7 +2491,10 @@ class Hsrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Hsrp.MgoSessions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Hsrp.MgoSessions, self).__init__()
 
             self.yang_name = "mgo-sessions"
             self.yang_parent_name = "hsrp"
@@ -2362,7 +2513,7 @@ class Hsrp(Entity):
             self._perform_setattr(Hsrp.MgoSessions, [], name, value)
 
 
-        class MgoSession(Entity):
+        class MgoSession(_Entity_):
             """
             HSRP MGO session
             
@@ -2431,7 +2582,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.MgoSessions.MgoSession, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.MgoSessions.MgoSession, self).__init__()
 
                 self.yang_name = "mgo-session"
                 self.yang_parent_name = "mgo-sessions"
@@ -2463,7 +2617,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
 
 
-            class Slave(Entity):
+            class Slave(_Entity_):
                 """
                 List of slaves following this primary session
                 
@@ -2493,7 +2647,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.MgoSessions.MgoSession.Slave, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.MgoSessions.MgoSession.Slave, self).__init__()
 
                     self.yang_name = "slave"
                     self.yang_parent_name = "mgo-session"
@@ -2513,11 +2670,23 @@ class Hsrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, ['slave_group_interface', 'slave_group_number'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.MgoSessions.MgoSession.Slave']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.MgoSessions.MgoSession']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+            return meta._meta_table['Hsrp.MgoSessions']['meta_info']
 
 
-
-
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         IPv6 HSRP information
         
@@ -2550,7 +2719,10 @@ class Hsrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Hsrp.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Hsrp.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "hsrp"
@@ -2579,7 +2751,7 @@ class Hsrp(Entity):
             self._perform_setattr(Hsrp.Ipv6, [], name, value)
 
 
-        class TrackedInterfaces(Entity):
+        class TrackedInterfaces(_Entity_):
             """
             The HSRP tracked interfaces table
             
@@ -2598,7 +2770,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv6.TrackedInterfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv6.TrackedInterfaces, self).__init__()
 
                 self.yang_name = "tracked-interfaces"
                 self.yang_parent_name = "ipv6"
@@ -2617,7 +2792,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces, [], name, value)
 
 
-            class TrackedInterface(Entity):
+            class TrackedInterface(_Entity_):
                 """
                 An HSRP tracked interface entry
                 
@@ -2706,7 +2881,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__init__()
 
                     self.yang_name = "tracked-interface"
                     self.yang_parent_name = "tracked-interfaces"
@@ -2741,10 +2919,18 @@ class Hsrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv6.TrackedInterfaces.TrackedInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv6.TrackedInterfaces']['meta_info']
 
 
-
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             The HSRP standby group table
             
@@ -2763,7 +2949,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv6.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv6.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "ipv6"
@@ -2782,7 +2971,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv6.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 An HSRP standby group
                 
@@ -3428,7 +3617,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv6.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv6.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -3599,7 +3791,7 @@ class Hsrp(Entity):
                     self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
 
 
-                class ResignSentTime(Entity):
+                class ResignSentTime(_Entity_):
                     """
                     Time last resign was sent
                     
@@ -3633,7 +3825,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__init__()
 
                         self.yang_name = "resign-sent-time"
                         self.yang_parent_name = "group"
@@ -3653,9 +3848,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.ResignSentTime']['meta_info']
 
 
-                class ResignReceivedTime(Entity):
+                class ResignReceivedTime(_Entity_):
                     """
                     Time last resign was received
                     
@@ -3689,7 +3888,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__init__()
 
                         self.yang_name = "resign-received-time"
                         self.yang_parent_name = "group"
@@ -3709,9 +3911,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.ResignReceivedTime']['meta_info']
 
 
-                class CoupSentTime(Entity):
+                class CoupSentTime(_Entity_):
                     """
                     Time last coup was sent
                     
@@ -3745,7 +3951,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__init__()
 
                         self.yang_name = "coup-sent-time"
                         self.yang_parent_name = "group"
@@ -3765,9 +3974,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.CoupSentTime']['meta_info']
 
 
-                class CoupReceivedTime(Entity):
+                class CoupReceivedTime(_Entity_):
                     """
                     Time last coup was received
                     
@@ -3801,7 +4014,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__init__()
 
                         self.yang_name = "coup-received-time"
                         self.yang_parent_name = "group"
@@ -3821,9 +4037,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.CoupReceivedTime']['meta_info']
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     HSRP Group statistics
                     
@@ -3970,7 +4190,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "group"
@@ -4016,9 +4239,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.Statistics']['meta_info']
 
 
-                class GlobalAddress(Entity):
+                class GlobalAddress(_Entity_):
                     """
                     Global virtual IPv6 addresses
                     
@@ -4039,7 +4266,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__init__()
 
                         self.yang_name = "global-address"
                         self.yang_parent_name = "group"
@@ -4057,9 +4287,13 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.GlobalAddress']['meta_info']
 
 
-                class StateChangeHistory(Entity):
+                class StateChangeHistory(_Entity_):
                     """
                     State change history
                     
@@ -4099,7 +4333,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__init__()
 
                         self.yang_name = "state-change-history"
                         self.yang_parent_name = "group"
@@ -4126,7 +4363,7 @@ class Hsrp(Entity):
                         self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
 
 
-                    class Time(Entity):
+                    class Time(_Entity_):
                         """
                         Time of state change
                         
@@ -4160,7 +4397,10 @@ class Hsrp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__init__()
 
                             self.yang_name = "time"
                             self.yang_parent_name = "state-change-history"
@@ -4180,12 +4420,28 @@ class Hsrp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                            return meta._meta_table['Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.StateChangeHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv6.Groups.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv6.Groups']['meta_info']
 
 
-
-
-
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             The HSRP interface information table
             
@@ -4204,7 +4460,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.Ipv6.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.Ipv6.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "ipv6"
@@ -4223,7 +4482,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.Ipv6.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 A HSRP interface entry
                 
@@ -4267,7 +4526,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.Ipv6.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.Ipv6.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -4295,7 +4557,7 @@ class Hsrp(Entity):
                     self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     HSRP Interface Statistics
                     
@@ -4388,7 +4650,10 @@ class Hsrp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "interface"
@@ -4422,12 +4687,28 @@ class Hsrp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                        return meta._meta_table['Hsrp.Ipv6.Interfaces.Interface.Statistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.Ipv6.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.Ipv6.Interfaces']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+            return meta._meta_table['Hsrp.Ipv6']['meta_info']
 
 
-
-
-
-    class BfdSessions(Entity):
+    class BfdSessions(_Entity_):
         """
         The table of HSRP BFD Sessions
         
@@ -4446,7 +4727,10 @@ class Hsrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Hsrp.BfdSessions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Hsrp.BfdSessions, self).__init__()
 
             self.yang_name = "bfd-sessions"
             self.yang_parent_name = "hsrp"
@@ -4465,7 +4749,7 @@ class Hsrp(Entity):
             self._perform_setattr(Hsrp.BfdSessions, [], name, value)
 
 
-        class BfdSession(Entity):
+        class BfdSession(_Entity_):
             """
             An HSRP BFD Session
             
@@ -4567,7 +4851,10 @@ class Hsrp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Hsrp.BfdSessions.BfdSession, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Hsrp.BfdSessions.BfdSession, self).__init__()
 
                 self.yang_name = "bfd-session"
                 self.yang_parent_name = "bfd-sessions"
@@ -4605,7 +4892,7 @@ class Hsrp(Entity):
                 self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', 'bfd_interface_name', 'session_address_family', 'destination_address', 'destination_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier'], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 HSRP Groups tracking the BFD session
                 
@@ -4635,7 +4922,10 @@ class Hsrp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Hsrp.BfdSessions.BfdSession.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Hsrp.BfdSessions.BfdSession.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "bfd-session"
@@ -4655,11 +4945,23 @@ class Hsrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, ['interface_name', 'hsrp_group_number'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                    return meta._meta_table['Hsrp.BfdSessions.BfdSession.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+                return meta._meta_table['Hsrp.BfdSessions.BfdSession']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+            return meta._meta_table['Hsrp.BfdSessions']['meta_info']
 
 
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         HSRP summary statistics
         
@@ -5220,7 +5522,10 @@ class Hsrp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Hsrp.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Hsrp.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "hsrp"
@@ -5359,10 +5664,18 @@ class Hsrp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Hsrp.Summary, ['ipv4_sessions_active', 'ipv4_sessions_standby', 'ipv4_sessions_speak', 'ipv4_sessions_listen', 'ipv4_sessions_learn', 'ipv4_sessions_init', 'ipv4_slaves_active', 'ipv4_slaves_standby', 'ipv4_slaves_speak', 'ipv4_slaves_listen', 'ipv4_slaves_learn', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_active_up', 'ipv4_virtual_ip_addresses_active_down', 'ipv4_virtual_ip_addresses_standby_up', 'ipv4_virtual_ip_addresses_standby_down', 'ipv4_virtual_ip_addresses_speak_up', 'ipv4_virtual_ip_addresses_speak_down', 'ipv4_virtual_ip_addresses_listen_up', 'ipv4_virtual_ip_addresses_listen_down', 'ipv4_virtual_ip_addresses_learn_up', 'ipv4_virtual_ip_addresses_learn_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_active', 'ipv6_sessions_standby', 'ipv6_sessions_speak', 'ipv6_sessions_listen', 'ipv6_sessions_learn', 'ipv6_sessions_init', 'ipv6_slaves_active', 'ipv6_slaves_standby', 'ipv6_slaves_speak', 'ipv6_slaves_listen', 'ipv6_slaves_learn', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_active_up', 'ipv6_virtual_ip_addresses_active_down', 'ipv6_virtual_ip_addresses_standby_up', 'ipv6_virtual_ip_addresses_standby_down', 'ipv6_virtual_ip_addresses_speak_up', 'ipv6_virtual_ip_addresses_speak_down', 'ipv6_virtual_ip_addresses_listen_up', 'ipv6_virtual_ip_addresses_listen_down', 'ipv6_virtual_ip_addresses_learn_up', 'ipv6_virtual_ip_addresses_learn_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'tracked_objects_up', 'tracked_objects_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+            return meta._meta_table['Hsrp.Summary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Hsrp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
+        return meta._meta_table['Hsrp']['meta_info']
 
 

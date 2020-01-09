@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class MacsecCipherSuite(Enum):
     cipher_suite_gcm_aes_256_xpn = Enum.YLeaf(4, "cipher-suite-gcm-aes-256-xpn")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+        return meta._meta_table['MacsecCipherSuite']
+
+
 class MacsecServicePort(Enum):
     """
     MacsecServicePort (Enum Class)
@@ -84,6 +93,12 @@ class MacsecServicePort(Enum):
     macsec_service_port_encryption = Enum.YLeaf(1, "macsec-service-port-encryption")
 
     macsec_service_port_decryption = Enum.YLeaf(2, "macsec-service-port-decryption")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+        return meta._meta_table['MacsecServicePort']
 
 
 class MkaAuthenticationMode(Enum):
@@ -113,8 +128,14 @@ class MkaAuthenticationMode(Enum):
     auth_mode_eap = Enum.YLeaf(2, "auth-mode-eap")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+        return meta._meta_table['MkaAuthenticationMode']
 
-class Macsec(Entity):
+
+
+class Macsec(_Entity_):
     """
     Macsec operational data
     
@@ -133,7 +154,10 @@ class Macsec(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Macsec, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Macsec, self).__init__()
         self._top_entity = None
 
         self.yang_name = "macsec"
@@ -154,7 +178,7 @@ class Macsec(Entity):
         self._perform_setattr(Macsec, [], name, value)
 
 
-    class Mka(Entity):
+    class Mka(_Entity_):
         """
         MKA Data
         
@@ -173,7 +197,10 @@ class Macsec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Macsec.Mka, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Macsec.Mka, self).__init__()
 
             self.yang_name = "mka"
             self.yang_parent_name = "macsec"
@@ -194,7 +221,7 @@ class Macsec(Entity):
             self._perform_setattr(Macsec.Mka, [], name, value)
 
 
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             MKA Data
             
@@ -213,7 +240,10 @@ class Macsec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Macsec.Mka.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Macsec.Mka.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "mka"
@@ -232,7 +262,7 @@ class Macsec(Entity):
                 self._perform_setattr(Macsec.Mka.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 MKA Data for the Interface
                 
@@ -267,7 +297,10 @@ class Macsec(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Macsec.Mka.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Macsec.Mka.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -295,7 +328,7 @@ class Macsec(Entity):
                     self._perform_setattr(Macsec.Mka.Interfaces.Interface, ['name'], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     MKA Session Data
                     
@@ -328,7 +361,10 @@ class Macsec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Macsec.Mka.Interfaces.Interface.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Macsec.Mka.Interfaces.Interface.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "interface"
@@ -354,7 +390,7 @@ class Macsec(Entity):
                         self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session, [], name, value)
 
 
-                    class SessionSummary(Entity):
+                    class SessionSummary(_Entity_):
                         """
                         Session summary
                         
@@ -495,7 +531,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary, self).__init__()
 
                             self.yang_name = "session-summary"
                             self.yang_parent_name = "session"
@@ -550,7 +589,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary, ['interface_name', 'inherited_policy', 'policy', 'priority', 'my_mac', 'delay_protection', 'replay_protect', 'window_size', 'include_icv_indicator', 'confidentiality_offset', 'algo_agility', 'capability', 'mka_cipher_suite', 'configured_mac_sec_cipher_suite', 'mac_sec_desired'], name, value)
 
 
-                        class OuterTag(Entity):
+                        class OuterTag(_Entity_):
                             """
                             VLAN Outer TAG
                             
@@ -598,7 +637,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, self).__init__()
 
                                 self.yang_name = "outer-tag"
                                 self.yang_parent_name = "session-summary"
@@ -622,9 +664,13 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag']['meta_info']
 
 
-                        class InnerTag(Entity):
+                        class InnerTag(_Entity_):
                             """
                             VLAN Inner TAG
                             
@@ -672,7 +718,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, self).__init__()
 
                                 self.yang_name = "inner-tag"
                                 self.yang_parent_name = "session-summary"
@@ -696,10 +745,18 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                            return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.SessionSummary']['meta_info']
 
 
-
-                    class Vp(Entity):
+                    class Vp(_Entity_):
                         """
                         Virtual Pointer Info
                         
@@ -853,7 +910,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Mka.Interfaces.Interface.Session.Vp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Mka.Interfaces.Interface.Session.Vp, self).__init__()
 
                             self.yang_name = "vp"
                             self.yang_parent_name = "session"
@@ -906,7 +966,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp, ['my_sci', 'virtual_port_id', 'latest_rx', 'latest_tx', 'latest_an', 'latest_ki', 'latest_kn', 'old_rx', 'old_tx', 'old_an', 'old_ki', 'old_kn', 'wait_time', 'retire_time', 'macsec_cipher_suite', 'ssci', 'time_to_sak_rekey'], name, value)
 
 
-                        class FallbackKeepalive(Entity):
+                        class FallbackKeepalive(_Entity_):
                             """
                             Fallback Keepalive
                             
@@ -952,7 +1012,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive, self).__init__()
 
                                 self.yang_name = "fallback-keepalive"
                                 self.yang_parent_name = "vp"
@@ -979,7 +1042,7 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive, ['ckn', 'mi', 'mn'], name, value)
 
 
-                            class PeersStatus(Entity):
+                            class PeersStatus(_Entity_):
                                 """
                                 Peers Status
                                 
@@ -1016,7 +1079,10 @@ class Macsec(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus, self).__init__()
 
                                     self.yang_name = "peers-status"
                                     self.yang_parent_name = "fallback-keepalive"
@@ -1039,7 +1105,7 @@ class Macsec(Entity):
                                     self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus, ['tx_mkpdu_timestamp', 'peer_count'], name, value)
 
 
-                                class Peer(Entity):
+                                class Peer(_Entity_):
                                     """
                                     Peer List
                                     
@@ -1067,7 +1133,10 @@ class Macsec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer, self).__init__()
 
                                         self.yang_name = "peer"
                                         self.yang_parent_name = "peers-status"
@@ -1090,7 +1159,7 @@ class Macsec(Entity):
                                         self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer, ['sci'], name, value)
 
 
-                                    class PeerData(Entity):
+                                    class PeerData(_Entity_):
                                         """
                                         Peer Status Data
                                         
@@ -1129,7 +1198,10 @@ class Macsec(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, self).__init__()
 
                                             self.yang_name = "peer-data"
                                             self.yang_parent_name = "peer"
@@ -1151,13 +1223,33 @@ class Macsec(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, ['mi', 'icv_status', 'icv_check_timestamp'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                            return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                        return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                    return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                            return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Vp']['meta_info']
 
 
-
-
-
-
-                    class Ca(Entity):
+                    class Ca(_Entity_):
                         """
                         CA List for a Session
                         
@@ -1178,9 +1270,7 @@ class Macsec(Entity):
                         .. attribute:: status
                         
                         	Session Status [Secured/Not Secured]
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
+                        	**type**\: str
                         
                         	**config**\: False
                         
@@ -1296,7 +1386,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Mka.Interfaces.Interface.Session.Ca, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Mka.Interfaces.Interface.Session.Ca, self).__init__()
 
                             self.yang_name = "ca"
                             self.yang_parent_name = "session"
@@ -1306,7 +1399,7 @@ class Macsec(Entity):
                             self._child_classes = OrderedDict([("peers-status", ("peers_status", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus)), ("live-peer", ("live_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer)), ("potential-peer", ("potential_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer)), ("dormant-peer", ("dormant_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer))])
                             self._leafs = OrderedDict([
                                 ('is_key_server', (YLeaf(YType.boolean, 'is-key-server'), ['bool'])),
-                                ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
+                                ('status', (YLeaf(YType.str, 'status'), ['str'])),
                                 ('num_live_peers', (YLeaf(YType.uint32, 'num-live-peers'), ['int'])),
                                 ('first_ca', (YLeaf(YType.boolean, 'first-ca'), ['bool'])),
                                 ('peer_sci', (YLeaf(YType.str, 'peer-sci'), ['str'])),
@@ -1347,7 +1440,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca, ['is_key_server', 'status', 'num_live_peers', 'first_ca', 'peer_sci', 'num_live_peers_responded', 'ckn', 'my_mi', 'my_mn', 'authenticator', 'status_description', 'authentication_mode', 'key_chain'], name, value)
 
 
-                        class PeersStatus(Entity):
+                        class PeersStatus(_Entity_):
                             """
                             Peers Status
                             
@@ -1384,7 +1477,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus, self).__init__()
 
                                 self.yang_name = "peers-status"
                                 self.yang_parent_name = "ca"
@@ -1407,7 +1503,7 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus, ['tx_mkpdu_timestamp', 'peer_count'], name, value)
 
 
-                            class Peer(Entity):
+                            class Peer(_Entity_):
                                 """
                                 Peer List
                                 
@@ -1435,7 +1531,10 @@ class Macsec(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer, self).__init__()
 
                                     self.yang_name = "peer"
                                     self.yang_parent_name = "peers-status"
@@ -1458,7 +1557,7 @@ class Macsec(Entity):
                                     self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer, ['sci'], name, value)
 
 
-                                class PeerData(Entity):
+                                class PeerData(_Entity_):
                                     """
                                     Peer Status Data
                                     
@@ -1497,7 +1596,10 @@ class Macsec(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, self).__init__()
 
                                         self.yang_name = "peer-data"
                                         self.yang_parent_name = "peer"
@@ -1519,11 +1621,23 @@ class Macsec(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, ['mi', 'icv_status', 'icv_check_timestamp'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                        return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                    return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus']['meta_info']
 
 
-
-
-                        class LivePeer(Entity):
+                        class LivePeer(_Entity_):
                             """
                             Live Peer List
                             
@@ -1576,7 +1690,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, self).__init__()
 
                                 self.yang_name = "live-peer"
                                 self.yang_parent_name = "ca"
@@ -1602,9 +1719,13 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer']['meta_info']
 
 
-                        class PotentialPeer(Entity):
+                        class PotentialPeer(_Entity_):
                             """
                             Potential Peer List
                             
@@ -1657,7 +1778,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, self).__init__()
 
                                 self.yang_name = "potential-peer"
                                 self.yang_parent_name = "ca"
@@ -1683,9 +1807,13 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer']['meta_info']
 
 
-                        class DormantPeer(Entity):
+                        class DormantPeer(_Entity_):
                             """
                             Dormant Peer List
                             
@@ -1738,7 +1866,10 @@ class Macsec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, self).__init__()
 
                                 self.yang_name = "dormant-peer"
                                 self.yang_parent_name = "ca"
@@ -1764,11 +1895,23 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, ['mi', 'sci', 'mn', 'priority', 'ssci'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                                return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                            return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session.Ca']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                        return meta._meta_table['Macsec.Mka.Interfaces.Interface.Session']['meta_info']
 
 
-
-
-                class Info(Entity):
+                class Info(_Entity_):
                     """
                     MKA Interface Summary Data
                     
@@ -1787,7 +1930,10 @@ class Macsec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Macsec.Mka.Interfaces.Interface.Info, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Macsec.Mka.Interfaces.Interface.Info, self).__init__()
 
                         self.yang_name = "info"
                         self.yang_parent_name = "interface"
@@ -1807,7 +1953,7 @@ class Macsec(Entity):
                         self._perform_setattr(Macsec.Mka.Interfaces.Interface.Info, [], name, value)
 
 
-                    class InterfaceSummary(Entity):
+                    class InterfaceSummary(_Entity_):
                         """
                         MKA Interface Summary
                         
@@ -1889,7 +2035,10 @@ class Macsec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, self).__init__()
 
                             self.yang_name = "interface-summary"
                             self.yang_parent_name = "info"
@@ -1925,14 +2074,38 @@ class Macsec(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, ['interface_name', 'short_name', 'key_chain', 'policy', 'macsec_svc_port', 'macsec_svc_port_type', 'svcport_short_name', 'mka_mode', 'fallback_keychain', 'macsec_shutdown'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                            return meta._meta_table['Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                        return meta._meta_table['Macsec.Mka.Interfaces.Interface.Info']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                    return meta._meta_table['Macsec.Mka.Interfaces.Interface']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+                return meta._meta_table['Macsec.Mka.Interfaces']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+            return meta._meta_table['Macsec.Mka']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_oper as meta
+        return meta._meta_table['Macsec']['meta_info']
 
 

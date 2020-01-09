@@ -11,13 +11,64 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+
+
+class LabelBlock(Enum):
+    """
+    LabelBlock (Enum Class)
+
+    Label block
+
+    .. data:: cbf = 3
+
+    	CBF block
+
+    """
+
+    cbf = Enum.YLeaf(3, "cbf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+        return meta._meta_table['LabelBlock']
+
+
+class LabelRange(Enum):
+    """
+    LabelRange (Enum Class)
+
+    Label range
+
+    .. data:: lower_upper = 0
+
+    	Start and end of block
+
+    .. data:: lower_size = 1
+
+    	Start and size of block
+
+    """
+
+    lower_upper = Enum.YLeaf(0, "lower-upper")
+
+    lower_size = Enum.YLeaf(1, "lower-size")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+        return meta._meta_table['LabelRange']
 
 
 class MplsIpTtlPropagateDisable(Enum):
@@ -51,8 +102,14 @@ class MplsIpTtlPropagateDisable(Enum):
     local = Enum.YLeaf(2, "local")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+        return meta._meta_table['MplsIpTtlPropagateDisable']
 
-class MplsLsd(Entity):
+
+
+class MplsLsd(_Entity_):
     """
     MPLS LSD configuration data
     
@@ -98,10 +155,13 @@ class MplsLsd(Entity):
     """
 
     _prefix = 'mpls-lsd-cfg'
-    _revision = '2018-06-15'
+    _revision = '2019-08-20'
 
     def __init__(self):
-        super(MplsLsd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsLsd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-lsd"
@@ -139,7 +199,7 @@ class MplsLsd(Entity):
         self._perform_setattr(MplsLsd, ['ltrace_multiplier', 'app_reg_delay_disable', 'mpls_entropy_label', 'mpls_ip_ttl_propagate_disable'], name, value)
 
 
-    class Ipv6(Entity):
+    class Ipv6(_Entity_):
         """
         Configure IPv6 parameters
         
@@ -155,10 +215,13 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2018-06-15'
+        _revision = '2019-08-20'
 
         def __init__(self):
-            super(MplsLsd.Ipv6, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLsd.Ipv6, self).__init__()
 
             self.yang_name = "ipv6"
             self.yang_parent_name = "mpls-lsd"
@@ -177,9 +240,13 @@ class MplsLsd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv6, ['ttl_expiration_pop'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+            return meta._meta_table['MplsLsd.Ipv6']['meta_info']
 
 
-    class Ipv4(Entity):
+    class Ipv4(_Entity_):
         """
         Configure IPv4 parameters
         
@@ -195,10 +262,13 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2018-06-15'
+        _revision = '2019-08-20'
 
         def __init__(self):
-            super(MplsLsd.Ipv4, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLsd.Ipv4, self).__init__()
 
             self.yang_name = "ipv4"
             self.yang_parent_name = "mpls-lsd"
@@ -217,9 +287,13 @@ class MplsLsd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv4, ['ttl_expiration_pop'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+            return meta._meta_table['MplsLsd.Ipv4']['meta_info']
 
 
-    class LabelDatabases(Entity):
+    class LabelDatabases(_Entity_):
         """
         Table of label databases
         
@@ -233,10 +307,13 @@ class MplsLsd(Entity):
         """
 
         _prefix = 'mpls-lsd-cfg'
-        _revision = '2018-06-15'
+        _revision = '2019-08-20'
 
         def __init__(self):
-            super(MplsLsd.LabelDatabases, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLsd.LabelDatabases, self).__init__()
 
             self.yang_name = "label-databases"
             self.yang_parent_name = "mpls-lsd"
@@ -255,7 +332,7 @@ class MplsLsd(Entity):
             self._perform_setattr(MplsLsd.LabelDatabases, [], name, value)
 
 
-        class LabelDatabase(Entity):
+        class LabelDatabase(_Entity_):
             """
             A label database
             
@@ -271,22 +348,30 @@ class MplsLsd(Entity):
             	Label range
             	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelRange>`
             
+            .. attribute:: label_blocks
+            
+            	A label blocks database
+            	**type**\:  :py:class:`LabelBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks>`
+            
             
 
             """
 
             _prefix = 'mpls-lsd-cfg'
-            _revision = '2018-06-15'
+            _revision = '2019-08-20'
 
             def __init__(self):
-                super(MplsLsd.LabelDatabases.LabelDatabase, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLsd.LabelDatabases.LabelDatabase, self).__init__()
 
                 self.yang_name = "label-database"
                 self.yang_parent_name = "label-databases"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['label_database_id']
-                self._child_classes = OrderedDict([("label-range", ("label_range", MplsLsd.LabelDatabases.LabelDatabase.LabelRange))])
+                self._child_classes = OrderedDict([("label-range", ("label_range", MplsLsd.LabelDatabases.LabelDatabase.LabelRange)), ("label-blocks", ("label_blocks", MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks))])
                 self._leafs = OrderedDict([
                     ('label_database_id', (YLeaf(YType.uint32, 'label-database-id'), ['int'])),
                 ])
@@ -295,6 +380,10 @@ class MplsLsd(Entity):
                 self.label_range = MplsLsd.LabelDatabases.LabelDatabase.LabelRange()
                 self.label_range.parent = self
                 self._children_name_map["label_range"] = "label-range"
+
+                self.label_blocks = MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks()
+                self.label_blocks.parent = self
+                self._children_name_map["label_blocks"] = "label-blocks"
                 self._segment_path = lambda: "label-database" + "[label-database-id='" + str(self.label_database_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/label-databases/%s" % self._segment_path()
                 self._is_frozen = True
@@ -303,7 +392,7 @@ class MplsLsd(Entity):
                 self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase, ['label_database_id'], name, value)
 
 
-            class LabelRange(Entity):
+            class LabelRange(_Entity_):
                 """
                 Label range
                 
@@ -340,10 +429,13 @@ class MplsLsd(Entity):
                 """
 
                 _prefix = 'mpls-lsd-cfg'
-                _revision = '2018-06-15'
+                _revision = '2019-08-20'
 
                 def __init__(self):
-                    super(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, self).__init__()
 
                     self.yang_name = "label-range"
                     self.yang_parent_name = "label-database"
@@ -367,12 +459,179 @@ class MplsLsd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, ['minvalue', 'max_value', 'min_static_value', 'max_static_value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+                    return meta._meta_table['MplsLsd.LabelDatabases.LabelDatabase.LabelRange']['meta_info']
 
 
+            class LabelBlocks(_Entity_):
+                """
+                A label blocks database
+                
+                .. attribute:: label_block
+                
+                	Label block
+                	**type**\: list of  		 :py:class:`LabelBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks.LabelBlock>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-lsd-cfg'
+                _revision = '2019-08-20'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks, self).__init__()
+
+                    self.yang_name = "label-blocks"
+                    self.yang_parent_name = "label-database"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("label-block", ("label_block", MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks.LabelBlock))])
+                    self._leafs = OrderedDict()
+
+                    self.label_block = YList(self)
+                    self._segment_path = lambda: "label-blocks"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks, [], name, value)
+
+
+                class LabelBlock(_Entity_):
+                    """
+                    Label block
+                    
+                    .. attribute:: block_name  (key)
+                    
+                    	Label block identifier
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: block_type
+                    
+                    	Label block type
+                    	**type**\:  :py:class:`LabelBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.LabelBlock>`
+                    
+                    	**default value**\: cbf
+                    
+                    .. attribute:: range_type
+                    
+                    	Label range type
+                    	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.LabelRange>`
+                    
+                    	**default value**\: lower-upper
+                    
+                    .. attribute:: lower_bound
+                    
+                    	Lower bound of block
+                    	**type**\: int
+                    
+                    	**range:** 16000..1048575
+                    
+                    	**default value**\: 16000
+                    
+                    .. attribute:: upper_bound
+                    
+                    	Upper bound of block
+                    	**type**\: int
+                    
+                    	**range:** 16000..1048575
+                    
+                    	**default value**\: 16000
+                    
+                    .. attribute:: block_size
+                    
+                    	Size of block
+                    	**type**\: int
+                    
+                    	**range:** 1..1032576
+                    
+                    	**default value**\: 1
+                    
+                    .. attribute:: client_instance_name
+                    
+                    	Client instance name
+                    	**type**\: str
+                    
+                    	**length:** 1..48
+                    
+                    	**default value**\: any
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-lsd-cfg'
+                    _revision = '2019-08-20'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks.LabelBlock, self).__init__()
+
+                        self.yang_name = "label-block"
+                        self.yang_parent_name = "label-blocks"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['block_name']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('block_name', (YLeaf(YType.str, 'block-name'), ['str'])),
+                            ('block_type', (YLeaf(YType.enumeration, 'block-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'LabelBlock', '')])),
+                            ('range_type', (YLeaf(YType.enumeration, 'range-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'LabelRange', '')])),
+                            ('lower_bound', (YLeaf(YType.uint32, 'lower-bound'), ['int'])),
+                            ('upper_bound', (YLeaf(YType.uint32, 'upper-bound'), ['int'])),
+                            ('block_size', (YLeaf(YType.uint32, 'block-size'), ['int'])),
+                            ('client_instance_name', (YLeaf(YType.str, 'client-instance-name'), ['str'])),
+                        ])
+                        self.block_name = None
+                        self.block_type = None
+                        self.range_type = None
+                        self.lower_bound = None
+                        self.upper_bound = None
+                        self.block_size = None
+                        self.client_instance_name = None
+                        self._segment_path = lambda: "label-block" + "[block-name='" + str(self.block_name) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks.LabelBlock, ['block_name', 'block_type', 'range_type', 'lower_bound', 'upper_bound', 'block_size', 'client_instance_name'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+                        return meta._meta_table['MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks.LabelBlock']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+                    return meta._meta_table['MplsLsd.LabelDatabases.LabelDatabase.LabelBlocks']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+                return meta._meta_table['MplsLsd.LabelDatabases.LabelDatabase']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+            return meta._meta_table['MplsLsd.LabelDatabases']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsLsd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+        return meta._meta_table['MplsLsd']['meta_info']
 
 

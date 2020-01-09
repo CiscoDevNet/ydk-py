@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class Ospfv3AddressFamily(Enum):
     ipv6 = Enum.YLeaf(1, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3AddressFamily']
+
+
 class Ospfv3Authentication(Enum):
     """
     Ospfv3Authentication (Enum Class)
@@ -58,6 +67,12 @@ class Ospfv3Authentication(Enum):
     md5 = Enum.YLeaf(1, "md5")
 
     sha1 = Enum.YLeaf(2, "sha1")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3Authentication']
 
 
 class Ospfv3AuthenticationType2(Enum):
@@ -85,6 +100,12 @@ class Ospfv3AuthenticationType2(Enum):
     md5 = Enum.YLeaf(1, "md5")
 
     sha1 = Enum.YLeaf(2, "sha1")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3AuthenticationType2']
 
 
 class Ospfv3DomainId(Enum):
@@ -120,6 +141,12 @@ class Ospfv3DomainId(Enum):
     type8005 = Enum.YLeaf(32773, "type8005")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3DomainId']
+
+
 class Ospfv3EigrpRoute(Enum):
     """
     Ospfv3EigrpRoute (Enum Class)
@@ -139,6 +166,12 @@ class Ospfv3EigrpRoute(Enum):
     internal = Enum.YLeaf(16384, "internal")
 
     external = Enum.YLeaf(32768, "external")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3EigrpRoute']
 
 
 class Ospfv3EncryptionAlgorithm(Enum):
@@ -186,6 +219,12 @@ class Ospfv3EncryptionAlgorithm(Enum):
     aes256 = Enum.YLeaf(5, "aes256")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3EncryptionAlgorithm']
+
+
 class Ospfv3ExternalRoute(Enum):
     """
     Ospfv3ExternalRoute (Enum Class)
@@ -213,6 +252,12 @@ class Ospfv3ExternalRoute(Enum):
     external = Enum.YLeaf(24, "external")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3ExternalRoute']
+
+
 class Ospfv3FastReroute(Enum):
     """
     Ospfv3FastReroute (Enum Class)
@@ -238,6 +283,12 @@ class Ospfv3FastReroute(Enum):
     per_link = Enum.YLeaf(1, "per-link")
 
     per_prefix = Enum.YLeaf(2, "per-prefix")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3FastReroute']
 
 
 class Ospfv3FastReroutePriority(Enum):
@@ -271,6 +322,12 @@ class Ospfv3FastReroutePriority(Enum):
     medium = Enum.YLeaf(2, "medium")
 
     low = Enum.YLeaf(3, "low")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3FastReroutePriority']
 
 
 class Ospfv3FastRerouteTiebreakers(Enum):
@@ -324,6 +381,12 @@ class Ospfv3FastRerouteTiebreakers(Enum):
     srlg_disjoint = Enum.YLeaf(6, "srlg-disjoint")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3FastRerouteTiebreakers']
+
+
 class Ospfv3InternalRoute(Enum):
     """
     Ospfv3InternalRoute (Enum Class)
@@ -337,6 +400,12 @@ class Ospfv3InternalRoute(Enum):
     """
 
     internal = Enum.YLeaf(6, "internal")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3InternalRoute']
 
 
 class Ospfv3LogAdj(Enum):
@@ -366,6 +435,12 @@ class Ospfv3LogAdj(Enum):
     detail = Enum.YLeaf(2, "detail")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3LogAdj']
+
+
 class Ospfv3Metric(Enum):
     """
     Ospfv3Metric (Enum Class)
@@ -385,6 +460,12 @@ class Ospfv3Metric(Enum):
     type1 = Enum.YLeaf(1, "type1")
 
     type2 = Enum.YLeaf(2, "type2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3Metric']
 
 
 class Ospfv3Network(Enum):
@@ -424,6 +505,12 @@ class Ospfv3Network(Enum):
     point_to_multipoint = Enum.YLeaf(4, "point-to-multipoint")
 
     non_broadcast_point_to_multipoint = Enum.YLeaf(5, "non-broadcast-point-to-multipoint")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3Network']
 
 
 class Ospfv3Protocol(Enum):
@@ -475,6 +562,12 @@ class Ospfv3Protocol(Enum):
     ospfv3 = Enum.YLeaf(7, "ospfv3")
 
     eigrp = Enum.YLeaf(8, "eigrp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3Protocol']
 
 
 class Ospfv3ProtocolType2(Enum):
@@ -540,6 +633,12 @@ class Ospfv3ProtocolType2(Enum):
     mobile = Enum.YLeaf(11, "mobile")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3ProtocolType2']
+
+
 class Ospfv3SubsequentAddressFamily(Enum):
     """
     Ospfv3SubsequentAddressFamily (Enum Class)
@@ -553,6 +652,12 @@ class Ospfv3SubsequentAddressFamily(Enum):
     """
 
     unicast = Enum.YLeaf(1, "unicast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3SubsequentAddressFamily']
 
 
 class Ospfv3TraceBufSize(Enum):
@@ -624,6 +729,12 @@ class Ospfv3TraceBufSize(Enum):
     size65536 = Enum.YLeaf(65536, "size65536")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3TraceBufSize']
+
+
 class Ospfv3bfdEnableMode(Enum):
     """
     Ospfv3bfdEnableMode (Enum Class)
@@ -649,6 +760,12 @@ class Ospfv3bfdEnableMode(Enum):
     default = Enum.YLeaf(1, "default")
 
     strict = Enum.YLeaf(2, "strict")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3bfdEnableMode']
 
 
 class Ospfv3isisRoute(Enum):
@@ -678,6 +795,12 @@ class Ospfv3isisRoute(Enum):
     level1_and2 = Enum.YLeaf(192, "level1-and2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3isisRoute']
+
+
 class Ospfv3nsr(Enum):
     """
     Ospfv3nsr (Enum Class)
@@ -697,6 +820,12 @@ class Ospfv3nsr(Enum):
     true = Enum.YLeaf(1, "true")
 
     false = Enum.YLeaf(2, "false")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3nsr']
 
 
 class Ospfv3nssaExternalRoute(Enum):
@@ -726,8 +855,14 @@ class Ospfv3nssaExternalRoute(Enum):
     external = Enum.YLeaf(12288, "external")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3nssaExternalRoute']
 
-class Ospfv3(Entity):
+
+
+class Ospfv3(_Entity_):
     """
     OSPFv3 configuration
     
@@ -749,7 +884,10 @@ class Ospfv3(Entity):
     _revision = '2018-05-14'
 
     def __init__(self):
-        super(Ospfv3, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ospfv3, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ospfv3"
@@ -773,7 +911,7 @@ class Ospfv3(Entity):
         self._perform_setattr(Ospfv3, ['dns_name_lookup'], name, value)
 
 
-    class Processes(Entity):
+    class Processes(_Entity_):
         """
         OSPFv3 processes
         
@@ -790,7 +928,10 @@ class Ospfv3(Entity):
         _revision = '2018-05-14'
 
         def __init__(self):
-            super(Ospfv3.Processes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ospfv3.Processes, self).__init__()
 
             self.yang_name = "processes"
             self.yang_parent_name = "ospfv3"
@@ -809,7 +950,7 @@ class Ospfv3(Entity):
             self._perform_setattr(Ospfv3.Processes, [], name, value)
 
 
-        class Process(Entity):
+        class Process(_Entity_):
             """
             An OSPFv3 process
             
@@ -862,7 +1003,10 @@ class Ospfv3(Entity):
             _revision = '2018-05-14'
 
             def __init__(self):
-                super(Ospfv3.Processes.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ospfv3.Processes.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "processes"
@@ -901,7 +1045,7 @@ class Ospfv3(Entity):
                 self._perform_setattr(Ospfv3.Processes.Process, ['process_name', 'nsr', 'protocol_shutdown'], name, value)
 
 
-            class DefaultVrf(Entity):
+            class DefaultVrf(_Entity_):
                 """
                 Default VRF related configuration
                 
@@ -1148,7 +1292,10 @@ class Ospfv3(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Ospfv3.Processes.Process.DefaultVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ospfv3.Processes.Process.DefaultVrf, self).__init__()
 
                     self.yang_name = "default-vrf"
                     self.yang_parent_name = "process"
@@ -1288,7 +1435,7 @@ class Ospfv3(Entity):
                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf, ['ldp_sync', 'prefix_suppression', 'spf_prefix_priority_disable', 'retransmit_interval', 'passive', 'default_metric', 'flood_reduction', 'hello_interval', 'priority', 'cost', 'dead_interval', 'packet_size', 'instance', 'spf_prefix_priority_policy', 'router_id', 'network', 'mtu_ignore', 'log_adjacency_changes', 'demand_circuit', 'transmit_delay'], name, value)
 
 
-                class AreaAddresses(Entity):
+                class AreaAddresses(_Entity_):
                     """
                     Area configuration
                     
@@ -1310,7 +1457,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses, self).__init__()
 
                         self.yang_name = "area-addresses"
                         self.yang_parent_name = "default-vrf"
@@ -1329,7 +1479,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses, [], name, value)
 
 
-                    class AreaAddress(Entity):
+                    class AreaAddress(_Entity_):
                         """
                         Configuration for a particular area
                         
@@ -1524,7 +1674,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, self).__init__()
 
                             self.yang_name = "area-address"
                             self.yang_parent_name = "area-addresses"
@@ -1625,7 +1778,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'type7_translate_always', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
 
 
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Authenticate OSPFv3 packets
                             
@@ -1661,7 +1814,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "area-address"
@@ -1685,9 +1841,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication']['meta_info']
 
 
-                        class Bfd(Entity):
+                        class Bfd(_Entity_):
                             """
                             Configure BFD parameters
                             
@@ -1720,7 +1880,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
 
                                 self.yang_name = "bfd"
                                 self.yang_parent_name = "area-address"
@@ -1742,9 +1905,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd, ['detection_multiplier', 'interval', 'fast_detect_mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd']['meta_info']
 
 
-                        class Ranges(Entity):
+                        class Ranges(_Entity_):
                             """
                             Range configuration
                             
@@ -1761,7 +1928,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
 
                                 self.yang_name = "ranges"
                                 self.yang_parent_name = "area-address"
@@ -1779,7 +1949,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges, [], name, value)
 
 
-                            class Range(Entity):
+                            class Range(_Entity_):
                                 """
                                 Summarize inter\-area routes matching
                                 prefix/length
@@ -1820,7 +1990,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
 
                                     self.yang_name = "range"
                                     self.yang_parent_name = "ranges"
@@ -1844,10 +2017,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges']['meta_info']
 
 
-
-                        class Encryption(Entity):
+                        class Encryption(_Entity_):
                             """
                             Encrypt and authenticate OSPFv3 packets
                             
@@ -1895,7 +2076,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
 
                                 self.yang_name = "encryption"
                                 self.yang_parent_name = "area-address"
@@ -1923,9 +2107,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption']['meta_info']
 
 
-                        class Nssa(Entity):
+                        class Nssa(_Entity_):
                             """
                             Specify area as a NSSA area.  Allowed only in
                             non\-backbone areas
@@ -1969,7 +2157,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
 
                                 self.yang_name = "nssa"
                                 self.yang_parent_name = "area-address"
@@ -1995,9 +2186,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, ['no_redistribution', 'default_info_originate', 'metric', 'metric_type', 'no_summary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa']['meta_info']
 
 
-                        class DatabaseFilter(Entity):
+                        class DatabaseFilter(_Entity_):
                             """
                             Database filter
                             
@@ -2014,7 +2209,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
 
                                 self.yang_name = "database-filter"
                                 self.yang_parent_name = "area-address"
@@ -2034,7 +2232,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter, [], name, value)
 
 
-                            class All(Entity):
+                            class All(_Entity_):
                                 """
                                 All
                                 
@@ -2051,7 +2249,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
 
                                     self.yang_name = "all"
                                     self.yang_parent_name = "database-filter"
@@ -2069,10 +2270,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All, ['out'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter']['meta_info']
 
 
-
-                        class DistributeList(Entity):
+                        class DistributeList(_Entity_):
                             """
                             Filter prefixes to/from RIB
                             
@@ -2089,7 +2298,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
 
                                 self.yang_name = "distribute-list"
                                 self.yang_parent_name = "area-address"
@@ -2109,7 +2321,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList, [], name, value)
 
 
-                            class In(Entity):
+                            class In(_Entity_):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -2126,7 +2338,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
 
                                     self.yang_name = "in"
                                     self.yang_parent_name = "distribute-list"
@@ -2144,10 +2359,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, ['prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
 
 
-
-                        class Interfaces(Entity):
+                        class Interfaces(_Entity_):
                             """
                             OSPFv3 interfaces
                             
@@ -2164,7 +2387,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
 
                                 self.yang_name = "interfaces"
                                 self.yang_parent_name = "area-address"
@@ -2182,7 +2408,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces, [], name, value)
 
 
-                            class Interface(Entity):
+                            class Interface(_Entity_):
                                 """
                                 OSPFv3 interface
                                 
@@ -2340,7 +2566,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
 
                                     self.yang_name = "interface"
                                     self.yang_parent_name = "interfaces"
@@ -2419,7 +2648,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -2455,7 +2684,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "interface"
@@ -2479,9 +2711,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                class Neighbors(Entity):
+                                class Neighbors(_Entity_):
                                     """
                                     Specify a neighbor router
                                     
@@ -2498,7 +2734,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
 
                                         self.yang_name = "neighbors"
                                         self.yang_parent_name = "interface"
@@ -2516,7 +2755,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, [], name, value)
 
 
-                                    class Neighbor(Entity):
+                                    class Neighbor(_Entity_):
                                         """
                                         IPv6 address
                                         
@@ -2568,7 +2807,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
 
                                             self.yang_name = "neighbor"
                                             self.yang_parent_name = "neighbors"
@@ -2596,10 +2838,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors']['meta_info']
 
 
-
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -2647,7 +2897,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "interface"
@@ -2675,9 +2928,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption']['meta_info']
 
 
-                                class Bfd(Entity):
+                                class Bfd(_Entity_):
                                     """
                                     Configure BFD parameters
                                     
@@ -2710,7 +2967,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
 
                                         self.yang_name = "bfd"
                                         self.yang_parent_name = "interface"
@@ -2732,9 +2992,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, ['interval', 'fast_detect_mode', 'detection_multiplier'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                class DatabaseFilter(Entity):
+                                class DatabaseFilter(_Entity_):
                                     """
                                     Database filter
                                     
@@ -2751,7 +3015,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
 
                                         self.yang_name = "database-filter"
                                         self.yang_parent_name = "interface"
@@ -2771,7 +3038,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, [], name, value)
 
 
-                                    class All(Entity):
+                                    class All(_Entity_):
                                         """
                                         All
                                         
@@ -2788,7 +3055,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
 
                                             self.yang_name = "all"
                                             self.yang_parent_name = "database-filter"
@@ -2806,10 +3076,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, ['out'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter']['meta_info']
 
 
-
-                                class DistributeList(Entity):
+                                class DistributeList(_Entity_):
                                     """
                                     Filter prefixes to/from RIB
                                     
@@ -2826,7 +3104,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
 
                                         self.yang_name = "distribute-list"
                                         self.yang_parent_name = "interface"
@@ -2846,7 +3127,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, [], name, value)
 
 
-                                    class In(Entity):
+                                    class In(_Entity_):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -2863,7 +3144,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                             self.yang_name = "in"
                                             self.yang_parent_name = "distribute-list"
@@ -2881,10 +3165,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
 
 
-
-                                class FastReroute(Entity):
+                                class FastReroute(_Entity_):
                                     """
                                     Fast\-reroute configuration
                                     
@@ -2911,7 +3203,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "interface"
@@ -2938,7 +3233,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                    class PerLink(Entity):
+                                    class PerLink(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -2967,7 +3262,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
 
                                             self.yang_name = "per-link"
                                             self.yang_parent_name = "fast-reroute"
@@ -2994,7 +3292,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -3012,7 +3310,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -3030,7 +3331,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -3049,7 +3350,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -3067,10 +3371,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -3088,7 +3400,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -3106,7 +3421,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -3125,7 +3440,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -3143,11 +3461,23 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                    class PerPrefix(Entity):
+                                    class PerPrefix(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -3176,7 +3506,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
 
                                             self.yang_name = "per-prefix"
                                             self.yang_parent_name = "fast-reroute"
@@ -3203,7 +3536,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -3221,7 +3554,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -3239,7 +3575,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -3258,7 +3594,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -3276,10 +3615,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -3297,7 +3644,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -3315,7 +3665,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -3334,7 +3684,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -3352,14 +3705,38 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces']['meta_info']
 
 
-
-
-
-
-
-                        class AreaScope(Entity):
+                        class AreaScope(_Entity_):
                             """
                             Area Scope Configuration
                             
@@ -3376,7 +3753,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
 
                                 self.yang_name = "area-scope"
                                 self.yang_parent_name = "area-address"
@@ -3396,7 +3776,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, [], name, value)
 
 
-                            class FastReroute(Entity):
+                            class FastReroute(_Entity_):
                                 """
                                 Fast\-reroute configuration
                                 
@@ -3423,7 +3803,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
 
                                     self.yang_name = "fast-reroute"
                                     self.yang_parent_name = "area-scope"
@@ -3450,7 +3833,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                class PerLink(Entity):
+                                class PerLink(_Entity_):
                                     """
                                     Fast\-reroute per\-link configuration
                                     
@@ -3479,7 +3862,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
 
                                         self.yang_name = "per-link"
                                         self.yang_parent_name = "fast-reroute"
@@ -3506,7 +3892,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                    class CandidateInterfaces(Entity):
+                                    class CandidateInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
                                         interface configuration
@@ -3524,7 +3910,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                             self.yang_name = "candidate-interfaces"
                                             self.yang_parent_name = "per-link"
@@ -3542,7 +3931,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                        class CandidateInterface(Entity):
+                                        class CandidateInterface(_Entity_):
                                             """
                                             Candidate backup interface
                                             
@@ -3561,7 +3950,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                 self.yang_name = "candidate-interface"
                                                 self.yang_parent_name = "candidate-interfaces"
@@ -3579,10 +3971,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                    class ExcludeInterfaces(Entity):
+                                    class ExcludeInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix exclude
                                         interface configuration
@@ -3600,7 +4000,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "exclude-interfaces"
                                             self.yang_parent_name = "per-link"
@@ -3618,7 +4021,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                        class ExcludeInterface(Entity):
+                                        class ExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from becoming a backup
                                             
@@ -3637,7 +4040,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                 self.yang_name = "exclude-interface"
                                                 self.yang_parent_name = "exclude-interfaces"
@@ -3655,11 +4061,23 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                class PerPrefix(Entity):
+                                class PerPrefix(_Entity_):
                                     """
                                     Fast\-reroute per\-link configuration
                                     
@@ -3688,7 +4106,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
 
                                         self.yang_name = "per-prefix"
                                         self.yang_parent_name = "fast-reroute"
@@ -3715,7 +4136,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                    class CandidateInterfaces(Entity):
+                                    class CandidateInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
                                         interface configuration
@@ -3733,7 +4154,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                             self.yang_name = "candidate-interfaces"
                                             self.yang_parent_name = "per-prefix"
@@ -3751,7 +4175,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                        class CandidateInterface(Entity):
+                                        class CandidateInterface(_Entity_):
                                             """
                                             Candidate backup interface
                                             
@@ -3770,7 +4194,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                 self.yang_name = "candidate-interface"
                                                 self.yang_parent_name = "candidate-interfaces"
@@ -3788,10 +4215,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                    class ExcludeInterfaces(Entity):
+                                    class ExcludeInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix exclude
                                         interface configuration
@@ -3809,7 +4244,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "exclude-interfaces"
                                             self.yang_parent_name = "per-prefix"
@@ -3827,7 +4265,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                        class ExcludeInterface(Entity):
+                                        class ExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from becoming a backup
                                             
@@ -3846,7 +4284,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                 self.yang_name = "exclude-interface"
                                                 self.yang_parent_name = "exclude-interfaces"
@@ -3864,13 +4305,33 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope']['meta_info']
 
 
-
-
-
-
-                        class ShamLinks(Entity):
+                        class ShamLinks(_Entity_):
                             """
                             Sham Link sub\-mode
                             
@@ -3887,7 +4348,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
 
                                 self.yang_name = "sham-links"
                                 self.yang_parent_name = "area-address"
@@ -3905,7 +4369,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks, [], name, value)
 
 
-                            class ShamLink(Entity):
+                            class ShamLink(_Entity_):
                                 """
                                 ShamLink local and remote endpoints
                                 
@@ -3982,7 +4446,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
 
                                     self.yang_name = "sham-link"
                                     self.yang_parent_name = "sham-links"
@@ -4021,7 +4488,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -4057,7 +4524,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "sham-link"
@@ -4081,9 +4551,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication']['meta_info']
 
 
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -4131,7 +4605,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "sham-link"
@@ -4159,11 +4636,23 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks']['meta_info']
 
 
-
-
-                        class VirtualLinks(Entity):
+                        class VirtualLinks(_Entity_):
                             """
                             Virtual link sub\-mode
                             
@@ -4180,7 +4669,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
 
                                 self.yang_name = "virtual-links"
                                 self.yang_parent_name = "area-address"
@@ -4198,7 +4690,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks, [], name, value)
 
 
-                            class VirtualLink(Entity):
+                            class VirtualLink(_Entity_):
                                 """
                                 Router ID of virtual link neighbor
                                 
@@ -4268,7 +4760,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
 
                                     self.yang_name = "virtual-link"
                                     self.yang_parent_name = "virtual-links"
@@ -4305,7 +4800,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -4341,7 +4836,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "virtual-link"
@@ -4365,9 +4863,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication']['meta_info']
 
 
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -4415,7 +4917,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "virtual-link"
@@ -4443,12 +4948,28 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress']['meta_info']
 
 
-
-
-
-                    class AreaAreaId(Entity):
+                    class AreaAreaId(_Entity_):
                         """
                         Configuration for a particular area
                         
@@ -4643,7 +5164,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, self).__init__()
 
                             self.yang_name = "area-area-id"
                             self.yang_parent_name = "area-addresses"
@@ -4744,7 +5268,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'type7_translate_always', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
 
 
-                        class Authentication(Entity):
+                        class Authentication(_Entity_):
                             """
                             Authenticate OSPFv3 packets
                             
@@ -4780,7 +5304,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
 
                                 self.yang_name = "authentication"
                                 self.yang_parent_name = "area-area-id"
@@ -4804,9 +5331,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication']['meta_info']
 
 
-                        class Bfd(Entity):
+                        class Bfd(_Entity_):
                             """
                             Configure BFD parameters
                             
@@ -4839,7 +5370,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
 
                                 self.yang_name = "bfd"
                                 self.yang_parent_name = "area-area-id"
@@ -4861,9 +5395,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd, ['detection_multiplier', 'interval', 'fast_detect_mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd']['meta_info']
 
 
-                        class Ranges(Entity):
+                        class Ranges(_Entity_):
                             """
                             Range configuration
                             
@@ -4880,7 +5418,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
 
                                 self.yang_name = "ranges"
                                 self.yang_parent_name = "area-area-id"
@@ -4898,7 +5439,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges, [], name, value)
 
 
-                            class Range(Entity):
+                            class Range(_Entity_):
                                 """
                                 Summarize inter\-area routes matching
                                 prefix/length
@@ -4939,7 +5480,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
 
                                     self.yang_name = "range"
                                     self.yang_parent_name = "ranges"
@@ -4963,10 +5507,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges']['meta_info']
 
 
-
-                        class Encryption(Entity):
+                        class Encryption(_Entity_):
                             """
                             Encrypt and authenticate OSPFv3 packets
                             
@@ -5014,7 +5566,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
 
                                 self.yang_name = "encryption"
                                 self.yang_parent_name = "area-area-id"
@@ -5042,9 +5597,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption']['meta_info']
 
 
-                        class Nssa(Entity):
+                        class Nssa(_Entity_):
                             """
                             Specify area as a NSSA area.  Allowed only in
                             non\-backbone areas
@@ -5088,7 +5647,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
 
                                 self.yang_name = "nssa"
                                 self.yang_parent_name = "area-area-id"
@@ -5114,9 +5676,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, ['no_redistribution', 'default_info_originate', 'metric', 'metric_type', 'no_summary'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa']['meta_info']
 
 
-                        class DatabaseFilter(Entity):
+                        class DatabaseFilter(_Entity_):
                             """
                             Database filter
                             
@@ -5133,7 +5699,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
 
                                 self.yang_name = "database-filter"
                                 self.yang_parent_name = "area-area-id"
@@ -5153,7 +5722,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter, [], name, value)
 
 
-                            class All(Entity):
+                            class All(_Entity_):
                                 """
                                 All
                                 
@@ -5170,7 +5739,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
 
                                     self.yang_name = "all"
                                     self.yang_parent_name = "database-filter"
@@ -5188,10 +5760,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, ['out'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter']['meta_info']
 
 
-
-                        class DistributeList(Entity):
+                        class DistributeList(_Entity_):
                             """
                             Filter prefixes to/from RIB
                             
@@ -5208,7 +5788,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
 
                                 self.yang_name = "distribute-list"
                                 self.yang_parent_name = "area-area-id"
@@ -5228,7 +5811,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList, [], name, value)
 
 
-                            class In(Entity):
+                            class In(_Entity_):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -5245,7 +5828,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
 
                                     self.yang_name = "in"
                                     self.yang_parent_name = "distribute-list"
@@ -5263,10 +5849,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, ['prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
 
 
-
-                        class Interfaces(Entity):
+                        class Interfaces(_Entity_):
                             """
                             OSPFv3 interfaces
                             
@@ -5283,7 +5877,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
 
                                 self.yang_name = "interfaces"
                                 self.yang_parent_name = "area-area-id"
@@ -5301,7 +5898,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces, [], name, value)
 
 
-                            class Interface(Entity):
+                            class Interface(_Entity_):
                                 """
                                 OSPFv3 interface
                                 
@@ -5459,7 +6056,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
 
                                     self.yang_name = "interface"
                                     self.yang_parent_name = "interfaces"
@@ -5538,7 +6138,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -5574,7 +6174,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "interface"
@@ -5598,9 +6201,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                class Neighbors(Entity):
+                                class Neighbors(_Entity_):
                                     """
                                     Specify a neighbor router
                                     
@@ -5617,7 +6224,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
 
                                         self.yang_name = "neighbors"
                                         self.yang_parent_name = "interface"
@@ -5635,7 +6245,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, [], name, value)
 
 
-                                    class Neighbor(Entity):
+                                    class Neighbor(_Entity_):
                                         """
                                         IPv6 address
                                         
@@ -5687,7 +6297,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
 
                                             self.yang_name = "neighbor"
                                             self.yang_parent_name = "neighbors"
@@ -5715,10 +6328,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors']['meta_info']
 
 
-
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -5766,7 +6387,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "interface"
@@ -5794,9 +6418,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption']['meta_info']
 
 
-                                class Bfd(Entity):
+                                class Bfd(_Entity_):
                                     """
                                     Configure BFD parameters
                                     
@@ -5829,7 +6457,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
 
                                         self.yang_name = "bfd"
                                         self.yang_parent_name = "interface"
@@ -5851,9 +6482,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, ['interval', 'fast_detect_mode', 'detection_multiplier'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                class DatabaseFilter(Entity):
+                                class DatabaseFilter(_Entity_):
                                     """
                                     Database filter
                                     
@@ -5870,7 +6505,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
 
                                         self.yang_name = "database-filter"
                                         self.yang_parent_name = "interface"
@@ -5890,7 +6528,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, [], name, value)
 
 
-                                    class All(Entity):
+                                    class All(_Entity_):
                                         """
                                         All
                                         
@@ -5907,7 +6545,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
 
                                             self.yang_name = "all"
                                             self.yang_parent_name = "database-filter"
@@ -5925,10 +6566,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, ['out'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter']['meta_info']
 
 
-
-                                class DistributeList(Entity):
+                                class DistributeList(_Entity_):
                                     """
                                     Filter prefixes to/from RIB
                                     
@@ -5945,7 +6594,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
 
                                         self.yang_name = "distribute-list"
                                         self.yang_parent_name = "interface"
@@ -5965,7 +6617,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, [], name, value)
 
 
-                                    class In(Entity):
+                                    class In(_Entity_):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -5982,7 +6634,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                             self.yang_name = "in"
                                             self.yang_parent_name = "distribute-list"
@@ -6000,10 +6655,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
 
 
-
-                                class FastReroute(Entity):
+                                class FastReroute(_Entity_):
                                     """
                                     Fast\-reroute configuration
                                     
@@ -6030,7 +6693,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "interface"
@@ -6057,7 +6723,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                    class PerLink(Entity):
+                                    class PerLink(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -6086,7 +6752,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
 
                                             self.yang_name = "per-link"
                                             self.yang_parent_name = "fast-reroute"
@@ -6113,7 +6782,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -6131,7 +6800,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -6149,7 +6821,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -6168,7 +6840,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -6186,10 +6861,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -6207,7 +6890,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -6225,7 +6911,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -6244,7 +6930,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -6262,11 +6951,23 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                    class PerPrefix(Entity):
+                                    class PerPrefix(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -6295,7 +6996,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
 
                                             self.yang_name = "per-prefix"
                                             self.yang_parent_name = "fast-reroute"
@@ -6322,7 +7026,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -6340,7 +7044,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -6358,7 +7065,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -6377,7 +7084,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -6395,10 +7105,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -6416,7 +7134,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -6434,7 +7155,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -6453,7 +7174,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -6471,14 +7195,38 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces']['meta_info']
 
 
-
-
-
-
-
-                        class AreaScope(Entity):
+                        class AreaScope(_Entity_):
                             """
                             Area Scope Configuration
                             
@@ -6495,7 +7243,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
 
                                 self.yang_name = "area-scope"
                                 self.yang_parent_name = "area-area-id"
@@ -6515,7 +7266,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, [], name, value)
 
 
-                            class FastReroute(Entity):
+                            class FastReroute(_Entity_):
                                 """
                                 Fast\-reroute configuration
                                 
@@ -6542,7 +7293,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
 
                                     self.yang_name = "fast-reroute"
                                     self.yang_parent_name = "area-scope"
@@ -6569,7 +7323,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                class PerLink(Entity):
+                                class PerLink(_Entity_):
                                     """
                                     Fast\-reroute per\-link configuration
                                     
@@ -6598,7 +7352,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
 
                                         self.yang_name = "per-link"
                                         self.yang_parent_name = "fast-reroute"
@@ -6625,7 +7382,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                    class CandidateInterfaces(Entity):
+                                    class CandidateInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
                                         interface configuration
@@ -6643,7 +7400,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                             self.yang_name = "candidate-interfaces"
                                             self.yang_parent_name = "per-link"
@@ -6661,7 +7421,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                        class CandidateInterface(Entity):
+                                        class CandidateInterface(_Entity_):
                                             """
                                             Candidate backup interface
                                             
@@ -6680,7 +7440,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                 self.yang_name = "candidate-interface"
                                                 self.yang_parent_name = "candidate-interfaces"
@@ -6698,10 +7461,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                    class ExcludeInterfaces(Entity):
+                                    class ExcludeInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix exclude
                                         interface configuration
@@ -6719,7 +7490,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "exclude-interfaces"
                                             self.yang_parent_name = "per-link"
@@ -6737,7 +7511,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                        class ExcludeInterface(Entity):
+                                        class ExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from becoming a backup
                                             
@@ -6756,7 +7530,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                 self.yang_name = "exclude-interface"
                                                 self.yang_parent_name = "exclude-interfaces"
@@ -6774,11 +7551,23 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                class PerPrefix(Entity):
+                                class PerPrefix(_Entity_):
                                     """
                                     Fast\-reroute per\-link configuration
                                     
@@ -6807,7 +7596,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
 
                                         self.yang_name = "per-prefix"
                                         self.yang_parent_name = "fast-reroute"
@@ -6834,7 +7626,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                    class CandidateInterfaces(Entity):
+                                    class CandidateInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
                                         interface configuration
@@ -6852,7 +7644,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                             self.yang_name = "candidate-interfaces"
                                             self.yang_parent_name = "per-prefix"
@@ -6870,7 +7665,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                        class CandidateInterface(Entity):
+                                        class CandidateInterface(_Entity_):
                                             """
                                             Candidate backup interface
                                             
@@ -6889,7 +7684,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                 self.yang_name = "candidate-interface"
                                                 self.yang_parent_name = "candidate-interfaces"
@@ -6907,10 +7705,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                    class ExcludeInterfaces(Entity):
+                                    class ExcludeInterfaces(_Entity_):
                                         """
                                         Fast\-reroute per\-link/per\-prefix exclude
                                         interface configuration
@@ -6928,7 +7734,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                             self.yang_name = "exclude-interfaces"
                                             self.yang_parent_name = "per-prefix"
@@ -6946,7 +7755,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                        class ExcludeInterface(Entity):
+                                        class ExcludeInterface(_Entity_):
                                             """
                                             Exclude an interface from becoming a backup
                                             
@@ -6965,7 +7774,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                 self.yang_name = "exclude-interface"
                                                 self.yang_parent_name = "exclude-interfaces"
@@ -6983,13 +7795,33 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope']['meta_info']
 
 
-
-
-
-
-                        class ShamLinks(Entity):
+                        class ShamLinks(_Entity_):
                             """
                             Sham Link sub\-mode
                             
@@ -7006,7 +7838,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
 
                                 self.yang_name = "sham-links"
                                 self.yang_parent_name = "area-area-id"
@@ -7024,7 +7859,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks, [], name, value)
 
 
-                            class ShamLink(Entity):
+                            class ShamLink(_Entity_):
                                 """
                                 ShamLink local and remote endpoints
                                 
@@ -7101,7 +7936,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
 
                                     self.yang_name = "sham-link"
                                     self.yang_parent_name = "sham-links"
@@ -7140,7 +7978,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -7176,7 +8014,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "sham-link"
@@ -7200,9 +8041,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication']['meta_info']
 
 
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -7250,7 +8095,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "sham-link"
@@ -7278,11 +8126,23 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks']['meta_info']
 
 
-
-
-                        class VirtualLinks(Entity):
+                        class VirtualLinks(_Entity_):
                             """
                             Virtual link sub\-mode
                             
@@ -7299,7 +8159,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
 
                                 self.yang_name = "virtual-links"
                                 self.yang_parent_name = "area-area-id"
@@ -7317,7 +8180,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks, [], name, value)
 
 
-                            class VirtualLink(Entity):
+                            class VirtualLink(_Entity_):
                                 """
                                 Router ID of virtual link neighbor
                                 
@@ -7387,7 +8250,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
 
                                     self.yang_name = "virtual-link"
                                     self.yang_parent_name = "virtual-links"
@@ -7424,7 +8290,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                class Authentication(Entity):
+                                class Authentication(_Entity_):
                                     """
                                     Authenticate OSPFv3 packets
                                     
@@ -7460,7 +8326,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
 
                                         self.yang_name = "authentication"
                                         self.yang_parent_name = "virtual-link"
@@ -7484,9 +8353,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication']['meta_info']
 
 
-                                class Encryption(Entity):
+                                class Encryption(_Entity_):
                                     """
                                     Encrypt and authenticate OSPFv3 packets
                                     
@@ -7534,7 +8407,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
 
                                         self.yang_name = "encryption"
                                         self.yang_parent_name = "virtual-link"
@@ -7562,13 +8438,33 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses']['meta_info']
 
 
-
-
-
-
-                class Timers(Entity):
+                class Timers(_Entity_):
                     """
                     Adjust routing timers
                     
@@ -7595,7 +8491,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Timers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Timers, self).__init__()
 
                         self.yang_name = "timers"
                         self.yang_parent_name = "default-vrf"
@@ -7623,7 +8522,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers, [], name, value)
 
 
-                    class Pacing(Entity):
+                    class Pacing(_Entity_):
                         """
                         Pacing timers
                         
@@ -7660,7 +8559,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing, self).__init__()
 
                             self.yang_name = "pacing"
                             self.yang_parent_name = "timers"
@@ -7682,9 +8584,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing, ['flood', 'retransmission', 'lsa_group'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing']['meta_info']
 
 
-                    class LsaTimers(Entity):
+                    class LsaTimers(_Entity_):
                         """
                         LSA timers
                         
@@ -7705,7 +8611,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers, self).__init__()
 
                             self.yang_name = "lsa-timers"
                             self.yang_parent_name = "timers"
@@ -7723,9 +8632,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers, ['arrival'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers']['meta_info']
 
 
-                    class Throttle(Entity):
+                    class Throttle(_Entity_):
                         """
                         Throttle timers
                         
@@ -7747,7 +8660,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle, self).__init__()
 
                             self.yang_name = "throttle"
                             self.yang_parent_name = "timers"
@@ -7771,7 +8687,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle, [], name, value)
 
 
-                        class Lsa(Entity):
+                        class Lsa(_Entity_):
                             """
                             LSA throttle timers for all types of OSPF LSAs
                             
@@ -7810,7 +8726,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa, self).__init__()
 
                                 self.yang_name = "lsa"
                                 self.yang_parent_name = "throttle"
@@ -7832,9 +8751,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa, ['first_delay', 'minimum_delay', 'maximum_delay'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa']['meta_info']
 
 
-                        class Spf(Entity):
+                        class Spf(_Entity_):
                             """
                             SPF throttle timers
                             
@@ -7867,7 +8790,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf, self).__init__()
 
                                 self.yang_name = "spf"
                                 self.yang_parent_name = "throttle"
@@ -7889,11 +8815,23 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf, ['first_delay', 'minimum_delay', 'maximum_delay'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers']['meta_info']
 
 
-
-
-                class SummaryPrefixes(Entity):
+                class SummaryPrefixes(_Entity_):
                     """
                     Summarize redistributed routes matching
                     prefix/length
@@ -7911,7 +8849,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes, self).__init__()
 
                         self.yang_name = "summary-prefixes"
                         self.yang_parent_name = "default-vrf"
@@ -7929,7 +8870,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes, [], name, value)
 
 
-                    class SummaryPrefix(Entity):
+                    class SummaryPrefix(_Entity_):
                         """
                         IPv6 address
                         
@@ -7967,7 +8908,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, self).__init__()
 
                             self.yang_name = "summary-prefix"
                             self.yang_parent_name = "summary-prefixes"
@@ -7991,10 +8935,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, ['prefix', 'prefix_length', 'not_advertise', 'tag'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes']['meta_info']
 
 
-
-                class Snmp(Entity):
+                class Snmp(_Entity_):
                     """
                     SNMP configuration
                     
@@ -8016,7 +8968,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Snmp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Snmp, self).__init__()
 
                         self.yang_name = "snmp"
                         self.yang_parent_name = "default-vrf"
@@ -8039,7 +8994,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Snmp, ['context'], name, value)
 
 
-                    class TrapRateLimit(Entity):
+                    class TrapRateLimit(_Entity_):
                         """
                         SNMP trap rate configuration
                         
@@ -8065,7 +9020,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit, self).__init__()
 
                             self.yang_name = "trap-rate-limit"
                             self.yang_parent_name = "snmp"
@@ -8085,10 +9043,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit, ['window_size', 'max_window_traps'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Snmp']['meta_info']
 
 
-
-                class FastReroute(Entity):
+                class FastReroute(_Entity_):
                     """
                     Fast\-reroute instance scoped parameters
                     
@@ -8110,7 +9076,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.FastReroute, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.FastReroute, self).__init__()
 
                         self.yang_name = "fast-reroute"
                         self.yang_parent_name = "default-vrf"
@@ -8134,7 +9103,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute, [], name, value)
 
 
-                    class PerLink(Entity):
+                    class PerLink(_Entity_):
                         """
                         Fast\-reroute per\-link global configuration
                         
@@ -8151,7 +9120,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink, self).__init__()
 
                             self.yang_name = "per-link"
                             self.yang_parent_name = "fast-reroute"
@@ -8169,9 +9141,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink, ['priority'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink']['meta_info']
 
 
-                    class PerPrefix(Entity):
+                    class PerPrefix(_Entity_):
                         """
                         Fast\-reroute per\-prefix global configuration
                         
@@ -8198,7 +9174,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix, self).__init__()
 
                             self.yang_name = "per-prefix"
                             self.yang_parent_name = "fast-reroute"
@@ -8223,7 +9202,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix, ['load_sharing_disable', 'priority'], name, value)
 
 
-                        class Tiebreakers(Entity):
+                        class Tiebreakers(_Entity_):
                             """
                             Fast\-reroute tiebreakers configurations
                             
@@ -8240,7 +9219,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
 
                                 self.yang_name = "tiebreakers"
                                 self.yang_parent_name = "per-prefix"
@@ -8258,7 +9240,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, [], name, value)
 
 
-                            class Tiebreaker(Entity):
+                            class Tiebreaker(_Entity_):
                                 """
                                 Fast\-reroute tiebreakers configuration
                                 
@@ -8284,7 +9266,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
 
                                     self.yang_name = "tiebreaker"
                                     self.yang_parent_name = "tiebreakers"
@@ -8304,12 +9289,28 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute']['meta_info']
 
 
-
-
-
-                class Distance(Entity):
+                class Distance(_Entity_):
                     """
                     Define an administrative distance
                     
@@ -8333,7 +9334,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Distance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Distance, self).__init__()
 
                         self.yang_name = "distance"
                         self.yang_parent_name = "default-vrf"
@@ -8356,7 +9360,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Distance, ['administrative'], name, value)
 
 
-                    class Ospfv3_(Entity):
+                    class Ospfv3_(_Entity_):
                         """
                         OSPFv3 administrative distance
                         
@@ -8389,7 +9393,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, self).__init__()
 
                             self.yang_name = "ospfv3"
                             self.yang_parent_name = "distance"
@@ -8411,10 +9418,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, ['intra_area', 'inter_area', 'external'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance']['meta_info']
 
 
-
-                class Maximum(Entity):
+                class Maximum(_Entity_):
                     """
                     Set OSPFv3 limits
                     
@@ -8445,7 +9460,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Maximum, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Maximum, self).__init__()
 
                         self.yang_name = "maximum"
                         self.yang_parent_name = "default-vrf"
@@ -8470,7 +9488,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Maximum, ['interfaces', 'paths'], name, value)
 
 
-                    class RedistributedPrefixes(Entity):
+                    class RedistributedPrefixes(_Entity_):
                         """
                         Limit number of redistributed prefixes
                         
@@ -8501,7 +9519,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes, self).__init__()
 
                             self.yang_name = "redistributed-prefixes"
                             self.yang_parent_name = "maximum"
@@ -8523,10 +9544,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes, ['prefixes', 'threshold', 'warning_only'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Maximum']['meta_info']
 
 
-
-                class Redistributes(Entity):
+                class Redistributes(_Entity_):
                     """
                     Redistribute information from another routing
                     protocol
@@ -8544,7 +9573,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Redistributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Redistributes, self).__init__()
 
                         self.yang_name = "redistributes"
                         self.yang_parent_name = "default-vrf"
@@ -8562,7 +9594,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes, [], name, value)
 
 
-                    class Redistribute(Entity):
+                    class Redistribute(_Entity_):
                         """
                         Redistribute information from another routing
                         protocol
@@ -8602,7 +9634,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, self).__init__()
 
                             self.yang_name = "redistribute"
                             self.yang_parent_name = "redistributes"
@@ -8628,7 +9663,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, ['protocol_name'], name, value)
 
 
-                        class ConnectedOrStaticOrSubscriberOrMobile(Entity):
+                        class ConnectedOrStaticOrSubscriberOrMobile(_Entity_):
                             """
                             connected or static or subscriber or mobile
                             
@@ -8711,7 +9746,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
 
                                 self.yang_name = "connected-or-static-or-subscriber-or-mobile"
                                 self.yang_parent_name = "redistribute"
@@ -8754,9 +9792,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile']['meta_info']
 
 
-                        class Bgp(Entity):
+                        class Bgp(_Entity_):
                             """
                             bgp
                             
@@ -8851,7 +9893,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, self).__init__()
 
                                 self.yang_name = "bgp"
                                 self.yang_parent_name = "redistribute"
@@ -8897,9 +9942,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp']['meta_info']
 
 
-                        class Ospfv3OrIsisOrApplication(Entity):
+                        class Ospfv3OrIsisOrApplication(_Entity_):
                             """
                             ospfv3 or isis or application
                             
@@ -8987,7 +10036,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
 
                                 self.yang_name = "ospfv3-or-isis-or-application"
                                 self.yang_parent_name = "redistribute"
@@ -9031,9 +10083,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication']['meta_info']
 
 
-                        class Eigrp(Entity):
+                        class Eigrp(_Entity_):
                             """
                             eigrp
                             
@@ -9121,7 +10177,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, self).__init__()
 
                                 self.yang_name = "eigrp"
                                 self.yang_parent_name = "redistribute"
@@ -9165,11 +10224,23 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes']['meta_info']
 
 
-
-
-                class Ignore(Entity):
+                class Ignore(_Entity_):
                     """
                     Do not complain about a specified event
                     
@@ -9186,7 +10257,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Ignore, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Ignore, self).__init__()
 
                         self.yang_name = "ignore"
                         self.yang_parent_name = "default-vrf"
@@ -9206,7 +10280,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Ignore, [], name, value)
 
 
-                    class Lsa(Entity):
+                    class Lsa(_Entity_):
                         """
                         Do not complain upon receiving LSA of the
                         specified type
@@ -9224,7 +10298,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa, self).__init__()
 
                             self.yang_name = "lsa"
                             self.yang_parent_name = "ignore"
@@ -9242,10 +10319,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa, ['mospf'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Ignore']['meta_info']
 
 
-
-                class DistributeListOut(Entity):
+                class DistributeListOut(_Entity_):
                     """
                     Filter prefixes from RIB 
                     
@@ -9262,7 +10347,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut, self).__init__()
 
                         self.yang_name = "distribute-list-out"
                         self.yang_parent_name = "default-vrf"
@@ -9282,7 +10370,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut, [], name, value)
 
 
-                    class DistributeOuts(Entity):
+                    class DistributeOuts(_Entity_):
                         """
                         Filter generated type\-5 LSAs
                         
@@ -9299,7 +10387,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts, self).__init__()
 
                             self.yang_name = "distribute-outs"
                             self.yang_parent_name = "distribute-list-out"
@@ -9317,7 +10408,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts, [], name, value)
 
 
-                        class DistributeOut(Entity):
+                        class DistributeOut(_Entity_):
                             """
                             Filter generated type\-5 LSAs
                             
@@ -9354,7 +10445,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
 
                                 self.yang_name = "distribute-out"
                                 self.yang_parent_name = "distribute-outs"
@@ -9379,7 +10473,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name', 'all_or_connected_or_static_prefix_list'], name, value)
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 bgp
                                 
@@ -9410,7 +10504,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "distribute-out"
@@ -9432,9 +10529,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, ['as_xx', 'as_yy', 'prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp']['meta_info']
 
 
-                            class Ospfv3OrIsis(Entity):
+                            class Ospfv3OrIsis(_Entity_):
                                 """
                                 ospfv3 or isis
                                 
@@ -9458,7 +10559,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
 
                                     self.yang_name = "ospfv3-or-isis"
                                     self.yang_parent_name = "distribute-out"
@@ -9478,9 +10582,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, ['process_name', 'prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis']['meta_info']
 
 
-                            class Eigrp(Entity):
+                            class Eigrp(_Entity_):
                                 """
                                 eigrp
                                 
@@ -9504,7 +10612,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
 
                                     self.yang_name = "eigrp"
                                     self.yang_parent_name = "distribute-out"
@@ -9524,12 +10635,28 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, ['as_xx', 'prefix_list'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut']['meta_info']
 
 
-
-
-
-                class DistributeList(Entity):
+                class DistributeList(_Entity_):
                     """
                     Filter prefixes to/from RIB
                     
@@ -9546,7 +10673,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.DistributeList, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeList, self).__init__()
 
                         self.yang_name = "distribute-list"
                         self.yang_parent_name = "default-vrf"
@@ -9566,7 +10696,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeList, [], name, value)
 
 
-                    class In(Entity):
+                    class In(_Entity_):
                         """
                         Filter prefixes installed to RIB
                         
@@ -9583,7 +10713,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, self).__init__()
 
                             self.yang_name = "in"
                             self.yang_parent_name = "distribute-list"
@@ -9601,10 +10734,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, ['prefix_list'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList.In']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList']['meta_info']
 
 
-
-                class StubRouter(Entity):
+                class StubRouter(_Entity_):
                     """
                     Stub router configuration
                     
@@ -9637,7 +10778,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.StubRouter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.StubRouter, self).__init__()
 
                         self.yang_name = "stub-router"
                         self.yang_parent_name = "default-vrf"
@@ -9662,7 +10806,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter, [], name, value)
 
 
-                    class Rbit(Entity):
+                    class Rbit(_Entity_):
                         """
                         Stub router R\-bit configuration
                         
@@ -9718,7 +10862,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, self).__init__()
 
                             self.yang_name = "rbit"
                             self.yang_parent_name = "stub-router"
@@ -9750,7 +10897,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                        class OnStartup(Entity):
+                        class OnStartup(_Entity_):
                             """
                             Enter stub router operational state on startup
                             
@@ -9778,7 +10925,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup, self).__init__()
 
                                 self.yang_name = "on-startup"
                                 self.yang_parent_name = "rbit"
@@ -9798,10 +10948,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit']['meta_info']
 
 
-
-                    class V6bit(Entity):
+                    class V6bit(_Entity_):
                         """
                         Stub router V6\-bit configuration
                         
@@ -9852,7 +11010,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, self).__init__()
 
                             self.yang_name = "v6bit"
                             self.yang_parent_name = "stub-router"
@@ -9882,7 +11043,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit, ['on_switchover', 'always', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                        class OnStartup(Entity):
+                        class OnStartup(_Entity_):
                             """
                             Enter stub router operational state on startup
                             
@@ -9910,7 +11071,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup, self).__init__()
 
                                 self.yang_name = "on-startup"
                                 self.yang_parent_name = "v6bit"
@@ -9930,10 +11094,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit']['meta_info']
 
 
-
-                    class MaxMetric(Entity):
+                    class MaxMetric(_Entity_):
                         """
                         Stub router max\-metric configuration
                         
@@ -10007,7 +11179,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, self).__init__()
 
                             self.yang_name = "max-metric"
                             self.yang_parent_name = "stub-router"
@@ -10043,7 +11218,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                        class OnStartup(Entity):
+                        class OnStartup(_Entity_):
                             """
                             Enter stub router operational state on startup
                             
@@ -10071,7 +11246,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup, self).__init__()
 
                                 self.yang_name = "on-startup"
                                 self.yang_parent_name = "max-metric"
@@ -10091,11 +11269,23 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter']['meta_info']
 
 
-
-
-                class Bfd(Entity):
+                class Bfd(_Entity_):
                     """
                     Configure BFD parameters
                     
@@ -10128,7 +11318,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Bfd, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Bfd, self).__init__()
 
                         self.yang_name = "bfd"
                         self.yang_parent_name = "default-vrf"
@@ -10150,9 +11343,13 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Bfd']['meta_info']
 
 
-                class DatabaseFilter(Entity):
+                class DatabaseFilter(_Entity_):
                     """
                     Database filter
                     
@@ -10169,7 +11366,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter, self).__init__()
 
                         self.yang_name = "database-filter"
                         self.yang_parent_name = "default-vrf"
@@ -10189,7 +11389,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter, [], name, value)
 
 
-                    class All(Entity):
+                    class All(_Entity_):
                         """
                         All
                         
@@ -10206,7 +11406,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All, self).__init__()
 
                             self.yang_name = "all"
                             self.yang_parent_name = "database-filter"
@@ -10224,10 +11427,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All, ['out'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter']['meta_info']
 
 
-
-                class Capability(Entity):
+                class Capability(_Entity_):
                     """
                     OSPFv3 Capability
                     
@@ -10254,7 +11465,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Capability, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Capability, self).__init__()
 
                         self.yang_name = "capability"
                         self.yang_parent_name = "default-vrf"
@@ -10276,9 +11490,13 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Capability, ['type7_prefer', 'vrf_lite', 'type7_translate_zero_forwarding_addr'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Capability']['meta_info']
 
 
-                class Authentication(Entity):
+                class Authentication(_Entity_):
                     """
                     Authenticate OSPFv3 packets
                     
@@ -10314,7 +11532,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Authentication, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Authentication, self).__init__()
 
                         self.yang_name = "authentication"
                         self.yang_parent_name = "default-vrf"
@@ -10338,9 +11559,13 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Authentication']['meta_info']
 
 
-                class GracefulRestart(Entity):
+                class GracefulRestart(_Entity_):
                     """
                     Graceful restart configuration
                     
@@ -10385,7 +11610,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.GracefulRestart, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "default-vrf"
@@ -10411,9 +11639,13 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.GracefulRestart, ['interval', 'strict_lsa_checking', 'helper', 'enable', 'lifetime'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.GracefulRestart']['meta_info']
 
 
-                class DefaultInformation(Entity):
+                class DefaultInformation(_Entity_):
                     """
                     Control distribution of default information
                     
@@ -10432,7 +11664,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation, self).__init__()
 
                         self.yang_name = "default-information"
                         self.yang_parent_name = "default-vrf"
@@ -10451,7 +11686,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation, [], name, value)
 
 
-                    class Originate(Entity):
+                    class Originate(_Entity_):
                         """
                         Distribute a default route
                         
@@ -10498,7 +11733,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate, self).__init__()
 
                             self.yang_name = "originate"
                             self.yang_parent_name = "default-information"
@@ -10525,10 +11763,18 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate, ['always', 'metric', 'metric_type', 'tag', 'route_policy_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DefaultInformation']['meta_info']
 
 
-
-                class ProcessScope(Entity):
+                class ProcessScope(_Entity_):
                     """
                     Process scope configuration
                     
@@ -10545,7 +11791,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope, self).__init__()
 
                         self.yang_name = "process-scope"
                         self.yang_parent_name = "default-vrf"
@@ -10565,7 +11814,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope, [], name, value)
 
 
-                    class FastReroute(Entity):
+                    class FastReroute(_Entity_):
                         """
                         Fast\-reroute configuration
                         
@@ -10592,7 +11841,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "process-scope"
@@ -10619,7 +11871,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                        class PerLink(Entity):
+                        class PerLink(_Entity_):
                             """
                             Fast\-reroute per\-link configuration
                             
@@ -10648,7 +11900,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, self).__init__()
 
                                 self.yang_name = "per-link"
                                 self.yang_parent_name = "fast-reroute"
@@ -10675,7 +11930,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                            class CandidateInterfaces(Entity):
+                            class CandidateInterfaces(_Entity_):
                                 """
                                 Fast\-reroute per\-link/per\-prefix candidate
                                 interface configuration
@@ -10693,7 +11948,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                     self.yang_name = "candidate-interfaces"
                                     self.yang_parent_name = "per-link"
@@ -10711,7 +11969,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                class CandidateInterface(Entity):
+                                class CandidateInterface(_Entity_):
                                     """
                                     Candidate backup interface
                                     
@@ -10730,7 +11988,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                         self.yang_name = "candidate-interface"
                                         self.yang_parent_name = "candidate-interfaces"
@@ -10748,10 +12009,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                            class ExcludeInterfaces(Entity):
+                            class ExcludeInterfaces(_Entity_):
                                 """
                                 Fast\-reroute per\-link/per\-prefix exclude
                                 interface configuration
@@ -10769,7 +12038,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                     self.yang_name = "exclude-interfaces"
                                     self.yang_parent_name = "per-link"
@@ -10787,7 +12059,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                class ExcludeInterface(Entity):
+                                class ExcludeInterface(_Entity_):
                                     """
                                     Exclude an interface from becoming a backup
                                     
@@ -10806,7 +12078,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                         self.yang_name = "exclude-interface"
                                         self.yang_parent_name = "exclude-interfaces"
@@ -10824,11 +12099,23 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                        class PerPrefix(Entity):
+                        class PerPrefix(_Entity_):
                             """
                             Fast\-reroute per\-link configuration
                             
@@ -10857,7 +12144,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
 
                                 self.yang_name = "per-prefix"
                                 self.yang_parent_name = "fast-reroute"
@@ -10884,7 +12174,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                            class CandidateInterfaces(Entity):
+                            class CandidateInterfaces(_Entity_):
                                 """
                                 Fast\-reroute per\-link/per\-prefix candidate
                                 interface configuration
@@ -10902,7 +12192,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                     self.yang_name = "candidate-interfaces"
                                     self.yang_parent_name = "per-prefix"
@@ -10920,7 +12213,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                class CandidateInterface(Entity):
+                                class CandidateInterface(_Entity_):
                                     """
                                     Candidate backup interface
                                     
@@ -10939,7 +12232,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                         self.yang_name = "candidate-interface"
                                         self.yang_parent_name = "candidate-interfaces"
@@ -10957,10 +12253,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                            class ExcludeInterfaces(Entity):
+                            class ExcludeInterfaces(_Entity_):
                                 """
                                 Fast\-reroute per\-link/per\-prefix exclude
                                 interface configuration
@@ -10978,7 +12282,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                     self.yang_name = "exclude-interfaces"
                                     self.yang_parent_name = "per-prefix"
@@ -10996,7 +12303,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                class ExcludeInterface(Entity):
+                                class ExcludeInterface(_Entity_):
                                     """
                                     Exclude an interface from becoming a backup
                                     
@@ -11015,7 +12322,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                         self.yang_name = "exclude-interface"
                                         self.yang_parent_name = "exclude-interfaces"
@@ -11033,13 +12343,33 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.ProcessScope']['meta_info']
 
 
-
-
-
-
-                class Encryption(Entity):
+                class Encryption(_Entity_):
                     """
                     Encrypt and authenticate OSPFv3 packets
                     
@@ -11087,7 +12417,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.Encryption, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.Encryption, self).__init__()
 
                         self.yang_name = "encryption"
                         self.yang_parent_name = "default-vrf"
@@ -11115,9 +12448,13 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Encryption']['meta_info']
 
 
-                class AutoCost(Entity):
+                class AutoCost(_Entity_):
                     """
                     Calculate interface cost according to bandwidth
                     
@@ -11145,7 +12482,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.DefaultVrf.AutoCost, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.DefaultVrf.AutoCost, self).__init__()
 
                         self.yang_name = "auto-cost"
                         self.yang_parent_name = "default-vrf"
@@ -11166,10 +12506,18 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AutoCost, ['disable', 'reference_bandwidth'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AutoCost']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 
 
-
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 VRF related configuration
                 
@@ -11186,7 +12534,10 @@ class Ospfv3(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Ospfv3.Processes.Process.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ospfv3.Processes.Process.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "process"
@@ -11204,7 +12555,7 @@ class Ospfv3(Entity):
                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     Configuration for a particular OSPF VRF
                     
@@ -11458,7 +12809,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -11602,7 +12956,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf, ['vrf_name', 'snmpvrf_trap', 'prefix_suppression', 'retransmit_interval', 'passive', 'default_metric', 'flood_reduction', 'hello_interval', 'priority', 'cost', 'dead_interval', 'packet_size', 'instance', 'spf_prefix_priority_policy', 'router_id', 'network', 'mtu_ignore', 'log_adjacency_changes', 'demand_circuit', 'transmit_delay'], name, value)
 
 
-                    class DomainId(Entity):
+                    class DomainId(_Entity_):
                         """
                         OSPFv3 Domain ID
                         
@@ -11624,7 +12978,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId, self).__init__()
 
                             self.yang_name = "domain-id"
                             self.yang_parent_name = "vrf"
@@ -11648,7 +13005,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId, [], name, value)
 
 
-                        class SecondaryDomainIds(Entity):
+                        class SecondaryDomainIds(_Entity_):
                             """
                             Secondary domain ID Table
                             
@@ -11665,7 +13022,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, self).__init__()
 
                                 self.yang_name = "secondary-domain-ids"
                                 self.yang_parent_name = "domain-id"
@@ -11683,7 +13043,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, [], name, value)
 
 
-                            class SecondaryDomainId(Entity):
+                            class SecondaryDomainId(_Entity_):
                                 """
                                 OSPF Secondary domain ID
                                 
@@ -11707,7 +13067,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, self).__init__()
 
                                     self.yang_name = "secondary-domain-id"
                                     self.yang_parent_name = "secondary-domain-ids"
@@ -11727,10 +13090,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, ['domain_id_type', 'domain_id_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds']['meta_info']
 
 
-
-                        class PrimaryDomainId(Entity):
+                        class PrimaryDomainId(_Entity_):
                             """
                             OSPF Primary domain ID
                             
@@ -11752,7 +13123,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, self).__init__()
 
                                 self.yang_name = "primary-domain-id"
                                 self.yang_parent_name = "domain-id"
@@ -11772,10 +13146,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, ['domain_id_type', 'domain_id_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId']['meta_info']
 
 
-
-                    class AreaAddresses(Entity):
+                    class AreaAddresses(_Entity_):
                         """
                         Area configuration
                         
@@ -11797,7 +13179,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses, self).__init__()
 
                             self.yang_name = "area-addresses"
                             self.yang_parent_name = "vrf"
@@ -11816,7 +13201,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses, [], name, value)
 
 
-                        class AreaAddress(Entity):
+                        class AreaAddress(_Entity_):
                             """
                             Configuration for a particular area
                             
@@ -12011,7 +13396,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, self).__init__()
 
                                 self.yang_name = "area-address"
                                 self.yang_parent_name = "area-addresses"
@@ -12112,7 +13500,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'type7_translate_always', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
 
 
-                            class Authentication(Entity):
+                            class Authentication(_Entity_):
                                 """
                                 Authenticate OSPFv3 packets
                                 
@@ -12148,7 +13536,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
 
                                     self.yang_name = "authentication"
                                     self.yang_parent_name = "area-address"
@@ -12172,9 +13563,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication']['meta_info']
 
 
-                            class Bfd(Entity):
+                            class Bfd(_Entity_):
                                 """
                                 Configure BFD parameters
                                 
@@ -12207,7 +13602,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
 
                                     self.yang_name = "bfd"
                                     self.yang_parent_name = "area-address"
@@ -12229,9 +13627,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd, ['detection_multiplier', 'interval', 'fast_detect_mode'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd']['meta_info']
 
 
-                            class Ranges(Entity):
+                            class Ranges(_Entity_):
                                 """
                                 Range configuration
                                 
@@ -12248,7 +13650,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
 
                                     self.yang_name = "ranges"
                                     self.yang_parent_name = "area-address"
@@ -12266,7 +13671,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges, [], name, value)
 
 
-                                class Range(Entity):
+                                class Range(_Entity_):
                                     """
                                     Summarize inter\-area routes matching
                                     prefix/length
@@ -12307,7 +13712,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
 
                                         self.yang_name = "range"
                                         self.yang_parent_name = "ranges"
@@ -12331,10 +13739,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges']['meta_info']
 
 
-
-                            class Encryption(Entity):
+                            class Encryption(_Entity_):
                                 """
                                 Encrypt and authenticate OSPFv3 packets
                                 
@@ -12382,7 +13798,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
 
                                     self.yang_name = "encryption"
                                     self.yang_parent_name = "area-address"
@@ -12410,9 +13829,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption']['meta_info']
 
 
-                            class Nssa(Entity):
+                            class Nssa(_Entity_):
                                 """
                                 Specify area as a NSSA area.  Allowed only in
                                 non\-backbone areas
@@ -12456,7 +13879,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
 
                                     self.yang_name = "nssa"
                                     self.yang_parent_name = "area-address"
@@ -12482,9 +13908,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, ['no_redistribution', 'default_info_originate', 'metric', 'metric_type', 'no_summary'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa']['meta_info']
 
 
-                            class DatabaseFilter(Entity):
+                            class DatabaseFilter(_Entity_):
                                 """
                                 Database filter
                                 
@@ -12501,7 +13931,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
 
                                     self.yang_name = "database-filter"
                                     self.yang_parent_name = "area-address"
@@ -12521,7 +13954,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter, [], name, value)
 
 
-                                class All(Entity):
+                                class All(_Entity_):
                                     """
                                     All
                                     
@@ -12538,7 +13971,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
 
                                         self.yang_name = "all"
                                         self.yang_parent_name = "database-filter"
@@ -12556,10 +13992,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All, ['out'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter']['meta_info']
 
 
-
-                            class DistributeList(Entity):
+                            class DistributeList(_Entity_):
                                 """
                                 Filter prefixes to/from RIB
                                 
@@ -12576,7 +14020,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
 
                                     self.yang_name = "distribute-list"
                                     self.yang_parent_name = "area-address"
@@ -12596,7 +14043,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList, [], name, value)
 
 
-                                class In(Entity):
+                                class In(_Entity_):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -12613,7 +14060,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
 
                                         self.yang_name = "in"
                                         self.yang_parent_name = "distribute-list"
@@ -12631,10 +14081,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, ['prefix_list'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
 
 
-
-                            class Interfaces(Entity):
+                            class Interfaces(_Entity_):
                                 """
                                 OSPFv3 interfaces
                                 
@@ -12651,7 +14109,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
 
                                     self.yang_name = "interfaces"
                                     self.yang_parent_name = "area-address"
@@ -12669,7 +14130,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces, [], name, value)
 
 
-                                class Interface(Entity):
+                                class Interface(_Entity_):
                                     """
                                     OSPFv3 interface
                                     
@@ -12827,7 +14288,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "interfaces"
@@ -12906,7 +14370,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -12942,7 +14406,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "interface"
@@ -12966,9 +14433,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                    class Neighbors(Entity):
+                                    class Neighbors(_Entity_):
                                         """
                                         Specify a neighbor router
                                         
@@ -12985,7 +14456,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
 
                                             self.yang_name = "neighbors"
                                             self.yang_parent_name = "interface"
@@ -13003,7 +14477,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, [], name, value)
 
 
-                                        class Neighbor(Entity):
+                                        class Neighbor(_Entity_):
                                             """
                                             IPv6 address
                                             
@@ -13055,7 +14529,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
 
                                                 self.yang_name = "neighbor"
                                                 self.yang_parent_name = "neighbors"
@@ -13083,10 +14560,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors']['meta_info']
 
 
-
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -13134,7 +14619,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "interface"
@@ -13162,9 +14650,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption']['meta_info']
 
 
-                                    class Bfd(Entity):
+                                    class Bfd(_Entity_):
                                         """
                                         Configure BFD parameters
                                         
@@ -13197,7 +14689,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
 
                                             self.yang_name = "bfd"
                                             self.yang_parent_name = "interface"
@@ -13219,9 +14714,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, ['interval', 'fast_detect_mode', 'detection_multiplier'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                    class DatabaseFilter(Entity):
+                                    class DatabaseFilter(_Entity_):
                                         """
                                         Database filter
                                         
@@ -13238,7 +14737,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
 
                                             self.yang_name = "database-filter"
                                             self.yang_parent_name = "interface"
@@ -13258,7 +14760,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, [], name, value)
 
 
-                                        class All(Entity):
+                                        class All(_Entity_):
                                             """
                                             All
                                             
@@ -13275,7 +14777,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
 
                                                 self.yang_name = "all"
                                                 self.yang_parent_name = "database-filter"
@@ -13293,10 +14798,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, ['out'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter']['meta_info']
 
 
-
-                                    class DistributeList(Entity):
+                                    class DistributeList(_Entity_):
                                         """
                                         Filter prefixes to/from RIB
                                         
@@ -13313,7 +14826,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
 
                                             self.yang_name = "distribute-list"
                                             self.yang_parent_name = "interface"
@@ -13333,7 +14849,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, [], name, value)
 
 
-                                        class In(Entity):
+                                        class In(_Entity_):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -13350,7 +14866,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                                 self.yang_name = "in"
                                                 self.yang_parent_name = "distribute-list"
@@ -13368,10 +14887,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
 
 
-
-                                    class FastReroute(Entity):
+                                    class FastReroute(_Entity_):
                                         """
                                         Fast\-reroute configuration
                                         
@@ -13398,7 +14925,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
 
                                             self.yang_name = "fast-reroute"
                                             self.yang_parent_name = "interface"
@@ -13425,7 +14955,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                        class PerLink(Entity):
+                                        class PerLink(_Entity_):
                                             """
                                             Fast\-reroute per\-link configuration
                                             
@@ -13454,7 +14984,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
 
                                                 self.yang_name = "per-link"
                                                 self.yang_parent_name = "fast-reroute"
@@ -13481,7 +15014,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                            class CandidateInterfaces(Entity):
+                                            class CandidateInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
                                                 interface configuration
@@ -13499,7 +15032,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                     self.yang_name = "candidate-interfaces"
                                                     self.yang_parent_name = "per-link"
@@ -13517,7 +15053,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                                class CandidateInterface(Entity):
+                                                class CandidateInterface(_Entity_):
                                                     """
                                                     Candidate backup interface
                                                     
@@ -13536,7 +15072,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                         self.yang_name = "candidate-interface"
                                                         self.yang_parent_name = "candidate-interfaces"
@@ -13554,10 +15093,18 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                            class ExcludeInterfaces(Entity):
+                                            class ExcludeInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix exclude
                                                 interface configuration
@@ -13575,7 +15122,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                     self.yang_name = "exclude-interfaces"
                                                     self.yang_parent_name = "per-link"
@@ -13593,7 +15143,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                                class ExcludeInterface(Entity):
+                                                class ExcludeInterface(_Entity_):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
@@ -13612,7 +15162,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                         self.yang_name = "exclude-interface"
                                                         self.yang_parent_name = "exclude-interfaces"
@@ -13630,11 +15183,23 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                        class PerPrefix(Entity):
+                                        class PerPrefix(_Entity_):
                                             """
                                             Fast\-reroute per\-link configuration
                                             
@@ -13663,7 +15228,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
 
                                                 self.yang_name = "per-prefix"
                                                 self.yang_parent_name = "fast-reroute"
@@ -13690,7 +15258,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                            class CandidateInterfaces(Entity):
+                                            class CandidateInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
                                                 interface configuration
@@ -13708,7 +15276,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                     self.yang_name = "candidate-interfaces"
                                                     self.yang_parent_name = "per-prefix"
@@ -13726,7 +15297,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                                class CandidateInterface(Entity):
+                                                class CandidateInterface(_Entity_):
                                                     """
                                                     Candidate backup interface
                                                     
@@ -13745,7 +15316,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                         self.yang_name = "candidate-interface"
                                                         self.yang_parent_name = "candidate-interfaces"
@@ -13763,10 +15337,18 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                            class ExcludeInterfaces(Entity):
+                                            class ExcludeInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix exclude
                                                 interface configuration
@@ -13784,7 +15366,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                     self.yang_name = "exclude-interfaces"
                                                     self.yang_parent_name = "per-prefix"
@@ -13802,7 +15387,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                                class ExcludeInterface(Entity):
+                                                class ExcludeInterface(_Entity_):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
@@ -13821,7 +15406,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                         self.yang_name = "exclude-interface"
                                                         self.yang_parent_name = "exclude-interfaces"
@@ -13839,14 +15427,38 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces']['meta_info']
 
 
-
-
-
-
-
-                            class AreaScope(Entity):
+                            class AreaScope(_Entity_):
                                 """
                                 Area Scope Configuration
                                 
@@ -13863,7 +15475,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
 
                                     self.yang_name = "area-scope"
                                     self.yang_parent_name = "area-address"
@@ -13883,7 +15498,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, [], name, value)
 
 
-                                class FastReroute(Entity):
+                                class FastReroute(_Entity_):
                                     """
                                     Fast\-reroute configuration
                                     
@@ -13910,7 +15525,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "area-scope"
@@ -13937,7 +15555,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                    class PerLink(Entity):
+                                    class PerLink(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -13966,7 +15584,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
 
                                             self.yang_name = "per-link"
                                             self.yang_parent_name = "fast-reroute"
@@ -13993,7 +15614,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -14011,7 +15632,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -14029,7 +15653,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -14048,7 +15672,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -14066,10 +15693,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -14087,7 +15722,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -14105,7 +15743,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -14124,7 +15762,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -14142,11 +15783,23 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                    class PerPrefix(Entity):
+                                    class PerPrefix(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -14175,7 +15828,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
 
                                             self.yang_name = "per-prefix"
                                             self.yang_parent_name = "fast-reroute"
@@ -14202,7 +15858,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -14220,7 +15876,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -14238,7 +15897,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -14257,7 +15916,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -14275,10 +15937,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -14296,7 +15966,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -14314,7 +15987,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -14333,7 +16006,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -14351,13 +16027,33 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope']['meta_info']
 
 
-
-
-
-
-                            class ShamLinks(Entity):
+                            class ShamLinks(_Entity_):
                                 """
                                 Sham Link sub\-mode
                                 
@@ -14374,7 +16070,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
 
                                     self.yang_name = "sham-links"
                                     self.yang_parent_name = "area-address"
@@ -14392,7 +16091,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks, [], name, value)
 
 
-                                class ShamLink(Entity):
+                                class ShamLink(_Entity_):
                                     """
                                     ShamLink local and remote endpoints
                                     
@@ -14469,7 +16168,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
 
                                         self.yang_name = "sham-link"
                                         self.yang_parent_name = "sham-links"
@@ -14508,7 +16210,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -14544,7 +16246,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "sham-link"
@@ -14568,9 +16273,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication']['meta_info']
 
 
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -14618,7 +16327,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "sham-link"
@@ -14646,11 +16358,23 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks']['meta_info']
 
 
-
-
-                            class VirtualLinks(Entity):
+                            class VirtualLinks(_Entity_):
                                 """
                                 Virtual link sub\-mode
                                 
@@ -14667,7 +16391,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
 
                                     self.yang_name = "virtual-links"
                                     self.yang_parent_name = "area-address"
@@ -14685,7 +16412,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks, [], name, value)
 
 
-                                class VirtualLink(Entity):
+                                class VirtualLink(_Entity_):
                                     """
                                     Router ID of virtual link neighbor
                                     
@@ -14755,7 +16482,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
 
                                         self.yang_name = "virtual-link"
                                         self.yang_parent_name = "virtual-links"
@@ -14792,7 +16522,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -14828,7 +16558,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "virtual-link"
@@ -14852,9 +16585,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication']['meta_info']
 
 
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -14902,7 +16639,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "virtual-link"
@@ -14930,12 +16670,28 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress']['meta_info']
 
 
-
-
-
-                        class AreaAreaId(Entity):
+                        class AreaAreaId(_Entity_):
                             """
                             Configuration for a particular area
                             
@@ -15130,7 +16886,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, self).__init__()
 
                                 self.yang_name = "area-area-id"
                                 self.yang_parent_name = "area-addresses"
@@ -15231,7 +16990,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'type7_translate_always', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
 
 
-                            class Authentication(Entity):
+                            class Authentication(_Entity_):
                                 """
                                 Authenticate OSPFv3 packets
                                 
@@ -15267,7 +17026,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
 
                                     self.yang_name = "authentication"
                                     self.yang_parent_name = "area-area-id"
@@ -15291,9 +17053,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication']['meta_info']
 
 
-                            class Bfd(Entity):
+                            class Bfd(_Entity_):
                                 """
                                 Configure BFD parameters
                                 
@@ -15326,7 +17092,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
 
                                     self.yang_name = "bfd"
                                     self.yang_parent_name = "area-area-id"
@@ -15348,9 +17117,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd, ['detection_multiplier', 'interval', 'fast_detect_mode'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd']['meta_info']
 
 
-                            class Ranges(Entity):
+                            class Ranges(_Entity_):
                                 """
                                 Range configuration
                                 
@@ -15367,7 +17140,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
 
                                     self.yang_name = "ranges"
                                     self.yang_parent_name = "area-area-id"
@@ -15385,7 +17161,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges, [], name, value)
 
 
-                                class Range(Entity):
+                                class Range(_Entity_):
                                     """
                                     Summarize inter\-area routes matching
                                     prefix/length
@@ -15426,7 +17202,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
 
                                         self.yang_name = "range"
                                         self.yang_parent_name = "ranges"
@@ -15450,10 +17229,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges']['meta_info']
 
 
-
-                            class Encryption(Entity):
+                            class Encryption(_Entity_):
                                 """
                                 Encrypt and authenticate OSPFv3 packets
                                 
@@ -15501,7 +17288,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
 
                                     self.yang_name = "encryption"
                                     self.yang_parent_name = "area-area-id"
@@ -15529,9 +17319,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption']['meta_info']
 
 
-                            class Nssa(Entity):
+                            class Nssa(_Entity_):
                                 """
                                 Specify area as a NSSA area.  Allowed only in
                                 non\-backbone areas
@@ -15575,7 +17369,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
 
                                     self.yang_name = "nssa"
                                     self.yang_parent_name = "area-area-id"
@@ -15601,9 +17398,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, ['no_redistribution', 'default_info_originate', 'metric', 'metric_type', 'no_summary'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa']['meta_info']
 
 
-                            class DatabaseFilter(Entity):
+                            class DatabaseFilter(_Entity_):
                                 """
                                 Database filter
                                 
@@ -15620,7 +17421,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
 
                                     self.yang_name = "database-filter"
                                     self.yang_parent_name = "area-area-id"
@@ -15640,7 +17444,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter, [], name, value)
 
 
-                                class All(Entity):
+                                class All(_Entity_):
                                     """
                                     All
                                     
@@ -15657,7 +17461,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
 
                                         self.yang_name = "all"
                                         self.yang_parent_name = "database-filter"
@@ -15675,10 +17482,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, ['out'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter']['meta_info']
 
 
-
-                            class DistributeList(Entity):
+                            class DistributeList(_Entity_):
                                 """
                                 Filter prefixes to/from RIB
                                 
@@ -15695,7 +17510,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
 
                                     self.yang_name = "distribute-list"
                                     self.yang_parent_name = "area-area-id"
@@ -15715,7 +17533,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList, [], name, value)
 
 
-                                class In(Entity):
+                                class In(_Entity_):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -15732,7 +17550,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
 
                                         self.yang_name = "in"
                                         self.yang_parent_name = "distribute-list"
@@ -15750,10 +17571,18 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, ['prefix_list'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
 
 
-
-                            class Interfaces(Entity):
+                            class Interfaces(_Entity_):
                                 """
                                 OSPFv3 interfaces
                                 
@@ -15770,7 +17599,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
 
                                     self.yang_name = "interfaces"
                                     self.yang_parent_name = "area-area-id"
@@ -15788,7 +17620,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces, [], name, value)
 
 
-                                class Interface(Entity):
+                                class Interface(_Entity_):
                                     """
                                     OSPFv3 interface
                                     
@@ -15946,7 +17778,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "interfaces"
@@ -16025,7 +17860,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -16061,7 +17896,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "interface"
@@ -16085,9 +17923,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication']['meta_info']
 
 
-                                    class Neighbors(Entity):
+                                    class Neighbors(_Entity_):
                                         """
                                         Specify a neighbor router
                                         
@@ -16104,7 +17946,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
 
                                             self.yang_name = "neighbors"
                                             self.yang_parent_name = "interface"
@@ -16122,7 +17967,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, [], name, value)
 
 
-                                        class Neighbor(Entity):
+                                        class Neighbor(_Entity_):
                                             """
                                             IPv6 address
                                             
@@ -16174,7 +18019,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
 
                                                 self.yang_name = "neighbor"
                                                 self.yang_parent_name = "neighbors"
@@ -16202,10 +18050,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors']['meta_info']
 
 
-
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -16253,7 +18109,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "interface"
@@ -16281,9 +18140,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption']['meta_info']
 
 
-                                    class Bfd(Entity):
+                                    class Bfd(_Entity_):
                                         """
                                         Configure BFD parameters
                                         
@@ -16316,7 +18179,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
 
                                             self.yang_name = "bfd"
                                             self.yang_parent_name = "interface"
@@ -16338,9 +18204,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, ['interval', 'fast_detect_mode', 'detection_multiplier'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd']['meta_info']
 
 
-                                    class DatabaseFilter(Entity):
+                                    class DatabaseFilter(_Entity_):
                                         """
                                         Database filter
                                         
@@ -16357,7 +18227,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
 
                                             self.yang_name = "database-filter"
                                             self.yang_parent_name = "interface"
@@ -16377,7 +18250,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, [], name, value)
 
 
-                                        class All(Entity):
+                                        class All(_Entity_):
                                             """
                                             All
                                             
@@ -16394,7 +18267,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
 
                                                 self.yang_name = "all"
                                                 self.yang_parent_name = "database-filter"
@@ -16412,10 +18288,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, ['out'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter']['meta_info']
 
 
-
-                                    class DistributeList(Entity):
+                                    class DistributeList(_Entity_):
                                         """
                                         Filter prefixes to/from RIB
                                         
@@ -16432,7 +18316,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
 
                                             self.yang_name = "distribute-list"
                                             self.yang_parent_name = "interface"
@@ -16452,7 +18339,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, [], name, value)
 
 
-                                        class In(Entity):
+                                        class In(_Entity_):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -16469,7 +18356,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                                 self.yang_name = "in"
                                                 self.yang_parent_name = "distribute-list"
@@ -16487,10 +18377,18 @@ class Ospfv3(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
 
 
-
-                                    class FastReroute(Entity):
+                                    class FastReroute(_Entity_):
                                         """
                                         Fast\-reroute configuration
                                         
@@ -16517,7 +18415,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
 
                                             self.yang_name = "fast-reroute"
                                             self.yang_parent_name = "interface"
@@ -16544,7 +18445,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                        class PerLink(Entity):
+                                        class PerLink(_Entity_):
                                             """
                                             Fast\-reroute per\-link configuration
                                             
@@ -16573,7 +18474,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
 
                                                 self.yang_name = "per-link"
                                                 self.yang_parent_name = "fast-reroute"
@@ -16600,7 +18504,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                            class CandidateInterfaces(Entity):
+                                            class CandidateInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
                                                 interface configuration
@@ -16618,7 +18522,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                     self.yang_name = "candidate-interfaces"
                                                     self.yang_parent_name = "per-link"
@@ -16636,7 +18543,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                                class CandidateInterface(Entity):
+                                                class CandidateInterface(_Entity_):
                                                     """
                                                     Candidate backup interface
                                                     
@@ -16655,7 +18562,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                         self.yang_name = "candidate-interface"
                                                         self.yang_parent_name = "candidate-interfaces"
@@ -16673,10 +18583,18 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                            class ExcludeInterfaces(Entity):
+                                            class ExcludeInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix exclude
                                                 interface configuration
@@ -16694,7 +18612,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                     self.yang_name = "exclude-interfaces"
                                                     self.yang_parent_name = "per-link"
@@ -16712,7 +18633,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                                class ExcludeInterface(Entity):
+                                                class ExcludeInterface(_Entity_):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
@@ -16731,7 +18652,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                         self.yang_name = "exclude-interface"
                                                         self.yang_parent_name = "exclude-interfaces"
@@ -16749,11 +18673,23 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                        class PerPrefix(Entity):
+                                        class PerPrefix(_Entity_):
                                             """
                                             Fast\-reroute per\-link configuration
                                             
@@ -16782,7 +18718,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
 
                                                 self.yang_name = "per-prefix"
                                                 self.yang_parent_name = "fast-reroute"
@@ -16809,7 +18748,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                            class CandidateInterfaces(Entity):
+                                            class CandidateInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
                                                 interface configuration
@@ -16827,7 +18766,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                     self.yang_name = "candidate-interfaces"
                                                     self.yang_parent_name = "per-prefix"
@@ -16845,7 +18787,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                                class CandidateInterface(Entity):
+                                                class CandidateInterface(_Entity_):
                                                     """
                                                     Candidate backup interface
                                                     
@@ -16864,7 +18806,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                         self.yang_name = "candidate-interface"
                                                         self.yang_parent_name = "candidate-interfaces"
@@ -16882,10 +18827,18 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                            class ExcludeInterfaces(Entity):
+                                            class ExcludeInterfaces(_Entity_):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix exclude
                                                 interface configuration
@@ -16903,7 +18856,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                     self.yang_name = "exclude-interfaces"
                                                     self.yang_parent_name = "per-prefix"
@@ -16921,7 +18877,7 @@ class Ospfv3(Entity):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                                class ExcludeInterface(Entity):
+                                                class ExcludeInterface(_Entity_):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
@@ -16940,7 +18896,10 @@ class Ospfv3(Entity):
                                                     _revision = '2018-05-14'
 
                                                     def __init__(self):
-                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                         self.yang_name = "exclude-interface"
                                                         self.yang_parent_name = "exclude-interfaces"
@@ -16958,14 +18917,38 @@ class Ospfv3(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces']['meta_info']
 
 
-
-
-
-
-
-                            class AreaScope(Entity):
+                            class AreaScope(_Entity_):
                                 """
                                 Area Scope Configuration
                                 
@@ -16982,7 +18965,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
 
                                     self.yang_name = "area-scope"
                                     self.yang_parent_name = "area-area-id"
@@ -17002,7 +18988,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, [], name, value)
 
 
-                                class FastReroute(Entity):
+                                class FastReroute(_Entity_):
                                     """
                                     Fast\-reroute configuration
                                     
@@ -17029,7 +19015,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
 
                                         self.yang_name = "fast-reroute"
                                         self.yang_parent_name = "area-scope"
@@ -17056,7 +19045,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                                    class PerLink(Entity):
+                                    class PerLink(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -17085,7 +19074,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
 
                                             self.yang_name = "per-link"
                                             self.yang_parent_name = "fast-reroute"
@@ -17112,7 +19104,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -17130,7 +19122,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -17148,7 +19143,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -17167,7 +19162,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -17185,10 +19183,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -17206,7 +19212,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-link"
@@ -17224,7 +19233,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -17243,7 +19252,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -17261,11 +19273,23 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                                    class PerPrefix(Entity):
+                                    class PerPrefix(_Entity_):
                                         """
                                         Fast\-reroute per\-link configuration
                                         
@@ -17294,7 +19318,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
 
                                             self.yang_name = "per-prefix"
                                             self.yang_parent_name = "fast-reroute"
@@ -17321,7 +19348,7 @@ class Ospfv3(Entity):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                        class CandidateInterfaces(Entity):
+                                        class CandidateInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
                                             interface configuration
@@ -17339,7 +19366,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                                 self.yang_name = "candidate-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -17357,7 +19387,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                            class CandidateInterface(Entity):
+                                            class CandidateInterface(_Entity_):
                                                 """
                                                 Candidate backup interface
                                                 
@@ -17376,7 +19406,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                                     self.yang_name = "candidate-interface"
                                                     self.yang_parent_name = "candidate-interfaces"
@@ -17394,10 +19427,18 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                        class ExcludeInterfaces(Entity):
+                                        class ExcludeInterfaces(_Entity_):
                                             """
                                             Fast\-reroute per\-link/per\-prefix exclude
                                             interface configuration
@@ -17415,7 +19456,10 @@ class Ospfv3(Entity):
                                             _revision = '2018-05-14'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                                 self.yang_name = "exclude-interfaces"
                                                 self.yang_parent_name = "per-prefix"
@@ -17433,7 +19477,7 @@ class Ospfv3(Entity):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                            class ExcludeInterface(Entity):
+                                            class ExcludeInterface(_Entity_):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
@@ -17452,7 +19496,10 @@ class Ospfv3(Entity):
                                                 _revision = '2018-05-14'
 
                                                 def __init__(self):
-                                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                                     self.yang_name = "exclude-interface"
                                                     self.yang_parent_name = "exclude-interfaces"
@@ -17470,13 +19517,33 @@ class Ospfv3(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope']['meta_info']
 
 
-
-
-
-
-                            class ShamLinks(Entity):
+                            class ShamLinks(_Entity_):
                                 """
                                 Sham Link sub\-mode
                                 
@@ -17493,7 +19560,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
 
                                     self.yang_name = "sham-links"
                                     self.yang_parent_name = "area-area-id"
@@ -17511,7 +19581,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks, [], name, value)
 
 
-                                class ShamLink(Entity):
+                                class ShamLink(_Entity_):
                                     """
                                     ShamLink local and remote endpoints
                                     
@@ -17588,7 +19658,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
 
                                         self.yang_name = "sham-link"
                                         self.yang_parent_name = "sham-links"
@@ -17627,7 +19700,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -17663,7 +19736,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "sham-link"
@@ -17687,9 +19763,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication']['meta_info']
 
 
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -17737,7 +19817,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "sham-link"
@@ -17765,11 +19848,23 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks']['meta_info']
 
 
-
-
-                            class VirtualLinks(Entity):
+                            class VirtualLinks(_Entity_):
                                 """
                                 Virtual link sub\-mode
                                 
@@ -17786,7 +19881,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
 
                                     self.yang_name = "virtual-links"
                                     self.yang_parent_name = "area-area-id"
@@ -17804,7 +19902,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks, [], name, value)
 
 
-                                class VirtualLink(Entity):
+                                class VirtualLink(_Entity_):
                                     """
                                     Router ID of virtual link neighbor
                                     
@@ -17874,7 +19972,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
 
                                         self.yang_name = "virtual-link"
                                         self.yang_parent_name = "virtual-links"
@@ -17911,7 +20012,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
 
 
-                                    class Authentication(Entity):
+                                    class Authentication(_Entity_):
                                         """
                                         Authenticate OSPFv3 packets
                                         
@@ -17947,7 +20048,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
 
                                             self.yang_name = "authentication"
                                             self.yang_parent_name = "virtual-link"
@@ -17971,9 +20075,13 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication']['meta_info']
 
 
-                                    class Encryption(Entity):
+                                    class Encryption(_Entity_):
                                         """
                                         Encrypt and authenticate OSPFv3 packets
                                         
@@ -18021,7 +20129,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
 
                                             self.yang_name = "encryption"
                                             self.yang_parent_name = "virtual-link"
@@ -18049,13 +20160,33 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses']['meta_info']
 
 
-
-
-
-
-                    class Timers(Entity):
+                    class Timers(_Entity_):
                         """
                         Adjust routing timers
                         
@@ -18082,7 +20213,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers, self).__init__()
 
                             self.yang_name = "timers"
                             self.yang_parent_name = "vrf"
@@ -18110,7 +20244,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers, [], name, value)
 
 
-                        class Pacing(Entity):
+                        class Pacing(_Entity_):
                             """
                             Pacing timers
                             
@@ -18147,7 +20281,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing, self).__init__()
 
                                 self.yang_name = "pacing"
                                 self.yang_parent_name = "timers"
@@ -18169,9 +20306,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing, ['flood', 'retransmission', 'lsa_group'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing']['meta_info']
 
 
-                        class LsaTimers(Entity):
+                        class LsaTimers(_Entity_):
                             """
                             LSA timers
                             
@@ -18192,7 +20333,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers, self).__init__()
 
                                 self.yang_name = "lsa-timers"
                                 self.yang_parent_name = "timers"
@@ -18210,9 +20354,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers, ['arrival'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers']['meta_info']
 
 
-                        class Throttle(Entity):
+                        class Throttle(_Entity_):
                             """
                             Throttle timers
                             
@@ -18234,7 +20382,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle, self).__init__()
 
                                 self.yang_name = "throttle"
                                 self.yang_parent_name = "timers"
@@ -18258,7 +20409,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle, [], name, value)
 
 
-                            class Lsa(Entity):
+                            class Lsa(_Entity_):
                                 """
                                 LSA throttle timers for all types of OSPF LSAs
                                 
@@ -18297,7 +20448,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa, self).__init__()
 
                                     self.yang_name = "lsa"
                                     self.yang_parent_name = "throttle"
@@ -18319,9 +20473,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa, ['first_delay', 'minimum_delay', 'maximum_delay'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa']['meta_info']
 
 
-                            class Spf(Entity):
+                            class Spf(_Entity_):
                                 """
                                 SPF throttle timers
                                 
@@ -18354,7 +20512,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf, self).__init__()
 
                                     self.yang_name = "spf"
                                     self.yang_parent_name = "throttle"
@@ -18376,11 +20537,23 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf, ['first_delay', 'minimum_delay', 'maximum_delay'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers']['meta_info']
 
 
-
-
-                    class SummaryPrefixes(Entity):
+                    class SummaryPrefixes(_Entity_):
                         """
                         Summarize redistributed routes matching
                         prefix/length
@@ -18398,7 +20571,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes, self).__init__()
 
                             self.yang_name = "summary-prefixes"
                             self.yang_parent_name = "vrf"
@@ -18416,7 +20592,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes, [], name, value)
 
 
-                        class SummaryPrefix(Entity):
+                        class SummaryPrefix(_Entity_):
                             """
                             IPv6 address
                             
@@ -18454,7 +20630,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, self).__init__()
 
                                 self.yang_name = "summary-prefix"
                                 self.yang_parent_name = "summary-prefixes"
@@ -18478,10 +20657,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, ['prefix', 'prefix_length', 'not_advertise', 'tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes']['meta_info']
 
 
-
-                    class Snmp(Entity):
+                    class Snmp(_Entity_):
                         """
                         SNMP configuration
                         
@@ -18503,7 +20690,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp, self).__init__()
 
                             self.yang_name = "snmp"
                             self.yang_parent_name = "vrf"
@@ -18526,7 +20716,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp, ['context'], name, value)
 
 
-                        class TrapRateLimit(Entity):
+                        class TrapRateLimit(_Entity_):
                             """
                             SNMP trap rate configuration
                             
@@ -18552,7 +20742,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit, self).__init__()
 
                                 self.yang_name = "trap-rate-limit"
                                 self.yang_parent_name = "snmp"
@@ -18572,10 +20765,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit, ['window_size', 'max_window_traps'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Snmp']['meta_info']
 
 
-
-                    class FastReroute(Entity):
+                    class FastReroute(_Entity_):
                         """
                         Fast\-reroute instance scoped parameters
                         
@@ -18597,7 +20798,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute, self).__init__()
 
                             self.yang_name = "fast-reroute"
                             self.yang_parent_name = "vrf"
@@ -18621,7 +20825,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute, [], name, value)
 
 
-                        class PerLink(Entity):
+                        class PerLink(_Entity_):
                             """
                             Fast\-reroute per\-link global configuration
                             
@@ -18638,7 +20842,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, self).__init__()
 
                                 self.yang_name = "per-link"
                                 self.yang_parent_name = "fast-reroute"
@@ -18656,9 +20863,13 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, ['priority'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink']['meta_info']
 
 
-                        class PerPrefix(Entity):
+                        class PerPrefix(_Entity_):
                             """
                             Fast\-reroute per\-prefix global configuration
                             
@@ -18685,7 +20896,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, self).__init__()
 
                                 self.yang_name = "per-prefix"
                                 self.yang_parent_name = "fast-reroute"
@@ -18710,7 +20924,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, ['load_sharing_disable', 'priority'], name, value)
 
 
-                            class Tiebreakers(Entity):
+                            class Tiebreakers(_Entity_):
                                 """
                                 Fast\-reroute tiebreakers configurations
                                 
@@ -18727,7 +20941,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
 
                                     self.yang_name = "tiebreakers"
                                     self.yang_parent_name = "per-prefix"
@@ -18745,7 +20962,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, [], name, value)
 
 
-                                class Tiebreaker(Entity):
+                                class Tiebreaker(_Entity_):
                                     """
                                     Fast\-reroute tiebreakers configuration
                                     
@@ -18771,7 +20988,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
 
                                         self.yang_name = "tiebreaker"
                                         self.yang_parent_name = "tiebreakers"
@@ -18791,12 +21011,28 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute']['meta_info']
 
 
-
-
-
-                    class Distance(Entity):
+                    class Distance(_Entity_):
                         """
                         Define an administrative distance
                         
@@ -18820,7 +21056,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, self).__init__()
 
                             self.yang_name = "distance"
                             self.yang_parent_name = "vrf"
@@ -18843,7 +21082,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, ['administrative'], name, value)
 
 
-                        class Ospfv3_(Entity):
+                        class Ospfv3_(_Entity_):
                             """
                             OSPFv3 administrative distance
                             
@@ -18876,7 +21115,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, self).__init__()
 
                                 self.yang_name = "ospfv3"
                                 self.yang_parent_name = "distance"
@@ -18898,10 +21140,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, ['intra_area', 'inter_area', 'external'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance']['meta_info']
 
 
-
-                    class Maximum(Entity):
+                    class Maximum(_Entity_):
                         """
                         Set OSPFv3 limits
                         
@@ -18932,7 +21182,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum, self).__init__()
 
                             self.yang_name = "maximum"
                             self.yang_parent_name = "vrf"
@@ -18957,7 +21210,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum, ['interfaces', 'paths'], name, value)
 
 
-                        class RedistributedPrefixes(Entity):
+                        class RedistributedPrefixes(_Entity_):
                             """
                             Limit number of redistributed prefixes
                             
@@ -18988,7 +21241,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes, self).__init__()
 
                                 self.yang_name = "redistributed-prefixes"
                                 self.yang_parent_name = "maximum"
@@ -19010,10 +21266,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes, ['prefixes', 'threshold', 'warning_only'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Maximum']['meta_info']
 
 
-
-                    class Redistributes(Entity):
+                    class Redistributes(_Entity_):
                         """
                         Redistribute information from another routing
                         protocol
@@ -19031,7 +21295,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes, self).__init__()
 
                             self.yang_name = "redistributes"
                             self.yang_parent_name = "vrf"
@@ -19049,7 +21316,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes, [], name, value)
 
 
-                        class Redistribute(Entity):
+                        class Redistribute(_Entity_):
                             """
                             Redistribute information from another routing
                             protocol
@@ -19089,7 +21356,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, self).__init__()
 
                                 self.yang_name = "redistribute"
                                 self.yang_parent_name = "redistributes"
@@ -19115,7 +21385,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, ['protocol_name'], name, value)
 
 
-                            class ConnectedOrStaticOrSubscriberOrMobile(Entity):
+                            class ConnectedOrStaticOrSubscriberOrMobile(_Entity_):
                                 """
                                 connected or static or subscriber or mobile
                                 
@@ -19198,7 +21468,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
 
                                     self.yang_name = "connected-or-static-or-subscriber-or-mobile"
                                     self.yang_parent_name = "redistribute"
@@ -19241,9 +21514,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile']['meta_info']
 
 
-                            class Bgp(Entity):
+                            class Bgp(_Entity_):
                                 """
                                 bgp
                                 
@@ -19338,7 +21615,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, self).__init__()
 
                                     self.yang_name = "bgp"
                                     self.yang_parent_name = "redistribute"
@@ -19384,9 +21664,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp']['meta_info']
 
 
-                            class Ospfv3OrIsisOrApplication(Entity):
+                            class Ospfv3OrIsisOrApplication(_Entity_):
                                 """
                                 ospfv3 or isis or application
                                 
@@ -19474,7 +21758,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
 
                                     self.yang_name = "ospfv3-or-isis-or-application"
                                     self.yang_parent_name = "redistribute"
@@ -19518,9 +21805,13 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication']['meta_info']
 
 
-                            class Eigrp(Entity):
+                            class Eigrp(_Entity_):
                                 """
                                 eigrp
                                 
@@ -19608,7 +21899,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, self).__init__()
 
                                     self.yang_name = "eigrp"
                                     self.yang_parent_name = "redistribute"
@@ -19652,11 +21946,23 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'bgp_preserve_default_info', 'use_rib_metric'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes']['meta_info']
 
 
-
-
-                    class Ignore(Entity):
+                    class Ignore(_Entity_):
                         """
                         Do not complain about a specified event
                         
@@ -19673,7 +21979,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore, self).__init__()
 
                             self.yang_name = "ignore"
                             self.yang_parent_name = "vrf"
@@ -19693,7 +22002,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore, [], name, value)
 
 
-                        class Lsa(Entity):
+                        class Lsa(_Entity_):
                             """
                             Do not complain upon receiving LSA of the
                             specified type
@@ -19711,7 +22020,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa, self).__init__()
 
                                 self.yang_name = "lsa"
                                 self.yang_parent_name = "ignore"
@@ -19729,10 +22041,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa, ['mospf'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Ignore']['meta_info']
 
 
-
-                    class DistributeListOut(Entity):
+                    class DistributeListOut(_Entity_):
                         """
                         Filter prefixes from RIB 
                         
@@ -19749,7 +22069,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut, self).__init__()
 
                             self.yang_name = "distribute-list-out"
                             self.yang_parent_name = "vrf"
@@ -19769,7 +22092,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut, [], name, value)
 
 
-                        class DistributeOuts(Entity):
+                        class DistributeOuts(_Entity_):
                             """
                             Filter generated type\-5 LSAs
                             
@@ -19786,7 +22109,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts, self).__init__()
 
                                 self.yang_name = "distribute-outs"
                                 self.yang_parent_name = "distribute-list-out"
@@ -19804,7 +22130,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts, [], name, value)
 
 
-                            class DistributeOut(Entity):
+                            class DistributeOut(_Entity_):
                                 """
                                 Filter generated type\-5 LSAs
                                 
@@ -19841,7 +22167,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
 
                                     self.yang_name = "distribute-out"
                                     self.yang_parent_name = "distribute-outs"
@@ -19866,7 +22195,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name', 'all_or_connected_or_static_prefix_list'], name, value)
 
 
-                                class Bgp(Entity):
+                                class Bgp(_Entity_):
                                     """
                                     bgp
                                     
@@ -19897,7 +22226,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
 
                                         self.yang_name = "bgp"
                                         self.yang_parent_name = "distribute-out"
@@ -19919,9 +22251,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, ['as_xx', 'as_yy', 'prefix_list'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp']['meta_info']
 
 
-                                class Ospfv3OrIsis(Entity):
+                                class Ospfv3OrIsis(_Entity_):
                                     """
                                     ospfv3 or isis
                                     
@@ -19945,7 +22281,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
 
                                         self.yang_name = "ospfv3-or-isis"
                                         self.yang_parent_name = "distribute-out"
@@ -19965,9 +22304,13 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, ['process_name', 'prefix_list'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis']['meta_info']
 
 
-                                class Eigrp(Entity):
+                                class Eigrp(_Entity_):
                                     """
                                     eigrp
                                     
@@ -19991,7 +22334,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
 
                                         self.yang_name = "eigrp"
                                         self.yang_parent_name = "distribute-out"
@@ -20011,12 +22357,28 @@ class Ospfv3(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, ['as_xx', 'prefix_list'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut']['meta_info']
 
 
-
-
-
-                    class DistributeList(Entity):
+                    class DistributeList(_Entity_):
                         """
                         Filter prefixes to/from RIB
                         
@@ -20033,7 +22395,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList, self).__init__()
 
                             self.yang_name = "distribute-list"
                             self.yang_parent_name = "vrf"
@@ -20053,7 +22418,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList, [], name, value)
 
 
-                        class In(Entity):
+                        class In(_Entity_):
                             """
                             Filter prefixes installed to RIB
                             
@@ -20070,7 +22435,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, self).__init__()
 
                                 self.yang_name = "in"
                                 self.yang_parent_name = "distribute-list"
@@ -20088,10 +22456,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, ['prefix_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList']['meta_info']
 
 
-
-                    class StubRouter(Entity):
+                    class StubRouter(_Entity_):
                         """
                         Stub router configuration
                         
@@ -20124,7 +22500,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter, self).__init__()
 
                             self.yang_name = "stub-router"
                             self.yang_parent_name = "vrf"
@@ -20149,7 +22528,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter, [], name, value)
 
 
-                        class Rbit(Entity):
+                        class Rbit(_Entity_):
                             """
                             Stub router R\-bit configuration
                             
@@ -20205,7 +22584,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, self).__init__()
 
                                 self.yang_name = "rbit"
                                 self.yang_parent_name = "stub-router"
@@ -20237,7 +22619,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                            class OnStartup(Entity):
+                            class OnStartup(_Entity_):
                                 """
                                 Enter stub router operational state on startup
                                 
@@ -20265,7 +22647,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup, self).__init__()
 
                                     self.yang_name = "on-startup"
                                     self.yang_parent_name = "rbit"
@@ -20285,10 +22670,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit']['meta_info']
 
 
-
-                        class V6bit(Entity):
+                        class V6bit(_Entity_):
                             """
                             Stub router V6\-bit configuration
                             
@@ -20339,7 +22732,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, self).__init__()
 
                                 self.yang_name = "v6bit"
                                 self.yang_parent_name = "stub-router"
@@ -20369,7 +22765,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit, ['on_switchover', 'always', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                            class OnStartup(Entity):
+                            class OnStartup(_Entity_):
                                 """
                                 Enter stub router operational state on startup
                                 
@@ -20397,7 +22793,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup, self).__init__()
 
                                     self.yang_name = "on-startup"
                                     self.yang_parent_name = "v6bit"
@@ -20417,10 +22816,18 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit']['meta_info']
 
 
-
-                        class MaxMetric(Entity):
+                        class MaxMetric(_Entity_):
                             """
                             Stub router max\-metric configuration
                             
@@ -20494,7 +22901,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, self).__init__()
 
                                 self.yang_name = "max-metric"
                                 self.yang_parent_name = "stub-router"
@@ -20530,7 +22940,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
-                            class OnStartup(Entity):
+                            class OnStartup(_Entity_):
                                 """
                                 Enter stub router operational state on startup
                                 
@@ -20558,7 +22968,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup, self).__init__()
 
                                     self.yang_name = "on-startup"
                                     self.yang_parent_name = "max-metric"
@@ -20578,11 +22991,23 @@ class Ospfv3(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup, ['wait_for_bgp', 'wait_time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter']['meta_info']
 
 
-
-
-                    class Bfd(Entity):
+                    class Bfd(_Entity_):
                         """
                         Configure BFD parameters
                         
@@ -20615,7 +23040,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Bfd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Bfd, self).__init__()
 
                             self.yang_name = "bfd"
                             self.yang_parent_name = "vrf"
@@ -20637,9 +23065,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Bfd']['meta_info']
 
 
-                    class DatabaseFilter(Entity):
+                    class DatabaseFilter(_Entity_):
                         """
                         Database filter
                         
@@ -20656,7 +23088,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter, self).__init__()
 
                             self.yang_name = "database-filter"
                             self.yang_parent_name = "vrf"
@@ -20676,7 +23111,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter, [], name, value)
 
 
-                        class All(Entity):
+                        class All(_Entity_):
                             """
                             All
                             
@@ -20693,7 +23128,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All, self).__init__()
 
                                 self.yang_name = "all"
                                 self.yang_parent_name = "database-filter"
@@ -20711,10 +23149,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All, ['out'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter']['meta_info']
 
 
-
-                    class Capability(Entity):
+                    class Capability(_Entity_):
                         """
                         OSPFv3 Capability
                         
@@ -20741,7 +23187,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Capability, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Capability, self).__init__()
 
                             self.yang_name = "capability"
                             self.yang_parent_name = "vrf"
@@ -20763,9 +23212,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Capability, ['type7_prefer', 'vrf_lite', 'type7_translate_zero_forwarding_addr'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Capability']['meta_info']
 
 
-                    class Authentication(Entity):
+                    class Authentication(_Entity_):
                         """
                         Authenticate OSPFv3 packets
                         
@@ -20801,7 +23254,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Authentication, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Authentication, self).__init__()
 
                             self.yang_name = "authentication"
                             self.yang_parent_name = "vrf"
@@ -20825,9 +23281,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Authentication, ['enable', 'spi', 'algorithm', 'password'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Authentication']['meta_info']
 
 
-                    class GracefulRestart(Entity):
+                    class GracefulRestart(_Entity_):
                         """
                         Graceful restart configuration
                         
@@ -20872,7 +23332,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart, self).__init__()
 
                             self.yang_name = "graceful-restart"
                             self.yang_parent_name = "vrf"
@@ -20898,9 +23361,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart, ['interval', 'strict_lsa_checking', 'helper', 'enable', 'lifetime'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart']['meta_info']
 
 
-                    class DefaultInformation(Entity):
+                    class DefaultInformation(_Entity_):
                         """
                         Control distribution of default information
                         
@@ -20919,7 +23386,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation, self).__init__()
 
                             self.yang_name = "default-information"
                             self.yang_parent_name = "vrf"
@@ -20938,7 +23408,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation, [], name, value)
 
 
-                        class Originate(Entity):
+                        class Originate(_Entity_):
                             """
                             Distribute a default route
                             
@@ -20985,7 +23455,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate, self).__init__()
 
                                 self.yang_name = "originate"
                                 self.yang_parent_name = "default-information"
@@ -21012,10 +23485,18 @@ class Ospfv3(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate, ['always', 'metric', 'metric_type', 'tag', 'route_policy_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation']['meta_info']
 
 
-
-                    class ProcessScope(Entity):
+                    class ProcessScope(_Entity_):
                         """
                         Process scope configuration
                         
@@ -21032,7 +23513,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope, self).__init__()
 
                             self.yang_name = "process-scope"
                             self.yang_parent_name = "vrf"
@@ -21052,7 +23536,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope, [], name, value)
 
 
-                        class FastReroute(Entity):
+                        class FastReroute(_Entity_):
                             """
                             Fast\-reroute configuration
                             
@@ -21079,7 +23563,10 @@ class Ospfv3(Entity):
                             _revision = '2018-05-14'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, self).__init__()
 
                                 self.yang_name = "fast-reroute"
                                 self.yang_parent_name = "process-scope"
@@ -21106,7 +23593,7 @@ class Ospfv3(Entity):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, ['fast_reroute_enable'], name, value)
 
 
-                            class PerLink(Entity):
+                            class PerLink(_Entity_):
                                 """
                                 Fast\-reroute per\-link configuration
                                 
@@ -21135,7 +23622,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, self).__init__()
 
                                     self.yang_name = "per-link"
                                     self.yang_parent_name = "fast-reroute"
@@ -21162,7 +23652,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                class CandidateInterfaces(Entity):
+                                class CandidateInterfaces(_Entity_):
                                     """
                                     Fast\-reroute per\-link/per\-prefix candidate
                                     interface configuration
@@ -21180,7 +23670,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
 
                                         self.yang_name = "candidate-interfaces"
                                         self.yang_parent_name = "per-link"
@@ -21198,7 +23691,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, [], name, value)
 
 
-                                    class CandidateInterface(Entity):
+                                    class CandidateInterface(_Entity_):
                                         """
                                         Candidate backup interface
                                         
@@ -21217,7 +23710,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                             self.yang_name = "candidate-interface"
                                             self.yang_parent_name = "candidate-interfaces"
@@ -21235,10 +23731,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 
 
-
-                                class ExcludeInterfaces(Entity):
+                                class ExcludeInterfaces(_Entity_):
                                     """
                                     Fast\-reroute per\-link/per\-prefix exclude
                                     interface configuration
@@ -21256,7 +23760,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
 
                                         self.yang_name = "exclude-interfaces"
                                         self.yang_parent_name = "per-link"
@@ -21274,7 +23781,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, [], name, value)
 
 
-                                    class ExcludeInterface(Entity):
+                                    class ExcludeInterface(_Entity_):
                                         """
                                         Exclude an interface from becoming a backup
                                         
@@ -21293,7 +23800,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                             self.yang_name = "exclude-interface"
                                             self.yang_parent_name = "exclude-interfaces"
@@ -21311,11 +23821,23 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink']['meta_info']
 
 
-
-
-                            class PerPrefix(Entity):
+                            class PerPrefix(_Entity_):
                                 """
                                 Fast\-reroute per\-link configuration
                                 
@@ -21344,7 +23866,10 @@ class Ospfv3(Entity):
                                 _revision = '2018-05-14'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
 
                                     self.yang_name = "per-prefix"
                                     self.yang_parent_name = "fast-reroute"
@@ -21371,7 +23896,7 @@ class Ospfv3(Entity):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, ['fast_reroute_use_candidate_only'], name, value)
 
 
-                                class CandidateInterfaces(Entity):
+                                class CandidateInterfaces(_Entity_):
                                     """
                                     Fast\-reroute per\-link/per\-prefix candidate
                                     interface configuration
@@ -21389,7 +23914,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
 
                                         self.yang_name = "candidate-interfaces"
                                         self.yang_parent_name = "per-prefix"
@@ -21407,7 +23935,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, [], name, value)
 
 
-                                    class CandidateInterface(Entity):
+                                    class CandidateInterface(_Entity_):
                                         """
                                         Candidate backup interface
                                         
@@ -21426,7 +23954,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
 
                                             self.yang_name = "candidate-interface"
                                             self.yang_parent_name = "candidate-interfaces"
@@ -21444,10 +23975,18 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
 
 
-
-                                class ExcludeInterfaces(Entity):
+                                class ExcludeInterfaces(_Entity_):
                                     """
                                     Fast\-reroute per\-link/per\-prefix exclude
                                     interface configuration
@@ -21465,7 +24004,10 @@ class Ospfv3(Entity):
                                     _revision = '2018-05-14'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
 
                                         self.yang_name = "exclude-interfaces"
                                         self.yang_parent_name = "per-prefix"
@@ -21483,7 +24025,7 @@ class Ospfv3(Entity):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, [], name, value)
 
 
-                                    class ExcludeInterface(Entity):
+                                    class ExcludeInterface(_Entity_):
                                         """
                                         Exclude an interface from becoming a backup
                                         
@@ -21502,7 +24044,10 @@ class Ospfv3(Entity):
                                         _revision = '2018-05-14'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
 
                                             self.yang_name = "exclude-interface"
                                             self.yang_parent_name = "exclude-interfaces"
@@ -21520,13 +24065,33 @@ class Ospfv3(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope']['meta_info']
 
 
-
-
-
-
-                    class Encryption(Entity):
+                    class Encryption(_Entity_):
                         """
                         Encrypt and authenticate OSPFv3 packets
                         
@@ -21574,7 +24139,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.Encryption, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Encryption, self).__init__()
 
                             self.yang_name = "encryption"
                             self.yang_parent_name = "vrf"
@@ -21602,9 +24170,13 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Encryption, ['enable', 'spi', 'encryption_algorithm', 'encryption_password', 'authentication_algorithm', 'authentication_password'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Encryption']['meta_info']
 
 
-                    class AutoCost(Entity):
+                    class AutoCost(_Entity_):
                         """
                         Calculate interface cost according to bandwidth
                         
@@ -21632,7 +24204,10 @@ class Ospfv3(Entity):
                         _revision = '2018-05-14'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost, self).__init__()
 
                             self.yang_name = "auto-cost"
                             self.yang_parent_name = "vrf"
@@ -21653,11 +24228,23 @@ class Ospfv3(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost, ['disable', 'reference_bandwidth'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                            return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                    return meta._meta_table['Ospfv3.Processes.Process.Vrfs']['meta_info']
 
 
-
-
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 Address Family (AF)
                 
@@ -21683,7 +24270,10 @@ class Ospfv3(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Ospfv3.Processes.Process.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ospfv3.Processes.Process.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "process"
@@ -21704,9 +24294,13 @@ class Ospfv3(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ospfv3.Processes.Process.Af, ['af_name', 'saf_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                    return meta._meta_table['Ospfv3.Processes.Process.Af']['meta_info']
 
 
-            class TraceBufs(Entity):
+            class TraceBufs(_Entity_):
                 """
                 Configuration to change size of trace buffer
                 
@@ -21723,7 +24317,10 @@ class Ospfv3(Entity):
                 _revision = '2018-05-14'
 
                 def __init__(self):
-                    super(Ospfv3.Processes.Process.TraceBufs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ospfv3.Processes.Process.TraceBufs, self).__init__()
 
                     self.yang_name = "trace-bufs"
                     self.yang_parent_name = "process"
@@ -21741,7 +24338,7 @@ class Ospfv3(Entity):
                     self._perform_setattr(Ospfv3.Processes.Process.TraceBufs, [], name, value)
 
 
-                class TraceBuf(Entity):
+                class TraceBuf(_Entity_):
                     """
                     Changes the size of the specified trace
                     buffer
@@ -21768,7 +24365,10 @@ class Ospfv3(Entity):
                     _revision = '2018-05-14'
 
                     def __init__(self):
-                        super(Ospfv3.Processes.Process.TraceBufs.TraceBuf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ospfv3.Processes.Process.TraceBufs.TraceBuf, self).__init__()
 
                         self.yang_name = "trace-buf"
                         self.yang_parent_name = "trace-bufs"
@@ -21788,13 +24388,33 @@ class Ospfv3(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.TraceBufs.TraceBuf, ['trace_buf_name', 'bufsize'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                        return meta._meta_table['Ospfv3.Processes.Process.TraceBufs.TraceBuf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                    return meta._meta_table['Ospfv3.Processes.Process.TraceBufs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+                return meta._meta_table['Ospfv3.Processes.Process']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+            return meta._meta_table['Ospfv3.Processes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ospfv3()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
+        return meta._meta_table['Ospfv3']['meta_info']
 
 

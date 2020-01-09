@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class CfmAisDir(Enum):
     down = Enum.YLeaf(1, "down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmAisDir']
+
+
 class CfmBagAisInterval(Enum):
     """
     CfmBagAisInterval (Enum Class)
@@ -70,6 +79,12 @@ class CfmBagAisInterval(Enum):
     ais_interval1s = Enum.YLeaf(4, "ais-interval1s")
 
     ais_interval1m = Enum.YLeaf(6, "ais-interval1m")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagAisInterval']
 
 
 class CfmBagBdidFmt(Enum):
@@ -125,6 +140,12 @@ class CfmBagBdidFmt(Enum):
     fxc_vlan_unaware_id = Enum.YLeaf(5, "fxc-vlan-unaware-id")
 
     down_only = Enum.YLeaf(6, "down-only")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagBdidFmt']
 
 
 class CfmBagCcmInterval(Enum):
@@ -184,6 +205,12 @@ class CfmBagCcmInterval(Enum):
     interval10m = Enum.YLeaf(7, "interval10m")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagCcmInterval']
+
+
 class CfmBagCcmOffload(Enum):
     """
     CfmBagCcmOffload (Enum Class)
@@ -209,6 +236,12 @@ class CfmBagCcmOffload(Enum):
     offload_software = Enum.YLeaf(1, "offload-software")
 
     offload_hardware = Enum.YLeaf(2, "offload-hardware")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagCcmOffload']
 
 
 class CfmBagDirection(Enum):
@@ -238,6 +271,12 @@ class CfmBagDirection(Enum):
     direction_invalid = Enum.YLeaf(2, "direction-invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagDirection']
+
+
 class CfmBagIssuRole(Enum):
     """
     CfmBagIssuRole (Enum Class)
@@ -265,6 +304,12 @@ class CfmBagIssuRole(Enum):
     secondary = Enum.YLeaf(2, "secondary")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagIssuRole']
+
+
 class CfmBagIwState(Enum):
     """
     CfmBagIwState (Enum Class)
@@ -284,6 +329,12 @@ class CfmBagIwState(Enum):
     interworking_up = Enum.YLeaf(0, "interworking-up")
 
     interworking_test = Enum.YLeaf(1, "interworking-test")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagIwState']
 
 
 class CfmBagMdLevel(Enum):
@@ -349,6 +400,12 @@ class CfmBagMdLevel(Enum):
     level_invalid = Enum.YLeaf(8, "level-invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagMdLevel']
+
+
 class CfmBagMdidFmt(Enum):
     """
     CfmBagMdidFmt (Enum Class)
@@ -386,6 +443,12 @@ class CfmBagMdidFmt(Enum):
     mdid_string = Enum.YLeaf(4, "mdid-string")
 
     mdid_unknown = Enum.YLeaf(5, "mdid-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagMdidFmt']
 
 
 class CfmBagOpcode(Enum):
@@ -433,6 +496,12 @@ class CfmBagOpcode(Enum):
     ltm = Enum.YLeaf(5, "ltm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagOpcode']
+
+
 class CfmBagSmanFmt(Enum):
     """
     CfmBagSmanFmt (Enum Class)
@@ -478,6 +547,12 @@ class CfmBagSmanFmt(Enum):
     sman_unknown = Enum.YLeaf(33, "sman-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagSmanFmt']
+
+
 class CfmBagStpState(Enum):
     """
     CfmBagStpState (Enum Class)
@@ -503,6 +578,12 @@ class CfmBagStpState(Enum):
     stp_blocked = Enum.YLeaf(1, "stp-blocked")
 
     stp_unknown = Enum.YLeaf(2, "stp-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmBagStpState']
 
 
 class CfmMaMpVariety(Enum):
@@ -536,6 +617,12 @@ class CfmMaMpVariety(Enum):
     downmep = Enum.YLeaf(2, "downmep")
 
     unknown_mep = Enum.YLeaf(3, "unknown-mep")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmMaMpVariety']
 
 
 class CfmPmAddlIntfStatus(Enum):
@@ -577,6 +664,12 @@ class CfmPmAddlIntfStatus(Enum):
     local_excessive_errors = Enum.YLeaf(3, "local-excessive-errors")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmAddlIntfStatus']
+
+
 class CfmPmAisReceive(Enum):
     """
     CfmPmAisReceive (Enum Class)
@@ -614,6 +707,12 @@ class CfmPmAisReceive(Enum):
     receive_direct = Enum.YLeaf(3, "receive-direct")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmAisReceive']
+
+
 class CfmPmAisTransmit(Enum):
     """
     CfmPmAisTransmit (Enum Class)
@@ -641,6 +740,12 @@ class CfmPmAisTransmit(Enum):
     transmit_ais = Enum.YLeaf(1, "transmit-ais")
 
     transmit_ais_direct = Enum.YLeaf(2, "transmit-ais-direct")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmAisTransmit']
 
 
 class CfmPmChassisIdFmt(Enum):
@@ -700,6 +805,12 @@ class CfmPmChassisIdFmt(Enum):
     chassis_id_unknown_type = Enum.YLeaf(8, "chassis-id-unknown-type")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmChassisIdFmt']
+
+
 class CfmPmEgressAction(Enum):
     """
     CfmPmEgressAction (Enum Class)
@@ -731,6 +842,12 @@ class CfmPmEgressAction(Enum):
     egress_blocked = Enum.YLeaf(3, "egress-blocked")
 
     egress_vid = Enum.YLeaf(4, "egress-vid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmEgressAction']
 
 
 class CfmPmElmReplyFilter(Enum):
@@ -778,6 +895,12 @@ class CfmPmElmReplyFilter(Enum):
     reply_filter_all_ports = Enum.YLeaf(4, "reply-filter-all-ports")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmElmReplyFilter']
+
+
 class CfmPmElrEgressAction(Enum):
     """
     CfmPmElrEgressAction (Enum Class)
@@ -817,6 +940,12 @@ class CfmPmElrEgressAction(Enum):
     elr_egress_mac = Enum.YLeaf(255, "elr-egress-mac")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmElrEgressAction']
+
+
 class CfmPmElrIngressAction(Enum):
     """
     CfmPmElrIngressAction (Enum Class)
@@ -848,6 +977,12 @@ class CfmPmElrIngressAction(Enum):
     elr_ingress_blocked = Enum.YLeaf(3, "elr-ingress-blocked")
 
     elr_ingress_vid = Enum.YLeaf(4, "elr-ingress-vid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmElrIngressAction']
 
 
 class CfmPmElrRelayAction(Enum):
@@ -883,6 +1018,12 @@ class CfmPmElrRelayAction(Enum):
     elr_relay_drop = Enum.YLeaf(4, "elr-relay-drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmElrRelayAction']
+
+
 class CfmPmEltDelayModel(Enum):
     """
     CfmPmEltDelayModel (Enum Class)
@@ -912,6 +1053,12 @@ class CfmPmEltDelayModel(Enum):
     delay_model_constant = Enum.YLeaf(2, "delay-model-constant")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmEltDelayModel']
+
+
 class CfmPmIdFmt(Enum):
     """
     CfmPmIdFmt (Enum Class)
@@ -937,6 +1084,12 @@ class CfmPmIdFmt(Enum):
     id_format_is_mac_address = Enum.YLeaf(1, "id-format-is-mac-address")
 
     id_format_is_raw_hex = Enum.YLeaf(2, "id-format-is-raw-hex")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmIdFmt']
 
 
 class CfmPmIngressAction(Enum):
@@ -970,6 +1123,12 @@ class CfmPmIngressAction(Enum):
     ingress_blocked = Enum.YLeaf(3, "ingress-blocked")
 
     ingress_vid = Enum.YLeaf(4, "ingress-vid")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmIngressAction']
 
 
 class CfmPmIntfStatus(Enum):
@@ -1023,6 +1182,12 @@ class CfmPmIntfStatus(Enum):
     interface_status_lower_layer_down = Enum.YLeaf(7, "interface-status-lower-layer-down")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmIntfStatus']
+
+
 class CfmPmLastHopFmt(Enum):
     """
     CfmPmLastHopFmt (Enum Class)
@@ -1050,6 +1215,12 @@ class CfmPmLastHopFmt(Enum):
     last_hop_egress_id = Enum.YLeaf(2, "last-hop-egress-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmLastHopFmt']
+
+
 class CfmPmLtMode(Enum):
     """
     CfmPmLtMode (Enum Class)
@@ -1069,6 +1240,12 @@ class CfmPmLtMode(Enum):
     cfm_pm_lt_mode_basic = Enum.YLeaf(1, "cfm-pm-lt-mode-basic")
 
     cfm_pm_lt_mode_exploratory = Enum.YLeaf(2, "cfm-pm-lt-mode-exploratory")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmLtMode']
 
 
 class CfmPmMepDefect(Enum):
@@ -1124,6 +1301,12 @@ class CfmPmMepDefect(Enum):
     defect_cross_connect_ccm = Enum.YLeaf(5, "defect-cross-connect-ccm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmMepDefect']
+
+
 class CfmPmMepFngState(Enum):
     """
     CfmPmMepFngState (Enum Class)
@@ -1165,6 +1348,12 @@ class CfmPmMepFngState(Enum):
     fng_defect_reported = Enum.YLeaf(4, "fng-defect-reported")
 
     fng_defect_clearing = Enum.YLeaf(5, "fng-defect-clearing")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmMepFngState']
 
 
 class CfmPmPktAction(Enum):
@@ -1782,6 +1971,12 @@ class CfmPmPktAction(Enum):
     filter_response_issu_secondary = Enum.YLeaf(122, "filter-response-issu-secondary")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmPktAction']
+
+
 class CfmPmPortIdFmt(Enum):
     """
     CfmPmPortIdFmt (Enum Class)
@@ -1839,6 +2034,12 @@ class CfmPmPortIdFmt(Enum):
     port_id_unknown = Enum.YLeaf(8, "port-id-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmPortIdFmt']
+
+
 class CfmPmPortStatus(Enum):
     """
     CfmPmPortStatus (Enum Class)
@@ -1866,6 +2067,12 @@ class CfmPmPortStatus(Enum):
     port_status_unknown = Enum.YLeaf(3, "port-status-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmPortStatus']
+
+
 class CfmPmRelayAction(Enum):
     """
     CfmPmRelayAction (Enum Class)
@@ -1891,6 +2098,12 @@ class CfmPmRelayAction(Enum):
     relay_fdb = Enum.YLeaf(2, "relay-fdb")
 
     relay_mpdb = Enum.YLeaf(3, "relay-mpdb")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmRelayAction']
 
 
 class CfmPmRmepState(Enum):
@@ -1928,6 +2141,12 @@ class CfmPmRmepState(Enum):
     peer_mep_ok = Enum.YLeaf(4, "peer-mep-ok")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmRmepState']
+
+
 class CfmPmRmepXcState(Enum):
     """
     CfmPmRmepXcState (Enum Class)
@@ -1957,6 +2176,12 @@ class CfmPmRmepXcState(Enum):
     cross_check_extra = Enum.YLeaf(2, "cross-check-extra")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['CfmPmRmepXcState']
+
+
 class SlaBucketSize(Enum):
     """
     SlaBucketSize (Enum Class)
@@ -1976,6 +2201,12 @@ class SlaBucketSize(Enum):
     buckets_per_probe = Enum.YLeaf(0, "buckets-per-probe")
 
     probes_per_bucket = Enum.YLeaf(1, "probes-per-bucket")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaBucketSize']
 
 
 class SlaOperBucket(Enum):
@@ -1999,6 +2230,12 @@ class SlaOperBucket(Enum):
     bucket_type_samples = Enum.YLeaf(1, "bucket-type-samples")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaOperBucket']
+
+
 class SlaOperOperation(Enum):
     """
     SlaOperOperation (Enum Class)
@@ -2018,6 +2255,12 @@ class SlaOperOperation(Enum):
     operation_type_configured = Enum.YLeaf(0, "operation-type-configured")
 
     operation_type_ondemand = Enum.YLeaf(1, "operation-type-ondemand")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaOperOperation']
 
 
 class SlaOperPacketPriority(Enum):
@@ -2043,6 +2286,12 @@ class SlaOperPacketPriority(Enum):
     priority_cos = Enum.YLeaf(1, "priority-cos")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaOperPacketPriority']
+
+
 class SlaOperTestPatternScheme(Enum):
     """
     SlaOperTestPatternScheme (Enum Class)
@@ -2064,6 +2313,12 @@ class SlaOperTestPatternScheme(Enum):
     hex = Enum.YLeaf(0, "hex")
 
     pseudo_random = Enum.YLeaf(1, "pseudo-random")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaOperTestPatternScheme']
 
 
 class SlaRecordableMetric(Enum):
@@ -2129,8 +2384,14 @@ class SlaRecordableMetric(Enum):
     metric_one_way_flr_ds = Enum.YLeaf(8, "metric-one-way-flr-ds")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['SlaRecordableMetric']
 
-class Cfm(Entity):
+
+
+class Cfm(_Entity_):
     """
     CFM operational data
     
@@ -2156,7 +2417,10 @@ class Cfm(Entity):
     _revision = '2018-12-20'
 
     def __init__(self):
-        super(Cfm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Cfm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "cfm"
@@ -2181,7 +2445,7 @@ class Cfm(Entity):
         self._perform_setattr(Cfm, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node table for node\-specific operational data
         
@@ -2200,7 +2464,10 @@ class Cfm(Entity):
         _revision = '2018-12-20'
 
         def __init__(self):
-            super(Cfm.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Cfm.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "cfm"
@@ -2219,7 +2486,7 @@ class Cfm(Entity):
             self._perform_setattr(Cfm.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -2268,7 +2535,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -2304,7 +2574,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Nodes.Node, ['node'], name, value)
 
 
-            class InterfaceAises(Entity):
+            class InterfaceAises(_Entity_):
                 """
                 Interface AIS table
                 
@@ -2323,7 +2593,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
 
                     self.yang_name = "interface-aises"
                     self.yang_parent_name = "node"
@@ -2341,7 +2614,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Nodes.Node.InterfaceAises, [], name, value)
 
 
-                class InterfaceAis(Entity):
+                class InterfaceAis(_Entity_):
                     """
                     AIS statistics for a particular interface
                     
@@ -2406,7 +2679,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
 
                         self.yang_name = "interface-ais"
                         self.yang_parent_name = "interface-aises"
@@ -2439,7 +2715,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface', 'direction', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state'], name, value)
 
 
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         AIS statistics
                         
@@ -2509,7 +2785,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "interface-ais"
@@ -2546,7 +2825,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'transmission_level', 'transmission_interval', 'sent_packets', 'via_level'], name, value)
 
 
-                        class Defects(Entity):
+                        class Defects(_Entity_):
                             """
                             Defects detected
                             
@@ -2622,7 +2901,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
 
                                 self.yang_name = "defects"
                                 self.yang_parent_name = "statistics"
@@ -2657,7 +2939,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
 
 
-                            class RemoteMepsDefects(Entity):
+                            class RemoteMepsDefects(_Entity_):
                                 """
                                 Defects detected from remote MEPs
                                 
@@ -2718,7 +3000,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
 
                                     self.yang_name = "remote-meps-defects"
                                     self.yang_parent_name = "defects"
@@ -2748,10 +3033,18 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects']['meta_info']
 
 
-
-                        class LastStarted(Entity):
+                        class LastStarted(_Entity_):
                             """
                             Time elapsed since sending last started
                             
@@ -2785,7 +3078,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
 
                                 self.yang_name = "last-started"
                                 self.yang_parent_name = "statistics"
@@ -2805,12 +3101,28 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['seconds', 'nanoseconds'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Nodes.Node.InterfaceAises']['meta_info']
 
 
-
-
-
-            class InterfaceStatistics(Entity):
+            class InterfaceStatistics(_Entity_):
                 """
                 Interface Statistics table
                 
@@ -2829,7 +3141,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
 
                     self.yang_name = "interface-statistics"
                     self.yang_parent_name = "node"
@@ -2847,7 +3162,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics, [], name, value)
 
 
-                class InterfaceStatistic(Entity):
+                class InterfaceStatistic(_Entity_):
                     """
                     Counters for a particular interface
                     
@@ -2884,7 +3199,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
 
                         self.yang_name = "interface-statistic"
                         self.yang_parent_name = "interface-statistics"
@@ -2909,7 +3227,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
 
 
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         EFP statistics
                         
@@ -2953,7 +3271,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "interface-statistic"
@@ -2977,11 +3298,23 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['malformed_packets', 'dropped_packets', 'last_malformed_opcode', 'last_malformed_reason'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Nodes.Node.InterfaceStatistics']['meta_info']
 
 
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summary
                 
@@ -3225,7 +3558,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -3293,9 +3629,13 @@ class Cfm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Nodes.Node.Summary, ['domains', 'services', 'ccm_rate', 'local_meps', 'operational_local_meps', 'down_meps', 'up_meps', 'offloaded', 'offloaded_at3_3ms', 'offloaded_at10ms', 'disabled_misconfigured', 'disabled_out_of_resources', 'disabled_operational_error', 'peer_meps', 'operational_peer_meps', 'peer_meps_with_defects', 'peer_meps_without_defects', 'peer_meps_timed_out', 'mips', 'interfaces', 'bridge_domains_and_xconnects', 'traceroute_cache_entries', 'traceroute_cache_replies', 'ccm_learning_db_entries', 'issu_role', 'bnm_enabled_links'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Nodes.Node.Summary']['meta_info']
 
 
-            class CcmLearningDatabases(Entity):
+            class CcmLearningDatabases(_Entity_):
                 """
                 CCMLearningDatabase table
                 
@@ -3314,7 +3654,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
 
                     self.yang_name = "ccm-learning-databases"
                     self.yang_parent_name = "node"
@@ -3332,7 +3675,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases, [], name, value)
 
 
-                class CcmLearningDatabase(Entity):
+                class CcmLearningDatabase(_Entity_):
                     """
                     CCM Learning Database entry
                     
@@ -3424,7 +3767,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
 
                         self.yang_name = "ccm-learning-database"
                         self.yang_parent_name = "ccm-learning-databases"
@@ -3460,12 +3806,28 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'level', 'service_xr', 'source_mac_address', 'ingress_interface', 'stale', 'ingress_interface_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Nodes.Node.CcmLearningDatabases']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+            return meta._meta_table['Cfm.Nodes']['meta_info']
 
 
-
-
-
-    class Global(Entity):
+    class Global(_Entity_):
         """
         Global operational data
         
@@ -3526,7 +3888,10 @@ class Cfm(Entity):
         _revision = '2018-12-20'
 
         def __init__(self):
-            super(Cfm.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Cfm.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "cfm"
@@ -3571,7 +3936,7 @@ class Cfm(Entity):
             self._perform_setattr(Cfm.Global, [], name, value)
 
 
-        class IncompleteTraceroutes(Entity):
+        class IncompleteTraceroutes(_Entity_):
             """
             Incomplete Traceroute table
             
@@ -3590,7 +3955,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.IncompleteTraceroutes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.IncompleteTraceroutes, self).__init__()
 
                 self.yang_name = "incomplete-traceroutes"
                 self.yang_parent_name = "global"
@@ -3609,7 +3977,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes, [], name, value)
 
 
-            class IncompleteTraceroute(Entity):
+            class IncompleteTraceroute(_Entity_):
                 """
                 Information about a traceroute operation that
                 has not yet timed out
@@ -3685,7 +4053,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, self).__init__()
 
                     self.yang_name = "incomplete-traceroute"
                     self.yang_parent_name = "incomplete-traceroutes"
@@ -3719,7 +4090,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'time_left'], name, value)
 
 
-                class TracerouteInformation(Entity):
+                class TracerouteInformation(_Entity_):
                     """
                     Information about the traceroute operation
                     
@@ -3842,7 +4213,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, self).__init__()
 
                         self.yang_name = "traceroute-information"
                         self.yang_parent_name = "incomplete-traceroute"
@@ -3887,7 +4261,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
-                    class Options(Entity):
+                    class Options(_Entity_):
                         """
                         Options affecting traceroute behavior
                         
@@ -3920,7 +4294,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, self).__init__()
 
                             self.yang_name = "options"
                             self.yang_parent_name = "traceroute-information"
@@ -3947,7 +4324,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, ['mode'], name, value)
 
 
-                        class BasicOptions(Entity):
+                        class BasicOptions(_Entity_):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
@@ -3973,7 +4350,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, self).__init__()
 
                                 self.yang_name = "basic-options"
                                 self.yang_parent_name = "options"
@@ -3993,9 +4373,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions']['meta_info']
 
 
-                        class ExploratoryOptions(Entity):
+                        class ExploratoryOptions(_Entity_):
                             """
                             Options for an Exploratory Linktrace
                             
@@ -4030,7 +4414,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
 
                                 self.yang_name = "exploratory-options"
                                 self.yang_parent_name = "options"
@@ -4052,13 +4439,33 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info']
 
 
-
-
-
-
-        class MaintenancePoints(Entity):
+        class MaintenancePoints(_Entity_):
             """
             Maintenance Points table
             
@@ -4077,7 +4484,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.MaintenancePoints, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.MaintenancePoints, self).__init__()
 
                 self.yang_name = "maintenance-points"
                 self.yang_parent_name = "global"
@@ -4096,7 +4506,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.MaintenancePoints, [], name, value)
 
 
-            class MaintenancePoint(Entity):
+            class MaintenancePoint(_Entity_):
                 """
                 Information about a particular Maintenance
                 Point
@@ -4159,7 +4569,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.MaintenancePoints.MaintenancePoint, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.MaintenancePoints.MaintenancePoint, self).__init__()
 
                     self.yang_name = "maintenance-point"
                     self.yang_parent_name = "maintenance-points"
@@ -4191,7 +4604,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', 'mep_has_error', 'mac_address'], name, value)
 
 
-                class MaintenancePoint_(Entity):
+                class MaintenancePoint_(_Entity_):
                     """
                     Maintenance Point
                     
@@ -4249,7 +4662,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, self).__init__()
 
                         self.yang_name = "maintenance-point"
                         self.yang_parent_name = "maintenance-point"
@@ -4277,11 +4693,23 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.MaintenancePoints']['meta_info']
 
 
-
-
-        class GlobalConfigurationErrors(Entity):
+        class GlobalConfigurationErrors(_Entity_):
             """
             Global configuration errors table
             
@@ -4300,7 +4728,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.GlobalConfigurationErrors, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.GlobalConfigurationErrors, self).__init__()
 
                 self.yang_name = "global-configuration-errors"
                 self.yang_parent_name = "global"
@@ -4319,7 +4750,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.GlobalConfigurationErrors, [], name, value)
 
 
-            class GlobalConfigurationError(Entity):
+            class GlobalConfigurationError(_Entity_):
                 """
                 Information about a particular configuration
                 error
@@ -4392,7 +4823,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
 
                     self.yang_name = "global-configuration-error"
                     self.yang_parent_name = "global-configuration-errors"
@@ -4428,7 +4862,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
 
 
-                class BridgeDomainId(Entity):
+                class BridgeDomainId(_Entity_):
                     """
                     BD/XC ID, or Service name if the Service is
                     'down\-only'
@@ -4489,7 +4923,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
 
                         self.yang_name = "bridge-domain-id"
                         self.yang_parent_name = "global-configuration-error"
@@ -4517,11 +4954,23 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info']
 
 
-
-
-        class MepConfigurationErrors(Entity):
+        class MepConfigurationErrors(_Entity_):
             """
             MEP configuration errors table
             
@@ -4540,7 +4989,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.MepConfigurationErrors, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.MepConfigurationErrors, self).__init__()
 
                 self.yang_name = "mep-configuration-errors"
                 self.yang_parent_name = "global"
@@ -4559,7 +5011,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.MepConfigurationErrors, [], name, value)
 
 
-            class MepConfigurationError(Entity):
+            class MepConfigurationError(_Entity_):
                 """
                 Information about a particular configuration
                 error
@@ -4825,7 +5277,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.MepConfigurationErrors.MepConfigurationError, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.MepConfigurationErrors.MepConfigurationError, self).__init__()
 
                     self.yang_name = "mep-configuration-error"
                     self.yang_parent_name = "mep-configuration-errors"
@@ -4921,7 +5376,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', 'ccm_interval', 'no_domain', 'no_service', 'bridge_domain_mismatch', 'level_conflict', 'ccm_interval_not_supported', 'offload_out_of_resources', 'offload_multiple_local_mep', 'offload_no_cross_check', 'offload_multiple_peer_meps', 'offload_mep_direction_not_supported', 'ais_configured', 'bundle_level0', 'bridge_domain_not_in_bd_infra', 'maid_format_not_supported', 'sman_format_not_supported', 'mdid_format_not_supported', 'fatal_offload_error', 'satellite_limitation', 'sla_loopback_operations_disabled', 'sla_synthetic_loss_operations_disabled', 'sla_delay_measurement_operations_disabled', 'no_valid_mac_address', 'no_interface_type', 'not_in_im', 'no_mlacp', 'satellite_error_string', 'satellite_id'], name, value)
 
 
-                class Mep(Entity):
+                class Mep(_Entity_):
                     """
                     The MEP that has errors
                     
@@ -4979,7 +5434,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, self).__init__()
 
                         self.yang_name = "mep"
                         self.yang_parent_name = "mep-configuration-error"
@@ -5007,9 +5465,13 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep']['meta_info']
 
 
-                class ServiceBridgeDomain(Entity):
+                class ServiceBridgeDomain(_Entity_):
                     """
                     BD/XC ID for the MEP's Service, or Service name
                     if the Service is 'down\-only'
@@ -5070,7 +5532,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, self).__init__()
 
                         self.yang_name = "service-bridge-domain"
                         self.yang_parent_name = "mep-configuration-error"
@@ -5098,9 +5563,13 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain']['meta_info']
 
 
-                class InterfaceBridgeDomain(Entity):
+                class InterfaceBridgeDomain(_Entity_):
                     """
                     ID of the BD/XC that the MEP's EFP is in, if any
                     
@@ -5160,7 +5629,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
 
                         self.yang_name = "interface-bridge-domain"
                         self.yang_parent_name = "mep-configuration-error"
@@ -5188,9 +5660,13 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain']['meta_info']
 
 
-                class SatelliteCapabilities(Entity):
+                class SatelliteCapabilities(_Entity_):
                     """
                     Satellite Capabilities
                     
@@ -5223,7 +5699,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
 
                         self.yang_name = "satellite-capabilities"
                         self.yang_parent_name = "mep-configuration-error"
@@ -5251,7 +5730,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, [], name, value)
 
 
-                    class Loopback(Entity):
+                    class Loopback(_Entity_):
                         """
                         Loopback
                         
@@ -5277,7 +5756,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
 
                             self.yang_name = "loopback"
                             self.yang_parent_name = "satellite-capabilities"
@@ -5297,9 +5779,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, ['responder', 'controller'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback']['meta_info']
 
 
-                    class DelayMeasurement(Entity):
+                    class DelayMeasurement(_Entity_):
                         """
                         Delay Measurement
                         
@@ -5325,7 +5811,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
 
                             self.yang_name = "delay-measurement"
                             self.yang_parent_name = "satellite-capabilities"
@@ -5345,9 +5834,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, ['responder', 'controller'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement']['meta_info']
 
 
-                    class SyntheticLossMeasurement(Entity):
+                    class SyntheticLossMeasurement(_Entity_):
                         """
                         Synthetic Loss Measurement
                         
@@ -5373,7 +5866,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
 
                             self.yang_name = "synthetic-loss-measurement"
                             self.yang_parent_name = "satellite-capabilities"
@@ -5393,12 +5889,28 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, ['responder', 'controller'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.MepConfigurationErrors']['meta_info']
 
 
-
-
-
-        class TracerouteCaches(Entity):
+        class TracerouteCaches(_Entity_):
             """
             Traceroute Cache table
             
@@ -5417,7 +5929,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.TracerouteCaches, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.TracerouteCaches, self).__init__()
 
                 self.yang_name = "traceroute-caches"
                 self.yang_parent_name = "global"
@@ -5436,7 +5951,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.TracerouteCaches, [], name, value)
 
 
-            class TracerouteCache(Entity):
+            class TracerouteCache(_Entity_):
                 """
                 Information about a particular traceroute
                 operation
@@ -5524,7 +6039,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.TracerouteCaches.TracerouteCache, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.TracerouteCaches.TracerouteCache, self).__init__()
 
                     self.yang_name = "traceroute-cache"
                     self.yang_parent_name = "traceroute-caches"
@@ -5561,7 +6079,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'replies_dropped'], name, value)
 
 
-                class TracerouteInformation(Entity):
+                class TracerouteInformation(_Entity_):
                     """
                     Information about the traceroute operation
                     
@@ -5684,7 +6202,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, self).__init__()
 
                         self.yang_name = "traceroute-information"
                         self.yang_parent_name = "traceroute-cache"
@@ -5729,7 +6250,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
 
 
-                    class Options(Entity):
+                    class Options(_Entity_):
                         """
                         Options affecting traceroute behavior
                         
@@ -5762,7 +6283,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, self).__init__()
 
                             self.yang_name = "options"
                             self.yang_parent_name = "traceroute-information"
@@ -5789,7 +6313,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, ['mode'], name, value)
 
 
-                        class BasicOptions(Entity):
+                        class BasicOptions(_Entity_):
                             """
                             Options for a basic IEEE 802.1ag Linktrace
                             
@@ -5815,7 +6339,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, self).__init__()
 
                                 self.yang_name = "basic-options"
                                 self.yang_parent_name = "options"
@@ -5835,9 +6362,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions']['meta_info']
 
 
-                        class ExploratoryOptions(Entity):
+                        class ExploratoryOptions(_Entity_):
                             """
                             Options for an Exploratory Linktrace
                             
@@ -5872,7 +6403,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
 
                                 self.yang_name = "exploratory-options"
                                 self.yang_parent_name = "options"
@@ -5894,11 +6428,23 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info']
 
 
-
-
-                class LinktraceReply(Entity):
+                class LinktraceReply(_Entity_):
                     """
                     Received linktrace replies
                     
@@ -5975,7 +6521,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
 
                         self.yang_name = "linktrace-reply"
                         self.yang_parent_name = "traceroute-cache"
@@ -6021,7 +6570,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
 
 
-                    class Header(Entity):
+                    class Header(_Entity_):
                         """
                         Frame header
                         
@@ -6095,7 +6644,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
 
                             self.yang_name = "header"
                             self.yang_parent_name = "linktrace-reply"
@@ -6127,9 +6679,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['level', 'version', 'use_fdb_only', 'forwarded', 'terminal_mep', 'transaction_id', 'ttl', 'relay_action'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header']['meta_info']
 
 
-                    class SenderId(Entity):
+                    class SenderId(_Entity_):
                         """
                         Sender ID TLV
                         
@@ -6166,7 +6722,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
 
                             self.yang_name = "sender-id"
                             self.yang_parent_name = "linktrace-reply"
@@ -6191,7 +6750,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
-                        class ChassisId(Entity):
+                        class ChassisId(_Entity_):
                             """
                             Chassis ID
                             
@@ -6235,7 +6794,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
 
                                 self.yang_name = "chassis-id"
                                 self.yang_parent_name = "sender-id"
@@ -6262,7 +6824,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
-                            class ChassisIdValue(Entity):
+                            class ChassisIdValue(_Entity_):
                                 """
                                 Chassis ID (Current)
                                 
@@ -6306,7 +6868,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
 
                                     self.yang_name = "chassis-id-value"
                                     self.yang_parent_name = "chassis-id"
@@ -6330,11 +6895,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info']
 
 
-
-
-                    class EgressId(Entity):
+                    class EgressId(_Entity_):
                         """
                         Egress ID TLV
                         
@@ -6360,7 +6937,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
 
                             self.yang_name = "egress-id"
                             self.yang_parent_name = "linktrace-reply"
@@ -6384,7 +6964,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, [], name, value)
 
 
-                        class LastEgressId(Entity):
+                        class LastEgressId(_Entity_):
                             """
                             Last egress ID
                             
@@ -6414,7 +6994,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
 
                                 self.yang_name = "last-egress-id"
                                 self.yang_parent_name = "egress-id"
@@ -6434,9 +7017,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId']['meta_info']
 
 
-                        class NextEgressId(Entity):
+                        class NextEgressId(_Entity_):
                             """
                             Next egress ID
                             
@@ -6466,7 +7053,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
 
                                 self.yang_name = "next-egress-id"
                                 self.yang_parent_name = "egress-id"
@@ -6486,10 +7076,18 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
 
 
-
-                    class ReplyIngress(Entity):
+                    class ReplyIngress(_Entity_):
                         """
                         Reply ingress TLV
                         
@@ -6524,7 +7122,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
 
                             self.yang_name = "reply-ingress"
                             self.yang_parent_name = "linktrace-reply"
@@ -6549,7 +7150,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
 
 
-                        class PortId(Entity):
+                        class PortId(_Entity_):
                             """
                             Port ID
                             
@@ -6593,7 +7194,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
 
                                 self.yang_name = "port-id"
                                 self.yang_parent_name = "reply-ingress"
@@ -6620,7 +7224,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
-                            class PortIdValue(Entity):
+                            class PortIdValue(_Entity_):
                                 """
                                 Port ID (Current)
                                 
@@ -6664,7 +7268,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
 
                                     self.yang_name = "port-id-value"
                                     self.yang_parent_name = "port-id"
@@ -6688,11 +7295,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info']
 
 
-
-
-                    class ReplyEgress(Entity):
+                    class ReplyEgress(_Entity_):
                         """
                         Reply egress TLV
                         
@@ -6727,7 +7346,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
 
                             self.yang_name = "reply-egress"
                             self.yang_parent_name = "linktrace-reply"
@@ -6752,7 +7374,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
 
 
-                        class PortId(Entity):
+                        class PortId(_Entity_):
                             """
                             Port ID
                             
@@ -6796,7 +7418,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
 
                                 self.yang_name = "port-id"
                                 self.yang_parent_name = "reply-egress"
@@ -6823,7 +7448,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
-                            class PortIdValue(Entity):
+                            class PortIdValue(_Entity_):
                                 """
                                 Port ID (Current)
                                 
@@ -6867,7 +7492,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
 
                                     self.yang_name = "port-id-value"
                                     self.yang_parent_name = "port-id"
@@ -6891,11 +7519,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info']
 
 
-
-
-                    class LastHop(Entity):
+                    class LastHop(_Entity_):
                         """
                         Last hop ID
                         
@@ -6928,7 +7568,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
 
                             self.yang_name = "last-hop"
                             self.yang_parent_name = "linktrace-reply"
@@ -6953,7 +7596,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
 
 
-                        class EgressId(Entity):
+                        class EgressId(_Entity_):
                             """
                             Egress ID
                             
@@ -6983,7 +7626,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
 
                                 self.yang_name = "egress-id"
                                 self.yang_parent_name = "last-hop"
@@ -7003,10 +7649,18 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info']
 
 
-
-                    class OrganizationSpecificTlv(Entity):
+                    class OrganizationSpecificTlv(_Entity_):
                         """
                         Organizational\-specific TLVs
                         
@@ -7045,7 +7699,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
 
                             self.yang_name = "organization-specific-tlv"
                             self.yang_parent_name = "linktrace-reply"
@@ -7067,9 +7724,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv']['meta_info']
 
 
-                    class UnknownTlv(Entity):
+                    class UnknownTlv(_Entity_):
                         """
                         Unknown TLVs
                         
@@ -7099,7 +7760,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
 
                             self.yang_name = "unknown-tlv"
                             self.yang_parent_name = "linktrace-reply"
@@ -7119,10 +7783,18 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
 
 
-
-                class ExploratoryLinktraceReply(Entity):
+                class ExploratoryLinktraceReply(_Entity_):
                     """
                     Received exploratory linktrace replies
                     
@@ -7192,7 +7864,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
 
                         self.yang_name = "exploratory-linktrace-reply"
                         self.yang_parent_name = "traceroute-cache"
@@ -7234,7 +7909,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
 
 
-                    class Header(Entity):
+                    class Header(_Entity_):
                         """
                         Frame header
                         
@@ -7326,7 +8001,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
 
                             self.yang_name = "header"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -7362,9 +8040,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['level', 'version', 'forwarded', 'terminal_mep', 'reply_filter_unknown', 'transaction_id', 'ttl', 'relay_action', 'next_hop_timeout', 'delay_model'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header']['meta_info']
 
 
-                    class SenderId(Entity):
+                    class SenderId(_Entity_):
                         """
                         Sender ID TLV
                         
@@ -7401,7 +8083,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
 
                             self.yang_name = "sender-id"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -7426,7 +8111,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
-                        class ChassisId(Entity):
+                        class ChassisId(_Entity_):
                             """
                             Chassis ID
                             
@@ -7470,7 +8155,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
 
                                 self.yang_name = "chassis-id"
                                 self.yang_parent_name = "sender-id"
@@ -7497,7 +8185,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
-                            class ChassisIdValue(Entity):
+                            class ChassisIdValue(_Entity_):
                                 """
                                 Chassis ID (Current)
                                 
@@ -7541,7 +8229,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
 
                                     self.yang_name = "chassis-id-value"
                                     self.yang_parent_name = "chassis-id"
@@ -7565,11 +8256,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info']
 
 
-
-
-                    class ReplyIngress(Entity):
+                    class ReplyIngress(_Entity_):
                         """
                         Reply ingress TLV
                         
@@ -7618,7 +8321,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
 
                             self.yang_name = "reply-ingress"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -7651,7 +8357,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
 
 
-                        class LastEgressId(Entity):
+                        class LastEgressId(_Entity_):
                             """
                             Last egress ID
                             
@@ -7681,7 +8387,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
 
                                 self.yang_name = "last-egress-id"
                                 self.yang_parent_name = "reply-ingress"
@@ -7701,9 +8410,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId']['meta_info']
 
 
-                        class NextEgressId(Entity):
+                        class NextEgressId(_Entity_):
                             """
                             Next egress ID
                             
@@ -7733,7 +8446,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
 
                                 self.yang_name = "next-egress-id"
                                 self.yang_parent_name = "reply-ingress"
@@ -7753,9 +8469,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId']['meta_info']
 
 
-                        class PortId(Entity):
+                        class PortId(_Entity_):
                             """
                             Port ID
                             
@@ -7799,7 +8519,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
 
                                 self.yang_name = "port-id"
                                 self.yang_parent_name = "reply-ingress"
@@ -7826,7 +8549,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
-                            class PortIdValue(Entity):
+                            class PortIdValue(_Entity_):
                                 """
                                 Port ID (Current)
                                 
@@ -7870,7 +8593,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
 
                                     self.yang_name = "port-id-value"
                                     self.yang_parent_name = "port-id"
@@ -7894,11 +8620,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
 
 
-
-
-                    class ReplyEgress(Entity):
+                    class ReplyEgress(_Entity_):
                         """
                         Reply egress TLV
                         
@@ -7947,7 +8685,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
 
                             self.yang_name = "reply-egress"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -7980,7 +8721,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
 
 
-                        class LastEgressId(Entity):
+                        class LastEgressId(_Entity_):
                             """
                             Last Egress ID
                             
@@ -8010,7 +8751,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
 
                                 self.yang_name = "last-egress-id"
                                 self.yang_parent_name = "reply-egress"
@@ -8030,9 +8774,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId']['meta_info']
 
 
-                        class NextEgressId(Entity):
+                        class NextEgressId(_Entity_):
                             """
                             Next Egress ID
                             
@@ -8062,7 +8810,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
 
                                 self.yang_name = "next-egress-id"
                                 self.yang_parent_name = "reply-egress"
@@ -8082,9 +8833,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId']['meta_info']
 
 
-                        class PortId(Entity):
+                        class PortId(_Entity_):
                             """
                             Port ID
                             
@@ -8128,7 +8883,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
 
                                 self.yang_name = "port-id"
                                 self.yang_parent_name = "reply-egress"
@@ -8155,7 +8913,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
 
 
-                            class PortIdValue(Entity):
+                            class PortIdValue(_Entity_):
                                 """
                                 Port ID (Current)
                                 
@@ -8199,7 +8957,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
 
                                     self.yang_name = "port-id-value"
                                     self.yang_parent_name = "port-id"
@@ -8223,11 +8984,23 @@ class Cfm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
 
 
-
-
-                    class LastHop(Entity):
+                    class LastHop(_Entity_):
                         """
                         Last hop ID
                         
@@ -8260,7 +9033,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
 
                             self.yang_name = "last-hop"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -8285,7 +9061,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
 
 
-                        class EgressId(Entity):
+                        class EgressId(_Entity_):
                             """
                             Egress ID
                             
@@ -8315,7 +9091,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
 
                                 self.yang_name = "egress-id"
                                 self.yang_parent_name = "last-hop"
@@ -8335,10 +9114,18 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info']
 
 
-
-                    class OrganizationSpecificTlv(Entity):
+                    class OrganizationSpecificTlv(_Entity_):
                         """
                         Organizational\-specific TLVs
                         
@@ -8377,7 +9164,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
 
                             self.yang_name = "organization-specific-tlv"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -8399,9 +9189,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv']['meta_info']
 
 
-                    class UnknownTlv(Entity):
+                    class UnknownTlv(_Entity_):
                         """
                         Unknown TLVs
                         
@@ -8431,7 +9225,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
 
                             self.yang_name = "unknown-tlv"
                             self.yang_parent_name = "exploratory-linktrace-reply"
@@ -8451,12 +9248,28 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.TracerouteCaches']['meta_info']
 
 
-
-
-
-        class LocalMeps(Entity):
+        class LocalMeps(_Entity_):
             """
             Local MEPs table
             
@@ -8475,7 +9288,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.LocalMeps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.LocalMeps, self).__init__()
 
                 self.yang_name = "local-meps"
                 self.yang_parent_name = "global"
@@ -8494,7 +9310,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.LocalMeps, [], name, value)
 
 
-            class LocalMep(Entity):
+            class LocalMep(_Entity_):
                 """
                 Information about a particular local MEP
                 
@@ -8789,7 +9605,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.LocalMeps.LocalMep, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.LocalMeps.LocalMep, self).__init__()
 
                     self.yang_name = "local-mep"
                     self.yang_parent_name = "local-meps"
@@ -8887,7 +9706,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'domain_xr', 'service_xr', 'level', 'mep_id_xr', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state', 'mep_direction', 'mac_address', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'remote_defect', 'fault_notification_state', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'highest_defect', 'rdi_defect', 'mac_status_defect', 'peer_mep_ccm_defect', 'error_ccm_defect', 'cross_connect_ccm_defect', 'next_lbm_id', 'next_ltm_id', 'cos', 'efd_triggered', 'standby', 'hairpin', 'defects_ignored'], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     MEP statistics
                     
@@ -9151,7 +9970,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.LocalMeps.LocalMep.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.LocalMeps.LocalMep.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "local-mep"
@@ -9223,9 +10045,13 @@ class Cfm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, ['ccms_sent', 'ccms_received', 'ccms_out_of_sequence', 'ccms_discarded', 'lb_ms_sent', 'lb_rs_sent', 'lb_rs_received', 'lb_rs_out_of_sequence', 'lb_rs_bad_data', 'lb_ms_received', 'lt_rs_received_unexpected', 'ai_ss_sent', 'ai_ss_received', 'lc_ks_received', 'dm_ms_sent', 'dm_ms_received', 'dm_rs_sent', 'dm_rs_received', 'sl_ms_sent', 'sl_ms_received', 'sl_rs_sent', 'sl_rs_received', 'lm_ms_sent', 'lm_ms_received', 'lm_rs_sent', 'lm_rs_received', 'bn_ms_received', 'bn_ms_discarded'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Statistics']['meta_info']
 
 
-                class AisStatistics(Entity):
+                class AisStatistics(_Entity_):
                     """
                     MEP AIS statistics
                     
@@ -9295,7 +10121,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.LocalMeps.LocalMep.AisStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.LocalMeps.LocalMep.AisStatistics, self).__init__()
 
                         self.yang_name = "ais-statistics"
                         self.yang_parent_name = "local-mep"
@@ -9332,7 +10161,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, ['level', 'interval', 'sending_ais', 'receiving_ais', 'last_interval', 'last_mac_address'], name, value)
 
 
-                    class SendingStart(Entity):
+                    class SendingStart(_Entity_):
                         """
                         Time elapsed since AIS sending started
                         
@@ -9366,7 +10195,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
 
                             self.yang_name = "sending-start"
                             self.yang_parent_name = "ais-statistics"
@@ -9386,9 +10218,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart']['meta_info']
 
 
-                    class ReceivingStart(Entity):
+                    class ReceivingStart(_Entity_):
                         """
                         Time elapsed since AIS receiving started
                         
@@ -9422,7 +10258,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
 
                             self.yang_name = "receiving-start"
                             self.yang_parent_name = "ais-statistics"
@@ -9442,10 +10281,18 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
 
 
-
-                class Defects(Entity):
+                class Defects(_Entity_):
                     """
                     Defects detected from peer MEPs
                     
@@ -9521,7 +10368,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.LocalMeps.LocalMep.Defects, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.LocalMeps.LocalMep.Defects, self).__init__()
 
                         self.yang_name = "defects"
                         self.yang_parent_name = "local-mep"
@@ -9556,7 +10406,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
 
 
-                    class RemoteMepsDefects(Entity):
+                    class RemoteMepsDefects(_Entity_):
                         """
                         Defects detected from remote MEPs
                         
@@ -9617,7 +10467,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
 
                             self.yang_name = "remote-meps-defects"
                             self.yang_parent_name = "defects"
@@ -9647,12 +10500,28 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.LocalMeps']['meta_info']
 
 
-
-
-
-        class PeerMePv2s(Entity):
+        class PeerMePv2s(_Entity_):
             """
             Peer MEPs table Version 2
             
@@ -9671,7 +10540,10 @@ class Cfm(Entity):
             _revision = '2018-12-20'
 
             def __init__(self):
-                super(Cfm.Global.PeerMePv2s, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Cfm.Global.PeerMePv2s, self).__init__()
 
                 self.yang_name = "peer-me-pv2s"
                 self.yang_parent_name = "global"
@@ -9690,7 +10562,7 @@ class Cfm(Entity):
                 self._perform_setattr(Cfm.Global.PeerMePv2s, [], name, value)
 
 
-            class PeerMePv2(Entity):
+            class PeerMePv2(_Entity_):
                 """
                 Information about a peer MEP for a particular
                 local MEP
@@ -9817,7 +10689,10 @@ class Cfm(Entity):
                 _revision = '2018-12-20'
 
                 def __init__(self):
-                    super(Cfm.Global.PeerMePv2s.PeerMePv2, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Cfm.Global.PeerMePv2s.PeerMePv2, self).__init__()
 
                     self.yang_name = "peer-me-pv2"
                     self.yang_parent_name = "peer-me-pv2s"
@@ -9865,7 +10740,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
 
 
-                class PeerMep(Entity):
+                class PeerMep(_Entity_):
                     """
                     Peer MEP
                     
@@ -9944,7 +10819,10 @@ class Cfm(Entity):
                     _revision = '2018-12-20'
 
                     def __init__(self):
-                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, self).__init__()
 
                         self.yang_name = "peer-mep"
                         self.yang_parent_name = "peer-me-pv2"
@@ -9987,7 +10865,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
 
 
-                    class ErrorState(Entity):
+                    class ErrorState(_Entity_):
                         """
                         Error state
                         
@@ -10048,7 +10926,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, self).__init__()
 
                             self.yang_name = "error-state"
                             self.yang_parent_name = "peer-mep"
@@ -10078,9 +10959,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState']['meta_info']
 
 
-                    class LastUpDownTime(Entity):
+                    class LastUpDownTime(_Entity_):
                         """
                         Elapsed time since peer MEP became active or
                         timed out
@@ -10115,7 +11000,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
 
                             self.yang_name = "last-up-down-time"
                             self.yang_parent_name = "peer-mep"
@@ -10135,9 +11023,13 @@ class Cfm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime']['meta_info']
 
 
-                    class LastCcmReceived(Entity):
+                    class LastCcmReceived(_Entity_):
                         """
                         Last CCM received from the peer MEP
                         
@@ -10214,7 +11106,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
 
                             self.yang_name = "last-ccm-received"
                             self.yang_parent_name = "peer-mep"
@@ -10254,7 +11149,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
 
 
-                        class Header(Entity):
+                        class Header(_Entity_):
                             """
                             Frame header
                             
@@ -10346,7 +11241,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
 
                                 self.yang_name = "header"
                                 self.yang_parent_name = "last-ccm-received"
@@ -10387,7 +11285,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
 
 
-                            class Mdid(Entity):
+                            class Mdid(_Entity_):
                                 """
                                 MDID
                                 
@@ -10436,7 +11334,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
 
                                     self.yang_name = "mdid"
                                     self.yang_parent_name = "header"
@@ -10465,7 +11366,7 @@ class Cfm(Entity):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, ['mdid_format_value', 'dns_like_name', 'string_name', 'mdid_data'], name, value)
 
 
-                                class MacName(Entity):
+                                class MacName(_Entity_):
                                     """
                                     MAC address name
                                     
@@ -10495,7 +11396,10 @@ class Cfm(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
 
                                         self.yang_name = "mac-name"
                                         self.yang_parent_name = "mdid"
@@ -10515,10 +11419,18 @@ class Cfm(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, ['mac_address', 'integer'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
 
 
-
-                            class ShortMaName(Entity):
+                            class ShortMaName(_Entity_):
                                 """
                                 Short MA Name
                                 
@@ -10585,7 +11497,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
 
                                     self.yang_name = "short-ma-name"
                                     self.yang_parent_name = "header"
@@ -10618,7 +11533,7 @@ class Cfm(Entity):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, ['short_ma_name_format_value', 'vlan_id_name', 'string_name', 'integer_name', 'icc_based', 'short_ma_name_data'], name, value)
 
 
-                                class VpnIdName(Entity):
+                                class VpnIdName(_Entity_):
                                     """
                                     VPN ID name
                                     
@@ -10648,7 +11563,10 @@ class Cfm(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
 
                                         self.yang_name = "vpn-id-name"
                                         self.yang_parent_name = "short-ma-name"
@@ -10668,11 +11586,23 @@ class Cfm(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, ['oui', 'index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header']['meta_info']
 
 
-
-
-                        class SenderId(Entity):
+                        class SenderId(_Entity_):
                             """
                             Sender ID TLV
                             
@@ -10709,7 +11639,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
 
                                 self.yang_name = "sender-id"
                                 self.yang_parent_name = "last-ccm-received"
@@ -10734,7 +11667,7 @@ class Cfm(Entity):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
-                            class ChassisId(Entity):
+                            class ChassisId(_Entity_):
                                 """
                                 Chassis ID
                                 
@@ -10778,7 +11711,10 @@ class Cfm(Entity):
                                 _revision = '2018-12-20'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
 
                                     self.yang_name = "chassis-id"
                                     self.yang_parent_name = "sender-id"
@@ -10805,7 +11741,7 @@ class Cfm(Entity):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
-                                class ChassisIdValue(Entity):
+                                class ChassisIdValue(_Entity_):
                                     """
                                     Chassis ID (Current)
                                     
@@ -10849,7 +11785,10 @@ class Cfm(Entity):
                                     _revision = '2018-12-20'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
 
                                         self.yang_name = "chassis-id-value"
                                         self.yang_parent_name = "chassis-id"
@@ -10873,11 +11812,23 @@ class Cfm(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId']['meta_info']
 
 
-
-
-                        class MepName(Entity):
+                        class MepName(_Entity_):
                             """
                             MEP name
                             
@@ -10896,7 +11847,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
 
                                 self.yang_name = "mep-name"
                                 self.yang_parent_name = "last-ccm-received"
@@ -10914,9 +11868,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName']['meta_info']
 
 
-                        class OrganizationSpecificTlv(Entity):
+                        class OrganizationSpecificTlv(_Entity_):
                             """
                             Organizational\-specific TLVs
                             
@@ -10955,7 +11913,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
 
                                 self.yang_name = "organization-specific-tlv"
                                 self.yang_parent_name = "last-ccm-received"
@@ -10977,9 +11938,13 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info']
 
 
-                        class UnknownTlv(Entity):
+                        class UnknownTlv(_Entity_):
                             """
                             Unknown TLVs
                             
@@ -11009,7 +11974,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
 
                                 self.yang_name = "unknown-tlv"
                                 self.yang_parent_name = "last-ccm-received"
@@ -11029,10 +11997,18 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived']['meta_info']
 
 
-
-                    class Statistics(Entity):
+                    class Statistics(_Entity_):
                         """
                         Peer MEP statistics
                         
@@ -11132,7 +12108,10 @@ class Cfm(Entity):
                         _revision = '2018-12-20'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "peer-mep"
@@ -11171,7 +12150,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
 
 
-                        class LastCcmReceivedTime(Entity):
+                        class LastCcmReceivedTime(_Entity_):
                             """
                             Elapsed time since last CCM received
                             
@@ -11205,7 +12184,10 @@ class Cfm(Entity):
                             _revision = '2018-12-20'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
 
                                 self.yang_name = "last-ccm-received-time"
                                 self.yang_parent_name = "statistics"
@@ -11225,15 +12207,43 @@ class Cfm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.PeerMePv2s.PeerMePv2']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.PeerMePv2s']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+            return meta._meta_table['Cfm.Global']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Cfm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+        return meta._meta_table['Cfm']['meta_info']
 
 

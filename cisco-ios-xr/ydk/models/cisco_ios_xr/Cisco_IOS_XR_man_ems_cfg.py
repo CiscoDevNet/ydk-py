@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -155,6 +158,12 @@ class Dscp(Enum):
     ef = Enum.YLeaf(46, "ef")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+        return meta._meta_table['Dscp']
+
+
 class GrpCTlsCipherDefault(Enum):
     """
     GrpCTlsCipherDefault (Enum Class)
@@ -176,8 +185,14 @@ class GrpCTlsCipherDefault(Enum):
     enable = Enum.YLeaf(2, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+        return meta._meta_table['GrpCTlsCipherDefault']
 
-class Grpc(Entity):
+
+
+class Grpc(_Entity_):
     """
     GRPC configruation
     
@@ -286,7 +301,10 @@ class Grpc(Entity):
     _revision = '2018-04-16'
 
     def __init__(self):
-        super(Grpc, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Grpc, self).__init__()
         self._top_entity = None
 
         self.yang_name = "grpc"
@@ -340,7 +358,7 @@ class Grpc(Entity):
         self._perform_setattr(Grpc, ['port', 'vrf', 'max_streams', 'enable', 'max_streams_per_user', 'max_request_per_user', 'no_tls', 'tls_trustpoint', 'dscp', 'address_family', 'tls_mutual', 'max_request_total'], name, value)
 
 
-    class ServiceLayer(Entity):
+    class ServiceLayer(_Entity_):
         """
         Service Layer
         
@@ -357,7 +375,10 @@ class Grpc(Entity):
         _revision = '2018-04-16'
 
         def __init__(self):
-            super(Grpc.ServiceLayer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Grpc.ServiceLayer, self).__init__()
 
             self.yang_name = "service-layer"
             self.yang_parent_name = "grpc"
@@ -376,9 +397,13 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.ServiceLayer, ['enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+            return meta._meta_table['Grpc.ServiceLayer']['meta_info']
 
 
-    class TlsCipher(Entity):
+    class TlsCipher(_Entity_):
         """
         TLS ciphers
         
@@ -405,7 +430,10 @@ class Grpc(Entity):
         _revision = '2018-04-16'
 
         def __init__(self):
-            super(Grpc.TlsCipher, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Grpc.TlsCipher, self).__init__()
 
             self.yang_name = "tls-cipher"
             self.yang_parent_name = "grpc"
@@ -428,9 +456,13 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.TlsCipher, ['default', 'enable', 'disable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+            return meta._meta_table['Grpc.TlsCipher']['meta_info']
 
 
-    class Tls(Entity):
+    class Tls(_Entity_):
         """
         Transport Layer Security (TLS)
         
@@ -449,7 +481,10 @@ class Grpc(Entity):
         _revision = '2018-04-16'
 
         def __init__(self):
-            super(Grpc.Tls, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Grpc.Tls, self).__init__()
 
             self.yang_name = "tls"
             self.yang_parent_name = "grpc"
@@ -468,10 +503,18 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.Tls, ['enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+            return meta._meta_table['Grpc.Tls']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Grpc()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
+        return meta._meta_table['Grpc']['meta_info']
 
 

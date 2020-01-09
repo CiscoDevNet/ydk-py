@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class IpProtocol(Enum):
     udp = Enum.YLeaf(17, "udp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+        return meta._meta_table['IpProtocol']
 
-class Tpa(Entity):
+
+
+class Tpa(_Entity_):
     """
     tpa configuration commands
     
@@ -69,7 +78,10 @@ class Tpa(Entity):
     _revision = '2018-07-27'
 
     def __init__(self):
-        super(Tpa, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Tpa, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tpa"
@@ -98,7 +110,7 @@ class Tpa(Entity):
         self._perform_setattr(Tpa, [], name, value)
 
 
-    class VrfNames(Entity):
+    class VrfNames(_Entity_):
         """
         VRF container
         
@@ -115,7 +127,10 @@ class Tpa(Entity):
         _revision = '2018-07-27'
 
         def __init__(self):
-            super(Tpa.VrfNames, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tpa.VrfNames, self).__init__()
 
             self.yang_name = "vrf-names"
             self.yang_parent_name = "tpa"
@@ -134,7 +149,7 @@ class Tpa(Entity):
             self._perform_setattr(Tpa.VrfNames, [], name, value)
 
 
-        class VrfName(Entity):
+        class VrfName(_Entity_):
             """
             VRF name
             
@@ -168,7 +183,10 @@ class Tpa(Entity):
             _revision = '2018-07-27'
 
             def __init__(self):
-                super(Tpa.VrfNames.VrfName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tpa.VrfNames.VrfName, self).__init__()
 
                 self.yang_name = "vrf-name"
                 self.yang_parent_name = "vrf-names"
@@ -198,7 +216,7 @@ class Tpa(Entity):
                 self._perform_setattr(Tpa.VrfNames.VrfName, ['vrf_name', 'disable'], name, value)
 
 
-            class EastWestNames(Entity):
+            class EastWestNames(_Entity_):
                 """
                 EastWest container
                 
@@ -215,7 +233,10 @@ class Tpa(Entity):
                 _revision = '2018-07-27'
 
                 def __init__(self):
-                    super(Tpa.VrfNames.VrfName.EastWestNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tpa.VrfNames.VrfName.EastWestNames, self).__init__()
 
                     self.yang_name = "east-west-names"
                     self.yang_parent_name = "vrf-name"
@@ -233,7 +254,7 @@ class Tpa(Entity):
                     self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames, [], name, value)
 
 
-                class EastWestName(Entity):
+                class EastWestName(_Entity_):
                     """
                     East West interface
                     
@@ -262,7 +283,10 @@ class Tpa(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__init__()
 
                         self.yang_name = "east-west-name"
                         self.yang_parent_name = "east-west-names"
@@ -284,10 +308,18 @@ class Tpa(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, ['east_west_name', 'vrf', 'interface'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                        return meta._meta_table['Tpa.VrfNames.VrfName.EastWestNames.EastWestName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                    return meta._meta_table['Tpa.VrfNames.VrfName.EastWestNames']['meta_info']
 
 
-
-            class AddressFamily(Entity):
+            class AddressFamily(_Entity_):
                 """
                 Address family
                 
@@ -309,7 +341,10 @@ class Tpa(Entity):
                 _revision = '2018-07-27'
 
                 def __init__(self):
-                    super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
 
                     self.yang_name = "address-family"
                     self.yang_parent_name = "vrf-name"
@@ -333,7 +368,7 @@ class Tpa(Entity):
                     self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily, [], name, value)
 
 
-                class Ipv6(Entity):
+                class Ipv6(_Entity_):
                     """
                     IPv6 configuration
                     
@@ -365,7 +400,10 @@ class Tpa(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
 
                         self.yang_name = "ipv6"
                         self.yang_parent_name = "address-family"
@@ -396,7 +434,7 @@ class Tpa(Entity):
                         self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, ['default_route'], name, value)
 
 
-                    class InterfaceNames(Entity):
+                    class InterfaceNames(_Entity_):
                         """
                         Interface used for source address for egress
                         interface
@@ -414,7 +452,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, self).__init__()
 
                             self.yang_name = "interface-names"
                             self.yang_parent_name = "ipv6"
@@ -432,7 +473,7 @@ class Tpa(Entity):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, [], name, value)
 
 
-                        class InterfaceName(Entity):
+                        class InterfaceName(_Entity_):
                             """
                             Egress interface name
                             
@@ -458,7 +499,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, self).__init__()
 
                                 self.yang_name = "interface-name"
                                 self.yang_parent_name = "interface-names"
@@ -478,10 +522,18 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames']['meta_info']
 
 
-
-                    class AllowEntries(Entity):
+                    class AllowEntries(_Entity_):
                         """
                         Traffic protection configuration
                         
@@ -533,7 +585,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries, self).__init__()
 
                             self.yang_name = "allow-entries"
                             self.yang_parent_name = "ipv6"
@@ -558,7 +613,7 @@ class Tpa(Entity):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries, [], name, value)
 
 
-                        class AllowEntry(Entity):
+                        class AllowEntry(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -582,7 +637,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry, self).__init__()
 
                                 self.yang_name = "allow-entry"
                                 self.yang_parent_name = "allow-entries"
@@ -602,9 +660,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry, ['protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntry']['meta_info']
 
 
-                        class AllowEntryLocalAddress(Entity):
+                        class AllowEntryLocalAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -641,7 +703,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address"
                                 self.yang_parent_name = "allow-entries"
@@ -663,9 +728,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress, ['local_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddress']['meta_info']
 
 
-                        class AllowEntryRemoteAddress(Entity):
+                        class AllowEntryRemoteAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -702,7 +771,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-remote-address"
                                 self.yang_parent_name = "allow-entries"
@@ -724,9 +796,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress, ['remote_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddress']['meta_info']
 
 
-                        class AllowEntryLocalAddressRemoteAddress(Entity):
+                        class AllowEntryLocalAddressRemoteAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -776,7 +852,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-remote-address"
                                 self.yang_parent_name = "allow-entries"
@@ -800,9 +879,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress, ['local_address', 'remote_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddress']['meta_info']
 
 
-                        class AllowEntryInterfaceName(Entity):
+                        class AllowEntryInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -833,7 +916,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -855,9 +941,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName, ['interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryInterfaceName']['meta_info']
 
 
-                        class AllowEntryLocalAddressInterfaceName(Entity):
+                        class AllowEntryLocalAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -901,7 +991,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -925,9 +1018,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName, ['local_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressInterfaceName']['meta_info']
 
 
-                        class AllowEntryRemoteAddressInterfaceName(Entity):
+                        class AllowEntryRemoteAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -971,7 +1068,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-remote-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -995,9 +1095,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName, ['remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryRemoteAddressInterfaceName']['meta_info']
 
 
-                        class AllowEntryLocalAddressRemoteAddressInterfaceName(Entity):
+                        class AllowEntryLocalAddressRemoteAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1054,7 +1158,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-remote-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -1080,10 +1187,18 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, ['local_address', 'remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.AllowEntries']['meta_info']
 
 
-
-                    class UpdateSource(Entity):
+                    class UpdateSource(_Entity_):
                         """
                         Interface used for Source Address
                         
@@ -1107,7 +1222,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, self).__init__()
 
                             self.yang_name = "update-source"
                             self.yang_parent_name = "ipv6"
@@ -1127,10 +1245,18 @@ class Tpa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, ['interface_name', 'active_management'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                        return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv6']['meta_info']
 
 
-
-                class Ipv4(Entity):
+                class Ipv4(_Entity_):
                     """
                     IPv4 configuration
                     
@@ -1162,7 +1288,10 @@ class Tpa(Entity):
                     _revision = '2018-07-27'
 
                     def __init__(self):
-                        super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
 
                         self.yang_name = "ipv4"
                         self.yang_parent_name = "address-family"
@@ -1193,7 +1322,7 @@ class Tpa(Entity):
                         self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, ['default_route'], name, value)
 
 
-                    class InterfaceNames(Entity):
+                    class InterfaceNames(_Entity_):
                         """
                         Interface used for source address for egress
                         interface
@@ -1211,7 +1340,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, self).__init__()
 
                             self.yang_name = "interface-names"
                             self.yang_parent_name = "ipv4"
@@ -1229,7 +1361,7 @@ class Tpa(Entity):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, [], name, value)
 
 
-                        class InterfaceName(Entity):
+                        class InterfaceName(_Entity_):
                             """
                             Egress interface name
                             
@@ -1255,7 +1387,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, self).__init__()
 
                                 self.yang_name = "interface-name"
                                 self.yang_parent_name = "interface-names"
@@ -1275,10 +1410,18 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames']['meta_info']
 
 
-
-                    class AllowEntries(Entity):
+                    class AllowEntries(_Entity_):
                         """
                         Traffic protection configuration
                         
@@ -1330,7 +1473,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries, self).__init__()
 
                             self.yang_name = "allow-entries"
                             self.yang_parent_name = "ipv4"
@@ -1355,7 +1501,7 @@ class Tpa(Entity):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries, [], name, value)
 
 
-                        class AllowEntry(Entity):
+                        class AllowEntry(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1379,7 +1525,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry, self).__init__()
 
                                 self.yang_name = "allow-entry"
                                 self.yang_parent_name = "allow-entries"
@@ -1399,9 +1548,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry, ['protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntry']['meta_info']
 
 
-                        class AllowEntryLocalAddress(Entity):
+                        class AllowEntryLocalAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1438,7 +1591,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address"
                                 self.yang_parent_name = "allow-entries"
@@ -1460,9 +1616,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress, ['local_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddress']['meta_info']
 
 
-                        class AllowEntryRemoteAddress(Entity):
+                        class AllowEntryRemoteAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1499,7 +1659,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-remote-address"
                                 self.yang_parent_name = "allow-entries"
@@ -1521,9 +1684,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress, ['remote_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddress']['meta_info']
 
 
-                        class AllowEntryLocalAddressRemoteAddress(Entity):
+                        class AllowEntryLocalAddressRemoteAddress(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1573,7 +1740,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-remote-address"
                                 self.yang_parent_name = "allow-entries"
@@ -1597,9 +1767,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress, ['local_address', 'remote_address', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddress']['meta_info']
 
 
-                        class AllowEntryInterfaceName(Entity):
+                        class AllowEntryInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1630,7 +1804,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -1652,9 +1829,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName, ['interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryInterfaceName']['meta_info']
 
 
-                        class AllowEntryLocalAddressInterfaceName(Entity):
+                        class AllowEntryLocalAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1698,7 +1879,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -1722,9 +1906,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName, ['local_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressInterfaceName']['meta_info']
 
 
-                        class AllowEntryRemoteAddressInterfaceName(Entity):
+                        class AllowEntryRemoteAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1768,7 +1956,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-remote-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -1792,9 +1983,13 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName, ['remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryRemoteAddressInterfaceName']['meta_info']
 
 
-                        class AllowEntryLocalAddressRemoteAddressInterfaceName(Entity):
+                        class AllowEntryLocalAddressRemoteAddressInterfaceName(_Entity_):
                             """
                             Allow traffic matching a filter
                             
@@ -1851,7 +2046,10 @@ class Tpa(Entity):
                             _revision = '2018-07-27'
 
                             def __init__(self):
-                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, self).__init__()
 
                                 self.yang_name = "allow-entry-local-address-remote-address-interface-name"
                                 self.yang_parent_name = "allow-entries"
@@ -1877,10 +2075,18 @@ class Tpa(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName, ['local_address', 'remote_address', 'interface_name', 'protocol', 'local_port'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                                return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries.AllowEntryLocalAddressRemoteAddressInterfaceName']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.AllowEntries']['meta_info']
 
 
-
-                    class UpdateSource(Entity):
+                    class UpdateSource(_Entity_):
                         """
                         Interface used for Source Address
                         
@@ -1904,7 +2110,10 @@ class Tpa(Entity):
                         _revision = '2018-07-27'
 
                         def __init__(self):
-                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, self).__init__()
 
                             self.yang_name = "update-source"
                             self.yang_parent_name = "ipv4"
@@ -1924,13 +2133,33 @@ class Tpa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, ['interface_name', 'active_management'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                            return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                        return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily.Ipv4']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                    return meta._meta_table['Tpa.VrfNames.VrfName.AddressFamily']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                return meta._meta_table['Tpa.VrfNames.VrfName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+            return meta._meta_table['Tpa.VrfNames']['meta_info']
 
 
-
-
-
-
-    class Logging(Entity):
+    class Logging(_Entity_):
         """
         Third party app logging
         
@@ -1947,7 +2176,10 @@ class Tpa(Entity):
         _revision = '2018-07-27'
 
         def __init__(self):
-            super(Tpa.Logging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tpa.Logging, self).__init__()
 
             self.yang_name = "logging"
             self.yang_parent_name = "tpa"
@@ -1968,7 +2200,7 @@ class Tpa(Entity):
             self._perform_setattr(Tpa.Logging, [], name, value)
 
 
-        class Kim(Entity):
+        class Kim(_Entity_):
             """
             KIM logging
             
@@ -1996,7 +2228,10 @@ class Tpa(Entity):
             _revision = '2018-07-27'
 
             def __init__(self):
-                super(Tpa.Logging.Kim, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tpa.Logging.Kim, self).__init__()
 
                 self.yang_name = "kim"
                 self.yang_parent_name = "logging"
@@ -2017,10 +2252,18 @@ class Tpa(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Tpa.Logging.Kim, ['rotation_max', 'file_size_max_kb'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+                return meta._meta_table['Tpa.Logging.Kim']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+            return meta._meta_table['Tpa.Logging']['meta_info']
 
 
-
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Statistics
         
@@ -2055,7 +2298,10 @@ class Tpa(Entity):
         _revision = '2018-07-27'
 
         def __init__(self):
-            super(Tpa.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tpa.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "tpa"
@@ -2078,10 +2324,18 @@ class Tpa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Tpa.Statistics, ['max_intf_events', 'max_lpts_events', 'statistics_update_frequency'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+            return meta._meta_table['Tpa.Statistics']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Tpa()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_kim_tpa_cfg as meta
+        return meta._meta_table['Tpa']['meta_info']
 
 

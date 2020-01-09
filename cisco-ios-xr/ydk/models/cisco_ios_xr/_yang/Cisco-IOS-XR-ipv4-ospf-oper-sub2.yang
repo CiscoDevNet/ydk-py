@@ -2782,6 +2782,24 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "If true, the reason not to delete this LSA is
          because it is pending flooding on switchover";
     }
+    leaf link-state-q {
+      type boolean;
+      description
+        "If true, the reason not to delete this LSA is
+         because it is used in Link State Q";
+    }
+    leaf used-in-uloop {
+      type boolean;
+      description
+        "If true, the reason not to delete this LSA is
+         because it is used in uloop";
+    }
+    leaf added-in-ulooplist {
+      type boolean;
+      description
+        "If true, the reason not to delete this LSA is
+         because it is Added in uloopdblist";
+    }
   }
 
   grouping OSPF-SH-DB-THROTTLE-TIMER {
@@ -3599,7 +3617,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf table-prefix-limit-reached {
       type boolean;
       description
-        "If true, prefix limit for table has been 
+        "If true, prefix limit for table has been
          reached";
     }
     leaf non-self-lsa-count {
@@ -3699,7 +3717,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf microloop-avoidance-delay {
       type uint32;
       description
-        "Microloop delay time after which actual         
+        "Microloop delay time after which actual
          post convergence paths are given to RIB (s)";
     }
     leaf microloop-avoidance-active {
@@ -3710,7 +3728,7 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf microloop-avoidance-delay-expiry {
       type uint32;
       description
-        "Remaining time for uloop delay timer            
+        "Remaining time for uloop delay timer
          to expire (s)";
     }
     leaf lsd-connected {
@@ -3912,31 +3930,31 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     leaf sr-microloop-avoidance-active {
       type boolean;
       description
-        "If true, Segment routing Uloop avoidance        
+        "If true, Segment routing Uloop avoidance
          is currently active in this area";
     }
     leaf sr-microloop-avoidance-event-type {
       type Sr-uloop-event;
       description
-        "Event for which SR uloop is triggered           
+        "Event for which SR uloop is triggered
          Link Up/Link Down";
     }
     leaf sr-microloop-avoidance-near-end-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the near end                   
+        "Link State ID of the near end
          of the topology change";
     }
     leaf sr-microloop-avoidance-far-end-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the far end                    
+        "Link State ID of the far end
          of the topology change";
     }
     leaf sr-microloop-avoidance-pseudonode-id {
       type inet:ipv4-address;
       description
-        "Link State ID of the pseudo node,               
+        "Link State ID of the pseudo node,
          if the change is on a broadcast link";
     }
     leaf authentication-type {

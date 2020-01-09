@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Config(Entity):
+class Config(_Entity_):
     """
     Configuration\-related operational data
     
@@ -40,7 +43,10 @@ class Config(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Config, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Config, self).__init__()
         self._top_entity = None
 
         self.yang_name = "config"
@@ -61,7 +67,7 @@ class Config(Entity):
         self._perform_setattr(Config, [], name, value)
 
 
-    class Global(Entity):
+    class Global(_Entity_):
         """
         Global operational data
         
@@ -80,7 +86,10 @@ class Config(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Config.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Config.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "config"
@@ -101,7 +110,7 @@ class Config(Entity):
             self._perform_setattr(Config.Global, [], name, value)
 
 
-        class Validation(Entity):
+        class Validation(_Entity_):
             """
             Configuration validation operational data
             
@@ -127,7 +136,10 @@ class Config(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Config.Global.Validation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Config.Global.Validation, self).__init__()
 
                 self.yang_name = "validation"
                 self.yang_parent_name = "global"
@@ -152,7 +164,7 @@ class Config(Entity):
                 self._perform_setattr(Config.Global.Validation, [], name, value)
 
 
-            class UnsupportedConfigs(Entity):
+            class UnsupportedConfigs(_Entity_):
                 """
                 Unsupported config warnings present in running
                 configuration
@@ -172,7 +184,10 @@ class Config(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Config.Global.Validation.UnsupportedConfigs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Config.Global.Validation.UnsupportedConfigs, self).__init__()
 
                     self.yang_name = "unsupported-configs"
                     self.yang_parent_name = "validation"
@@ -191,7 +206,7 @@ class Config(Entity):
                     self._perform_setattr(Config.Global.Validation.UnsupportedConfigs, [], name, value)
 
 
-                class UnsupportedConfig(Entity):
+                class UnsupportedConfig(_Entity_):
                     """
                     Information about an unsupported warning
                     
@@ -224,7 +239,10 @@ class Config(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig, self).__init__()
 
                         self.yang_name = "unsupported-config"
                         self.yang_parent_name = "unsupported-configs"
@@ -248,7 +266,7 @@ class Config(Entity):
                         self._perform_setattr(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig, ['xpath', 'group_name'], name, value)
 
 
-                    class Failure(Entity):
+                    class Failure(_Entity_):
                         """
                         Validation failures for this configuration item
                         
@@ -281,7 +299,10 @@ class Config(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure, self).__init__()
 
                             self.yang_name = "failure"
                             self.yang_parent_name = "unsupported-config"
@@ -303,11 +324,23 @@ class Config(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure, ['error_app_tag', 'error_message', 'error_severity'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                            return meta._meta_table['Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                        return meta._meta_table['Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                    return meta._meta_table['Config.Global.Validation.UnsupportedConfigs']['meta_info']
 
 
-
-
-            class PersistentFailures(Entity):
+            class PersistentFailures(_Entity_):
                 """
                 Validation failures present in running
                 configuration
@@ -327,7 +360,10 @@ class Config(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Config.Global.Validation.PersistentFailures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Config.Global.Validation.PersistentFailures, self).__init__()
 
                     self.yang_name = "persistent-failures"
                     self.yang_parent_name = "validation"
@@ -346,7 +382,7 @@ class Config(Entity):
                     self._perform_setattr(Config.Global.Validation.PersistentFailures, [], name, value)
 
 
-                class PersistentFailure(Entity):
+                class PersistentFailure(_Entity_):
                     """
                     Information about a validation failure
                     
@@ -379,7 +415,10 @@ class Config(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Config.Global.Validation.PersistentFailures.PersistentFailure, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Config.Global.Validation.PersistentFailures.PersistentFailure, self).__init__()
 
                         self.yang_name = "persistent-failure"
                         self.yang_parent_name = "persistent-failures"
@@ -403,7 +442,7 @@ class Config(Entity):
                         self._perform_setattr(Config.Global.Validation.PersistentFailures.PersistentFailure, ['xpath', 'group_name'], name, value)
 
 
-                    class Failure(Entity):
+                    class Failure(_Entity_):
                         """
                         Validation failures for this configuration item
                         
@@ -436,7 +475,10 @@ class Config(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Config.Global.Validation.PersistentFailures.PersistentFailure.Failure, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Config.Global.Validation.PersistentFailures.PersistentFailure.Failure, self).__init__()
 
                             self.yang_name = "failure"
                             self.yang_parent_name = "persistent-failure"
@@ -458,14 +500,38 @@ class Config(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Config.Global.Validation.PersistentFailures.PersistentFailure.Failure, ['error_app_tag', 'error_message', 'error_severity'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                            return meta._meta_table['Config.Global.Validation.PersistentFailures.PersistentFailure.Failure']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                        return meta._meta_table['Config.Global.Validation.PersistentFailures.PersistentFailure']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                    return meta._meta_table['Config.Global.Validation.PersistentFailures']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+                return meta._meta_table['Config.Global.Validation']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+            return meta._meta_table['Config.Global']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_oper as meta
+        return meta._meta_table['Config']['meta_info']
 
 

@@ -26,6 +26,18 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-09 {
+    description
+      "PCE/SRTE topology should display P-flag set for OSPF prefix-SID with explicit-null";
+  }
+  revision 2019-05-01 {
+    description
+      "Added operational models for interface database.";
+  }
+  revision 2019-04-15 {
+    description
+      "Hierarchical changes to policy forwarding model to organize the paths under the proper segment lists and LSPs.";
+  }
   revision 2018-11-28 {
     description
       "Various modifications to policy-related models for better compatibility with the IETF policy draft.";

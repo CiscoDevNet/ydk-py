@@ -242,7 +242,6 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               "List of Neighbors under which BMP Server is
                confgiured";
             list monitored-neighbor {
-              key "neighbor-address";
               description
                 "Information about a neighbor monitored by
                  BMP server";
@@ -250,6 +249,11 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
                 type inet:ip-address-no-zone;
                 description
                   "Neighbor address";
+              }
+              leaf vrf-name {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Name of VRF, the neighbor belongs to";
               }
               uses BGP-BMP-NBR-BAG;
             }

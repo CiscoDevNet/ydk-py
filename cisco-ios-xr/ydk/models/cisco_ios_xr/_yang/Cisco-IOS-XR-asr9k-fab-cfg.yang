@@ -32,6 +32,11 @@ module Cisco-IOS-XR-asr9k-fab-cfg {
 
   typedef Asr9k-fab-mode {
     type enumeration {
+      enum "highbandwidth" {
+        value 1;
+        description
+          "High bandwidth mode";
+      }
       enum "a99-highbandwidth" {
         value 2;
         description

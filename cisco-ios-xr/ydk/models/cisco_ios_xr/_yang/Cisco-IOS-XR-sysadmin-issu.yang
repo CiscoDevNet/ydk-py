@@ -32,6 +32,11 @@ module Cisco-IOS-XR-sysadmin-issu {
      Copyright(c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-12 {
+    description
+      "Fix the 'not in canonical order' errors raised in
+       CSCvq09045";
+  }
   revision 2018-12-13 {
     description
       "Change the type for the location key leaf of a client list item from string to calvados:location-id. This is only a string with a regex but will block entered CLI which uses an obviously incorrect node string.";

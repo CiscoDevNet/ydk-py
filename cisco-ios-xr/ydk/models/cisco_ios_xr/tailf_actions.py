@@ -7,8 +7,11 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -17,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Action(Entity):
+class Action(_Entity_):
     """
     Support Tail\-F actions rpc format.
     
@@ -39,7 +42,10 @@ class Action(Entity):
     _revision = '2017-02-28'
 
     def __init__(self):
-        super(Action, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Action, self).__init__()
         self._top_entity = None
 
         self.yang_name = "action"
@@ -61,7 +67,7 @@ class Action(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -78,7 +84,10 @@ class Action(Entity):
         _revision = '2017-02-28'
 
         def __init__(self):
-            super(Action.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Action.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "action"
@@ -97,9 +106,13 @@ class Action(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Action.Input, ['data'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_actions as meta
+            return meta._meta_table['Action.Input']['meta_info']
 
 
-    class Output(Entity):
+    class Output(_Entity_):
         """
         
         
@@ -116,7 +129,10 @@ class Action(Entity):
         _revision = '2017-02-28'
 
         def __init__(self):
-            super(Action.Output, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Action.Output, self).__init__()
 
             self.yang_name = "output"
             self.yang_parent_name = "action"
@@ -135,10 +151,18 @@ class Action(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Action.Output, ['data'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _tailf_actions as meta
+            return meta._meta_table['Action.Output']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Action()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _tailf_actions as meta
+        return meta._meta_table['Action']['meta_info']
 
 

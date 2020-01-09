@@ -35,6 +35,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-07-19 {
+    description
+      "Added option to enable/disable shadow binding configuration.";
+  }
   revision 2018-10-24 {
     description
       "Fixed remote id mask.";
@@ -2627,6 +2631,11 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
       }
       description
         "Configure inner cos values for dhcp packets";
+    }
+    leaf disable-shadow-binding {
+      type empty;
+      description
+        "Option to disable shadow binding";
     }
   }
 }

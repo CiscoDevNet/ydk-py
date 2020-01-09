@@ -18,9 +18,13 @@ module Cisco-IOS-XR-crypto-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR action package configuration.
      
-     Copyright (c) 2016-2018 by Cisco Systems, Inc.
+     Copyright (c) 2016-2019 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-18 {
+    description
+      "IOS XR 7.0.1 revision.";
+  }
   revision 2016-04-17 {
     description
       "IOS XR 6.1.1 revision.";
@@ -145,6 +149,40 @@ module Cisco-IOS-XR-crypto-act {
   rpc key-zeroize-authentication-rsa {
     description
       "Remove RSA authentication key";
+  }
+  rpc key-zeroize-authentication-rsa-username {
+    description
+      "Remove RSA authentication key";
+    input {
+      leaf username {
+        type string;
+        mandatory true;
+        description
+          "Username";
+      }
+    }
+  }
+  rpc key-zeroize-authentication-rsa-all {
+    description
+      "Remove RSA authentication key";
+  }
+  rpc key-import-authentication-rsa-username {
+    description
+      "RSA authentication key for user";
+    input {
+      leaf path {
+        type string;
+        mandatory true;
+        description
+          "Path to RSA pubkey file";
+      }
+      leaf username {
+        type string;
+        mandatory true;
+        description
+          "Username";
+      }
+    }
   }
   rpc key-import-authentication-rsa {
     description

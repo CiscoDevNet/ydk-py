@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -12,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SNMPCOMMUNITYMIB(Entity):
+class SNMPCOMMUNITYMIB(_Entity_):
     """
     
     
@@ -29,7 +32,10 @@ class SNMPCOMMUNITYMIB(Entity):
     _revision = '2003-08-06'
 
     def __init__(self):
-        super(SNMPCOMMUNITYMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPCOMMUNITYMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-COMMUNITY-MIB"
@@ -50,7 +56,7 @@ class SNMPCOMMUNITYMIB(Entity):
         self._perform_setattr(SNMPCOMMUNITYMIB, [], name, value)
 
 
-    class SnmpCommunityTable(Entity):
+    class SnmpCommunityTable(_Entity_):
         """
         
         
@@ -67,7 +73,10 @@ class SNMPCOMMUNITYMIB(Entity):
         _revision = '2003-08-06'
 
         def __init__(self):
-            super(SNMPCOMMUNITYMIB.SnmpCommunityTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPCOMMUNITYMIB.SnmpCommunityTable, self).__init__()
 
             self.yang_name = "snmpCommunityTable"
             self.yang_parent_name = "SNMP-COMMUNITY-MIB"
@@ -86,7 +95,7 @@ class SNMPCOMMUNITYMIB(Entity):
             self._perform_setattr(SNMPCOMMUNITYMIB.SnmpCommunityTable, [], name, value)
 
 
-        class SnmpCommunityEntry(Entity):
+        class SnmpCommunityEntry(_Entity_):
             """
             
             
@@ -151,7 +160,10 @@ class SNMPCOMMUNITYMIB(Entity):
             _revision = '2003-08-06'
 
             def __init__(self):
-                super(SNMPCOMMUNITYMIB.SnmpCommunityTable.SnmpCommunityEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SNMPCOMMUNITYMIB.SnmpCommunityTable.SnmpCommunityEntry, self).__init__()
 
                 self.yang_name = "snmpCommunityEntry"
                 self.yang_parent_name = "snmpCommunityTable"
@@ -182,11 +194,23 @@ class SNMPCOMMUNITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPCOMMUNITYMIB.SnmpCommunityTable.SnmpCommunityEntry, ['snmpcommunityindex', 'snmpcommunityname', 'snmpcommunitysecurityname', 'snmpcommunitycontextengineid', 'snmpcommunitycontextname', 'snmpcommunitytransporttag', 'snmpcommunitystoragetype'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _SNMP_COMMUNITY_MIB as meta
+                return meta._meta_table['SNMPCOMMUNITYMIB.SnmpCommunityTable.SnmpCommunityEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_COMMUNITY_MIB as meta
+            return meta._meta_table['SNMPCOMMUNITYMIB.SnmpCommunityTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPCOMMUNITYMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_COMMUNITY_MIB as meta
+        return meta._meta_table['SNMPCOMMUNITYMIB']['meta_info']
 
 

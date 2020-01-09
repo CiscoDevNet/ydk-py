@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class DiagNode(Enum):
     spa = Enum.YLeaf(1, "spa")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+        return meta._meta_table['DiagNode']
+
+
 class DiagProcessor(Enum):
     """
     DiagProcessor (Enum Class)
@@ -55,6 +64,12 @@ class DiagProcessor(Enum):
     """
 
     mpc8614d = Enum.YLeaf(0, "mpc8614d")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+        return meta._meta_table['DiagProcessor']
 
 
 class DiagSlot(Enum):
@@ -82,6 +97,12 @@ class DiagSlot(Enum):
     power_module = Enum.YLeaf(1, "power-module")
 
     module = Enum.YLeaf(2, "module")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+        return meta._meta_table['DiagSlot']
 
 
 class NodeState(Enum):
@@ -399,8 +420,14 @@ class NodeState(Enum):
     unknown = Enum.YLeaf(50, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+        return meta._meta_table['NodeState']
 
-class Diag(Entity):
+
+
+class Diag(_Entity_):
     """
     Diag admin operational data
     
@@ -419,7 +446,10 @@ class Diag(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Diag, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Diag, self).__init__()
         self._top_entity = None
 
         self.yang_name = "diag"
@@ -440,7 +470,7 @@ class Diag(Entity):
         self._perform_setattr(Diag, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Diag operational data for available racks
         
@@ -459,7 +489,10 @@ class Diag(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Diag.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "diag"
@@ -478,7 +511,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             Diag operational data for a particular rack
             
@@ -534,7 +567,10 @@ class Diag(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Diag.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -574,7 +610,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Racks.Rack, ['rack_name'], name, value)
 
 
-            class FanTrays(Entity):
+            class FanTrays(_Entity_):
                 """
                 Fan tray table operational data
                 
@@ -593,7 +629,10 @@ class Diag(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.FanTrays, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.FanTrays, self).__init__()
 
                     self.yang_name = "fan-trays"
                     self.yang_parent_name = "rack"
@@ -611,7 +650,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.FanTrays, [], name, value)
 
 
-                class FanTray(Entity):
+                class FanTray(_Entity_):
                     """
                     Fan tray operational data
                     
@@ -639,7 +678,10 @@ class Diag(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.FanTrays.FanTray, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.FanTrays.FanTray, self).__init__()
 
                         self.yang_name = "fan-tray"
                         self.yang_parent_name = "fan-trays"
@@ -662,7 +704,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray, ['fan_tray_name'], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Diag detailed information
                         
@@ -688,7 +730,10 @@ class Diag(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "fan-tray"
@@ -712,7 +757,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail, [], name, value)
 
 
-                        class Node(Entity):
+                        class Node(_Entity_):
                             """
                             Node information
                             
@@ -852,7 +897,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node, self).__init__()
 
                                 self.yang_name = "node"
                                 self.yang_parent_name = "detail"
@@ -913,7 +961,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
 
 
-                            class Pld(Entity):
+                            class Pld(_Entity_):
                                 """
                                 Programmable logic device information
                                 
@@ -952,7 +1000,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.Pld, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.Pld, self).__init__()
 
                                     self.yang_name = "pld"
                                     self.yang_parent_name = "node"
@@ -974,9 +1025,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.Pld']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -995,7 +1050,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "node"
@@ -1013,7 +1071,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -1074,7 +1132,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -1115,7 +1176,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -1145,7 +1206,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1165,9 +1229,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -1197,7 +1265,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1217,9 +1288,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -1249,7 +1324,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1269,9 +1347,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -1317,7 +1399,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1341,9 +1426,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -1376,7 +1465,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1398,11 +1490,23 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.HardwareRevision']['meta_info']
 
 
-
-
-                            class CbcActivePartition(Entity):
+                            class CbcActivePartition(_Entity_):
                                 """
                                 CBC active partition
                                 
@@ -1432,7 +1536,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcActivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcActivePartition, self).__init__()
 
                                     self.yang_name = "cbc-active-partition"
                                     self.yang_parent_name = "node"
@@ -1452,9 +1559,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcActivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcActivePartition']['meta_info']
 
 
-                            class CbcInactivePartition(Entity):
+                            class CbcInactivePartition(_Entity_):
                                 """
                                 CBC inactive partition
                                 
@@ -1484,7 +1595,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcInactivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcInactivePartition, self).__init__()
 
                                     self.yang_name = "cbc-inactive-partition"
                                     self.yang_parent_name = "node"
@@ -1504,10 +1618,18 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node.CbcInactivePartition']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Node']['meta_info']
 
 
-
-                        class Spa(Entity):
+                        class Spa(_Entity_):
                             """
                             SPA information
                             
@@ -1591,7 +1713,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa, self).__init__()
 
                                 self.yang_name = "spa"
                                 self.yang_parent_name = "detail"
@@ -1632,7 +1757,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
 
 
-                            class Main(Entity):
+                            class Main(_Entity_):
                                 """
                                 Main
                                 
@@ -1683,7 +1808,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.Main, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.Main, self).__init__()
 
                                     self.yang_name = "main"
                                     self.yang_parent_name = "spa"
@@ -1709,9 +1837,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.Main']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -1730,7 +1862,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "spa"
@@ -1748,7 +1883,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -1809,7 +1944,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -1850,7 +1988,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -1880,7 +2018,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1900,9 +2041,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -1932,7 +2077,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -1952,9 +2100,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -1984,7 +2136,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2004,9 +2159,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -2052,7 +2211,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2076,9 +2238,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -2111,7 +2277,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2133,15 +2302,43 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa.HardwareRevision']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail.Spa']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray.Detail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.FanTrays.FanTray']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.FanTrays']['meta_info']
 
 
-
-
-
-
-
-
-            class PowerSupplies(Entity):
+            class PowerSupplies(_Entity_):
                 """
                 Power supply table operational data
                 
@@ -2160,7 +2357,10 @@ class Diag(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.PowerSupplies, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.PowerSupplies, self).__init__()
 
                     self.yang_name = "power-supplies"
                     self.yang_parent_name = "rack"
@@ -2178,7 +2378,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies, [], name, value)
 
 
-                class PowerSupply(Entity):
+                class PowerSupply(_Entity_):
                     """
                     Power supply operational data
                     
@@ -2206,7 +2406,10 @@ class Diag(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply, self).__init__()
 
                         self.yang_name = "power-supply"
                         self.yang_parent_name = "power-supplies"
@@ -2229,7 +2432,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply, ['power_supply_name'], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Diag detailed information
                         
@@ -2255,7 +2458,10 @@ class Diag(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "power-supply"
@@ -2279,7 +2485,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail, [], name, value)
 
 
-                        class Node(Entity):
+                        class Node(_Entity_):
                             """
                             Node information
                             
@@ -2419,7 +2625,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node, self).__init__()
 
                                 self.yang_name = "node"
                                 self.yang_parent_name = "detail"
@@ -2480,7 +2689,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
 
 
-                            class Pld(Entity):
+                            class Pld(_Entity_):
                                 """
                                 Programmable logic device information
                                 
@@ -2519,7 +2728,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld, self).__init__()
 
                                     self.yang_name = "pld"
                                     self.yang_parent_name = "node"
@@ -2541,9 +2753,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -2562,7 +2778,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "node"
@@ -2580,7 +2799,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -2641,7 +2860,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -2682,7 +2904,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -2712,7 +2934,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2732,9 +2957,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -2764,7 +2993,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2784,9 +3016,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -2816,7 +3052,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2836,9 +3075,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -2884,7 +3127,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2908,9 +3154,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -2943,7 +3193,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -2965,11 +3218,23 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision']['meta_info']
 
 
-
-
-                            class CbcActivePartition(Entity):
+                            class CbcActivePartition(_Entity_):
                                 """
                                 CBC active partition
                                 
@@ -2999,7 +3264,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition, self).__init__()
 
                                     self.yang_name = "cbc-active-partition"
                                     self.yang_parent_name = "node"
@@ -3019,9 +3287,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition']['meta_info']
 
 
-                            class CbcInactivePartition(Entity):
+                            class CbcInactivePartition(_Entity_):
                                 """
                                 CBC inactive partition
                                 
@@ -3051,7 +3323,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition, self).__init__()
 
                                     self.yang_name = "cbc-inactive-partition"
                                     self.yang_parent_name = "node"
@@ -3071,10 +3346,18 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node']['meta_info']
 
 
-
-                        class Spa(Entity):
+                        class Spa(_Entity_):
                             """
                             SPA information
                             
@@ -3158,7 +3441,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa, self).__init__()
 
                                 self.yang_name = "spa"
                                 self.yang_parent_name = "detail"
@@ -3199,7 +3485,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
 
 
-                            class Main(Entity):
+                            class Main(_Entity_):
                                 """
                                 Main
                                 
@@ -3250,7 +3536,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main, self).__init__()
 
                                     self.yang_name = "main"
                                     self.yang_parent_name = "spa"
@@ -3276,9 +3565,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -3297,7 +3590,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "spa"
@@ -3315,7 +3611,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -3376,7 +3672,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -3417,7 +3716,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -3447,7 +3746,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -3467,9 +3769,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -3499,7 +3805,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -3519,9 +3828,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -3551,7 +3864,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -3571,9 +3887,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -3619,7 +3939,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -3643,9 +3966,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -3678,7 +4005,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -3700,15 +4030,43 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.PowerSupplies.PowerSupply']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.PowerSupplies']['meta_info']
 
 
-
-
-
-
-
-
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Diag operational data for all available slots
                 
@@ -3727,7 +4085,10 @@ class Diag(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -3745,7 +4106,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     Diag operational data for a particular slot
                     
@@ -3780,7 +4141,10 @@ class Diag(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -3807,7 +4171,7 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot, ['slot_name'], name, value)
 
 
-                    class Detail(Entity):
+                    class Detail(_Entity_):
                         """
                         Slot detailed information
                         
@@ -3833,7 +4197,10 @@ class Diag(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.Slots.Slot.Detail, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.Slots.Slot.Detail, self).__init__()
 
                             self.yang_name = "detail"
                             self.yang_parent_name = "slot"
@@ -3852,7 +4219,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail, [], name, value)
 
 
-                        class NodeDetail(Entity):
+                        class NodeDetail(_Entity_):
                             """
                             Detail information for slot
                             
@@ -3992,7 +4359,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail, self).__init__()
 
                                 self.yang_name = "node-detail"
                                 self.yang_parent_name = "detail"
@@ -4053,7 +4423,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
 
 
-                            class Pld(Entity):
+                            class Pld(_Entity_):
                                 """
                                 Programmable logic device information
                                 
@@ -4092,7 +4462,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, self).__init__()
 
                                     self.yang_name = "pld"
                                     self.yang_parent_name = "node-detail"
@@ -4114,9 +4487,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -4135,7 +4512,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "node-detail"
@@ -4153,7 +4533,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -4214,7 +4594,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -4255,7 +4638,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -4285,7 +4668,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -4305,9 +4691,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -4337,7 +4727,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -4357,9 +4750,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -4389,7 +4786,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -4409,9 +4809,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -4457,7 +4861,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -4481,9 +4888,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -4516,7 +4927,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -4538,11 +4952,23 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision']['meta_info']
 
 
-
-
-                            class CbcActivePartition(Entity):
+                            class CbcActivePartition(_Entity_):
                                 """
                                 CBC active partition
                                 
@@ -4572,7 +4998,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition, self).__init__()
 
                                     self.yang_name = "cbc-active-partition"
                                     self.yang_parent_name = "node-detail"
@@ -4592,9 +5021,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition']['meta_info']
 
 
-                            class CbcInactivePartition(Entity):
+                            class CbcInactivePartition(_Entity_):
                                 """
                                 CBC inactive partition
                                 
@@ -4624,7 +5057,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition, self).__init__()
 
                                     self.yang_name = "cbc-inactive-partition"
                                     self.yang_parent_name = "node-detail"
@@ -4644,10 +5080,18 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail']['meta_info']
 
 
-
-                        class SpaDetail(Entity):
+                        class SpaDetail(_Entity_):
                             """
                             Detail information for spa
                             
@@ -4731,7 +5175,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail, self).__init__()
 
                                 self.yang_name = "spa-detail"
                                 self.yang_parent_name = "detail"
@@ -4772,7 +5219,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
 
 
-                            class Main(Entity):
+                            class Main(_Entity_):
                                 """
                                 Main
                                 
@@ -4823,7 +5270,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, self).__init__()
 
                                     self.yang_name = "main"
                                     self.yang_parent_name = "spa-detail"
@@ -4849,9 +5299,13 @@ class Diag(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main']['meta_info']
 
 
-                            class HardwareRevision(Entity):
+                            class HardwareRevision(_Entity_):
                                 """
                                 Hardware revision
                                 
@@ -4870,7 +5324,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision, self).__init__()
 
                                     self.yang_name = "hardware-revision"
                                     self.yang_parent_name = "spa-detail"
@@ -4888,7 +5345,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision_(Entity):
+                                class HardwareRevision_(_Entity_):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
@@ -4949,7 +5406,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
@@ -4990,7 +5450,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                    class HwRev(Entity):
+                                    class HwRev(_Entity_):
                                         """
                                         Hardware version
                                         
@@ -5020,7 +5480,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -5040,9 +5503,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                    class FwRev(Entity):
+                                    class FwRev(_Entity_):
                                         """
                                         Firmware version
                                         
@@ -5072,7 +5539,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -5092,9 +5562,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                    class SwRev(Entity):
+                                    class SwRev(_Entity_):
                                         """
                                         Software version
                                         
@@ -5124,7 +5598,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -5144,9 +5621,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                    class DimmRev(Entity):
+                                    class DimmRev(_Entity_):
                                         """
                                         DIMM version information
                                         
@@ -5192,7 +5673,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -5216,9 +5700,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                    class SsdRev(Entity):
+                                    class SsdRev(_Entity_):
                                         """
                                         SSD version information
                                         
@@ -5251,7 +5739,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
@@ -5273,13 +5764,33 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Detail']['meta_info']
 
 
-
-
-
-
-                    class Instances(Entity):
+                    class Instances(_Entity_):
                         """
                         Diag operational data for all available
                         instances
@@ -5299,7 +5810,10 @@ class Diag(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Diag.Racks.Rack.Slots.Slot.Instances, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Diag.Racks.Rack.Slots.Slot.Instances, self).__init__()
 
                             self.yang_name = "instances"
                             self.yang_parent_name = "slot"
@@ -5317,7 +5831,7 @@ class Diag(Entity):
                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances, [], name, value)
 
 
-                        class Instance(Entity):
+                        class Instance(_Entity_):
                             """
                             Diag operational data for a particular
                             instance
@@ -5346,7 +5860,10 @@ class Diag(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
 
                                 self.yang_name = "instance"
                                 self.yang_parent_name = "instances"
@@ -5369,7 +5886,7 @@ class Diag(Entity):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance, ['instance_name'], name, value)
 
 
-                            class Detail(Entity):
+                            class Detail(_Entity_):
                                 """
                                 Diag detailed information
                                 
@@ -5395,7 +5912,10 @@ class Diag(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, self).__init__()
 
                                     self.yang_name = "detail"
                                     self.yang_parent_name = "instance"
@@ -5419,7 +5939,7 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, [], name, value)
 
 
-                                class Node(Entity):
+                                class Node(_Entity_):
                                     """
                                     Node information
                                     
@@ -5559,7 +6079,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node, self).__init__()
 
                                         self.yang_name = "node"
                                         self.yang_parent_name = "detail"
@@ -5620,7 +6143,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node, ['description', 'serial_number', 'tan', 'pid', 'vid', 'chip_hardware_revision', 'new_deviation_number', 'clei', 'board_state', 'pld_motherboard', 'pld_power', 'monlib', 'rommon', 'cpu0'], name, value)
 
 
-                                    class Pld(Entity):
+                                    class Pld(_Entity_):
                                         """
                                         Programmable logic device information
                                         
@@ -5659,7 +6182,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, self).__init__()
 
                                             self.yang_name = "pld"
                                             self.yang_parent_name = "node"
@@ -5681,9 +6207,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld, ['type', 'processor_higher_version', 'processor_lower_version'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld']['meta_info']
 
 
-                                    class HardwareRevision(Entity):
+                                    class HardwareRevision(_Entity_):
                                         """
                                         Hardware revision
                                         
@@ -5702,7 +6232,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, self).__init__()
 
                                             self.yang_name = "hardware-revision"
                                             self.yang_parent_name = "node"
@@ -5720,7 +6253,7 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                        class HardwareRevision_(Entity):
+                                        class HardwareRevision_(_Entity_):
                                             """
                                             Board FPGA/CPLD/ASIC hardware revision
                                             
@@ -5781,7 +6314,10 @@ class Diag(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                                 self.yang_name = "hardware-revision"
                                                 self.yang_parent_name = "hardware-revision"
@@ -5822,7 +6358,7 @@ class Diag(Entity):
                                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                            class HwRev(Entity):
+                                            class HwRev(_Entity_):
                                                 """
                                                 Hardware version
                                                 
@@ -5852,7 +6388,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                                     self.yang_name = "hw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -5872,9 +6411,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                            class FwRev(Entity):
+                                            class FwRev(_Entity_):
                                                 """
                                                 Firmware version
                                                 
@@ -5904,7 +6447,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                                     self.yang_name = "fw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -5924,9 +6470,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                            class SwRev(Entity):
+                                            class SwRev(_Entity_):
                                                 """
                                                 Software version
                                                 
@@ -5956,7 +6506,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                                     self.yang_name = "sw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -5976,9 +6529,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                            class DimmRev(Entity):
+                                            class DimmRev(_Entity_):
                                                 """
                                                 DIMM version information
                                                 
@@ -6024,7 +6581,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                                     self.yang_name = "dimm-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6048,9 +6608,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                            class SsdRev(Entity):
+                                            class SsdRev(_Entity_):
                                                 """
                                                 SSD version information
                                                 
@@ -6083,7 +6647,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                                     self.yang_name = "ssd-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6105,11 +6672,23 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision']['meta_info']
 
 
-
-
-                                    class CbcActivePartition(Entity):
+                                    class CbcActivePartition(_Entity_):
                                         """
                                         CBC active partition
                                         
@@ -6139,7 +6718,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition, self).__init__()
 
                                             self.yang_name = "cbc-active-partition"
                                             self.yang_parent_name = "node"
@@ -6159,9 +6741,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition']['meta_info']
 
 
-                                    class CbcInactivePartition(Entity):
+                                    class CbcInactivePartition(_Entity_):
                                         """
                                         CBC inactive partition
                                         
@@ -6191,7 +6777,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition, self).__init__()
 
                                             self.yang_name = "cbc-inactive-partition"
                                             self.yang_parent_name = "node"
@@ -6211,10 +6800,18 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition, ['major_revision', 'minor_revision'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node']['meta_info']
 
 
-
-                                class Spa(Entity):
+                                class Spa(_Entity_):
                                     """
                                     SPA information
                                     
@@ -6298,7 +6895,10 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa, self).__init__()
 
                                         self.yang_name = "spa"
                                         self.yang_parent_name = "detail"
@@ -6339,7 +6939,7 @@ class Diag(Entity):
                                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa, ['node', 'name', 'pca_unit_number', 'pca_revision', 'pid', 'vid', 'clei', 'node_state'], name, value)
 
 
-                                    class Main(Entity):
+                                    class Main(_Entity_):
                                         """
                                         Main
                                         
@@ -6390,7 +6990,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, self).__init__()
 
                                             self.yang_name = "main"
                                             self.yang_parent_name = "spa"
@@ -6416,9 +7019,13 @@ class Diag(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main, ['board_type', 'tan', 'tan_revision', 'deviation_number', 'serial_number'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main']['meta_info']
 
 
-                                    class HardwareRevision(Entity):
+                                    class HardwareRevision(_Entity_):
                                         """
                                         Hardware revision
                                         
@@ -6437,7 +7044,10 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision, self).__init__()
 
                                             self.yang_name = "hardware-revision"
                                             self.yang_parent_name = "spa"
@@ -6455,7 +7065,7 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                        class HardwareRevision_(Entity):
+                                        class HardwareRevision_(_Entity_):
                                             """
                                             Board FPGA/CPLD/ASIC hardware revision
                                             
@@ -6516,7 +7126,10 @@ class Diag(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                                 self.yang_name = "hardware-revision"
                                                 self.yang_parent_name = "hardware-revision"
@@ -6557,7 +7170,7 @@ class Diag(Entity):
                                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
-                                            class HwRev(Entity):
+                                            class HwRev(_Entity_):
                                                 """
                                                 Hardware version
                                                 
@@ -6587,7 +7200,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                                     self.yang_name = "hw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6607,9 +7223,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev']['meta_info']
 
 
-                                            class FwRev(Entity):
+                                            class FwRev(_Entity_):
                                                 """
                                                 Firmware version
                                                 
@@ -6639,7 +7259,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                                     self.yang_name = "fw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6659,9 +7282,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev']['meta_info']
 
 
-                                            class SwRev(Entity):
+                                            class SwRev(_Entity_):
                                                 """
                                                 Software version
                                                 
@@ -6691,7 +7318,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                                     self.yang_name = "sw-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6711,9 +7341,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev']['meta_info']
 
 
-                                            class DimmRev(Entity):
+                                            class DimmRev(_Entity_):
                                                 """
                                                 DIMM version information
                                                 
@@ -6759,7 +7393,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                                     self.yang_name = "dimm-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6783,9 +7420,13 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev']['meta_info']
 
 
-                                            class SsdRev(Entity):
+                                            class SsdRev(_Entity_):
                                                 """
                                                 SSD version information
                                                 
@@ -6818,7 +7459,10 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                                     self.yang_name = "ssd-rev"
                                                     self.yang_parent_name = "hardware-revision"
@@ -6840,17 +7484,53 @@ class Diag(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                    return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                                return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances.Instance']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                            return meta._meta_table['Diag.Racks.Rack.Slots.Slot.Instances']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.Slots.Slot']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.Slots']['meta_info']
 
 
-
-
-
-
-
-
-
-
-            class Chassis(Entity):
+            class Chassis(_Entity_):
                 """
                 Chassis information
                 
@@ -6904,7 +7584,10 @@ class Diag(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.Chassis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.Chassis, self).__init__()
 
                     self.yang_name = "chassis"
                     self.yang_parent_name = "rack"
@@ -6932,9 +7615,13 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Racks.Rack.Chassis, ['serial_number', 'pid', 'vid', 'description', 'clei', 'tan'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.Chassis']['meta_info']
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summary information
                 
@@ -6953,7 +7640,10 @@ class Diag(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Diag.Racks.Rack.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Racks.Rack.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "rack"
@@ -6971,7 +7661,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.Summary, [], name, value)
 
 
-                class Summary_(Entity):
+                class Summary_(_Entity_):
                     """
                     Summary data
                     
@@ -7013,7 +7703,10 @@ class Diag(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.Summary.Summary_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Racks.Rack.Summary.Summary_, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "summary"
@@ -7037,13 +7730,33 @@ class Diag(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.Summary.Summary_, ['type', 'node', 'slot_type', 'description'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                        return meta._meta_table['Diag.Racks.Rack.Summary.Summary_']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                    return meta._meta_table['Diag.Racks.Rack.Summary']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+                return meta._meta_table['Diag.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+            return meta._meta_table['Diag.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Diag()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_diag_admin_oper as meta
+        return meta._meta_table['Diag']['meta_info']
 
 

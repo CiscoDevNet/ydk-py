@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -43,6 +46,12 @@ class Ipv6DefaultPing(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_cfg as meta
+        return meta._meta_table['Ipv6DefaultPing']
 
 
 class Ipv6Qppb(Enum):
@@ -80,6 +89,12 @@ class Ipv6Qppb(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_cfg as meta
+        return meta._meta_table['Ipv6Qppb']
+
+
 class Ipv6Reachable(Enum):
     """
     Ipv6Reachable (Enum Class)
@@ -103,6 +118,12 @@ class Ipv6Reachable(Enum):
     received = Enum.YLeaf(1, "received")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_cfg as meta
+        return meta._meta_table['Ipv6Reachable']
+
+
 class Ipv6SelfPing(Enum):
     """
     Ipv6SelfPing (Enum Class)
@@ -122,6 +143,12 @@ class Ipv6SelfPing(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_cfg as meta
+        return meta._meta_table['Ipv6SelfPing']
 
 
 

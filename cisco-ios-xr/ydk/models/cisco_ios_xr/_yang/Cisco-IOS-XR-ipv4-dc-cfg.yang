@@ -29,6 +29,10 @@ module Cisco-IOS-XR-ipv4-dc-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-05-21 {
+    description
+      "Fixing yang gaps.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -110,15 +114,14 @@ module Cisco-IOS-XR-ipv4-dc-cfg {
           type Opt61-sub;
           mandatory true;
           description
-            "Option 61 is enabled";
+            "Enter Option61 SubType";
         }
         leaf ascii-string {
           type string {
             length "1..255";
           }
-          mandatory true;
           description
-            "Enter ascii string";
+            "Enter ascii string for opt61Subtype ascii";
         }
       }
       container option60-config {

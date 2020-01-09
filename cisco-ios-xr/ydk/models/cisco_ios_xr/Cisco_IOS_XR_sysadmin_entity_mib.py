@@ -7,8 +7,11 @@ Copyright(c) 2015\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -67,8 +70,14 @@ class PhysicalClass(Enum):
     stack = Enum.YLeaf(11, "stack")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+        return meta._meta_table['PhysicalClass']
 
-class ENTITYMIB(Entity):
+
+
+class ENTITYMIB(_Entity_):
     """
     
     
@@ -122,7 +131,10 @@ class ENTITYMIB(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(ENTITYMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ENTITYMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ENTITY-MIB"
@@ -163,7 +175,7 @@ class ENTITYMIB(Entity):
         self._perform_setattr(ENTITYMIB, [], name, value)
 
 
-    class EntityGeneral(Entity):
+    class EntityGeneral(_Entity_):
         """
         
         
@@ -184,7 +196,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntityGeneral, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntityGeneral, self).__init__()
 
             self.yang_name = "entityGeneral"
             self.yang_parent_name = "ENTITY-MIB"
@@ -203,9 +218,13 @@ class ENTITYMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntityGeneral, ['entlastchangetime'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntityGeneral']['meta_info']
 
 
-    class EntPhysicalTable(Entity):
+    class EntPhysicalTable(_Entity_):
         """
         
         
@@ -224,7 +243,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntPhysicalTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntPhysicalTable, self).__init__()
 
             self.yang_name = "entPhysicalTable"
             self.yang_parent_name = "ENTITY-MIB"
@@ -243,7 +265,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntPhysicalTable, [], name, value)
 
 
-        class EntPhysicalEntry(Entity):
+        class EntPhysicalEntry(_Entity_):
             """
             
             
@@ -395,7 +417,10 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, self).__init__()
 
                 self.yang_name = "entPhysicalEntry"
                 self.yang_parent_name = "entPhysicalTable"
@@ -444,10 +469,18 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, ['entphysicalindex', 'entphysicaldescr', 'entphysicalvendortype', 'entphysicalcontainedin', 'entphysicalclass', 'entphysicalparentrelpos', 'entphysicalname', 'entphysicalhardwarerev', 'entphysicalfirmwarerev', 'entphysicalsoftwarerev', 'entphysicalserialnum', 'entphysicalmfgname', 'entphysicalmodelname', 'entphysicalalias', 'entphysicalassetid', 'entphysicalisfru'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+                return meta._meta_table['ENTITYMIB.EntPhysicalTable.EntPhysicalEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntPhysicalTable']['meta_info']
 
 
-
-    class EntLogicalTable(Entity):
+    class EntLogicalTable(_Entity_):
         """
         
         
@@ -466,7 +499,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntLogicalTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntLogicalTable, self).__init__()
 
             self.yang_name = "entLogicalTable"
             self.yang_parent_name = "ENTITY-MIB"
@@ -485,7 +521,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntLogicalTable, [], name, value)
 
 
-        class EntLogicalEntry(Entity):
+        class EntLogicalEntry(_Entity_):
             """
             
             
@@ -569,7 +605,10 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.EntLogicalTable.EntLogicalEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYMIB.EntLogicalTable.EntLogicalEntry, self).__init__()
 
                 self.yang_name = "entLogicalEntry"
                 self.yang_parent_name = "entLogicalTable"
@@ -602,10 +641,18 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, ['entlogicalindex', 'entlogicaldescr', 'entlogicaltype', 'entlogicalcommunity', 'entlogicaltaddress', 'entlogicaltdomain', 'entlogicalcontextengineid', 'entlogicalcontextname'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+                return meta._meta_table['ENTITYMIB.EntLogicalTable.EntLogicalEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntLogicalTable']['meta_info']
 
 
-
-    class EntLPMappingTable(Entity):
+    class EntLPMappingTable(_Entity_):
         """
         
         
@@ -624,7 +671,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntLPMappingTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntLPMappingTable, self).__init__()
 
             self.yang_name = "entLPMappingTable"
             self.yang_parent_name = "ENTITY-MIB"
@@ -643,7 +693,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntLPMappingTable, [], name, value)
 
 
-        class EntLPMappingEntry(Entity):
+        class EntLPMappingEntry(_Entity_):
             """
             
             
@@ -673,7 +723,10 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, self).__init__()
 
                 self.yang_name = "entLPMappingEntry"
                 self.yang_parent_name = "entLPMappingTable"
@@ -694,10 +747,18 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, ['entlogicalindex', 'entlpphysicalindex'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+                return meta._meta_table['ENTITYMIB.EntLPMappingTable.EntLPMappingEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntLPMappingTable']['meta_info']
 
 
-
-    class EntAliasMappingTable(Entity):
+    class EntAliasMappingTable(_Entity_):
         """
         
         
@@ -716,7 +777,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntAliasMappingTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntAliasMappingTable, self).__init__()
 
             self.yang_name = "entAliasMappingTable"
             self.yang_parent_name = "ENTITY-MIB"
@@ -735,7 +799,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntAliasMappingTable, [], name, value)
 
 
-        class EntAliasMappingEntry(Entity):
+        class EntAliasMappingEntry(_Entity_):
             """
             
             
@@ -774,7 +838,10 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, self).__init__()
 
                 self.yang_name = "entAliasMappingEntry"
                 self.yang_parent_name = "entAliasMappingTable"
@@ -797,10 +864,18 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, ['entphysicalindex', 'entaliaslogicalindexorzero', 'entaliasmappingidentifier'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+                return meta._meta_table['ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntAliasMappingTable']['meta_info']
 
 
-
-    class EntPhysicalContainsTable(Entity):
+    class EntPhysicalContainsTable(_Entity_):
         """
         
         
@@ -819,7 +894,10 @@ class ENTITYMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(ENTITYMIB.EntPhysicalContainsTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ENTITYMIB.EntPhysicalContainsTable, self).__init__()
 
             self.yang_name = "entPhysicalContainsTable"
             self.yang_parent_name = "ENTITY-MIB"
@@ -838,7 +916,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable, [], name, value)
 
 
-        class EntPhysicalContainsEntry(Entity):
+        class EntPhysicalContainsEntry(_Entity_):
             """
             
             
@@ -868,7 +946,10 @@ class ENTITYMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, self).__init__()
 
                 self.yang_name = "entPhysicalContainsEntry"
                 self.yang_parent_name = "entPhysicalContainsTable"
@@ -889,11 +970,23 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, ['entphysicalindex', 'entphysicalchildindex'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+                return meta._meta_table['ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+            return meta._meta_table['ENTITYMIB.EntPhysicalContainsTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ENTITYMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_mib as meta
+        return meta._meta_table['ENTITYMIB']['meta_info']
 
 

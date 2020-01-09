@@ -8,8 +8,11 @@ Copyright(c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class IssuNotif(Enum):
     notif_sysadmin_phase_start = Enum.YLeaf(1, "notif-sysadmin-phase-start")
 
     notif_sysadmin_op_end = Enum.YLeaf(2, "notif-sysadmin-op-end")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['IssuNotif']
 
 
 class OpResult(Enum):
@@ -81,6 +90,12 @@ class OpResult(Enum):
     error_install = Enum.YLeaf(3, "error-install")
 
     error_node_redundancy = Enum.YLeaf(4, "error-node-redundancy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['OpResult']
 
 
 class OpStage(Enum):
@@ -176,6 +191,12 @@ class OpStage(Enum):
     activate_complete = Enum.YLeaf(13, "activate-complete")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['OpStage']
+
+
 class OpStartResult(Enum):
     """
     OpStartResult (Enum Class)
@@ -233,8 +254,14 @@ class OpStartResult(Enum):
     prepare_error_already_in_progress = Enum.YLeaf(7, "prepare-error-already-in-progress")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['OpStartResult']
 
-class IssuAction(Entity):
+
+
+class IssuAction(_Entity_):
     """
     ISSU action commands
     
@@ -243,10 +270,13 @@ class IssuAction(Entity):
     """
 
     _prefix = 'issu'
-    _revision = '2018-12-13'
+    _revision = '2019-06-12'
 
     def __init__(self):
-        super(IssuAction, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IssuAction, self).__init__()
         self._top_entity = None
 
         self.yang_name = "issu_action"
@@ -263,9 +293,13 @@ class IssuAction(Entity):
         self._top_entity = IssuAction()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['IssuAction']['meta_info']
 
 
-class Issu(Entity):
+class Issu(_Entity_):
     """
     ISSU operational state
     
@@ -295,10 +329,13 @@ class Issu(Entity):
     """
 
     _prefix = 'issu'
-    _revision = '2018-12-13'
+    _revision = '2019-06-12'
 
     def __init__(self):
-        super(Issu, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Issu, self).__init__()
         self._top_entity = None
 
         self.yang_name = "issu"
@@ -327,7 +364,7 @@ class Issu(Entity):
         self._perform_setattr(Issu, [], name, value)
 
 
-    class Status(Entity):
+    class Status(_Entity_):
         """
         Status of the in\-progress or last completed ISSU operation
         
@@ -426,10 +463,13 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-12-13'
+        _revision = '2019-06-12'
 
         def __init__(self):
-            super(Issu.Status, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Issu.Status, self).__init__()
 
             self.yang_name = "status"
             self.yang_parent_name = "issu"
@@ -503,8 +543,14 @@ class Issu(Entity):
             deactivate_operation = Enum.YLeaf(2, "deactivate-operation")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Status.OperationType']
 
-        class Prepare(Entity):
+
+
+        class Prepare(_Entity_):
             """
             State specific to the prepare phase
             
@@ -545,10 +591,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Status.Prepare, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Status.Prepare, self).__init__()
 
                 self.yang_name = "prepare"
                 self.yang_parent_name = "status"
@@ -573,9 +622,13 @@ class Issu(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Status.Prepare, ['stage', 'start_time', 'activity', 'activity_start_time'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Status.Prepare']['meta_info']
 
 
-        class Activate(Entity):
+        class Activate(_Entity_):
             """
             State specific to the activate phase
             
@@ -630,10 +683,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Status.Activate, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Status.Activate, self).__init__()
 
                 self.yang_name = "activate"
                 self.yang_parent_name = "status"
@@ -662,9 +718,13 @@ class Issu(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Status.Activate, ['stage', 'start_time', 'activity', 'activity_nodes', 'activity_waiting_for', 'activity_start_time'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Status.Activate']['meta_info']
 
 
-        class Error(Entity):
+        class Error(_Entity_):
             """
             Details of the first error that was encountered, if there were any.
             
@@ -701,10 +761,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Status.Error, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Status.Error, self).__init__()
 
                 self.yang_name = "error"
                 self.yang_parent_name = "status"
@@ -732,7 +795,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Status.Error, ['result', 'stage', 'error_message'], name, value)
 
 
-            class Details(Entity):
+            class Details(_Entity_):
                 """
                 Details specific to the error. Contents are only filled in if it is relevant to the error that occured.
                 
@@ -771,10 +834,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Status.Error.Details, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Status.Error.Details, self).__init__()
 
                     self.yang_name = "details"
                     self.yang_parent_name = "error"
@@ -799,11 +865,23 @@ class Issu(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Status.Error.Details, ['nodes', 'clients', 'packages', 'operation_ids'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Status.Error.Details']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Status.Error']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+            return meta._meta_table['Issu.Status']['meta_info']
 
 
-
-
-    class Clients(Entity):
+    class Clients(_Entity_):
         """
         Features registered for notifications of ISSU phases
         
@@ -833,10 +911,13 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-12-13'
+        _revision = '2019-06-12'
 
         def __init__(self):
-            super(Issu.Clients, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Issu.Clients, self).__init__()
 
             self.yang_name = "clients"
             self.yang_parent_name = "issu"
@@ -916,8 +997,14 @@ class Issu(Entity):
             announce_client_error = Enum.YLeaf(7, "announce-client-error")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Clients.AnnouncementStatus']
 
-        class Client(Entity):
+
+
+        class Client(_Entity_):
             """
             
             
@@ -977,10 +1064,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Clients.Client, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Clients.Client, self).__init__()
 
                 self.yang_name = "client"
                 self.yang_parent_name = "clients"
@@ -1074,10 +1164,24 @@ class Issu(Entity):
                 notif_resp_client_abort = Enum.YLeaf(8, "notif-resp-client-abort")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Clients.Client.Response']
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Clients.Client']['meta_info']
 
-    class Internals(Entity):
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+            return meta._meta_table['Issu.Clients']['meta_info']
+
+
+    class Internals(_Entity_):
         """
         Internal infrastructure state
         
@@ -1107,10 +1211,13 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
-        _revision = '2018-12-13'
+        _revision = '2019-06-12'
 
         def __init__(self):
-            super(Issu.Internals, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Issu.Internals, self).__init__()
 
             self.yang_name = "internals"
             self.yang_parent_name = "issu"
@@ -1171,6 +1278,12 @@ class Issu(Entity):
             operation_request_recover = Enum.YLeaf(3, "operation-request-recover")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.OpRequestType']
+
+
         class PhaseType(Enum):
             """
             PhaseType (Enum Class)
@@ -1190,6 +1303,12 @@ class Issu(Entity):
             calvados_activate_phase_one = Enum.YLeaf(0, "calvados-activate-phase-one")
 
             calvados_activate_phase_two = Enum.YLeaf(1, "calvados-activate-phase-two")
+
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.PhaseType']
 
 
         class StageType(Enum):
@@ -1369,8 +1488,14 @@ class Issu(Entity):
             activate_recovery_postamble = Enum.YLeaf(27, "activate-recovery-postamble")
 
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.StageType']
 
-        class Orchestrator(Entity):
+
+
+        class Orchestrator(_Entity_):
             """
             Orchestrator module internal state
             
@@ -1451,10 +1576,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Internals.Orchestrator, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Internals.Orchestrator, self).__init__()
 
                 self.yang_name = "orchestrator"
                 self.yang_parent_name = "internals"
@@ -1500,7 +1628,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Internals.Orchestrator, ['command', 'operation_type', 'current_operation', 'issu_completed', 'operation_id', 'in_progress'], name, value)
 
 
-            class OperationStartDetails(Entity):
+            class OperationStartDetails(_Entity_):
                 """
                 
                 
@@ -1525,10 +1653,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Orchestrator.OperationStartDetails, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Orchestrator.OperationStartDetails, self).__init__()
 
                     self.yang_name = "operation-start-details"
                     self.yang_parent_name = "orchestrator"
@@ -1549,9 +1680,13 @@ class Issu(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.OperationStartDetails, ['input_package', 'input_operation_id'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Orchestrator.OperationStartDetails']['meta_info']
 
 
-            class InternalPrepare(Entity):
+            class InternalPrepare(_Entity_):
                 """
                 
                 
@@ -1604,10 +1739,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Orchestrator.InternalPrepare, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Orchestrator.InternalPrepare, self).__init__()
 
                     self.yang_name = "internal-prepare"
                     self.yang_parent_name = "orchestrator"
@@ -1639,7 +1777,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare, ['operation_id', 'complete', 'current_stage', 'host_package', 'calvados_package'], name, value)
 
 
-                class PrepareStageHistory(Entity):
+                class PrepareStageHistory(_Entity_):
                     """
                     
                     
@@ -1655,10 +1793,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, self).__init__()
 
                         self.yang_name = "prepare-stage-history"
                         self.yang_parent_name = "internal-prepare"
@@ -1677,7 +1818,7 @@ class Issu(Entity):
                         self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, [], name, value)
 
 
-                    class HistoricalStage(Entity):
+                    class HistoricalStage(_Entity_):
                         """
                         
                         
@@ -1748,10 +1889,13 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-12-13'
+                        _revision = '2019-06-12'
 
                         def __init__(self):
-                            super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, self).__init__()
 
                             self.yang_name = "historical-stage"
                             self.yang_parent_name = "prepare-stage-history"
@@ -1784,11 +1928,23 @@ class Issu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                            return meta._meta_table['Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Orchestrator.InternalPrepare']['meta_info']
 
 
-
-
-            class InternalActivate(Entity):
+            class InternalActivate(_Entity_):
                 """
                 
                 
@@ -1869,10 +2025,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Orchestrator.InternalActivate, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Orchestrator.InternalActivate, self).__init__()
 
                     self.yang_name = "internal-activate"
                     self.yang_parent_name = "orchestrator"
@@ -1912,7 +2071,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate, ['operation_id', 'complete', 'current_stage', 'current_phase', 'host_prepared', 'calvados_prepared', 'host_node', 'calvados_phase_one_node', 'calvados_phase_two_node'], name, value)
 
 
-                class ActivateStageHistory(Entity):
+                class ActivateStageHistory(_Entity_):
                     """
                     
                     
@@ -1928,10 +2087,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, self).__init__()
 
                         self.yang_name = "activate-stage-history"
                         self.yang_parent_name = "internal-activate"
@@ -1950,7 +2112,7 @@ class Issu(Entity):
                         self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, [], name, value)
 
 
-                    class HistoricalStage(Entity):
+                    class HistoricalStage(_Entity_):
                         """
                         
                         
@@ -2021,10 +2183,13 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-12-13'
+                        _revision = '2019-06-12'
 
                         def __init__(self):
-                            super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, self).__init__()
 
                             self.yang_name = "historical-stage"
                             self.yang_parent_name = "activate-stage-history"
@@ -2057,11 +2222,23 @@ class Issu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                            return meta._meta_table['Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Orchestrator.InternalActivate']['meta_info']
 
 
-
-
-            class Error(Entity):
+            class Error(_Entity_):
                 """
                 
                 
@@ -2149,10 +2326,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Orchestrator.Error, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Orchestrator.Error, self).__init__()
 
                     self.yang_name = "error"
                     self.yang_parent_name = "orchestrator"
@@ -2191,10 +2371,18 @@ class Issu(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.Error, ['operation_status', 'failure_operation', 'failure_external_stage', 'failure_internal_stage_details', 'error_details', 'failed_node', 'failed_package', 'failed_operation_id', 'failed_client', 'recovery_attempted', 'recovery_status'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Orchestrator.Error']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.Orchestrator']['meta_info']
 
 
-
-        class Agents(Entity):
+        class Agents(_Entity_):
             """
             Agent module internal state
             
@@ -2224,10 +2412,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Internals.Agents, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Internals.Agents, self).__init__()
 
                 self.yang_name = "agents"
                 self.yang_parent_name = "internals"
@@ -2256,7 +2447,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Internals.Agents, [], name, value)
 
 
-            class Requests(Entity):
+            class Requests(_Entity_):
                 """
                 Data on requests being processed by Agent module
                 
@@ -2272,10 +2463,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Agents.Requests, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Agents.Requests, self).__init__()
 
                     self.yang_name = "requests"
                     self.yang_parent_name = "agents"
@@ -2294,7 +2488,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Agents.Requests, [], name, value)
 
 
-                class Request(Entity):
+                class Request(_Entity_):
                     """
                     
                     
@@ -2351,10 +2545,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.Agents.Requests.Request, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.Agents.Requests.Request, self).__init__()
 
                         self.yang_name = "request"
                         self.yang_parent_name = "requests"
@@ -2414,8 +2611,14 @@ class Issu(Entity):
                         requests_post_upgrade_cleanup = Enum.YLeaf(2, "requests-post-upgrade-cleanup")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                            return meta._meta_table['Issu.Internals.Agents.Requests.Request.RequestType']
 
-                    class Checkpoint(Entity):
+
+
+                    class Checkpoint(_Entity_):
                         """
                         
                         
@@ -2447,10 +2650,13 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-12-13'
+                        _revision = '2019-06-12'
 
                         def __init__(self):
-                            super(Issu.Internals.Agents.Requests.Request.Checkpoint, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Issu.Internals.Agents.Requests.Request.Checkpoint, self).__init__()
 
                             self.yang_name = "checkpoint"
                             self.yang_parent_name = "request"
@@ -2499,9 +2705,19 @@ class Issu(Entity):
                             requests_checkpoint_update = Enum.YLeaf(2, "requests-checkpoint-update")
 
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                                return meta._meta_table['Issu.Internals.Agents.Requests.Request.Checkpoint.MessageType']
 
 
-                    class Agents_(Entity):
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                            return meta._meta_table['Issu.Internals.Agents.Requests.Request.Checkpoint']['meta_info']
+
+
+                    class Agents_(_Entity_):
                         """
                         
                         
@@ -2517,10 +2733,13 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
-                        _revision = '2018-12-13'
+                        _revision = '2019-06-12'
 
                         def __init__(self):
-                            super(Issu.Internals.Agents.Requests.Request.Agents_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Issu.Internals.Agents.Requests.Request.Agents_, self).__init__()
 
                             self.yang_name = "agents"
                             self.yang_parent_name = "request"
@@ -2538,7 +2757,7 @@ class Issu(Entity):
                             self._perform_setattr(Issu.Internals.Agents.Requests.Request.Agents_, [], name, value)
 
 
-                        class Agent(Entity):
+                        class Agent(_Entity_):
                             """
                             
                             
@@ -2577,10 +2796,13 @@ class Issu(Entity):
                             """
 
                             _prefix = 'issu'
-                            _revision = '2018-12-13'
+                            _revision = '2019-06-12'
 
                             def __init__(self):
-                                super(Issu.Internals.Agents.Requests.Request.Agents_.Agent, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Issu.Internals.Agents.Requests.Request.Agents_.Agent, self).__init__()
 
                                 self.yang_name = "agent"
                                 self.yang_parent_name = "agents"
@@ -2607,7 +2829,7 @@ class Issu(Entity):
                                 self._perform_setattr(Issu.Internals.Agents.Requests.Request.Agents_.Agent, ['agent_index', 'node', 'waiting_for_response'], name, value)
 
 
-                            class ResponseContents(Entity):
+                            class ResponseContents(_Entity_):
                                 """
                                 
                                 
@@ -2630,10 +2852,13 @@ class Issu(Entity):
                                 """
 
                                 _prefix = 'issu'
-                                _revision = '2018-12-13'
+                                _revision = '2019-06-12'
 
                                 def __init__(self):
-                                    super(Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents, self).__init__()
 
                                     self.yang_name = "response-contents"
                                     self.yang_parent_name = "agent"
@@ -2686,13 +2911,39 @@ class Issu(Entity):
                                     agent_response_send_failure = Enum.YLeaf(3, "agent-response-send-failure")
 
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                                        return meta._meta_table['Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents.AgentStatus']
 
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                                    return meta._meta_table['Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                                return meta._meta_table['Issu.Internals.Agents.Requests.Request.Agents_.Agent']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                            return meta._meta_table['Issu.Internals.Agents.Requests.Request.Agents_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.Agents.Requests.Request']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Agents.Requests']['meta_info']
 
 
-
-
-            class Inventory(Entity):
+            class Inventory(_Entity_):
                 """
                 Inventory of agents held by Agent module
                 
@@ -2708,10 +2959,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Agents.Inventory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Agents.Inventory, self).__init__()
 
                     self.yang_name = "inventory"
                     self.yang_parent_name = "agents"
@@ -2730,7 +2984,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Agents.Inventory, [], name, value)
 
 
-                class Agent(Entity):
+                class Agent(_Entity_):
                     """
                     
                     
@@ -2762,10 +3016,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.Agents.Inventory.Agent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.Agents.Inventory.Agent, self).__init__()
 
                         self.yang_name = "agent"
                         self.yang_parent_name = "inventory"
@@ -2788,10 +3045,18 @@ class Issu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Agents.Inventory.Agent, ['agent_index', 'agent_node', 'reloaded'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.Agents.Inventory.Agent']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Agents.Inventory']['meta_info']
 
 
-
-            class ReloadTracking(Entity):
+            class ReloadTracking(_Entity_):
                 """
                 Reload tracking performed by Agent module
                 
@@ -2823,10 +3088,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.Agents.ReloadTracking, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.Agents.ReloadTracking, self).__init__()
 
                     self.yang_name = "reload-tracking"
                     self.yang_parent_name = "agents"
@@ -2850,7 +3118,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Agents.ReloadTracking, ['in_progress', 'remaining_nodes_count'], name, value)
 
 
-                class Node(Entity):
+                class Node(_Entity_):
                     """
                     
                     
@@ -2882,10 +3150,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.Agents.ReloadTracking.Node, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.Agents.ReloadTracking.Node, self).__init__()
 
                         self.yang_name = "node"
                         self.yang_parent_name = "reload-tracking"
@@ -2908,11 +3179,23 @@ class Issu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Agents.ReloadTracking.Node, ['node_index', 'id', 'reloaded'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.Agents.ReloadTracking.Node']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.Agents.ReloadTracking']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.Agents']['meta_info']
 
 
-
-
-        class InventoryMonitor(Entity):
+        class InventoryMonitor(_Entity_):
             """
             Inventory monitor module internal state
             
@@ -2928,10 +3211,13 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
-            _revision = '2018-12-13'
+            _revision = '2019-06-12'
 
             def __init__(self):
-                super(Issu.Internals.InventoryMonitor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Issu.Internals.InventoryMonitor, self).__init__()
 
                 self.yang_name = "inventory-monitor"
                 self.yang_parent_name = "internals"
@@ -2952,7 +3238,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Internals.InventoryMonitor, [], name, value)
 
 
-            class Inventory(Entity):
+            class Inventory(_Entity_):
                 """
                 Inventory of nodes in the system held by ISSU Director
                 
@@ -2968,10 +3254,13 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
-                _revision = '2018-12-13'
+                _revision = '2019-06-12'
 
                 def __init__(self):
-                    super(Issu.Internals.InventoryMonitor.Inventory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Issu.Internals.InventoryMonitor.Inventory, self).__init__()
 
                     self.yang_name = "inventory"
                     self.yang_parent_name = "inventory-monitor"
@@ -2990,7 +3279,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.InventoryMonitor.Inventory, [], name, value)
 
 
-                class Node(Entity):
+                class Node(_Entity_):
                     """
                     The tree of nodes within the Inventory monitor module, keyed by node ID
                     
@@ -3013,10 +3302,13 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
-                    _revision = '2018-12-13'
+                    _revision = '2019-06-12'
 
                     def __init__(self):
-                        super(Issu.Internals.InventoryMonitor.Inventory.Node, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Issu.Internals.InventoryMonitor.Inventory.Node, self).__init__()
 
                         self.yang_name = "node"
                         self.yang_parent_name = "inventory"
@@ -3037,13 +3329,33 @@ class Issu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.InventoryMonitor.Inventory.Node, ['node', 'ip'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                        return meta._meta_table['Issu.Internals.InventoryMonitor.Inventory.Node']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                    return meta._meta_table['Issu.Internals.InventoryMonitor.Inventory']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+                return meta._meta_table['Issu.Internals.InventoryMonitor']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+            return meta._meta_table['Issu.Internals']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Issu()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_issu as meta
+        return meta._meta_table['Issu']['meta_info']
 
 

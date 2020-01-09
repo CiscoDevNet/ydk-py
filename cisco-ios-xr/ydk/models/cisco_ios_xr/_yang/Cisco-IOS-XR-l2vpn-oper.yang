@@ -12,16 +12,16 @@ module Cisco-IOS-XR-l2vpn-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub4 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub3 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub2 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub1 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
 
   organization
@@ -49,6 +49,10 @@ module Cisco-IOS-XR-l2vpn-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-30 {
+    description
+      "- Rename l2fib-mac-learning-mac* interface-handle to interface-name - Rename l2fib-pw-group tunnel-if-handle to tunnel-interface-name - Convert several array from leaf-list to list syntax. - Implement range datatypes for all L2FIB integers.";
+  }
   revision 2018-08-01 {
     description
       "Removed empty groupings.";
@@ -70,6 +74,38 @@ module Cisco-IOS-XR-l2vpn-oper {
       "IOS XR 6.0 revision.";
   }
 
+  typedef L2tpv2-session-id-range {
+    type uint32 {
+      range "0..65535";
+    }
+    description
+      "L2tpv2 session id range";
+  }
+
+  typedef Msti-range {
+    type uint32 {
+      range "0..1004";
+    }
+    description
+      "Msti range";
+  }
+
+  typedef G8032-ring-instance-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "G8032 ring instance range";
+  }
+
+  typedef Main-interface-id-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "Main interface id range";
+  }
+
   typedef L2vpn-service {
     type enumeration {
       enum "vpws" {
@@ -85,6 +121,46 @@ module Cisco-IOS-XR-l2vpn-oper {
     }
     description
       "L2vpn service";
+  }
+
+  typedef Bridge-id-range {
+    type uint32 {
+      range "0..262144";
+    }
+    description
+      "Bridge id range";
+  }
+
+  typedef Lsm-id-range {
+    type uint32 {
+      range "1..1048574";
+    }
+    description
+      "Lsm id range";
+  }
+
+  typedef P2mp-id-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "P2mp id range";
+  }
+
+  typedef Tunnel-id-range {
+    type uint32 {
+      range "0..65535";
+    }
+    description
+      "Tunnel id range";
+  }
+
+  typedef L2tpv3-session-id-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "L2tpv3 session id range";
   }
 
   typedef Preferred-path-option {
@@ -154,6 +230,14 @@ module Cisco-IOS-XR-l2vpn-oper {
     }
     description
       "Evpn main interface";
+  }
+
+  typedef Pw-group-id-range {
+    type uint32 {
+      range "0..4294967295";
+    }
+    description
+      "Pw group id range";
   }
 
   typedef L2vpnp2mp-ptree {
@@ -408,7 +492,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               }
             }
             leaf instance {
-              type uint32;
+              type Msti-range;
               description
                 "Instance";
             }
@@ -564,7 +648,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "G8032 Ring Instance detailed information";
               leaf instance {
-                type uint32;
+                type G8032-ring-instance-range;
                 description
                   "Instance";
               }
@@ -1227,10 +1311,10 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "The attributes for a particular learned Mac
                  Route";
-              leaf interface-handle {
+              leaf interface-name {
                 type xr:Interface-name;
                 description
-                  "Interface Handle";
+                  "Interface Name";
               }
               leaf address {
                 type inet:ip-address-no-zone;
@@ -1238,7 +1322,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type uint32;
+                type Bridge-id-range;
                 description
                   "BD ID";
               }
@@ -1257,10 +1341,10 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "The attributes for a particular learned IPV4
                  Mac Route";
-              leaf interface-handle {
+              leaf interface-name {
                 type xr:Interface-name;
                 description
-                  "Interface Handle";
+                  "Interface Name";
               }
               leaf address {
                 type inet:ip-address-no-zone;
@@ -1268,7 +1352,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type uint32;
+                type Bridge-id-range;
                 description
                   "BD ID";
               }
@@ -1287,10 +1371,10 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "The attributes for a particular learned IPV6
                  Mac Route";
-              leaf interface-handle {
+              leaf interface-name {
                 type xr:Interface-name;
                 description
-                  "Interface Handle";
+                  "Interface Name";
               }
               leaf address {
                 type inet:ip-address-no-zone;
@@ -1298,7 +1382,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "IP Address";
               }
               leaf bdid {
-                type uint32;
+                type Bridge-id-range;
                 description
                   "BD ID";
               }
@@ -1326,17 +1410,17 @@ module Cisco-IOS-XR-l2vpn-oper {
                   "PTree Type";
               }
               leaf lsm-id {
-                type uint32;
+                type Lsm-id-range;
                 description
                   "LSM Id";
               }
               leaf tunnel-id {
-                type uint32;
+                type Tunnel-id-range;
                 description
                   "Tunnel Id";
               }
               leaf p2mp-id {
-                type uint32;
+                type P2mp-id-range;
                 description
                   "P2MP Id";
               }
@@ -1404,7 +1488,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               "The attributes for a particular EVPN IPv4-MAC
                Entry";
             leaf bdid {
-              type uint32;
+              type Bridge-id-range;
               description
                 "BD ID";
             }
@@ -1486,7 +1570,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Main port interface type";
             }
             leaf msti {
-              type uint32;
+              type Msti-range;
               description
                 "MSTI context";
             }
@@ -1627,14 +1711,14 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Peer IP Address";
             }
             leaf group-id {
-              type uint32;
+              type Pw-group-id-range;
               description
                 "Group Id";
             }
-            leaf tunnel-if-handle {
-              type uint32;
+            leaf tunnel-interface-name {
+              type xr:Interface-name;
               description
-                "Tunnel Interface Handle";
+                "Tunnel Interface Name";
             }
             uses L2FIB-PWGROUP-INFO;
           }
@@ -1786,7 +1870,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   uses L2FIB-MAIN-INTERFACE-INSTANCE-DETAIL-INFO;
                 }
                 leaf instance {
-                  type uint32;
+                  type Msti-range;
                   description
                     "Instance";
                 }
@@ -1813,7 +1897,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               uses L2FIB-MAIN-INTERFACE-SUMMARY-INFO;
             }
             leaf main-interface-id {
-              type uint32;
+              type Main-interface-id-range;
               description
                 "Main interface id";
             }
@@ -1841,7 +1925,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                 "Main port interface type";
             }
             leaf msti {
-              type uint32;
+              type Msti-range;
               description
                 "MSTI context";
             }
@@ -1859,7 +1943,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "L2TPV3 Session";
               leaf session-id {
-                type uint32;
+                type L2tpv3-session-id-range;
                 description
                   "SessionID";
               }
@@ -1873,12 +1957,12 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "L2TPV2 Session";
               leaf session-id {
-                type uint32;
+                type L2tpv2-session-id-range;
                 description
                   "SessionID";
               }
               leaf tunnel-id {
-                type uint32;
+                type Tunnel-id-range;
                 description
                   "TunnelID";
               }
@@ -1914,7 +1998,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   description
                     "G8032 Ring Instance summary information";
                   leaf instance {
-                    type uint32;
+                    type G8032-ring-instance-range;
                     description
                       "Instance";
                   }
@@ -1929,7 +2013,7 @@ module Cisco-IOS-XR-l2vpn-oper {
                   description
                     "G8032 Ring Instance detailed information";
                   leaf instance {
-                    type uint32;
+                    type G8032-ring-instance-range;
                     description
                       "Instance";
                   }
@@ -2124,7 +2208,7 @@ module Cisco-IOS-XR-l2vpn-oper {
               "The attributes for a particular EVPN IPv6-MAC
                Entry";
             leaf bdid {
-              type uint32;
+              type Bridge-id-range;
               description
                 "BD ID";
             }

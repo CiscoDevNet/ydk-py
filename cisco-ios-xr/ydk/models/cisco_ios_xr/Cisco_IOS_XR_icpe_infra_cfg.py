@@ -17,8 +17,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -27,7 +30,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class NvSatelliteGlobal(Entity):
+class NvSatelliteGlobal(_Entity_):
     """
     nV Satellite Global configuration
     
@@ -44,7 +47,10 @@ class NvSatelliteGlobal(Entity):
     _revision = '2017-09-30'
 
     def __init__(self):
-        super(NvSatelliteGlobal, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NvSatelliteGlobal, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nv-satellite-global"
@@ -65,7 +71,7 @@ class NvSatelliteGlobal(Entity):
         self._perform_setattr(NvSatelliteGlobal, [], name, value)
 
 
-    class ChassisMac(Entity):
+    class ChassisMac(_Entity_):
         """
         Chassis MAC address
         
@@ -104,7 +110,10 @@ class NvSatelliteGlobal(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(NvSatelliteGlobal.ChassisMac, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatelliteGlobal.ChassisMac, self).__init__()
 
             self.yang_name = "chassis-mac"
             self.yang_parent_name = "nv-satellite-global"
@@ -127,14 +136,22 @@ class NvSatelliteGlobal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(NvSatelliteGlobal.ChassisMac, ['mac1', 'mac2', 'mac3'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+            return meta._meta_table['NvSatelliteGlobal.ChassisMac']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NvSatelliteGlobal()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+        return meta._meta_table['NvSatelliteGlobal']['meta_info']
 
 
-class NvSatellites(Entity):
+class NvSatellites(_Entity_):
     """
     nv satellites
     
@@ -151,7 +168,10 @@ class NvSatellites(Entity):
     _revision = '2017-09-30'
 
     def __init__(self):
-        super(NvSatellites, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NvSatellites, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nv-satellites"
@@ -170,7 +190,7 @@ class NvSatellites(Entity):
         self._perform_setattr(NvSatellites, [], name, value)
 
 
-    class NvSatellite(Entity):
+    class NvSatellite(_Entity_):
         """
         Satellite Configuration
         
@@ -286,7 +306,10 @@ class NvSatellites(Entity):
         _revision = '2017-09-30'
 
         def __init__(self):
-            super(NvSatellites.NvSatellite, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NvSatellites.NvSatellite, self).__init__()
 
             self.yang_name = "nv-satellite"
             self.yang_parent_name = "nv-satellites"
@@ -344,7 +367,7 @@ class NvSatellites(Entity):
             self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'vrf', 'timeout_warning', 'device_name', 'description', 'type', 'enable', 'disc_timeout', 'delayed_switchback', 'serial_number', 'secret', 'ip_address'], name, value)
 
 
-        class UpgradeOnConnect(Entity):
+        class UpgradeOnConnect(_Entity_):
             """
             Satellite auto\-upgrade capability
             
@@ -371,7 +394,10 @@ class NvSatellites(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__init__()
 
                 self.yang_name = "upgrade-on-connect"
                 self.yang_parent_name = "nv-satellite"
@@ -416,9 +442,19 @@ class NvSatellites(Entity):
                 on_first_connection = Enum.YLeaf(2, "on-first-connection")
 
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                    return meta._meta_table['NvSatellites.NvSatellite.UpgradeOnConnect.ConnectType']
 
 
-        class CandidateFabricPorts(Entity):
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                return meta._meta_table['NvSatellites.NvSatellite.UpgradeOnConnect']['meta_info']
+
+
+        class CandidateFabricPorts(_Entity_):
             """
             Enable interfaces on the satellite to be used
             as fabric ports table
@@ -436,7 +472,10 @@ class NvSatellites(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__init__()
 
                 self.yang_name = "candidate-fabric-ports"
                 self.yang_parent_name = "nv-satellite"
@@ -454,7 +493,7 @@ class NvSatellites(Entity):
                 self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts, [], name, value)
 
 
-            class CandidateFabricPort(Entity):
+            class CandidateFabricPort(_Entity_):
                 """
                 Enable interfaces on the satellite to be used
                 as fabric ports
@@ -495,7 +534,10 @@ class NvSatellites(Entity):
                 _revision = '2017-09-30'
 
                 def __init__(self):
-                    super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__init__()
 
                     self.yang_name = "candidate-fabric-port"
                     self.yang_parent_name = "candidate-fabric-ports"
@@ -519,10 +561,18 @@ class NvSatellites(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                    return meta._meta_table['NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                return meta._meta_table['NvSatellites.NvSatellite.CandidateFabricPorts']['meta_info']
 
 
-
-        class ConnectionInfo(Entity):
+        class ConnectionInfo(_Entity_):
             """
             Satellite User
             
@@ -546,7 +596,10 @@ class NvSatellites(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(NvSatellites.NvSatellite.ConnectionInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellites.NvSatellite.ConnectionInfo, self).__init__()
 
                 self.yang_name = "connection-info"
                 self.yang_parent_name = "nv-satellite"
@@ -566,9 +619,13 @@ class NvSatellites(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['username', 'password'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                return meta._meta_table['NvSatellites.NvSatellite.ConnectionInfo']['meta_info']
 
 
-        class Redundancy(Entity):
+        class Redundancy(_Entity_):
             """
             Redundancy submode
             
@@ -587,7 +644,10 @@ class NvSatellites(Entity):
             _revision = '2017-09-30'
 
             def __init__(self):
-                super(NvSatellites.NvSatellite.Redundancy, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NvSatellites.NvSatellite.Redundancy, self).__init__()
 
                 self.yang_name = "redundancy"
                 self.yang_parent_name = "nv-satellite"
@@ -605,11 +665,23 @@ class NvSatellites(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                return meta._meta_table['NvSatellites.NvSatellite.Redundancy']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+            return meta._meta_table['NvSatellites.NvSatellite']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NvSatellites()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+        return meta._meta_table['NvSatellites']['meta_info']
 
 

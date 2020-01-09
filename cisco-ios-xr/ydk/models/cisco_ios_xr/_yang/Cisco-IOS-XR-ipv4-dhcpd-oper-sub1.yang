@@ -32,6 +32,10 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-25 {
+    description
+      "Introduced an option to show dhcp rate limit hit counters.";
+  }
   revision 2018-09-20 {
     description
       "Fixing yang gaps.";
@@ -893,6 +897,16 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
     }
   }
 
+  grouping IPV4-DHCPD-BASE-DROP-STATS {
+    description
+      "DHCP IPv4 base drop statistics";
+    leaf rate-limit-hit {
+      type uint64;
+      description
+        "base Drop statistics";
+    }
+  }
+
   grouping IPV4-DHCPD-PROXY-INTERFACE {
     description
       "ipv4 dhcpd proxy interface";
@@ -1254,6 +1268,11 @@ submodule Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
       type uint32;
       description
         "DHCPV4 SRG state";
+    }
+    leaf srg-group-id {
+      type uint16;
+      description
+        "srg group id";
     }
     leaf-list event-history {
       type uint32;

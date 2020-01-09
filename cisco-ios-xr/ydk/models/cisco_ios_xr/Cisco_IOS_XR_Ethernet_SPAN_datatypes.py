@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -55,6 +58,12 @@ class SpanSessionClass(Enum):
     mpls_ipv6 = Enum.YLeaf(4, "mpls-ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
+        return meta._meta_table['SpanSessionClass']
+
+
 class SpanSessionClassOld(Enum):
     """
     SpanSessionClassOld (Enum Class)
@@ -68,6 +77,12 @@ class SpanSessionClassOld(Enum):
     """
 
     true = Enum.YLeaf(0, "true")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
+        return meta._meta_table['SpanSessionClassOld']
 
 
 

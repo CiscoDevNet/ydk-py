@@ -13,8 +13,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -97,6 +100,12 @@ class SensorDataScale(Enum):
     yotta = Enum.YLeaf(17, "yotta")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['SensorDataScale']
+
+
 class SensorDataType(Enum):
     """
     SensorDataType (Enum Class)
@@ -156,6 +165,12 @@ class SensorDataType(Enum):
     specialEnum = Enum.YLeaf(13, "specialEnum")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['SensorDataType']
+
+
 class SensorStatus(Enum):
     """
     SensorStatus (Enum Class)
@@ -173,6 +188,12 @@ class SensorStatus(Enum):
     unavailable = Enum.YLeaf(2, "unavailable")
 
     nonoperational = Enum.YLeaf(3, "nonoperational")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['SensorStatus']
 
 
 class SensorThresholdRelation(Enum):
@@ -206,6 +227,12 @@ class SensorThresholdRelation(Enum):
     notEqualTo = Enum.YLeaf(6, "notEqualTo")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['SensorThresholdRelation']
+
+
 class SensorThresholdSeverity(Enum):
     """
     SensorThresholdSeverity (Enum Class)
@@ -229,8 +256,14 @@ class SensorThresholdSeverity(Enum):
     critical = Enum.YLeaf(30, "critical")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['SensorThresholdSeverity']
 
-class CISCOENTITYSENSORMIB(Entity):
+
+
+class CISCOENTITYSENSORMIB(_Entity_):
     """
     
     
@@ -256,7 +289,10 @@ class CISCOENTITYSENSORMIB(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(CISCOENTITYSENSORMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CISCOENTITYSENSORMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "CISCO-ENTITY-SENSOR-MIB"
@@ -281,7 +317,7 @@ class CISCOENTITYSENSORMIB(Entity):
         self._perform_setattr(CISCOENTITYSENSORMIB, [], name, value)
 
 
-    class EntSensorValueTable(Entity):
+    class EntSensorValueTable(_Entity_):
         """
         
         
@@ -300,7 +336,10 @@ class CISCOENTITYSENSORMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(CISCOENTITYSENSORMIB.EntSensorValueTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYSENSORMIB.EntSensorValueTable, self).__init__()
 
             self.yang_name = "entSensorValueTable"
             self.yang_parent_name = "CISCO-ENTITY-SENSOR-MIB"
@@ -319,7 +358,7 @@ class CISCOENTITYSENSORMIB(Entity):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable, [], name, value)
 
 
-        class EntSensorValueEntry(Entity):
+        class EntSensorValueEntry(_Entity_):
             """
             
             
@@ -406,7 +445,10 @@ class CISCOENTITYSENSORMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, self).__init__()
 
                 self.yang_name = "entSensorValueEntry"
                 self.yang_parent_name = "entSensorValueTable"
@@ -441,10 +483,18 @@ class CISCOENTITYSENSORMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+                return meta._meta_table['CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+            return meta._meta_table['CISCOENTITYSENSORMIB.EntSensorValueTable']['meta_info']
 
 
-
-    class EntSensorThresholdTable(Entity):
+    class EntSensorThresholdTable(_Entity_):
         """
         
         
@@ -463,7 +513,10 @@ class CISCOENTITYSENSORMIB(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(CISCOENTITYSENSORMIB.EntSensorThresholdTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CISCOENTITYSENSORMIB.EntSensorThresholdTable, self).__init__()
 
             self.yang_name = "entSensorThresholdTable"
             self.yang_parent_name = "CISCO-ENTITY-SENSOR-MIB"
@@ -482,7 +535,7 @@ class CISCOENTITYSENSORMIB(Entity):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable, [], name, value)
 
 
-        class EntSensorThresholdEntry(Entity):
+        class EntSensorThresholdEntry(_Entity_):
             """
             
             
@@ -549,7 +602,10 @@ class CISCOENTITYSENSORMIB(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, self).__init__()
 
                 self.yang_name = "entSensorThresholdEntry"
                 self.yang_parent_name = "entSensorThresholdTable"
@@ -580,11 +636,23 @@ class CISCOENTITYSENSORMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+                return meta._meta_table['CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+            return meta._meta_table['CISCOENTITYSENSORMIB.EntSensorThresholdTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CISCOENTITYSENSORMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_entity_sensor_mib as meta
+        return meta._meta_table['CISCOENTITYSENSORMIB']['meta_info']
 
 

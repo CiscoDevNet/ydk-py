@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class FsAddf(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+        return meta._meta_table['FsAddf']
+
+
 class FsAfP(Enum):
     """
     FsAfP (Enum Class)
@@ -58,6 +67,12 @@ class FsAfP(Enum):
     """
 
     pbr = Enum.YLeaf(2, "pbr")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+        return meta._meta_table['FsAfP']
 
 
 class FsVrfAf(Enum):
@@ -81,6 +96,12 @@ class FsVrfAf(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+        return meta._meta_table['FsVrfAf']
+
+
 class FsVrfAfP(Enum):
     """
     FsVrfAfP (Enum Class)
@@ -96,8 +117,14 @@ class FsVrfAfP(Enum):
     pbr = Enum.YLeaf(2, "pbr")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+        return meta._meta_table['FsVrfAfP']
 
-class FlowSpec(Entity):
+
+
+class FlowSpec(_Entity_):
     """
     FlowSpec configuration
     
@@ -129,7 +156,10 @@ class FlowSpec(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FlowSpec, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FlowSpec, self).__init__()
         self._top_entity = None
 
         self.yang_name = "flow-spec"
@@ -159,7 +189,7 @@ class FlowSpec(Entity):
         self._perform_setattr(FlowSpec, ['enable', 'interface_all'], name, value)
 
 
-    class Afs(Entity):
+    class Afs(_Entity_):
         """
         Table of AF
         
@@ -176,7 +206,10 @@ class FlowSpec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FlowSpec.Afs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FlowSpec.Afs, self).__init__()
 
             self.yang_name = "afs"
             self.yang_parent_name = "flow-spec"
@@ -195,7 +228,7 @@ class FlowSpec(Entity):
             self._perform_setattr(FlowSpec.Afs, [], name, value)
 
 
-        class Af(Entity):
+        class Af(_Entity_):
             """
             Address Family Identifier Type (IPv4/IPv6)
             
@@ -222,7 +255,10 @@ class FlowSpec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FlowSpec.Afs.Af, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FlowSpec.Afs.Af, self).__init__()
 
                 self.yang_name = "af"
                 self.yang_parent_name = "afs"
@@ -248,7 +284,7 @@ class FlowSpec(Entity):
                 self._perform_setattr(FlowSpec.Afs.Af, ['af_name', 'interface_all'], name, value)
 
 
-            class ServicePolicies(Entity):
+            class ServicePolicies(_Entity_):
                 """
                 Table of ServicePolicy
                 
@@ -265,7 +301,10 @@ class FlowSpec(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FlowSpec.Afs.Af.ServicePolicies, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FlowSpec.Afs.Af.ServicePolicies, self).__init__()
 
                     self.yang_name = "service-policies"
                     self.yang_parent_name = "af"
@@ -283,7 +322,7 @@ class FlowSpec(Entity):
                     self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies, [], name, value)
 
 
-                class ServicePolicy(Entity):
+                class ServicePolicy(_Entity_):
                     """
                     Service Policy configuration
                     
@@ -314,7 +353,10 @@ class FlowSpec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy, self).__init__()
 
                         self.yang_name = "service-policy"
                         self.yang_parent_name = "service-policies"
@@ -336,12 +378,28 @@ class FlowSpec(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy, ['policy_type', 'policy_name', 'local'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                        return meta._meta_table['FlowSpec.Afs.Af.ServicePolicies.ServicePolicy']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                    return meta._meta_table['FlowSpec.Afs.Af.ServicePolicies']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                return meta._meta_table['FlowSpec.Afs.Af']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+            return meta._meta_table['FlowSpec.Afs']['meta_info']
 
 
-
-
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         Table of VRF
         
@@ -358,7 +416,10 @@ class FlowSpec(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FlowSpec.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FlowSpec.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "flow-spec"
@@ -377,7 +438,7 @@ class FlowSpec(Entity):
             self._perform_setattr(FlowSpec.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF configuration
             
@@ -401,7 +462,10 @@ class FlowSpec(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FlowSpec.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FlowSpec.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -425,7 +489,7 @@ class FlowSpec(Entity):
                 self._perform_setattr(FlowSpec.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Table of AF
                 
@@ -442,7 +506,10 @@ class FlowSpec(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FlowSpec.Vrfs.Vrf.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(FlowSpec.Vrfs.Vrf.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "vrf"
@@ -460,7 +527,7 @@ class FlowSpec(Entity):
                     self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     Address Family Identifier Type (IPv4/IPv6)
                     
@@ -487,7 +554,10 @@ class FlowSpec(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FlowSpec.Vrfs.Vrf.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(FlowSpec.Vrfs.Vrf.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -512,7 +582,7 @@ class FlowSpec(Entity):
                         self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af, ['af_name', 'interface_all'], name, value)
 
 
-                    class ServicePolicies(Entity):
+                    class ServicePolicies(_Entity_):
                         """
                         Table of ServicePolicy
                         
@@ -529,7 +599,10 @@ class FlowSpec(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies, self).__init__()
 
                             self.yang_name = "service-policies"
                             self.yang_parent_name = "af"
@@ -547,7 +620,7 @@ class FlowSpec(Entity):
                             self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies, [], name, value)
 
 
-                        class ServicePolicy(Entity):
+                        class ServicePolicy(_Entity_):
                             """
                             Service Policy configuration
                             
@@ -578,7 +651,10 @@ class FlowSpec(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy, self).__init__()
 
                                 self.yang_name = "service-policy"
                                 self.yang_parent_name = "service-policies"
@@ -600,15 +676,43 @@ class FlowSpec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy, ['policy_type', 'policy_name', 'local'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                                return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                            return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                        return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs.Af']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                    return meta._meta_table['FlowSpec.Vrfs.Vrf.Afs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+                return meta._meta_table['FlowSpec.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+            return meta._meta_table['FlowSpec.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FlowSpec()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_flowspec_cfg as meta
+        return meta._meta_table['FlowSpec']['meta_info']
 
 

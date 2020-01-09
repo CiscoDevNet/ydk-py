@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PerformanceMeasurement(Entity):
+class PerformanceMeasurement(_Entity_):
     """
     The root of performance\-measurement configuration
     
@@ -49,7 +52,10 @@ class PerformanceMeasurement(Entity):
     _revision = '2017-10-17'
 
     def __init__(self):
-        super(PerformanceMeasurement, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PerformanceMeasurement, self).__init__()
         self._top_entity = None
 
         self.yang_name = "performance-measurement"
@@ -77,7 +83,7 @@ class PerformanceMeasurement(Entity):
         self._perform_setattr(PerformanceMeasurement, ['enable_performance_measurement'], name, value)
 
 
-    class DelayProfileInterface(Entity):
+    class DelayProfileInterface(_Entity_):
         """
         PM Delay Profile
         
@@ -99,7 +105,10 @@ class PerformanceMeasurement(Entity):
         _revision = '2017-10-17'
 
         def __init__(self):
-            super(PerformanceMeasurement.DelayProfileInterface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerformanceMeasurement.DelayProfileInterface, self).__init__()
 
             self.yang_name = "delay-profile-interface"
             self.yang_parent_name = "performance-measurement"
@@ -124,7 +133,7 @@ class PerformanceMeasurement(Entity):
             self._perform_setattr(PerformanceMeasurement.DelayProfileInterface, [], name, value)
 
 
-        class Advertisement(Entity):
+        class Advertisement(_Entity_):
             """
             Advertisement Profile
             
@@ -146,7 +155,10 @@ class PerformanceMeasurement(Entity):
             _revision = '2017-10-17'
 
             def __init__(self):
-                super(PerformanceMeasurement.DelayProfileInterface.Advertisement, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerformanceMeasurement.DelayProfileInterface.Advertisement, self).__init__()
 
                 self.yang_name = "advertisement"
                 self.yang_parent_name = "delay-profile-interface"
@@ -171,7 +183,7 @@ class PerformanceMeasurement(Entity):
                 self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Advertisement, [], name, value)
 
 
-            class Accelerated(Entity):
+            class Accelerated(_Entity_):
                 """
                 Accelerated Advertisement Profile
                 
@@ -208,7 +220,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.DelayProfileInterface.Advertisement.Accelerated, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.DelayProfileInterface.Advertisement.Accelerated, self).__init__()
 
                     self.yang_name = "accelerated"
                     self.yang_parent_name = "advertisement"
@@ -231,9 +246,13 @@ class PerformanceMeasurement(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Advertisement.Accelerated, ['threshold', 'minimum_change', 'enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                    return meta._meta_table['PerformanceMeasurement.DelayProfileInterface.Advertisement.Accelerated']['meta_info']
 
 
-            class Periodic(Entity):
+            class Periodic(_Entity_):
                 """
                 Periodic Advertisement Profile
                 
@@ -281,7 +300,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.DelayProfileInterface.Advertisement.Periodic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.DelayProfileInterface.Advertisement.Periodic, self).__init__()
 
                     self.yang_name = "periodic"
                     self.yang_parent_name = "advertisement"
@@ -306,10 +328,18 @@ class PerformanceMeasurement(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Advertisement.Periodic, ['interval', 'threshold', 'minimum_change', 'disable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                    return meta._meta_table['PerformanceMeasurement.DelayProfileInterface.Advertisement.Periodic']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                return meta._meta_table['PerformanceMeasurement.DelayProfileInterface.Advertisement']['meta_info']
 
 
-
-        class Probe(Entity):
+        class Probe(_Entity_):
             """
             PM Delay Profile Probe
             
@@ -342,7 +372,10 @@ class PerformanceMeasurement(Entity):
             _revision = '2017-10-17'
 
             def __init__(self):
-                super(PerformanceMeasurement.DelayProfileInterface.Probe, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerformanceMeasurement.DelayProfileInterface.Probe, self).__init__()
 
                 self.yang_name = "probe"
                 self.yang_parent_name = "delay-profile-interface"
@@ -368,7 +401,7 @@ class PerformanceMeasurement(Entity):
                 self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Probe, ['one_way_measurement', 'interval'], name, value)
 
 
-            class Burst(Entity):
+            class Burst(_Entity_):
                 """
                 PM Delay Profile Probe Burst
                 
@@ -398,7 +431,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.DelayProfileInterface.Probe.Burst, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.DelayProfileInterface.Probe.Burst, self).__init__()
 
                     self.yang_name = "burst"
                     self.yang_parent_name = "probe"
@@ -419,11 +455,23 @@ class PerformanceMeasurement(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Probe.Burst, ['count', 'interval'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                    return meta._meta_table['PerformanceMeasurement.DelayProfileInterface.Probe.Burst']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                return meta._meta_table['PerformanceMeasurement.DelayProfileInterface.Probe']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+            return meta._meta_table['PerformanceMeasurement.DelayProfileInterface']['meta_info']
 
 
-
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Configure performance\-measurement interfaces
         
@@ -440,7 +488,10 @@ class PerformanceMeasurement(Entity):
         _revision = '2017-10-17'
 
         def __init__(self):
-            super(PerformanceMeasurement.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PerformanceMeasurement.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "performance-measurement"
@@ -459,7 +510,7 @@ class PerformanceMeasurement(Entity):
             self._perform_setattr(PerformanceMeasurement.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Configure a performance\-measurement interface
             
@@ -488,7 +539,10 @@ class PerformanceMeasurement(Entity):
             _revision = '2017-10-17'
 
             def __init__(self):
-                super(PerformanceMeasurement.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PerformanceMeasurement.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -514,7 +568,7 @@ class PerformanceMeasurement(Entity):
                 self._perform_setattr(PerformanceMeasurement.Interfaces.Interface, ['interface_name', 'enable_interface'], name, value)
 
 
-            class DelayMeasurement(Entity):
+            class DelayMeasurement(_Entity_):
                 """
                 Interface delay measurement
                 
@@ -538,7 +592,10 @@ class PerformanceMeasurement(Entity):
                 _revision = '2017-10-17'
 
                 def __init__(self):
-                    super(PerformanceMeasurement.Interfaces.Interface.DelayMeasurement, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PerformanceMeasurement.Interfaces.Interface.DelayMeasurement, self).__init__()
 
                     self.yang_name = "delay-measurement"
                     self.yang_parent_name = "interface"
@@ -558,12 +615,28 @@ class PerformanceMeasurement(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.Interfaces.Interface.DelayMeasurement, ['enable_delay_measurement', 'advertise_delay'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                    return meta._meta_table['PerformanceMeasurement.Interfaces.Interface.DelayMeasurement']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+                return meta._meta_table['PerformanceMeasurement.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+            return meta._meta_table['PerformanceMeasurement.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurement()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_perf_meas_cfg as meta
+        return meta._meta_table['PerformanceMeasurement']['meta_info']
 
 

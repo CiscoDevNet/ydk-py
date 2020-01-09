@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class DapsClient(Enum):
     ipv6nd = Enum.YLeaf(5, "ipv6nd")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+        return meta._meta_table['DapsClient']
+
+
 class DapsSergRole(Enum):
     """
     DapsSergRole (Enum Class)
@@ -86,6 +95,12 @@ class DapsSergRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+        return meta._meta_table['DapsSergRole']
+
+
 class IpAddr(Enum):
     """
     IpAddr (Enum Class)
@@ -107,8 +122,14 @@ class IpAddr(Enum):
     ipv6 = Enum.YLeaf(10, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+        return meta._meta_table['IpAddr']
 
-class AddressPoolService(Entity):
+
+
+class AddressPoolService(_Entity_):
     """
     Pool operational data
     
@@ -127,7 +148,10 @@ class AddressPoolService(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(AddressPoolService, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AddressPoolService, self).__init__()
         self._top_entity = None
 
         self.yang_name = "address-pool-service"
@@ -148,7 +172,7 @@ class AddressPoolService(Entity):
         self._perform_setattr(AddressPoolService, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Pool operational data for a particular location
         
@@ -167,7 +191,10 @@ class AddressPoolService(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(AddressPoolService.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AddressPoolService.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "address-pool-service"
@@ -186,7 +213,7 @@ class AddressPoolService(Entity):
             self._perform_setattr(AddressPoolService.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Location. For eg., 0/1/CPU0
             
@@ -228,7 +255,10 @@ class AddressPoolService(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(AddressPoolService.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AddressPoolService.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -260,7 +290,7 @@ class AddressPoolService(Entity):
                 self._perform_setattr(AddressPoolService.Nodes.Node, ['node_name'], name, value)
 
 
-            class Pools(Entity):
+            class Pools(_Entity_):
                 """
                 List of IPv4/IPv6 pool data
                 
@@ -279,7 +309,10 @@ class AddressPoolService(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AddressPoolService.Nodes.Node.Pools, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AddressPoolService.Nodes.Node.Pools, self).__init__()
 
                     self.yang_name = "pools"
                     self.yang_parent_name = "node"
@@ -297,7 +330,7 @@ class AddressPoolService(Entity):
                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools, [], name, value)
 
 
-                class Pool(Entity):
+                class Pool(_Entity_):
                     """
                     Pool data by pool name
                     
@@ -339,7 +372,10 @@ class AddressPoolService(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AddressPoolService.Nodes.Node.Pools.Pool, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AddressPoolService.Nodes.Node.Pools.Pool, self).__init__()
 
                         self.yang_name = "pool"
                         self.yang_parent_name = "pools"
@@ -370,7 +406,7 @@ class AddressPoolService(Entity):
                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool, ['pool_name'], name, value)
 
 
-                    class AddressRanges(Entity):
+                    class AddressRanges(_Entity_):
                         """
                         Summary info for pool
                         
@@ -389,7 +425,10 @@ class AddressPoolService(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges, self).__init__()
 
                             self.yang_name = "address-ranges"
                             self.yang_parent_name = "pool"
@@ -407,7 +446,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Start Address of the Range
                             
@@ -518,7 +557,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "address-ranges"
@@ -563,7 +605,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'pool_name', 'vrf_name', 'allocated_addresses', 'free_addresses', 'excluded_addresses', 'network_blocked_status', 'network_blocked_status_trp'], name, value)
 
 
-                            class StartAddressXr(Entity):
+                            class StartAddressXr(_Entity_):
                                 """
                                 Range start
                                 
@@ -582,7 +624,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr, self).__init__()
 
                                     self.yang_name = "start-address-xr"
                                     self.yang_parent_name = "address-range"
@@ -602,7 +647,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr, [], name, value)
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address
                                     
@@ -639,7 +684,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "start-address-xr"
@@ -661,10 +709,18 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr']['meta_info']
 
 
-
-                            class EndAddress(Entity):
+                            class EndAddress(_Entity_):
                                 """
                                 Range end
                                 
@@ -683,7 +739,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, self).__init__()
 
                                     self.yang_name = "end-address"
                                     self.yang_parent_name = "address-range"
@@ -703,7 +762,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, [], name, value)
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address
                                     
@@ -740,7 +799,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "end-address"
@@ -762,10 +824,18 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress']['meta_info']
 
 
-
-                            class DefaultRouter(Entity):
+                            class DefaultRouter(_Entity_):
                                 """
                                 Default router
                                 
@@ -784,7 +854,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, self).__init__()
 
                                     self.yang_name = "default-router"
                                     self.yang_parent_name = "address-range"
@@ -804,7 +877,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, [], name, value)
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address
                                     
@@ -841,7 +914,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "default-router"
@@ -863,12 +939,28 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                            return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges']['meta_info']
 
 
-
-
-
-                    class AllocatedAddresses(Entity):
+                    class AllocatedAddresses(_Entity_):
                         """
                         Detailed info for the Pool
                         
@@ -901,7 +993,10 @@ class AddressPoolService(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses, self).__init__()
 
                             self.yang_name = "allocated-addresses"
                             self.yang_parent_name = "pool"
@@ -924,7 +1019,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses, [], name, value)
 
 
-                        class PoolAllocations(Entity):
+                        class PoolAllocations(_Entity_):
                             """
                             Pool allocations
                             
@@ -1006,7 +1101,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, self).__init__()
 
                                 self.yang_name = "pool-allocations"
                                 self.yang_parent_name = "allocated-addresses"
@@ -1043,7 +1141,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['vrf_name', 'used', 'excluded', 'free', 'total', 'utilization'], name, value)
 
 
-                            class HighThreshold(Entity):
+                            class HighThreshold(_Entity_):
                                 """
                                 High threshold data
                                 
@@ -1082,7 +1180,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, self).__init__()
 
                                     self.yang_name = "high-threshold"
                                     self.yang_parent_name = "pool-allocations"
@@ -1104,9 +1205,13 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold']['meta_info']
 
 
-                            class LowThreshold(Entity):
+                            class LowThreshold(_Entity_):
                                 """
                                 Low threshold data
                                 
@@ -1145,7 +1250,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, self).__init__()
 
                                     self.yang_name = "low-threshold"
                                     self.yang_parent_name = "pool-allocations"
@@ -1167,10 +1275,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations']['meta_info']
 
 
-
-                        class AddressRange(Entity):
+                        class AddressRange(_Entity_):
                             """
                             Address ranges
                             
@@ -1223,7 +1339,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, self).__init__()
 
                                 self.yang_name = "address-range"
                                 self.yang_parent_name = "allocated-addresses"
@@ -1254,7 +1373,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['used', 'excluded', 'free'], name, value)
 
 
-                            class StartAddress(Entity):
+                            class StartAddress(_Entity_):
                                 """
                                 Range start
                                 
@@ -1273,7 +1392,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress, self).__init__()
 
                                     self.yang_name = "start-address"
                                     self.yang_parent_name = "address-range"
@@ -1293,7 +1415,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress, [], name, value)
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address
                                     
@@ -1330,7 +1452,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "start-address"
@@ -1352,10 +1477,18 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress']['meta_info']
 
 
-
-                            class EndAddress(Entity):
+                            class EndAddress(_Entity_):
                                 """
                                 Range end
                                 
@@ -1374,7 +1507,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, self).__init__()
 
                                     self.yang_name = "end-address"
                                     self.yang_parent_name = "address-range"
@@ -1394,7 +1530,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, [], name, value)
 
 
-                                class Address(Entity):
+                                class Address(_Entity_):
                                     """
                                     Address
                                     
@@ -1431,7 +1567,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "end-address"
@@ -1453,11 +1592,23 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange']['meta_info']
 
 
-
-
-                        class InUseAddress(Entity):
+                        class InUseAddress(_Entity_):
                             """
                             In\-use addresses
                             
@@ -1483,7 +1634,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, self).__init__()
 
                                 self.yang_name = "in-use-address"
                                 self.yang_parent_name = "allocated-addresses"
@@ -1506,7 +1660,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, ['client_type'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 Client address
                                 
@@ -1525,7 +1679,10 @@ class AddressPoolService(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "in-use-address"
@@ -1545,7 +1702,7 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address, [], name, value)
 
 
-                                class Address_(Entity):
+                                class Address_(_Entity_):
                                     """
                                     Address
                                     
@@ -1582,7 +1739,10 @@ class AddressPoolService(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, self).__init__()
 
                                         self.yang_name = "address"
                                         self.yang_parent_name = "address"
@@ -1604,12 +1764,28 @@ class AddressPoolService(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                            return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses']['meta_info']
 
 
-
-
-
-                    class Configuration(Entity):
+                    class Configuration(_Entity_):
                         """
                         Configuration info for pool
                         
@@ -1718,7 +1894,10 @@ class AddressPoolService(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, self).__init__()
 
                             self.yang_name = "configuration"
                             self.yang_parent_name = "pool"
@@ -1759,7 +1938,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['pool_name', 'pool_id', 'vrf_name', 'pool_scope', 'pool_prefix_length', 'high_utilization_mark', 'low_utilization_mark', 'current_utilization', 'utilization_high_count', 'utilization_low_count'], name, value)
 
 
-                        class SergInfo(Entity):
+                        class SergInfo(_Entity_):
                             """
                             SERG Info
                             
@@ -1792,7 +1971,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, self).__init__()
 
                                 self.yang_name = "serg-info"
                                 self.yang_parent_name = "configuration"
@@ -1814,12 +1996,28 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, ['preferred_role', 'peer_down', 'verify_pend'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                            return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool.Configuration']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                        return meta._meta_table['AddressPoolService.Nodes.Node.Pools.Pool']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                    return meta._meta_table['AddressPoolService.Nodes.Node.Pools']['meta_info']
 
 
-
-
-
-            class TotalUtilization(Entity):
+            class TotalUtilization(_Entity_):
                 """
                 Show total utilization for pool
                 
@@ -1858,7 +2056,10 @@ class AddressPoolService(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AddressPoolService.Nodes.Node.TotalUtilization, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AddressPoolService.Nodes.Node.TotalUtilization, self).__init__()
 
                     self.yang_name = "total-utilization"
                     self.yang_parent_name = "node"
@@ -1880,9 +2081,13 @@ class AddressPoolService(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['total_utilization_high_mark', 'total_utilization_low_mark', 'current_total_utilization'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                    return meta._meta_table['AddressPoolService.Nodes.Node.TotalUtilization']['meta_info']
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 Pool VRF data
                 
@@ -1901,7 +2106,10 @@ class AddressPoolService(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(AddressPoolService.Nodes.Node.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AddressPoolService.Nodes.Node.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "node"
@@ -1919,7 +2127,7 @@ class AddressPoolService(Entity):
                     self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     VRF level Pool information
                     
@@ -1954,7 +2162,10 @@ class AddressPoolService(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(AddressPoolService.Nodes.Node.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AddressPoolService.Nodes.Node.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -1981,7 +2192,7 @@ class AddressPoolService(Entity):
                         self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                    class Ipv4(Entity):
+                    class Ipv4(_Entity_):
                         """
                         IPv4 pool VRF data
                         
@@ -2007,7 +2218,10 @@ class AddressPoolService(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "vrf"
@@ -2029,7 +2243,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4, [], name, value)
 
 
-                        class AllocationSummary(Entity):
+                        class AllocationSummary(_Entity_):
                             """
                             Allocation summary
                             
@@ -2110,7 +2324,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, self).__init__()
 
                                 self.yang_name = "allocation-summary"
                                 self.yang_parent_name = "ipv4"
@@ -2140,9 +2357,13 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary']['meta_info']
 
 
-                        class Pools(Entity):
+                        class Pools(_Entity_):
                             """
                             Pools data
                             
@@ -2208,7 +2429,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, self).__init__()
 
                                 self.yang_name = "pools"
                                 self.yang_parent_name = "ipv4"
@@ -2236,10 +2460,18 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                            return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4']['meta_info']
 
 
-
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         IPv6 Pool VRF data
                         
@@ -2265,7 +2497,10 @@ class AddressPoolService(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "vrf"
@@ -2287,7 +2522,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6, [], name, value)
 
 
-                        class AllocationSummary(Entity):
+                        class AllocationSummary(_Entity_):
                             """
                             Allocation summary
                             
@@ -2368,7 +2603,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, self).__init__()
 
                                 self.yang_name = "allocation-summary"
                                 self.yang_parent_name = "ipv6"
@@ -2398,9 +2636,13 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary']['meta_info']
 
 
-                        class Pools(Entity):
+                        class Pools(_Entity_):
                             """
                             Pools data
                             
@@ -2466,7 +2708,10 @@ class AddressPoolService(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, self).__init__()
 
                                 self.yang_name = "pools"
                                 self.yang_parent_name = "ipv6"
@@ -2494,15 +2739,43 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                                return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                            return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                        return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs.Vrf']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                    return meta._meta_table['AddressPoolService.Nodes.Node.Vrfs']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+                return meta._meta_table['AddressPoolService.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+            return meta._meta_table['AddressPoolService.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AddressPoolService()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_oper as meta
+        return meta._meta_table['AddressPoolService']['meta_info']
 
 

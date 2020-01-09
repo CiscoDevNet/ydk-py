@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -43,6 +46,12 @@ class BfdBundleCoexistenceBobBlb(Enum):
     inherited = Enum.YLeaf(1, "inherited")
 
     logical = Enum.YLeaf(2, "logical")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+        return meta._meta_table['BfdBundleCoexistenceBobBlb']
 
 
 class BfdEchoStartupValidate(Enum):
@@ -72,6 +81,12 @@ class BfdEchoStartupValidate(Enum):
     force = Enum.YLeaf(2, "force")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+        return meta._meta_table['BfdEchoStartupValidate']
+
+
 class BfdIfEchoUsage(Enum):
     """
     BfdIfEchoUsage (Enum Class)
@@ -91,6 +106,12 @@ class BfdIfEchoUsage(Enum):
     enable = Enum.YLeaf(0, "enable")
 
     disable = Enum.YLeaf(1, "disable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+        return meta._meta_table['BfdIfEchoUsage']
 
 
 class BfdIfIpv6ChecksumUsage(Enum):
@@ -114,8 +135,14 @@ class BfdIfIpv6ChecksumUsage(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+        return meta._meta_table['BfdIfIpv6ChecksumUsage']
 
-class Bfd(Entity):
+
+
+class Bfd(_Entity_):
     """
     BFD Configuration
     
@@ -203,7 +230,10 @@ class Bfd(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Bfd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Bfd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bfd"
@@ -257,7 +287,7 @@ class Bfd(Entity):
         self._perform_setattr(Bfd, ['global_echo_usage', 'ipv6_checksum_disable', 'global_echo_min_interval', 'ttl_drop_threshold', 'single_hop_trap', 'global_ipv4_echo_source'], name, value)
 
 
-    class FlapDamp(Entity):
+    class FlapDamp(_Entity_):
         """
         Flapping class container
         
@@ -328,7 +358,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.FlapDamp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.FlapDamp, self).__init__()
 
             self.yang_name = "flap-damp"
             self.yang_parent_name = "bfd"
@@ -364,7 +397,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.FlapDamp, ['threshold', 'initial_delay', 'maximum_delay', 'dampen_disable', 'secondary_delay'], name, value)
 
 
-        class BundleMember(Entity):
+        class BundleMember(_Entity_):
             """
             Bundle per member feature class container
             
@@ -414,7 +447,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.FlapDamp.BundleMember, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.FlapDamp.BundleMember, self).__init__()
 
                 self.yang_name = "bundle-member"
                 self.yang_parent_name = "flap-damp"
@@ -439,9 +475,13 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.FlapDamp.BundleMember, ['initial_delay', 'maximum_delay', 'secondary_delay', 'l3_only_mode'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.FlapDamp.BundleMember']['meta_info']
 
 
-        class Extensions(Entity):
+        class Extensions(_Entity_):
             """
             Extensions to the BFD dampening feature
             
@@ -458,7 +498,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.FlapDamp.Extensions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.FlapDamp.Extensions, self).__init__()
 
                 self.yang_name = "extensions"
                 self.yang_parent_name = "flap-damp"
@@ -477,10 +520,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.FlapDamp.Extensions, ['down_monitor'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.FlapDamp.Extensions']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.FlapDamp']['meta_info']
 
 
-
-    class EchoLatency(Entity):
+    class EchoLatency(_Entity_):
         """
         BFD echo latency feature class container
         
@@ -497,7 +548,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.EchoLatency, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.EchoLatency, self).__init__()
 
             self.yang_name = "echo-latency"
             self.yang_parent_name = "bfd"
@@ -518,7 +572,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.EchoLatency, [], name, value)
 
 
-        class Detect(Entity):
+        class Detect(_Entity_):
             """
             BFD echo latency detection
             
@@ -551,7 +605,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.EchoLatency.Detect, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.EchoLatency.Detect, self).__init__()
 
                 self.yang_name = "detect"
                 self.yang_parent_name = "echo-latency"
@@ -574,10 +631,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.EchoLatency.Detect, ['latency_detect_enabled', 'latency_detect_percentage', 'latency_detect_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.EchoLatency.Detect']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.EchoLatency']['meta_info']
 
 
-
-    class EchoStartup(Entity):
+    class EchoStartup(_Entity_):
         """
         BFD echo startup feature class container
         
@@ -596,7 +661,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.EchoStartup, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.EchoStartup, self).__init__()
 
             self.yang_name = "echo-startup"
             self.yang_parent_name = "bfd"
@@ -615,9 +683,13 @@ class Bfd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.EchoStartup, ['validate'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.EchoStartup']['meta_info']
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Interface configuration
         
@@ -634,7 +706,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "bfd"
@@ -653,7 +728,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Single interface configuration
             
@@ -699,7 +774,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -724,10 +802,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Interfaces.Interface, ['interface_name', 'interface_echo_usage', 'ipv6_checksum', 'interface_ipv4_echo_source'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.Interfaces']['meta_info']
 
 
-
-    class MultiPathIncludes(Entity):
+    class MultiPathIncludes(_Entity_):
         """
         Multipath Include configuration
         
@@ -744,7 +830,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.MultiPathIncludes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.MultiPathIncludes, self).__init__()
 
             self.yang_name = "multi-path-includes"
             self.yang_parent_name = "bfd"
@@ -763,7 +852,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.MultiPathIncludes, [], name, value)
 
 
-        class MultiPathInclude(Entity):
+        class MultiPathInclude(_Entity_):
             """
             Location configuration
             
@@ -782,7 +871,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.MultiPathIncludes.MultiPathInclude, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.MultiPathIncludes.MultiPathInclude, self).__init__()
 
                 self.yang_name = "multi-path-include"
                 self.yang_parent_name = "multi-path-includes"
@@ -801,10 +893,18 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.MultiPathIncludes.MultiPathInclude, ['location'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.MultiPathIncludes.MultiPathInclude']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.MultiPathIncludes']['meta_info']
 
 
-
-    class Bundle(Entity):
+    class Bundle(_Entity_):
         """
         Configuration related to BFD over Bundle
         
@@ -821,7 +921,10 @@ class Bfd(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Bfd.Bundle, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Bfd.Bundle, self).__init__()
 
             self.yang_name = "bundle"
             self.yang_parent_name = "bfd"
@@ -842,7 +945,7 @@ class Bfd(Entity):
             self._perform_setattr(Bfd.Bundle, [], name, value)
 
 
-        class Coexistence(Entity):
+        class Coexistence(_Entity_):
             """
             Coexistence mode for BFD on bundle feature
             
@@ -859,7 +962,10 @@ class Bfd(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Bfd.Bundle.Coexistence, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Bfd.Bundle.Coexistence, self).__init__()
 
                 self.yang_name = "coexistence"
                 self.yang_parent_name = "bundle"
@@ -878,11 +984,23 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Bundle.Coexistence, ['bob_blb'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+                return meta._meta_table['Bfd.Bundle.Coexistence']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+            return meta._meta_table['Bfd.Bundle']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Bfd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
+        return meta._meta_table['Bfd']['meta_info']
 
 

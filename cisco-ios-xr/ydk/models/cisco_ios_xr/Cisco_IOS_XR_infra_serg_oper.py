@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -85,6 +88,12 @@ class SergPeerStatus(Enum):
     established = Enum.YLeaf(8, "established")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergPeerStatus']
+
+
 class SergShowComp(Enum):
     """
     SergShowComp (Enum Class)
@@ -118,6 +127,12 @@ class SergShowComp(Enum):
     daps = Enum.YLeaf(3, "daps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowComp']
+
+
 class SergShowImRole(Enum):
     """
     SergShowImRole (Enum Class)
@@ -149,6 +164,12 @@ class SergShowImRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
     active = Enum.YLeaf(3, "active")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowImRole']
 
 
 class SergShowMem(Enum):
@@ -196,6 +217,12 @@ class SergShowMem(Enum):
     unknown = Enum.YLeaf(5, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowMem']
+
+
 class SergShowRole(Enum):
     """
     SergShowRole (Enum Class)
@@ -229,6 +256,12 @@ class SergShowRole(Enum):
     active = Enum.YLeaf(3, "active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowRole']
+
+
 class SergShowSessionError(Enum):
     """
     SergShowSessionError (Enum Class)
@@ -254,6 +287,12 @@ class SergShowSessionError(Enum):
     hard = Enum.YLeaf(1, "hard")
 
     soft = Enum.YLeaf(2, "soft")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowSessionError']
 
 
 class SergShowSessionOperation(Enum):
@@ -289,6 +328,12 @@ class SergShowSessionOperation(Enum):
     in_sync = Enum.YLeaf(3, "in-sync")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowSessionOperation']
+
+
 class SergShowSlaveMode(Enum):
     """
     SergShowSlaveMode (Enum Class)
@@ -314,6 +359,12 @@ class SergShowSlaveMode(Enum):
     warm = Enum.YLeaf(1, "warm")
 
     hot = Enum.YLeaf(2, "hot")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowSlaveMode']
 
 
 class SergShowSoReason(Enum):
@@ -361,8 +412,14 @@ class SergShowSoReason(Enum):
     serg_show_so_reason_max = Enum.YLeaf(5, "serg-show-so-reason-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SergShowSoReason']
 
-class SessionRedundancyManager(Entity):
+
+
+class SessionRedundancyManager(_Entity_):
     """
     Session Redundancy Manager information
     
@@ -395,7 +452,10 @@ class SessionRedundancyManager(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SessionRedundancyManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SessionRedundancyManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "session-redundancy-manager"
@@ -424,7 +484,7 @@ class SessionRedundancyManager(Entity):
         self._perform_setattr(SessionRedundancyManager, [], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Subscriber Redundancy Manager interface table
         
@@ -443,7 +503,10 @@ class SessionRedundancyManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SessionRedundancyManager.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancyManager.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "session-redundancy-manager"
@@ -462,7 +525,7 @@ class SessionRedundancyManager(Entity):
             self._perform_setattr(SessionRedundancyManager.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             interface redundancy manager interface
             
@@ -522,7 +585,10 @@ class SessionRedundancyManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SessionRedundancyManager.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SessionRedundancyManager.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -551,10 +617,18 @@ class SessionRedundancyManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                return meta._meta_table['SessionRedundancyManager.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+            return meta._meta_table['SessionRedundancyManager.Interfaces']['meta_info']
 
 
-
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Session Redundancy Manager group table
         
@@ -573,7 +647,10 @@ class SessionRedundancyManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SessionRedundancyManager.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancyManager.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "session-redundancy-manager"
@@ -592,7 +669,7 @@ class SessionRedundancyManager(Entity):
             self._perform_setattr(SessionRedundancyManager.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Session redundancy manager group
             
@@ -698,7 +775,10 @@ class SessionRedundancyManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SessionRedundancyManager.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SessionRedundancyManager.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -739,10 +819,18 @@ class SessionRedundancyManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'node_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                return meta._meta_table['SessionRedundancyManager.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+            return meta._meta_table['SessionRedundancyManager.Groups']['meta_info']
 
 
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Session redundancy manager summary
         
@@ -913,7 +1001,10 @@ class SessionRedundancyManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SessionRedundancyManager.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancyManager.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "session-redundancy-manager"
@@ -968,14 +1059,22 @@ class SessionRedundancyManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'active_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count', 'active_interface_count', 'pool_count'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+            return meta._meta_table['SessionRedundancyManager.Summary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancyManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SessionRedundancyManager']['meta_info']
 
 
-class SessionRedundancyAgent(Entity):
+class SessionRedundancyAgent(_Entity_):
     """
     session redundancy agent
     
@@ -994,7 +1093,10 @@ class SessionRedundancyAgent(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SessionRedundancyAgent, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SessionRedundancyAgent, self).__init__()
         self._top_entity = None
 
         self.yang_name = "session-redundancy-agent"
@@ -1015,7 +1117,7 @@ class SessionRedundancyAgent(Entity):
         self._perform_setattr(SessionRedundancyAgent, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes for which session data is
         collected
@@ -1035,7 +1137,10 @@ class SessionRedundancyAgent(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SessionRedundancyAgent.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SessionRedundancyAgent.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "session-redundancy-agent"
@@ -1054,7 +1159,7 @@ class SessionRedundancyAgent(Entity):
             self._perform_setattr(SessionRedundancyAgent.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Session data for a particular node
             
@@ -1124,7 +1229,10 @@ class SessionRedundancyAgent(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SessionRedundancyAgent.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SessionRedundancyAgent.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1172,7 +1280,7 @@ class SessionRedundancyAgent(Entity):
                 self._perform_setattr(SessionRedundancyAgent.Nodes.Node, ['node_name'], name, value)
 
 
-            class GroupIdXr(Entity):
+            class GroupIdXr(_Entity_):
                 """
                 Data for particular subscriber group session
                 
@@ -1191,7 +1299,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
 
                     self.yang_name = "group-id-xr"
                     self.yang_parent_name = "node"
@@ -1209,7 +1320,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr, [], name, value)
 
 
-                class GroupId(Entity):
+                class GroupId(_Entity_):
                     """
                     Group id for subscriber group session
                     
@@ -1295,7 +1406,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
 
                         self.yang_name = "group-id"
                         self.yang_parent_name = "group-id-xr"
@@ -1331,7 +1445,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'key_index', 'role_master', 'role_active', 'negative_acknowledgement_update_all', 'entry_type'], name, value)
 
 
-                    class SessionDetailedInformation(Entity):
+                    class SessionDetailedInformation(_Entity_):
                         """
                         More Session Information
                         
@@ -1378,7 +1492,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
 
                             self.yang_name = "session-detailed-information"
                             self.yang_parent_name = "group-id"
@@ -1404,9 +1521,13 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation']['meta_info']
 
 
-                    class SessionSyncErrorInformation(Entity):
+                    class SessionSyncErrorInformation(_Entity_):
                         """
                         Session Synchroniation Error Information
                         
@@ -1443,7 +1564,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
 
                             self.yang_name = "session-sync-error-information"
                             self.yang_parent_name = "group-id"
@@ -1465,11 +1589,23 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr']['meta_info']
 
 
-
-
-            class ClientIds(Entity):
+            class ClientIds(_Entity_):
                 """
                 Stats Client
                 
@@ -1488,7 +1624,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__init__()
 
                     self.yang_name = "client-ids"
                     self.yang_parent_name = "node"
@@ -1506,7 +1645,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds, [], name, value)
 
 
-                class ClientId(Entity):
+                class ClientId(_Entity_):
                     """
                     Specify stats client
                     
@@ -2013,7 +2152,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__init__()
 
                         self.yang_name = "client-id"
                         self.yang_parent_name = "client-ids"
@@ -2139,10 +2281,18 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', 'tx_list_start_of_download_add_ok', 'tx_list_start_of_download_add_not_ok', 'tx_list_end_of_download_add_ok', 'tx_list_end_of_download_add_not_ok', 'tx_list_end_of_message_add_ok', 'tx_list_end_of_message_add_not_ok', 'tx_list_clear_all_add_ok', 'tx_list_clear_all_add_not_ok', 'tx_list_clear_selected_add_ok', 'tx_list_clear_selected_add_not_ok', 'tx_list_replay_all_add_ok', 'tx_list_replay_all_add_not_ok', 'tx_list_replay_selected_add_ok', 'tx_list_replay_selected_add_not_ok', 'tx_list_session_session_add_ok', 'tx_list_session_session_add_not_ok', 'tx_list_session_session_update_ok', 'tx_list_session_session_update_not_ok', 'tx_list_session_session_delete', 'clean_call_back', 'tx_list_encode_session_session_ok', 'tx_list_encode_session_session_partial_write', 'last_replay_all_count', 'tx_list_receive_command_replay_all', 'tx_list_receive_command_replay_selected', 'tx_list_receive_session_session_delete_valid', 'tx_list_receive_session_session_delete_invalid', 'tx_list_receive_session_session_update_valid', 'tx_list_receive_session_session_update_invalid', 'tx_list_receive_session_session_sod_all', 'tx_list_receive_session_session_sod_selected', 'tx_list_receive_session_session_eod_all', 'tx_list_receive_session_session_eod_selected', 'tx_list_rx_tcp_restart_start_of_download', 'tx_list_rx_tcp_restart_end_of_download', 'tx_list_receive_session_session_eoms', 'tx_list_receive_session_session_clear_all', 'tx_list_receive_session_session_clear_selected', 'tx_list_receive_session_session_neg_ack', 'tx_list_receive_session_session_neg_ack_not_ok', 'tx_list_client_registration_ok', 'tx_list_client_registration_not_ok', 'tx_list_client_de_registration', 'tx_list_client_connection_down', 'tx_list_client_cleanup', 'tx_list_active_ok', 'tx_list_active_not_ok', 'tx_list_de_active_ok', 'tx_list_de_active_not_ok', 'tx_list_send_pool_role_ok', 'tx_list_send_pool_role_not_ok', 'tx_list_send_pool_update_ok', 'tx_list_send_pool_update_not_ok', 'tx_list_recv_pool_update_ok'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.ClientIds']['meta_info']
 
 
-
-            class Memory(Entity):
+            class Memory(_Entity_):
                 """
                 Show Memory
                 
@@ -2175,7 +2325,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.Memory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.Memory, self).__init__()
 
                     self.yang_name = "memory"
                     self.yang_parent_name = "node"
@@ -2195,7 +2348,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory, [], name, value)
 
 
-                class MemoryInfo(Entity):
+                class MemoryInfo(_Entity_):
                     """
                     Memory Info
                     
@@ -2266,7 +2419,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__init__()
 
                         self.yang_name = "memory-info"
                         self.yang_parent_name = "memory"
@@ -2296,9 +2452,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, ['structure_name', 'size', 'current_count', 'alloc_fails', 'alloc_count', 'freed_count', 'memory_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo']['meta_info']
 
 
-                class EdmMemoryInfo(Entity):
+                class EdmMemoryInfo(_Entity_):
                     """
                     EDM Memory Info
                     
@@ -2346,7 +2506,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__init__()
 
                         self.yang_name = "edm-memory-info"
                         self.yang_parent_name = "memory"
@@ -2370,9 +2533,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo']['meta_info']
 
 
-                class StringMemoryInfo(Entity):
+                class StringMemoryInfo(_Entity_):
                     """
                     String Memory Info
                     
@@ -2420,7 +2587,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__init__()
 
                         self.yang_name = "string-memory-info"
                         self.yang_parent_name = "memory"
@@ -2444,10 +2614,18 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory']['meta_info']
 
 
-
-            class GroupIds(Entity):
+            class GroupIds(_Entity_):
                 """
                 Data for particular subscriber group 
                 
@@ -2466,7 +2644,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
 
                     self.yang_name = "group-ids"
                     self.yang_parent_name = "node"
@@ -2484,7 +2665,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds, [], name, value)
 
 
-                class GroupId(Entity):
+                class GroupId(_Entity_):
                     """
                     Group id for subscriber group
                     
@@ -2803,7 +2984,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
 
                         self.yang_name = "group-id"
                         self.yang_parent_name = "group-ids"
@@ -2896,7 +3080,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time', 'pool_count'], name, value)
 
 
-                    class ClientSessionCount(Entity):
+                    class ClientSessionCount(_Entity_):
                         """
                         Client Session Count
                         
@@ -2924,7 +3108,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__init__()
 
                             self.yang_name = "client-session-count"
                             self.yang_parent_name = "group-id"
@@ -2944,9 +3131,13 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, ['component', 'session_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount']['meta_info']
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface List
                         
@@ -2990,7 +3181,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "group-id"
@@ -3014,9 +3208,13 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface']['meta_info']
 
 
-                    class Pool(Entity):
+                    class Pool(_Entity_):
                         """
                         Pool List
                         
@@ -3035,7 +3233,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, self).__init__()
 
                             self.yang_name = "pool"
                             self.yang_parent_name = "group-id"
@@ -3053,11 +3254,23 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, ['pool_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds']['meta_info']
 
 
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 List of interfaces
                 
@@ -3076,7 +3289,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -3094,7 +3310,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Specify interface name
                     
@@ -3229,7 +3445,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -3280,7 +3499,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
 
 
-                    class InterfaceOper(Entity):
+                    class InterfaceOper(_Entity_):
                         """
                         Interface Batch Operation
                         
@@ -3327,7 +3546,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
 
                             self.yang_name = "interface-oper"
                             self.yang_parent_name = "interface"
@@ -3353,9 +3575,13 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper']['meta_info']
 
 
-                    class InterfaceStatus(Entity):
+                    class InterfaceStatus(_Entity_):
                         """
                         Interface Status
                         
@@ -3423,7 +3649,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
 
                             self.yang_name = "interface-status"
                             self.yang_parent_name = "interface"
@@ -3455,9 +3684,13 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus']['meta_info']
 
 
-                    class ClientStatus(Entity):
+                    class ClientStatus(_Entity_):
                         """
                         Interface status for each client
                         
@@ -3499,7 +3732,10 @@ class SessionRedundancyAgent(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
 
                             self.yang_name = "client-status"
                             self.yang_parent_name = "interface"
@@ -3523,11 +3759,23 @@ class SessionRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'serg_show_idb_client_eoms_pending', 'serg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-            class StatsGlobal(Entity):
+            class StatsGlobal(_Entity_):
                 """
                 Stats Global
                 
@@ -3877,7 +4125,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__init__()
 
                     self.yang_name = "stats-global"
                     self.yang_parent_name = "node"
@@ -3976,7 +4227,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, ['source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'redundancy_role', 'restart_client_sync_in_progress', 'client_init_sync_time_stamp', 'restart_peer_sync_in_progress', 'peer_init_sync_time_stamp', 'sync_in_progress', 'peer_action_timer', 'retry_timer_remaining', 'tx_list_client_registration_invalid', 'tx_list_client_de_registration_invalid', 'tx_list_client_connection_up', 'tx_list_client_connection_down', 'tx_list_client_peer_done', 'tx_list_client_message_call_back', 'tx_list_client_receive_valid', 'tx_list_client_receive_invalid', 'tx_list_client_receive_command_valid', 'tx_list_client_receive_command_invalid', 'tx_list_client_receive_session_sessionvalid', 'tx_list_client_receive_session_session_invalid', 'tx_list_peer_timer_handler', 'tx_list_peer_registration_invalid', 'tx_list_peer_de_registration_invalid', 'tx_list_peer_message_call_back_valid', 'tx_list_peer_message_call_back_invalid', 'tx_list_peer_done', 'tx_list_peer_cmd_connection_up_not_ok', 'tx_list_peer_cmd_connection_down_not_ok', 'tx_list_peer_session_connection_up_not_ok', 'tx_list_peer_session_connection_down_not_ok', 'tx_list_send_pool_update_not_ok'], name, value)
 
 
-                class IntfStatusStatistics(Entity):
+                class IntfStatusStatistics(_Entity_):
                     """
                     intf status statistics
                     
@@ -4033,7 +4284,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__init__()
 
                         self.yang_name = "intf-status-statistics"
                         self.yang_parent_name = "stats-global"
@@ -4059,9 +4313,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, ['pend_caps_rem_cnt', 'pend_reg_disable_cnt', 'pend_other_batch_oper_cnt', 'non_stale_cnt', 'grp_bound_cnt'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics']['meta_info']
 
 
-                class TxListStatistics(Entity):
+                class TxListStatistics(_Entity_):
                     """
                     tx list statistics
                     
@@ -4154,7 +4412,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__init__()
 
                         self.yang_name = "tx-list-statistics"
                         self.yang_parent_name = "stats-global"
@@ -4188,9 +4449,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, ['tx_list_encode_marker_ok', 'tx_list_encode_marker_partial_write', 'tx_list_clean_marker', 'tx_list_encode_command_ok', 'tx_list_encode_command_partial_write', 'tx_list_clean_command', 'tx_list_encode_negotiation_ok', 'tx_list_encode_negotiation_partial_write', 'tx_list_clean_negotiation'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics']['meta_info']
 
 
-                class ClientStatus(Entity):
+                class ClientStatus(_Entity_):
                     """
                     Client Status
                     
@@ -4255,7 +4520,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__init__()
 
                         self.yang_name = "client-status"
                         self.yang_parent_name = "stats-global"
@@ -4285,9 +4553,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, ['component', 'client_connection_status', 'client_initialization_synchronization_pending', 'client_synchronization_end_of_download_pending', 'up_time_stamp', 'down_time_stamp', 'clean_up_timer_remaining'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus']['meta_info']
 
 
-                class OpaqueMemoryStatus(Entity):
+                class OpaqueMemoryStatus(_Entity_):
                     """
                     Opaque memory Stats
                     
@@ -4342,7 +4614,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__init__()
 
                         self.yang_name = "opaque-memory-status"
                         self.yang_parent_name = "stats-global"
@@ -4368,9 +4643,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, ['component', 'session_count', 'opaque_size', 'opaque_high_size', 'opaque_data_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus']['meta_info']
 
 
-                class TxListOverTcpStatus(Entity):
+                class TxListOverTcpStatus(_Entity_):
                     """
                     TCP TxList Statistics
                     
@@ -4584,7 +4863,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__init__()
 
                         self.yang_name = "tx-list-over-tcp-status"
                         self.yang_parent_name = "stats-global"
@@ -4644,10 +4926,18 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, ['messages_sent', 'bytes_sent', 'messages_received', 'bytes_received', 'connect_count', 'blocked_connect_count', 'connect_retry_count', 'remote_node_down_count', 'accept_count', 'maximum_sent_message_size', 'maximum_received_message_size', 'peer_pause_count', 'buffer_full_occurence_count', 'mem_move_message_count', 'mem_move_bytes_count', 'socket_read_count', 'socket_write_count', 'active_socket_count', 'maximum_requested_buffer_size', 'buffer_freed_count', 'buffer_cache_hit', 'buffer_cache_miss'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal']['meta_info']
 
 
-
-            class GroupSummaries(Entity):
+            class GroupSummaries(_Entity_):
                 """
                 Session data for a particular node
                 
@@ -4666,7 +4956,10 @@ class SessionRedundancyAgent(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
 
                     self.yang_name = "group-summaries"
                     self.yang_parent_name = "node"
@@ -4684,7 +4977,7 @@ class SessionRedundancyAgent(Entity):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries, [], name, value)
 
 
-                class GroupSummary(Entity):
+                class GroupSummary(_Entity_):
                     """
                     Session redundancy agent group summary
                     
@@ -4801,7 +5094,10 @@ class SessionRedundancyAgent(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
 
                         self.yang_name = "group-summary"
                         self.yang_parent_name = "group-summaries"
@@ -4843,13 +5139,33 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupSummaries']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+                return meta._meta_table['SessionRedundancyAgent.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+            return meta._meta_table['SessionRedundancyAgent.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancyAgent()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
+        return meta._meta_table['SessionRedundancyAgent']['meta_info']
 
 

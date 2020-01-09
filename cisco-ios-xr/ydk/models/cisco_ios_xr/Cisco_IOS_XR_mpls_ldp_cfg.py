@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class MldpPolicyMode(Enum):
     outbound = Enum.YLeaf(2, "outbound")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MldpPolicyMode']
+
+
 class MplsLdpAdvertiseBgpAcl(Enum):
     """
     MplsLdpAdvertiseBgpAcl (Enum Class)
@@ -62,6 +71,12 @@ class MplsLdpAdvertiseBgpAcl(Enum):
     peer_acl = Enum.YLeaf(1, "peer-acl")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpAdvertiseBgpAcl']
+
+
 class MplsLdpDownstreamOnDemand(Enum):
     """
     MplsLdpDownstreamOnDemand (Enum Class)
@@ -75,6 +90,12 @@ class MplsLdpDownstreamOnDemand(Enum):
     """
 
     peer_acl = Enum.YLeaf(1, "peer-acl")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpDownstreamOnDemand']
 
 
 class MplsLdpExpNull(Enum):
@@ -120,6 +141,12 @@ class MplsLdpExpNull(Enum):
     for_to = Enum.YLeaf(4, "for-to")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpExpNull']
+
+
 class MplsLdpLabelAdvertise(Enum):
     """
     MplsLdpLabelAdvertise (Enum Class)
@@ -145,6 +172,12 @@ class MplsLdpLabelAdvertise(Enum):
     for_to = Enum.YLeaf(2, "for-to")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpLabelAdvertise']
+
+
 class MplsLdpLabelAllocation(Enum):
     """
     MplsLdpLabelAllocation (Enum Class)
@@ -164,6 +197,12 @@ class MplsLdpLabelAllocation(Enum):
     acl = Enum.YLeaf(1, "acl")
 
     host = Enum.YLeaf(2, "host")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpLabelAllocation']
 
 
 class MplsLdpNbrPassword(Enum):
@@ -187,6 +226,12 @@ class MplsLdpNbrPassword(Enum):
     disable = Enum.YLeaf(1, "disable")
 
     specified = Enum.YLeaf(2, "specified")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpNbrPassword']
 
 
 class MplsLdpSessionProtection(Enum):
@@ -242,6 +287,12 @@ class MplsLdpSessionProtection(Enum):
     for_with_forever = Enum.YLeaf(6, "for-with-forever")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpSessionProtection']
+
+
 class MplsLdpTargetedAccept(Enum):
     """
     MplsLdpTargetedAccept (Enum Class)
@@ -261,6 +312,12 @@ class MplsLdpTargetedAccept(Enum):
     all = Enum.YLeaf(1, "all")
 
     from_ = Enum.YLeaf(2, "from")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpTargetedAccept']
 
 
 class MplsLdpTransportAddress(Enum):
@@ -284,6 +341,12 @@ class MplsLdpTransportAddress(Enum):
     address = Enum.YLeaf(2, "address")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpTransportAddress']
+
+
 class MplsLdpafName(Enum):
     """
     MplsLdpafName (Enum Class)
@@ -305,8 +368,14 @@ class MplsLdpafName(Enum):
     ipv6 = Enum.YLeaf(6, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdpafName']
 
-class MplsLdp(Entity):
+
+
+class MplsLdp(_Entity_):
     """
     MPLS LDP configuration
     
@@ -342,7 +411,10 @@ class MplsLdp(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(MplsLdp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsLdp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-ldp"
@@ -375,7 +447,7 @@ class MplsLdp(Entity):
         self._perform_setattr(MplsLdp, ['enable'], name, value)
 
 
-    class DefaultVrf(Entity):
+    class DefaultVrf(_Entity_):
         """
         Global VRF attribute configuration for MPLS LDP
         
@@ -402,7 +474,10 @@ class MplsLdp(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(MplsLdp.DefaultVrf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLdp.DefaultVrf, self).__init__()
 
             self.yang_name = "default-vrf"
             self.yang_parent_name = "mpls-ldp"
@@ -431,7 +506,7 @@ class MplsLdp(Entity):
             self._perform_setattr(MplsLdp.DefaultVrf, [], name, value)
 
 
-        class Afs(Entity):
+        class Afs(_Entity_):
             """
             Address Family specific configuration for MPLS
             LDP
@@ -449,7 +524,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.DefaultVrf.Afs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.DefaultVrf.Afs, self).__init__()
 
                 self.yang_name = "afs"
                 self.yang_parent_name = "default-vrf"
@@ -468,7 +546,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.DefaultVrf.Afs, [], name, value)
 
 
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 Configure data for given Address Family
                 
@@ -515,7 +593,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.DefaultVrf.Afs.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.DefaultVrf.Afs.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "afs"
@@ -557,7 +638,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af, ['af_name', 'enable'], name, value)
 
 
-                class Label(Entity):
+                class Label(_Entity_):
                     """
                     Configure Label policies and control
                     
@@ -579,7 +660,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Afs.Af.Label, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Afs.Af.Label, self).__init__()
 
                         self.yang_name = "label"
                         self.yang_parent_name = "af"
@@ -603,7 +687,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label, [], name, value)
 
 
-                    class Remote(Entity):
+                    class Remote(_Entity_):
                         """
                         Configure remote/peer label policies and
                         control
@@ -621,7 +705,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, self).__init__()
 
                             self.yang_name = "remote"
                             self.yang_parent_name = "label"
@@ -641,7 +728,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote, [], name, value)
 
 
-                        class Accept(Entity):
+                        class Accept(_Entity_):
                             """
                             Configure inbound label acceptance
                             
@@ -658,7 +745,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, self).__init__()
 
                                 self.yang_name = "accept"
                                 self.yang_parent_name = "remote"
@@ -678,7 +768,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept, [], name, value)
 
 
-                            class PeerAcceptPolicies(Entity):
+                            class PeerAcceptPolicies(_Entity_):
                                 """
                                 Configuration related to neighbors for
                                 inbound label acceptance
@@ -696,7 +786,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
 
                                     self.yang_name = "peer-accept-policies"
                                     self.yang_parent_name = "accept"
@@ -714,7 +807,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, [], name, value)
 
 
-                                class PeerAcceptPolicy(Entity):
+                                class PeerAcceptPolicy(_Entity_):
                                     """
                                     Control acceptance of labels from a
                                     neighbor for prefix(es) using ACL
@@ -748,7 +841,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
 
                                         self.yang_name = "peer-accept-policy"
                                         self.yang_parent_name = "peer-accept-policies"
@@ -770,12 +866,28 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, ['lsr_id', 'label_space_id', 'prefix_acl_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Remote']['meta_info']
 
 
-
-
-
-                    class Local(Entity):
+                    class Local(_Entity_):
                         """
                         Configure local label policies and control
                         
@@ -807,7 +919,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Local, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.Label.Local, self).__init__()
 
                             self.yang_name = "local"
                             self.yang_parent_name = "label"
@@ -836,7 +951,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local, ['implicit_null_override', 'default_route'], name, value)
 
 
-                        class Advertise(Entity):
+                        class Advertise(_Entity_):
                             """
                             Configure outbound label advertisement
                             
@@ -873,7 +988,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise, self).__init__()
 
                                 self.yang_name = "advertise"
                                 self.yang_parent_name = "local"
@@ -908,7 +1026,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise, ['disable'], name, value)
 
 
-                            class PeerAdvertisePolicies(Entity):
+                            class PeerAdvertisePolicies(_Entity_):
                                 """
                                 Configure peer centric outbound label
                                 advertisement using ACL
@@ -926,7 +1044,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
 
                                     self.yang_name = "peer-advertise-policies"
                                     self.yang_parent_name = "advertise"
@@ -944,7 +1065,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, [], name, value)
 
 
-                                class PeerAdvertisePolicy(Entity):
+                                class PeerAdvertisePolicy(_Entity_):
                                     """
                                     Control advertisement of prefix(es) using
                                     ACL
@@ -978,7 +1099,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
 
                                         self.yang_name = "peer-advertise-policy"
                                         self.yang_parent_name = "peer-advertise-policies"
@@ -1000,10 +1124,18 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, ['lsr_id', 'label_space_id', 'prefix_acl_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies']['meta_info']
 
 
-
-                            class PrefixAdvertisePolicies(Entity):
+                            class PrefixAdvertisePolicies(_Entity_):
                                 """
                                 Configure prefix centric outbound label
                                 advertisement using ACL
@@ -1021,7 +1153,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies, self).__init__()
 
                                     self.yang_name = "prefix-advertise-policies"
                                     self.yang_parent_name = "advertise"
@@ -1039,7 +1174,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies, [], name, value)
 
 
-                                class PrefixAdvertisePolicy(Entity):
+                                class PrefixAdvertisePolicy(_Entity_):
                                     """
                                     Control advertisement of prefix(es) using
                                     ACL
@@ -1069,7 +1204,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, self).__init__()
 
                                         self.yang_name = "prefix-advertise-policy"
                                         self.yang_parent_name = "prefix-advertise-policies"
@@ -1091,10 +1229,18 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, ['prefix_acl_name', 'advertise_type', 'peer_acl_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies']['meta_info']
 
 
-
-                            class ExplicitNull(Entity):
+                            class ExplicitNull(_Entity_):
                                 """
                                 Configure advertisment of explicit\-null
                                 for connected prefixes.
@@ -1122,7 +1268,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
 
                                     self.yang_name = "explicit-null"
                                     self.yang_parent_name = "advertise"
@@ -1144,9 +1293,13 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, ['explicit_null_type', 'prefix_acl_name', 'peer_acl_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull']['meta_info']
 
 
-                            class Interfaces(Entity):
+                            class Interfaces(_Entity_):
                                 """
                                 Configure outbound label advertisement for
                                 an interface
@@ -1164,7 +1317,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
 
                                     self.yang_name = "interfaces"
                                     self.yang_parent_name = "advertise"
@@ -1182,7 +1338,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces, [], name, value)
 
 
-                                class Interface(Entity):
+                                class Interface(_Entity_):
                                     """
                                     Control advertisement of interface's host
                                     IP address
@@ -1202,7 +1358,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
 
                                         self.yang_name = "interface"
                                         self.yang_parent_name = "interfaces"
@@ -1220,11 +1379,23 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, ['interface_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise']['meta_info']
 
 
-
-
-                        class Allocate(Entity):
+                        class Allocate(_Entity_):
                             """
                             Control local label allocation for
                             prefix(es)
@@ -1247,7 +1418,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, self).__init__()
 
                                 self.yang_name = "allocate"
                                 self.yang_parent_name = "local"
@@ -1267,11 +1441,23 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, ['allocation_type', 'prefix_acl_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label.Local']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Label']['meta_info']
 
 
-
-
-                class Discovery(Entity):
+                class Discovery(_Entity_):
                     """
                     Configure Discovery parameters
                     
@@ -1301,7 +1487,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Afs.Af.Discovery, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Afs.Af.Discovery, self).__init__()
 
                         self.yang_name = "discovery"
                         self.yang_parent_name = "af"
@@ -1324,7 +1513,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Discovery, ['transport_address'], name, value)
 
 
-                    class TargetedHelloAccept(Entity):
+                    class TargetedHelloAccept(_Entity_):
                         """
                         Configure acceptance from and responding to
                         targeted hellos.
@@ -1347,7 +1536,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, self).__init__()
 
                             self.yang_name = "targeted-hello-accept"
                             self.yang_parent_name = "discovery"
@@ -1367,10 +1559,18 @@ class MplsLdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, ['accept_type', 'peer_acl_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Discovery']['meta_info']
 
 
-
-                class TrafficEngineering(Entity):
+                class TrafficEngineering(_Entity_):
                     """
                     MPLS Traffic Engingeering parameters for LDP
                     
@@ -1387,7 +1587,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, self).__init__()
 
                         self.yang_name = "traffic-engineering"
                         self.yang_parent_name = "af"
@@ -1407,7 +1610,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering, [], name, value)
 
 
-                    class AutoTunnelMesh(Entity):
+                    class AutoTunnelMesh(_Entity_):
                         """
                         MPLS Traffic Engineering auto\-tunnel mesh
                         parameters for LDP
@@ -1430,7 +1633,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh, self).__init__()
 
                             self.yang_name = "auto-tunnel-mesh"
                             self.yang_parent_name = "traffic-engineering"
@@ -1453,7 +1659,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh, ['group_all'], name, value)
 
 
-                        class GroupIds(Entity):
+                        class GroupIds(_Entity_):
                             """
                             Enable interfaces in specific MPLS TE
                             auto\-tunnel mesh\-groups
@@ -1471,7 +1677,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds, self).__init__()
 
                                 self.yang_name = "group-ids"
                                 self.yang_parent_name = "auto-tunnel-mesh"
@@ -1489,7 +1698,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds, [], name, value)
 
 
-                            class GroupId(Entity):
+                            class GroupId(_Entity_):
                                 """
                                 Auto\-mesh group identifier to enable
                                 
@@ -1508,7 +1717,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, self).__init__()
 
                                     self.yang_name = "group-id"
                                     self.yang_parent_name = "group-ids"
@@ -1526,12 +1738,28 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, ['mesh_group_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering']['meta_info']
 
 
-
-
-
-                class Neighbor(Entity):
+                class Neighbor(_Entity_):
                     """
                     Configuration related to Neighbors
                     
@@ -1553,7 +1781,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Afs.Af.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Afs.Af.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "af"
@@ -1577,7 +1808,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor, [], name, value)
 
 
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Configuration related to neighbors using
                         neighbor address
@@ -1595,7 +1826,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "neighbor"
@@ -1613,7 +1847,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             IP address based configuration related to a
                             neighbor
@@ -1644,7 +1878,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -1664,10 +1901,18 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, ['ip_address', 'targeted'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses']['meta_info']
 
 
-
-                    class SegmentRoutingPolicies(Entity):
+                    class SegmentRoutingPolicies(_Entity_):
                         """
                         Configuration related to SR policies
                         
@@ -1684,7 +1929,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies, self).__init__()
 
                             self.yang_name = "segment-routing-policies"
                             self.yang_parent_name = "neighbor"
@@ -1702,7 +1950,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies, [], name, value)
 
 
-                        class SegmentRoutingPolicy(Entity):
+                        class SegmentRoutingPolicy(_Entity_):
                             """
                             Name based configuration related to a SR
                             policy
@@ -1727,7 +1975,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy, self).__init__()
 
                                 self.yang_name = "segment-routing-policy"
                                 self.yang_parent_name = "segment-routing-policies"
@@ -1747,11 +1998,23 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy, ['name', 'targeted'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies.SegmentRoutingPolicy']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.SegmentRoutingPolicies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor']['meta_info']
 
 
-
-
-                class RedistributionProtocol(Entity):
+                class RedistributionProtocol(_Entity_):
                     """
                     MPLS LDP configuration for protocol
                     redistribution
@@ -1769,7 +2032,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, self).__init__()
 
                         self.yang_name = "redistribution-protocol"
                         self.yang_parent_name = "af"
@@ -1789,7 +2055,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol, [], name, value)
 
 
-                    class Bgp(Entity):
+                    class Bgp(_Entity_):
                         """
                         MPLS LDP configuration for protocol
                         redistribution
@@ -1812,7 +2078,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, self).__init__()
 
                             self.yang_name = "bgp"
                             self.yang_parent_name = "redistribution-protocol"
@@ -1836,7 +2105,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp, [], name, value)
 
 
-                        class As(Entity):
+                        class As(_Entity_):
                             """
                             MPLS LDP configuration for protocol
                             redistribution
@@ -1863,7 +2132,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, self).__init__()
 
                                 self.yang_name = "as"
                                 self.yang_parent_name = "bgp"
@@ -1883,9 +2155,13 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, ['as_xx', 'as_yy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As']['meta_info']
 
 
-                        class AdvertiseTo(Entity):
+                        class AdvertiseTo(_Entity_):
                             """
                             ACL containing list of neighbors for BGP
                             route redistribution
@@ -1908,7 +2184,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, self).__init__()
 
                                 self.yang_name = "advertise-to"
                                 self.yang_parent_name = "bgp"
@@ -1928,13 +2207,33 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, ['type', 'peer_acl_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.DefaultVrf.Afs']['meta_info']
 
 
-
-
-
-
-        class Global(Entity):
+        class Global(_Entity_):
             """
             Default VRF Global configuration for MPLS LDP
             
@@ -1968,7 +2267,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.DefaultVrf.Global, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.DefaultVrf.Global, self).__init__()
 
                 self.yang_name = "global"
                 self.yang_parent_name = "default-vrf"
@@ -2000,7 +2302,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.DefaultVrf.Global, ['router_id'], name, value)
 
 
-            class Session(Entity):
+            class Session(_Entity_):
                 """
                 LDP Session parameters
                 
@@ -2022,7 +2324,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.DefaultVrf.Global.Session, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.DefaultVrf.Global.Session, self).__init__()
 
                     self.yang_name = "session"
                     self.yang_parent_name = "global"
@@ -2047,7 +2352,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.DefaultVrf.Global.Session, [], name, value)
 
 
-                class Protection(Entity):
+                class Protection(_Entity_):
                     """
                     Configure Session Protection parameters
                     
@@ -2076,7 +2381,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Global.Session.Protection, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Global.Session.Protection, self).__init__()
 
                         self.yang_name = "protection"
                         self.yang_parent_name = "session"
@@ -2099,9 +2407,13 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Session.Protection, ['protection_type', 'peer_acl_name', 'duration'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Session.Protection']['meta_info']
 
 
-                class DownstreamOnDemand(Entity):
+                class DownstreamOnDemand(_Entity_):
                     """
                     ACL with the list of neighbors configured for
                     Downstream on Demand
@@ -2124,7 +2436,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, self).__init__()
 
                         self.yang_name = "downstream-on-demand"
                         self.yang_parent_name = "session"
@@ -2145,10 +2460,18 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, ['type', 'peer_acl_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global.Session']['meta_info']
 
 
-
-            class Neighbor(Entity):
+            class Neighbor(_Entity_):
                 """
                 Configuration related to Neighbors
                 
@@ -2177,7 +2500,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.DefaultVrf.Global.Neighbor, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.DefaultVrf.Global.Neighbor, self).__init__()
 
                     self.yang_name = "neighbor"
                     self.yang_parent_name = "global"
@@ -2205,7 +2531,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor, ['password'], name, value)
 
 
-                class LdpIds(Entity):
+                class LdpIds(_Entity_):
                     """
                     Configuration related to Neighbors using LDP
                     Id
@@ -2223,7 +2549,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds, self).__init__()
 
                         self.yang_name = "ldp-ids"
                         self.yang_parent_name = "neighbor"
@@ -2242,7 +2571,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds, [], name, value)
 
 
-                    class LdpId(Entity):
+                    class LdpId(_Entity_):
                         """
                         LDP ID based configuration related to a
                         neigbor
@@ -2274,7 +2603,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
 
                             self.yang_name = "ldp-id"
                             self.yang_parent_name = "ldp-ids"
@@ -2300,7 +2632,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId, ['lsr_id', 'label_space_id'], name, value)
 
 
-                        class Password(Entity):
+                        class Password(_Entity_):
                             """
                             Password for MD5 authentication for this
                             neighbor
@@ -2325,7 +2657,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
 
                                 self.yang_name = "password"
                                 self.yang_parent_name = "ldp-id"
@@ -2345,11 +2680,23 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, ['command_type', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds']['meta_info']
 
 
-
-
-                class DualStack(Entity):
+                class DualStack(_Entity_):
                     """
                     Configuration related to neighbor transport
                     
@@ -2371,7 +2718,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack, self).__init__()
 
                         self.yang_name = "dual-stack"
                         self.yang_parent_name = "neighbor"
@@ -2395,7 +2745,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.DualStack, ['tlv_compliance'], name, value)
 
 
-                    class TransportConnection(Entity):
+                    class TransportConnection(_Entity_):
                         """
                         Configuration related to neighbor transport
                         
@@ -2421,7 +2771,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
 
                             self.yang_name = "transport-connection"
                             self.yang_parent_name = "dual-stack"
@@ -2445,7 +2798,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection, ['max_wait'], name, value)
 
 
-                        class Prefer(Entity):
+                        class Prefer(_Entity_):
                             """
                             Configuration related to neighbor
                             dual\-stack xport\-connection preference
@@ -2463,7 +2816,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
 
                                 self.yang_name = "prefer"
                                 self.yang_parent_name = "transport-connection"
@@ -2482,12 +2838,28 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, ['ipv4'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor']['meta_info']
 
 
-
-
-
-            class GracefulRestart(Entity):
+            class GracefulRestart(_Entity_):
                 """
                 Configuration for per\-VRF LDP Graceful Restart
                 parameters
@@ -2505,7 +2877,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.DefaultVrf.Global.GracefulRestart, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.DefaultVrf.Global.GracefulRestart, self).__init__()
 
                     self.yang_name = "graceful-restart"
                     self.yang_parent_name = "global"
@@ -2526,7 +2901,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.DefaultVrf.Global.GracefulRestart, [], name, value)
 
 
-                class HelperPeer(Entity):
+                class HelperPeer(_Entity_):
                     """
                     Configure parameters related to GR peer(s)
                     opearating in helper mode
@@ -2544,7 +2919,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, self).__init__()
 
                         self.yang_name = "helper-peer"
                         self.yang_parent_name = "graceful-restart"
@@ -2563,11 +2941,23 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, ['maintain_on_local_reset'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.DefaultVrf.Global']['meta_info']
 
 
-
-
-        class Interfaces(Entity):
+        class Interfaces(_Entity_):
             """
             MPLS LDP configuration pertaining to interfaces
             
@@ -2584,7 +2974,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.DefaultVrf.Interfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.DefaultVrf.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
                 self.yang_parent_name = "default-vrf"
@@ -2603,7 +2996,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 MPLS LDP configuration for a particular
                 interface
@@ -2638,7 +3031,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.DefaultVrf.Interfaces.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.DefaultVrf.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
@@ -2668,7 +3064,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
 
-                class Afs(Entity):
+                class Afs(_Entity_):
                     """
                     Address Family specific configuration for
                     MPLS LDP intf
@@ -2686,7 +3082,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs, self).__init__()
 
                         self.yang_name = "afs"
                         self.yang_parent_name = "interface"
@@ -2704,7 +3103,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs, [], name, value)
 
 
-                    class Af(Entity):
+                    class Af(_Entity_):
                         """
                         Configure data for given Address Family
                         
@@ -2741,7 +3140,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af, self).__init__()
 
                             self.yang_name = "af"
                             self.yang_parent_name = "afs"
@@ -2774,7 +3176,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af, ['af_name', 'enable'], name, value)
 
 
-                        class Discovery(Entity):
+                        class Discovery(_Entity_):
                             """
                             Configure interface discovery parameters
                             
@@ -2791,7 +3193,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
 
                                 self.yang_name = "discovery"
                                 self.yang_parent_name = "af"
@@ -2811,7 +3216,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery, [], name, value)
 
 
-                            class TransportAddress(Entity):
+                            class TransportAddress(_Entity_):
                                 """
                                 MPLS LDP configuration for interface
                                 discovery transportaddress.
@@ -2842,7 +3247,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
 
                                     self.yang_name = "transport-address"
                                     self.yang_parent_name = "discovery"
@@ -2862,10 +3270,18 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, ['address_type', 'address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery']['meta_info']
 
 
-
-                        class Igp(Entity):
+                        class Igp(_Entity_):
                             """
                             LDP interface IGP configuration
                             
@@ -2882,7 +3298,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, self).__init__()
 
                                 self.yang_name = "igp"
                                 self.yang_parent_name = "af"
@@ -2900,9 +3319,13 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, ['disable_auto_config'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp']['meta_info']
 
 
-                        class Mldp(Entity):
+                        class Mldp(_Entity_):
                             """
                             Interface configuration parameters for mLDP
                             
@@ -2919,7 +3342,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, self).__init__()
 
                                 self.yang_name = "mldp"
                                 self.yang_parent_name = "af"
@@ -2937,11 +3363,23 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, ['disable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs']['meta_info']
 
 
-
-
-                class Global(Entity):
+                class Global(_Entity_):
                     """
                     Per VRF interface Global configuration for
                     MPLS LDP
@@ -2964,7 +3402,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.DefaultVrf.Interfaces.Interface.Global, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Global, self).__init__()
 
                         self.yang_name = "global"
                         self.yang_parent_name = "interface"
@@ -2988,7 +3429,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global, [], name, value)
 
 
-                    class Discovery(Entity):
+                    class Discovery(_Entity_):
                         """
                         Configure interface discovery parameters
                         
@@ -3010,7 +3451,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery, self).__init__()
 
                             self.yang_name = "discovery"
                             self.yang_parent_name = "global"
@@ -3033,7 +3477,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery, ['disable_quick_start'], name, value)
 
 
-                        class LinkHello(Entity):
+                        class LinkHello(_Entity_):
                             """
                             LDP Link Hellos
                             
@@ -3074,7 +3518,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, self).__init__()
 
                                 self.yang_name = "link-hello"
                                 self.yang_parent_name = "discovery"
@@ -3096,10 +3543,18 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, ['interval', 'dual_stack', 'hold_time'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery']['meta_info']
 
 
-
-                    class Igp(Entity):
+                    class Igp(_Entity_):
                         """
                         LDP IGP configuration
                         
@@ -3116,7 +3571,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, self).__init__()
 
                             self.yang_name = "igp"
                             self.yang_parent_name = "global"
@@ -3136,7 +3594,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp, [], name, value)
 
 
-                        class Sync(Entity):
+                        class Sync(_Entity_):
                             """
                             LDP IGP synchronization
                             
@@ -3153,7 +3611,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, self).__init__()
 
                                 self.yang_name = "sync"
                                 self.yang_parent_name = "igp"
@@ -3173,7 +3634,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync, [], name, value)
 
 
-                            class Delay(Entity):
+                            class Delay(_Entity_):
                                 """
                                 LDP IGP synchronization delay time
                                 
@@ -3190,7 +3651,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, self).__init__()
 
                                     self.yang_name = "delay"
                                     self.yang_parent_name = "sync"
@@ -3210,7 +3674,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay, [], name, value)
 
 
-                                class OnSessionUp(Entity):
+                                class OnSessionUp(_Entity_):
                                     """
                                     Interface sync up delay after session up
                                     
@@ -3236,7 +3700,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, self).__init__()
 
                                         self.yang_name = "on-session-up"
                                         self.yang_parent_name = "delay"
@@ -3256,16 +3723,48 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, ['disable', 'timeout'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+            return meta._meta_table['MplsLdp.DefaultVrf']['meta_info']
 
 
-
-
-
-
-
-
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF Table attribute configuration for MPLS LDP
         
@@ -3282,7 +3781,10 @@ class MplsLdp(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(MplsLdp.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLdp.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "mpls-ldp"
@@ -3301,7 +3803,7 @@ class MplsLdp(Entity):
             self._perform_setattr(MplsLdp.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF attribute configuration for MPLS LDP
             
@@ -3340,7 +3842,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -3374,7 +3879,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
 
 
-            class Global(Entity):
+            class Global(_Entity_):
                 """
                 Per VRF Global configuration for MPLS LDP
                 
@@ -3408,7 +3913,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Vrfs.Vrf.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Vrfs.Vrf.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "vrf"
@@ -3439,7 +3947,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Global, ['router_id'], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     LDP Session parameters
                     
@@ -3456,7 +3964,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Vrfs.Vrf.Global.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Vrfs.Vrf.Global.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "global"
@@ -3476,7 +3987,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Session, [], name, value)
 
 
-                    class DownstreamOnDemand(Entity):
+                    class DownstreamOnDemand(_Entity_):
                         """
                         ACL with the list of neighbors configured
                         for Downstream on Demand
@@ -3499,7 +4010,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, self).__init__()
 
                             self.yang_name = "downstream-on-demand"
                             self.yang_parent_name = "session"
@@ -3519,10 +4033,18 @@ class MplsLdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, ['type', 'peer_acl_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Session']['meta_info']
 
 
-
-                class Neighbor(Entity):
+                class Neighbor(_Entity_):
                     """
                     Configuration related to Neighbors
                     
@@ -3551,7 +4073,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Vrfs.Vrf.Global.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Vrfs.Vrf.Global.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "global"
@@ -3578,7 +4103,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor, ['password'], name, value)
 
 
-                    class DualStack(Entity):
+                    class DualStack(_Entity_):
                         """
                         Configuration related to neighbor transport
                         
@@ -3595,7 +4120,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack, self).__init__()
 
                             self.yang_name = "dual-stack"
                             self.yang_parent_name = "neighbor"
@@ -3615,7 +4143,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack, [], name, value)
 
 
-                        class TransportConnection(Entity):
+                        class TransportConnection(_Entity_):
                             """
                             Configuration related to neighbor transport
                             
@@ -3641,7 +4169,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection, self).__init__()
 
                                 self.yang_name = "transport-connection"
                                 self.yang_parent_name = "dual-stack"
@@ -3664,7 +4195,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection, ['max_wait'], name, value)
 
 
-                            class Prefer(Entity):
+                            class Prefer(_Entity_):
                                 """
                                 Configuration related to neighbor
                                 dual\-stack xport\-connection preference
@@ -3682,7 +4213,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer, self).__init__()
 
                                     self.yang_name = "prefer"
                                     self.yang_parent_name = "transport-connection"
@@ -3700,11 +4234,23 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer, ['ipv4'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack']['meta_info']
 
 
-
-
-                    class LdpIds(Entity):
+                    class LdpIds(_Entity_):
                         """
                         Configuration related to Neighbors using LDP
                         Id
@@ -3722,7 +4268,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds, self).__init__()
 
                             self.yang_name = "ldp-ids"
                             self.yang_parent_name = "neighbor"
@@ -3740,7 +4289,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds, [], name, value)
 
 
-                        class LdpId(Entity):
+                        class LdpId(_Entity_):
                             """
                             LDP ID based configuration related to a
                             neigbor
@@ -3772,7 +4321,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId, self).__init__()
 
                                 self.yang_name = "ldp-id"
                                 self.yang_parent_name = "ldp-ids"
@@ -3797,7 +4349,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId, ['lsr_id', 'label_space_id'], name, value)
 
 
-                            class Password(Entity):
+                            class Password(_Entity_):
                                 """
                                 Password for MD5 authentication for this
                                 neighbor
@@ -3822,7 +4374,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, self).__init__()
 
                                     self.yang_name = "password"
                                     self.yang_parent_name = "ldp-id"
@@ -3842,12 +4397,28 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, ['command_type', 'password'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor']['meta_info']
 
 
-
-
-
-                class GracefulRestart(Entity):
+                class GracefulRestart(_Entity_):
                     """
                     Configuration for per\-VRF LDP Graceful
                     Restart parameters
@@ -3865,7 +4436,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "global"
@@ -3885,7 +4459,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.GracefulRestart, [], name, value)
 
 
-                    class HelperPeer(Entity):
+                    class HelperPeer(_Entity_):
                         """
                         Configure parameters related to GR peer(s)
                         opearating in helper mode
@@ -3903,7 +4477,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, self).__init__()
 
                             self.yang_name = "helper-peer"
                             self.yang_parent_name = "graceful-restart"
@@ -3921,11 +4498,23 @@ class MplsLdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, ['maintain_on_local_reset'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info']
 
 
-
-
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Address Family specific configuration for MPLS
                 LDP vrf
@@ -3943,7 +4532,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Vrfs.Vrf.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Vrfs.Vrf.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "vrf"
@@ -3961,7 +4553,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     Configure data for given Address Family
                     
@@ -3993,7 +4585,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Vrfs.Vrf.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Vrfs.Vrf.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -4022,7 +4617,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af, ['af_name', 'enable'], name, value)
 
 
-                    class Discovery(Entity):
+                    class Discovery(_Entity_):
                         """
                         Configure Discovery parameters
                         
@@ -4047,7 +4642,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, self).__init__()
 
                             self.yang_name = "discovery"
                             self.yang_parent_name = "af"
@@ -4065,9 +4663,13 @@ class MplsLdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, ['transport_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Discovery']['meta_info']
 
 
-                    class Label(Entity):
+                    class Label(_Entity_):
                         """
                         Configure Label policies and control
                         
@@ -4089,7 +4691,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label, self).__init__()
 
                             self.yang_name = "label"
                             self.yang_parent_name = "af"
@@ -4113,7 +4718,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label, [], name, value)
 
 
-                        class Remote(Entity):
+                        class Remote(_Entity_):
                             """
                             Configure remote/peer label policies and
                             control
@@ -4131,7 +4736,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, self).__init__()
 
                                 self.yang_name = "remote"
                                 self.yang_parent_name = "label"
@@ -4151,7 +4759,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote, [], name, value)
 
 
-                            class Accept(Entity):
+                            class Accept(_Entity_):
                                 """
                                 Configure inbound label acceptance
                                 
@@ -4168,7 +4776,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, self).__init__()
 
                                     self.yang_name = "accept"
                                     self.yang_parent_name = "remote"
@@ -4188,7 +4799,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept, [], name, value)
 
 
-                                class PeerAcceptPolicies(Entity):
+                                class PeerAcceptPolicies(_Entity_):
                                     """
                                     Configuration related to Neighbors for
                                     inbound label acceptance
@@ -4206,7 +4817,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, self).__init__()
 
                                         self.yang_name = "peer-accept-policies"
                                         self.yang_parent_name = "accept"
@@ -4224,7 +4838,7 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies, [], name, value)
 
 
-                                    class PeerAcceptPolicy(Entity):
+                                    class PeerAcceptPolicy(_Entity_):
                                         """
                                         Control acceptasnce of labels from a
                                         neighbor for prefix(es) using ACL
@@ -4254,7 +4868,10 @@ class MplsLdp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, self).__init__()
 
                                             self.yang_name = "peer-accept-policy"
                                             self.yang_parent_name = "peer-accept-policies"
@@ -4279,7 +4896,7 @@ class MplsLdp(Entity):
                                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, ['label_space_id'], name, value)
 
 
-                                        class PeerAcceptPolicyData(Entity):
+                                        class PeerAcceptPolicyData(_Entity_):
                                             """
                                             Data container.
                                             
@@ -4298,7 +4915,10 @@ class MplsLdp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, self).__init__()
 
                                                 self.yang_name = "peer-accept-policy-data"
                                                 self.yang_parent_name = "peer-accept-policy"
@@ -4316,9 +4936,13 @@ class MplsLdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, ['prefix_acl_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData']['meta_info']
 
 
-                                        class LsrId(Entity):
+                                        class LsrId(_Entity_):
                                             """
                                             keys\: lsr\-id
                                             
@@ -4344,7 +4968,10 @@ class MplsLdp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, self).__init__()
 
                                                 self.yang_name = "lsr-id"
                                                 self.yang_parent_name = "peer-accept-policy"
@@ -4364,13 +4991,33 @@ class MplsLdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, ['lsr_id', 'prefix_acl_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote']['meta_info']
 
 
-
-
-
-
-                        class Local(Entity):
+                        class Local(_Entity_):
                             """
                             Configure local label policies and control
                             
@@ -4402,7 +5049,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local, self).__init__()
 
                                 self.yang_name = "local"
                                 self.yang_parent_name = "label"
@@ -4431,7 +5081,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local, ['implicit_null_override', 'default_route'], name, value)
 
 
-                            class Advertise(Entity):
+                            class Advertise(_Entity_):
                                 """
                                 Configure outbound label advertisement
                                 
@@ -4463,7 +5113,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise, self).__init__()
 
                                     self.yang_name = "advertise"
                                     self.yang_parent_name = "local"
@@ -4494,7 +5147,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise, ['disable'], name, value)
 
 
-                                class PeerAdvertisePolicies(Entity):
+                                class PeerAdvertisePolicies(_Entity_):
                                     """
                                     Configure peer centric outbound label
                                     advertisement using ACL
@@ -4512,7 +5165,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, self).__init__()
 
                                         self.yang_name = "peer-advertise-policies"
                                         self.yang_parent_name = "advertise"
@@ -4530,7 +5186,7 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies, [], name, value)
 
 
-                                    class PeerAdvertisePolicy(Entity):
+                                    class PeerAdvertisePolicy(_Entity_):
                                         """
                                         Control advertisement of prefix(es)
                                         using ACL
@@ -4560,7 +5216,10 @@ class MplsLdp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, self).__init__()
 
                                             self.yang_name = "peer-advertise-policy"
                                             self.yang_parent_name = "peer-advertise-policies"
@@ -4585,7 +5244,7 @@ class MplsLdp(Entity):
                                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, ['label_space_id'], name, value)
 
 
-                                        class PeerAdvertisePolicyData(Entity):
+                                        class PeerAdvertisePolicyData(_Entity_):
                                             """
                                             Data container.
                                             
@@ -4604,7 +5263,10 @@ class MplsLdp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, self).__init__()
 
                                                 self.yang_name = "peer-advertise-policy-data"
                                                 self.yang_parent_name = "peer-advertise-policy"
@@ -4622,9 +5284,13 @@ class MplsLdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, ['prefix_acl_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData']['meta_info']
 
 
-                                        class LsrId(Entity):
+                                        class LsrId(_Entity_):
                                             """
                                             keys\: lsr\-id
                                             
@@ -4650,7 +5316,10 @@ class MplsLdp(Entity):
                                             _revision = '2018-06-15'
 
                                             def __init__(self):
-                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, self).__init__()
 
                                                 self.yang_name = "lsr-id"
                                                 self.yang_parent_name = "peer-advertise-policy"
@@ -4670,11 +5339,23 @@ class MplsLdp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, ['lsr_id', 'prefix_acl_name'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies']['meta_info']
 
 
-
-
-                                class Interfaces(Entity):
+                                class Interfaces(_Entity_):
                                     """
                                     Configure outbound label advertisement
                                     for an interface
@@ -4692,7 +5373,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces, self).__init__()
 
                                         self.yang_name = "interfaces"
                                         self.yang_parent_name = "advertise"
@@ -4710,7 +5394,7 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces, [], name, value)
 
 
-                                    class Interface(Entity):
+                                    class Interface(_Entity_):
                                         """
                                         Control advertisement of interface's
                                         host IP address
@@ -4730,7 +5414,10 @@ class MplsLdp(Entity):
                                         _revision = '2018-06-15'
 
                                         def __init__(self):
-                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, self).__init__()
 
                                             self.yang_name = "interface"
                                             self.yang_parent_name = "interfaces"
@@ -4748,10 +5435,18 @@ class MplsLdp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, ['interface_name'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces']['meta_info']
 
 
-
-                                class ExplicitNull(Entity):
+                                class ExplicitNull(_Entity_):
                                     """
                                     Configure advertisment of explicit\-null
                                     for connected prefixes.
@@ -4779,7 +5474,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, self).__init__()
 
                                         self.yang_name = "explicit-null"
                                         self.yang_parent_name = "advertise"
@@ -4801,10 +5499,18 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, ['explicit_null_type', 'prefix_acl_name', 'peer_acl_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise']['meta_info']
 
 
-
-                            class Allocate(Entity):
+                            class Allocate(_Entity_):
                                 """
                                 Control local label allocation for
                                 prefix(es)
@@ -4827,7 +5533,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, self).__init__()
 
                                     self.yang_name = "allocate"
                                     self.yang_parent_name = "local"
@@ -4847,13 +5556,33 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, ['allocation_type', 'prefix_acl_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs.Af']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Afs']['meta_info']
 
 
-
-
-
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 MPLS LDP configuration pertaining to
                 interfaces
@@ -4871,7 +5600,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Vrfs.Vrf.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Vrfs.Vrf.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "vrf"
@@ -4889,7 +5621,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     MPLS LDP configuration for a particular
                     interface
@@ -4919,7 +5651,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Vrfs.Vrf.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -4944,7 +5679,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
 
-                    class Afs(Entity):
+                    class Afs(_Entity_):
                         """
                         Address Family specific configuration for
                         MPLS LDP vrf intf
@@ -4962,7 +5697,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs, self).__init__()
 
                             self.yang_name = "afs"
                             self.yang_parent_name = "interface"
@@ -4980,7 +5718,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs, [], name, value)
 
 
-                        class Af(Entity):
+                        class Af(_Entity_):
                             """
                             Configure data for given Address Family
                             
@@ -5007,7 +5745,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af, self).__init__()
 
                                 self.yang_name = "af"
                                 self.yang_parent_name = "afs"
@@ -5032,7 +5773,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af, ['af_name', 'enable'], name, value)
 
 
-                            class Discovery(Entity):
+                            class Discovery(_Entity_):
                                 """
                                 Configure interface discovery parameters
                                 
@@ -5049,7 +5790,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, self).__init__()
 
                                     self.yang_name = "discovery"
                                     self.yang_parent_name = "af"
@@ -5069,7 +5813,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery, [], name, value)
 
 
-                                class TransportAddress(Entity):
+                                class TransportAddress(_Entity_):
                                     """
                                     MPLS LDP configuration for interface
                                     discovery transportaddress.
@@ -5100,7 +5844,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, self).__init__()
 
                                         self.yang_name = "transport-address"
                                         self.yang_parent_name = "discovery"
@@ -5120,16 +5867,48 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, ['address_type', 'address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Interfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+            return meta._meta_table['MplsLdp.Vrfs']['meta_info']
 
 
-
-
-
-
-
-
-
-    class Global(Entity):
+    class Global(_Entity_):
         """
         Global configuration for MPLS LDP
         
@@ -5200,7 +5979,10 @@ class MplsLdp(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(MplsLdp.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsLdp.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "mpls-ldp"
@@ -5258,7 +6040,7 @@ class MplsLdp(Entity):
             self._perform_setattr(MplsLdp.Global, ['disable_implicit_ipv4', 'ltrace_buf_multiplier'], name, value)
 
 
-        class EntropyLabel(Entity):
+        class EntropyLabel(_Entity_):
             """
             Configure for LDP Entropy\-Label
             
@@ -5275,7 +6057,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.EntropyLabel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.EntropyLabel, self).__init__()
 
                 self.yang_name = "entropy-label"
                 self.yang_parent_name = "global"
@@ -5294,9 +6079,13 @@ class MplsLdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.EntropyLabel, ['enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.EntropyLabel']['meta_info']
 
 
-        class Session(Entity):
+        class Session(_Entity_):
             """
             LDP Session parameters
             
@@ -5324,7 +6113,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Session, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "global"
@@ -5348,7 +6140,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.Session, ['hold_time'], name, value)
 
 
-            class BackoffTime(Entity):
+            class BackoffTime(_Entity_):
                 """
                 Configure Session Backoff parameters
                 
@@ -5382,7 +6174,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Session.BackoffTime, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Session.BackoffTime, self).__init__()
 
                     self.yang_name = "backoff-time"
                     self.yang_parent_name = "session"
@@ -5403,10 +6198,18 @@ class MplsLdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLdp.Global.Session.BackoffTime, ['initial_backoff_time', 'max_backoff_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Session.BackoffTime']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Session']['meta_info']
 
 
-
-        class Igp(Entity):
+        class Igp(_Entity_):
             """
             LDP IGP configuration
             
@@ -5423,7 +6226,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Igp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Igp, self).__init__()
 
                 self.yang_name = "igp"
                 self.yang_parent_name = "global"
@@ -5444,7 +6250,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.Igp, [], name, value)
 
 
-            class Sync(Entity):
+            class Sync(_Entity_):
                 """
                 LDP IGP synchronization
                 
@@ -5461,7 +6267,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Igp.Sync, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Igp.Sync, self).__init__()
 
                     self.yang_name = "sync"
                     self.yang_parent_name = "igp"
@@ -5482,7 +6291,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Global.Igp.Sync, [], name, value)
 
 
-                class Delay(Entity):
+                class Delay(_Entity_):
                     """
                     LDP IGP synchronization delay time
                     
@@ -5512,7 +6321,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Global.Igp.Sync.Delay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Global.Igp.Sync.Delay, self).__init__()
 
                         self.yang_name = "delay"
                         self.yang_parent_name = "sync"
@@ -5533,11 +6345,23 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.Global.Igp.Sync.Delay, ['on_session_up', 'on_proc_restart'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Global.Igp.Sync.Delay']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Igp.Sync']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Igp']['meta_info']
 
 
-
-
-        class EnableLogging(Entity):
+        class EnableLogging(_Entity_):
             """
             Enable logging of events
             
@@ -5574,7 +6398,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.EnableLogging, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.EnableLogging, self).__init__()
 
                 self.yang_name = "enable-logging"
                 self.yang_parent_name = "global"
@@ -5601,9 +6428,13 @@ class MplsLdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.EnableLogging, ['nsr', 'neighbor_changes', 'adjacency', 'session_protection', 'gr_session_changes'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.EnableLogging']['meta_info']
 
 
-        class Signalling(Entity):
+        class Signalling(_Entity_):
             """
             Configure LDP signalling parameters
             
@@ -5624,7 +6455,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Signalling, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Signalling, self).__init__()
 
                 self.yang_name = "signalling"
                 self.yang_parent_name = "global"
@@ -5643,9 +6477,13 @@ class MplsLdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.Signalling, ['dscp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Signalling']['meta_info']
 
 
-        class Nsr(Entity):
+        class Nsr(_Entity_):
             """
             Configure LDP Non\-Stop Routing
             
@@ -5662,7 +6500,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Nsr, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Nsr, self).__init__()
 
                 self.yang_name = "nsr"
                 self.yang_parent_name = "global"
@@ -5681,9 +6522,13 @@ class MplsLdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.Nsr, ['enable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Nsr']['meta_info']
 
 
-        class GracefulRestart(Entity):
+        class GracefulRestart(_Entity_):
             """
             Configuration for LDP Graceful Restart
             parameters
@@ -5723,7 +6568,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.GracefulRestart, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.GracefulRestart, self).__init__()
 
                 self.yang_name = "graceful-restart"
                 self.yang_parent_name = "global"
@@ -5746,9 +6594,13 @@ class MplsLdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.GracefulRestart, ['reconnect_timeout', 'enable', 'forwarding_hold_time'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.GracefulRestart']['meta_info']
 
 
-        class Discovery(Entity):
+        class Discovery(_Entity_):
             """
             Configure Discovery parameters
             
@@ -5780,7 +6632,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Discovery, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Discovery, self).__init__()
 
                 self.yang_name = "discovery"
                 self.yang_parent_name = "global"
@@ -5810,7 +6665,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.Discovery, ['disable_instance_tlv', 'disable_quick_start'], name, value)
 
 
-            class LinkHello(Entity):
+            class LinkHello(_Entity_):
                 """
                 LDP Link Hellos
                 
@@ -5844,7 +6699,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Discovery.LinkHello, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Discovery.LinkHello, self).__init__()
 
                     self.yang_name = "link-hello"
                     self.yang_parent_name = "discovery"
@@ -5865,9 +6723,13 @@ class MplsLdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLdp.Global.Discovery.LinkHello, ['interval', 'hold_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Discovery.LinkHello']['meta_info']
 
 
-            class TargetedHello(Entity):
+            class TargetedHello(_Entity_):
                 """
                 LDP Targeted Hellos
                 
@@ -5901,7 +6763,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Discovery.TargetedHello, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Discovery.TargetedHello, self).__init__()
 
                     self.yang_name = "targeted-hello"
                     self.yang_parent_name = "discovery"
@@ -5922,10 +6787,18 @@ class MplsLdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLdp.Global.Discovery.TargetedHello, ['interval', 'hold_time'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Discovery.TargetedHello']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Discovery']['meta_info']
 
 
-
-        class Mldp(Entity):
+        class Mldp(_Entity_):
             """
             MPLS mLDP configuration
             
@@ -5957,7 +6830,10 @@ class MplsLdp(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(MplsLdp.Global.Mldp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsLdp.Global.Mldp, self).__init__()
 
                 self.yang_name = "mldp"
                 self.yang_parent_name = "global"
@@ -5989,7 +6865,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.Mldp, ['enable'], name, value)
 
 
-            class Vrfs(Entity):
+            class Vrfs(_Entity_):
                 """
                 VRF Table attribute configuration for MPLS LDP
                 
@@ -6006,7 +6882,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Mldp.Vrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Mldp.Vrfs, self).__init__()
 
                     self.yang_name = "vrfs"
                     self.yang_parent_name = "mldp"
@@ -6025,7 +6904,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs, [], name, value)
 
 
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     VRF attribute configuration for MPLS LDP
                     
@@ -6054,7 +6933,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Global.Mldp.Vrfs.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Global.Mldp.Vrfs.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "vrfs"
@@ -6080,7 +6962,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
 
 
-                    class Afs(Entity):
+                    class Afs(_Entity_):
                         """
                         Address Family specific operational data
                         
@@ -6097,7 +6979,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs, self).__init__()
 
                             self.yang_name = "afs"
                             self.yang_parent_name = "vrf"
@@ -6115,7 +7000,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs, [], name, value)
 
 
-                        class Af(Entity):
+                        class Af(_Entity_):
                             """
                             Operational data for given Address Family
                             
@@ -6172,7 +7057,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af, self).__init__()
 
                                 self.yang_name = "af"
                                 self.yang_parent_name = "afs"
@@ -6219,7 +7107,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af, ['af_name', 'enable', 'mldp_rib_unicast_always'], name, value)
 
 
-                            class RecursiveForwarding(Entity):
+                            class RecursiveForwarding(_Entity_):
                                 """
                                 Enable recursive forwarding
                                 
@@ -6243,7 +7131,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, self).__init__()
 
                                     self.yang_name = "recursive-forwarding"
                                     self.yang_parent_name = "af"
@@ -6263,9 +7154,13 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, ['enable', 'policy'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding']['meta_info']
 
 
-                            class MldpRecursiveFec(Entity):
+                            class MldpRecursiveFec(_Entity_):
                                 """
                                 MPLS mLDP Recursive FEC
                                 
@@ -6289,7 +7184,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, self).__init__()
 
                                     self.yang_name = "mldp-recursive-fec"
                                     self.yang_parent_name = "af"
@@ -6309,9 +7207,13 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, ['enable', 'policy'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
-                            class NeighborPolicies(Entity):
+                            class NeighborPolicies(_Entity_):
                                 """
                                 MLDP neighbor policies
                                 
@@ -6328,7 +7230,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies, self).__init__()
 
                                     self.yang_name = "neighbor-policies"
                                     self.yang_parent_name = "af"
@@ -6346,7 +7251,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies, [], name, value)
 
 
-                                class NeighborPolicy(Entity):
+                                class NeighborPolicy(_Entity_):
                                     """
                                     Route Policy
                                     
@@ -6379,7 +7284,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
 
                                         self.yang_name = "neighbor-policy"
                                         self.yang_parent_name = "neighbor-policies"
@@ -6401,10 +7309,18 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, ['root_address', 'policy_mode', 'route_policy'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies']['meta_info']
 
 
-
-                            class MoFrr(Entity):
+                            class MoFrr(_Entity_):
                                 """
                                 MPLS mLDP MoFRR
                                 
@@ -6428,7 +7344,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, self).__init__()
 
                                     self.yang_name = "mo-frr"
                                     self.yang_parent_name = "af"
@@ -6448,9 +7367,13 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, ['enable', 'policy'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info']
 
 
-                            class MakeBeforeBreak(Entity):
+                            class MakeBeforeBreak(_Entity_):
                                 """
                                 MPLS mLDP Make\-Before\-Break configuration
                                 
@@ -6474,7 +7397,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak, self).__init__()
 
                                     self.yang_name = "make-before-break"
                                     self.yang_parent_name = "af"
@@ -6497,7 +7423,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak, ['policy'], name, value)
 
 
-                                class Signaling(Entity):
+                                class Signaling(_Entity_):
                                     """
                                     Enable MPLS mLDP MBB signaling
                                     
@@ -6527,7 +7453,10 @@ class MplsLdp(Entity):
                                     _revision = '2018-06-15'
 
                                     def __init__(self):
-                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
 
                                         self.yang_name = "signaling"
                                         self.yang_parent_name = "make-before-break"
@@ -6547,10 +7476,18 @@ class MplsLdp(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, ['forward_delay', 'delete_delay'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
 
 
-
-                            class Csc(Entity):
+                            class Csc(_Entity_):
                                 """
                                 MPLS mLDP CSC
                                 
@@ -6567,7 +7504,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, self).__init__()
 
                                     self.yang_name = "csc"
                                     self.yang_parent_name = "af"
@@ -6585,13 +7525,33 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, ['enable'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs']['meta_info']
 
 
-
-
-
-
-            class DefaultVrf(Entity):
+            class DefaultVrf(_Entity_):
                 """
                 Default VRF attribute configuration for mLDP
                 
@@ -6608,7 +7568,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Mldp.DefaultVrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Mldp.DefaultVrf, self).__init__()
 
                     self.yang_name = "default-vrf"
                     self.yang_parent_name = "mldp"
@@ -6629,7 +7592,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf, [], name, value)
 
 
-                class Afs(Entity):
+                class Afs(_Entity_):
                     """
                     Address Family specific operational data
                     
@@ -6646,7 +7609,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Global.Mldp.DefaultVrf.Afs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Global.Mldp.DefaultVrf.Afs, self).__init__()
 
                         self.yang_name = "afs"
                         self.yang_parent_name = "default-vrf"
@@ -6665,7 +7631,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs, [], name, value)
 
 
-                    class Af(Entity):
+                    class Af(_Entity_):
                         """
                         Operational data for given Address Family
                         
@@ -6722,7 +7688,10 @@ class MplsLdp(Entity):
                         _revision = '2018-06-15'
 
                         def __init__(self):
-                            super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af, self).__init__()
 
                             self.yang_name = "af"
                             self.yang_parent_name = "afs"
@@ -6770,7 +7739,7 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af, ['af_name', 'enable', 'mldp_rib_unicast_always'], name, value)
 
 
-                        class RecursiveForwarding(Entity):
+                        class RecursiveForwarding(_Entity_):
                             """
                             Enable recursive forwarding
                             
@@ -6794,7 +7763,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, self).__init__()
 
                                 self.yang_name = "recursive-forwarding"
                                 self.yang_parent_name = "af"
@@ -6814,9 +7786,13 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, ['enable', 'policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding']['meta_info']
 
 
-                        class MldpRecursiveFec(Entity):
+                        class MldpRecursiveFec(_Entity_):
                             """
                             MPLS mLDP Recursive FEC
                             
@@ -6840,7 +7816,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, self).__init__()
 
                                 self.yang_name = "mldp-recursive-fec"
                                 self.yang_parent_name = "af"
@@ -6860,9 +7839,13 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, ['enable', 'policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
-                        class NeighborPolicies(Entity):
+                        class NeighborPolicies(_Entity_):
                             """
                             MLDP neighbor policies
                             
@@ -6879,7 +7862,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies, self).__init__()
 
                                 self.yang_name = "neighbor-policies"
                                 self.yang_parent_name = "af"
@@ -6897,7 +7883,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies, [], name, value)
 
 
-                            class NeighborPolicy(Entity):
+                            class NeighborPolicy(_Entity_):
                                 """
                                 Route Policy
                                 
@@ -6930,7 +7916,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, self).__init__()
 
                                     self.yang_name = "neighbor-policy"
                                     self.yang_parent_name = "neighbor-policies"
@@ -6952,10 +7941,18 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, ['root_address', 'policy_mode', 'route_policy'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies']['meta_info']
 
 
-
-                        class MoFrr(Entity):
+                        class MoFrr(_Entity_):
                             """
                             MPLS mLDP MoFRR
                             
@@ -6979,7 +7976,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, self).__init__()
 
                                 self.yang_name = "mo-frr"
                                 self.yang_parent_name = "af"
@@ -6999,9 +7999,13 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, ['enable', 'policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info']
 
 
-                        class MakeBeforeBreak(Entity):
+                        class MakeBeforeBreak(_Entity_):
                             """
                             MPLS mLDP Make\-Before\-Break configuration
                             
@@ -7025,7 +8029,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak, self).__init__()
 
                                 self.yang_name = "make-before-break"
                                 self.yang_parent_name = "af"
@@ -7048,7 +8055,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak, ['policy'], name, value)
 
 
-                            class Signaling(Entity):
+                            class Signaling(_Entity_):
                                 """
                                 Enable MPLS mLDP MBB signaling
                                 
@@ -7078,7 +8085,10 @@ class MplsLdp(Entity):
                                 _revision = '2018-06-15'
 
                                 def __init__(self):
-                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, self).__init__()
 
                                     self.yang_name = "signaling"
                                     self.yang_parent_name = "make-before-break"
@@ -7098,10 +8108,18 @@ class MplsLdp(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, ['forward_delay', 'delete_delay'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
 
 
-
-                        class Csc(Entity):
+                        class Csc(_Entity_):
                             """
                             MPLS mLDP CSC
                             
@@ -7118,7 +8136,10 @@ class MplsLdp(Entity):
                             _revision = '2018-06-15'
 
                             def __init__(self):
-                                super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, self).__init__()
 
                                 self.yang_name = "csc"
                                 self.yang_parent_name = "af"
@@ -7136,12 +8157,28 @@ class MplsLdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, ['enable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                            return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf']['meta_info']
 
 
-
-
-
-            class MldpGlobal(Entity):
+            class MldpGlobal(_Entity_):
                 """
                 Global configuration for mLDP
                 
@@ -7158,7 +8195,10 @@ class MplsLdp(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(MplsLdp.Global.Mldp.MldpGlobal, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MplsLdp.Global.Mldp.MldpGlobal, self).__init__()
 
                     self.yang_name = "mldp-global"
                     self.yang_parent_name = "mldp"
@@ -7179,7 +8219,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Global.Mldp.MldpGlobal, [], name, value)
 
 
-                class Logging(Entity):
+                class Logging(_Entity_):
                     """
                     MPLS mLDP logging
                     
@@ -7196,7 +8236,10 @@ class MplsLdp(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(MplsLdp.Global.Mldp.MldpGlobal.Logging, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MplsLdp.Global.Mldp.MldpGlobal.Logging, self).__init__()
 
                         self.yang_name = "logging"
                         self.yang_parent_name = "mldp-global"
@@ -7215,13 +8258,33 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.Global.Mldp.MldpGlobal.Logging, ['notifications'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                        return meta._meta_table['MplsLdp.Global.Mldp.MldpGlobal.Logging']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                    return meta._meta_table['MplsLdp.Global.Mldp.MldpGlobal']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                return meta._meta_table['MplsLdp.Global.Mldp']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+            return meta._meta_table['MplsLdp.Global']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsLdp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MplsLdp']['meta_info']
 
 

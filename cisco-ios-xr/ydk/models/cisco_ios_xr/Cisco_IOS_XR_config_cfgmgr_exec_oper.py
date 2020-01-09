@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -89,8 +92,14 @@ class HistRecord(Enum):
     cfghist_bag_record_last = Enum.YLeaf(9, "cfghist-bag-record-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+        return meta._meta_table['HistRecord']
 
-class ConfigManager(Entity):
+
+
+class ConfigManager(_Entity_):
     """
     Show Configuration <\*> Global path information
     
@@ -109,7 +118,10 @@ class ConfigManager(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(ConfigManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ConfigManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "config-manager"
@@ -130,7 +142,7 @@ class ConfigManager(Entity):
         self._perform_setattr(ConfigManager, [], name, value)
 
 
-    class Global(Entity):
+    class Global(_Entity_):
         """
         Show Configuration <\*> Global path information
         
@@ -163,7 +175,10 @@ class ConfigManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(ConfigManager.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ConfigManager.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "config-manager"
@@ -192,7 +207,7 @@ class ConfigManager(Entity):
             self._perform_setattr(ConfigManager.Global, [], name, value)
 
 
-        class ConfigCommit(Entity):
+        class ConfigCommit(_Entity_):
             """
             Show Configuration Commit <\*> Global path
             information
@@ -212,7 +227,10 @@ class ConfigManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ConfigManager.Global.ConfigCommit, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfigManager.Global.ConfigCommit, self).__init__()
 
                 self.yang_name = "config-commit"
                 self.yang_parent_name = "global"
@@ -233,7 +251,7 @@ class ConfigManager(Entity):
                 self._perform_setattr(ConfigManager.Global.ConfigCommit, [], name, value)
 
 
-            class Commits(Entity):
+            class Commits(_Entity_):
                 """
                 Show Configuration Commit List Detail
                 
@@ -252,7 +270,10 @@ class ConfigManager(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ConfigManager.Global.ConfigCommit.Commits, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfigManager.Global.ConfigCommit.Commits, self).__init__()
 
                     self.yang_name = "commits"
                     self.yang_parent_name = "config-commit"
@@ -271,7 +292,7 @@ class ConfigManager(Entity):
                     self._perform_setattr(ConfigManager.Global.ConfigCommit.Commits, [], name, value)
 
 
-                class Commit(Entity):
+                class Commit(_Entity_):
                     """
                     Commit information for a specific commit
                     entry
@@ -342,7 +363,10 @@ class ConfigManager(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ConfigManager.Global.ConfigCommit.Commits.Commit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfigManager.Global.ConfigCommit.Commits.Commit, self).__init__()
 
                         self.yang_name = "commit"
                         self.yang_parent_name = "commits"
@@ -375,11 +399,23 @@ class ConfigManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfigManager.Global.ConfigCommit.Commits.Commit, ['commit', 'timestamp', 'commit_id', 'user_id', 'line', 'client_name', 'label', 'comment'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                        return meta._meta_table['ConfigManager.Global.ConfigCommit.Commits.Commit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                    return meta._meta_table['ConfigManager.Global.ConfigCommit.Commits']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                return meta._meta_table['ConfigManager.Global.ConfigCommit']['meta_info']
 
 
-
-
-        class HistoryTables(Entity):
+        class HistoryTables(_Entity_):
             """
             Show Configuration History <\*> Global path
             information
@@ -399,7 +435,10 @@ class ConfigManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ConfigManager.Global.HistoryTables, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfigManager.Global.HistoryTables, self).__init__()
 
                 self.yang_name = "history-tables"
                 self.yang_parent_name = "global"
@@ -418,7 +457,7 @@ class ConfigManager(Entity):
                 self._perform_setattr(ConfigManager.Global.HistoryTables, [], name, value)
 
 
-            class HistoryTable(Entity):
+            class HistoryTable(_Entity_):
                 """
                 List of possible type of History
                 
@@ -446,7 +485,10 @@ class ConfigManager(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ConfigManager.Global.HistoryTables.HistoryTable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfigManager.Global.HistoryTables.HistoryTable, self).__init__()
 
                     self.yang_name = "history-table"
                     self.yang_parent_name = "history-tables"
@@ -468,7 +510,7 @@ class ConfigManager(Entity):
                     self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable, ['history_type'], name, value)
 
 
-                class History(Entity):
+                class History(_Entity_):
                     """
                     History summary information for a specific
                     type of history
@@ -504,7 +546,10 @@ class ConfigManager(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ConfigManager.Global.HistoryTables.HistoryTable.History, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfigManager.Global.HistoryTables.HistoryTable.History, self).__init__()
 
                         self.yang_name = "history"
                         self.yang_parent_name = "history-table"
@@ -529,7 +574,7 @@ class ConfigManager(Entity):
                         self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History, ['history', 'timestamp'], name, value)
 
 
-                    class Info(Entity):
+                    class Info(_Entity_):
                         """
                         Content of the history
                         
@@ -606,7 +651,10 @@ class ConfigManager(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info, self).__init__()
 
                             self.yang_name = "info"
                             self.yang_parent_name = "history"
@@ -655,7 +703,7 @@ class ConfigManager(Entity):
                             self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info, ['type', 'a'], name, value)
 
 
-                        class AlarmInfo(Entity):
+                        class AlarmInfo(_Entity_):
                             """
                             alarm info
                             
@@ -681,7 +729,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.AlarmInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.AlarmInfo, self).__init__()
 
                                 self.yang_name = "alarm-info"
                                 self.yang_parent_name = "info"
@@ -701,9 +752,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.AlarmInfo, ['state', 'where'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.AlarmInfo']['meta_info']
 
 
-                        class CfscheckInfo(Entity):
+                        class CfscheckInfo(_Entity_):
                             """
                             cfscheck info
                             
@@ -729,7 +784,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CfscheckInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CfscheckInfo, self).__init__()
 
                                 self.yang_name = "cfscheck-info"
                                 self.yang_parent_name = "info"
@@ -749,9 +807,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CfscheckInfo, ['user_id', 'line'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CfscheckInfo']['meta_info']
 
 
-                        class CommitInfo(Entity):
+                        class CommitInfo(_Entity_):
                             """
                             commit info
                             
@@ -805,7 +867,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CommitInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CommitInfo, self).__init__()
 
                                 self.yang_name = "commit-info"
                                 self.yang_parent_name = "info"
@@ -833,9 +898,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CommitInfo, ['commit_id', 'user_id', 'line', 'client_name', 'label', 'comment'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.CommitInfo']['meta_info']
 
 
-                        class OirInfo(Entity):
+                        class OirInfo(_Entity_):
                             """
                             oir info
                             
@@ -868,7 +937,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.OirInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.OirInfo, self).__init__()
 
                                 self.yang_name = "oir-info"
                                 self.yang_parent_name = "info"
@@ -890,9 +962,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.OirInfo, ['config_type', 'operation_', 'config_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.OirInfo']['meta_info']
 
 
-                        class ShutdownInfo(Entity):
+                        class ShutdownInfo(_Entity_):
                             """
                             shutdown info
                             
@@ -911,7 +987,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.ShutdownInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.ShutdownInfo, self).__init__()
 
                                 self.yang_name = "shutdown-info"
                                 self.yang_parent_name = "info"
@@ -929,9 +1008,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.ShutdownInfo, ['comment'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.ShutdownInfo']['meta_info']
 
 
-                        class StartupInfo(Entity):
+                        class StartupInfo(_Entity_):
                             """
                             startup info
                             
@@ -957,7 +1040,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.StartupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.StartupInfo, self).__init__()
 
                                 self.yang_name = "startup-info"
                                 self.yang_parent_name = "info"
@@ -977,9 +1063,13 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.StartupInfo, ['how_booted', 'boot_path'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.StartupInfo']['meta_info']
 
 
-                        class BackupInfo(Entity):
+                        class BackupInfo(_Entity_):
                             """
                             backup info
                             
@@ -998,7 +1088,10 @@ class ConfigManager(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.BackupInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.BackupInfo, self).__init__()
 
                                 self.yang_name = "backup-info"
                                 self.yang_parent_name = "info"
@@ -1016,13 +1109,33 @@ class ConfigManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ConfigManager.Global.HistoryTables.HistoryTable.History.Info.BackupInfo, ['comment'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                                return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info.BackupInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                            return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History.Info']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                        return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable.History']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                    return meta._meta_table['ConfigManager.Global.HistoryTables.HistoryTable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                return meta._meta_table['ConfigManager.Global.HistoryTables']['meta_info']
 
 
-
-
-
-
-        class ConfigSession(Entity):
+        class ConfigSession(_Entity_):
             """
             Show Configuration Session <\*> Global path
             information
@@ -1042,7 +1155,10 @@ class ConfigManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ConfigManager.Global.ConfigSession, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ConfigManager.Global.ConfigSession, self).__init__()
 
                 self.yang_name = "config-session"
                 self.yang_parent_name = "global"
@@ -1063,7 +1179,7 @@ class ConfigManager(Entity):
                 self._perform_setattr(ConfigManager.Global.ConfigSession, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 Show Configuration Session Detail
                 
@@ -1082,7 +1198,10 @@ class ConfigManager(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(ConfigManager.Global.ConfigSession.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ConfigManager.Global.ConfigSession.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "config-session"
@@ -1101,7 +1220,7 @@ class ConfigManager(Entity):
                     self._perform_setattr(ConfigManager.Global.ConfigSession.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     Session information for a specific session
                     entry
@@ -1202,7 +1321,10 @@ class ConfigManager(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(ConfigManager.Global.ConfigSession.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ConfigManager.Global.ConfigSession.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -1243,13 +1365,33 @@ class ConfigManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfigManager.Global.ConfigSession.Sessions.Session, ['session', 'session_id', 'client_name', 'user_id', 'tty_name', 'timestamp', 'lock_flag', 'trial_flag', 'pid', 'process_name', 'node_name', 'elapsed_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                        return meta._meta_table['ConfigManager.Global.ConfigSession.Sessions.Session']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                    return meta._meta_table['ConfigManager.Global.ConfigSession.Sessions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+                return meta._meta_table['ConfigManager.Global.ConfigSession']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+            return meta._meta_table['ConfigManager.Global']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ConfigManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_cfgmgr_exec_oper as meta
+        return meta._meta_table['ConfigManager']['meta_info']
 
 

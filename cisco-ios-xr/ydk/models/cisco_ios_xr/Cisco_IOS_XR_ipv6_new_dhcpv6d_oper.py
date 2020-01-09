@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -117,6 +120,12 @@ class BagDhcpv6dFsmState(Enum):
     proxy_bound_client = Enum.YLeaf(16, "proxy-bound-client")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6dFsmState']
+
+
 class BagDhcpv6dIaId(Enum):
     """
     BagDhcpv6dIaId (Enum Class)
@@ -142,6 +151,12 @@ class BagDhcpv6dIaId(Enum):
     iapd = Enum.YLeaf(1, "iapd")
 
     iata = Enum.YLeaf(2, "iata")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6dIaId']
 
 
 class BagDhcpv6dIntfSergRole(Enum):
@@ -171,6 +186,12 @@ class BagDhcpv6dIntfSergRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6dIntfSergRole']
+
+
 class BagDhcpv6dIntfSrgRole(Enum):
     """
     BagDhcpv6dIntfSrgRole (Enum Class)
@@ -198,6 +219,12 @@ class BagDhcpv6dIntfSrgRole(Enum):
     slave = Enum.YLeaf(2, "slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6dIntfSrgRole']
+
+
 class BagDhcpv6dSubMode(Enum):
     """
     BagDhcpv6dSubMode (Enum Class)
@@ -223,6 +250,12 @@ class BagDhcpv6dSubMode(Enum):
     server = Enum.YLeaf(1, "server")
 
     proxy = Enum.YLeaf(2, "proxy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6dSubMode']
 
 
 class DhcpIssuPhase(Enum):
@@ -264,6 +297,12 @@ class DhcpIssuPhase(Enum):
     phase_aborted = Enum.YLeaf(4, "phase-aborted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['DhcpIssuPhase']
+
+
 class Dhcpv6IssuRole(Enum):
     """
     Dhcpv6IssuRole (Enum Class)
@@ -285,6 +324,12 @@ class Dhcpv6IssuRole(Enum):
     role_secondary = Enum.YLeaf(1, "role-secondary")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['Dhcpv6IssuRole']
+
+
 class Dhcpv6IssuVersion(Enum):
     """
     Dhcpv6IssuVersion (Enum Class)
@@ -304,6 +349,12 @@ class Dhcpv6IssuVersion(Enum):
     version1 = Enum.YLeaf(1, "version1")
 
     version2 = Enum.YLeaf(2, "version2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['Dhcpv6IssuVersion']
 
 
 class LeaseLimit(Enum):
@@ -339,8 +390,14 @@ class LeaseLimit(Enum):
     remote_id = Enum.YLeaf(3, "remote-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['LeaseLimit']
 
-class Dhcpv6(Entity):
+
+
+class Dhcpv6(_Entity_):
     """
     IPV6 DHCPD operational data
     
@@ -366,7 +423,10 @@ class Dhcpv6(Entity):
     _revision = '2018-10-09'
 
     def __init__(self):
-        super(Dhcpv6, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Dhcpv6, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dhcpv6"
@@ -391,7 +451,7 @@ class Dhcpv6(Entity):
         self._perform_setattr(Dhcpv6, [], name, value)
 
 
-    class IssuStatus(Entity):
+    class IssuStatus(_Entity_):
         """
         DHCP IssuStatus
         
@@ -497,7 +557,10 @@ class Dhcpv6(Entity):
         _revision = '2018-10-09'
 
         def __init__(self):
-            super(Dhcpv6.IssuStatus, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dhcpv6.IssuStatus, self).__init__()
 
             self.yang_name = "issu-status"
             self.yang_parent_name = "dhcpv6"
@@ -534,9 +597,13 @@ class Dhcpv6(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.IssuStatus, ['process_start_time', 'issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'issu_ready_issu_mgr_connection', 'role', 'phase', 'version'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+            return meta._meta_table['Dhcpv6.IssuStatus']['meta_info']
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         IPv6 DHCP list of nodes
         
@@ -555,7 +622,10 @@ class Dhcpv6(Entity):
         _revision = '2018-10-09'
 
         def __init__(self):
-            super(Dhcpv6.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dhcpv6.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "dhcpv6"
@@ -574,7 +644,7 @@ class Dhcpv6(Entity):
             self._perform_setattr(Dhcpv6.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IPv6 DHCP particular node name
             
@@ -623,7 +693,10 @@ class Dhcpv6(Entity):
             _revision = '2018-10-09'
 
             def __init__(self):
-                super(Dhcpv6.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dhcpv6.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -659,7 +732,7 @@ class Dhcpv6(Entity):
                 self._perform_setattr(Dhcpv6.Nodes.Node, ['node_name'], name, value)
 
 
-            class Proxy(Entity):
+            class Proxy(_Entity_):
                 """
                 IPv6 DHCP proxy operational data
                 
@@ -713,7 +786,10 @@ class Dhcpv6(Entity):
                 _revision = '2018-10-09'
 
                 def __init__(self):
-                    super(Dhcpv6.Nodes.Node.Proxy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dhcpv6.Nodes.Node.Proxy, self).__init__()
 
                     self.yang_name = "proxy"
                     self.yang_parent_name = "node"
@@ -753,7 +829,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy, [], name, value)
 
 
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCPV6 proxy list of VRF names
                     
@@ -772,7 +848,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "proxy"
@@ -790,7 +869,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv6 DHCP proxy VRF name
                         
@@ -818,7 +897,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -841,7 +923,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv6 DHCP proxy statistics
                             
@@ -972,7 +1054,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -1056,7 +1141,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Solicit(Entity):
+                            class Solicit(_Entity_):
                                 """
                                 DHCPV6 solicit packets
                                 
@@ -1095,7 +1180,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, self).__init__()
 
                                     self.yang_name = "solicit"
                                     self.yang_parent_name = "statistics"
@@ -1117,9 +1205,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit']['meta_info']
 
 
-                            class Advertise(Entity):
+                            class Advertise(_Entity_):
                                 """
                                 DHCPV6 advertise packets
                                 
@@ -1158,7 +1250,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, self).__init__()
 
                                     self.yang_name = "advertise"
                                     self.yang_parent_name = "statistics"
@@ -1180,9 +1275,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCPV6 request packets
                                 
@@ -1221,7 +1320,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -1243,9 +1345,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Reply(Entity):
+                            class Reply(_Entity_):
                                 """
                                 DHCPV6 reply packets
                                 
@@ -1284,7 +1390,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, self).__init__()
 
                                     self.yang_name = "reply"
                                     self.yang_parent_name = "statistics"
@@ -1306,9 +1415,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply']['meta_info']
 
 
-                            class Confirm(Entity):
+                            class Confirm(_Entity_):
                                 """
                                 DHCPV6 confirm packets
                                 
@@ -1347,7 +1460,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, self).__init__()
 
                                     self.yang_name = "confirm"
                                     self.yang_parent_name = "statistics"
@@ -1369,9 +1485,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCPV6 decline packets
                                 
@@ -1410,7 +1530,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -1432,9 +1555,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Renew(Entity):
+                            class Renew(_Entity_):
                                 """
                                 DHCPV6 renew packets
                                 
@@ -1473,7 +1600,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, self).__init__()
 
                                     self.yang_name = "renew"
                                     self.yang_parent_name = "statistics"
@@ -1495,9 +1625,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew']['meta_info']
 
 
-                            class Rebind(Entity):
+                            class Rebind(_Entity_):
                                 """
                                 DHCPV6 rebind packets
                                 
@@ -1536,7 +1670,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, self).__init__()
 
                                     self.yang_name = "rebind"
                                     self.yang_parent_name = "statistics"
@@ -1558,9 +1695,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCPV6 release packets
                                 
@@ -1599,7 +1740,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -1621,9 +1765,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Reconfig(Entity):
+                            class Reconfig(_Entity_):
                                 """
                                 DHCPV6 reconfig packets
                                 
@@ -1662,7 +1810,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
 
                                     self.yang_name = "reconfig"
                                     self.yang_parent_name = "statistics"
@@ -1684,9 +1835,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCPV6 inform packets
                                 
@@ -1725,7 +1880,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -1747,9 +1905,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class RelayForward(Entity):
+                            class RelayForward(_Entity_):
                                 """
                                 DHCPV6 relay forward packets
                                 
@@ -1788,7 +1950,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
 
                                     self.yang_name = "relay-forward"
                                     self.yang_parent_name = "statistics"
@@ -1810,9 +1975,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward']['meta_info']
 
 
-                            class RelayReply(Entity):
+                            class RelayReply(_Entity_):
                                 """
                                 DHCPV6 relay reply packets
                                 
@@ -1851,7 +2020,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
 
                                     self.yang_name = "relay-reply"
                                     self.yang_parent_name = "statistics"
@@ -1873,9 +2045,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCPV6 lease query packets
                                 
@@ -1914,7 +2090,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -1936,9 +2115,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseQueryReply(Entity):
+                            class LeaseQueryReply(_Entity_):
                                 """
                                 DHCPV6 lease query reply packets
                                 
@@ -1977,7 +2160,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
 
                                     self.yang_name = "lease-query-reply"
                                     self.yang_parent_name = "statistics"
@@ -1999,9 +2185,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info']
 
 
-                            class LeaseQueryDone(Entity):
+                            class LeaseQueryDone(_Entity_):
                                 """
                                 DHCPV6 lease query done packets
                                 
@@ -2040,7 +2230,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
 
                                     self.yang_name = "lease-query-done"
                                     self.yang_parent_name = "statistics"
@@ -2062,9 +2255,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info']
 
 
-                            class LeaseQueryData(Entity):
+                            class LeaseQueryData(_Entity_):
                                 """
                                 DHCPV6 lease query data packets
                                 
@@ -2103,7 +2300,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
 
                                     self.yang_name = "lease-query-data"
                                     self.yang_parent_name = "statistics"
@@ -2125,12 +2325,28 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info']
 
 
-
-
-
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     IPv6 DHCP proxy profile
                     
@@ -2149,7 +2365,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "proxy"
@@ -2167,7 +2386,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         IPv6 DHCP proxy profile
                         
@@ -2209,7 +2428,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -2240,7 +2462,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, ['profile_name'], name, value)
 
 
-                        class ThrottleInfos(Entity):
+                        class ThrottleInfos(_Entity_):
                             """
                             DHCPV6 throttle table
                             
@@ -2259,7 +2481,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, self).__init__()
 
                                 self.yang_name = "throttle-infos"
                                 self.yang_parent_name = "profile"
@@ -2277,7 +2502,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, [], name, value)
 
 
-                            class ThrottleInfo(Entity):
+                            class ThrottleInfo(_Entity_):
                                 """
                                 IPv6 DHCP proxy profile Throttle Info
                                 
@@ -2336,7 +2561,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
 
                                     self.yang_name = "throttle-info"
                                     self.yang_parent_name = "throttle-infos"
@@ -2362,10 +2590,18 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info']
 
 
-
-                        class ProxyClasses(Entity):
+                        class ProxyClasses(_Entity_):
                             """
                             IPv6 DHCP proxy class table
                             
@@ -2384,7 +2620,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, self).__init__()
 
                                 self.yang_name = "proxy-classes"
                                 self.yang_parent_name = "profile"
@@ -2402,7 +2641,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, [], name, value)
 
 
-                            class ProxyClass(Entity):
+                            class ProxyClass(_Entity_):
                                 """
                                 IPv6 DHCP proxy class profile
                                 
@@ -2450,7 +2689,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, self).__init__()
 
                                     self.yang_name = "proxy-class"
                                     self.yang_parent_name = "proxy-classes"
@@ -2474,10 +2716,18 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, ['class_name', 'class_name_xr', 'profile_helper_address', 'vrf_name'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses']['meta_info']
 
 
-
-                        class Info(Entity):
+                        class Info(_Entity_):
                             """
                             IPv6 DHCP proxy profile Info
                             
@@ -2571,7 +2821,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, self).__init__()
 
                                 self.yang_name = "info"
                                 self.yang_parent_name = "profile"
@@ -2614,7 +2867,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, ['profile_name', 'remote_id', 'profile_link_address', 'proxy_profile_linkaddress_from_ra_enable', 'profile_helper_address', 'vrf_name', 'interface_name'], name, value)
 
 
-                            class InterfaceIdReferences(Entity):
+                            class InterfaceIdReferences(_Entity_):
                                 """
                                 Interface id references
                                 
@@ -2633,7 +2886,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, self).__init__()
 
                                     self.yang_name = "interface-id-references"
                                     self.yang_parent_name = "info"
@@ -2651,7 +2907,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, [], name, value)
 
 
-                                class Ipv6Dhcpv6dProxyIidReference(Entity):
+                                class Ipv6Dhcpv6dProxyIidReference(_Entity_):
                                     """
                                     ipv6 dhcpv6d proxy iid reference
                                     
@@ -2688,7 +2944,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, self).__init__()
 
                                         self.yang_name = "ipv6-dhcpv6d-proxy-iid-reference"
                                         self.yang_parent_name = "interface-id-references"
@@ -2713,7 +2972,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, ['proxy_iid_interface_name', 'proxy_interface_id'], name, value)
 
 
-                                    class NextInterfaceId(Entity):
+                                    class NextInterfaceId(_Entity_):
                                         """
                                         next interface id
                                         
@@ -2725,7 +2984,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId, self).__init__()
 
                                             self.yang_name = "next-interface-id"
                                             self.yang_parent_name = "ipv6-dhcpv6d-proxy-iid-reference"
@@ -2737,11 +2999,23 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-interface-id"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference.NextInterfaceId']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info']
 
 
-
-
-                            class VrfReferences(Entity):
+                            class VrfReferences(_Entity_):
                                 """
                                 VRF references
                                 
@@ -2760,7 +3034,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, self).__init__()
 
                                     self.yang_name = "vrf-references"
                                     self.yang_parent_name = "info"
@@ -2778,7 +3055,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, [], name, value)
 
 
-                                class Ipv6Dhcpv6dProxyVrfReference(Entity):
+                                class Ipv6Dhcpv6dProxyVrfReference(_Entity_):
                                     """
                                     ipv6 dhcpv6d proxy vrf reference
                                     
@@ -2806,7 +3083,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, self).__init__()
 
                                         self.yang_name = "ipv6-dhcpv6d-proxy-vrf-reference"
                                         self.yang_parent_name = "vrf-references"
@@ -2829,7 +3109,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
 
 
-                                    class NextVrf(Entity):
+                                    class NextVrf(_Entity_):
                                         """
                                         next vrf
                                         
@@ -2841,7 +3121,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf, self).__init__()
 
                                             self.yang_name = "next-vrf"
                                             self.yang_parent_name = "ipv6-dhcpv6d-proxy-vrf-reference"
@@ -2853,11 +3136,23 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-vrf"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference.NextVrf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info']
 
 
-
-
-                            class InterfaceReferences(Entity):
+                            class InterfaceReferences(_Entity_):
                                 """
                                 Interface references
                                 
@@ -2876,7 +3171,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, self).__init__()
 
                                     self.yang_name = "interface-references"
                                     self.yang_parent_name = "info"
@@ -2894,7 +3192,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, [], name, value)
 
 
-                                class Ipv6Dhcpv6dProxyInterfaceReference(Entity):
+                                class Ipv6Dhcpv6dProxyInterfaceReference(_Entity_):
                                     """
                                     ipv6 dhcpv6d proxy interface reference
                                     
@@ -2922,7 +3220,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, self).__init__()
 
                                         self.yang_name = "ipv6-dhcpv6d-proxy-interface-reference"
                                         self.yang_parent_name = "interface-references"
@@ -2945,7 +3246,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
 
 
-                                    class NextInterface(Entity):
+                                    class NextInterface(_Entity_):
                                         """
                                         next interface
                                         
@@ -2957,7 +3258,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface, self).__init__()
 
                                             self.yang_name = "next-interface"
                                             self.yang_parent_name = "ipv6-dhcpv6d-proxy-interface-reference"
@@ -2969,14 +3273,38 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-interface"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference.NextInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
 
 
-
-
-
-
-
-                class DisconnectHistories(Entity):
+                class DisconnectHistories(_Entity_):
                     """
                     DHCPv6 proxy disconnect history
                     
@@ -2995,7 +3323,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories, self).__init__()
 
                         self.yang_name = "disconnect-histories"
                         self.yang_parent_name = "proxy"
@@ -3013,7 +3344,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories, [], name, value)
 
 
-                    class DisconnectHistory(Entity):
+                    class DisconnectHistory(_Entity_):
                         """
                         Single DHCPv6 proxy disconnect history
                         
@@ -3106,7 +3437,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, self).__init__()
 
                             self.yang_name = "disconnect-history"
                             self.yang_parent_name = "disconnect-histories"
@@ -3140,10 +3474,18 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'duid', 'ia_type', 'ia_id', 'mac_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.DisconnectHistories.DisconnectHistory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.DisconnectHistories']['meta_info']
 
 
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     DHCPV6 proxy interface
                     
@@ -3162,7 +3504,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "proxy"
@@ -3180,7 +3525,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IPv6 DHCP proxy interface
                         
@@ -3288,7 +3633,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -3328,10 +3676,18 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', 'proxy_vrf_name', 'proxy_interface_mode', 'is_proxy_interface_ambiguous', 'proxy_interface_profile_name', 'proxy_interface_lease_limit_type', 'proxy_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Interfaces']['meta_info']
 
 
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCPv6 proxy statistics
                     
@@ -3350,7 +3706,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "proxy"
@@ -3368,7 +3727,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics, [], name, value)
 
 
-                    class Ipv6Dhcpv6dProxyStat(Entity):
+                    class Ipv6Dhcpv6dProxyStat(_Entity_):
                         """
                         ipv6 dhcpv6d proxy stat
                         
@@ -3396,7 +3755,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, self).__init__()
 
                             self.yang_name = "ipv6-dhcpv6d-proxy-stat"
                             self.yang_parent_name = "statistics"
@@ -3419,7 +3781,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Proxy statistics
                             
@@ -3458,7 +3820,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-proxy-stat"
@@ -3480,11 +3845,23 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
 
 
-
-
-                class Binding(Entity):
+                class Binding(_Entity_):
                     """
                     DHCPV6 proxy bindings
                     
@@ -3510,7 +3887,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Proxy.Binding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Proxy.Binding, self).__init__()
 
                         self.yang_name = "binding"
                         self.yang_parent_name = "proxy"
@@ -3534,7 +3914,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding, [], name, value)
 
 
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         DHCPV6 proxy client bindings
                         
@@ -3553,7 +3933,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "binding"
@@ -3571,7 +3954,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, [], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Single DHCPV6 proxy binding
                             
@@ -3826,6 +4209,15 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: srg_group_id
+                            
+                            	srg group id
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            	**config**\: False
+                            
                             .. attribute:: serg_state
                             
                             	DHCPV6 SERG state
@@ -3852,7 +4244,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "clients"
@@ -3889,6 +4284,7 @@ class Dhcpv6(Entity):
                                     ('srg_intf_role', (YLeaf(YType.uint32, 'srg-intf-role'), ['int'])),
                                     ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
                                     ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                    ('srg_group_id', (YLeaf(YType.uint16, 'srg-group-id'), ['int'])),
                                     ('serg_state', (YLeaf(YType.uint32, 'serg-state'), ['int'])),
                                     ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
                                 ])
@@ -3920,6 +4316,7 @@ class Dhcpv6(Entity):
                                 self.srg_intf_role = None
                                 self.srgp2p = None
                                 self.srg_vrf_name = None
+                                self.srg_group_id = None
                                 self.serg_state = None
                                 self.serg_intf_role = None
 
@@ -3930,10 +4327,10 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'selected_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'selected_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'srg_group_id', 'serg_state', 'serg_intf_role'], name, value)
 
 
-                            class IaIdPd(Entity):
+                            class IaIdPd(_Entity_):
                                 """
                                 List of DHCPv6 IA\_ID/PDs
                                 
@@ -3952,7 +4349,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, self).__init__()
 
                                     self.yang_name = "ia-id-pd"
                                     self.yang_parent_name = "client"
@@ -3970,7 +4370,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, [], name, value)
 
 
-                                class BagDhcpv6dIaIdPdInfo(Entity):
+                                class BagDhcpv6dIaIdPdInfo(_Entity_):
                                     """
                                     bag dhcpv6d ia id pd info
                                     
@@ -4037,7 +4437,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
 
                                         self.yang_name = "bag-dhcpv6d-ia-id-pd-info"
                                         self.yang_parent_name = "ia-id-pd"
@@ -4072,7 +4475,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
 
 
-                                    class Addresses(Entity):
+                                    class Addresses(_Entity_):
                                         """
                                         List of addresses in this IA
                                         
@@ -4091,7 +4494,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
 
                                             self.yang_name = "addresses"
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
@@ -4109,7 +4515,7 @@ class Dhcpv6(Entity):
                                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, [], name, value)
 
 
-                                        class BagDhcpv6dAddrAttrb(Entity):
+                                        class BagDhcpv6dAddrAttrb(_Entity_):
                                             """
                                             bag dhcpv6d addr attrb
                                             
@@ -4168,7 +4574,10 @@ class Dhcpv6(Entity):
                                             _revision = '2018-10-09'
 
                                             def __init__(self):
-                                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
 
                                                 self.yang_name = "bag-dhcpv6d-addr-attrb"
                                                 self.yang_parent_name = "addresses"
@@ -4197,7 +4606,7 @@ class Dhcpv6(Entity):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
 
-                                            class NextAddrAttrb(Entity):
+                                            class NextAddrAttrb(_Entity_):
                                                 """
                                                 next addr attrb
                                                 
@@ -4209,7 +4618,10 @@ class Dhcpv6(Entity):
                                                 _revision = '2018-10-09'
 
                                                 def __init__(self):
-                                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
 
                                                     self.yang_name = "next-addr-attrb"
                                                     self.yang_parent_name = "bag-dhcpv6d-addr-attrb"
@@ -4221,11 +4633,23 @@ class Dhcpv6(Entity):
                                                     self._segment_path = lambda: "next-addr-attrb"
                                                     self._is_frozen = True
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
 
 
-
-
-                                    class NextIaiapd(Entity):
+                                    class NextIaiapd(_Entity_):
                                         """
                                         next iaiapd
                                         
@@ -4237,7 +4661,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
 
                                             self.yang_name = "next-iaiapd"
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
@@ -4249,13 +4676,33 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-iaiapd"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients']['meta_info']
 
 
-
-
-
-
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         DHCPV6 proxy binding summary
                         
@@ -4290,7 +4737,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "binding"
@@ -4317,7 +4767,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, ['clients'], name, value)
 
 
-                        class Iana(Entity):
+                        class Iana(_Entity_):
                             """
                             IANA proxy binding summary
                             
@@ -4392,7 +4842,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, self).__init__()
 
                                 self.yang_name = "iana"
                                 self.yang_parent_name = "summary"
@@ -4422,9 +4875,13 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana']['meta_info']
 
 
-                        class Iapd(Entity):
+                        class Iapd(_Entity_):
                             """
                             IAPD proxy binding summary
                             
@@ -4499,7 +4956,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, self).__init__()
 
                                 self.yang_name = "iapd"
                                 self.yang_parent_name = "summary"
@@ -4529,12 +4989,28 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                    return meta._meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
 
 
-
-
-
-            class Base(Entity):
+            class Base(_Entity_):
                 """
                 IPv6 DHCP Base
                 
@@ -4560,7 +5036,10 @@ class Dhcpv6(Entity):
                 _revision = '2018-10-09'
 
                 def __init__(self):
-                    super(Dhcpv6.Nodes.Node.Base, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dhcpv6.Nodes.Node.Base, self).__init__()
 
                     self.yang_name = "base"
                     self.yang_parent_name = "node"
@@ -4584,7 +5063,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Base, [], name, value)
 
 
-                class Database(Entity):
+                class Database(_Entity_):
                     """
                     DHCP database
                     
@@ -4742,7 +5221,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Base.Database, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Base.Database, self).__init__()
 
                         self.yang_name = "database"
                         self.yang_parent_name = "base"
@@ -4790,9 +5272,13 @@ class Dhcpv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Base.Database']['meta_info']
 
 
-                class AddrBindings(Entity):
+                class AddrBindings(_Entity_):
                     """
                     IPv6 DHCP Base Binding
                     
@@ -4811,7 +5297,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Base.AddrBindings, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Base.AddrBindings, self).__init__()
 
                         self.yang_name = "addr-bindings"
                         self.yang_parent_name = "base"
@@ -4829,7 +5318,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings, [], name, value)
 
 
-                    class AddrBinding(Entity):
+                    class AddrBinding(_Entity_):
                         """
                         DHCPv6 base stats debug
                         
@@ -5064,7 +5553,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, self).__init__()
 
                             self.yang_name = "addr-binding"
                             self.yang_parent_name = "addr-bindings"
@@ -5130,11 +5622,23 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', 'mac_address', 'vrf_name', 'server_vrf_name', 'ipv6_address', 'server_ipv6_address', 'reply_server_ipv6_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'base_binding_tags', 'base_binding_outer_tag', 'base_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'rx_client_duid', 'tx_client_uid', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Base.AddrBindings']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                    return meta._meta_table['Dhcpv6.Nodes.Node.Base']['meta_info']
 
 
-
-
-            class Server(Entity):
+            class Server(_Entity_):
                 """
                 IPv6 DHCP server operational data
                 
@@ -5195,7 +5699,10 @@ class Dhcpv6(Entity):
                 _revision = '2018-10-09'
 
                 def __init__(self):
-                    super(Dhcpv6.Nodes.Node.Server, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dhcpv6.Nodes.Node.Server, self).__init__()
 
                     self.yang_name = "server"
                     self.yang_parent_name = "node"
@@ -5239,7 +5746,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Server, [], name, value)
 
 
-                class DisconnectHistories(Entity):
+                class DisconnectHistories(_Entity_):
                     """
                     DHCPv6 server disconnect history
                     
@@ -5258,7 +5765,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.DisconnectHistories, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.DisconnectHistories, self).__init__()
 
                         self.yang_name = "disconnect-histories"
                         self.yang_parent_name = "server"
@@ -5276,7 +5786,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.DisconnectHistories, [], name, value)
 
 
-                    class DisconnectHistory(Entity):
+                    class DisconnectHistory(_Entity_):
                         """
                         Single DHCPv6 server disconnect history
                         
@@ -5369,7 +5879,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, self).__init__()
 
                             self.yang_name = "disconnect-history"
                             self.yang_parent_name = "disconnect-histories"
@@ -5403,10 +5916,18 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory, ['index', 'session_start_time_epoch', 'session_end_time_epoch', 'disc_reason', 'sub_label', 'duid', 'ia_type', 'ia_id', 'mac_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.DisconnectHistories.DisconnectHistory']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.DisconnectHistories']['meta_info']
 
 
-
-                class Binding(Entity):
+                class Binding(_Entity_):
                     """
                     DHCPV6 server bindings
                     
@@ -5432,7 +5953,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.Binding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.Binding, self).__init__()
 
                         self.yang_name = "binding"
                         self.yang_parent_name = "server"
@@ -5456,7 +5980,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         DHCPV6 server binding summary
                         
@@ -5491,7 +6015,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Binding.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Binding.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "binding"
@@ -5518,7 +6045,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary, ['clients'], name, value)
 
 
-                        class Iana(Entity):
+                        class Iana(_Entity_):
                             """
                             IANA server binding summary
                             
@@ -5593,7 +6120,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, self).__init__()
 
                                 self.yang_name = "iana"
                                 self.yang_parent_name = "summary"
@@ -5623,9 +6153,13 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana']['meta_info']
 
 
-                        class Iapd(Entity):
+                        class Iapd(_Entity_):
                             """
                             IAPD server binding summary
                             
@@ -5700,7 +6234,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, self).__init__()
 
                                 self.yang_name = "iapd"
                                 self.yang_parent_name = "summary"
@@ -5730,10 +6267,18 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
 
 
-
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         DHCPV6 server client bindings
                         
@@ -5752,7 +6297,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Binding.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Binding.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "binding"
@@ -5770,7 +6318,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients, [], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Single DHCPV6 server binding
                             
@@ -6043,6 +6591,15 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
+                            .. attribute:: srg_group_id
+                            
+                            	srg group id
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            	**config**\: False
+                            
                             .. attribute:: sesrg_state
                             
                             	DHCPV6 SERG state
@@ -6069,7 +6626,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "clients"
@@ -6108,6 +6668,7 @@ class Dhcpv6(Entity):
                                     ('srg_intf_role', (YLeaf(YType.uint32, 'srg-intf-role'), ['int'])),
                                     ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
                                     ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                    ('srg_group_id', (YLeaf(YType.uint16, 'srg-group-id'), ['int'])),
                                     ('sesrg_state', (YLeaf(YType.uint32, 'sesrg-state'), ['int'])),
                                     ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
                                 ])
@@ -6141,6 +6702,7 @@ class Dhcpv6(Entity):
                                 self.srg_intf_role = None
                                 self.srgp2p = None
                                 self.srg_vrf_name = None
+                                self.srg_group_id = None
                                 self.sesrg_state = None
                                 self.serg_intf_role = None
 
@@ -6151,10 +6713,10 @@ class Dhcpv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'seleceted_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'seleceted_profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'srg_group_id', 'sesrg_state', 'serg_intf_role'], name, value)
 
 
-                            class IaIdPd(Entity):
+                            class IaIdPd(_Entity_):
                                 """
                                 List of DHCPv6 IA\_ID/PDs
                                 
@@ -6173,7 +6735,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, self).__init__()
 
                                     self.yang_name = "ia-id-pd"
                                     self.yang_parent_name = "client"
@@ -6191,7 +6756,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, [], name, value)
 
 
-                                class BagDhcpv6dIaIdPdInfo(Entity):
+                                class BagDhcpv6dIaIdPdInfo(_Entity_):
                                     """
                                     bag dhcpv6d ia id pd info
                                     
@@ -6258,7 +6823,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
 
                                         self.yang_name = "bag-dhcpv6d-ia-id-pd-info"
                                         self.yang_parent_name = "ia-id-pd"
@@ -6293,7 +6861,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
 
 
-                                    class Addresses(Entity):
+                                    class Addresses(_Entity_):
                                         """
                                         List of addresses in this IA
                                         
@@ -6312,7 +6880,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
 
                                             self.yang_name = "addresses"
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
@@ -6330,7 +6901,7 @@ class Dhcpv6(Entity):
                                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, [], name, value)
 
 
-                                        class BagDhcpv6dAddrAttrb(Entity):
+                                        class BagDhcpv6dAddrAttrb(_Entity_):
                                             """
                                             bag dhcpv6d addr attrb
                                             
@@ -6389,7 +6960,10 @@ class Dhcpv6(Entity):
                                             _revision = '2018-10-09'
 
                                             def __init__(self):
-                                                super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
 
                                                 self.yang_name = "bag-dhcpv6d-addr-attrb"
                                                 self.yang_parent_name = "addresses"
@@ -6418,7 +6992,7 @@ class Dhcpv6(Entity):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
 
-                                            class NextAddrAttrb(Entity):
+                                            class NextAddrAttrb(_Entity_):
                                                 """
                                                 next addr attrb
                                                 
@@ -6430,7 +7004,10 @@ class Dhcpv6(Entity):
                                                 _revision = '2018-10-09'
 
                                                 def __init__(self):
-                                                    super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb, self).__init__()
 
                                                     self.yang_name = "next-addr-attrb"
                                                     self.yang_parent_name = "bag-dhcpv6d-addr-attrb"
@@ -6442,11 +7019,23 @@ class Dhcpv6(Entity):
                                                     self._segment_path = lambda: "next-addr-attrb"
                                                     self._is_frozen = True
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb.NextAddrAttrb']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
 
 
-
-
-                                    class NextIaiapd(Entity):
+                                    class NextIaiapd(_Entity_):
                                         """
                                         next iaiapd
                                         
@@ -6458,7 +7047,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd, self).__init__()
 
                                             self.yang_name = "next-iaiapd"
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
@@ -6470,14 +7062,38 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-iaiapd"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.NextIaiapd']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
 
 
-
-
-
-
-
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCPV6 server list of VRF names
                     
@@ -6496,7 +7112,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "server"
@@ -6514,7 +7133,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv6 DHCP server VRF name
                         
@@ -6542,7 +7161,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -6565,7 +7187,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv6 DHCP server statistics
                             
@@ -6696,7 +7318,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -6780,7 +7405,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Solicit(Entity):
+                            class Solicit(_Entity_):
                                 """
                                 DHCPV6 solicit packets
                                 
@@ -6819,7 +7444,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, self).__init__()
 
                                     self.yang_name = "solicit"
                                     self.yang_parent_name = "statistics"
@@ -6841,9 +7469,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit']['meta_info']
 
 
-                            class Advertise(Entity):
+                            class Advertise(_Entity_):
                                 """
                                 DHCPV6 advertise packets
                                 
@@ -6882,7 +7514,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, self).__init__()
 
                                     self.yang_name = "advertise"
                                     self.yang_parent_name = "statistics"
@@ -6904,9 +7539,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCPV6 request packets
                                 
@@ -6945,7 +7584,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -6967,9 +7609,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Reply(Entity):
+                            class Reply(_Entity_):
                                 """
                                 DHCPV6 reply packets
                                 
@@ -7008,7 +7654,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, self).__init__()
 
                                     self.yang_name = "reply"
                                     self.yang_parent_name = "statistics"
@@ -7030,9 +7679,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply']['meta_info']
 
 
-                            class Confirm(Entity):
+                            class Confirm(_Entity_):
                                 """
                                 DHCPV6 confirm packets
                                 
@@ -7071,7 +7724,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, self).__init__()
 
                                     self.yang_name = "confirm"
                                     self.yang_parent_name = "statistics"
@@ -7093,9 +7749,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCPV6 decline packets
                                 
@@ -7134,7 +7794,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -7156,9 +7819,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Renew(Entity):
+                            class Renew(_Entity_):
                                 """
                                 DHCPV6 renew packets
                                 
@@ -7197,7 +7864,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, self).__init__()
 
                                     self.yang_name = "renew"
                                     self.yang_parent_name = "statistics"
@@ -7219,9 +7889,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew']['meta_info']
 
 
-                            class Rebind(Entity):
+                            class Rebind(_Entity_):
                                 """
                                 DHCPV6 rebind packets
                                 
@@ -7260,7 +7934,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, self).__init__()
 
                                     self.yang_name = "rebind"
                                     self.yang_parent_name = "statistics"
@@ -7282,9 +7959,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCPV6 release packets
                                 
@@ -7323,7 +8004,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -7345,9 +8029,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Reconfig(Entity):
+                            class Reconfig(_Entity_):
                                 """
                                 DHCPV6 reconfig packets
                                 
@@ -7386,7 +8074,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
 
                                     self.yang_name = "reconfig"
                                     self.yang_parent_name = "statistics"
@@ -7408,9 +8099,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCPV6 inform packets
                                 
@@ -7449,7 +8144,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -7471,9 +8169,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class RelayForward(Entity):
+                            class RelayForward(_Entity_):
                                 """
                                 DHCPV6 relay forward packets
                                 
@@ -7512,7 +8214,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
 
                                     self.yang_name = "relay-forward"
                                     self.yang_parent_name = "statistics"
@@ -7534,9 +8239,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward']['meta_info']
 
 
-                            class RelayReply(Entity):
+                            class RelayReply(_Entity_):
                                 """
                                 DHCPV6 relay reply packets
                                 
@@ -7575,7 +8284,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
 
                                     self.yang_name = "relay-reply"
                                     self.yang_parent_name = "statistics"
@@ -7597,9 +8309,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCPV6 lease query packets
                                 
@@ -7638,7 +8354,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -7660,9 +8379,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseQueryReply(Entity):
+                            class LeaseQueryReply(_Entity_):
                                 """
                                 DHCPV6 lease query reply packets
                                 
@@ -7701,7 +8424,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
 
                                     self.yang_name = "lease-query-reply"
                                     self.yang_parent_name = "statistics"
@@ -7723,9 +8449,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info']
 
 
-                            class LeaseQueryDone(Entity):
+                            class LeaseQueryDone(_Entity_):
                                 """
                                 DHCPV6 lease query done packets
                                 
@@ -7764,7 +8494,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
 
                                     self.yang_name = "lease-query-done"
                                     self.yang_parent_name = "statistics"
@@ -7786,9 +8519,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info']
 
 
-                            class LeaseQueryData(Entity):
+                            class LeaseQueryData(_Entity_):
                                 """
                                 DHCPV6 lease query data packets
                                 
@@ -7827,7 +8564,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
 
                                     self.yang_name = "lease-query-data"
                                     self.yang_parent_name = "statistics"
@@ -7849,12 +8589,28 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info']
 
 
-
-
-
-                class Profiles(Entity):
+                class Profiles(_Entity_):
                     """
                     IPv6 DHCP server profile
                     
@@ -7873,7 +8629,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.Profiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
                         self.yang_parent_name = "server"
@@ -7891,7 +8650,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles, [], name, value)
 
 
-                    class Profile(Entity):
+                    class Profile(_Entity_):
                         """
                         IPv6 DHCP server profile
                         
@@ -7933,7 +8692,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Profiles.Profile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
@@ -7964,7 +8726,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile, ['profile_name'], name, value)
 
 
-                        class Info(Entity):
+                        class Info(_Entity_):
                             """
                             IPv6 DHCP server profile Info
                             
@@ -8069,7 +8831,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, self).__init__()
 
                                 self.yang_name = "info"
                                 self.yang_parent_name = "profile"
@@ -8112,7 +8877,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, ['profile_name', 'profile_allowed_duid_type', 'domain_name', 'profile_dns', 'aftr_name', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'rapid_commit', 'profile_dns_address'], name, value)
 
 
-                            class Lease(Entity):
+                            class Lease(_Entity_):
                                 """
                                 Server lease time
                                 
@@ -8144,7 +8909,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, self).__init__()
 
                                     self.yang_name = "lease"
                                     self.yang_parent_name = "info"
@@ -8164,9 +8932,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, ['seconds', 'time'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease']['meta_info']
 
 
-                            class InterfaceReferences(Entity):
+                            class InterfaceReferences(_Entity_):
                                 """
                                 Interface references
                                 
@@ -8185,7 +8957,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, self).__init__()
 
                                     self.yang_name = "interface-references"
                                     self.yang_parent_name = "info"
@@ -8203,7 +8978,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, [], name, value)
 
 
-                                class Ipv6Dhcpv6dServerInterfaceReference(Entity):
+                                class Ipv6Dhcpv6dServerInterfaceReference(_Entity_):
                                     """
                                     ipv6 dhcpv6d server interface reference
                                     
@@ -8231,7 +9006,10 @@ class Dhcpv6(Entity):
                                     _revision = '2018-10-09'
 
                                     def __init__(self):
-                                        super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, self).__init__()
 
                                         self.yang_name = "ipv6-dhcpv6d-server-interface-reference"
                                         self.yang_parent_name = "interface-references"
@@ -8254,7 +9032,7 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, ['server_reference_interface_name'], name, value)
 
 
-                                    class NextInterface(Entity):
+                                    class NextInterface(_Entity_):
                                         """
                                         next interface
                                         
@@ -8266,7 +9044,10 @@ class Dhcpv6(Entity):
                                         _revision = '2018-10-09'
 
                                         def __init__(self):
-                                            super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface, self).__init__()
 
                                             self.yang_name = "next-interface"
                                             self.yang_parent_name = "ipv6-dhcpv6d-server-interface-reference"
@@ -8278,12 +9059,28 @@ class Dhcpv6(Entity):
                                             self._segment_path = lambda: "next-interface"
                                             self._is_frozen = True
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference.NextInterface']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
 
 
-
-
-
-                        class ThrottleInfos(Entity):
+                        class ThrottleInfos(_Entity_):
                             """
                             DHCPV6 throttle table
                             
@@ -8302,7 +9099,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, self).__init__()
 
                                 self.yang_name = "throttle-infos"
                                 self.yang_parent_name = "profile"
@@ -8320,7 +9120,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, [], name, value)
 
 
-                            class ThrottleInfo(Entity):
+                            class ThrottleInfo(_Entity_):
                                 """
                                 IPv6 DHCP server profile Throttle Info
                                 
@@ -8379,7 +9179,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
 
                                     self.yang_name = "throttle-info"
                                     self.yang_parent_name = "throttle-infos"
@@ -8405,10 +9208,18 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info']
 
 
-
-                        class ServerClasses(Entity):
+                        class ServerClasses(_Entity_):
                             """
                             IPv6 DHCP server class table
                             
@@ -8427,7 +9238,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, self).__init__()
 
                                 self.yang_name = "server-classes"
                                 self.yang_parent_name = "profile"
@@ -8445,7 +9259,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, [], name, value)
 
 
-                            class ServerClass(Entity):
+                            class ServerClass(_Entity_):
                                 """
                                 IPv6 DHCP server class profile
                                 
@@ -8520,7 +9334,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, self).__init__()
 
                                     self.yang_name = "server-class"
                                     self.yang_parent_name = "server-classes"
@@ -8550,12 +9367,28 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, ['class_name', 'class_name_xr', 'domain_name', 'profile_dns', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'profile_dns_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info']
 
 
-
-
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     DHCPV6 server interface
                     
@@ -8574,7 +9407,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "server"
@@ -8592,7 +9428,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         IPv6 DHCP server interface
                         
@@ -8700,7 +9536,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -8740,10 +9579,18 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', 'server_vrf_name', 'server_interface_mode', 'is_server_interface_ambiguous', 'server_interface_profile_name', 'server_interface_lease_limit_type', 'server_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Interfaces']['meta_info']
 
 
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCPv6 server statistics
                     
@@ -8762,7 +9609,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "server"
@@ -8780,7 +9630,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics, [], name, value)
 
 
-                    class Ipv6Dhcpv6dServerStat(Entity):
+                    class Ipv6Dhcpv6dServerStat(_Entity_):
                         """
                         ipv6 dhcpv6d server stat
                         
@@ -8808,7 +9658,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, self).__init__()
 
                             self.yang_name = "ipv6-dhcpv6d-server-stat"
                             self.yang_parent_name = "statistics"
@@ -8831,7 +9684,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Server statistics
                             
@@ -8870,7 +9723,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-server-stat"
@@ -8892,11 +9748,23 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
 
 
-
-
-                class BindingOptions(Entity):
+                class BindingOptions(_Entity_):
                     """
                     DHCPv6 server binding with options
                     
@@ -8922,7 +9790,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Server.BindingOptions, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Server.BindingOptions, self).__init__()
 
                         self.yang_name = "binding-options"
                         self.yang_parent_name = "server"
@@ -8946,7 +9817,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions, [], name, value)
 
 
-                    class MacBindOptions(Entity):
+                    class MacBindOptions(_Entity_):
                         """
                         DHCPv6 server binding from MAC address
                         
@@ -8965,7 +9836,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, self).__init__()
 
                             self.yang_name = "mac-bind-options"
                             self.yang_parent_name = "binding-options"
@@ -8983,7 +9857,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, [], name, value)
 
 
-                        class MacBindOption(Entity):
+                        class MacBindOption(_Entity_):
                             """
                             DHCPv6 server binding with options
                             
@@ -9043,7 +9917,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, self).__init__()
 
                                 self.yang_name = "mac-bind-option"
                                 self.yang_parent_name = "mac-bind-options"
@@ -9071,10 +9948,18 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions']['meta_info']
 
 
-
-                    class DuidBindOptions(Entity):
+                    class DuidBindOptions(_Entity_):
                         """
                         DHCPv6 server binding from DUID
                         
@@ -9093,7 +9978,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, self).__init__()
 
                             self.yang_name = "duid-bind-options"
                             self.yang_parent_name = "binding-options"
@@ -9111,7 +9999,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, [], name, value)
 
 
-                        class DuidBindOption(Entity):
+                        class DuidBindOption(_Entity_):
                             """
                             DHCPv6 server binding with options
                             
@@ -9171,7 +10059,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, self).__init__()
 
                                 self.yang_name = "duid-bind-option"
                                 self.yang_parent_name = "duid-bind-options"
@@ -9199,12 +10090,28 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                    return meta._meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
 
 
-
-
-
-            class Relay(Entity):
+            class Relay(_Entity_):
                 """
                 IPv6 DHCP relay operational data
                 
@@ -9237,7 +10144,10 @@ class Dhcpv6(Entity):
                 _revision = '2018-10-09'
 
                 def __init__(self):
-                    super(Dhcpv6.Nodes.Node.Relay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dhcpv6.Nodes.Node.Relay, self).__init__()
 
                     self.yang_name = "relay"
                     self.yang_parent_name = "node"
@@ -9265,7 +10175,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay, [], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     DHCPv6 relay statistics
                     
@@ -9284,7 +10194,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Relay.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Relay.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "relay"
@@ -9302,7 +10215,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics, [], name, value)
 
 
-                    class Ipv6Dhcpv6dRelayStat(Entity):
+                    class Ipv6Dhcpv6dRelayStat(_Entity_):
                         """
                         ipv6 dhcpv6d relay stat
                         
@@ -9330,7 +10243,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, self).__init__()
 
                             self.yang_name = "ipv6-dhcpv6d-relay-stat"
                             self.yang_parent_name = "statistics"
@@ -9353,7 +10269,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, ['vrf_name'], name, value)
 
 
-                        class Statistics_(Entity):
+                        class Statistics_(_Entity_):
                             """
                             Relay statistics
                             
@@ -9392,7 +10308,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-relay-stat"
@@ -9414,11 +10333,23 @@ class Dhcpv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
 
 
-
-
-                class Binding(Entity):
+                class Binding(_Entity_):
                     """
                     DHCPV6 relay bindings
                     
@@ -9444,7 +10375,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Relay.Binding, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Relay.Binding, self).__init__()
 
                         self.yang_name = "binding"
                         self.yang_parent_name = "relay"
@@ -9468,7 +10402,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding, [], name, value)
 
 
-                    class Summary(Entity):
+                    class Summary(_Entity_):
                         """
                         DHCPV6 relay binding summary
                         
@@ -9489,7 +10423,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Relay.Binding.Summary, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Relay.Binding.Summary, self).__init__()
 
                             self.yang_name = "summary"
                             self.yang_parent_name = "binding"
@@ -9507,9 +10444,13 @@ class Dhcpv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Summary, ['clients'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Summary']['meta_info']
 
 
-                    class Clients(Entity):
+                    class Clients(_Entity_):
                         """
                         DHCPV6 relay client bindings
                         
@@ -9528,7 +10469,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Relay.Binding.Clients, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Relay.Binding.Clients, self).__init__()
 
                             self.yang_name = "clients"
                             self.yang_parent_name = "binding"
@@ -9546,7 +10490,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients, [], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Single DHCPV6 relay binding
                             
@@ -9692,15 +10636,6 @@ class Dhcpv6(Entity):
                             
                             	**config**\: False
                             
-                            .. attribute:: relay_binding_chaddr
-                            
-                            	Client MAC address
-                            	**type**\: str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            	**config**\: False
-                            
                             
 
                             """
@@ -9709,7 +10644,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "clients"
@@ -9734,7 +10672,6 @@ class Dhcpv6(Entity):
                                     ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
                                     ('serg_state', (YLeaf(YType.uint32, 'serg-state'), ['int'])),
                                     ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
-                                    ('relay_binding_chaddr', (YLeaf(YType.str, 'relay-binding-chaddr'), ['str'])),
                                 ])
                                 self.client_id = None
                                 self.duid = None
@@ -9752,18 +10689,29 @@ class Dhcpv6(Entity):
                                 self.ifname = None
                                 self.serg_state = None
                                 self.serg_intf_role = None
-                                self.relay_binding_chaddr = None
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name', 'l2_intf_ac_name', 'ifname', 'serg_state', 'serg_intf_role', 'relay_binding_chaddr'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name', 'l2_intf_ac_name', 'ifname', 'serg_state', 'serg_intf_role'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
 
 
-
-
-
-                class Vrfs(Entity):
+                class Vrfs(_Entity_):
                     """
                     DHCPV6 relay list of VRF names
                     
@@ -9782,7 +10730,10 @@ class Dhcpv6(Entity):
                     _revision = '2018-10-09'
 
                     def __init__(self):
-                        super(Dhcpv6.Nodes.Node.Relay.Vrfs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dhcpv6.Nodes.Node.Relay.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
                         self.yang_parent_name = "relay"
@@ -9800,7 +10751,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs, [], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv6 DHCP relay VRF name
                         
@@ -9828,7 +10779,10 @@ class Dhcpv6(Entity):
                         _revision = '2018-10-09'
 
                         def __init__(self):
-                            super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
@@ -9851,7 +10805,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics(_Entity_):
                             """
                             IPv6 DHCP relay statistics
                             
@@ -9982,7 +10936,10 @@ class Dhcpv6(Entity):
                             _revision = '2018-10-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
@@ -10066,7 +11023,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, [], name, value)
 
 
-                            class Solicit(Entity):
+                            class Solicit(_Entity_):
                                 """
                                 DHCPV6 solicit packets
                                 
@@ -10105,7 +11062,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, self).__init__()
 
                                     self.yang_name = "solicit"
                                     self.yang_parent_name = "statistics"
@@ -10127,9 +11087,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit']['meta_info']
 
 
-                            class Advertise(Entity):
+                            class Advertise(_Entity_):
                                 """
                                 DHCPV6 advertise packets
                                 
@@ -10168,7 +11132,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, self).__init__()
 
                                     self.yang_name = "advertise"
                                     self.yang_parent_name = "statistics"
@@ -10190,9 +11157,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise']['meta_info']
 
 
-                            class Request(Entity):
+                            class Request(_Entity_):
                                 """
                                 DHCPV6 request packets
                                 
@@ -10231,7 +11202,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -10253,9 +11227,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request']['meta_info']
 
 
-                            class Reply(Entity):
+                            class Reply(_Entity_):
                                 """
                                 DHCPV6 reply packets
                                 
@@ -10294,7 +11272,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, self).__init__()
 
                                     self.yang_name = "reply"
                                     self.yang_parent_name = "statistics"
@@ -10316,9 +11297,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply']['meta_info']
 
 
-                            class Confirm(Entity):
+                            class Confirm(_Entity_):
                                 """
                                 DHCPV6 confirm packets
                                 
@@ -10357,7 +11342,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, self).__init__()
 
                                     self.yang_name = "confirm"
                                     self.yang_parent_name = "statistics"
@@ -10379,9 +11367,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm']['meta_info']
 
 
-                            class Decline(Entity):
+                            class Decline(_Entity_):
                                 """
                                 DHCPV6 decline packets
                                 
@@ -10420,7 +11412,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, self).__init__()
 
                                     self.yang_name = "decline"
                                     self.yang_parent_name = "statistics"
@@ -10442,9 +11437,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline']['meta_info']
 
 
-                            class Renew(Entity):
+                            class Renew(_Entity_):
                                 """
                                 DHCPV6 renew packets
                                 
@@ -10483,7 +11482,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, self).__init__()
 
                                     self.yang_name = "renew"
                                     self.yang_parent_name = "statistics"
@@ -10505,9 +11507,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew']['meta_info']
 
 
-                            class Rebind(Entity):
+                            class Rebind(_Entity_):
                                 """
                                 DHCPV6 rebind packets
                                 
@@ -10546,7 +11552,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, self).__init__()
 
                                     self.yang_name = "rebind"
                                     self.yang_parent_name = "statistics"
@@ -10568,9 +11577,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind']['meta_info']
 
 
-                            class Release(Entity):
+                            class Release(_Entity_):
                                 """
                                 DHCPV6 release packets
                                 
@@ -10609,7 +11622,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, self).__init__()
 
                                     self.yang_name = "release"
                                     self.yang_parent_name = "statistics"
@@ -10631,9 +11647,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release']['meta_info']
 
 
-                            class Reconfig(Entity):
+                            class Reconfig(_Entity_):
                                 """
                                 DHCPV6 reconfig packets
                                 
@@ -10672,7 +11692,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
 
                                     self.yang_name = "reconfig"
                                     self.yang_parent_name = "statistics"
@@ -10694,9 +11717,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig']['meta_info']
 
 
-                            class Inform(Entity):
+                            class Inform(_Entity_):
                                 """
                                 DHCPV6 inform packets
                                 
@@ -10735,7 +11762,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, self).__init__()
 
                                     self.yang_name = "inform"
                                     self.yang_parent_name = "statistics"
@@ -10757,9 +11787,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform']['meta_info']
 
 
-                            class RelayForward(Entity):
+                            class RelayForward(_Entity_):
                                 """
                                 DHCPV6 relay forward packets
                                 
@@ -10798,7 +11832,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
 
                                     self.yang_name = "relay-forward"
                                     self.yang_parent_name = "statistics"
@@ -10820,9 +11857,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward']['meta_info']
 
 
-                            class RelayReply(Entity):
+                            class RelayReply(_Entity_):
                                 """
                                 DHCPV6 relay reply packets
                                 
@@ -10861,7 +11902,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
 
                                     self.yang_name = "relay-reply"
                                     self.yang_parent_name = "statistics"
@@ -10883,9 +11927,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply']['meta_info']
 
 
-                            class LeaseQuery(Entity):
+                            class LeaseQuery(_Entity_):
                                 """
                                 DHCPV6 lease query packets
                                 
@@ -10924,7 +11972,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
 
                                     self.yang_name = "lease-query"
                                     self.yang_parent_name = "statistics"
@@ -10946,9 +11997,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info']
 
 
-                            class LeaseQueryReply(Entity):
+                            class LeaseQueryReply(_Entity_):
                                 """
                                 DHCPV6 lease query reply packets
                                 
@@ -10987,7 +12042,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
 
                                     self.yang_name = "lease-query-reply"
                                     self.yang_parent_name = "statistics"
@@ -11009,9 +12067,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info']
 
 
-                            class LeaseQueryDone(Entity):
+                            class LeaseQueryDone(_Entity_):
                                 """
                                 DHCPV6 lease query done packets
                                 
@@ -11050,7 +12112,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
 
                                     self.yang_name = "lease-query-done"
                                     self.yang_parent_name = "statistics"
@@ -11072,9 +12137,13 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info']
 
 
-                            class LeaseQueryData(Entity):
+                            class LeaseQueryData(_Entity_):
                                 """
                                 DHCPV6 lease query data packets
                                 
@@ -11113,7 +12182,10 @@ class Dhcpv6(Entity):
                                 _revision = '2018-10-09'
 
                                 def __init__(self):
-                                    super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
 
                                     self.yang_name = "lease-query-data"
                                     self.yang_parent_name = "statistics"
@@ -11135,16 +12207,48 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                    return meta._meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                return meta._meta_table['Dhcpv6.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+            return meta._meta_table['Dhcpv6.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Dhcpv6()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['Dhcpv6']['meta_info']
 
 

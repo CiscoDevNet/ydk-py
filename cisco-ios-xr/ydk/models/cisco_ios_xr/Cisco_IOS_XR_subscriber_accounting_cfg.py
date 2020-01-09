@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SubscriberAccounting(Entity):
+class SubscriberAccounting(_Entity_):
     """
     Subscriber Configuration
     
@@ -42,7 +45,10 @@ class SubscriberAccounting(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SubscriberAccounting, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberAccounting, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-accounting"
@@ -63,7 +69,7 @@ class SubscriberAccounting(Entity):
         self._perform_setattr(SubscriberAccounting, [], name, value)
 
 
-    class PrepaidConfigurations(Entity):
+    class PrepaidConfigurations(_Entity_):
         """
         Subscriber Prepaid Feature Configuration
         
@@ -80,7 +86,10 @@ class SubscriberAccounting(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberAccounting.PrepaidConfigurations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberAccounting.PrepaidConfigurations, self).__init__()
 
             self.yang_name = "prepaid-configurations"
             self.yang_parent_name = "subscriber-accounting"
@@ -99,7 +108,7 @@ class SubscriberAccounting(Entity):
             self._perform_setattr(SubscriberAccounting.PrepaidConfigurations, [], name, value)
 
 
-        class PrepaidConfiguration(Entity):
+        class PrepaidConfiguration(_Entity_):
             """
             Prepaid configuration name or default
             
@@ -172,7 +181,10 @@ class SubscriberAccounting(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, self).__init__()
 
                 self.yang_name = "prepaid-configuration"
                 self.yang_parent_name = "prepaid-configurations"
@@ -207,11 +219,23 @@ class SubscriberAccounting(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, ['prepaid_config_name', 'password', 'volume_threshold', 'accounting_method_list', 'time_hold', 'author_method_list', 'traffic_direction', 'time_threshold', 'time_valid'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_cfg as meta
+                return meta._meta_table['SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_cfg as meta
+            return meta._meta_table['SubscriberAccounting.PrepaidConfigurations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberAccounting()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_accounting_cfg as meta
+        return meta._meta_table['SubscriberAccounting']['meta_info']
 
 

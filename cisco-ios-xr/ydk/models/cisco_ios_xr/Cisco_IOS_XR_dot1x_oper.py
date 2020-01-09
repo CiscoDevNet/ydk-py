@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Dot1x(Entity):
+class Dot1x(_Entity_):
     """
     Dot1x operational data
     
@@ -54,7 +57,10 @@ class Dot1x(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Dot1x, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Dot1x, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dot1x"
@@ -83,7 +89,7 @@ class Dot1x(Entity):
         self._perform_setattr(Dot1x, [], name, value)
 
 
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Dot1x operational data
         
@@ -102,7 +108,10 @@ class Dot1x(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1x.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dot1x.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "dot1x"
@@ -123,7 +132,7 @@ class Dot1x(Entity):
             self._perform_setattr(Dot1x.Statistics, [], name, value)
 
 
-        class InterfaceStatistics(Entity):
+        class InterfaceStatistics(_Entity_):
             """
             Interfaces with Dot1x
             
@@ -142,7 +151,10 @@ class Dot1x(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1x.Statistics.InterfaceStatistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dot1x.Statistics.InterfaceStatistics, self).__init__()
 
                 self.yang_name = "interface-statistics"
                 self.yang_parent_name = "statistics"
@@ -161,7 +173,7 @@ class Dot1x(Entity):
                 self._perform_setattr(Dot1x.Statistics.InterfaceStatistics, [], name, value)
 
 
-            class InterfaceStatistic(Entity):
+            class InterfaceStatistic(_Entity_):
                 """
                 Dot1x Data for that Interface
                 
@@ -224,7 +236,10 @@ class Dot1x(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, self).__init__()
 
                     self.yang_name = "interface-statistic"
                     self.yang_parent_name = "interface-statistics"
@@ -264,7 +279,7 @@ class Dot1x(Entity):
                     self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', 'interface_name', 'pae'], name, value)
 
 
-                class Idb(Entity):
+                class Idb(_Entity_):
                     """
                     Dot1x interface database Statistics
                     
@@ -303,7 +318,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, self).__init__()
 
                         self.yang_name = "idb"
                         self.yang_parent_name = "interface-statistic"
@@ -325,9 +343,13 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb']['meta_info']
 
 
-                class Auth(Entity):
+                class Auth(_Entity_):
                     """
                     Dot1x Authenticator Port Statistics
                     
@@ -454,7 +476,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, self).__init__()
 
                         self.yang_name = "auth"
                         self.yang_parent_name = "interface-statistic"
@@ -499,7 +524,7 @@ class Dot1x(Entity):
                         self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
 
 
-                    class PortControl(Entity):
+                    class PortControl(_Entity_):
                         """
                         PortControl
                         
@@ -565,7 +590,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, self).__init__()
 
                             self.yang_name = "port-control"
                             self.yang_parent_name = "auth"
@@ -593,10 +621,18 @@ class Dot1x(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth']['meta_info']
 
 
-
-                class Supp(Entity):
+                class Supp(_Entity_):
                     """
                     Dot1x Supplicant Port Statistics
                     
@@ -689,7 +725,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, self).__init__()
 
                         self.yang_name = "supp"
                         self.yang_parent_name = "interface-statistic"
@@ -723,9 +762,13 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp']['meta_info']
 
 
-                class LocalEap(Entity):
+                class LocalEap(_Entity_):
                     """
                     Dot1x Local EAP Port Statistics
                     
@@ -800,7 +843,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, self).__init__()
 
                         self.yang_name = "local-eap"
                         self.yang_parent_name = "interface-statistic"
@@ -830,12 +876,28 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                    return meta._meta_table['Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                return meta._meta_table['Dot1x.Statistics.InterfaceStatistics']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+            return meta._meta_table['Dot1x.Statistics']['meta_info']
 
 
-
-
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific Dot1x operational data
         
@@ -854,7 +916,10 @@ class Dot1x(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1x.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dot1x.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "dot1x"
@@ -873,7 +938,7 @@ class Dot1x(Entity):
             self._perform_setattr(Dot1x.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Dot1x operational data for a particular node
             
@@ -908,7 +973,10 @@ class Dot1x(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1x.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dot1x.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -936,7 +1004,7 @@ class Dot1x(Entity):
                 self._perform_setattr(Dot1x.Nodes.Node, ['node_name'], name, value)
 
 
-            class Dot1xDefaults(Entity):
+            class Dot1xDefaults(_Entity_):
                 """
                 Dot1x Default Values
                 
@@ -971,7 +1039,10 @@ class Dot1x(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1x.Nodes.Node.Dot1xDefaults, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dot1x.Nodes.Node.Dot1xDefaults, self).__init__()
 
                     self.yang_name = "dot1x-defaults"
                     self.yang_parent_name = "node"
@@ -998,7 +1069,7 @@ class Dot1x(Entity):
                     self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, ['version'], name, value)
 
 
-                class AuthTimers(Entity):
+                class AuthTimers(_Entity_):
                     """
                     Dot1x Authenticator default Timer values
                     
@@ -1072,7 +1143,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, self).__init__()
 
                         self.yang_name = "auth-timers"
                         self.yang_parent_name = "dot1x-defaults"
@@ -1100,9 +1174,13 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, ['quiet_period', 'tx_period', 'max_reauth_req', 'supp_timeout', 'max_req', 'reauth_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers']['meta_info']
 
 
-                class SuppTimers(Entity):
+                class SuppTimers(_Entity_):
                     """
                     Dot1x Supllicant default Timer values
                     
@@ -1156,7 +1234,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, self).__init__()
 
                         self.yang_name = "supp-timers"
                         self.yang_parent_name = "dot1x-defaults"
@@ -1180,10 +1261,18 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, ['auth_period', 'held_period', 'start_period', 'max_start'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                    return meta._meta_table['Dot1x.Nodes.Node.Dot1xDefaults']['meta_info']
 
 
-
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Dot1x Default Values
                 
@@ -1209,7 +1298,10 @@ class Dot1x(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1x.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dot1x.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -1231,7 +1323,7 @@ class Dot1x(Entity):
                     self._perform_setattr(Dot1x.Nodes.Node.Statistics, [], name, value)
 
 
-                class GlStats(Entity):
+                class GlStats(_Entity_):
                     """
                     Global statistics
                     
@@ -1286,7 +1378,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Nodes.Node.Statistics.GlStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Nodes.Node.Statistics.GlStats, self).__init__()
 
                         self.yang_name = "gl-stats"
                         self.yang_parent_name = "statistics"
@@ -1315,7 +1410,7 @@ class Dot1x(Entity):
                         self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, ['tx_total', 'rx_total', 'rx_no_idb', 'packet_drop_no_config_received'], name, value)
 
 
-                    class PortControl(Entity):
+                    class PortControl(_Entity_):
                         """
                         PortControl
                         
@@ -1399,7 +1494,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, self).__init__()
 
                             self.yang_name = "port-control"
                             self.yang_parent_name = "gl-stats"
@@ -1431,10 +1529,18 @@ class Dot1x(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, ['enable_succ', 'enable_fail', 'disable_succ', 'disable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Nodes.Node.Statistics.GlStats.PortControl']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Nodes.Node.Statistics.GlStats']['meta_info']
 
 
-
-                class IfStats(Entity):
+                class IfStats(_Entity_):
                     """
                     dot1x interface statistics list
                     
@@ -1488,7 +1594,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Nodes.Node.Statistics.IfStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Nodes.Node.Statistics.IfStats, self).__init__()
 
                         self.yang_name = "if-stats"
                         self.yang_parent_name = "statistics"
@@ -1525,7 +1634,7 @@ class Dot1x(Entity):
                         self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, ['interface_name', 'pae'], name, value)
 
 
-                    class Idb(Entity):
+                    class Idb(_Entity_):
                         """
                         Dot1x interface database Statistics
                         
@@ -1564,7 +1673,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Nodes.Node.Statistics.IfStats.Idb, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Nodes.Node.Statistics.IfStats.Idb, self).__init__()
 
                             self.yang_name = "idb"
                             self.yang_parent_name = "if-stats"
@@ -1586,9 +1698,13 @@ class Dot1x(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats.Idb']['meta_info']
 
 
-                    class Auth(Entity):
+                    class Auth(_Entity_):
                         """
                         Dot1x Authenticator Port Statistics
                         
@@ -1715,7 +1831,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Nodes.Node.Statistics.IfStats.Auth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Nodes.Node.Statistics.IfStats.Auth, self).__init__()
 
                             self.yang_name = "auth"
                             self.yang_parent_name = "if-stats"
@@ -1760,7 +1879,7 @@ class Dot1x(Entity):
                             self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
 
 
-                        class PortControl(Entity):
+                        class PortControl(_Entity_):
                             """
                             PortControl
                             
@@ -1826,7 +1945,10 @@ class Dot1x(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, self).__init__()
 
                                 self.yang_name = "port-control"
                                 self.yang_parent_name = "auth"
@@ -1854,10 +1976,18 @@ class Dot1x(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                                return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats.Auth']['meta_info']
 
 
-
-                    class Supp(Entity):
+                    class Supp(_Entity_):
                         """
                         Dot1x Supplicant Port Statistics
                         
@@ -1950,7 +2080,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Nodes.Node.Statistics.IfStats.Supp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Nodes.Node.Statistics.IfStats.Supp, self).__init__()
 
                             self.yang_name = "supp"
                             self.yang_parent_name = "if-stats"
@@ -1984,9 +2117,13 @@ class Dot1x(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats.Supp']['meta_info']
 
 
-                    class LocalEap(Entity):
+                    class LocalEap(_Entity_):
                         """
                         Dot1x Local EAP Port Statistics
                         
@@ -2061,7 +2198,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, self).__init__()
 
                             self.yang_name = "local-eap"
                             self.yang_parent_name = "if-stats"
@@ -2091,13 +2231,33 @@ class Dot1x(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats.LocalEap']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Nodes.Node.Statistics.IfStats']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                    return meta._meta_table['Dot1x.Nodes.Node.Statistics']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                return meta._meta_table['Dot1x.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+            return meta._meta_table['Dot1x.Nodes']['meta_info']
 
 
-
-
-
-
-    class Session(Entity):
+    class Session(_Entity_):
         """
         Dot1x operational data
         
@@ -2116,7 +2276,10 @@ class Dot1x(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1x.Session, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dot1x.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "dot1x"
@@ -2137,7 +2300,7 @@ class Dot1x(Entity):
             self._perform_setattr(Dot1x.Session, [], name, value)
 
 
-        class InterfaceSessions(Entity):
+        class InterfaceSessions(_Entity_):
             """
             Interfaces with Dot1x
             
@@ -2156,7 +2319,10 @@ class Dot1x(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1x.Session.InterfaceSessions, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dot1x.Session.InterfaceSessions, self).__init__()
 
                 self.yang_name = "interface-sessions"
                 self.yang_parent_name = "session"
@@ -2175,7 +2341,7 @@ class Dot1x(Entity):
                 self._perform_setattr(Dot1x.Session.InterfaceSessions, [], name, value)
 
 
-            class InterfaceSession(Entity):
+            class InterfaceSession(_Entity_):
                 """
                 Dot1x Data for that Interface
                 
@@ -2252,7 +2418,10 @@ class Dot1x(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1x.Session.InterfaceSessions.InterfaceSession, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dot1x.Session.InterfaceSessions.InterfaceSession, self).__init__()
 
                     self.yang_name = "interface-session"
                     self.yang_parent_name = "interface-sessions"
@@ -2292,7 +2461,7 @@ class Dot1x(Entity):
                     self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', 'interface_name', 'interface_sname', 'if_handle', 'mac', 'ethertype', 'eapol_addr'], name, value)
 
 
-                class IntfInfo(Entity):
+                class IntfInfo(_Entity_):
                     """
                     Dot1x interface Info
                     
@@ -2346,7 +2515,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, self).__init__()
 
                         self.yang_name = "intf-info"
                         self.yang_parent_name = "interface-session"
@@ -2379,7 +2551,7 @@ class Dot1x(Entity):
                         self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, ['pae', 'port_status', 'dot1x_profile', 'l2_transport'], name, value)
 
 
-                    class AuthInfo(Entity):
+                    class AuthInfo(_Entity_):
                         """
                         Dot1x Authenticator info
                         
@@ -2426,7 +2598,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, self).__init__()
 
                             self.yang_name = "auth-info"
                             self.yang_parent_name = "intf-info"
@@ -2453,7 +2628,7 @@ class Dot1x(Entity):
                             self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, ['port_control', 'reauth', 'config_dependency', 'eap_profile'], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Authenticator client list
                             
@@ -2514,7 +2689,10 @@ class Dot1x(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "auth-info"
@@ -2544,10 +2722,18 @@ class Dot1x(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, ['mac', 'auth_sm_state', 'auth_bend_sm_state', 'time_to_next_reauth', 'last_auth_time', 'last_auth_server', 'port_control'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                                return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo']['meta_info']
 
 
-
-                    class SuppInfo(Entity):
+                    class SuppInfo(_Entity_):
                         """
                         Dot1x Supplicant info
                         
@@ -2580,7 +2766,10 @@ class Dot1x(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, self).__init__()
 
                             self.yang_name = "supp-info"
                             self.yang_parent_name = "intf-info"
@@ -2603,7 +2792,7 @@ class Dot1x(Entity):
                             self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, ['eap_profile', 'config_dependency'], name, value)
 
 
-                        class Client(Entity):
+                        class Client(_Entity_):
                             """
                             Supp Client info
                             
@@ -2650,7 +2839,10 @@ class Dot1x(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, self).__init__()
 
                                 self.yang_name = "client"
                                 self.yang_parent_name = "supp-info"
@@ -2676,11 +2868,23 @@ class Dot1x(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, ['mac', 'eap_method', 'last_auth_time', 'auth_sm_state', 'auth_bend_sm_state'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                                return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                            return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo']['meta_info']
 
 
-
-
-                class MkaStatusInfo(Entity):
+                class MkaStatusInfo(_Entity_):
                     """
                     MKA session secure status
                     
@@ -2727,7 +2931,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, self).__init__()
 
                         self.yang_name = "mka-status-info"
                         self.yang_parent_name = "interface-session"
@@ -2753,13 +2960,33 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, ['tie_break_role', 'eap_based_macsec', 'mka_start_time', 'mka_stop_time', 'mka_response_time'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                        return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                    return meta._meta_table['Dot1x.Session.InterfaceSessions.InterfaceSession']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+                return meta._meta_table['Dot1x.Session.InterfaceSessions']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+            return meta._meta_table['Dot1x.Session']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Dot1x()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_oper as meta
+        return meta._meta_table['Dot1x']['meta_info']
 
 

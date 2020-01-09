@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class PceBindingSid(Enum):
     mpls_label_specified = Enum.YLeaf(1, "mpls-label-specified")
 
     mpls_label_any = Enum.YLeaf(2, "mpls-label-any")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceBindingSid']
 
 
 class PceDisjointPath(Enum):
@@ -74,6 +83,12 @@ class PceDisjointPath(Enum):
     srlg_node = Enum.YLeaf(4, "srlg-node")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceDisjointPath']
+
+
 class PceEndPoint(Enum):
     """
     PceEndPoint (Enum Class)
@@ -95,37 +110,31 @@ class PceEndPoint(Enum):
     end_point_type_ipv6 = Enum.YLeaf(2, "end-point-type-ipv6")
 
 
-class PceExplicitPathHop(Enum):
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceEndPoint']
+
+
+class PceLogggingDisabled(Enum):
     """
-    PceExplicitPathHop (Enum Class)
+    PceLogggingDisabled (Enum Class)
 
-    Pce explicit path hop
+    Pce loggging disabled
 
-    .. data:: address = 1
+    .. data:: disabled = 1
 
-    	Address
-
-    .. data:: sid_node = 2
-
-    	SID Node
-
-    .. data:: sid_adjancency = 3
-
-    	SID Adjacency
-
-    .. data:: binding_sid = 4
-
-    	Binding SID
+    	Logging disabled
 
     """
 
-    address = Enum.YLeaf(1, "address")
+    disabled = Enum.YLeaf(1, "disabled")
 
-    sid_node = Enum.YLeaf(2, "sid-node")
 
-    sid_adjancency = Enum.YLeaf(3, "sid-adjancency")
-
-    binding_sid = Enum.YLeaf(4, "binding-sid")
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceLogggingDisabled']
 
 
 class PceMetric(Enum):
@@ -161,6 +170,12 @@ class PceMetric(Enum):
     latency = Enum.YLeaf(12, "latency")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceMetric']
+
+
 class PcePath(Enum):
     """
     PcePath (Enum Class)
@@ -180,6 +195,12 @@ class PcePath(Enum):
     explicit = Enum.YLeaf(1, "explicit")
 
     dynamic = Enum.YLeaf(2, "dynamic")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PcePath']
 
 
 class PcePathHop(Enum):
@@ -203,6 +224,12 @@ class PcePathHop(Enum):
     srv6 = Enum.YLeaf(2, "srv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PcePathHop']
+
+
 class PceSegment(Enum):
     """
     PceSegment (Enum Class)
@@ -222,6 +249,12 @@ class PceSegment(Enum):
     ipv4_address = Enum.YLeaf(1, "ipv4-address")
 
     mpls_label = Enum.YLeaf(3, "mpls-label")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PceSegment']
 
 
 class PcerestAuthentication(Enum):
@@ -245,8 +278,14 @@ class PcerestAuthentication(Enum):
     digest = Enum.YLeaf(2, "digest")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['PcerestAuthentication']
 
-class Pce(Entity):
+
+
+class Pce(_Entity_):
     """
     PCE configuration data
     
@@ -304,11 +343,6 @@ class Pce(Entity):
     	Disjoint path configuration
     	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath>`
     
-    .. attribute:: explicit_paths
-    
-    	Explicit paths
-    	**type**\:  :py:class:`ExplicitPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths>`
-    
     .. attribute:: peer_filter
     
     	Peer filter
@@ -345,10 +379,13 @@ class Pce(Entity):
     """
 
     _prefix = 'infra-xtc-cfg'
-    _revision = '2018-07-25'
+    _revision = '2019-09-24'
 
     def __init__(self):
-        super(Pce, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pce, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pce"
@@ -356,7 +393,7 @@ class Pce(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("ipv6-state-syncs", ("ipv6_state_syncs", Pce.Ipv6StateSyncs)), ("pcc-addresses", ("pcc_addresses", Pce.PccAddresses)), ("logging", ("logging", Pce.Logging)), ("backoff", ("backoff", Pce.Backoff)), ("rest", ("rest", Pce.Rest)), ("state-syncs", ("state_syncs", Pce.StateSyncs)), ("segment-routing", ("segment_routing", Pce.SegmentRouting)), ("timers", ("timers", Pce.Timers)), ("netconf", ("netconf", Pce.Netconf)), ("disjoint-path", ("disjoint_path", Pce.DisjointPath)), ("explicit-paths", ("explicit_paths", Pce.ExplicitPaths)), ("peer-filter", ("peer_filter", Pce.PeerFilter))])
+        self._child_classes = OrderedDict([("ipv6-state-syncs", ("ipv6_state_syncs", Pce.Ipv6StateSyncs)), ("pcc-addresses", ("pcc_addresses", Pce.PccAddresses)), ("logging", ("logging", Pce.Logging)), ("backoff", ("backoff", Pce.Backoff)), ("rest", ("rest", Pce.Rest)), ("state-syncs", ("state_syncs", Pce.StateSyncs)), ("segment-routing", ("segment_routing", Pce.SegmentRouting)), ("timers", ("timers", Pce.Timers)), ("netconf", ("netconf", Pce.Netconf)), ("disjoint-path", ("disjoint_path", Pce.DisjointPath)), ("peer-filter", ("peer_filter", Pce.PeerFilter))])
         self._leafs = OrderedDict([
             ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
             ('ipv6_server_address', (YLeaf(YType.str, 'ipv6-server-address'), ['str'])),
@@ -406,10 +443,6 @@ class Pce(Entity):
         self.disjoint_path.parent = self
         self._children_name_map["disjoint_path"] = "disjoint-path"
 
-        self.explicit_paths = Pce.ExplicitPaths()
-        self.explicit_paths.parent = self
-        self._children_name_map["explicit_paths"] = "explicit-paths"
-
         self.peer_filter = Pce.PeerFilter()
         self.peer_filter.parent = self
         self._children_name_map["peer_filter"] = "peer-filter"
@@ -420,7 +453,7 @@ class Pce(Entity):
         self._perform_setattr(Pce, ['server_address', 'ipv6_server_address', 'password', 'enable'], name, value)
 
 
-    class Ipv6StateSyncs(Entity):
+    class Ipv6StateSyncs(_Entity_):
         """
         Standby IPv6 PCE configuration
         
@@ -434,10 +467,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Ipv6StateSyncs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Ipv6StateSyncs, self).__init__()
 
             self.yang_name = "ipv6-state-syncs"
             self.yang_parent_name = "pce"
@@ -456,7 +492,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.Ipv6StateSyncs, [], name, value)
 
 
-        class Ipv6StateSync(Entity):
+        class Ipv6StateSync(_Entity_):
             """
             Standby PCE ipv6 address
             
@@ -472,10 +508,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.Ipv6StateSyncs.Ipv6StateSync, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Ipv6StateSyncs.Ipv6StateSync, self).__init__()
 
                 self.yang_name = "ipv6-state-sync"
                 self.yang_parent_name = "ipv6-state-syncs"
@@ -494,10 +533,18 @@ class Pce(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.Ipv6StateSyncs.Ipv6StateSync, ['address'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.Ipv6StateSyncs.Ipv6StateSync']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Ipv6StateSyncs']['meta_info']
 
 
-
-    class PccAddresses(Entity):
+    class PccAddresses(_Entity_):
         """
         Path computation client configuration
         
@@ -511,10 +558,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.PccAddresses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PccAddresses, self).__init__()
 
             self.yang_name = "pcc-addresses"
             self.yang_parent_name = "pce"
@@ -533,7 +583,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.PccAddresses, [], name, value)
 
 
-        class PccAddress(Entity):
+        class PccAddress(_Entity_):
             """
             Path computation client address
             
@@ -559,10 +609,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.PccAddresses.PccAddress, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.PccAddresses.PccAddress, self).__init__()
 
                 self.yang_name = "pcc-address"
                 self.yang_parent_name = "pcc-addresses"
@@ -588,7 +641,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.PccAddresses.PccAddress, ['address', 'enable'], name, value)
 
 
-            class LspNames(Entity):
+            class LspNames(_Entity_):
                 """
                 MPLS label switched path
                 
@@ -602,10 +655,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.PccAddresses.PccAddress.LspNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.PccAddresses.PccAddress.LspNames, self).__init__()
 
                     self.yang_name = "lsp-names"
                     self.yang_parent_name = "pcc-address"
@@ -623,7 +679,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames, [], name, value)
 
 
-                class LspName(Entity):
+                class LspName(_Entity_):
                     """
                     MPLS label switched path
                     
@@ -663,10 +719,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
+                    _revision = '2019-09-24'
 
                     def __init__(self):
-                        super(Pce.PccAddresses.PccAddress.LspNames.LspName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.PccAddresses.PccAddress.LspNames.LspName, self).__init__()
 
                         self.yang_name = "lsp-name"
                         self.yang_parent_name = "lsp-names"
@@ -694,7 +753,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName, ['name', 'undelegate', 'explicit_path_name', 'enable'], name, value)
 
 
-                    class RsvpTe(Entity):
+                    class RsvpTe(_Entity_):
                         """
                         RSVP\-TE configuration
                         
@@ -738,10 +797,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-25'
+                        _revision = '2019-09-24'
 
                         def __init__(self):
-                            super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe, self).__init__()
 
                             self.yang_name = "rsvp-te"
                             self.yang_parent_name = "lsp-name"
@@ -772,7 +834,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe, ['fast_protect', 'bandwidth', 'enable'], name, value)
 
 
-                        class Affinity(Entity):
+                        class Affinity(_Entity_):
                             """
                             LSP Affinity
                             
@@ -802,10 +864,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-25'
+                            _revision = '2019-09-24'
 
                             def __init__(self):
-                                super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity, self).__init__()
 
                                 self.yang_name = "affinity"
                                 self.yang_parent_name = "rsvp-te"
@@ -827,9 +892,13 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity, ['include_any', 'include_all', 'exclude_any'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                return meta._meta_table['Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity']['meta_info']
 
 
-                        class Priority(Entity):
+                        class Priority(_Entity_):
                             """
                             Tunnel Setup and Hold Priorities
                             
@@ -858,10 +927,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-25'
+                            _revision = '2019-09-24'
 
                             def __init__(self):
-                                super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority, self).__init__()
 
                                 self.yang_name = "priority"
                                 self.yang_parent_name = "rsvp-te"
@@ -882,16 +954,45 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority, ['setup_priority', 'hold_priority'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                return meta._meta_table['Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                            return meta._meta_table['Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                        return meta._meta_table['Pce.PccAddresses.PccAddress.LspNames.LspName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.PccAddresses.PccAddress.LspNames']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.PccAddresses.PccAddress']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.PccAddresses']['meta_info']
 
 
-
-
-
-
-
-    class Logging(Entity):
+    class Logging(_Entity_):
         """
         PCE logging configuration
+        
+        .. attribute:: rest_logging
+        
+        	REST logging configuration
+        	**type**\:  :py:class:`RestLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.Logging.RestLogging>`
         
         .. attribute:: no_path
         
@@ -913,17 +1014,20 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Logging, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Logging, self).__init__()
 
             self.yang_name = "logging"
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("rest-logging", ("rest_logging", Pce.Logging.RestLogging))])
             self._leafs = OrderedDict([
                 ('no_path', (YLeaf(YType.empty, 'no-path'), ['Empty'])),
                 ('pcerr', (YLeaf(YType.empty, 'pcerr'), ['Empty'])),
@@ -932,6 +1036,10 @@ class Pce(Entity):
             self.no_path = None
             self.pcerr = None
             self.fallback = None
+
+            self.rest_logging = Pce.Logging.RestLogging()
+            self.rest_logging.parent = self
+            self._children_name_map["rest_logging"] = "rest-logging"
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
             self._is_frozen = True
@@ -940,8 +1048,57 @@ class Pce(Entity):
             self._perform_setattr(Pce.Logging, ['no_path', 'pcerr', 'fallback'], name, value)
 
 
+        class RestLogging(_Entity_):
+            """
+            REST logging configuration
+            
+            .. attribute:: send_queue_congestion
+            
+            	Logging of send queue congestion messages
+            	**type**\:  :py:class:`PceLogggingDisabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceLogggingDisabled>`
+            
+            
 
-    class Backoff(Entity):
+            """
+
+            _prefix = 'infra-xtc-cfg'
+            _revision = '2019-09-24'
+
+            def __init__(self):
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Logging.RestLogging, self).__init__()
+
+                self.yang_name = "rest-logging"
+                self.yang_parent_name = "logging"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('send_queue_congestion', (YLeaf(YType.enumeration, 'send-queue-congestion'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg', 'PceLogggingDisabled', '')])),
+                ])
+                self.send_queue_congestion = None
+                self._segment_path = lambda: "rest-logging"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/logging/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pce.Logging.RestLogging, ['send_queue_congestion'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.Logging.RestLogging']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Logging']['meta_info']
+
+
+    class Backoff(_Entity_):
         """
         PCE backoff configuration
         
@@ -979,10 +1136,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Backoff, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Backoff, self).__init__()
 
             self.yang_name = "backoff"
             self.yang_parent_name = "pce"
@@ -1006,9 +1166,13 @@ class Pce(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.Backoff, ['ratio', 'threshold', 'difference'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Backoff']['meta_info']
 
 
-    class Rest(Entity):
+    class Rest(_Entity_):
         """
         REST configuration
         
@@ -1032,10 +1196,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Rest, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Rest, self).__init__()
 
             self.yang_name = "rest"
             self.yang_parent_name = "pce"
@@ -1061,7 +1228,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.Rest, ['rest_authentication', 'enable'], name, value)
 
 
-        class RestUsers(Entity):
+        class RestUsers(_Entity_):
             """
             REST authorized users configuration
             
@@ -1075,10 +1242,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.Rest.RestUsers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Rest.RestUsers, self).__init__()
 
                 self.yang_name = "rest-users"
                 self.yang_parent_name = "rest"
@@ -1097,7 +1267,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.Rest.RestUsers, [], name, value)
 
 
-            class RestUser(Entity):
+            class RestUser(_Entity_):
                 """
                 REST authorized user
                 
@@ -1125,10 +1295,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.Rest.RestUsers.RestUser, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.Rest.RestUsers.RestUser, self).__init__()
 
                     self.yang_name = "rest-user"
                     self.yang_parent_name = "rest-users"
@@ -1151,11 +1324,23 @@ class Pce(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.Rest.RestUsers.RestUser, ['name', 'rest_user_password', 'enable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.Rest.RestUsers.RestUser']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.Rest.RestUsers']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Rest']['meta_info']
 
 
-
-
-    class StateSyncs(Entity):
+    class StateSyncs(_Entity_):
         """
         Standby IPv4 PCE configuration
         
@@ -1169,10 +1354,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.StateSyncs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.StateSyncs, self).__init__()
 
             self.yang_name = "state-syncs"
             self.yang_parent_name = "pce"
@@ -1191,7 +1379,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.StateSyncs, [], name, value)
 
 
-        class StateSync(Entity):
+        class StateSync(_Entity_):
             """
             Standby PCE ipv4 address
             
@@ -1207,10 +1395,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.StateSyncs.StateSync, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.StateSyncs.StateSync, self).__init__()
 
                 self.yang_name = "state-sync"
                 self.yang_parent_name = "state-syncs"
@@ -1229,10 +1420,18 @@ class Pce(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.StateSyncs.StateSync, ['address'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.StateSyncs.StateSync']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.StateSyncs']['meta_info']
 
 
-
-    class SegmentRouting(Entity):
+    class SegmentRouting(_Entity_):
         """
         PCE segment\-routing configuration
         
@@ -1256,10 +1455,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.SegmentRouting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.SegmentRouting, self).__init__()
 
             self.yang_name = "segment-routing"
             self.yang_parent_name = "pce"
@@ -1285,7 +1487,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.SegmentRouting, ['te_latency', 'strict_sid_only'], name, value)
 
 
-        class TrafficEngineering(Entity):
+        class TrafficEngineering(_Entity_):
             """
             Traffic Engineering configuration data
             
@@ -1314,10 +1516,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.SegmentRouting.TrafficEngineering, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.SegmentRouting.TrafficEngineering, self).__init__()
 
                 self.yang_name = "traffic-engineering"
                 self.yang_parent_name = "segment-routing"
@@ -1349,7 +1554,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.SegmentRouting.TrafficEngineering, ['enable'], name, value)
 
 
-            class AffinityBits(Entity):
+            class AffinityBits(_Entity_):
                 """
                 Affinity Bit\-map
                 
@@ -1363,10 +1568,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.SegmentRouting.TrafficEngineering.AffinityBits, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.SegmentRouting.TrafficEngineering.AffinityBits, self).__init__()
 
                     self.yang_name = "affinity-bits"
                     self.yang_parent_name = "traffic-engineering"
@@ -1385,7 +1593,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.AffinityBits, [], name, value)
 
 
-                class AffinityBit(Entity):
+                class AffinityBit(_Entity_):
                     """
                     Affinity Bit
                     
@@ -1410,10 +1618,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
+                    _revision = '2019-09-24'
 
                     def __init__(self):
-                        super(Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit, self).__init__()
 
                         self.yang_name = "affinity-bit"
                         self.yang_parent_name = "affinity-bits"
@@ -1434,10 +1645,18 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit, ['color_name', 'bit'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.AffinityBits']['meta_info']
 
 
-
-            class Peers(Entity):
+            class Peers(_Entity_):
                 """
                 Peer configuration
                 
@@ -1451,10 +1670,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.SegmentRouting.TrafficEngineering.Peers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.SegmentRouting.TrafficEngineering.Peers, self).__init__()
 
                     self.yang_name = "peers"
                     self.yang_parent_name = "traffic-engineering"
@@ -1473,7 +1695,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers, [], name, value)
 
 
-                class Peer(Entity):
+                class Peer(_Entity_):
                     """
                     Peer configuration
                     
@@ -1505,10 +1727,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
+                    _revision = '2019-09-24'
 
                     def __init__(self):
-                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer, self).__init__()
 
                         self.yang_name = "peer"
                         self.yang_parent_name = "peers"
@@ -1534,7 +1759,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer, ['peer_addr', 'enable'], name, value)
 
 
-                    class Policies(Entity):
+                    class Policies(_Entity_):
                         """
                         Policy configuration
                         
@@ -1548,10 +1773,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-25'
+                        _revision = '2019-09-24'
 
                         def __init__(self):
-                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies, self).__init__()
 
                             self.yang_name = "policies"
                             self.yang_parent_name = "peer"
@@ -1569,7 +1797,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies, [], name, value)
 
 
-                        class Policy(Entity):
+                        class Policy(_Entity_):
                             """
                             Policy configuration
                             
@@ -1610,10 +1838,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-25'
+                            _revision = '2019-09-24'
 
                             def __init__(self):
-                                super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy, self).__init__()
 
                                 self.yang_name = "policy"
                                 self.yang_parent_name = "policies"
@@ -1648,7 +1879,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy, ['policy_name', 'enable', 'shutdown'], name, value)
 
 
-                            class BindingSid(Entity):
+                            class BindingSid(_Entity_):
                                 """
                                 Binding Segment ID
                                 
@@ -1669,10 +1900,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-25'
+                                _revision = '2019-09-24'
 
                                 def __init__(self):
-                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid, self).__init__()
 
                                     self.yang_name = "binding-sid"
                                     self.yang_parent_name = "policy"
@@ -1692,9 +1926,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid, ['binding_sid_type', 'mpls_label'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid']['meta_info']
 
 
-                            class ColorEndpoint(Entity):
+                            class ColorEndpoint(_Entity_):
                                 """
                                 Color and Endpoint
                                 
@@ -1728,10 +1966,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-25'
+                                _revision = '2019-09-24'
 
                                 def __init__(self):
-                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint, self).__init__()
 
                                     self.yang_name = "color-endpoint"
                                     self.yang_parent_name = "policy"
@@ -1753,9 +1994,13 @@ class Pce(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint, ['color', 'end_point_type', 'end_point_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint']['meta_info']
 
 
-                            class CandidatePaths(Entity):
+                            class CandidatePaths(_Entity_):
                                 """
                                 Policy candidate\-paths configuration
                                 
@@ -1779,10 +2024,13 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-cfg'
-                                _revision = '2018-07-25'
+                                _revision = '2019-09-24'
 
                                 def __init__(self):
-                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths, self).__init__()
 
                                     self.yang_name = "candidate-paths"
                                     self.yang_parent_name = "policy"
@@ -1809,7 +2057,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths, ['enable'], name, value)
 
 
-                                class AffinityRules(Entity):
+                                class AffinityRules(_Entity_):
                                     """
                                     Affinity rule table
                                     
@@ -1823,10 +2071,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-cfg'
-                                    _revision = '2018-07-25'
+                                    _revision = '2019-09-24'
 
                                     def __init__(self):
-                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules, self).__init__()
 
                                         self.yang_name = "affinity-rules"
                                         self.yang_parent_name = "candidate-paths"
@@ -1844,7 +2095,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules, [], name, value)
 
 
-                                    class AffinityRule(Entity):
+                                    class AffinityRule(_Entity_):
                                         """
                                         Affinity rule
                                         
@@ -1867,10 +2118,13 @@ class Pce(Entity):
                                         """
 
                                         _prefix = 'infra-xtc-cfg'
-                                        _revision = '2018-07-25'
+                                        _revision = '2019-09-24'
 
                                         def __init__(self):
-                                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule, self).__init__()
 
                                             self.yang_name = "affinity-rule"
                                             self.yang_parent_name = "affinity-rules"
@@ -1890,10 +2144,18 @@ class Pce(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule, ['rule', 'aff_value'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                            return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules']['meta_info']
 
 
-
-                                class Preferences(Entity):
+                                class Preferences(_Entity_):
                                     """
                                     Policy path\-option preference table
                                     
@@ -1907,10 +2169,13 @@ class Pce(Entity):
                                     """
 
                                     _prefix = 'infra-xtc-cfg'
-                                    _revision = '2018-07-25'
+                                    _revision = '2019-09-24'
 
                                     def __init__(self):
-                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences, self).__init__()
 
                                         self.yang_name = "preferences"
                                         self.yang_parent_name = "candidate-paths"
@@ -1928,7 +2193,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences, [], name, value)
 
 
-                                    class Preference(Entity):
+                                    class Preference(_Entity_):
                                         """
                                         Policy path\-option preference entry
                                         
@@ -1954,10 +2219,13 @@ class Pce(Entity):
                                         """
 
                                         _prefix = 'infra-xtc-cfg'
-                                        _revision = '2018-07-25'
+                                        _revision = '2019-09-24'
 
                                         def __init__(self):
-                                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference, self).__init__()
 
                                             self.yang_name = "preference"
                                             self.yang_parent_name = "preferences"
@@ -1982,7 +2250,7 @@ class Pce(Entity):
                                             self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference, ['path_index', 'enable'], name, value)
 
 
-                                        class PathInfos(Entity):
+                                        class PathInfos(_Entity_):
                                             """
                                             Policy path\-option preference
                                             configuration
@@ -1997,10 +2265,13 @@ class Pce(Entity):
                                             """
 
                                             _prefix = 'infra-xtc-cfg'
-                                            _revision = '2018-07-25'
+                                            _revision = '2019-09-24'
 
                                             def __init__(self):
-                                                super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos, self).__init__()
 
                                                 self.yang_name = "path-infos"
                                                 self.yang_parent_name = "preference"
@@ -2018,7 +2289,7 @@ class Pce(Entity):
                                                 self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos, [], name, value)
 
 
-                                            class PathInfo(Entity):
+                                            class PathInfo(_Entity_):
                                                 """
                                                 Policy configuration
                                                 
@@ -2056,10 +2327,13 @@ class Pce(Entity):
                                                 """
 
                                                 _prefix = 'infra-xtc-cfg'
-                                                _revision = '2018-07-25'
+                                                _revision = '2019-09-24'
 
                                                 def __init__(self):
-                                                    super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo, self).__init__()
 
                                                     self.yang_name = "path-info"
                                                     self.yang_parent_name = "path-infos"
@@ -2087,7 +2361,7 @@ class Pce(Entity):
                                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo, ['type', 'hop_type', 'segment_list_name', 'enable'], name, value)
 
 
-                                                class Metric(Entity):
+                                                class Metric(_Entity_):
                                                     """
                                                     Metric configuration, valid only for
                                                     dynamic path\-options
@@ -2106,10 +2380,13 @@ class Pce(Entity):
                                                     """
 
                                                     _prefix = 'infra-xtc-cfg'
-                                                    _revision = '2018-07-25'
+                                                    _revision = '2019-09-24'
 
                                                     def __init__(self):
-                                                        super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, self).__init__()
+                                                        if sys.version_info > (3,):
+                                                            super().__init__()
+                                                        else:
+                                                            super(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, self).__init__()
 
                                                         self.yang_name = "metric"
                                                         self.yang_parent_name = "path-info"
@@ -2128,18 +2405,58 @@ class Pce(Entity):
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, ['metric_type'], name, value)
 
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric']['meta_info']
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                                return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                            return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                            return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers.Peer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Peers']['meta_info']
 
 
-
-
-
-
-
-
-
-
-
-            class Segments(Entity):
+            class Segments(_Entity_):
                 """
                 Segment\-lists configuration
                 
@@ -2153,10 +2470,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.SegmentRouting.TrafficEngineering.Segments, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.SegmentRouting.TrafficEngineering.Segments, self).__init__()
 
                     self.yang_name = "segments"
                     self.yang_parent_name = "traffic-engineering"
@@ -2175,7 +2495,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments, [], name, value)
 
 
-                class Segment(Entity):
+                class Segment(_Entity_):
                     """
                     Segment\-list configuration
                     
@@ -2191,15 +2511,23 @@ class Pce(Entity):
                     	Segments/hops configuration for given Segment\-list
                     	**type**\:  :py:class:`Segments_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_>`
                     
+                    .. attribute:: enable
+                    
+                    	True only
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     
 
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
+                    _revision = '2019-09-24'
 
                     def __init__(self):
-                        super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment, self).__init__()
 
                         self.yang_name = "segment"
                         self.yang_parent_name = "segments"
@@ -2209,8 +2537,10 @@ class Pce(Entity):
                         self._child_classes = OrderedDict([("segments", ("segments", Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_))])
                         self._leafs = OrderedDict([
                             ('path_name', (YLeaf(YType.str, 'path-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.path_name = None
+                        self.enable = None
 
                         self.segments = Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_()
                         self.segments.parent = self
@@ -2220,10 +2550,10 @@ class Pce(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments.Segment, ['path_name'], name, value)
+                        self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments.Segment, ['path_name', 'enable'], name, value)
 
 
-                    class Segments_(Entity):
+                    class Segments_(_Entity_):
                         """
                         Segments/hops configuration for given
                         Segment\-list
@@ -2238,10 +2568,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-25'
+                        _revision = '2019-09-24'
 
                         def __init__(self):
-                            super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_, self).__init__()
 
                             self.yang_name = "segments"
                             self.yang_parent_name = "segment"
@@ -2259,7 +2592,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_, [], name, value)
 
 
-                        class Segment_(Entity):
+                        class Segment_(_Entity_):
                             """
                             Configure Segment/hop at the index
                             
@@ -2294,10 +2627,13 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-cfg'
-                            _revision = '2018-07-25'
+                            _revision = '2019-09-24'
 
                             def __init__(self):
-                                super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_, self).__init__()
 
                                 self.yang_name = "segment"
                                 self.yang_parent_name = "segments"
@@ -2321,16 +2657,62 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_, ['segment_index', 'segment_type', 'address', 'mpls_label'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                                return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                            return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                        return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Segments.Segment']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.SegmentRouting.TrafficEngineering.Segments']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.SegmentRouting.TrafficEngineering']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.SegmentRouting']['meta_info']
 
 
-
-
-
-
-
-    class Timers(Entity):
+    class Timers(_Entity_):
         """
         PCE Timers configuration
+        
+        .. attribute:: initial_verify_restart
+        
+        	Timer to wait for topology convergence after topology starts populating for restart case
+        	**type**\: int
+        
+        	**range:** 10..10000
+        
+        	**units**\: second
+        
+        	**default value**\: 40
+        
+        .. attribute:: initial_verify_startup
+        
+        	Timer to wait for topology convergence after topology starts populating for startup case
+        	**type**\: int
+        
+        	**range:** 10..10000
+        
+        	**units**\: second
+        
+        	**default value**\: 300
         
         .. attribute:: reoptimization_timer
         
@@ -2342,6 +2724,17 @@ class Pce(Entity):
         	**units**\: second
         
         	**default value**\: 1800
+        
+        .. attribute:: initial_verify_switchover
+        
+        	Timer to wait for topology convergence after topology starts populating for switchover case
+        	**type**\: int
+        
+        	**range:** 10..10000
+        
+        	**units**\: second
+        
+        	**default value**\: 60
         
         .. attribute:: keepalive
         
@@ -2372,10 +2765,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Timers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Timers, self).__init__()
 
             self.yang_name = "timers"
             self.yang_parent_name = "pce"
@@ -2385,11 +2781,17 @@ class Pce(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
+                ('initial_verify_restart', (YLeaf(YType.uint32, 'initial-verify-restart'), ['int'])),
+                ('initial_verify_startup', (YLeaf(YType.uint32, 'initial-verify-startup'), ['int'])),
                 ('reoptimization_timer', (YLeaf(YType.uint32, 'reoptimization-timer'), ['int'])),
+                ('initial_verify_switchover', (YLeaf(YType.uint32, 'initial-verify-switchover'), ['int'])),
                 ('keepalive', (YLeaf(YType.uint32, 'keepalive'), ['int'])),
                 ('minimum_peer_keepalive', (YLeaf(YType.uint32, 'minimum-peer-keepalive'), ['int'])),
             ])
+            self.initial_verify_restart = None
+            self.initial_verify_startup = None
             self.reoptimization_timer = None
+            self.initial_verify_switchover = None
             self.keepalive = None
             self.minimum_peer_keepalive = None
             self._segment_path = lambda: "timers"
@@ -2397,11 +2799,15 @@ class Pce(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Pce.Timers, ['reoptimization_timer', 'keepalive', 'minimum_peer_keepalive'], name, value)
+            self._perform_setattr(Pce.Timers, ['initial_verify_restart', 'initial_verify_startup', 'reoptimization_timer', 'initial_verify_switchover', 'keepalive', 'minimum_peer_keepalive'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Timers']['meta_info']
 
 
-
-    class Netconf(Entity):
+    class Netconf(_Entity_):
         """
         NETCONF configuration
         
@@ -2420,10 +2826,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.Netconf, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.Netconf, self).__init__()
 
             self.yang_name = "netconf"
             self.yang_parent_name = "pce"
@@ -2447,7 +2856,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.Netconf, ['enable'], name, value)
 
 
-        class NetconfSsh(Entity):
+        class NetconfSsh(_Entity_):
             """
             NETCONF SSH configuration
             
@@ -2468,10 +2877,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.Netconf.NetconfSsh, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.Netconf.NetconfSsh, self).__init__()
 
                 self.yang_name = "netconf-ssh"
                 self.yang_parent_name = "netconf"
@@ -2492,10 +2904,18 @@ class Pce(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.Netconf.NetconfSsh, ['netconf_ssh_password', 'netconf_ssh_user'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.Netconf.NetconfSsh']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.Netconf']['meta_info']
 
 
-
-    class DisjointPath(Entity):
+    class DisjointPath(_Entity_):
         """
         Disjoint path configuration
         
@@ -2514,10 +2934,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.DisjointPath, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.DisjointPath, self).__init__()
 
             self.yang_name = "disjoint-path"
             self.yang_parent_name = "pce"
@@ -2541,7 +2964,7 @@ class Pce(Entity):
             self._perform_setattr(Pce.DisjointPath, ['enable'], name, value)
 
 
-        class Groups(Entity):
+        class Groups(_Entity_):
             """
             Association configuration
             
@@ -2555,10 +2978,13 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
+            _revision = '2019-09-24'
 
             def __init__(self):
-                super(Pce.DisjointPath.Groups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pce.DisjointPath.Groups, self).__init__()
 
                 self.yang_name = "groups"
                 self.yang_parent_name = "disjoint-path"
@@ -2577,7 +3003,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.DisjointPath.Groups, [], name, value)
 
 
-            class Group(Entity):
+            class Group(_Entity_):
                 """
                 Association Group Configuration
                 
@@ -2620,10 +3046,13 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
+                _revision = '2019-09-24'
 
                 def __init__(self):
-                    super(Pce.DisjointPath.Groups.Group, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pce.DisjointPath.Groups.Group, self).__init__()
 
                     self.yang_name = "group"
                     self.yang_parent_name = "groups"
@@ -2655,7 +3084,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.DisjointPath.Groups.Group, ['group_id', 'dp_type', 'sub_id', 'strict', 'enable'], name, value)
 
 
-                class GroupLspRecords(Entity):
+                class GroupLspRecords(_Entity_):
                     """
                     lsp pcc records container with in group
                     
@@ -2669,10 +3098,13 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
+                    _revision = '2019-09-24'
 
                     def __init__(self):
-                        super(Pce.DisjointPath.Groups.Group.GroupLspRecords, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pce.DisjointPath.Groups.Group.GroupLspRecords, self).__init__()
 
                         self.yang_name = "group-lsp-records"
                         self.yang_parent_name = "group"
@@ -2690,7 +3122,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.DisjointPath.Groups.Group.GroupLspRecords, [], name, value)
 
 
-                    class GroupLspRecord(Entity):
+                    class GroupLspRecord(_Entity_):
                         """
                         LSP first/second PCC record tuple
                         containingIpAddr, LspName, DisjPath
@@ -2726,10 +3158,13 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-cfg'
-                        _revision = '2018-07-25'
+                        _revision = '2019-09-24'
 
                         def __init__(self):
-                            super(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, self).__init__()
 
                             self.yang_name = "group-lsp-record"
                             self.yang_parent_name = "group-lsp-records"
@@ -2753,221 +3188,33 @@ class Pce(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, ['lsp_id', 'ip_addr', 'lsp_name', 'disj_path'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                            return meta._meta_table['Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                        return meta._meta_table['Pce.DisjointPath.Groups.Group.GroupLspRecords']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                    return meta._meta_table['Pce.DisjointPath.Groups.Group']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+                return meta._meta_table['Pce.DisjointPath.Groups']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.DisjointPath']['meta_info']
 
 
-
-
-
-
-    class ExplicitPaths(Entity):
-        """
-        Explicit paths
-        
-        .. attribute:: explicit_path
-        
-        	Explicit\-path configuration
-        	**type**\: list of  		 :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath>`
-        
-        
-
-        """
-
-        _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
-
-        def __init__(self):
-            super(Pce.ExplicitPaths, self).__init__()
-
-            self.yang_name = "explicit-paths"
-            self.yang_parent_name = "pce"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("explicit-path", ("explicit_path", Pce.ExplicitPaths.ExplicitPath))])
-            self._leafs = OrderedDict()
-
-            self.explicit_path = YList(self)
-            self._segment_path = lambda: "explicit-paths"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Pce.ExplicitPaths, [], name, value)
-
-
-        class ExplicitPath(Entity):
-            """
-            Explicit\-path configuration
-            
-            .. attribute:: name  (key)
-            
-            	Explicit\-path name
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: path_hops
-            
-            	Path Hops
-            	**type**\:  :py:class:`PathHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops>`
-            
-            .. attribute:: enable
-            
-            	True only
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'infra-xtc-cfg'
-            _revision = '2018-07-25'
-
-            def __init__(self):
-                super(Pce.ExplicitPaths.ExplicitPath, self).__init__()
-
-                self.yang_name = "explicit-path"
-                self.yang_parent_name = "explicit-paths"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = ['name']
-                self._child_classes = OrderedDict([("path-hops", ("path_hops", Pce.ExplicitPaths.ExplicitPath.PathHops))])
-                self._leafs = OrderedDict([
-                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
-                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
-                ])
-                self.name = None
-                self.enable = None
-
-                self.path_hops = Pce.ExplicitPaths.ExplicitPath.PathHops()
-                self.path_hops.parent = self
-                self._children_name_map["path_hops"] = "path-hops"
-                self._segment_path = lambda: "explicit-path" + "[name='" + str(self.name) + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/explicit-paths/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Pce.ExplicitPaths.ExplicitPath, ['name', 'enable'], name, value)
-
-
-            class PathHops(Entity):
-                """
-                Path Hops
-                
-                .. attribute:: path_hop
-                
-                	Explicit path hop configuration
-                	**type**\: list of  		 :py:class:`PathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop>`
-                
-                
-
-                """
-
-                _prefix = 'infra-xtc-cfg'
-                _revision = '2018-07-25'
-
-                def __init__(self):
-                    super(Pce.ExplicitPaths.ExplicitPath.PathHops, self).__init__()
-
-                    self.yang_name = "path-hops"
-                    self.yang_parent_name = "explicit-path"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("path-hop", ("path_hop", Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop))])
-                    self._leafs = OrderedDict()
-
-                    self.path_hop = YList(self)
-                    self._segment_path = lambda: "path-hops"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.ExplicitPaths.ExplicitPath.PathHops, [], name, value)
-
-
-                class PathHop(Entity):
-                    """
-                    Explicit path hop configuration
-                    
-                    .. attribute:: index  (key)
-                    
-                    	Hop Index
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: hop_type
-                    
-                    	Path hop type
-                    	**type**\:  :py:class:`PceExplicitPathHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceExplicitPathHop>`
-                    
-                    .. attribute:: address
-                    
-                    	IPv4 Address
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**default value**\: 0.0.0.0
-                    
-                    .. attribute:: remote_address
-                    
-                    	Remote IPv4 address
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    	**default value**\: 0.0.0.0
-                    
-                    .. attribute:: mpls_label
-                    
-                    	MPLS Label
-                    	**type**\: int
-                    
-                    	**range:** 0..1048575
-                    
-                    	**default value**\: 0
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-xtc-cfg'
-                    _revision = '2018-07-25'
-
-                    def __init__(self):
-                        super(Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop, self).__init__()
-
-                        self.yang_name = "path-hop"
-                        self.yang_parent_name = "path-hops"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['index']
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
-                            ('hop_type', (YLeaf(YType.enumeration, 'hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg', 'PceExplicitPathHop', '')])),
-                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
-                            ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
-                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
-                        ])
-                        self.index = None
-                        self.hop_type = None
-                        self.address = None
-                        self.remote_address = None
-                        self.mpls_label = None
-                        self._segment_path = lambda: "path-hop" + "[index='" + str(self.index) + "']"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop, ['index', 'hop_type', 'address', 'remote_address', 'mpls_label'], name, value)
-
-
-
-
-
-
-    class PeerFilter(Entity):
+    class PeerFilter(_Entity_):
         """
         Peer filter
         
@@ -2981,10 +3228,13 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-cfg'
-        _revision = '2018-07-25'
+        _revision = '2019-09-24'
 
         def __init__(self):
-            super(Pce.PeerFilter, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pce.PeerFilter, self).__init__()
 
             self.yang_name = "peer-filter"
             self.yang_parent_name = "pce"
@@ -3003,10 +3253,18 @@ class Pce(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.PeerFilter, ['ipv4_acl'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+            return meta._meta_table['Pce.PeerFilter']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pce()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_xtc_cfg as meta
+        return meta._meta_table['Pce']['meta_info']
 
 

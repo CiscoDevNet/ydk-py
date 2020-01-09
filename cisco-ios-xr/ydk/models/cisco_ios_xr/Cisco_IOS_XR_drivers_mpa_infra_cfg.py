@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -35,8 +38,14 @@ class HwModuleShutdownPowerMode(Enum):
     powered = Enum.YLeaf(2, "powered")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_mpa_infra_cfg as meta
+        return meta._meta_table['HwModuleShutdownPowerMode']
 
-class HardwareModule(Entity):
+
+
+class HardwareModule(_Entity_):
     """
     Configure subslot h/w module
     
@@ -53,7 +62,10 @@ class HardwareModule(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(HardwareModule, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(HardwareModule, self).__init__()
         self._top_entity = None
 
         self.yang_name = "hardware-module"
@@ -74,7 +86,7 @@ class HardwareModule(Entity):
         self._perform_setattr(HardwareModule, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
          subslot h/w module
         
@@ -91,7 +103,10 @@ class HardwareModule(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(HardwareModule.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(HardwareModule.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "hardware-module"
@@ -110,7 +125,7 @@ class HardwareModule(Entity):
             self._perform_setattr(HardwareModule.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The identifier for a SPA node
             
@@ -134,7 +149,10 @@ class HardwareModule(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(HardwareModule.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(HardwareModule.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -155,11 +173,23 @@ class HardwareModule(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModule.Nodes.Node, ['node_name', 'shutdown'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_mpa_infra_cfg as meta
+                return meta._meta_table['HardwareModule.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_mpa_infra_cfg as meta
+            return meta._meta_table['HardwareModule.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_mpa_infra_cfg as meta
+        return meta._meta_table['HardwareModule']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class UpgradeFpd(Entity):
+class UpgradeFpd(_Entity_):
     """
     Execute FPD upgrade
     
@@ -38,7 +41,10 @@ class UpgradeFpd(Entity):
     _revision = '2017-04-04'
 
     def __init__(self):
-        super(UpgradeFpd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(UpgradeFpd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "upgrade-fpd"
@@ -56,7 +62,7 @@ class UpgradeFpd(Entity):
         self._is_frozen = True
 
 
-    class Input(Entity):
+    class Input(_Entity_):
         """
         
         
@@ -87,7 +93,10 @@ class UpgradeFpd(Entity):
         _revision = '2017-04-04'
 
         def __init__(self):
-            super(UpgradeFpd.Input, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(UpgradeFpd.Input, self).__init__()
 
             self.yang_name = "input"
             self.yang_parent_name = "upgrade-fpd"
@@ -110,10 +119,18 @@ class UpgradeFpd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(UpgradeFpd.Input, ['location', 'fpd', 'force'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_ng_act as meta
+            return meta._meta_table['UpgradeFpd.Input']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = UpgradeFpd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_upgrade_fpd_ng_act as meta
+        return meta._meta_table['UpgradeFpd']['meta_info']
 
 

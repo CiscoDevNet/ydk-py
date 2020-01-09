@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class PppEaAdjState(Enum):
     ppp_ea_adj_state_installed = Enum.YLeaf(1, "ppp-ea-adj-state-installed")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+        return meta._meta_table['PppEaAdjState']
 
-class Pppea(Entity):
+
+
+class Pppea(_Entity_):
     """
     PPPEA operational data
     
@@ -61,7 +70,10 @@ class Pppea(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Pppea, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pppea, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pppea"
@@ -82,7 +94,7 @@ class Pppea(Entity):
         self._perform_setattr(Pppea, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Per node PPPEA operational data
         
@@ -101,7 +113,10 @@ class Pppea(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Pppea.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pppea.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "pppea"
@@ -120,7 +135,7 @@ class Pppea(Entity):
             self._perform_setattr(Pppea.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             The PPPEA operational data for a particular
             node
@@ -149,7 +164,10 @@ class Pppea(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Pppea.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pppea.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -173,7 +191,7 @@ class Pppea(Entity):
                 self._perform_setattr(Pppea.Nodes.Node, ['node_name'], name, value)
 
 
-            class EaInterfaceNames(Entity):
+            class EaInterfaceNames(_Entity_):
                 """
                 Show interface related information from the
                 PPP EA
@@ -193,7 +211,10 @@ class Pppea(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Pppea.Nodes.Node.EaInterfaceNames, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pppea.Nodes.Node.EaInterfaceNames, self).__init__()
 
                     self.yang_name = "ea-interface-names"
                     self.yang_parent_name = "node"
@@ -211,7 +232,7 @@ class Pppea(Entity):
                     self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames, [], name, value)
 
 
-                class EaInterfaceName(Entity):
+                class EaInterfaceName(_Entity_):
                     """
                     Interface name
                     
@@ -493,7 +514,10 @@ class Pppea(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, self).__init__()
 
                         self.yang_name = "ea-interface-name"
                         self.yang_parent_name = "ea-interface-names"
@@ -577,13 +601,33 @@ class Pppea(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', 'interface', 'is_lcp_running', 'is_ipcp_running', 'is_ipv6cp_running', 'is_mplscp_running', 'local_mtu', 'local_mrru', 'peer_mrru', 'local_magic', 'peer_magic', 'local_mcmp_classes', 'peer_mcmp_classes', 'echo_request_interval', 'echo_request_retry_count', 'is_multilink_bundle', 'synchronized', 'forwarding_enabled', 'multilink_interface', 'l2_tunnel_enabled', 'l2_provisioned', 'l2ip_interworking_enabled', 'is_vpdn_tunneled', 'xconnect_id', 'parent_interface_handle', 'vrf_table_id', 'ipv6vrf_table_id', 'l2_adjacency_state', 'l2ip_interworking_adjacency_state', 'lac_adjacency_state', 'interface_adjacency_state', 'ipv4_adjacency_state', 'ipv6_adjacency_state', 'mpls_adjacency_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+                        return meta._meta_table['Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+                    return meta._meta_table['Pppea.Nodes.Node.EaInterfaceNames']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+                return meta._meta_table['Pppea.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+            return meta._meta_table['Pppea.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pppea()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ppp_ea_oper as meta
+        return meta._meta_table['Pppea']['meta_info']
 
 

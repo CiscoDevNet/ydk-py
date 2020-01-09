@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class TacacsServer(Entity):
+class TacacsServer(_Entity_):
     """
     
     
@@ -39,13 +42,6 @@ class TacacsServer(Entity):
     
     	
     	**type**\: str
-    
-    .. attribute:: requests
-    
-    	
-    	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.Requests>`
-    
-    	**config**\: False
     
     .. attribute:: test_authentication
     
@@ -74,6 +70,13 @@ class TacacsServer(Entity):
     
     	**config**\: False
     
+    .. attribute:: requests
+    
+    	
+    	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.Requests>`
+    
+    	**config**\: False
+    
     
 
     """
@@ -82,7 +85,10 @@ class TacacsServer(Entity):
     _revision = '2017-05-10'
 
     def __init__(self):
-        super(TacacsServer, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TacacsServer, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tacacs-server"
@@ -90,17 +96,13 @@ class TacacsServer(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("host", ("host", TacacsServer.Host)), ("Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests", ("requests", TacacsServer.Requests)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication", ("test_authentication", TacacsServer.TestAuthentication)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization", ("test_authorization", TacacsServer.TestAuthorization)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting", ("test_accounting", TacacsServer.TestAccounting))])
+        self._child_classes = OrderedDict([("host", ("host", TacacsServer.Host)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication", ("test_authentication", TacacsServer.TestAuthentication)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization", ("test_authorization", TacacsServer.TestAuthorization)), ("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting", ("test_accounting", TacacsServer.TestAccounting)), ("Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests", ("requests", TacacsServer.Requests))])
         self._leafs = OrderedDict([
             ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
             ('key', (YLeaf(YType.str, 'key'), ['str'])),
         ])
         self.timeout = None
         self.key = None
-
-        self.requests = TacacsServer.Requests()
-        self.requests.parent = self
-        self._children_name_map["requests"] = "Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests"
 
         self.test_authentication = None
         self._children_name_map["test_authentication"] = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
@@ -111,6 +113,10 @@ class TacacsServer(Entity):
         self.test_accounting = None
         self._children_name_map["test_accounting"] = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
 
+        self.requests = TacacsServer.Requests()
+        self.requests.parent = self
+        self._children_name_map["requests"] = "Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests"
+
         self.host = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server"
         self._is_frozen = True
@@ -119,7 +125,7 @@ class TacacsServer(Entity):
         self._perform_setattr(TacacsServer, ['timeout', 'key'], name, value)
 
 
-    class Host(Entity):
+    class Host(_Entity_):
         """
         
         
@@ -163,7 +169,10 @@ class TacacsServer(Entity):
         _revision = '2017-05-10'
 
         def __init__(self):
-            super(TacacsServer.Host, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TacacsServer.Host, self).__init__()
 
             self.yang_name = "host"
             self.yang_parent_name = "tacacs-server"
@@ -188,9 +197,163 @@ class TacacsServer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TacacsServer.Host, ['ip', 'port', 'timeout', 'key'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+            return meta._meta_table['TacacsServer.Host']['meta_info']
 
 
-    class Requests(Entity):
+    class TestAuthentication(_Entity_):
+        """
+        
+        
+        .. attribute:: authentication
+        
+        	Authentication
+        	**type**\: str
+        
+        	**config**\: False
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'test_tacacs'
+        _revision = '2017-05-10'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TacacsServer.TestAuthentication, self).__init__()
+
+            self.yang_name = "test-authentication"
+            self.yang_parent_name = "tacacs-server"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
+            self._leafs = OrderedDict([
+                ('authentication', (YLeaf(YType.str, 'authentication'), ['str'])),
+            ])
+            self.authentication = None
+            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
+            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TacacsServer.TestAuthentication, ['authentication'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+            return meta._meta_table['TacacsServer.TestAuthentication']['meta_info']
+
+
+    class TestAuthorization(_Entity_):
+        """
+        
+        
+        .. attribute:: authorization
+        
+        	Authorization
+        	**type**\: str
+        
+        	**config**\: False
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'test_tacacs'
+        _revision = '2017-05-10'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TacacsServer.TestAuthorization, self).__init__()
+
+            self.yang_name = "test-authorization"
+            self.yang_parent_name = "tacacs-server"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
+            self._leafs = OrderedDict([
+                ('authorization', (YLeaf(YType.str, 'authorization'), ['str'])),
+            ])
+            self.authorization = None
+            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization"
+            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TacacsServer.TestAuthorization, ['authorization'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+            return meta._meta_table['TacacsServer.TestAuthorization']['meta_info']
+
+
+    class TestAccounting(_Entity_):
+        """
+        
+        
+        .. attribute:: accounting
+        
+        	Accounting
+        	**type**\: str
+        
+        	**config**\: False
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'test_tacacs'
+        _revision = '2017-05-10'
+
+        def __init__(self):
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TacacsServer.TestAccounting, self).__init__()
+
+            self.yang_name = "test-accounting"
+            self.yang_parent_name = "tacacs-server"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
+            self._leafs = OrderedDict([
+                ('accounting', (YLeaf(YType.str, 'accounting'), ['str'])),
+            ])
+            self.accounting = None
+            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
+            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TacacsServer.TestAccounting, ['accounting'], name, value)
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+            return meta._meta_table['TacacsServer.TestAccounting']['meta_info']
+
+
+    class Requests(_Entity_):
         """
         
         
@@ -209,7 +372,10 @@ class TacacsServer(Entity):
         _revision = '2017-05-10'
 
         def __init__(self):
-            super(TacacsServer.Requests, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TacacsServer.Requests, self).__init__()
 
             self.yang_name = "requests"
             self.yang_parent_name = "tacacs-server"
@@ -228,7 +394,7 @@ class TacacsServer(Entity):
             self._perform_setattr(TacacsServer.Requests, [], name, value)
 
 
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             
             
@@ -318,7 +484,10 @@ class TacacsServer(Entity):
             _revision = '2017-05-10'
 
             def __init__(self):
-                super(TacacsServer.Requests.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TacacsServer.Requests.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "requests"
@@ -351,140 +520,23 @@ class TacacsServer(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TacacsServer.Requests.Ipv4, ['addr', 'port', 'opens', 'closes', 'aborts', 'errors', 'packets_in', 'packets_out'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+                return meta._meta_table['TacacsServer.Requests.Ipv4']['meta_info']
 
-
-
-    class TestAuthentication(Entity):
-        """
-        
-        
-        .. attribute:: authentication
-        
-        	Authentication
-        	**type**\: str
-        
-        	**config**\: False
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'test_tacacs'
-        _revision = '2017-05-10'
-
-        def __init__(self):
-            super(TacacsServer.TestAuthentication, self).__init__()
-
-            self.yang_name = "test-authentication"
-            self.yang_parent_name = "tacacs-server"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self.is_presence_container = True
-            self._leafs = OrderedDict([
-                ('authentication', (YLeaf(YType.str, 'authentication'), ['str'])),
-            ])
-            self.authentication = None
-            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
-            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(TacacsServer.TestAuthentication, ['authentication'], name, value)
-
-
-
-    class TestAuthorization(Entity):
-        """
-        
-        
-        .. attribute:: authorization
-        
-        	Authorization
-        	**type**\: str
-        
-        	**config**\: False
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'test_tacacs'
-        _revision = '2017-05-10'
-
-        def __init__(self):
-            super(TacacsServer.TestAuthorization, self).__init__()
-
-            self.yang_name = "test-authorization"
-            self.yang_parent_name = "tacacs-server"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self.is_presence_container = True
-            self._leafs = OrderedDict([
-                ('authorization', (YLeaf(YType.str, 'authorization'), ['str'])),
-            ])
-            self.authorization = None
-            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization"
-            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(TacacsServer.TestAuthorization, ['authorization'], name, value)
-
-
-
-    class TestAccounting(Entity):
-        """
-        
-        
-        .. attribute:: accounting
-        
-        	Accounting
-        	**type**\: str
-        
-        	**config**\: False
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'test_tacacs'
-        _revision = '2017-05-10'
-
-        def __init__(self):
-            super(TacacsServer.TestAccounting, self).__init__()
-
-            self.yang_name = "test-accounting"
-            self.yang_parent_name = "tacacs-server"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self.is_presence_container = True
-            self._leafs = OrderedDict([
-                ('accounting', (YLeaf(YType.str, 'accounting'), ['str'])),
-            ])
-            self.accounting = None
-            self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
-            self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(TacacsServer.TestAccounting, ['accounting'], name, value)
-
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+            return meta._meta_table['TacacsServer.Requests']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TacacsServer()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_tacacs_tacacs_server as meta
+        return meta._meta_table['TacacsServer']['meta_info']
 
 

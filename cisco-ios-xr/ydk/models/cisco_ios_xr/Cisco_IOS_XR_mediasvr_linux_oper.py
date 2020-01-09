@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MediaSvr(Entity):
+class MediaSvr(_Entity_):
     """
     Media server CLI operations
     
@@ -47,7 +50,10 @@ class MediaSvr(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MediaSvr, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MediaSvr, self).__init__()
         self._top_entity = None
 
         self.yang_name = "media-svr"
@@ -72,7 +78,7 @@ class MediaSvr(Entity):
         self._perform_setattr(MediaSvr, [], name, value)
 
 
-    class All(Entity):
+    class All(_Entity_):
         """
         Show Media bag
         
@@ -91,7 +97,10 @@ class MediaSvr(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MediaSvr.All, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MediaSvr.All, self).__init__()
 
             self.yang_name = "all"
             self.yang_parent_name = "media-svr"
@@ -110,9 +119,13 @@ class MediaSvr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MediaSvr.All, ['show_output'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mediasvr_linux_oper as meta
+            return meta._meta_table['MediaSvr.All']['meta_info']
 
 
-    class LocationDescriptions(Entity):
+    class LocationDescriptions(_Entity_):
         """
         Show Media
         
@@ -131,7 +144,10 @@ class MediaSvr(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MediaSvr.LocationDescriptions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MediaSvr.LocationDescriptions, self).__init__()
 
             self.yang_name = "location-descriptions"
             self.yang_parent_name = "media-svr"
@@ -150,7 +166,7 @@ class MediaSvr(Entity):
             self._perform_setattr(MediaSvr.LocationDescriptions, [], name, value)
 
 
-        class LocationDescription(Entity):
+        class LocationDescription(_Entity_):
             """
             Location specified in location
             
@@ -178,7 +194,10 @@ class MediaSvr(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MediaSvr.LocationDescriptions.LocationDescription, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MediaSvr.LocationDescriptions.LocationDescription, self).__init__()
 
                 self.yang_name = "location-description"
                 self.yang_parent_name = "location-descriptions"
@@ -199,11 +218,23 @@ class MediaSvr(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MediaSvr.LocationDescriptions.LocationDescription, ['node', 'show_output'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mediasvr_linux_oper as meta
+                return meta._meta_table['MediaSvr.LocationDescriptions.LocationDescription']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mediasvr_linux_oper as meta
+            return meta._meta_table['MediaSvr.LocationDescriptions']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MediaSvr()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mediasvr_linux_oper as meta
+        return meta._meta_table['MediaSvr']['meta_info']
 
 

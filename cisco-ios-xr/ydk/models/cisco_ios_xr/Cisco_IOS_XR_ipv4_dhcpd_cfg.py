@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class BaseAction(Enum):
     drop = Enum.YLeaf(1, "drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['BaseAction']
+
+
 class Dhcpv4AuthUsername(Enum):
     """
     Dhcpv4AuthUsername (Enum Class)
@@ -60,6 +69,12 @@ class Dhcpv4AuthUsername(Enum):
     auth_username_mac = Enum.YLeaf(1, "auth-username-mac")
 
     auth_username_giaddr = Enum.YLeaf(2, "auth-username-giaddr")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Dhcpv4AuthUsername']
 
 
 class Dhcpv4LimitLease1(Enum):
@@ -95,6 +110,12 @@ class Dhcpv4LimitLease1(Enum):
     circuit_id_remote_id = Enum.YLeaf(4, "circuit-id-remote-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Dhcpv4LimitLease1']
+
+
 class Dhcpv4MatchOption(Enum):
     """
     Dhcpv4MatchOption (Enum Class)
@@ -128,6 +149,12 @@ class Dhcpv4MatchOption(Enum):
     Y_125__FWD_SLASH__125 = Enum.YLeaf(125, "125/125")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Dhcpv4MatchOption']
+
+
 class Ipv4MatchDefaultMode(Enum):
     """
     Ipv4MatchDefaultMode (Enum Class)
@@ -141,6 +168,12 @@ class Ipv4MatchDefaultMode(Enum):
     """
 
     server = Enum.YLeaf(3, "server")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4MatchDefaultMode']
 
 
 class Ipv4ModeClassMode(Enum):
@@ -162,6 +195,12 @@ class Ipv4ModeClassMode(Enum):
     server = Enum.YLeaf(3, "server")
 
     proxy = Enum.YLeaf(4, "proxy")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4ModeClassMode']
 
 
 class Ipv4dhcpdBroadcastFlagPolicy(Enum):
@@ -189,6 +228,12 @@ class Ipv4dhcpdBroadcastFlagPolicy(Enum):
     check = Enum.YLeaf(1, "check")
 
     unicast_always = Enum.YLeaf(2, "unicast-always")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdBroadcastFlagPolicy']
 
 
 class Ipv4dhcpdFmt(Enum):
@@ -222,6 +267,12 @@ class Ipv4dhcpdFmt(Enum):
     ascii = Enum.YLeaf(2, "ascii")
 
     extended = Enum.YLeaf(3, "extended")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdFmt']
 
 
 class Ipv4dhcpdFmtSpecifier(Enum):
@@ -293,6 +344,12 @@ class Ipv4dhcpdFmtSpecifier(Enum):
     host_name = Enum.YLeaf(10, "host-name")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdFmtSpecifier']
+
+
 class Ipv4dhcpdGiaddrPolicy(Enum):
     """
     Ipv4dhcpdGiaddrPolicy (Enum Class)
@@ -306,6 +363,12 @@ class Ipv4dhcpdGiaddrPolicy(Enum):
     """
 
     giaddr_policy_keep = Enum.YLeaf(0, "giaddr-policy-keep")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdGiaddrPolicy']
 
 
 class Ipv4dhcpdLayer(Enum):
@@ -327,6 +390,12 @@ class Ipv4dhcpdLayer(Enum):
     layer2 = Enum.YLeaf(2, "layer2")
 
     layer3 = Enum.YLeaf(3, "layer3")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdLayer']
 
 
 class Ipv4dhcpdMode(Enum):
@@ -374,6 +443,12 @@ class Ipv4dhcpdMode(Enum):
     base2 = Enum.YLeaf(5, "base2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdMode']
+
+
 class Ipv4dhcpdRelayGiaddrPolicy(Enum):
     """
     Ipv4dhcpdRelayGiaddrPolicy (Enum Class)
@@ -395,6 +470,12 @@ class Ipv4dhcpdRelayGiaddrPolicy(Enum):
     drop = Enum.YLeaf(2, "drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdRelayGiaddrPolicy']
+
+
 class Ipv4dhcpdRelayInfoOptionAuthenticate(Enum):
     """
     Ipv4dhcpdRelayInfoOptionAuthenticate (Enum Class)
@@ -414,6 +495,12 @@ class Ipv4dhcpdRelayInfoOptionAuthenticate(Enum):
     received = Enum.YLeaf(0, "received")
 
     inserted = Enum.YLeaf(1, "inserted")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdRelayInfoOptionAuthenticate']
 
 
 class Ipv4dhcpdRelayInfoOptionPolicy(Enum):
@@ -449,6 +536,12 @@ class Ipv4dhcpdRelayInfoOptionPolicy(Enum):
     encapsulate = Enum.YLeaf(3, "encapsulate")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdRelayInfoOptionPolicy']
+
+
 class Ipv4dhcpdRelayInfoOptionvpnMode(Enum):
     """
     Ipv4dhcpdRelayInfoOptionvpnMode (Enum Class)
@@ -468,6 +561,12 @@ class Ipv4dhcpdRelayInfoOptionvpnMode(Enum):
     rfc = Enum.YLeaf(0, "rfc")
 
     cisco = Enum.YLeaf(1, "cisco")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4dhcpdRelayInfoOptionvpnMode']
 
 
 class LeaseLimitValue(Enum):
@@ -497,6 +596,12 @@ class LeaseLimitValue(Enum):
     per_remote_id = Enum.YLeaf(3, "per-remote-id")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['LeaseLimitValue']
+
+
 class MacMismatchAction(Enum):
     """
     MacMismatchAction (Enum Class)
@@ -518,6 +623,12 @@ class MacMismatchAction(Enum):
     drop = Enum.YLeaf(1, "drop")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['MacMismatchAction']
+
+
 class Matchaction(Enum):
     """
     Matchaction (Enum Class)
@@ -537,6 +648,12 @@ class Matchaction(Enum):
     allow = Enum.YLeaf(0, "allow")
 
     drop = Enum.YLeaf(1, "drop")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Matchaction']
 
 
 class Matchoption(Enum):
@@ -592,6 +709,12 @@ class Matchoption(Enum):
     Y_125 = Enum.YLeaf(125, "125")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Matchoption']
+
+
 class Policy(Enum):
     """
     Policy (Enum Class)
@@ -617,6 +740,12 @@ class Policy(Enum):
     check = Enum.YLeaf(1, "check")
 
     unicastalways = Enum.YLeaf(2, "unicastalways")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Policy']
 
 
 class ProxyAction(Enum):
@@ -646,8 +775,14 @@ class ProxyAction(Enum):
     relay = Enum.YLeaf(2, "relay")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['ProxyAction']
 
-class Ipv4Dhcpd(Entity):
+
+
+class Ipv4Dhcpd(_Entity_):
     """
     DHCP IPV4 configuration
     
@@ -709,6 +844,11 @@ class Ipv4Dhcpd(Entity):
     
     	**range:** 0..7
     
+    .. attribute:: disable_shadow_binding
+    
+    	Option to disable shadow binding
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
     
 
     This class is a :ref:`presence class<presence-class>`
@@ -716,10 +856,13 @@ class Ipv4Dhcpd(Entity):
     """
 
     _prefix = 'ipv4-dhcpd-cfg'
-    _revision = '2018-10-24'
+    _revision = '2019-07-19'
 
     def __init__(self):
-        super(Ipv4Dhcpd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv4Dhcpd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv4-dhcpd"
@@ -734,11 +877,13 @@ class Ipv4Dhcpd(Entity):
             ('outer_cos', (YLeaf(YType.uint32, 'outer-cos'), ['int'])),
             ('allow_client_id_change', (YLeaf(YType.empty, 'allow-client-id-change'), ['Empty'])),
             ('inner_cos', (YLeaf(YType.uint32, 'inner-cos'), ['int'])),
+            ('disable_shadow_binding', (YLeaf(YType.empty, 'disable-shadow-binding'), ['Empty'])),
         ])
         self.enable = None
         self.outer_cos = None
         self.allow_client_id_change = None
         self.inner_cos = None
+        self.disable_shadow_binding = None
 
         self.vrfs = Ipv4Dhcpd.Vrfs()
         self.vrfs.parent = self
@@ -766,10 +911,10 @@ class Ipv4Dhcpd(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ipv4Dhcpd, ['enable', 'outer_cos', 'allow_client_id_change', 'inner_cos'], name, value)
+        self._perform_setattr(Ipv4Dhcpd, ['enable', 'outer_cos', 'allow_client_id_change', 'inner_cos', 'disable_shadow_binding'], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF Table
         
@@ -783,10 +928,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -805,7 +953,7 @@ class Ipv4Dhcpd(Entity):
             self._perform_setattr(Ipv4Dhcpd.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF table
             
@@ -828,10 +976,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-cfg'
-            _revision = '2018-10-24'
+            _revision = '2019-07-19'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -854,7 +1005,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Profile(Entity):
+            class Profile(_Entity_):
                 """
                 Profile name and mode
                 
@@ -879,10 +1030,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Vrfs.Vrf.Profile, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Vrfs.Vrf.Profile, self).__init__()
 
                     self.yang_name = "profile"
                     self.yang_parent_name = "vrf"
@@ -903,11 +1057,23 @@ class Ipv4Dhcpd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Vrfs.Vrf.Profile, ['vrf_profile_name', 'mode'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Vrfs.Vrf.Profile']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                return meta._meta_table['Ipv4Dhcpd.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.Vrfs']['meta_info']
 
 
-
-
-    class Profiles(Entity):
+    class Profiles(_Entity_):
         """
         DHCP IPV4 Profile Table
         
@@ -921,10 +1087,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Profiles, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Profiles, self).__init__()
 
             self.yang_name = "profiles"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -943,7 +1112,7 @@ class Ipv4Dhcpd(Entity):
             self._perform_setattr(Ipv4Dhcpd.Profiles, [], name, value)
 
 
-        class Profile(Entity):
+        class Profile(_Entity_):
             """
             DHCP IPV4 Profile
             
@@ -964,10 +1133,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-cfg'
-            _revision = '2018-10-24'
+            _revision = '2019-07-19'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Profiles.Profile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Profiles.Profile, self).__init__()
 
                 self.yang_name = "profile"
                 self.yang_parent_name = "profiles"
@@ -991,7 +1163,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile, ['profile_name'], name, value)
 
 
-            class Modes(Entity):
+            class Modes(_Entity_):
                 """
                 DHCP IPV4 Profile modes
                 
@@ -1005,10 +1177,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Profiles.Profile.Modes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Profiles.Profile.Modes, self).__init__()
 
                     self.yang_name = "modes"
                     self.yang_parent_name = "profile"
@@ -1026,7 +1201,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes, [], name, value)
 
 
-                class Mode(Entity):
+                class Mode(_Entity_):
                     """
                     DHCP IPV4 Profile mode
                     
@@ -1076,10 +1251,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode, self).__init__()
 
                         self.yang_name = "mode"
                         self.yang_parent_name = "modes"
@@ -1117,7 +1295,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode, ['mode', 'enable'], name, value)
 
 
-                    class Snoop(Entity):
+                    class Snoop(_Entity_):
                         """
                         DHCP Snoop profile
                         
@@ -1136,10 +1314,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop, self).__init__()
 
                             self.yang_name = "snoop"
                             self.yang_parent_name = "mode"
@@ -1162,7 +1343,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop, ['trusted'], name, value)
 
 
-                        class RelayInformationOption(Entity):
+                        class RelayInformationOption(_Entity_):
                             """
                             DHCP Snoop profile
                             
@@ -1191,10 +1372,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption, self).__init__()
 
                                 self.yang_name = "relay-information-option"
                                 self.yang_parent_name = "snoop"
@@ -1221,7 +1405,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption, ['insert', 'allow_untrusted', 'policy'], name, value)
 
 
-                            class RemoteId(Entity):
+                            class RemoteId(_Entity_):
                                 """
                                 Enter remote\-id value
                                 
@@ -1242,10 +1426,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId, self).__init__()
 
                                     self.yang_name = "remote-id"
                                     self.yang_parent_name = "relay-information-option"
@@ -1265,11 +1452,23 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId, ['format_type', 'remote_id_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop']['meta_info']
 
 
-
-
-                    class Base(Entity):
+                    class Base(_Entity_):
                         """
                         DHCP Base Profile
                         
@@ -1317,10 +1516,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base, self).__init__()
 
                             self.yang_name = "base"
                             self.yang_parent_name = "mode"
@@ -1364,7 +1566,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base, ['enable'], name, value)
 
 
-                        class DefaultProfile(Entity):
+                        class DefaultProfile(_Entity_):
                             """
                             Enable the default profile
                             
@@ -1387,10 +1589,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile, self).__init__()
 
                                 self.yang_name = "default-profile"
                                 self.yang_parent_name = "base"
@@ -1410,9 +1615,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile, ['profile_name', 'profile_mode'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile']['meta_info']
 
 
-                        class Match(Entity):
+                        class Match(_Entity_):
                             """
                             Insert match keyword
                             
@@ -1431,10 +1640,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match, self).__init__()
 
                                 self.yang_name = "match"
                                 self.yang_parent_name = "base"
@@ -1458,7 +1670,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match, [], name, value)
 
 
-                            class OptionFilters(Entity):
+                            class OptionFilters(_Entity_):
                                 """
                                 Table of Option
                                 
@@ -1472,10 +1684,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters, self).__init__()
 
                                     self.yang_name = "option-filters"
                                     self.yang_parent_name = "match"
@@ -1493,7 +1708,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters, [], name, value)
 
 
-                                class OptionFilter(Entity):
+                                class OptionFilter(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -1528,10 +1743,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter, self).__init__()
 
                                         self.yang_name = "option-filter"
                                         self.yang_parent_name = "option-filters"
@@ -1555,10 +1773,18 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter, ['matchoption', 'pattern', 'format', 'option_action'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters']['meta_info']
 
 
-
-                            class DefOptions(Entity):
+                            class DefOptions(_Entity_):
                                 """
                                 Table of Option
                                 
@@ -1572,10 +1798,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions, self).__init__()
 
                                     self.yang_name = "def-options"
                                     self.yang_parent_name = "match"
@@ -1593,7 +1822,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions, [], name, value)
 
 
-                                class DefOption(Entity):
+                                class DefOption(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -1616,10 +1845,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption, self).__init__()
 
                                         self.yang_name = "def-option"
                                         self.yang_parent_name = "def-options"
@@ -1639,11 +1871,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption, ['def_matchoption', 'def_matchaction'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match']['meta_info']
 
 
-
-
-                        class BaseRelayOpt(Entity):
+                        class BaseRelayOpt(_Entity_):
                             """
                             Insert Relay Agent Information circuit ID
                             and remote ID suboptions in client request
@@ -1667,10 +1911,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt, self).__init__()
 
                                 self.yang_name = "base-relay-opt"
                                 self.yang_parent_name = "base"
@@ -1690,9 +1937,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt, ['remote_id', 'authenticate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt']['meta_info']
 
 
-                        class DhcpToAaa(Entity):
+                        class DhcpToAaa(_Entity_):
                             """
                             Enable to provide the list of options need
                             to send to aaa
@@ -1707,10 +1958,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa, self).__init__()
 
                                 self.yang_name = "dhcp-to-aaa"
                                 self.yang_parent_name = "base"
@@ -1730,7 +1984,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa, [], name, value)
 
 
-                            class BaseOption(Entity):
+                            class BaseOption(_Entity_):
                                 """
                                 option type
                                 
@@ -1744,10 +1998,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption, self).__init__()
 
                                     self.yang_name = "base-option"
                                     self.yang_parent_name = "dhcp-to-aaa"
@@ -1767,7 +2024,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption, [], name, value)
 
 
-                                class List(Entity):
+                                class List(_Entity_):
                                     """
                                     List of options
                                     
@@ -1790,10 +2047,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption.List, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption.List, self).__init__()
 
                                         self.yang_name = "list"
                                         self.yang_parent_name = "base-option"
@@ -1813,11 +2073,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption.List, ['option_all', 'option'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption.List']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa.BaseOption']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DhcpToAaa']['meta_info']
 
 
-
-
-                        class BaseMatch(Entity):
+                        class BaseMatch(_Entity_):
                             """
                             Insert match keyword
                             
@@ -1836,10 +2108,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch, self).__init__()
 
                                 self.yang_name = "base-match"
                                 self.yang_parent_name = "base"
@@ -1863,7 +2138,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch, [], name, value)
 
 
-                            class Options(Entity):
+                            class Options(_Entity_):
                                 """
                                 Specify match option
                                 
@@ -1877,10 +2152,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options, self).__init__()
 
                                     self.yang_name = "options"
                                     self.yang_parent_name = "base-match"
@@ -1898,7 +2176,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options, [], name, value)
 
 
-                                class Option(Entity):
+                                class Option(_Entity_):
                                     """
                                     none
                                     
@@ -1933,10 +2211,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option, self).__init__()
 
                                         self.yang_name = "option"
                                         self.yang_parent_name = "options"
@@ -1963,7 +2244,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option, ['opt60', 'opt60_hex_str', 'format'], name, value)
 
 
-                                    class OptionProfile(Entity):
+                                    class OptionProfile(_Entity_):
                                         """
                                         Enter a profile
                                         
@@ -1986,10 +2267,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile, self).__init__()
 
                                             self.yang_name = "option-profile"
                                             self.yang_parent_name = "option"
@@ -2009,11 +2293,23 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile, ['profile_name', 'profile_mode'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options']['meta_info']
 
 
-
-
-                            class ModeClasses(Entity):
+                            class ModeClasses(_Entity_):
                                 """
                                 Table of ModeClass
                                 
@@ -2027,10 +2323,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses, self).__init__()
 
                                     self.yang_name = "mode-classes"
                                     self.yang_parent_name = "base-match"
@@ -2048,7 +2347,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses, [], name, value)
 
 
-                                class ModeClass(Entity):
+                                class ModeClass(_Entity_):
                                     """
                                     Specify PPP/IPoE class option
                                     
@@ -2069,10 +2368,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass, self).__init__()
 
                                         self.yang_name = "mode-class"
                                         self.yang_parent_name = "mode-classes"
@@ -2095,7 +2397,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass, ['class_name'], name, value)
 
 
-                                    class Profile_(Entity):
+                                    class Profile_(_Entity_):
                                         """
                                         Enter proxy or server profile
                                         
@@ -2116,10 +2418,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass.Profile_, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass.Profile_, self).__init__()
 
                                             self.yang_name = "profile"
                                             self.yang_parent_name = "mode-class"
@@ -2139,12 +2444,28 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass.Profile_, ['profile_name', 'mode'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass.Profile_']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses.ModeClass']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.ModeClasses']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch']['meta_info']
 
 
-
-
-
-                        class MatchDefault(Entity):
+                        class MatchDefault(_Entity_):
                             """
                             Default match option
                             
@@ -2158,10 +2479,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault, self).__init__()
 
                                 self.yang_name = "match-default"
                                 self.yang_parent_name = "base"
@@ -2181,7 +2505,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault, [], name, value)
 
 
-                            class Profile_(Entity):
+                            class Profile_(_Entity_):
                                 """
                                 Enter server profile
                                 
@@ -2202,10 +2526,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault.Profile_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault.Profile_, self).__init__()
 
                                     self.yang_name = "profile"
                                     self.yang_parent_name = "match-default"
@@ -2225,11 +2552,23 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault.Profile_, ['profile_name', 'default_mode'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault.Profile_']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.MatchDefault']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base']['meta_info']
 
 
-
-
-                    class Server(Entity):
+                    class Server(_Entity_):
                         """
                         DHCP Server profile
                         
@@ -2382,10 +2721,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server, self).__init__()
 
                             self.yang_name = "server"
                             self.yang_parent_name = "mode"
@@ -2489,7 +2831,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server, ['server_allow_move', 'enable', 'subnet_mask', 'pool', 'domain_name', 'secure_arp', 'arp_instal_skip_stdalone', 'boot_filename', 'next_server'], name, value)
 
 
-                        class ServerIdCheck(Entity):
+                        class ServerIdCheck(_Entity_):
                             """
                             Validate server ID check
                             
@@ -2503,10 +2845,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck, self).__init__()
 
                                 self.yang_name = "server-id-check"
                                 self.yang_parent_name = "server"
@@ -2524,9 +2869,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck, ['check'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck']['meta_info']
 
 
-                        class LeaseLimit(Entity):
+                        class LeaseLimit(_Entity_):
                             """
                             Specify limit lease
                             
@@ -2547,10 +2896,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit, self).__init__()
 
                                 self.yang_name = "lease-limit"
                                 self.yang_parent_name = "server"
@@ -2570,9 +2922,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit, ['lease_limit_value', 'range'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit']['meta_info']
 
 
-                        class RequestedIpAddress(Entity):
+                        class RequestedIpAddress(_Entity_):
                             """
                             Validate Requested IP Address
                             
@@ -2586,10 +2942,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress, self).__init__()
 
                                 self.yang_name = "requested-ip-address"
                                 self.yang_parent_name = "server"
@@ -2607,9 +2966,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress, ['check'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress']['meta_info']
 
 
-                        class AaaServer(Entity):
+                        class AaaServer(_Entity_):
                             """
                             Enable aaa dhcp option force\-insert
                             
@@ -2623,10 +2986,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer, self).__init__()
 
                                 self.yang_name = "aaa-server"
                                 self.yang_parent_name = "server"
@@ -2646,7 +3012,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer, [], name, value)
 
 
-                            class DhcpOption(Entity):
+                            class DhcpOption(_Entity_):
                                 """
                                 Enable aaa dhcp option force\-insert
                                 
@@ -2660,10 +3026,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption, self).__init__()
 
                                     self.yang_name = "dhcp-option"
                                     self.yang_parent_name = "aaa-server"
@@ -2681,10 +3050,18 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption, ['force_insert'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer']['meta_info']
 
 
-
-                        class DefaultRouters(Entity):
+                        class DefaultRouters(_Entity_):
                             """
                             default routers
                             
@@ -2700,10 +3077,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters, self).__init__()
 
                                 self.yang_name = "default-routers"
                                 self.yang_parent_name = "server"
@@ -2721,9 +3101,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters, ['default_router'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters']['meta_info']
 
 
-                        class DeleteBindingOnDiscover(Entity):
+                        class DeleteBindingOnDiscover(_Entity_):
                             """
                             Delete binding on receiving discover
                             
@@ -2737,10 +3121,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover, self).__init__()
 
                                 self.yang_name = "delete-binding-on-discover"
                                 self.yang_parent_name = "server"
@@ -2758,9 +3145,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover, ['disable'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DeleteBindingOnDiscover']['meta_info']
 
 
-                        class NetBiosNameServers(Entity):
+                        class NetBiosNameServers(_Entity_):
                             """
                             NetBIOS name servers
                             
@@ -2776,10 +3167,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers, self).__init__()
 
                                 self.yang_name = "net-bios-name-servers"
                                 self.yang_parent_name = "server"
@@ -2797,9 +3191,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers, ['net_bios_name_server'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers']['meta_info']
 
 
-                        class Match(Entity):
+                        class Match(_Entity_):
                             """
                             Insert match keyword
                             
@@ -2818,10 +3216,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match, self).__init__()
 
                                 self.yang_name = "match"
                                 self.yang_parent_name = "server"
@@ -2845,7 +3246,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match, [], name, value)
 
 
-                            class OptionDefaults(Entity):
+                            class OptionDefaults(_Entity_):
                                 """
                                 Table of OptionDefault
                                 
@@ -2859,10 +3260,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults, self).__init__()
 
                                     self.yang_name = "option-defaults"
                                     self.yang_parent_name = "match"
@@ -2880,7 +3284,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults, [], name, value)
 
 
-                                class OptionDefault(Entity):
+                                class OptionDefault(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -2901,10 +3305,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault, self).__init__()
 
                                         self.yang_name = "option-default"
                                         self.yang_parent_name = "option-defaults"
@@ -2924,10 +3331,18 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault, ['matchoption', 'matchaction'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults']['meta_info']
 
 
-
-                            class Options(Entity):
+                            class Options(_Entity_):
                                 """
                                 Table of Option
                                 
@@ -2941,10 +3356,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options, self).__init__()
 
                                     self.yang_name = "options"
                                     self.yang_parent_name = "match"
@@ -2962,7 +3380,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options, [], name, value)
 
 
-                                class Option(Entity):
+                                class Option(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -2997,10 +3415,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option, self).__init__()
 
                                         self.yang_name = "option"
                                         self.yang_parent_name = "options"
@@ -3024,11 +3445,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option, ['matchoption', 'pattern', 'format', 'matchaction'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match']['meta_info']
 
 
-
-
-                        class BroadcastFlag(Entity):
+                        class BroadcastFlag(_Entity_):
                             """
                             None
                             
@@ -3042,10 +3475,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag, self).__init__()
 
                                 self.yang_name = "broadcast-flag"
                                 self.yang_parent_name = "server"
@@ -3063,9 +3499,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag, ['policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag']['meta_info']
 
 
-                        class Session(Entity):
+                        class Session(_Entity_):
                             """
                             Change sessions configuration
                             
@@ -3079,10 +3519,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session, self).__init__()
 
                                 self.yang_name = "session"
                                 self.yang_parent_name = "server"
@@ -3102,7 +3545,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session, [], name, value)
 
 
-                            class ThrottleType(Entity):
+                            class ThrottleType(_Entity_):
                                 """
                                 Throttle DHCP sessions based on MAC
                                 address
@@ -3117,10 +3560,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType, self).__init__()
 
                                     self.yang_name = "throttle-type"
                                     self.yang_parent_name = "session"
@@ -3140,7 +3586,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType, [], name, value)
 
 
-                                class MacThrottle(Entity):
+                                class MacThrottle(_Entity_):
                                     """
                                     Throttle DHCP sessions from any one MAC
                                     address
@@ -3175,10 +3621,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle, self).__init__()
 
                                         self.yang_name = "mac-throttle"
                                         self.yang_parent_name = "throttle-type"
@@ -3200,11 +3649,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle, ['num_discover', 'num_request', 'num_block'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session']['meta_info']
 
 
-
-
-                        class Classes(Entity):
+                        class Classes(_Entity_):
                             """
                             Table of Class
                             
@@ -3218,10 +3679,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes, self).__init__()
 
                                 self.yang_name = "classes"
                                 self.yang_parent_name = "server"
@@ -3239,7 +3703,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes, [], name, value)
 
 
-                            class Class(Entity):
+                            class Class(_Entity_):
                                 """
                                 Create or enter server profile class
                                 
@@ -3328,10 +3792,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class, self).__init__()
 
                                     self.yang_name = "class"
                                     self.yang_parent_name = "classes"
@@ -3390,7 +3857,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class, ['class_name', 'subnet_mask', 'pool', 'enable', 'domain_name', 'boot_filename', 'next_server'], name, value)
 
 
-                                class DefaultRouters(Entity):
+                                class DefaultRouters(_Entity_):
                                     """
                                     default routers
                                     
@@ -3406,10 +3873,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters, self).__init__()
 
                                         self.yang_name = "default-routers"
                                         self.yang_parent_name = "class"
@@ -3427,9 +3897,13 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters, ['default_router'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters']['meta_info']
 
 
-                                class NetBiosNameServers(Entity):
+                                class NetBiosNameServers(_Entity_):
                                     """
                                     NetBIOS name servers
                                     
@@ -3445,10 +3919,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers, self).__init__()
 
                                         self.yang_name = "net-bios-name-servers"
                                         self.yang_parent_name = "class"
@@ -3466,9 +3943,13 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers, ['net_bios_name_server'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers']['meta_info']
 
 
-                                class ClassMatch(Entity):
+                                class ClassMatch(_Entity_):
                                     """
                                     Insert match keyword
                                     
@@ -3496,10 +3977,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch, self).__init__()
 
                                         self.yang_name = "class-match"
                                         self.yang_parent_name = "class"
@@ -3524,7 +4008,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch, ['l2_interface', 'vrf'], name, value)
 
 
-                                    class ClassOptions(Entity):
+                                    class ClassOptions(_Entity_):
                                         """
                                         Table of Class\-Option
                                         
@@ -3538,10 +4022,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions, self).__init__()
 
                                             self.yang_name = "class-options"
                                             self.yang_parent_name = "class-match"
@@ -3559,7 +4046,7 @@ class Ipv4Dhcpd(Entity):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions, [], name, value)
 
 
-                                        class ClassOption(Entity):
+                                        class ClassOption(_Entity_):
                                             """
                                             Specify match option
                                             
@@ -3587,10 +4074,13 @@ class Ipv4Dhcpd(Entity):
                                             """
 
                                             _prefix = 'ipv4-dhcpd-cfg'
-                                            _revision = '2018-10-24'
+                                            _revision = '2019-07-19'
 
                                             def __init__(self):
-                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption, self).__init__()
 
                                                 self.yang_name = "class-option"
                                                 self.yang_parent_name = "class-options"
@@ -3612,11 +4102,23 @@ class Ipv4Dhcpd(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption, ['matchoption', 'pattern', 'bit_mask'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch']['meta_info']
 
 
-
-
-                                class Lease(Entity):
+                                class Lease(_Entity_):
                                     """
                                     lease
                                     
@@ -3657,10 +4159,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease, self).__init__()
 
                                         self.yang_name = "lease"
                                         self.yang_parent_name = "class"
@@ -3684,9 +4189,13 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease']['meta_info']
 
 
-                                class NetbiosNodeType(Entity):
+                                class NetbiosNodeType(_Entity_):
                                     """
                                     NetBIOS node type
                                     
@@ -3722,10 +4231,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType, self).__init__()
 
                                         self.yang_name = "netbios-node-type"
                                         self.yang_parent_name = "class"
@@ -3751,9 +4263,13 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType, ['broadcast_node', 'hybrid_node', 'mixed_node', 'peer_to_peer_node', 'hexadecimal'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType']['meta_info']
 
 
-                                class DnsServers(Entity):
+                                class DnsServers(_Entity_):
                                     """
                                     DNS servers
                                     
@@ -3769,10 +4285,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers, self).__init__()
 
                                         self.yang_name = "dns-servers"
                                         self.yang_parent_name = "class"
@@ -3790,9 +4309,13 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers, ['dns_server'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers']['meta_info']
 
 
-                                class OptionCodes(Entity):
+                                class OptionCodes(_Entity_):
                                     """
                                     Table of OptionCode
                                     
@@ -3806,10 +4329,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes, self).__init__()
 
                                         self.yang_name = "option-codes"
                                         self.yang_parent_name = "class"
@@ -3827,7 +4353,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes, [], name, value)
 
 
-                                    class OptionCode(Entity):
+                                    class OptionCode(_Entity_):
                                         """
                                         DHCP option code
                                         
@@ -3867,10 +4393,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode, self).__init__()
 
                                             self.yang_name = "option-code"
                                             self.yang_parent_name = "option-codes"
@@ -3896,12 +4425,28 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode, ['option_code', 'ascii_string', 'hex_string', 'force_insert', 'ip_address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes']['meta_info']
 
 
-
-
-
-                        class Relay(Entity):
+                        class Relay(_Entity_):
                             """
                             Specify Relay Agent Information Option
                             configuration
@@ -3918,10 +4463,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay, self).__init__()
 
                                 self.yang_name = "relay"
                                 self.yang_parent_name = "server"
@@ -3939,9 +4487,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay, ['authenticate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay']['meta_info']
 
 
-                        class Lease(Entity):
+                        class Lease(_Entity_):
                             """
                             lease
                             
@@ -3982,10 +4534,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease, self).__init__()
 
                                 self.yang_name = "lease"
                                 self.yang_parent_name = "server"
@@ -4009,9 +4564,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease']['meta_info']
 
 
-                        class NetbiosNodeType(Entity):
+                        class NetbiosNodeType(_Entity_):
                             """
                             NetBIOS node type
                             
@@ -4047,10 +4606,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType, self).__init__()
 
                                 self.yang_name = "netbios-node-type"
                                 self.yang_parent_name = "server"
@@ -4076,9 +4638,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType, ['broadcast_node', 'hybrid_node', 'mixed_node', 'peer_to_peer_node', 'hexadecimal'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType']['meta_info']
 
 
-                        class DnsServers(Entity):
+                        class DnsServers(_Entity_):
                             """
                             DNS servers
                             
@@ -4094,10 +4660,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers, self).__init__()
 
                                 self.yang_name = "dns-servers"
                                 self.yang_parent_name = "server"
@@ -4115,9 +4684,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers, ['dns_server'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers']['meta_info']
 
 
-                        class DhcpToAaa(Entity):
+                        class DhcpToAaa(_Entity_):
                             """
                             Enable to provide the list of options need
                             to send to aaa
@@ -4132,10 +4705,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa, self).__init__()
 
                                 self.yang_name = "dhcp-to-aaa"
                                 self.yang_parent_name = "server"
@@ -4155,7 +4731,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa, [], name, value)
 
 
-                            class Option(Entity):
+                            class Option(_Entity_):
                                 """
                                 option type
                                 
@@ -4169,10 +4745,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option, self).__init__()
 
                                     self.yang_name = "option"
                                     self.yang_parent_name = "dhcp-to-aaa"
@@ -4192,7 +4771,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option, [], name, value)
 
 
-                                class List(Entity):
+                                class List(_Entity_):
                                     """
                                     List of options
                                     
@@ -4215,10 +4794,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option.List, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option.List, self).__init__()
 
                                         self.yang_name = "list"
                                         self.yang_parent_name = "option"
@@ -4238,11 +4820,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option.List, ['option_all', 'option_number'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option.List']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa.Option']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DhcpToAaa']['meta_info']
 
 
-
-
-                        class OptionCodes(Entity):
+                        class OptionCodes(_Entity_):
                             """
                             Table of OptionCode
                             
@@ -4256,10 +4850,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes, self).__init__()
 
                                 self.yang_name = "option-codes"
                                 self.yang_parent_name = "server"
@@ -4277,7 +4874,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes, [], name, value)
 
 
-                            class OptionCode(Entity):
+                            class OptionCode(_Entity_):
                                 """
                                 DHCP option code
                                 
@@ -4317,10 +4914,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode, self).__init__()
 
                                     self.yang_name = "option-code"
                                     self.yang_parent_name = "option-codes"
@@ -4346,11 +4946,23 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode, ['option_code', 'ascii_string', 'hex_string', 'force_insert', 'ip_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server']['meta_info']
 
 
-
-
-                    class Relay(Entity):
+                    class Relay(_Entity_):
                         """
                         DHCP Relay profile
                         
@@ -4388,10 +5000,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay, self).__init__()
 
                             self.yang_name = "relay"
                             self.yang_parent_name = "mode"
@@ -4424,7 +5039,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay, ['mac_mismatch_action'], name, value)
 
 
-                        class GiAddrPolicy(Entity):
+                        class GiAddrPolicy(_Entity_):
                             """
                             GIADDR policy
                             
@@ -4442,10 +5057,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy, self).__init__()
 
                                 self.yang_name = "gi-addr-policy"
                                 self.yang_parent_name = "relay"
@@ -4464,9 +5082,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy, ['policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy']['meta_info']
 
 
-                        class Vrfs(Entity):
+                        class Vrfs(_Entity_):
                             """
                             VRF Helper Addresses
                             
@@ -4480,10 +5102,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs, self).__init__()
 
                                 self.yang_name = "vrfs"
                                 self.yang_parent_name = "relay"
@@ -4501,7 +5126,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs, [], name, value)
 
 
-                            class Vrf(Entity):
+                            class Vrf(_Entity_):
                                 """
                                 VRF Name
                                 
@@ -4522,10 +5147,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf, self).__init__()
 
                                     self.yang_name = "vrf"
                                     self.yang_parent_name = "vrfs"
@@ -4548,7 +5176,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                                class HelperAddresses(Entity):
+                                class HelperAddresses(_Entity_):
                                     """
                                     Helper Addresses
                                     
@@ -4562,10 +5190,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses, self).__init__()
 
                                         self.yang_name = "helper-addresses"
                                         self.yang_parent_name = "vrf"
@@ -4583,7 +5214,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses, [], name, value)
 
 
-                                    class HelperAddress(Entity):
+                                    class HelperAddress(_Entity_):
                                         """
                                         Helper Address
                                         
@@ -4611,10 +5242,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
 
                                             self.yang_name = "helper-address"
                                             self.yang_parent_name = "helper-addresses"
@@ -4636,12 +5270,28 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress, ['ip_address', 'enable', 'gateway_address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs']['meta_info']
 
 
-
-
-
-                        class RelayInformationOption(Entity):
+                        class RelayInformationOption(_Entity_):
                             """
                             Relay agent information option
                             
@@ -4690,10 +5340,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption, self).__init__()
 
                                 self.yang_name = "relay-information-option"
                                 self.yang_parent_name = "relay"
@@ -4728,7 +5381,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption, ['vpn_mode', 'subscriber_id', 'insert', 'check', 'vpn', 'allow_untrusted', 'policy'], name, value)
 
 
-                            class RemoteId(Entity):
+                            class RemoteId(_Entity_):
                                 """
                                 Enter remote\-id value
                                 
@@ -4749,10 +5402,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption.RemoteId, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption.RemoteId, self).__init__()
 
                                     self.yang_name = "remote-id"
                                     self.yang_parent_name = "relay-information-option"
@@ -4772,10 +5428,18 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption.RemoteId, ['format_type', 'remote_id_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption.RemoteId']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption']['meta_info']
 
 
-
-                        class BroadcastPolicy(Entity):
+                        class BroadcastPolicy(_Entity_):
                             """
                             Broadcast Flag policy
                             
@@ -4793,10 +5457,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy, self).__init__()
 
                                 self.yang_name = "broadcast-policy"
                                 self.yang_parent_name = "relay"
@@ -4815,10 +5482,18 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy, ['policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay']['meta_info']
 
 
-
-                    class Proxy(Entity):
+                    class Proxy(_Entity_):
                         """
                         DHCP proxy profile
                         
@@ -4914,10 +5589,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy, self).__init__()
 
                             self.yang_name = "proxy"
                             self.yang_parent_name = "mode"
@@ -4983,7 +5661,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy, ['proxy_allow_move', 'secure_arp', 'delayed_authen_proxy', 'enable'], name, value)
 
 
-                        class Giaddr(Entity):
+                        class Giaddr(_Entity_):
                             """
                             Specify gateway address policy
                             
@@ -5001,10 +5679,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr, self).__init__()
 
                                 self.yang_name = "giaddr"
                                 self.yang_parent_name = "proxy"
@@ -5023,9 +5704,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr, ['policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr']['meta_info']
 
 
-                        class Classes(Entity):
+                        class Classes(_Entity_):
                             """
                             DHCP class table
                             
@@ -5039,10 +5724,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes, self).__init__()
 
                                 self.yang_name = "classes"
                                 self.yang_parent_name = "proxy"
@@ -5060,7 +5748,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes, [], name, value)
 
 
-                            class Class(Entity):
+                            class Class(_Entity_):
                                 """
                                 DHCP class
                                 
@@ -5093,10 +5781,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class, self).__init__()
 
                                     self.yang_name = "class"
                                     self.yang_parent_name = "classes"
@@ -5125,7 +5816,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class, ['class_name', 'enable'], name, value)
 
 
-                                class Match(Entity):
+                                class Match(_Entity_):
                                     """
                                     Match option
                                     
@@ -5144,10 +5835,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match, self).__init__()
 
                                         self.yang_name = "match"
                                         self.yang_parent_name = "class"
@@ -5170,7 +5864,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match, ['vrf'], name, value)
 
 
-                                    class Option(Entity):
+                                    class Option(_Entity_):
                                         """
                                         Match option
                                         
@@ -5194,10 +5888,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option, self).__init__()
 
                                             self.yang_name = "option"
                                             self.yang_parent_name = "match"
@@ -5219,10 +5916,18 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option, ['option_type', 'pattern', 'bit_mask'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match']['meta_info']
 
 
-
-                                class Vrfs(Entity):
+                                class Vrfs(_Entity_):
                                     """
                                     List of VRFs
                                     
@@ -5236,10 +5941,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs, self).__init__()
 
                                         self.yang_name = "vrfs"
                                         self.yang_parent_name = "class"
@@ -5257,7 +5965,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs, [], name, value)
 
 
-                                    class Vrf(Entity):
+                                    class Vrf(_Entity_):
                                         """
                                         VRF name
                                         
@@ -5278,10 +5986,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf, self).__init__()
 
                                             self.yang_name = "vrf"
                                             self.yang_parent_name = "vrfs"
@@ -5304,7 +6015,7 @@ class Ipv4Dhcpd(Entity):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                                        class HelperAddresses(Entity):
+                                        class HelperAddresses(_Entity_):
                                             """
                                             Helper addresses
                                             
@@ -5318,10 +6029,13 @@ class Ipv4Dhcpd(Entity):
                                             """
 
                                             _prefix = 'ipv4-dhcpd-cfg'
-                                            _revision = '2018-10-24'
+                                            _revision = '2019-07-19'
 
                                             def __init__(self):
-                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses, self).__init__()
 
                                                 self.yang_name = "helper-addresses"
                                                 self.yang_parent_name = "vrf"
@@ -5339,7 +6053,7 @@ class Ipv4Dhcpd(Entity):
                                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses, [], name, value)
 
 
-                                            class HelperAddress(Entity):
+                                            class HelperAddress(_Entity_):
                                                 """
                                                 Helper address
                                                 
@@ -5364,10 +6078,13 @@ class Ipv4Dhcpd(Entity):
                                                 """
 
                                                 _prefix = 'ipv4-dhcpd-cfg'
-                                                _revision = '2018-10-24'
+                                                _revision = '2019-07-19'
 
                                                 def __init__(self):
-                                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
+                                                    if sys.version_info > (3,):
+                                                        super().__init__()
+                                                    else:
+                                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
 
                                                     self.yang_name = "helper-address"
                                                     self.yang_parent_name = "helper-addresses"
@@ -5387,14 +6104,38 @@ class Ipv4Dhcpd(Entity):
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress, ['server_address', 'gateway_address'], name, value)
 
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress']['meta_info']
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes']['meta_info']
 
 
-
-
-
-
-
-                        class AuthUsername(Entity):
+                        class AuthUsername(_Entity_):
                             """
                             Authentication Username formating
                             
@@ -5417,10 +6158,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername, self).__init__()
 
                                 self.yang_name = "auth-username"
                                 self.yang_parent_name = "proxy"
@@ -5441,9 +6185,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername, ['arg1', 'arg2'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername']['meta_info']
 
 
-                        class RelayInformation(Entity):
+                        class RelayInformation(_Entity_):
                             """
                             Relay agent information option
                             
@@ -5507,10 +6255,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation, self).__init__()
 
                                 self.yang_name = "relay-information"
                                 self.yang_parent_name = "proxy"
@@ -5548,9 +6299,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation, ['option', 'vpn', 'allow_untrusted', 'circuit_id', 'policy', 'vpn_mode', 'remote_id_xr', 'remote_id_suppress', 'check', 'remote_id', 'authenticate'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation']['meta_info']
 
 
-                        class DhcpToAaa(Entity):
+                        class DhcpToAaa(_Entity_):
                             """
                             Enable to provide the list of options need
                             to send to aaa
@@ -5565,10 +6320,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa, self).__init__()
 
                                 self.yang_name = "dhcp-to-aaa"
                                 self.yang_parent_name = "proxy"
@@ -5588,7 +6346,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa, [], name, value)
 
 
-                            class Option(Entity):
+                            class Option(_Entity_):
                                 """
                                 option type
                                 
@@ -5602,10 +6360,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option, self).__init__()
 
                                     self.yang_name = "option"
                                     self.yang_parent_name = "dhcp-to-aaa"
@@ -5625,7 +6386,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option, [], name, value)
 
 
-                                class List(Entity):
+                                class List(_Entity_):
                                     """
                                     List of options
                                     
@@ -5648,10 +6409,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List, self).__init__()
 
                                         self.yang_name = "list"
                                         self.yang_parent_name = "option"
@@ -5671,11 +6435,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List, ['option_all', 'option'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa']['meta_info']
 
 
-
-
-                        class Vrfs(Entity):
+                        class Vrfs(_Entity_):
                             """
                             List of VRFs
                             
@@ -5689,10 +6465,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs, self).__init__()
 
                                 self.yang_name = "vrfs"
                                 self.yang_parent_name = "proxy"
@@ -5710,7 +6489,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs, [], name, value)
 
 
-                            class Vrf(Entity):
+                            class Vrf(_Entity_):
                                 """
                                 VRF name
                                 
@@ -5731,10 +6510,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf, self).__init__()
 
                                     self.yang_name = "vrf"
                                     self.yang_parent_name = "vrfs"
@@ -5757,7 +6539,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                                class HelperAddresses(Entity):
+                                class HelperAddresses(_Entity_):
                                     """
                                     Helper addresses
                                     
@@ -5771,10 +6553,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses, self).__init__()
 
                                         self.yang_name = "helper-addresses"
                                         self.yang_parent_name = "vrf"
@@ -5792,7 +6577,7 @@ class Ipv4Dhcpd(Entity):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses, [], name, value)
 
 
-                                    class HelperAddress(Entity):
+                                    class HelperAddress(_Entity_):
                                         """
                                         Helper address
                                         
@@ -5817,10 +6602,13 @@ class Ipv4Dhcpd(Entity):
                                         """
 
                                         _prefix = 'ipv4-dhcpd-cfg'
-                                        _revision = '2018-10-24'
+                                        _revision = '2019-07-19'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
 
                                             self.yang_name = "helper-address"
                                             self.yang_parent_name = "helper-addresses"
@@ -5840,12 +6628,28 @@ class Ipv4Dhcpd(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['server_address', 'gateway_address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs']['meta_info']
 
 
-
-
-
-                        class Sessions(Entity):
+                        class Sessions(_Entity_):
                             """
                             Change sessions configuration
                             
@@ -5859,10 +6663,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions, self).__init__()
 
                                 self.yang_name = "sessions"
                                 self.yang_parent_name = "proxy"
@@ -5882,7 +6689,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions, [], name, value)
 
 
-                            class ProxyThrottleType(Entity):
+                            class ProxyThrottleType(_Entity_):
                                 """
                                 Throttle DHCP sessions based on MAC
                                 address
@@ -5897,10 +6704,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType, self).__init__()
 
                                     self.yang_name = "proxy-throttle-type"
                                     self.yang_parent_name = "sessions"
@@ -5920,7 +6730,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType, [], name, value)
 
 
-                                class ProxyMacThrottle(Entity):
+                                class ProxyMacThrottle(_Entity_):
                                     """
                                     Throttle DHCP sessions from any one MAC
                                     address
@@ -5955,10 +6765,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle, self).__init__()
 
                                         self.yang_name = "proxy-mac-throttle"
                                         self.yang_parent_name = "proxy-throttle-type"
@@ -5980,11 +6793,23 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle, ['num_discover', 'num_request', 'num_block'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions']['meta_info']
 
 
-
-
-                        class LimitLease(Entity):
+                        class LimitLease(_Entity_):
                             """
                             Proxy limit lease
                             
@@ -6011,10 +6836,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease, self).__init__()
 
                                 self.yang_name = "limit-lease"
                                 self.yang_parent_name = "proxy"
@@ -6035,9 +6863,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease, ['limit_type', 'limit_lease_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease']['meta_info']
 
 
-                        class LeaseProxy(Entity):
+                        class LeaseProxy(_Entity_):
                             """
                             DHCPv4 lease proxy
                             
@@ -6058,10 +6890,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy, self).__init__()
 
                                 self.yang_name = "lease-proxy"
                                 self.yang_parent_name = "proxy"
@@ -6081,9 +6916,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy, ['client_lease_time', 'set_server_options'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy']['meta_info']
 
 
-                        class BroadcastFlag(Entity):
+                        class BroadcastFlag(_Entity_):
                             """
                             Specify broadcast flag
                             
@@ -6101,10 +6940,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag, self).__init__()
 
                                 self.yang_name = "broadcast-flag"
                                 self.yang_parent_name = "proxy"
@@ -6123,9 +6965,13 @@ class Ipv4Dhcpd(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag, ['policy'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag']['meta_info']
 
 
-                        class Match(Entity):
+                        class Match(_Entity_):
                             """
                             Insert match keyword
                             
@@ -6144,10 +6990,13 @@ class Ipv4Dhcpd(Entity):
                             """
 
                             _prefix = 'ipv4-dhcpd-cfg'
-                            _revision = '2018-10-24'
+                            _revision = '2019-07-19'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match, self).__init__()
 
                                 self.yang_name = "match"
                                 self.yang_parent_name = "proxy"
@@ -6171,7 +7020,7 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match, [], name, value)
 
 
-                            class DefOptions(Entity):
+                            class DefOptions(_Entity_):
                                 """
                                 Table of Option
                                 
@@ -6185,10 +7034,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions, self).__init__()
 
                                     self.yang_name = "def-options"
                                     self.yang_parent_name = "match"
@@ -6206,7 +7058,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions, [], name, value)
 
 
-                                class DefOption(Entity):
+                                class DefOption(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -6229,10 +7081,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption, self).__init__()
 
                                         self.yang_name = "def-option"
                                         self.yang_parent_name = "def-options"
@@ -6252,10 +7107,18 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption, ['def_matchoption', 'def_matchaction'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions']['meta_info']
 
 
-
-                            class OptionFilters(Entity):
+                            class OptionFilters(_Entity_):
                                 """
                                 Table of Option
                                 
@@ -6269,10 +7132,13 @@ class Ipv4Dhcpd(Entity):
                                 """
 
                                 _prefix = 'ipv4-dhcpd-cfg'
-                                _revision = '2018-10-24'
+                                _revision = '2019-07-19'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters, self).__init__()
 
                                     self.yang_name = "option-filters"
                                     self.yang_parent_name = "match"
@@ -6290,7 +7156,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters, [], name, value)
 
 
-                                class OptionFilter(Entity):
+                                class OptionFilter(_Entity_):
                                     """
                                     Specify match option
                                     
@@ -6327,10 +7193,13 @@ class Ipv4Dhcpd(Entity):
                                     """
 
                                     _prefix = 'ipv4-dhcpd-cfg'
-                                    _revision = '2018-10-24'
+                                    _revision = '2019-07-19'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter, self).__init__()
 
                                         self.yang_name = "option-filter"
                                         self.yang_parent_name = "option-filters"
@@ -6354,16 +7223,48 @@ class Ipv4Dhcpd(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter, ['matchoption', 'pattern', 'format', 'matchaction'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes.Mode']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Profiles.Profile.Modes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                return meta._meta_table['Ipv4Dhcpd.Profiles.Profile']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.Profiles']['meta_info']
 
 
-
-
-
-
-
-
-
-    class Database(Entity):
+    class Database(_Entity_):
         """
         Enable DHCP binding database storage to file
         system
@@ -6406,10 +7307,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Database, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Database, self).__init__()
 
             self.yang_name = "database"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -6436,9 +7340,13 @@ class Ipv4Dhcpd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Dhcpd.Database, ['proxy', 'server', 'snoop', 'full_write_interval', 'incremental_write_interval'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.Database']['meta_info']
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         DHCP IPV4 Interface Table
         
@@ -6452,10 +7360,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -6474,7 +7385,7 @@ class Ipv4Dhcpd(Entity):
             self._perform_setattr(Ipv4Dhcpd.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             DHCP IPV4 Interface
             
@@ -6527,10 +7438,13 @@ class Ipv4Dhcpd(Entity):
             """
 
             _prefix = 'ipv4-dhcpd-cfg'
-            _revision = '2018-10-24'
+            _revision = '2019-07-19'
 
             def __init__(self):
-                super(Ipv4Dhcpd.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv4Dhcpd.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -6577,7 +7491,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class ProxyInterface(Entity):
+            class ProxyInterface(_Entity_):
                 """
                 DHCP IPv4 proxy information
                 
@@ -6598,10 +7512,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface, self).__init__()
 
                     self.yang_name = "proxy-interface"
                     self.yang_parent_name = "interface"
@@ -6623,7 +7540,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface, ['profile'], name, value)
 
 
-                class DhcpCircuitId(Entity):
+                class DhcpCircuitId(_Entity_):
                     """
                     Circuit ID value
                     
@@ -6728,10 +7645,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId, self).__init__()
 
                         self.yang_name = "dhcp-circuit-id"
                         self.yang_parent_name = "proxy-interface"
@@ -6784,10 +7704,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId, ['circuit_id', 'format', 'argument1', 'argument2', 'argument3', 'argument4', 'argument5', 'argument6', 'argument7', 'argument8', 'argument9', 'argument10', 'argument11', 'argument12', 'argument13', 'argument14', 'argument15', 'argument16'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.ProxyInterface']['meta_info']
 
 
-
-            class BaseInterface(Entity):
+            class BaseInterface(_Entity_):
                 """
                 DHCP IPv4 Base profile information
                 
@@ -6808,10 +7736,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.BaseInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.BaseInterface, self).__init__()
 
                     self.yang_name = "base-interface"
                     self.yang_parent_name = "interface"
@@ -6833,7 +7764,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.BaseInterface, ['profile'], name, value)
 
 
-                class BaseDhcpCircuitId(Entity):
+                class BaseDhcpCircuitId(_Entity_):
                     """
                     Circuit ID value
                     
@@ -6938,10 +7869,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId, self).__init__()
 
                         self.yang_name = "base-dhcp-circuit-id"
                         self.yang_parent_name = "base-interface"
@@ -6994,10 +7928,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId, ['circuit_id', 'format', 'argument1', 'argument2', 'argument3', 'argument4', 'argument5', 'argument6', 'argument7', 'argument8', 'argument9', 'argument10', 'argument11', 'argument12', 'argument13', 'argument14', 'argument15', 'argument16'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.BaseInterface']['meta_info']
 
 
-
-            class RelayInterface(Entity):
+            class RelayInterface(_Entity_):
                 """
                 DHCP IPv4 relay information
                 
@@ -7013,10 +7955,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.RelayInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.RelayInterface, self).__init__()
 
                     self.yang_name = "relay-interface"
                     self.yang_parent_name = "interface"
@@ -7035,7 +7980,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.RelayInterface, [], name, value)
 
 
-                class RelayDhcpCircuitId(Entity):
+                class RelayDhcpCircuitId(_Entity_):
                     """
                     Circuit ID value
                     
@@ -7140,10 +8085,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId, self).__init__()
 
                         self.yang_name = "relay-dhcp-circuit-id"
                         self.yang_parent_name = "relay-interface"
@@ -7196,10 +8144,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId, ['circuit_id', 'format', 'argument1', 'argument2', 'argument3', 'argument4', 'argument5', 'argument6', 'argument7', 'argument8', 'argument9', 'argument10', 'argument11', 'argument12', 'argument13', 'argument14', 'argument15', 'argument16'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.RelayInterface']['meta_info']
 
 
-
-            class StaticMode(Entity):
+            class StaticMode(_Entity_):
                 """
                 Static Table Entries containing MAC address to
                 IP address bindings
@@ -7214,10 +8170,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.StaticMode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.StaticMode, self).__init__()
 
                     self.yang_name = "static-mode"
                     self.yang_parent_name = "interface"
@@ -7237,7 +8196,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.StaticMode, [], name, value)
 
 
-                class Statics(Entity):
+                class Statics(_Entity_):
                     """
                     Static Table Entries containing MAC address
                     to IP address bindings
@@ -7252,10 +8211,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics, self).__init__()
 
                         self.yang_name = "statics"
                         self.yang_parent_name = "static-mode"
@@ -7273,7 +8235,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics, [], name, value)
 
 
-                    class Static(Entity):
+                    class Static(_Entity_):
                         """
                         DHCP static binding of Mac address to IP
                         address
@@ -7311,10 +8273,13 @@ class Ipv4Dhcpd(Entity):
                         """
 
                         _prefix = 'ipv4-dhcpd-cfg'
-                        _revision = '2018-10-24'
+                        _revision = '2019-07-19'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static, self).__init__()
 
                             self.yang_name = "static"
                             self.yang_parent_name = "statics"
@@ -7338,11 +8303,23 @@ class Ipv4Dhcpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static, ['mac_address', 'client_id', 'layer', 'static_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                            return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.StaticMode']['meta_info']
 
 
-
-
-            class Profile(Entity):
+            class Profile(_Entity_):
                 """
                 Profile name and mode
                 
@@ -7367,10 +8344,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.Profile, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.Profile, self).__init__()
 
                     self.yang_name = "profile"
                     self.yang_parent_name = "interface"
@@ -7391,9 +8371,13 @@ class Ipv4Dhcpd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.Profile, ['profile_name', 'mode'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.Profile']['meta_info']
 
 
-            class ServerInterface(Entity):
+            class ServerInterface(_Entity_):
                 """
                 DHCP IPv4 Server information
                 
@@ -7414,10 +8398,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.ServerInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.ServerInterface, self).__init__()
 
                     self.yang_name = "server-interface"
                     self.yang_parent_name = "interface"
@@ -7439,7 +8426,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.ServerInterface, ['profile'], name, value)
 
 
-                class ServerDhcpCircuitId(Entity):
+                class ServerDhcpCircuitId(_Entity_):
                     """
                     Circuit ID value
                     
@@ -7544,10 +8531,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId, self).__init__()
 
                         self.yang_name = "server-dhcp-circuit-id"
                         self.yang_parent_name = "server-interface"
@@ -7600,10 +8590,18 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId, ['circuit_id', 'format', 'argument1', 'argument2', 'argument3', 'argument4', 'argument5', 'argument6', 'argument7', 'argument8', 'argument9', 'argument10', 'argument11', 'argument12', 'argument13', 'argument14', 'argument15', 'argument16'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.ServerInterface']['meta_info']
 
 
-
-            class SnoopInterface(Entity):
+            class SnoopInterface(_Entity_):
                 """
                 DHCP IPv4 snoop information
                 
@@ -7617,10 +8615,13 @@ class Ipv4Dhcpd(Entity):
                 """
 
                 _prefix = 'ipv4-dhcpd-cfg'
-                _revision = '2018-10-24'
+                _revision = '2019-07-19'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface, self).__init__()
 
                     self.yang_name = "snoop-interface"
                     self.yang_parent_name = "interface"
@@ -7640,7 +8641,7 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface, [], name, value)
 
 
-                class SnoopCircuitId(Entity):
+                class SnoopCircuitId(_Entity_):
                     """
                     Configure circuit ID for snoop 1. Hex 2.
                     ASCII
@@ -7662,10 +8663,13 @@ class Ipv4Dhcpd(Entity):
                     """
 
                     _prefix = 'ipv4-dhcpd-cfg'
-                    _revision = '2018-10-24'
+                    _revision = '2019-07-19'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId, self).__init__()
 
                         self.yang_name = "snoop-circuit-id"
                         self.yang_parent_name = "snoop-interface"
@@ -7685,12 +8689,28 @@ class Ipv4Dhcpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId, ['format_type', 'circuit_id_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                        return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                    return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface.SnoopInterface']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+                return meta._meta_table['Ipv4Dhcpd.Interfaces.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.Interfaces']['meta_info']
 
 
-
-
-
-    class DuplicateMacAllowed(Entity):
+    class DuplicateMacAllowed(_Entity_):
         """
         Allow Duplicate MAC Address
         
@@ -7718,10 +8738,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.DuplicateMacAllowed, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.DuplicateMacAllowed, self).__init__()
 
             self.yang_name = "duplicate-mac-allowed"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -7745,9 +8768,13 @@ class Ipv4Dhcpd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Dhcpd.DuplicateMacAllowed, ['duplicate_mac', 'exclude_vlan', 'include_giaddr'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.DuplicateMacAllowed']['meta_info']
 
 
-    class RateLimit(Entity):
+    class RateLimit(_Entity_):
         """
         Rate limit ingress packets
         
@@ -7774,10 +8801,13 @@ class Ipv4Dhcpd(Entity):
         """
 
         _prefix = 'ipv4-dhcpd-cfg'
-        _revision = '2018-10-24'
+        _revision = '2019-07-19'
 
         def __init__(self):
-            super(Ipv4Dhcpd.RateLimit, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv4Dhcpd.RateLimit, self).__init__()
 
             self.yang_name = "rate-limit"
             self.yang_parent_name = "ipv4-dhcpd"
@@ -7798,10 +8828,18 @@ class Ipv4Dhcpd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Dhcpd.RateLimit, ['num_period', 'num_discover'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+            return meta._meta_table['Ipv4Dhcpd.RateLimit']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv4Dhcpd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_dhcpd_cfg as meta
+        return meta._meta_table['Ipv4Dhcpd']['meta_info']
 
 

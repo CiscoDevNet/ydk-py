@@ -338,6 +338,11 @@ submodule Cisco-IOS-XR-plat-chas-invmgr-ng-oper-sub2 {
       description
         "Node IP Address";
     }
+    leaf node-name {
+      type string;
+      description
+        "Node name";
+    }
   }
 
   grouping PLATFORM-INFO {
@@ -382,6 +387,11 @@ submodule Cisco-IOS-XR-plat-chas-invmgr-ng-oper-sub2 {
       type string;
       description
         "Admin state";
+    }
+    leaf node-name {
+      type string;
+      description
+        "Node name";
     }
   }
 }

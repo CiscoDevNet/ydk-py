@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -23,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Rcp(Entity):
+class Rcp(_Entity_):
     """
     RCP configuration
     
@@ -40,7 +43,10 @@ class Rcp(Entity):
     _revision = '2017-11-28'
 
     def __init__(self):
-        super(Rcp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Rcp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rcp"
@@ -61,7 +67,7 @@ class Rcp(Entity):
         self._perform_setattr(Rcp, [], name, value)
 
 
-    class RcpClient(Entity):
+    class RcpClient(_Entity_):
         """
         RCP client configuration
         
@@ -85,7 +91,10 @@ class Rcp(Entity):
         _revision = '2017-11-28'
 
         def __init__(self):
-            super(Rcp.RcpClient, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Rcp.RcpClient, self).__init__()
 
             self.yang_name = "rcp-client"
             self.yang_parent_name = "rcp"
@@ -106,14 +115,22 @@ class Rcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rcp.RcpClient, ['username', 'source_interface'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+            return meta._meta_table['Rcp.RcpClient']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Rcp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+        return meta._meta_table['Rcp']['meta_info']
 
 
-class Ftp(Entity):
+class Ftp(_Entity_):
     """
     ftp
     
@@ -130,7 +147,10 @@ class Ftp(Entity):
     _revision = '2017-11-28'
 
     def __init__(self):
-        super(Ftp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ftp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ftp"
@@ -151,7 +171,7 @@ class Ftp(Entity):
         self._perform_setattr(Ftp, [], name, value)
 
 
-    class FtpClient(Entity):
+    class FtpClient(_Entity_):
         """
         FTP client configuration
         
@@ -197,7 +217,10 @@ class Ftp(Entity):
         _revision = '2017-11-28'
 
         def __init__(self):
-            super(Ftp.FtpClient, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ftp.FtpClient, self).__init__()
 
             self.yang_name = "ftp-client"
             self.yang_parent_name = "ftp"
@@ -229,7 +252,7 @@ class Ftp(Entity):
             self._perform_setattr(Ftp.FtpClient, ['passive', 'password', 'anonymous_password', 'username', 'source_interface'], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF table
             
@@ -246,7 +269,10 @@ class Ftp(Entity):
             _revision = '2017-11-28'
 
             def __init__(self):
-                super(Ftp.FtpClient.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ftp.FtpClient.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "ftp-client"
@@ -265,7 +291,7 @@ class Ftp(Entity):
                 self._perform_setattr(Ftp.FtpClient.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF specific data
                 
@@ -313,7 +339,10 @@ class Ftp(Entity):
                 _revision = '2017-11-28'
 
                 def __init__(self):
-                    super(Ftp.FtpClient.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ftp.FtpClient.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -342,16 +371,32 @@ class Ftp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ftp.FtpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'username', 'anonymous_password', 'password', 'passive'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+                    return meta._meta_table['Ftp.FtpClient.Vrfs.Vrf']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+                return meta._meta_table['Ftp.FtpClient.Vrfs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+            return meta._meta_table['Ftp.FtpClient']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ftp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+        return meta._meta_table['Ftp']['meta_info']
 
 
-class Tftp(Entity):
+class Tftp(_Entity_):
     """
     tftp
     
@@ -368,7 +413,10 @@ class Tftp(Entity):
     _revision = '2017-11-28'
 
     def __init__(self):
-        super(Tftp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Tftp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "tftp"
@@ -389,7 +437,7 @@ class Tftp(Entity):
         self._perform_setattr(Tftp, [], name, value)
 
 
-    class TftpClient(Entity):
+    class TftpClient(_Entity_):
         """
         TFTP client configuration
         
@@ -429,7 +477,10 @@ class Tftp(Entity):
         _revision = '2017-11-28'
 
         def __init__(self):
-            super(Tftp.TftpClient, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Tftp.TftpClient, self).__init__()
 
             self.yang_name = "tftp-client"
             self.yang_parent_name = "tftp"
@@ -457,7 +508,7 @@ class Tftp(Entity):
             self._perform_setattr(Tftp.TftpClient, ['retry', 'timeout', 'source_interface'], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             VRF table
             
@@ -474,7 +525,10 @@ class Tftp(Entity):
             _revision = '2017-11-28'
 
             def __init__(self):
-                super(Tftp.TftpClient.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Tftp.TftpClient.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "tftp-client"
@@ -493,7 +547,7 @@ class Tftp(Entity):
                 self._perform_setattr(Tftp.TftpClient.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 VRF specific data
                 
@@ -535,7 +589,10 @@ class Tftp(Entity):
                 _revision = '2017-11-28'
 
                 def __init__(self):
-                    super(Tftp.TftpClient.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Tftp.TftpClient.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -560,12 +617,28 @@ class Tftp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tftp.TftpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'retry', 'timeout'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+                    return meta._meta_table['Tftp.TftpClient.Vrfs.Vrf']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+                return meta._meta_table['Tftp.TftpClient.Vrfs']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+            return meta._meta_table['Tftp.TftpClient']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Tftp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_filesystems_cfg as meta
+        return meta._meta_table['Tftp']['meta_info']
 
 

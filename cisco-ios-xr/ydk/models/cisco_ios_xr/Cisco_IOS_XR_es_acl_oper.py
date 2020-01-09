@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class AclAce1(Enum):
     abf = Enum.YLeaf(2, "abf")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+        return meta._meta_table['AclAce1']
+
+
 class AclAce1_(Enum):
     """
     AclAce1\_ (Enum Class)
@@ -72,6 +81,12 @@ class AclAce1_(Enum):
     remark = Enum.YLeaf(1, "remark")
 
     abf = Enum.YLeaf(2, "abf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+        return meta._meta_table['AclAce1_']
 
 
 class AclAction(Enum):
@@ -119,8 +134,14 @@ class AclAction(Enum):
     invalid = Enum.YLeaf(5, "invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+        return meta._meta_table['AclAction']
 
-class EsAcl(Entity):
+
+
+class EsAcl(_Entity_):
     """
     Root class of ES ACL Oper schema tree
     
@@ -139,7 +160,10 @@ class EsAcl(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EsAcl, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EsAcl, self).__init__()
         self._top_entity = None
 
         self.yang_name = "es-acl"
@@ -160,7 +184,7 @@ class EsAcl(Entity):
         self._perform_setattr(EsAcl, [], name, value)
 
 
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Out Of Resources, Limits to the resources
         allocatable
@@ -201,7 +225,10 @@ class EsAcl(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EsAcl.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EsAcl.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "es-acl"
@@ -234,7 +261,7 @@ class EsAcl(Entity):
             self._perform_setattr(EsAcl.Active, [], name, value)
 
 
-        class Oor(Entity):
+        class Oor(_Entity_):
             """
             Out Of Resources, Limits to the resources
             allocatable
@@ -254,7 +281,10 @@ class EsAcl(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EsAcl.Active.Oor, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EsAcl.Active.Oor, self).__init__()
 
                 self.yang_name = "oor"
                 self.yang_parent_name = "active"
@@ -275,7 +305,7 @@ class EsAcl(Entity):
                 self._perform_setattr(EsAcl.Active.Oor, [], name, value)
 
 
-            class AclSummary(Entity):
+            class AclSummary(_Entity_):
                 """
                 Resource Limits pertaining to ACLs only
                 
@@ -294,7 +324,10 @@ class EsAcl(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EsAcl.Active.Oor.AclSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EsAcl.Active.Oor.AclSummary, self).__init__()
 
                     self.yang_name = "acl-summary"
                     self.yang_parent_name = "oor"
@@ -315,7 +348,7 @@ class EsAcl(Entity):
                     self._perform_setattr(EsAcl.Active.Oor.AclSummary, [], name, value)
 
 
-                class Details(Entity):
+                class Details(_Entity_):
                     """
                     Details containing the resource limits of the
                     ACLs
@@ -364,7 +397,10 @@ class EsAcl(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EsAcl.Active.Oor.AclSummary.Details, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EsAcl.Active.Oor.AclSummary.Details, self).__init__()
 
                         self.yang_name = "details"
                         self.yang_parent_name = "acl-summary"
@@ -389,11 +425,23 @@ class EsAcl(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EsAcl.Active.Oor.AclSummary.Details, ['current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                        return meta._meta_table['EsAcl.Active.Oor.AclSummary.Details']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                    return meta._meta_table['EsAcl.Active.Oor.AclSummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                return meta._meta_table['EsAcl.Active.Oor']['meta_info']
 
 
-
-
-        class List(Entity):
+        class List(_Entity_):
             """
             List containing ACLs
             
@@ -412,7 +460,10 @@ class EsAcl(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EsAcl.Active.List, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EsAcl.Active.List, self).__init__()
 
                 self.yang_name = "list"
                 self.yang_parent_name = "active"
@@ -433,7 +484,7 @@ class EsAcl(Entity):
                 self._perform_setattr(EsAcl.Active.List, [], name, value)
 
 
-            class Acls(Entity):
+            class Acls(_Entity_):
                 """
                 ACL class displaying Usage and Entries
                 
@@ -452,7 +503,10 @@ class EsAcl(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EsAcl.Active.List.Acls, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EsAcl.Active.List.Acls, self).__init__()
 
                     self.yang_name = "acls"
                     self.yang_parent_name = "list"
@@ -471,7 +525,7 @@ class EsAcl(Entity):
                     self._perform_setattr(EsAcl.Active.List.Acls, [], name, value)
 
 
-                class Acl(Entity):
+                class Acl(_Entity_):
                     """
                     Name of the Access List
                     
@@ -499,7 +553,10 @@ class EsAcl(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(EsAcl.Active.List.Acls.Acl, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EsAcl.Active.List.Acls.Acl, self).__init__()
 
                         self.yang_name = "acl"
                         self.yang_parent_name = "acls"
@@ -523,7 +580,7 @@ class EsAcl(Entity):
                         self._perform_setattr(EsAcl.Active.List.Acls.Acl, ['name'], name, value)
 
 
-                    class AclSequenceNumbers(Entity):
+                    class AclSequenceNumbers(_Entity_):
                         """
                         Table of all the SequenceNumbers per ACL
                         
@@ -542,7 +599,10 @@ class EsAcl(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers, self).__init__()
 
                             self.yang_name = "acl-sequence-numbers"
                             self.yang_parent_name = "acl"
@@ -560,7 +620,7 @@ class EsAcl(Entity):
                             self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers, [], name, value)
 
 
-                        class AclSequenceNumber(Entity):
+                        class AclSequenceNumber(_Entity_):
                             """
                             Sequence Number of an ACL entry
                             
@@ -767,7 +827,10 @@ class EsAcl(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, self).__init__()
 
                                 self.yang_name = "acl-sequence-number"
                                 self.yang_parent_name = "acl-sequence-numbers"
@@ -829,13 +892,33 @@ class EsAcl(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, ['sequence_number', 'ace_type', 'ace_sequence_number', 'hits', 'grant', 'source_address', 'source_wild_card_bits', 'destination_address', 'destination_wild_card_bits', 'ether_type_number', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_header_vlan1', 'inner_header_vlan2', 'inner_header_cos', 'inner_header_dei', 'capture', 'log_option', 'remark', 'acl_name', 'sequence_string'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                                return meta._meta_table['EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                            return meta._meta_table['EsAcl.Active.List.Acls.Acl.AclSequenceNumbers']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                        return meta._meta_table['EsAcl.Active.List.Acls.Acl']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                    return meta._meta_table['EsAcl.Active.List.Acls']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                return meta._meta_table['EsAcl.Active.List']['meta_info']
 
 
-
-
-
-
-        class OorAcls(Entity):
+        class OorAcls(_Entity_):
             """
             Resource occupation details for ACLs
             
@@ -854,7 +937,10 @@ class EsAcl(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EsAcl.Active.OorAcls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EsAcl.Active.OorAcls, self).__init__()
 
                 self.yang_name = "oor-acls"
                 self.yang_parent_name = "active"
@@ -873,7 +959,7 @@ class EsAcl(Entity):
                 self._perform_setattr(EsAcl.Active.OorAcls, [], name, value)
 
 
-            class OorAcl(Entity):
+            class OorAcl(_Entity_):
                 """
                 Resource occupation details for a particular
                 ACL
@@ -931,7 +1017,10 @@ class EsAcl(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EsAcl.Active.OorAcls.OorAcl, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EsAcl.Active.OorAcls.OorAcl, self).__init__()
 
                     self.yang_name = "oor-acl"
                     self.yang_parent_name = "oor-acls"
@@ -958,10 +1047,18 @@ class EsAcl(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.OorAcls.OorAcl, ['name', 'current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                    return meta._meta_table['EsAcl.Active.OorAcls.OorAcl']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                return meta._meta_table['EsAcl.Active.OorAcls']['meta_info']
 
 
-
-        class Usages(Entity):
+        class Usages(_Entity_):
             """
             Table of Usage statistics of ACLs at different
             nodes
@@ -981,7 +1078,10 @@ class EsAcl(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(EsAcl.Active.Usages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EsAcl.Active.Usages, self).__init__()
 
                 self.yang_name = "usages"
                 self.yang_parent_name = "active"
@@ -1000,7 +1100,7 @@ class EsAcl(Entity):
                 self._perform_setattr(EsAcl.Active.Usages, [], name, value)
 
 
-            class Usage(Entity):
+            class Usage(_Entity_):
                 """
                 Usage statistics of an ACL at a node
                 
@@ -1046,7 +1146,10 @@ class EsAcl(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(EsAcl.Active.Usages.Usage, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EsAcl.Active.Usages.Usage, self).__init__()
 
                     self.yang_name = "usage"
                     self.yang_parent_name = "usages"
@@ -1071,12 +1174,28 @@ class EsAcl(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.Usages.Usage, ['location', 'application_id', 'name', 'usage_details'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                    return meta._meta_table['EsAcl.Active.Usages.Usage']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+                return meta._meta_table['EsAcl.Active.Usages']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+            return meta._meta_table['EsAcl.Active']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EsAcl()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_oper as meta
+        return meta._meta_table['EsAcl']['meta_info']
 
 

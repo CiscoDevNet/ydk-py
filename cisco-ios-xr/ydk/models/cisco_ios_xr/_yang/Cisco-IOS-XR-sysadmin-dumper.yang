@@ -30,7 +30,7 @@ module Cisco-IOS-XR-sysadmin-dumper {
 
   revision 2017-05-09 {
     description
-      "Modified module name, namespace and filename 
+      "Modified module name, namespace and filename
        to adhere to standard notation";
   }
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,8 +44,14 @@ class AccountingMode(Enum):
     forward_only_enable = Enum.YLeaf(1, "forward-only-enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+        return meta._meta_table['AccountingMode']
 
-class Mfwd(Entity):
+
+
+class Mfwd(_Entity_):
     """
     Multicast routing configuration
     
@@ -64,7 +73,10 @@ class Mfwd(Entity):
     _revision = '2017-10-15'
 
     def __init__(self):
-        super(Mfwd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mfwd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mfwd"
@@ -89,7 +101,7 @@ class Mfwd(Entity):
         self._perform_setattr(Mfwd, [], name, value)
 
 
-    class DefaultContext(Entity):
+    class DefaultContext(_Entity_):
         """
         Default Context
         
@@ -111,7 +123,10 @@ class Mfwd(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Mfwd.DefaultContext, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mfwd.DefaultContext, self).__init__()
 
             self.yang_name = "default-context"
             self.yang_parent_name = "mfwd"
@@ -136,7 +151,7 @@ class Mfwd(Entity):
             self._perform_setattr(Mfwd.DefaultContext, [], name, value)
 
 
-        class Ipv6(Entity):
+        class Ipv6(_Entity_):
             """
             IPV6 commands in the default context
             
@@ -216,7 +231,10 @@ class Mfwd(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Mfwd.DefaultContext.Ipv6, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mfwd.DefaultContext.Ipv6, self).__init__()
 
                 self.yang_name = "ipv6"
                 self.yang_parent_name = "default-context"
@@ -262,7 +280,7 @@ class Mfwd(Entity):
                 self._perform_setattr(Mfwd.DefaultContext.Ipv6, ['enable_on_all_interfaces', 'maximum_checking_disable', 'rate_per_route', 'interface_inheritance_disable', 'mofrr_lockout_timer_config', 'forwarding_latency', 'mofrr_loss_detection_timer_config', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
 
 
-            class StaticRpfRules(Entity):
+            class StaticRpfRules(_Entity_):
                 """
                 Configure a static RPF rule for a given prefix
                 
@@ -279,7 +297,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.DefaultContext.Ipv6.StaticRpfRules, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.DefaultContext.Ipv6.StaticRpfRules, self).__init__()
 
                     self.yang_name = "static-rpf-rules"
                     self.yang_parent_name = "ipv6"
@@ -298,7 +319,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv6.StaticRpfRules, [], name, value)
 
 
-                class StaticRpfRule(Entity):
+                class StaticRpfRule(_Entity_):
                     """
                     RPF prefix address and mask
                     
@@ -354,7 +375,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
 
                         self.yang_name = "static-rpf-rule"
                         self.yang_parent_name = "static-rpf-rules"
@@ -379,10 +403,18 @@ class Mfwd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.DefaultContext.Ipv6.StaticRpfRules']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface\-level Configuration
                 
@@ -399,7 +431,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.DefaultContext.Ipv6.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.DefaultContext.Ipv6.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "ipv6"
@@ -418,7 +453,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv6.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     The name of the interface
                     
@@ -456,7 +491,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -481,11 +519,23 @@ class Mfwd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.DefaultContext.Ipv6.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.DefaultContext.Ipv6.Interfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                return meta._meta_table['Mfwd.DefaultContext.Ipv6']['meta_info']
 
 
-
-
-        class Ipv4(Entity):
+        class Ipv4(_Entity_):
             """
             IPV4 commands in the default context
             
@@ -570,7 +620,10 @@ class Mfwd(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Mfwd.DefaultContext.Ipv4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mfwd.DefaultContext.Ipv4, self).__init__()
 
                 self.yang_name = "ipv4"
                 self.yang_parent_name = "default-context"
@@ -618,7 +671,7 @@ class Mfwd(Entity):
                 self._perform_setattr(Mfwd.DefaultContext.Ipv4, ['out_of_memory_handling', 'enable_on_all_interfaces', 'maximum_checking_disable', 'rate_per_route', 'interface_inheritance_disable', 'mofrr_lockout_timer_config', 'forwarding_latency', 'mofrr_loss_detection_timer_config', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
 
 
-            class StaticRpfRules(Entity):
+            class StaticRpfRules(_Entity_):
                 """
                 Configure a static RPF rule for a given prefix
                 
@@ -635,7 +688,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.DefaultContext.Ipv4.StaticRpfRules, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.DefaultContext.Ipv4.StaticRpfRules, self).__init__()
 
                     self.yang_name = "static-rpf-rules"
                     self.yang_parent_name = "ipv4"
@@ -654,7 +710,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv4.StaticRpfRules, [], name, value)
 
 
-                class StaticRpfRule(Entity):
+                class StaticRpfRule(_Entity_):
                     """
                     RPF prefix address and mask
                     
@@ -710,7 +766,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
 
                         self.yang_name = "static-rpf-rule"
                         self.yang_parent_name = "static-rpf-rules"
@@ -735,10 +794,18 @@ class Mfwd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.DefaultContext.Ipv4.StaticRpfRules']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface\-level Configuration
                 
@@ -755,7 +822,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.DefaultContext.Ipv4.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.DefaultContext.Ipv4.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "ipv4"
@@ -774,7 +844,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv4.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     The name of the interface
                     
@@ -812,7 +882,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -837,12 +910,28 @@ class Mfwd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.DefaultContext.Ipv4.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.DefaultContext.Ipv4.Interfaces']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                return meta._meta_table['Mfwd.DefaultContext.Ipv4']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+            return meta._meta_table['Mfwd.DefaultContext']['meta_info']
 
 
-
-
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF Table
         
@@ -859,7 +948,10 @@ class Mfwd(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Mfwd.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mfwd.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "mfwd"
@@ -878,7 +970,7 @@ class Mfwd(Entity):
             self._perform_setattr(Mfwd.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF table names
             
@@ -907,7 +999,10 @@ class Mfwd(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Mfwd.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mfwd.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -935,7 +1030,7 @@ class Mfwd(Entity):
                 self._perform_setattr(Mfwd.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 VRF table for IPV6 commands
                 
@@ -982,7 +1077,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.Vrfs.Vrf.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.Vrfs.Vrf.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "vrf"
@@ -1017,7 +1115,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6, ['enable_on_all_interfaces', 'rate_per_route', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
 
 
-                class StaticRpfRules(Entity):
+                class StaticRpfRules(_Entity_):
                     """
                     Configure a static RPF rule for a given prefix
                     
@@ -1034,7 +1132,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules, self).__init__()
 
                         self.yang_name = "static-rpf-rules"
                         self.yang_parent_name = "ipv6"
@@ -1052,7 +1153,7 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules, [], name, value)
 
 
-                    class StaticRpfRule(Entity):
+                    class StaticRpfRule(_Entity_):
                         """
                         RPF prefix address and mask
                         
@@ -1108,7 +1209,10 @@ class Mfwd(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, self).__init__()
 
                             self.yang_name = "static-rpf-rule"
                             self.yang_parent_name = "static-rpf-rules"
@@ -1132,10 +1236,18 @@ class Mfwd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                            return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules']['meta_info']
 
 
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Interface\-level Configuration
                     
@@ -1152,7 +1264,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "ipv6"
@@ -1170,7 +1285,7 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         The name of the interface
                         
@@ -1208,7 +1323,10 @@ class Mfwd(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -1232,11 +1350,23 @@ class Mfwd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                            return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv6.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv6']['meta_info']
 
 
-
-
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 VRF table for IPV4 commands
                 
@@ -1283,7 +1413,10 @@ class Mfwd(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Mfwd.Vrfs.Vrf.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mfwd.Vrfs.Vrf.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "vrf"
@@ -1318,7 +1451,7 @@ class Mfwd(Entity):
                     self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4, ['enable_on_all_interfaces', 'rate_per_route', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
 
 
-                class StaticRpfRules(Entity):
+                class StaticRpfRules(_Entity_):
                     """
                     Configure a static RPF rule for a given prefix
                     
@@ -1335,7 +1468,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules, self).__init__()
 
                         self.yang_name = "static-rpf-rules"
                         self.yang_parent_name = "ipv4"
@@ -1353,7 +1489,7 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules, [], name, value)
 
 
-                    class StaticRpfRule(Entity):
+                    class StaticRpfRule(_Entity_):
                         """
                         RPF prefix address and mask
                         
@@ -1409,7 +1545,10 @@ class Mfwd(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, self).__init__()
 
                             self.yang_name = "static-rpf-rule"
                             self.yang_parent_name = "static-rpf-rules"
@@ -1433,10 +1572,18 @@ class Mfwd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                            return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules']['meta_info']
 
 
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Interface\-level Configuration
                     
@@ -1453,7 +1600,10 @@ class Mfwd(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "ipv4"
@@ -1471,7 +1621,7 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         The name of the interface
                         
@@ -1509,7 +1659,10 @@ class Mfwd(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -1533,14 +1686,38 @@ class Mfwd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                            return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                        return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv4.Interfaces']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                    return meta._meta_table['Mfwd.Vrfs.Vrf.Ipv4']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+                return meta._meta_table['Mfwd.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+            return meta._meta_table['Mfwd.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Mfwd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_mfwd_cfg as meta
+        return meta._meta_table['Mfwd']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -89,8 +92,14 @@ class LptsPifib(Enum):
     all = Enum.YLeaf(9, "all")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+        return meta._meta_table['LptsPifib']
 
-class LptsPifib_(Entity):
+
+
+class LptsPifib_(_Entity_):
     """
     lpts pre\-ifib data
     
@@ -106,10 +115,13 @@ class LptsPifib_(Entity):
     """
 
     _prefix = 'lpts-pre-ifib-oper'
-    _revision = '2017-05-01'
+    _revision = '2019-11-06'
 
     def __init__(self):
-        super(LptsPifib_, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(LptsPifib_, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lpts-pifib"
@@ -130,7 +142,7 @@ class LptsPifib_(Entity):
         self._perform_setattr(LptsPifib_, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of Pre\-ifib Nodes
         
@@ -146,10 +158,13 @@ class LptsPifib_(Entity):
         """
 
         _prefix = 'lpts-pre-ifib-oper'
-        _revision = '2017-05-01'
+        _revision = '2019-11-06'
 
         def __init__(self):
-            super(LptsPifib_.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LptsPifib_.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "lpts-pifib"
@@ -168,7 +183,7 @@ class LptsPifib_(Entity):
             self._perform_setattr(LptsPifib_.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Pre\-ifib data for particular node
             
@@ -181,6 +196,13 @@ class LptsPifib_(Entity):
             
             	**config**\: False
             
+            .. attribute:: shadow_entries
+            
+            	Pre\-IFIB Shadow Entries (PI)
+            	**type**\:  :py:class:`ShadowEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.ShadowEntries>`
+            
+            	**config**\: False
+            
             .. attribute:: type_values
             
             	Type specific
@@ -188,10 +210,24 @@ class LptsPifib_(Entity):
             
             	**config**\: False
             
+            .. attribute:: domains
+            
+            	data for pre\-ifib domains
+            	**type**\:  :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Domains>`
+            
+            	**config**\: False
+            
             .. attribute:: dynamic_flows_stats
             
             	Dynamic Flows Statistics
             	**type**\:  :py:class:`DynamicFlowsStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats>`
+            
+            	**config**\: False
+            
+            .. attribute:: punt_policer_stats
+            
+            	Punt Policer Statistics
+            	**type**\:  :py:class:`PuntPolicerStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats>`
             
             	**config**\: False
             
@@ -207,29 +243,44 @@ class LptsPifib_(Entity):
             """
 
             _prefix = 'lpts-pre-ifib-oper'
-            _revision = '2017-05-01'
+            _revision = '2019-11-06'
 
             def __init__(self):
-                super(LptsPifib_.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(LptsPifib_.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("type-values", ("type_values", LptsPifib_.Nodes.Node.TypeValues)), ("dynamic-flows-stats", ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats)), ("Cisco-IOS-XR-platform-pifib-oper:hardware", ("hardware", LptsPifib_.Nodes.Node.Hardware))])
+                self._child_classes = OrderedDict([("shadow-entries", ("shadow_entries", LptsPifib_.Nodes.Node.ShadowEntries)), ("type-values", ("type_values", LptsPifib_.Nodes.Node.TypeValues)), ("domains", ("domains", LptsPifib_.Nodes.Node.Domains)), ("dynamic-flows-stats", ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats)), ("punt-policer-stats", ("punt_policer_stats", LptsPifib_.Nodes.Node.PuntPolicerStats)), ("Cisco-IOS-XR-platform-pifib-oper:hardware", ("hardware", LptsPifib_.Nodes.Node.Hardware))])
                 self._leafs = OrderedDict([
                     ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
+                self.shadow_entries = LptsPifib_.Nodes.Node.ShadowEntries()
+                self.shadow_entries.parent = self
+                self._children_name_map["shadow_entries"] = "shadow-entries"
+
                 self.type_values = LptsPifib_.Nodes.Node.TypeValues()
                 self.type_values.parent = self
                 self._children_name_map["type_values"] = "type-values"
 
+                self.domains = LptsPifib_.Nodes.Node.Domains()
+                self.domains.parent = self
+                self._children_name_map["domains"] = "domains"
+
                 self.dynamic_flows_stats = LptsPifib_.Nodes.Node.DynamicFlowsStats()
                 self.dynamic_flows_stats.parent = self
                 self._children_name_map["dynamic_flows_stats"] = "dynamic-flows-stats"
+
+                self.punt_policer_stats = LptsPifib_.Nodes.Node.PuntPolicerStats()
+                self.punt_policer_stats.parent = self
+                self._children_name_map["punt_policer_stats"] = "punt-policer-stats"
 
                 self.hardware = LptsPifib_.Nodes.Node.Hardware()
                 self.hardware.parent = self
@@ -242,7 +293,380 @@ class LptsPifib_(Entity):
                 self._perform_setattr(LptsPifib_.Nodes.Node, ['node_name'], name, value)
 
 
-            class TypeValues(Entity):
+            class ShadowEntries(_Entity_):
+                """
+                Pre\-IFIB Shadow Entries (PI)
+                
+                .. attribute:: entry
+                
+                	Data for single pre\-ifib entry
+                	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.ShadowEntries.Entry>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'lpts-pre-ifib-oper'
+                _revision = '2019-11-06'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.ShadowEntries, self).__init__()
+
+                    self.yang_name = "shadow-entries"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("entry", ("entry", LptsPifib_.Nodes.Node.ShadowEntries.Entry))])
+                    self._leafs = OrderedDict()
+
+                    self.entry = YList(self)
+                    self._segment_path = lambda: "shadow-entries"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LptsPifib_.Nodes.Node.ShadowEntries, [], name, value)
+
+
+                class Entry(_Entity_):
+                    """
+                    Data for single pre\-ifib entry
+                    
+                    .. attribute:: entry  (key)
+                    
+                    	Single Pre\-ifib entry
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF Name
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vid
+                    
+                    	VRF ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: l3protocol
+                    
+                    	Layer 3 Protocol
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: l4protocol
+                    
+                    	Layer 4 Protocol
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: intf_name
+                    
+                    	Interface Name
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: intf_handle
+                    
+                    	Interface Handle
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: destination_addr
+                    
+                    	Destination IP Address
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: source_addr
+                    
+                    	Source IP Address
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: destination_type
+                    
+                    	Destination Key Type
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: destination_value
+                    
+                    	Destination Port/ICMP Type/IGMP Type
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: source_port
+                    
+                    	Source port
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_frag
+                    
+                    	Is Fragment
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_syn
+                    
+                    	Is SYN
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: opcode
+                    
+                    	Opcode
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: flow_type
+                    
+                    	Flow type
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: listener_tag
+                    
+                    	Listener Tag
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: local_flag
+                    
+                    	Local Flag
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_fgid
+                    
+                    	Is FGID or not
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: deliver_list_short
+                    
+                    	Deliver List Short Format
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: deliver_list_long
+                    
+                    	Deliver List Long Format
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_ttl
+                    
+                    	Minimum TTL
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: accepts
+                    
+                    	Packets matched to accept
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: drops
+                    
+                    	Packets matched for drop
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: stale
+                    
+                    	Is Stale
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pifib_type
+                    
+                    	sub Pre\-IFIB type
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pifib_program_time
+                    
+                    	Creation or Update Time
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: domain_idx
+                    
+                    	Domain Index
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: domain_name
+                    
+                    	Domain Name
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-oper'
+                    _revision = '2019-11-06'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.ShadowEntries.Entry, self).__init__()
+
+                        self.yang_name = "entry"
+                        self.yang_parent_name = "shadow-entries"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['entry']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('vid', (YLeaf(YType.uint32, 'vid'), ['int'])),
+                            ('l3protocol', (YLeaf(YType.uint32, 'l3protocol'), ['int'])),
+                            ('l4protocol', (YLeaf(YType.uint32, 'l4protocol'), ['int'])),
+                            ('intf_name', (YLeaf(YType.str, 'intf-name'), ['str'])),
+                            ('intf_handle', (YLeaf(YType.uint32, 'intf-handle'), ['int'])),
+                            ('destination_addr', (YLeaf(YType.str, 'destination-addr'), ['str'])),
+                            ('source_addr', (YLeaf(YType.str, 'source-addr'), ['str'])),
+                            ('destination_type', (YLeaf(YType.str, 'destination-type'), ['str'])),
+                            ('destination_value', (YLeaf(YType.str, 'destination-value'), ['str'])),
+                            ('source_port', (YLeaf(YType.str, 'source-port'), ['str'])),
+                            ('is_frag', (YLeaf(YType.uint8, 'is-frag'), ['int'])),
+                            ('is_syn', (YLeaf(YType.uint8, 'is-syn'), ['int'])),
+                            ('opcode', (YLeaf(YType.str, 'opcode'), ['str'])),
+                            ('flow_type', (YLeaf(YType.str, 'flow-type'), ['str'])),
+                            ('listener_tag', (YLeaf(YType.str, 'listener-tag'), ['str'])),
+                            ('local_flag', (YLeaf(YType.uint8, 'local-flag'), ['int'])),
+                            ('is_fgid', (YLeaf(YType.uint8, 'is-fgid'), ['int'])),
+                            ('deliver_list_short', (YLeaf(YType.str, 'deliver-list-short'), ['str'])),
+                            ('deliver_list_long', (YLeaf(YType.str, 'deliver-list-long'), ['str'])),
+                            ('min_ttl', (YLeaf(YType.uint8, 'min-ttl'), ['int'])),
+                            ('accepts', (YLeaf(YType.uint64, 'accepts'), ['int'])),
+                            ('drops', (YLeaf(YType.uint64, 'drops'), ['int'])),
+                            ('stale', (YLeaf(YType.uint8, 'stale'), ['int'])),
+                            ('pifib_type', (YLeaf(YType.uint8, 'pifib-type'), ['int'])),
+                            ('pifib_program_time', (YLeaf(YType.str, 'pifib-program-time'), ['str'])),
+                            ('domain_idx', (YLeaf(YType.uint8, 'domain-idx'), ['int'])),
+                            ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                        ])
+                        self.entry = None
+                        self.vrf_name = None
+                        self.vid = None
+                        self.l3protocol = None
+                        self.l4protocol = None
+                        self.intf_name = None
+                        self.intf_handle = None
+                        self.destination_addr = None
+                        self.source_addr = None
+                        self.destination_type = None
+                        self.destination_value = None
+                        self.source_port = None
+                        self.is_frag = None
+                        self.is_syn = None
+                        self.opcode = None
+                        self.flow_type = None
+                        self.listener_tag = None
+                        self.local_flag = None
+                        self.is_fgid = None
+                        self.deliver_list_short = None
+                        self.deliver_list_long = None
+                        self.min_ttl = None
+                        self.accepts = None
+                        self.drops = None
+                        self.stale = None
+                        self.pifib_type = None
+                        self.pifib_program_time = None
+                        self.domain_idx = None
+                        self.domain_name = None
+                        self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(LptsPifib_.Nodes.Node.ShadowEntries.Entry, ['entry', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'destination_addr', 'source_addr', 'destination_type', 'destination_value', 'source_port', 'is_frag', 'is_syn', 'opcode', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'accepts', 'drops', 'stale', 'pifib_type', 'pifib_program_time', 'domain_idx', 'domain_name'], name, value)
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.ShadowEntries.Entry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.ShadowEntries']['meta_info']
+
+
+            class TypeValues(_Entity_):
                 """
                 Type specific
                 
@@ -258,10 +682,13 @@ class LptsPifib_(Entity):
                 """
 
                 _prefix = 'lpts-pre-ifib-oper'
-                _revision = '2017-05-01'
+                _revision = '2019-11-06'
 
                 def __init__(self):
-                    super(LptsPifib_.Nodes.Node.TypeValues, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.TypeValues, self).__init__()
 
                     self.yang_name = "type-values"
                     self.yang_parent_name = "node"
@@ -279,7 +706,7 @@ class LptsPifib_(Entity):
                     self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues, [], name, value)
 
 
-                class TypeValue(Entity):
+                class TypeValue(_Entity_):
                     """
                     pifib types
                     
@@ -302,10 +729,13 @@ class LptsPifib_(Entity):
                     """
 
                     _prefix = 'lpts-pre-ifib-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2019-11-06'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.TypeValues.TypeValue, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.TypeValues.TypeValue, self).__init__()
 
                         self.yang_name = "type-value"
                         self.yang_parent_name = "type-values"
@@ -326,7 +756,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue, ['pifib_type'], name, value)
 
 
-                    class Entry(Entity):
+                    class Entry(_Entity_):
                         """
                         Data for single pre\-ifib entry
                         
@@ -547,15 +977,34 @@ class LptsPifib_(Entity):
                         
                         	**config**\: False
                         
+                        .. attribute:: domain_idx
+                        
+                        	Domain Index
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: domain_name
+                        
+                        	Domain Name
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'lpts-pre-ifib-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2019-11-06'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, self).__init__()
 
                             self.yang_name = "entry"
                             self.yang_parent_name = "type-value"
@@ -591,6 +1040,8 @@ class LptsPifib_(Entity):
                                 ('stale', (YLeaf(YType.uint8, 'stale'), ['int'])),
                                 ('pifib_type', (YLeaf(YType.uint8, 'pifib-type'), ['int'])),
                                 ('pifib_program_time', (YLeaf(YType.str, 'pifib-program-time'), ['str'])),
+                                ('domain_idx', (YLeaf(YType.uint8, 'domain-idx'), ['int'])),
+                                ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
                             ])
                             self.entry = None
                             self.vrf_name = None
@@ -619,17 +1070,299 @@ class LptsPifib_(Entity):
                             self.stale = None
                             self.pifib_type = None
                             self.pifib_program_time = None
+                            self.domain_idx = None
+                            self.domain_name = None
                             self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'destination_addr', 'source_addr', 'destination_type', 'destination_value', 'source_port', 'is_frag', 'is_syn', 'opcode', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'accepts', 'drops', 'stale', 'pifib_type', 'pifib_program_time'], name, value)
+                            self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'destination_addr', 'source_addr', 'destination_type', 'destination_value', 'source_port', 'is_frag', 'is_syn', 'opcode', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'accepts', 'drops', 'stale', 'pifib_type', 'pifib_program_time', 'domain_idx', 'domain_name'], name, value)
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.TypeValues.TypeValue']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.TypeValues']['meta_info']
 
 
+            class Domains(_Entity_):
+                """
+                data for pre\-ifib domains
+                
+                .. attribute:: config_data
+                
+                	Domain Config Data
+                	**type**\:  :py:class:`ConfigData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Domains.ConfigData>`
+                
+                	**config**\: False
+                
+                .. attribute:: domains_enabled
+                
+                	Domains Enabled
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: number_of_supported_domains
+                
+                	Number of Supported Domains
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'lpts-pre-ifib-oper'
+                _revision = '2019-11-06'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.Domains, self).__init__()
+
+                    self.yang_name = "domains"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("config-data", ("config_data", LptsPifib_.Nodes.Node.Domains.ConfigData))])
+                    self._leafs = OrderedDict([
+                        ('domains_enabled', (YLeaf(YType.boolean, 'domains-enabled'), ['bool'])),
+                        ('number_of_supported_domains', (YLeaf(YType.uint32, 'number-of-supported-domains'), ['int'])),
+                    ])
+                    self.domains_enabled = None
+                    self.number_of_supported_domains = None
+
+                    self.config_data = LptsPifib_.Nodes.Node.Domains.ConfigData()
+                    self.config_data.parent = self
+                    self._children_name_map["config_data"] = "config-data"
+                    self._segment_path = lambda: "domains"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LptsPifib_.Nodes.Node.Domains, ['domains_enabled', 'number_of_supported_domains'], name, value)
 
 
+                class ConfigData(_Entity_):
+                    """
+                    Domain Config Data
+                    
+                    .. attribute:: number_of_active_domains
+                    
+                    	Number of Active Domains
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: domains_info
+                    
+                    	Domains Info
+                    	**type**\: list of  		 :py:class:`DomainsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo>`
+                    
+                    	**config**\: False
+                    
+                    
 
-            class DynamicFlowsStats(Entity):
+                    """
+
+                    _prefix = 'lpts-pre-ifib-oper'
+                    _revision = '2019-11-06'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Domains.ConfigData, self).__init__()
+
+                        self.yang_name = "config-data"
+                        self.yang_parent_name = "domains"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("domains-info", ("domains_info", LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo))])
+                        self._leafs = OrderedDict([
+                            ('number_of_active_domains', (YLeaf(YType.uint8, 'number-of-active-domains'), ['int'])),
+                        ])
+                        self.number_of_active_domains = None
+
+                        self.domains_info = YList(self)
+                        self._segment_path = lambda: "config-data"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(LptsPifib_.Nodes.Node.Domains.ConfigData, ['number_of_active_domains'], name, value)
+
+
+                    class DomainsInfo(_Entity_):
+                        """
+                        Domains Info
+                        
+                        .. attribute:: domain_name
+                        
+                        	Domain Name
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: domain_index
+                        
+                        	Domain Index
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: number_of_interfaces
+                        
+                        	Number of Interfaces
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface
+                        
+                        	Interface List
+                        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo.Interface>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-oper'
+                        _revision = '2019-11-06'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo, self).__init__()
+
+                            self.yang_name = "domains-info"
+                            self.yang_parent_name = "config-data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("interface", ("interface", LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo.Interface))])
+                            self._leafs = OrderedDict([
+                                ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                ('number_of_interfaces', (YLeaf(YType.uint32, 'number-of-interfaces'), ['int'])),
+                            ])
+                            self.domain_name = None
+                            self.domain_index = None
+                            self.number_of_interfaces = None
+
+                            self.interface = YList(self)
+                            self._segment_path = lambda: "domains-info"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo, ['domain_name', 'domain_index', 'number_of_interfaces'], name, value)
+
+
+                        class Interface(_Entity_):
+                            """
+                            Interface List
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Interface Handle
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: virtual_interface
+                            
+                            	Interface is Virtual
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-oper'
+                            _revision = '2019-11-06'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo.Interface, self).__init__()
+
+                                self.yang_name = "interface"
+                                self.yang_parent_name = "domains-info"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('virtual_interface', (YLeaf(YType.boolean, 'virtual-interface'), ['bool'])),
+                                ])
+                                self.interface_handle = None
+                                self.interface_name = None
+                                self.virtual_interface = None
+                                self._segment_path = lambda: "interface"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo.Interface, ['interface_handle', 'interface_name', 'virtual_interface'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo.Interface']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Domains.ConfigData.DomainsInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Domains.ConfigData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.Domains']['meta_info']
+
+
+            class DynamicFlowsStats(_Entity_):
                 """
                 Dynamic Flows Statistics
                 
@@ -697,10 +1430,13 @@ class LptsPifib_(Entity):
                 """
 
                 _prefix = 'lpts-pre-ifib-oper'
-                _revision = '2017-05-01'
+                _revision = '2019-11-06'
 
                 def __init__(self):
-                    super(LptsPifib_.Nodes.Node.DynamicFlowsStats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.DynamicFlowsStats, self).__init__()
 
                     self.yang_name = "dynamic-flows-stats"
                     self.yang_parent_name = "node"
@@ -731,7 +1467,7 @@ class LptsPifib_(Entity):
                     self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, ['dynamic_flows_enabled', 'platform_supported_max', 'platform_configured_max', 'platform_total_configured', 'total_hw_entries', 'total_sw_entries'], name, value)
 
 
-                class Flow(Entity):
+                class Flow(_Entity_):
                     """
                     Flow Datalist
                     
@@ -811,10 +1547,13 @@ class LptsPifib_(Entity):
                     """
 
                     _prefix = 'lpts-pre-ifib-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2019-11-06'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, self).__init__()
 
                         self.yang_name = "flow"
                         self.yang_parent_name = "dynamic-flows-stats"
@@ -848,10 +1587,852 @@ class LptsPifib_(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, ['flow_name', 'configurable', 'configured', 'default_max', 'configured_max', 'active_max', 'hardware_count', 'software_count', 'pending_software_entries'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.DynamicFlowsStats']['meta_info']
 
 
+            class PuntPolicerStats(_Entity_):
+                """
+                Punt Policer Statistics
+                
+                .. attribute:: config_data
+                
+                	Punt Policer Config Data
+                	**type**\:  :py:class:`ConfigData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData>`
+                
+                	**config**\: False
+                
+                .. attribute:: punt_policer_supported
+                
+                	Punt Policer Supported
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                
 
-            class Hardware(Entity):
+                """
+
+                _prefix = 'lpts-pre-ifib-oper'
+                _revision = '2019-11-06'
+
+                def __init__(self):
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.PuntPolicerStats, self).__init__()
+
+                    self.yang_name = "punt-policer-stats"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("config-data", ("config_data", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData))])
+                    self._leafs = OrderedDict([
+                        ('punt_policer_supported', (YLeaf(YType.boolean, 'punt-policer-supported'), ['bool'])),
+                    ])
+                    self.punt_policer_supported = None
+
+                    self.config_data = LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData()
+                    self.config_data.parent = self
+                    self._children_name_map["config_data"] = "config-data"
+                    self._segment_path = lambda: "punt-policer-stats"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats, ['punt_policer_supported'], name, value)
+
+
+                class ConfigData(_Entity_):
+                    """
+                    Punt Policer Config Data
+                    
+                    .. attribute:: has_config
+                    
+                    	config presence
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: number_of_interfaces
+                    
+                    	Number of Interfaces
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: number_of_domains
+                    
+                    	Number of Domains
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: interface
+                    
+                    	Interface List
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface>`
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: domain
+                    
+                    	Domain List
+                    	**type**\: list of  		 :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-oper'
+                    _revision = '2019-11-06'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData, self).__init__()
+
+                        self.yang_name = "config-data"
+                        self.yang_parent_name = "punt-policer-stats"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("interface", ("interface", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface)), ("domain", ("domain", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain))])
+                        self._leafs = OrderedDict([
+                            ('has_config', (YLeaf(YType.boolean, 'has-config'), ['bool'])),
+                            ('number_of_interfaces', (YLeaf(YType.uint32, 'number-of-interfaces'), ['int'])),
+                            ('number_of_domains', (YLeaf(YType.uint32, 'number-of-domains'), ['int'])),
+                        ])
+                        self.has_config = None
+                        self.number_of_interfaces = None
+                        self.number_of_domains = None
+
+                        self.interface = YList(self)
+                        self.domain = YList(self)
+                        self._segment_path = lambda: "config-data"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData, ['has_config', 'number_of_interfaces', 'number_of_domains'], name, value)
+
+
+                    class Interface(_Entity_):
+                        """
+                        Interface List
+                        
+                        .. attribute:: interface_handle
+                        
+                        	Interface Handle
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface Name
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: virtual_interface
+                        
+                        	Interface is Virtual
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: number_of_punt_types
+                        
+                        	Number of Punt types
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: punt_type
+                        
+                        	Punt type List
+                        	**type**\: list of  		 :py:class:`PuntType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.PuntType>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: applied_config
+                        
+                        	Applied Policer Data
+                        	**type**\: list of  		 :py:class:`AppliedConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.AppliedConfig>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-oper'
+                        _revision = '2019-11-06'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface, self).__init__()
+
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "config-data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("punt-type", ("punt_type", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.PuntType)), ("applied-config", ("applied_config", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.AppliedConfig))])
+                            self._leafs = OrderedDict([
+                                ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('virtual_interface', (YLeaf(YType.boolean, 'virtual-interface'), ['bool'])),
+                                ('number_of_punt_types', (YLeaf(YType.uint32, 'number-of-punt-types'), ['int'])),
+                            ])
+                            self.interface_handle = None
+                            self.interface_name = None
+                            self.virtual_interface = None
+                            self.number_of_punt_types = None
+
+                            self.punt_type = YList(self)
+                            self.applied_config = YList(self)
+                            self._segment_path = lambda: "interface"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface, ['interface_handle', 'interface_name', 'virtual_interface', 'number_of_punt_types'], name, value)
+
+
+                        class PuntType(_Entity_):
+                            """
+                            Punt type List
+                            
+                            .. attribute:: punt_name
+                            
+                            	Punt Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured
+                            
+                            	Is Configured
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: active_cfg_state
+                            
+                            	Active Cfg State
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: enabled
+                            
+                            	Is Enabled
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: pending
+                            
+                            	Is Pending
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured_rate
+                            
+                            	Configured Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: operational_rate
+                            
+                            	Operational Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_name
+                            
+                            	Domain Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_index
+                            
+                            	Domain Index
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: accepted
+                            
+                            	Packets matched to accept
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: dropped
+                            
+                            	Packets matched for drop
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-oper'
+                            _revision = '2019-11-06'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.PuntType, self).__init__()
+
+                                self.yang_name = "punt-type"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('punt_name', (YLeaf(YType.str, 'punt-name'), ['str'])),
+                                    ('configured', (YLeaf(YType.boolean, 'configured'), ['bool'])),
+                                    ('active_cfg_state', (YLeaf(YType.str, 'active-cfg-state'), ['str'])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                    ('pending', (YLeaf(YType.boolean, 'pending'), ['bool'])),
+                                    ('configured_rate', (YLeaf(YType.uint32, 'configured-rate'), ['int'])),
+                                    ('operational_rate', (YLeaf(YType.uint32, 'operational-rate'), ['int'])),
+                                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                    ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                    ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                                    ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                                ])
+                                self.punt_name = None
+                                self.configured = None
+                                self.active_cfg_state = None
+                                self.enabled = None
+                                self.pending = None
+                                self.configured_rate = None
+                                self.operational_rate = None
+                                self.domain_name = None
+                                self.domain_index = None
+                                self.accepted = None
+                                self.dropped = None
+                                self._segment_path = lambda: "punt-type"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.PuntType, ['punt_name', 'configured', 'active_cfg_state', 'enabled', 'pending', 'configured_rate', 'operational_rate', 'domain_name', 'domain_index', 'accepted', 'dropped'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.PuntType']['meta_info']
+
+
+                        class AppliedConfig(_Entity_):
+                            """
+                            Applied Policer Data
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Interface Handle
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: virtual_interface
+                            
+                            	Interface is Virtual
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: punt_name
+                            
+                            	Punt Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: enabled
+                            
+                            	Is Enabled
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured_rate
+                            
+                            	Configured Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_index
+                            
+                            	Domain Index
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: punt_police_program_time
+                            
+                            	Creation or Update Time
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-oper'
+                            _revision = '2019-11-06'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.AppliedConfig, self).__init__()
+
+                                self.yang_name = "applied-config"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                    ('virtual_interface', (YLeaf(YType.boolean, 'virtual-interface'), ['bool'])),
+                                    ('punt_name', (YLeaf(YType.str, 'punt-name'), ['str'])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                    ('configured_rate', (YLeaf(YType.uint32, 'configured-rate'), ['int'])),
+                                    ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                    ('punt_police_program_time', (YLeaf(YType.str, 'punt-police-program-time'), ['str'])),
+                                ])
+                                self.interface_handle = None
+                                self.virtual_interface = None
+                                self.punt_name = None
+                                self.enabled = None
+                                self.configured_rate = None
+                                self.domain_index = None
+                                self.punt_police_program_time = None
+                                self._segment_path = lambda: "applied-config"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.AppliedConfig, ['interface_handle', 'virtual_interface', 'punt_name', 'enabled', 'configured_rate', 'domain_index', 'punt_police_program_time'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface.AppliedConfig']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Interface']['meta_info']
+
+
+                    class Domain(_Entity_):
+                        """
+                        Domain List
+                        
+                        .. attribute:: domain_index
+                        
+                        	Domain Index
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: domain_name
+                        
+                        	Domain Name
+                        	**type**\: str
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: valid
+                        
+                        	Domain is Valid
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: number_of_punt_types
+                        
+                        	Number of Punt types
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: punt_type
+                        
+                        	Punt type List
+                        	**type**\: list of  		 :py:class:`PuntType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.PuntType>`
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: applied_config
+                        
+                        	Applied Policer Data
+                        	**type**\: list of  		 :py:class:`AppliedConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.AppliedConfig>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-oper'
+                        _revision = '2019-11-06'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain, self).__init__()
+
+                            self.yang_name = "domain"
+                            self.yang_parent_name = "config-data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("punt-type", ("punt_type", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.PuntType)), ("applied-config", ("applied_config", LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.AppliedConfig))])
+                            self._leafs = OrderedDict([
+                                ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                ('valid', (YLeaf(YType.boolean, 'valid'), ['bool'])),
+                                ('number_of_punt_types', (YLeaf(YType.uint32, 'number-of-punt-types'), ['int'])),
+                            ])
+                            self.domain_index = None
+                            self.domain_name = None
+                            self.valid = None
+                            self.number_of_punt_types = None
+
+                            self.punt_type = YList(self)
+                            self.applied_config = YList(self)
+                            self._segment_path = lambda: "domain"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain, ['domain_index', 'domain_name', 'valid', 'number_of_punt_types'], name, value)
+
+
+                        class PuntType(_Entity_):
+                            """
+                            Punt type List
+                            
+                            .. attribute:: punt_name
+                            
+                            	Punt Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured
+                            
+                            	Is Configured
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: active_cfg_state
+                            
+                            	Active Cfg State
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: enabled
+                            
+                            	Is Enabled
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: pending
+                            
+                            	Is Pending
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured_rate
+                            
+                            	Configured Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: operational_rate
+                            
+                            	Operational Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_name
+                            
+                            	Domain Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_index
+                            
+                            	Domain Index
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: accepted
+                            
+                            	Packets matched to accept
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: dropped
+                            
+                            	Packets matched for drop
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-oper'
+                            _revision = '2019-11-06'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.PuntType, self).__init__()
+
+                                self.yang_name = "punt-type"
+                                self.yang_parent_name = "domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('punt_name', (YLeaf(YType.str, 'punt-name'), ['str'])),
+                                    ('configured', (YLeaf(YType.boolean, 'configured'), ['bool'])),
+                                    ('active_cfg_state', (YLeaf(YType.str, 'active-cfg-state'), ['str'])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                    ('pending', (YLeaf(YType.boolean, 'pending'), ['bool'])),
+                                    ('configured_rate', (YLeaf(YType.uint32, 'configured-rate'), ['int'])),
+                                    ('operational_rate', (YLeaf(YType.uint32, 'operational-rate'), ['int'])),
+                                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                    ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                    ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                                    ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                                ])
+                                self.punt_name = None
+                                self.configured = None
+                                self.active_cfg_state = None
+                                self.enabled = None
+                                self.pending = None
+                                self.configured_rate = None
+                                self.operational_rate = None
+                                self.domain_name = None
+                                self.domain_index = None
+                                self.accepted = None
+                                self.dropped = None
+                                self._segment_path = lambda: "punt-type"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.PuntType, ['punt_name', 'configured', 'active_cfg_state', 'enabled', 'pending', 'configured_rate', 'operational_rate', 'domain_name', 'domain_index', 'accepted', 'dropped'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.PuntType']['meta_info']
+
+
+                        class AppliedConfig(_Entity_):
+                            """
+                            Applied Policer Data
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Interface Handle
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: virtual_interface
+                            
+                            	Interface is Virtual
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: punt_name
+                            
+                            	Punt Name
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: enabled
+                            
+                            	Is Enabled
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: configured_rate
+                            
+                            	Configured Policer Rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: domain_index
+                            
+                            	Domain Index
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: punt_police_program_time
+                            
+                            	Creation or Update Time
+                            	**type**\: str
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-oper'
+                            _revision = '2019-11-06'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.AppliedConfig, self).__init__()
+
+                                self.yang_name = "applied-config"
+                                self.yang_parent_name = "domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                    ('virtual_interface', (YLeaf(YType.boolean, 'virtual-interface'), ['bool'])),
+                                    ('punt_name', (YLeaf(YType.str, 'punt-name'), ['str'])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                    ('configured_rate', (YLeaf(YType.uint32, 'configured-rate'), ['int'])),
+                                    ('domain_index', (YLeaf(YType.uint8, 'domain-index'), ['int'])),
+                                    ('punt_police_program_time', (YLeaf(YType.str, 'punt-police-program-time'), ['str'])),
+                                ])
+                                self.interface_handle = None
+                                self.virtual_interface = None
+                                self.punt_name = None
+                                self.enabled = None
+                                self.configured_rate = None
+                                self.domain_index = None
+                                self.punt_police_program_time = None
+                                self._segment_path = lambda: "applied-config"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.AppliedConfig, ['interface_handle', 'virtual_interface', 'punt_name', 'enabled', 'configured_rate', 'domain_index', 'punt_police_program_time'], name, value)
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain.AppliedConfig']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData.Domain']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats.ConfigData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.PuntPolicerStats']['meta_info']
+
+
+            class Hardware(_Entity_):
                 """
                 Hardware specific
                 
@@ -905,7 +2486,10 @@ class LptsPifib_(Entity):
                 _revision = '2016-02-22'
 
                 def __init__(self):
-                    super(LptsPifib_.Nodes.Node.Hardware, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(LptsPifib_.Nodes.Node.Hardware, self).__init__()
 
                     self.yang_name = "hardware"
                     self.yang_parent_name = "node"
@@ -945,7 +2529,7 @@ class LptsPifib_(Entity):
                     self._perform_setattr(LptsPifib_.Nodes.Node.Hardware, [], name, value)
 
 
-                class UsageEntries(Entity):
+                class UsageEntries(_Entity_):
                     """
                     Usage Table options
                     
@@ -964,7 +2548,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.UsageEntries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.UsageEntries, self).__init__()
 
                         self.yang_name = "usage-entries"
                         self.yang_parent_name = "hardware"
@@ -982,7 +2569,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries, [], name, value)
 
 
-                    class UsageEntry(Entity):
+                    class UsageEntry(_Entity_):
                         """
                         Usage details
                         
@@ -1008,7 +2595,10 @@ class LptsPifib_(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry, self).__init__()
 
                             self.yang_name = "usage-entry"
                             self.yang_parent_name = "usage-entries"
@@ -1029,7 +2619,7 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry, ['region_id'], name, value)
 
 
-                        class UsageInfo(Entity):
+                        class UsageInfo(_Entity_):
                             """
                             Per TCAM type usage info
                             
@@ -1086,7 +2676,10 @@ class LptsPifib_(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo, self).__init__()
 
                                 self.yang_name = "usage-info"
                                 self.yang_parent_name = "usage-entry"
@@ -1112,11 +2705,23 @@ class LptsPifib_(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo, ['pipe_id', 'region', 'region_id', 'size', 'used'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.UsageEntries']['meta_info']
 
 
-
-
-                class Police(Entity):
+                class Police(_Entity_):
                     """
                     Police details
                     
@@ -1135,7 +2740,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.Police, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.Police, self).__init__()
 
                         self.yang_name = "police"
                         self.yang_parent_name = "hardware"
@@ -1153,7 +2761,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Police, [], name, value)
 
 
-                    class PoliceInfo(Entity):
+                    class PoliceInfo(_Entity_):
                         """
                         Per flow type police info
                         
@@ -1264,7 +2872,10 @@ class LptsPifib_(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo, self).__init__()
 
                             self.yang_name = "police-info"
                             self.yang_parent_name = "police"
@@ -1302,10 +2913,18 @@ class LptsPifib_(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'accepted_stats', 'dropped_stats', 'policer', 'iptos_value', 'change_type', 'acl_config', 'acl_str'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.Police']['meta_info']
 
 
-
-                class StaticPolice(Entity):
+                class StaticPolice(_Entity_):
                     """
                     Static Police details
                     
@@ -1324,7 +2943,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.StaticPolice, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.StaticPolice, self).__init__()
 
                         self.yang_name = "static-police"
                         self.yang_parent_name = "hardware"
@@ -1342,7 +2964,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.StaticPolice, [], name, value)
 
 
-                    class StaticInfo(Entity):
+                    class StaticInfo(_Entity_):
                         """
                         Per punt reason info
                         
@@ -1426,7 +3048,10 @@ class LptsPifib_(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo, self).__init__()
 
                             self.yang_name = "static-info"
                             self.yang_parent_name = "static-police"
@@ -1458,10 +3083,18 @@ class LptsPifib_(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo, ['punt_reason', 'sid', 'flow_rate', 'burst_rate', 'accepted', 'dropped', 'punt_reason_string', 'change_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.StaticPolice']['meta_info']
 
 
-
-                class Bfd(Entity):
+                class Bfd(_Entity_):
                     """
                     Bfd details
                     
@@ -1480,7 +3113,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.Bfd, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.Bfd, self).__init__()
 
                         self.yang_name = "bfd"
                         self.yang_parent_name = "hardware"
@@ -1498,7 +3134,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Bfd, [], name, value)
 
 
-                    class BfdEntryInfo(Entity):
+                    class BfdEntryInfo(_Entity_):
                         """
                         Per bfd disc entry info
                         
@@ -1555,7 +3191,10 @@ class LptsPifib_(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo, self).__init__()
 
                             self.yang_name = "bfd-entry-info"
                             self.yang_parent_name = "bfd"
@@ -1581,10 +3220,18 @@ class LptsPifib_(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo, ['index', 'is_mcast', 'fgid_or_vqi', 'is_valid', 'policer_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.Bfd']['meta_info']
 
 
-
-                class Statistics(Entity):
+                class Statistics(_Entity_):
                     """
                     Hardware Entry type
                     
@@ -1632,7 +3279,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.Statistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "hardware"
@@ -1656,9 +3306,13 @@ class LptsPifib_(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Statistics, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.Statistics']['meta_info']
 
 
-                class IndexEntries(Entity):
+                class IndexEntries(_Entity_):
                     """
                     Hardware Entry options
                     
@@ -1677,7 +3331,10 @@ class LptsPifib_(Entity):
                     _revision = '2016-02-22'
 
                     def __init__(self):
-                        super(LptsPifib_.Nodes.Node.Hardware.IndexEntries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(LptsPifib_.Nodes.Node.Hardware.IndexEntries, self).__init__()
 
                         self.yang_name = "index-entries"
                         self.yang_parent_name = "hardware"
@@ -1695,7 +3352,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries, [], name, value)
 
 
-                    class IndexEntry(Entity):
+                    class IndexEntry(_Entity_):
                         """
                         Entry options
                         
@@ -2129,7 +3786,10 @@ class LptsPifib_(Entity):
                         _revision = '2016-02-22'
 
                         def __init__(self):
-                            super(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry, self).__init__()
 
                             self.yang_name = "index-entry"
                             self.yang_parent_name = "index-entries"
@@ -2242,7 +3902,7 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry, ['index', 'l3protocol', 'l4protocol', 'intf_handle', 'intf_name', 'uidb_index', 'local_addr', 'local_prefix_len', 'remote_addr', 'remote_prefix_len', 'vrf_id', 'u_value', 'u_len', 'local_port', 'is_frag', 'is_syn', 'action', 'action_string', 'listener_tag', 'is_fgid', 'is_vrf', 'is_optimized', 'is_uidb_opt_bit', 'fgid_or_sfp', 'remote_rack', 'rack_id', 'rslot', 'cir', 'flow_type', 'priority', 'sid', 'policer_avgrate', 'policer_burst', 'lookup_priority', 'storage_priority', 'num_tm_entries', 'entry_ptr', 'entry_shadow_ptr', 'list_node_ptr', 'state', 'retry_fail_cause', 'num_retries', 'min_ttl', 'u_type', 'remote_fgid', 'acl_str', 'no_stats'], name, value)
 
 
-                        class HwInfo(Entity):
+                        class HwInfo(_Entity_):
                             """
                             Per pipe type hardware info
                             
@@ -2308,7 +3968,10 @@ class LptsPifib_(Entity):
                             _revision = '2016-02-22'
 
                             def __init__(self):
-                                super(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo, self).__init__()
 
                                 self.yang_name = "hw-info"
                                 self.yang_parent_name = "index-entry"
@@ -2336,15 +3999,43 @@ class LptsPifib_(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo, ['policer', 'stats_ptr', 'accepted', 'dropped', 'sort_start_offset', 'tm_start_offset'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                                return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                            return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                        return meta._meta_table['LptsPifib_.Nodes.Node.Hardware.IndexEntries']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                    return meta._meta_table['LptsPifib_.Nodes.Node.Hardware']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+                return meta._meta_table['LptsPifib_.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+            return meta._meta_table['LptsPifib_.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = LptsPifib_()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
+        return meta._meta_table['LptsPifib_']['meta_info']
 
 

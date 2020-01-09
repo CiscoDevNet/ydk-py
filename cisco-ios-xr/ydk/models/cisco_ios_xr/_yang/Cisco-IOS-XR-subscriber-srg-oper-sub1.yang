@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-03 {
+    description
+      "added new bags and bag elements in srg-show bag.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -277,6 +281,85 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       "SRG Interface Management Role";
   }
 
+  grouping SRG-SHOW-GROUP-ROUTE-IPV6 {
+    description
+      "srg static route ipv6";
+    leaf ipv6 {
+      type inet:ipv6-address;
+      description
+        "ipv6";
+    }
+    leaf vrf-name {
+      type string {
+        length "0..33";
+      }
+      description
+        "vrf name";
+    }
+    leaf prefix-len {
+      type uint8;
+      description
+        "prefix len";
+    }
+    leaf type {
+      type uint8;
+      description
+        "type";
+    }
+    leaf tag {
+      type uint32;
+      description
+        "tag";
+    }
+  }
+
+  grouping SRG-SHOW-GROUP-ROUTE-IPV4 {
+    description
+      "srg static route ipv4";
+    leaf vrf-name {
+      type string {
+        length "0..33";
+      }
+      description
+        "vrf name";
+    }
+    leaf prefix-len {
+      type uint8;
+      description
+        "prefix len";
+    }
+    leaf ipv4 {
+      type inet:ipv4-address;
+      description
+        "ipv4";
+    }
+    leaf tag {
+      type uint32;
+      description
+        "tag";
+    }
+  }
+
+  grouping SRG-SHOW-GRP-SWITCHOVER-HISTORY {
+    description
+      "srg switchover history";
+    leaf group-switchover-time {
+      type uint64;
+      description
+        "Group Switchover Time";
+    }
+    leaf role {
+      type Srg-show-im-role;
+      description
+        "SRG Role";
+    }
+    leaf reason {
+      type Srg-show-so-reason;
+      description
+        "Switchover reason";
+    }
+  }
+
   grouping SRG-SHOW-GROUP-INTF-INFO {
     description
       "Subscriber Redundancy Group Interface-List
@@ -306,6 +389,11 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
   grouping SRG-SHOW-GROUP-ENTRY {
     description
       "Subscriber Redundancy Group Information";
+    container event-history {
+      description
+        "Event history of group";
+      uses EVT-HIST-INFO;
+    }
     leaf group-id-xr {
       type uint32;
       description
@@ -502,10 +590,30 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       description
         "Switchover Revert Time in seconds";
     }
+    leaf last-hitory-index {
+      type uint8;
+      description
+        "Index of last switchover timestamp";
+    }
     list interface {
       description
         "Interface List";
       uses SRG-SHOW-GROUP-INTF-INFO;
+    }
+    list history-array {
+      description
+        "Array of switchover history ";
+      uses SRG-SHOW-GRP-SWITCHOVER-HISTORY;
+    }
+    list route-ipv4-array {
+      description
+        "Array of ipv4 static route";
+      uses SRG-SHOW-GROUP-ROUTE-IPV4;
+    }
+    list route-ipv6-array {
+      description
+        "Array of ipv6 static route";
+      uses SRG-SHOW-GROUP-ROUTE-IPV6;
     }
   }
 
@@ -572,6 +680,113 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       type uint32;
       description
         "Pending Session Count for Synchornization";
+    }
+  }
+
+  grouping BAG-TIMESPEC {
+    description
+      "Timespec specifying the number of seconds since
+       the base time of 00:00:00 GMT, 1 January 1970.";
+    leaf seconds {
+      type uint32;
+      units "second";
+      description
+        "Number of seconds";
+    }
+  }
+
+  grouping SRG-SHOW-AGT-INTF-ENTRY-HIST {
+    description
+      "IDB statistics history";
+    container time-updated {
+      description
+        "Time stamp when the stats was updated";
+      uses BAG-TIMESPEC;
+    }
+    leaf interface-enable-error-count-hist {
+      type uint32;
+      description
+        "Interface Enable Error Count History";
+    }
+    leaf interface-disable-error-count-hist {
+      type uint32;
+      description
+        "Interface Disable Error Count History";
+    }
+    leaf interface-caps-add-error-count-hist {
+      type uint32;
+      description
+        "Interface Caps Add Error Count History";
+    }
+    leaf interface-caps-remove-error-count-hist {
+      type uint32;
+      description
+        "Interface Caps Remove Error Count History";
+    }
+    leaf interface-attribute-update-error-count-hist {
+      type uint32;
+      description
+        "Interface Attribute Update Error Count History";
+    }
+    leaf-list client-status-hist {
+      type uint8;
+      description
+        "Interface status history for each client";
+    }
+    leaf-list client-count-hist {
+      type uint32;
+      description
+        "Session count history per client";
+    }
+  }
+
+  grouping EVT-HIST-ENTRY {
+    description
+      "Event history Entry";
+    leaf evt-timestamp {
+      type string;
+      description
+        "The timestamp of the event";
+    }
+    leaf evt-name {
+      type string;
+      description
+        "Event name";
+    }
+    leaf evt-type {
+      type uint8;
+      description
+        "Event type";
+    }
+    leaf evt-many {
+      type boolean;
+      description
+        "Multiple instance flag";
+    }
+    leaf evt-sticky {
+      type boolean;
+      description
+        "Sticky flag";
+    }
+    leaf-list evt-data {
+      type uint32;
+      description
+        "Optional data";
+    }
+  }
+
+  grouping EVT-HIST-INFO {
+    description
+      "Per object event history";
+    leaf evt-class-name {
+      type string;
+      description
+        "Class name string";
+    }
+    list evt-entry {
+      description
+        "Array of event entries";
+      uses EVT-HIST-ENTRY;
     }
   }
 
@@ -689,6 +904,11 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
         "Interface Status";
       uses SRG-SHOW-INTF-STATUS;
     }
+    container event-history {
+      description
+        "Event history of interface";
+      uses EVT-HIST-INFO;
+    }
     leaf interface-name {
       type string;
       description
@@ -748,6 +968,11 @@ submodule Cisco-IOS-XR-subscriber-srg-oper-sub1 {
       description
         "Interface status for each client";
       uses SRG-SHOW-AGT-INTF-CLIENT-STATUS;
+    }
+    list history {
+      description
+        "IDB statistics history";
+      uses SRG-SHOW-AGT-INTF-ENTRY-HIST;
     }
   }
 

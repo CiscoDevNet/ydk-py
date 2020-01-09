@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -33,6 +36,12 @@ class OtnExpTtiTypeDapi(Enum):
     """
 
     exp_tti_dapi_ascii__FWD_SLASH__dapi_ascii = Enum.YLeaf(9, "exp-tti-dapi-ascii/dapi-ascii")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnExpTtiTypeDapi']
 
 
 class OtnExpTtiTypeFull(Enum):
@@ -56,6 +65,12 @@ class OtnExpTtiTypeFull(Enum):
     exp_tti_hex__FWD_SLASH__hex = Enum.YLeaf(7, "exp-tti-hex/hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnExpTtiTypeFull']
+
+
 class OtnExpTtiTypeOs(Enum):
     """
     OtnExpTtiTypeOs (Enum Class)
@@ -77,6 +92,12 @@ class OtnExpTtiTypeOs(Enum):
     exp_tti_os_hex__FWD_SLASH__os_hex = Enum.YLeaf(13, "exp-tti-os-hex/os-hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnExpTtiTypeOs']
+
+
 class OtnExpTtiTypeSapi(Enum):
     """
     OtnExpTtiTypeSapi (Enum Class)
@@ -90,6 +111,12 @@ class OtnExpTtiTypeSapi(Enum):
     """
 
     exp_tti_sapi_ascii__FWD_SLASH__sapi_ascii = Enum.YLeaf(15, "exp-tti-sapi-ascii/sapi-ascii")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnExpTtiTypeSapi']
 
 
 class OtnLoopback(Enum):
@@ -113,6 +140,12 @@ class OtnLoopback(Enum):
     internal = Enum.YLeaf(4, "internal")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnLoopback']
+
+
 class OtnPerMon(Enum):
     """
     OtnPerMon (Enum Class)
@@ -132,6 +165,12 @@ class OtnPerMon(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnPerMon']
 
 
 class OtnSecAdminState(Enum):
@@ -155,6 +194,12 @@ class OtnSecAdminState(Enum):
     maintenance = Enum.YLeaf(1, "maintenance")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnSecAdminState']
+
+
 class OtnSendTtiTypeDapi(Enum):
     """
     OtnSendTtiTypeDapi (Enum Class)
@@ -168,6 +213,12 @@ class OtnSendTtiTypeDapi(Enum):
     """
 
     send_tti_dapi_ascii__FWD_SLASH__dapi_ascii = Enum.YLeaf(8, "send-tti-dapi-ascii/dapi-ascii")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnSendTtiTypeDapi']
 
 
 class OtnSendTtiTypeFull(Enum):
@@ -191,6 +242,12 @@ class OtnSendTtiTypeFull(Enum):
     send_tti_hex__FWD_SLASH__hex = Enum.YLeaf(6, "send-tti-hex/hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnSendTtiTypeFull']
+
+
 class OtnSendTtiTypeOs(Enum):
     """
     OtnSendTtiTypeOs (Enum Class)
@@ -212,6 +269,12 @@ class OtnSendTtiTypeOs(Enum):
     send_tti_os_hex__FWD_SLASH__os_hex = Enum.YLeaf(12, "send-tti-os-hex/os-hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnSendTtiTypeOs']
+
+
 class OtnSendTtiTypeSapi(Enum):
     """
     OtnSendTtiTypeSapi (Enum Class)
@@ -225,6 +288,12 @@ class OtnSendTtiTypeSapi(Enum):
     """
 
     send_tti_sapi_ascii__FWD_SLASH__sapi_ascii = Enum.YLeaf(14, "send-tti-sapi-ascii/sapi-ascii")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtnSendTtiTypeSapi']
 
 
 class OtuForwardErrorCorrection(Enum):
@@ -290,6 +359,12 @@ class OtuForwardErrorCorrection(Enum):
     enhanced_sd27 = Enum.YLeaf(1024, "enhanced-sd27")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtuForwardErrorCorrection']
+
+
 class OtuMode(Enum):
     """
     OtuMode (Enum Class)
@@ -321,6 +396,12 @@ class OtuMode(Enum):
     mode_sink = Enum.YLeaf(2, "mode-sink")
 
     mode_source_sink = Enum.YLeaf(3, "mode-source-sink")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtuMode']
 
 
 class OtuPattern(Enum):
@@ -372,6 +453,12 @@ class OtuPattern(Enum):
     pattern_inverted_pn11 = Enum.YLeaf(16, "pattern-inverted-pn11")
 
     pattern_pn15 = Enum.YLeaf(32, "pattern-pn15")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
+        return meta._meta_table['OtuPattern']
 
 
 

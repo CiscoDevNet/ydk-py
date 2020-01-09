@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class InfraStatistics(Entity):
+class InfraStatistics(_Entity_):
     """
     Statistics Infrastructure
     
@@ -40,7 +43,10 @@ class InfraStatistics(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(InfraStatistics, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(InfraStatistics, self).__init__()
         self._top_entity = None
 
         self.yang_name = "infra-statistics"
@@ -61,7 +67,7 @@ class InfraStatistics(Entity):
         self._perform_setattr(InfraStatistics, [], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         List of interfaces
         
@@ -80,7 +86,10 @@ class InfraStatistics(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(InfraStatistics.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(InfraStatistics.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "infra-statistics"
@@ -99,7 +108,7 @@ class InfraStatistics(Entity):
             self._perform_setattr(InfraStatistics.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Statistics of an interface
             
@@ -169,7 +178,10 @@ class InfraStatistics(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(InfraStatistics.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(InfraStatistics.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -217,7 +229,7 @@ class InfraStatistics(Entity):
                 self._perform_setattr(InfraStatistics.Interfaces.Interface, ['interface_name'], name, value)
 
 
-            class Cache(Entity):
+            class Cache(_Entity_):
                 """
                 Cached stats data of interfaces
                 
@@ -257,7 +269,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.Cache, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.Cache, self).__init__()
 
                     self.yang_name = "cache"
                     self.yang_parent_name = "interface"
@@ -289,7 +304,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache, [], name, value)
 
 
-                class Protocols(Entity):
+                class Protocols(_Entity_):
                     """
                     List of protocols
                     
@@ -308,7 +323,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Cache.Protocols, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Cache.Protocols, self).__init__()
 
                         self.yang_name = "protocols"
                         self.yang_parent_name = "cache"
@@ -326,7 +344,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols, [], name, value)
 
 
-                    class Protocol(Entity):
+                    class Protocol(_Entity_):
                         """
                         Interface counters per protocol
                         
@@ -451,7 +469,10 @@ class InfraStatistics(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, self).__init__()
 
                             self.yang_name = "protocol"
                             self.yang_parent_name = "protocols"
@@ -489,10 +510,18 @@ class InfraStatistics(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.Protocols']['meta_info']
 
 
-
-                class InterfacesMibCounters(Entity):
+                class InterfacesMibCounters(_Entity_):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -843,7 +872,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, self).__init__()
 
                         self.yang_name = "interfaces-mib-counters"
                         self.yang_parent_name = "cache"
@@ -931,9 +963,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters']['meta_info']
 
 
-                class DataRate(Entity):
+                class DataRate(_Entity_):
                     """
                     Datarate information
                     
@@ -1072,7 +1108,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Cache.DataRate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Cache.DataRate, self).__init__()
 
                         self.yang_name = "data-rate"
                         self.yang_parent_name = "cache"
@@ -1114,9 +1153,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.DataRate']['meta_info']
 
 
-                class GenericCounters(Entity):
+                class GenericCounters(_Entity_):
                     """
                     Generic set of interface counters
                     
@@ -1466,7 +1509,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, self).__init__()
 
                         self.yang_name = "generic-counters"
                         self.yang_parent_name = "cache"
@@ -1554,10 +1600,18 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.GenericCounters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache']['meta_info']
 
 
-
-            class Latest(Entity):
+            class Latest(_Entity_):
                 """
                 Latest stats data of interfaces
                 
@@ -1597,7 +1651,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.Latest, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.Latest, self).__init__()
 
                     self.yang_name = "latest"
                     self.yang_parent_name = "interface"
@@ -1629,7 +1686,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest, [], name, value)
 
 
-                class Protocols(Entity):
+                class Protocols(_Entity_):
                     """
                     List of protocols
                     
@@ -1648,7 +1705,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Latest.Protocols, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Latest.Protocols, self).__init__()
 
                         self.yang_name = "protocols"
                         self.yang_parent_name = "latest"
@@ -1666,7 +1726,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols, [], name, value)
 
 
-                    class Protocol(Entity):
+                    class Protocol(_Entity_):
                         """
                         Interface counters per protocol
                         
@@ -1791,7 +1851,10 @@ class InfraStatistics(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, self).__init__()
 
                             self.yang_name = "protocol"
                             self.yang_parent_name = "protocols"
@@ -1829,10 +1892,18 @@ class InfraStatistics(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.Protocols']['meta_info']
 
 
-
-                class InterfacesMibCounters(Entity):
+                class InterfacesMibCounters(_Entity_):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -2183,7 +2254,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, self).__init__()
 
                         self.yang_name = "interfaces-mib-counters"
                         self.yang_parent_name = "latest"
@@ -2271,9 +2345,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters']['meta_info']
 
 
-                class DataRate(Entity):
+                class DataRate(_Entity_):
                     """
                     Datarate information
                     
@@ -2412,7 +2490,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Latest.DataRate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Latest.DataRate, self).__init__()
 
                         self.yang_name = "data-rate"
                         self.yang_parent_name = "latest"
@@ -2454,9 +2535,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.DataRate']['meta_info']
 
 
-                class GenericCounters(Entity):
+                class GenericCounters(_Entity_):
                     """
                     Generic set of interface counters
                     
@@ -2806,7 +2891,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, self).__init__()
 
                         self.yang_name = "generic-counters"
                         self.yang_parent_name = "latest"
@@ -2894,10 +2982,18 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.GenericCounters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest']['meta_info']
 
 
-
-            class Total(Entity):
+            class Total(_Entity_):
                 """
                 Total stats data of interfaces
                 
@@ -2937,7 +3033,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.Total, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.Total, self).__init__()
 
                     self.yang_name = "total"
                     self.yang_parent_name = "interface"
@@ -2969,7 +3068,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Total, [], name, value)
 
 
-                class Protocols(Entity):
+                class Protocols(_Entity_):
                     """
                     List of protocols
                     
@@ -2988,7 +3087,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Total.Protocols, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Total.Protocols, self).__init__()
 
                         self.yang_name = "protocols"
                         self.yang_parent_name = "total"
@@ -3006,7 +3108,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols, [], name, value)
 
 
-                    class Protocol(Entity):
+                    class Protocol(_Entity_):
                         """
                         Interface counters per protocol
                         
@@ -3131,7 +3233,10 @@ class InfraStatistics(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, self).__init__()
 
                             self.yang_name = "protocol"
                             self.yang_parent_name = "protocols"
@@ -3169,10 +3274,18 @@ class InfraStatistics(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols']['meta_info']
 
 
-
-                class InterfacesMibCounters(Entity):
+                class InterfacesMibCounters(_Entity_):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -3523,7 +3636,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, self).__init__()
 
                         self.yang_name = "interfaces-mib-counters"
                         self.yang_parent_name = "total"
@@ -3611,9 +3727,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters']['meta_info']
 
 
-                class DataRate(Entity):
+                class DataRate(_Entity_):
                     """
                     Datarate information
                     
@@ -3752,7 +3872,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Total.DataRate, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Total.DataRate, self).__init__()
 
                         self.yang_name = "data-rate"
                         self.yang_parent_name = "total"
@@ -3794,9 +3917,13 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.DataRate']['meta_info']
 
 
-                class GenericCounters(Entity):
+                class GenericCounters(_Entity_):
                     """
                     Generic set of interface counters
                     
@@ -4146,7 +4273,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Total.GenericCounters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Total.GenericCounters, self).__init__()
 
                         self.yang_name = "generic-counters"
                         self.yang_parent_name = "total"
@@ -4234,10 +4364,18 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.GenericCounters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Total']['meta_info']
 
 
-
-            class Protocols(Entity):
+            class Protocols(_Entity_):
                 """
                 List of protocols
                 
@@ -4256,7 +4394,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.Protocols, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.Protocols, self).__init__()
 
                     self.yang_name = "protocols"
                     self.yang_parent_name = "interface"
@@ -4274,7 +4415,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols, [], name, value)
 
 
-                class Protocol(Entity):
+                class Protocol(_Entity_):
                     """
                     Interface counters per protocol
                     
@@ -4399,7 +4540,10 @@ class InfraStatistics(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(InfraStatistics.Interfaces.Interface.Protocols.Protocol, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(InfraStatistics.Interfaces.Interface.Protocols.Protocol, self).__init__()
 
                         self.yang_name = "protocol"
                         self.yang_parent_name = "protocols"
@@ -4437,10 +4581,18 @@ class InfraStatistics(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Protocols.Protocol']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Protocols']['meta_info']
 
 
-
-            class InterfacesMibCounters(Entity):
+            class InterfacesMibCounters(_Entity_):
                 """
                 Set of interface counters as displayed by the
                 InterfacesMIB
@@ -4791,7 +4943,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, self).__init__()
 
                     self.yang_name = "interfaces-mib-counters"
                     self.yang_parent_name = "interface"
@@ -4879,9 +5034,13 @@ class InfraStatistics(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.InterfacesMibCounters']['meta_info']
 
 
-            class DataRate(Entity):
+            class DataRate(_Entity_):
                 """
                 Datarate information
                 
@@ -5020,7 +5179,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.DataRate, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.DataRate, self).__init__()
 
                     self.yang_name = "data-rate"
                     self.yang_parent_name = "interface"
@@ -5062,9 +5224,13 @@ class InfraStatistics(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.DataRate']['meta_info']
 
 
-            class GenericCounters(Entity):
+            class GenericCounters(_Entity_):
                 """
                 Generic set of interface counters
                 
@@ -5414,7 +5580,10 @@ class InfraStatistics(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(InfraStatistics.Interfaces.Interface.GenericCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(InfraStatistics.Interfaces.Interface.GenericCounters, self).__init__()
 
                     self.yang_name = "generic-counters"
                     self.yang_parent_name = "interface"
@@ -5502,12 +5671,28 @@ class InfraStatistics(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.GenericCounters']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                return meta._meta_table['InfraStatistics.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+            return meta._meta_table['InfraStatistics.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = InfraStatistics()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+        return meta._meta_table['InfraStatistics']['meta_info']
 
 

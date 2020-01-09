@@ -545,10 +545,10 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
            join/leave records";
         leaf max-history {
           type uint32 {
-            range "1..365";
+            range "0..365";
           }
           units "day";
-          default "1";
+          default "0";
           description
             "Configure IGMP accounting Maximum History
              setting";

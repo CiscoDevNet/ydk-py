@@ -70,9 +70,9 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
         "True/False,SRG Node Diameter Notification flag";
     }
     leaf srg-role-upd-time {
-      type string;
+      type uint32;
       description
-        "SRG Role Notification time in DDD MMM DD HH:MM
+        "SRG Role Update Notif time in DDD MMM DD HH:MM
          :SS YYYY format eg: Tue Apr 11 21:30:47 2011";
     }
   }
@@ -754,6 +754,20 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
         "True if Service accounting started  for the
          service";
     }
+    leaf service-accounting-start-sent-timestamp {
+      type uint32;
+      description
+        "Service Accounting Start Sent time in DDD MMM DD
+         HH:MM:SS YYYY format eg: Tue Apr 11 21:30:47
+         2011";
+    }
+    leaf service-acct-start-ac-kd-timestamp {
+      type uint32;
+      description
+        "Service Accounting Start Response time in DDD
+         MMM DD HH:MM:SS YYYY format eg: Tue Apr 11 21:30
+         :47 2011";
+    }
   }
 
   grouping ACCT-MA-SESS-FEAT-BAG-DATA {
@@ -808,6 +822,19 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
       type boolean;
       description
         "True if session accounting started";
+    }
+    leaf session-start-sent-timestamp {
+      type uint32;
+      description
+        "Session Start sent time in DDD MMM DD HH:MM:SS
+         YYYY format eg: Tue Apr 11 21:30:47 2011";
+    }
+    leaf session-acct-start-ac-kd-timestamp {
+      type uint32;
+      description
+        "Session Accounting Start Response time in DDD
+         MMM DD HH:MM:SS YYYY format eg: Tue Apr 11 21:30
+         :47 2011";
     }
     leaf session-idle-timeout-enabled-flag {
       type boolean;

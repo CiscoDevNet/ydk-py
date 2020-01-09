@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SystemMonitoring(Entity):
+class SystemMonitoring(_Entity_):
     """
     Processes operational data
     
@@ -37,10 +40,13 @@ class SystemMonitoring(Entity):
     """
 
     _prefix = 'wdsysmon-fd-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-07-05'
 
     def __init__(self):
-        super(SystemMonitoring, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SystemMonitoring, self).__init__()
         self._top_entity = None
 
         self.yang_name = "system-monitoring"
@@ -59,7 +65,7 @@ class SystemMonitoring(Entity):
         self._perform_setattr(SystemMonitoring, [], name, value)
 
 
-    class CpuUtilization(Entity):
+    class CpuUtilization(_Entity_):
         """
         Processes CPU utilization information
         
@@ -111,10 +117,13 @@ class SystemMonitoring(Entity):
         """
 
         _prefix = 'wdsysmon-fd-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-07-05'
 
         def __init__(self):
-            super(SystemMonitoring.CpuUtilization, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SystemMonitoring.CpuUtilization, self).__init__()
 
             self.yang_name = "cpu-utilization"
             self.yang_parent_name = "system-monitoring"
@@ -142,7 +151,7 @@ class SystemMonitoring(Entity):
             self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', 'total_cpu_one_minute', 'total_cpu_five_minute', 'total_cpu_fifteen_minute'], name, value)
 
 
-        class ProcessCpu(Entity):
+        class ProcessCpu(_Entity_):
             """
             Per process CPU utilization
             
@@ -200,10 +209,13 @@ class SystemMonitoring(Entity):
             """
 
             _prefix = 'wdsysmon-fd-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-07-05'
 
             def __init__(self):
-                super(SystemMonitoring.CpuUtilization.ProcessCpu, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SystemMonitoring.CpuUtilization.ProcessCpu, self).__init__()
 
                 self.yang_name = "process-cpu"
                 self.yang_parent_name = "cpu-utilization"
@@ -229,11 +241,23 @@ class SystemMonitoring(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, ['process_name', 'process_id', 'process_cpu_one_minute', 'process_cpu_five_minute', 'process_cpu_fifteen_minute'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wdsysmon_fd_oper as meta
+                return meta._meta_table['SystemMonitoring.CpuUtilization.ProcessCpu']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wdsysmon_fd_oper as meta
+            return meta._meta_table['SystemMonitoring.CpuUtilization']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SystemMonitoring()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_wdsysmon_fd_oper as meta
+        return meta._meta_table['SystemMonitoring']['meta_info']
 
 

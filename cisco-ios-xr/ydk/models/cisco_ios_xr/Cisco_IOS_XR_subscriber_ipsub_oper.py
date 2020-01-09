@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class IpsubMaIntfInitiatorData(Enum):
     packet_trigger = Enum.YLeaf(1, "packet-trigger")
 
     invalid_trigger = Enum.YLeaf(2, "invalid-trigger")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+        return meta._meta_table['IpsubMaIntfInitiatorData']
 
 
 class IpsubMaIntfStateData(Enum):
@@ -158,6 +167,12 @@ class IpsubMaIntfStateData(Enum):
     error = Enum.YLeaf(15, "error")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+        return meta._meta_table['IpsubMaIntfStateData']
+
+
 class IpsubMaParentIntfStateData(Enum):
     """
     IpsubMaParentIntfStateData (Enum Class)
@@ -185,6 +200,12 @@ class IpsubMaParentIntfStateData(Enum):
     up = Enum.YLeaf(2, "up")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+        return meta._meta_table['IpsubMaParentIntfStateData']
+
+
 class IpsubMaParentIntfVlan(Enum):
     """
     IpsubMaParentIntfVlan (Enum Class)
@@ -206,8 +227,14 @@ class IpsubMaParentIntfVlan(Enum):
     ambiguous = Enum.YLeaf(1, "ambiguous")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+        return meta._meta_table['IpsubMaParentIntfVlan']
 
-class IpSubscriber(Entity):
+
+
+class IpSubscriber(_Entity_):
     """
     IP subscriber operational data
     
@@ -226,7 +253,10 @@ class IpSubscriber(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(IpSubscriber, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IpSubscriber, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ip-subscriber"
@@ -247,7 +277,7 @@ class IpSubscriber(Entity):
         self._perform_setattr(IpSubscriber, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         IP subscriber operational data for a particular
         location
@@ -267,7 +297,10 @@ class IpSubscriber(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(IpSubscriber.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(IpSubscriber.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ip-subscriber"
@@ -286,7 +319,7 @@ class IpSubscriber(Entity):
             self._perform_setattr(IpSubscriber.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Location. For eg., 0/1/CPU0
             
@@ -328,7 +361,10 @@ class IpSubscriber(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(IpSubscriber.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(IpSubscriber.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -360,7 +396,7 @@ class IpSubscriber(Entity):
                 self._perform_setattr(IpSubscriber.Nodes.Node, ['node_name'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 IP subscriber interface summary
                 
@@ -393,7 +429,10 @@ class IpSubscriber(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IpSubscriber.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpSubscriber.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -419,7 +458,7 @@ class IpSubscriber(Entity):
                     self._perform_setattr(IpSubscriber.Nodes.Node.Summary, [], name, value)
 
 
-                class AccessInterfaceSummary(Entity):
+                class AccessInterfaceSummary(_Entity_):
                     """
                     Access interface summary statistics
                     
@@ -454,7 +493,10 @@ class IpSubscriber(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, self).__init__()
 
                         self.yang_name = "access-interface-summary"
                         self.yang_parent_name = "summary"
@@ -481,7 +523,7 @@ class IpSubscriber(Entity):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, ['interfaces'], name, value)
 
 
-                    class Initiators(Entity):
+                    class Initiators(_Entity_):
                         """
                         Summary counts per initiator
                         
@@ -507,7 +549,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators, self).__init__()
 
                             self.yang_name = "initiators"
                             self.yang_parent_name = "access-interface-summary"
@@ -531,7 +576,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP summary statistics
                             
@@ -563,7 +608,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "initiators"
@@ -583,9 +631,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             Packet trigger summary statistics
                             
@@ -617,7 +669,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "initiators"
@@ -637,10 +692,18 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators']['meta_info']
 
 
-
-                    class Ipv6Initiators(Entity):
+                    class Ipv6Initiators(_Entity_):
                         """
                         Summary counts per initiator for ipv6 session
                         
@@ -666,7 +729,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators, self).__init__()
 
                             self.yang_name = "ipv6-initiators"
                             self.yang_parent_name = "access-interface-summary"
@@ -690,7 +756,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP summary statistics
                             
@@ -722,7 +788,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -742,9 +811,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             Packet trigger summary statistics
                             
@@ -776,7 +849,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -796,11 +872,23 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                        return meta._meta_table['IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary']['meta_info']
 
 
-
-
-                class InterfaceCounts(Entity):
+                class InterfaceCounts(_Entity_):
                     """
                     Initiator interface counts
                     
@@ -826,7 +914,10 @@ class IpSubscriber(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts, self).__init__()
 
                         self.yang_name = "interface-counts"
                         self.yang_parent_name = "summary"
@@ -850,7 +941,7 @@ class IpSubscriber(Entity):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts, [], name, value)
 
 
-                    class Initiators(Entity):
+                    class Initiators(_Entity_):
                         """
                         Initiators
                         
@@ -876,7 +967,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators, self).__init__()
 
                             self.yang_name = "initiators"
                             self.yang_parent_name = "interface-counts"
@@ -900,7 +994,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP
                             
@@ -1047,7 +1141,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "initiators"
@@ -1093,9 +1190,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             Packet trigger
                             
@@ -1242,7 +1343,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "initiators"
@@ -1288,10 +1392,18 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators']['meta_info']
 
 
-
-                    class Ipv6Initiators(Entity):
+                    class Ipv6Initiators(_Entity_):
                         """
                         IPv6 Initiators
                         
@@ -1317,7 +1429,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators, self).__init__()
 
                             self.yang_name = "ipv6-initiators"
                             self.yang_parent_name = "interface-counts"
@@ -1341,7 +1456,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP
                             
@@ -1488,7 +1603,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -1534,9 +1652,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             Packet trigger
                             
@@ -1683,7 +1805,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -1729,11 +1854,23 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                        return meta._meta_table['IpSubscriber.Nodes.Node.Summary.InterfaceCounts']['meta_info']
 
 
-
-
-                class Vrf(Entity):
+                class Vrf(_Entity_):
                     """
                     Array of VRFs with IPSUB interfaces
                     
@@ -1777,7 +1914,10 @@ class IpSubscriber(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IpSubscriber.Nodes.Node.Summary.Vrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpSubscriber.Nodes.Node.Summary.Vrf, self).__init__()
 
                         self.yang_name = "vrf"
                         self.yang_parent_name = "summary"
@@ -1801,10 +1941,18 @@ class IpSubscriber(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, ['vrf_name', 'ipv6vrf_name', 'interfaces', 'ipv6_interfaces'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                        return meta._meta_table['IpSubscriber.Nodes.Node.Summary.Vrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                    return meta._meta_table['IpSubscriber.Nodes.Node.Summary']['meta_info']
 
 
-
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 IP subscriber interface table
                 
@@ -1823,7 +1971,10 @@ class IpSubscriber(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IpSubscriber.Nodes.Node.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpSubscriber.Nodes.Node.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "node"
@@ -1841,7 +1992,7 @@ class IpSubscriber(Entity):
                     self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     IP subscriber interface entry
                     
@@ -2017,7 +2168,10 @@ class IpSubscriber(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IpSubscriber.Nodes.Node.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpSubscriber.Nodes.Node.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -2082,7 +2236,7 @@ class IpSubscriber(Entity):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', 'access_interface', 'subscriber_ipv4_address', 'subscriber_ipv6_address', 'subscriber_mac_addres', 'subscriber_label', 'interface_creation_time', 'age', 'initiator', 'state', 'old_state', 'last_state_change_time', 'current_change_age', 'ipv6_initiator', 'ipv6_state', 'ipv6_old_state', 'ipv6_last_state_change_time', 'ipv6_current_change_age', 'is_l2_connected', 'session_type'], name, value)
 
 
-                    class Vrf(Entity):
+                    class Vrf(_Entity_):
                         """
                         IPv4 VRF details
                         
@@ -2108,7 +2262,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "interface"
@@ -2128,9 +2285,13 @@ class IpSubscriber(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, ['vrf_name', 'table_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf']['meta_info']
 
 
-                    class Ipv6vrf(Entity):
+                    class Ipv6vrf(_Entity_):
                         """
                         IPv6 VRF details
                         
@@ -2156,7 +2317,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, self).__init__()
 
                             self.yang_name = "ipv6vrf"
                             self.yang_parent_name = "interface"
@@ -2176,11 +2340,23 @@ class IpSubscriber(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, ['vrf_name', 'table_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                        return meta._meta_table['IpSubscriber.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                    return meta._meta_table['IpSubscriber.Nodes.Node.Interfaces']['meta_info']
 
 
-
-
-            class AccessInterfaces(Entity):
+            class AccessInterfaces(_Entity_):
                 """
                 IP subscriber access interface table
                 
@@ -2199,7 +2375,10 @@ class IpSubscriber(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(IpSubscriber.Nodes.Node.AccessInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(IpSubscriber.Nodes.Node.AccessInterfaces, self).__init__()
 
                     self.yang_name = "access-interfaces"
                     self.yang_parent_name = "node"
@@ -2217,7 +2396,7 @@ class IpSubscriber(Entity):
                     self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces, [], name, value)
 
 
-                class AccessInterface(Entity):
+                class AccessInterface(_Entity_):
                     """
                     IP subscriber access interface entry
                     
@@ -2301,7 +2480,10 @@ class IpSubscriber(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, self).__init__()
 
                         self.yang_name = "access-interface"
                         self.yang_parent_name = "access-interfaces"
@@ -2344,7 +2526,7 @@ class IpSubscriber(Entity):
                         self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', 'interface_creation_time', 'age', 'interface_type', 'state', 'ipv6_state', 'vlan_type'], name, value)
 
 
-                    class Initiators(Entity):
+                    class Initiators(_Entity_):
                         """
                         Configurational state\-statistics for each
                         initiating protocol enabled on this parent
@@ -2372,7 +2554,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators, self).__init__()
 
                             self.yang_name = "initiators"
                             self.yang_parent_name = "access-interface"
@@ -2396,7 +2581,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP information
                             
@@ -2498,7 +2683,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "initiators"
@@ -2534,9 +2722,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             packet trigger information
                             
@@ -2638,7 +2830,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "initiators"
@@ -2674,10 +2869,18 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators']['meta_info']
 
 
-
-                    class Ipv6Initiators(Entity):
+                    class Ipv6Initiators(_Entity_):
                         """
                         Configurational state\-statistics for each
                         initiating protocol enabled on this parent
@@ -2705,7 +2908,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators, self).__init__()
 
                             self.yang_name = "ipv6-initiators"
                             self.yang_parent_name = "access-interface"
@@ -2729,7 +2935,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators, [], name, value)
 
 
-                        class Dhcp(Entity):
+                        class Dhcp(_Entity_):
                             """
                             DHCP information
                             
@@ -2831,7 +3037,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, self).__init__()
 
                                 self.yang_name = "dhcp"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -2867,9 +3076,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp']['meta_info']
 
 
-                        class PacketTrigger(Entity):
+                        class PacketTrigger(_Entity_):
                             """
                             packet trigger information
                             
@@ -2971,7 +3184,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, self).__init__()
 
                                 self.yang_name = "packet-trigger"
                                 self.yang_parent_name = "ipv6-initiators"
@@ -3007,10 +3223,18 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators']['meta_info']
 
 
-
-                    class SessionLimit(Entity):
+                    class SessionLimit(_Entity_):
                         """
                         Configuration session limits for each session
                         limit source and type
@@ -3037,7 +3261,10 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit, self).__init__()
 
                             self.yang_name = "session-limit"
                             self.yang_parent_name = "access-interface"
@@ -3061,7 +3288,7 @@ class IpSubscriber(Entity):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit, [], name, value)
 
 
-                        class UnclassifiedSource(Entity):
+                        class UnclassifiedSource(_Entity_):
                             """
                             Unclassified source session limits
                             
@@ -3082,7 +3309,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, self).__init__()
 
                                 self.yang_name = "unclassified-source"
                                 self.yang_parent_name = "session-limit"
@@ -3100,9 +3330,13 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, ['per_vlan'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource']['meta_info']
 
 
-                        class Total(Entity):
+                        class Total(_Entity_):
                             """
                             All sources session limits
                             
@@ -3123,7 +3357,10 @@ class IpSubscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, self).__init__()
 
                                 self.yang_name = "total"
                                 self.yang_parent_name = "session-limit"
@@ -3141,15 +3378,43 @@ class IpSubscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, ['per_vlan'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                                return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                            return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                        return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                    return meta._meta_table['IpSubscriber.Nodes.Node.AccessInterfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+                return meta._meta_table['IpSubscriber.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+            return meta._meta_table['IpSubscriber.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = IpSubscriber()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_ipsub_oper as meta
+        return meta._meta_table['IpSubscriber']['meta_info']
 
 

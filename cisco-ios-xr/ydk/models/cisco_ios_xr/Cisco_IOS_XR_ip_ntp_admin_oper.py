@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,6 +51,12 @@ class ClockUpdateNode(Enum):
     clk_no_update_info = Enum.YLeaf(2, "clk-no-update-info")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['ClockUpdateNode']
+
+
 class NtpLeap(Enum):
     """
     NtpLeap (Enum Class)
@@ -79,6 +88,12 @@ class NtpLeap(Enum):
     ntp_leap_delse_cond = Enum.YLeaf(2, "ntp-leap-delse-cond")
 
     ntp_leap_not_in_sync = Enum.YLeaf(3, "ntp-leap-not-in-sync")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['NtpLeap']
 
 
 class NtpLoopFilterState(Enum):
@@ -124,6 +139,12 @@ class NtpLoopFilterState(Enum):
     ntp_loop_flt_sync = Enum.YLeaf(5, "ntp-loop-flt-sync")
 
     ntp_loop_flt_unkn = Enum.YLeaf(6, "ntp-loop-flt-unkn")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['NtpLoopFilterState']
 
 
 class NtpMode(Enum):
@@ -189,6 +210,12 @@ class NtpMode(Enum):
     ntp_mode_xcast_client = Enum.YLeaf(8, "ntp-mode-xcast-client")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['NtpMode']
+
+
 class NtpPeerStatus(Enum):
     """
     NtpPeerStatus (Enum Class)
@@ -246,8 +273,14 @@ class NtpPeerStatus(Enum):
     ntp_ctl_pst_sel_pps = Enum.YLeaf(7, "ntp-ctl-pst-sel-pps")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['NtpPeerStatus']
 
-class Ntp(Entity):
+
+
+class Ntp(_Entity_):
     """
     NTP admin operational data
     
@@ -266,7 +299,10 @@ class Ntp(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Ntp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ntp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ntp"
@@ -287,7 +323,7 @@ class Ntp(Entity):
         self._perform_setattr(Ntp, [], name, value)
 
 
-    class Racks(Entity):
+    class Racks(_Entity_):
         """
         Rack\-specific NTP operational data
         
@@ -306,7 +342,10 @@ class Ntp(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Ntp.Racks, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ntp.Racks, self).__init__()
 
             self.yang_name = "racks"
             self.yang_parent_name = "ntp"
@@ -325,7 +364,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.Racks, [], name, value)
 
 
-        class Rack(Entity):
+        class Rack(_Entity_):
             """
             NTP operational data for a particular rack
             
@@ -353,7 +392,10 @@ class Ntp(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Ntp.Racks.Rack, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ntp.Racks.Rack, self).__init__()
 
                 self.yang_name = "rack"
                 self.yang_parent_name = "racks"
@@ -377,7 +419,7 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.Racks.Rack, ['number'], name, value)
 
 
-            class Slots(Entity):
+            class Slots(_Entity_):
                 """
                 Node\-specific NTP operational data
                 
@@ -396,7 +438,10 @@ class Ntp(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Ntp.Racks.Rack.Slots, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ntp.Racks.Rack.Slots, self).__init__()
 
                     self.yang_name = "slots"
                     self.yang_parent_name = "rack"
@@ -414,7 +459,7 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Racks.Rack.Slots, [], name, value)
 
 
-                class Slot(Entity):
+                class Slot(_Entity_):
                     """
                     NTP operational data for a particular slot
                     
@@ -442,7 +487,10 @@ class Ntp(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Ntp.Racks.Rack.Slots.Slot, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ntp.Racks.Rack.Slots.Slot, self).__init__()
 
                         self.yang_name = "slot"
                         self.yang_parent_name = "slots"
@@ -465,7 +513,7 @@ class Ntp(Entity):
                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot, ['number'], name, value)
 
 
-                    class Instances(Entity):
+                    class Instances(_Entity_):
                         """
                         Instance\-specific NTP operational data
                         
@@ -484,7 +532,10 @@ class Ntp(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Ntp.Racks.Rack.Slots.Slot.Instances, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ntp.Racks.Rack.Slots.Slot.Instances, self).__init__()
 
                             self.yang_name = "instances"
                             self.yang_parent_name = "slot"
@@ -502,7 +553,7 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances, [], name, value)
 
 
-                        class Instance(Entity):
+                        class Instance(_Entity_):
                             """
                             NTP operational data for a particular
                             instance
@@ -545,7 +596,10 @@ class Ntp(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
 
                                 self.yang_name = "instance"
                                 self.yang_parent_name = "instances"
@@ -576,7 +630,7 @@ class Ntp(Entity):
                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, ['number'], name, value)
 
 
-                            class Status(Entity):
+                            class Status(_Entity_):
                                 """
                                 Status of NTP peer(s)
                                 
@@ -714,7 +768,10 @@ class Ntp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, self).__init__()
 
                                     self.yang_name = "status"
                                     self.yang_parent_name = "instance"
@@ -767,7 +824,7 @@ class Ntp(Entity):
                                     self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update'], name, value)
 
 
-                                class SysRefTime(Entity):
+                                class SysRefTime(_Entity_):
                                     """
                                     Reference time
                                     
@@ -793,7 +850,10 @@ class Ntp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, self).__init__()
 
                                         self.yang_name = "sys-ref-time"
                                         self.yang_parent_name = "status"
@@ -817,7 +877,7 @@ class Ntp(Entity):
                                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, [], name, value)
 
 
-                                    class Sec(Entity):
+                                    class Sec(_Entity_):
                                         """
                                         Second part in 64\-bit NTP timestamp
                                         
@@ -838,7 +898,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, self).__init__()
 
                                             self.yang_name = "sec"
                                             self.yang_parent_name = "sys-ref-time"
@@ -856,9 +919,13 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, ['int'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec']['meta_info']
 
 
-                                    class FracSecs(Entity):
+                                    class FracSecs(_Entity_):
                                         """
                                         Fractional part in 64\-bit NTP timestamp
                                         
@@ -879,7 +946,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, self).__init__()
 
                                             self.yang_name = "frac-secs"
                                             self.yang_parent_name = "sys-ref-time"
@@ -897,10 +967,18 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, ['frac'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime']['meta_info']
 
 
-
-                                class SysDrift(Entity):
+                                class SysDrift(_Entity_):
                                     """
                                     System Drift
                                     
@@ -926,7 +1004,10 @@ class Ntp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, self).__init__()
 
                                         self.yang_name = "sys-drift"
                                         self.yang_parent_name = "status"
@@ -950,7 +1031,7 @@ class Ntp(Entity):
                                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, [], name, value)
 
 
-                                    class Sec(Entity):
+                                    class Sec(_Entity_):
                                         """
                                         Second part in 64\-bit NTP timestamp
                                         
@@ -971,7 +1052,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, self).__init__()
 
                                             self.yang_name = "sec"
                                             self.yang_parent_name = "sys-drift"
@@ -989,9 +1073,13 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, ['int'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec']['meta_info']
 
 
-                                    class FracSecs(Entity):
+                                    class FracSecs(_Entity_):
                                         """
                                         Fractional part in 64\-bit NTP timestamp
                                         
@@ -1012,7 +1100,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, self).__init__()
 
                                             self.yang_name = "frac-secs"
                                             self.yang_parent_name = "sys-drift"
@@ -1030,11 +1121,23 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, ['frac'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                    return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status']['meta_info']
 
 
-
-
-                            class Associations(Entity):
+                            class Associations(_Entity_):
                                 """
                                 NTP Associations information
                                 
@@ -1067,7 +1170,10 @@ class Ntp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, self).__init__()
 
                                     self.yang_name = "associations"
                                     self.yang_parent_name = "instance"
@@ -1090,7 +1196,7 @@ class Ntp(Entity):
                                     self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
-                                class PeerSummaryInfo(Entity):
+                                class PeerSummaryInfo(_Entity_):
                                     """
                                     Peer info
                                     
@@ -1118,7 +1224,10 @@ class Ntp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, self).__init__()
 
                                         self.yang_name = "peer-summary-info"
                                         self.yang_parent_name = "associations"
@@ -1141,7 +1250,7 @@ class Ntp(Entity):
                                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, ['time_since'], name, value)
 
 
-                                    class PeerInfoCommon(Entity):
+                                    class PeerInfoCommon(_Entity_):
                                         """
                                         Common peer info
                                         
@@ -1245,7 +1354,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, self).__init__()
 
                                             self.yang_name = "peer-info-common"
                                             self.yang_parent_name = "peer-summary-info"
@@ -1285,11 +1397,23 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                    return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations']['meta_info']
 
 
-
-
-                            class AssociationsDetail(Entity):
+                            class AssociationsDetail(_Entity_):
                                 """
                                 NTP Associations Detail information
                                 
@@ -1322,7 +1446,10 @@ class Ntp(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, self).__init__()
 
                                     self.yang_name = "associations-detail"
                                     self.yang_parent_name = "instance"
@@ -1345,7 +1472,7 @@ class Ntp(Entity):
                                     self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, ['is_ntp_enabled', 'sys_leap'], name, value)
 
 
-                                class PeerDetailInfo(Entity):
+                                class PeerDetailInfo(_Entity_):
                                     """
                                     Peer info
                                     
@@ -1493,7 +1620,10 @@ class Ntp(Entity):
                                     _revision = '2017-09-07'
 
                                     def __init__(self):
-                                        super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, self).__init__()
 
                                         self.yang_name = "peer-detail-info"
                                         self.yang_parent_name = "associations-detail"
@@ -1556,7 +1686,7 @@ class Ntp(Entity):
                                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, ['leap', 'peer_mode', 'poll_interval', 'is_ref_clock', 'is_authenticated', 'root_delay', 'root_dispersion', 'synch_distance', 'precision', 'version', 'filter_index', 'cast_flags'], name, value)
 
 
-                                    class PeerInfoCommon(Entity):
+                                    class PeerInfoCommon(_Entity_):
                                         """
                                         Common peer info
                                         
@@ -1660,7 +1790,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, self).__init__()
 
                                             self.yang_name = "peer-info-common"
                                             self.yang_parent_name = "peer-detail-info"
@@ -1700,9 +1833,13 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon']['meta_info']
 
 
-                                    class RefTime(Entity):
+                                    class RefTime(_Entity_):
                                         """
                                         Reference time
                                         
@@ -1728,7 +1865,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime, self).__init__()
 
                                             self.yang_name = "ref-time"
                                             self.yang_parent_name = "peer-detail-info"
@@ -1752,7 +1892,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime, [], name, value)
 
 
-                                        class Sec(Entity):
+                                        class Sec(_Entity_):
                                             """
                                             Second part in 64\-bit NTP timestamp
                                             
@@ -1773,7 +1913,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, self).__init__()
 
                                                 self.yang_name = "sec"
                                                 self.yang_parent_name = "ref-time"
@@ -1791,9 +1934,13 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec']['meta_info']
 
 
-                                        class FracSecs(Entity):
+                                        class FracSecs(_Entity_):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
                                             
@@ -1814,7 +1961,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
 
                                                 self.yang_name = "frac-secs"
                                                 self.yang_parent_name = "ref-time"
@@ -1832,10 +1982,18 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime']['meta_info']
 
 
-
-                                    class OriginateTime(Entity):
+                                    class OriginateTime(_Entity_):
                                         """
                                         Originate timestamp
                                         
@@ -1861,7 +2019,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
 
                                             self.yang_name = "originate-time"
                                             self.yang_parent_name = "peer-detail-info"
@@ -1885,7 +2046,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, [], name, value)
 
 
-                                        class Sec(Entity):
+                                        class Sec(_Entity_):
                                             """
                                             Second part in 64\-bit NTP timestamp
                                             
@@ -1906,7 +2067,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
 
                                                 self.yang_name = "sec"
                                                 self.yang_parent_name = "originate-time"
@@ -1924,9 +2088,13 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec']['meta_info']
 
 
-                                        class FracSecs(Entity):
+                                        class FracSecs(_Entity_):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
                                             
@@ -1947,7 +2115,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
 
                                                 self.yang_name = "frac-secs"
                                                 self.yang_parent_name = "originate-time"
@@ -1965,10 +2136,18 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime']['meta_info']
 
 
-
-                                    class ReceiveTime(Entity):
+                                    class ReceiveTime(_Entity_):
                                         """
                                         Receive timestamp
                                         
@@ -1994,7 +2173,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
 
                                             self.yang_name = "receive-time"
                                             self.yang_parent_name = "peer-detail-info"
@@ -2018,7 +2200,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, [], name, value)
 
 
-                                        class Sec(Entity):
+                                        class Sec(_Entity_):
                                             """
                                             Second part in 64\-bit NTP timestamp
                                             
@@ -2039,7 +2221,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
 
                                                 self.yang_name = "sec"
                                                 self.yang_parent_name = "receive-time"
@@ -2057,9 +2242,13 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec']['meta_info']
 
 
-                                        class FracSecs(Entity):
+                                        class FracSecs(_Entity_):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
                                             
@@ -2080,7 +2269,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
 
                                                 self.yang_name = "frac-secs"
                                                 self.yang_parent_name = "receive-time"
@@ -2098,10 +2290,18 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime']['meta_info']
 
 
-
-                                    class TransmitTime(Entity):
+                                    class TransmitTime(_Entity_):
                                         """
                                         Transmit timestamp
                                         
@@ -2127,7 +2327,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
 
                                             self.yang_name = "transmit-time"
                                             self.yang_parent_name = "peer-detail-info"
@@ -2151,7 +2354,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, [], name, value)
 
 
-                                        class Sec(Entity):
+                                        class Sec(_Entity_):
                                             """
                                             Second part in 64\-bit NTP timestamp
                                             
@@ -2172,7 +2375,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, self).__init__()
 
                                                 self.yang_name = "sec"
                                                 self.yang_parent_name = "transmit-time"
@@ -2190,9 +2396,13 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec']['meta_info']
 
 
-                                        class FracSecs(Entity):
+                                        class FracSecs(_Entity_):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
                                             
@@ -2213,7 +2423,10 @@ class Ntp(Entity):
                                             _revision = '2017-09-07'
 
                                             def __init__(self):
-                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
 
                                                 self.yang_name = "frac-secs"
                                                 self.yang_parent_name = "transmit-time"
@@ -2231,10 +2444,18 @@ class Ntp(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime']['meta_info']
 
 
-
-                                    class FilterDetail(Entity):
+                                    class FilterDetail(_Entity_):
                                         """
                                         Filter Details
                                         
@@ -2267,7 +2488,10 @@ class Ntp(Entity):
                                         _revision = '2017-09-07'
 
                                         def __init__(self):
-                                            super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
 
                                             self.yang_name = "filter-detail"
                                             self.yang_parent_name = "peer-detail-info"
@@ -2289,18 +2513,58 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                    return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                    return meta._meta_table['Ntp.Racks.Rack.Slots']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                return meta._meta_table['Ntp.Racks.Rack']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+            return meta._meta_table['Ntp.Racks']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+        return meta._meta_table['Ntp']['meta_info']
 
 

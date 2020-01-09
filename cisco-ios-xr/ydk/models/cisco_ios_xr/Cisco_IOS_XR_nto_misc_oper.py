@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MemorySummary(Entity):
+class MemorySummary(_Entity_):
     """
     Memory summary information
     
@@ -40,7 +43,10 @@ class MemorySummary(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MemorySummary, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MemorySummary, self).__init__()
         self._top_entity = None
 
         self.yang_name = "memory-summary"
@@ -61,7 +67,7 @@ class MemorySummary(Entity):
         self._perform_setattr(MemorySummary, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes
         
@@ -80,7 +86,10 @@ class MemorySummary(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MemorySummary.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MemorySummary.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "memory-summary"
@@ -99,7 +108,7 @@ class MemorySummary(Entity):
             self._perform_setattr(MemorySummary.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Name of nodes
             
@@ -134,7 +143,10 @@ class MemorySummary(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MemorySummary.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MemorySummary.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -162,7 +174,7 @@ class MemorySummary(Entity):
                 self._perform_setattr(MemorySummary.Nodes.Node, ['node_name'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Memory summary information for a specific node
                 
@@ -284,7 +296,10 @@ class MemorySummary(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MemorySummary.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MemorySummary.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -320,9 +335,13 @@ class MemorySummary(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MemorySummary.Nodes.Node.Summary, ['page_size', 'ram_memory', 'free_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+                    return meta._meta_table['MemorySummary.Nodes.Node.Summary']['meta_info']
 
 
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 Detail Memory summary information for a
                 specific node
@@ -517,7 +536,10 @@ class MemorySummary(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(MemorySummary.Nodes.Node.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(MemorySummary.Nodes.Node.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "node"
@@ -570,7 +592,7 @@ class MemorySummary(Entity):
                     self._perform_setattr(MemorySummary.Nodes.Node.Detail, ['page_size', 'ram_memory', 'free_physical_memory', 'private_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system', 'total_shared_window', 'allocated_memory', 'program_text', 'program_data', 'program_stack', 'total_used'], name, value)
 
 
-                class SharedWindow(Entity):
+                class SharedWindow(_Entity_):
                     """
                     Available Shared windows
                     
@@ -598,7 +620,10 @@ class MemorySummary(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(MemorySummary.Nodes.Node.Detail.SharedWindow, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(MemorySummary.Nodes.Node.Detail.SharedWindow, self).__init__()
 
                         self.yang_name = "shared-window"
                         self.yang_parent_name = "detail"
@@ -618,13 +643,33 @@ class MemorySummary(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, ['shared_window', 'window_size'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+                        return meta._meta_table['MemorySummary.Nodes.Node.Detail.SharedWindow']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+                    return meta._meta_table['MemorySummary.Nodes.Node.Detail']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+                return meta._meta_table['MemorySummary.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+            return meta._meta_table['MemorySummary.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MemorySummary()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_nto_misc_oper as meta
+        return meta._meta_table['MemorySummary']['meta_info']
 
 

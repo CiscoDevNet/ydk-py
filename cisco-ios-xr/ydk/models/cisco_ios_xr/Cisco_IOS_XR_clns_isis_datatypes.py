@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -35,6 +38,12 @@ class IsisAddressFamily(Enum):
     ipv4 = Enum.YLeaf(0, "ipv4")
 
     ipv6 = Enum.YLeaf(1, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
+        return meta._meta_table['IsisAddressFamily']
 
 
 class IsisInternalLevel(Enum):
@@ -64,6 +73,12 @@ class IsisInternalLevel(Enum):
     level2 = Enum.YLeaf(2, "level2")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
+        return meta._meta_table['IsisInternalLevel']
+
+
 class IsisSubAddressFamily(Enum):
     """
     IsisSubAddressFamily (Enum Class)
@@ -83,6 +98,12 @@ class IsisSubAddressFamily(Enum):
     unicast = Enum.YLeaf(0, "unicast")
 
     multicast = Enum.YLeaf(1, "multicast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
+        return meta._meta_table['IsisSubAddressFamily']
 
 
 

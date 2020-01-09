@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class RedundancyGroupManager(Entity):
+class RedundancyGroupManager(_Entity_):
     """
     Redundancy group manager operational data
     
@@ -41,7 +44,10 @@ class RedundancyGroupManager(Entity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        super(RedundancyGroupManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RedundancyGroupManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "redundancy-group-manager"
@@ -62,7 +68,7 @@ class RedundancyGroupManager(Entity):
         self._perform_setattr(RedundancyGroupManager, [], name, value)
 
 
-    class Controllers(Entity):
+    class Controllers(_Entity_):
         """
         Redundancy group manager data
         
@@ -81,7 +87,10 @@ class RedundancyGroupManager(Entity):
         _revision = '2015-01-07'
 
         def __init__(self):
-            super(RedundancyGroupManager.Controllers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RedundancyGroupManager.Controllers, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "redundancy-group-manager"
@@ -100,7 +109,7 @@ class RedundancyGroupManager(Entity):
             self._perform_setattr(RedundancyGroupManager.Controllers, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             Display redundancy group by controller name
             
@@ -184,7 +193,10 @@ class RedundancyGroupManager(Entity):
             _revision = '2015-01-07'
 
             def __init__(self):
-                super(RedundancyGroupManager.Controllers.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RedundancyGroupManager.Controllers.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -217,11 +229,23 @@ class RedundancyGroupManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'multi_router_aps_group_number', 'controller_name_xr', 'controller_handle', 'backup_interface_name', 'backup_interface_handle', 'backup_interface_next_hop_ip_address', 'inter_chassis_group_state'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_oper as meta
+                return meta._meta_table['RedundancyGroupManager.Controllers.Controller']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_oper as meta
+            return meta._meta_table['RedundancyGroupManager.Controllers']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RedundancyGroupManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_oper as meta
+        return meta._meta_table['RedundancyGroupManager']['meta_info']
 
 

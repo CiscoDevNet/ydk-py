@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ShowUsers(Entity):
+class ShowUsers(_Entity_):
     """
     Show users statistics
     
@@ -40,7 +43,10 @@ class ShowUsers(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(ShowUsers, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ShowUsers, self).__init__()
         self._top_entity = None
 
         self.yang_name = "show-users"
@@ -61,7 +67,7 @@ class ShowUsers(Entity):
         self._perform_setattr(ShowUsers, [], name, value)
 
 
-    class Sessions(Entity):
+    class Sessions(_Entity_):
         """
         Show users statistics
         
@@ -80,7 +86,10 @@ class ShowUsers(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(ShowUsers.Sessions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowUsers.Sessions, self).__init__()
 
             self.yang_name = "sessions"
             self.yang_parent_name = "show-users"
@@ -99,7 +108,7 @@ class ShowUsers(Entity):
             self._perform_setattr(ShowUsers.Sessions, [], name, value)
 
 
-        class Session(Entity):
+        class Session(_Entity_):
             """
             Show users statistics
             
@@ -162,7 +171,10 @@ class ShowUsers(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(ShowUsers.Sessions.Session, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowUsers.Sessions.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "sessions"
@@ -193,11 +205,23 @@ class ShowUsers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', 'line', 'user', 'service', 'conns', 'idle_string', 'location'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_cmd_oper as meta
+                return meta._meta_table['ShowUsers.Sessions.Session']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_cmd_oper as meta
+            return meta._meta_table['ShowUsers.Sessions']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ShowUsers()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_management_cmd_oper as meta
+        return meta._meta_table['ShowUsers']['meta_info']
 
 

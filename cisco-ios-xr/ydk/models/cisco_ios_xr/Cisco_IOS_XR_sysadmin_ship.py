@@ -16,8 +16,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Stat(Entity):
+class Stat(_Entity_):
     """
     SHIP Info
     
@@ -45,7 +48,10 @@ class Stat(Entity):
     _revision = '2017-05-09'
 
     def __init__(self):
-        super(Stat, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Stat, self).__init__()
         self._top_entity = None
 
         self.yang_name = "stat"
@@ -64,7 +70,7 @@ class Stat(Entity):
         self._perform_setattr(Stat, [], name, value)
 
 
-    class ShipComp(Entity):
+    class ShipComp(_Entity_):
         """
         Select ship client component
         
@@ -90,7 +96,10 @@ class Stat(Entity):
         _revision = '2017-05-09'
 
         def __init__(self):
-            super(Stat.ShipComp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Stat.ShipComp, self).__init__()
 
             self.yang_name = "ship_comp"
             self.yang_parent_name = "stat"
@@ -112,7 +121,7 @@ class Stat(Entity):
             self._perform_setattr(Stat.ShipComp, ['comp_name'], name, value)
 
 
-        class Process(Entity):
+        class Process(_Entity_):
             """
             
             
@@ -138,7 +147,10 @@ class Stat(Entity):
             _revision = '2017-05-09'
 
             def __init__(self):
-                super(Stat.ShipComp.Process, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Stat.ShipComp.Process, self).__init__()
 
                 self.yang_name = "process"
                 self.yang_parent_name = "ship_comp"
@@ -159,7 +171,7 @@ class Stat(Entity):
                 self._perform_setattr(Stat.ShipComp.Process, ['process_name'], name, value)
 
 
-            class Client(Entity):
+            class Client(_Entity_):
                 """
                 
                 
@@ -185,7 +197,10 @@ class Stat(Entity):
                 _revision = '2017-05-09'
 
                 def __init__(self):
-                    super(Stat.ShipComp.Process.Client, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Stat.ShipComp.Process.Client, self).__init__()
 
                     self.yang_name = "client"
                     self.yang_parent_name = "process"
@@ -206,7 +221,7 @@ class Stat(Entity):
                     self._perform_setattr(Stat.ShipComp.Process.Client, ['client_name'], name, value)
 
 
-                class Cat(Entity):
+                class Cat(_Entity_):
                     """
                     
                     
@@ -232,7 +247,10 @@ class Stat(Entity):
                     _revision = '2017-05-09'
 
                     def __init__(self):
-                        super(Stat.ShipComp.Process.Client.Cat, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Stat.ShipComp.Process.Client.Cat, self).__init__()
 
                         self.yang_name = "cat"
                         self.yang_parent_name = "client"
@@ -395,8 +413,14 @@ class Stat(Entity):
                         SHIP_NODE_COUNTERS = Enum.YLeaf(33, "SHIP_NODE_COUNTERS")
 
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+                            return meta._meta_table['Stat.ShipComp.Process.Client.Cat.CatName']
 
-                    class Counter32b(Entity):
+
+
+                    class Counter32b(_Entity_):
                         """
                         
                         
@@ -514,7 +538,10 @@ class Stat(Entity):
                         _revision = '2017-05-09'
 
                         def __init__(self):
-                            super(Stat.ShipComp.Process.Client.Cat.Counter32b, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Stat.ShipComp.Process.Client.Cat.Counter32b, self).__init__()
 
                             self.yang_name = "counter-32b"
                             self.yang_parent_name = "cat"
@@ -554,14 +581,38 @@ class Stat(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Stat.ShipComp.Process.Client.Cat.Counter32b, ['counter_name', 'counter_value', 'watermark', 'time_stamp', 'hist_info1', 'hist_info2', 'hist_info3', 'hist_info4', 'hist_info5', 'hist_info6', 'hist_info7', 'hist_info8'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+                            return meta._meta_table['Stat.ShipComp.Process.Client.Cat.Counter32b']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+                        return meta._meta_table['Stat.ShipComp.Process.Client.Cat']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+                    return meta._meta_table['Stat.ShipComp.Process.Client']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+                return meta._meta_table['Stat.ShipComp.Process']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+            return meta._meta_table['Stat.ShipComp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Stat()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_ship as meta
+        return meta._meta_table['Stat']['meta_info']
 
 

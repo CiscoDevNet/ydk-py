@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -51,6 +54,12 @@ class NfCacheAgingMode(Enum):
     immediate = Enum.YLeaf(2, "immediate")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfCacheAgingMode']
+
+
 class NfExportVersion(Enum):
     """
     NfExportVersion (Enum Class)
@@ -72,6 +81,12 @@ class NfExportVersion(Enum):
     ipfix = Enum.YLeaf(10, "ipfix")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfExportVersion']
+
+
 class NfFlowDirection(Enum):
     """
     NfFlowDirection (Enum Class)
@@ -91,6 +106,12 @@ class NfFlowDirection(Enum):
     ingress = Enum.YLeaf(0, "ingress")
 
     egress = Enum.YLeaf(1, "egress")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfFlowDirection']
 
 
 class NfFlowProtocol(Enum):
@@ -124,6 +145,12 @@ class NfFlowProtocol(Enum):
     mpls = Enum.YLeaf(2, "mpls")
 
     data_link_frame_section = Enum.YLeaf(13, "data-link-frame-section")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfFlowProtocol']
 
 
 class NfRecordFormat(Enum):
@@ -291,6 +318,12 @@ class NfRecordFormat(Enum):
     mpls_ipv6 = Enum.YLeaf(25, "mpls-ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfRecordFormat']
+
+
 class NfSamplingMode(Enum):
     """
     NfSamplingMode (Enum Class)
@@ -306,8 +339,14 @@ class NfSamplingMode(Enum):
     random = Enum.YLeaf(2, "random")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NfSamplingMode']
 
-class NetFlow(Entity):
+
+
+class NetFlow(_Entity_):
     """
     NetFlow Configuration
     
@@ -339,7 +378,10 @@ class NetFlow(Entity):
     _revision = '2018-06-15'
 
     def __init__(self):
-        super(NetFlow, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NetFlow, self).__init__()
         self._top_entity = None
 
         self.yang_name = "net-flow"
@@ -372,7 +414,7 @@ class NetFlow(Entity):
         self._perform_setattr(NetFlow, [], name, value)
 
 
-    class FlowExporterMaps(Entity):
+    class FlowExporterMaps(_Entity_):
         """
         Configure a flow exporter map
         
@@ -389,7 +431,10 @@ class NetFlow(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(NetFlow.FlowExporterMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetFlow.FlowExporterMaps, self).__init__()
 
             self.yang_name = "flow-exporter-maps"
             self.yang_parent_name = "net-flow"
@@ -408,7 +453,7 @@ class NetFlow(Entity):
             self._perform_setattr(NetFlow.FlowExporterMaps, [], name, value)
 
 
-        class FlowExporterMap(Entity):
+        class FlowExporterMap(_Entity_):
             """
             Exporter map name
             
@@ -465,7 +510,10 @@ class NetFlow(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetFlow.FlowExporterMaps.FlowExporterMap, self).__init__()
 
                 self.yang_name = "flow-exporter-map"
                 self.yang_parent_name = "flow-exporter-maps"
@@ -502,7 +550,7 @@ class NetFlow(Entity):
                 self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap, ['exporter_map_name', 'source_interface', 'dscp', 'packet_length'], name, value)
 
 
-            class Udp(Entity):
+            class Udp(_Entity_):
                 """
                 Use UDP as transport protocol
                 
@@ -521,7 +569,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, self).__init__()
 
                     self.yang_name = "udp"
                     self.yang_parent_name = "flow-exporter-map"
@@ -539,9 +590,13 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, ['destination_port'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Udp']['meta_info']
 
 
-            class Destination(Entity):
+            class Destination(_Entity_):
                 """
                 Configure export destination (collector)
                 
@@ -574,7 +629,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, self).__init__()
 
                     self.yang_name = "destination"
                     self.yang_parent_name = "flow-exporter-map"
@@ -596,9 +654,13 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, ['ip_address', 'ipv6_address', 'vrf_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Destination']['meta_info']
 
 
-            class Version(Entity):
+            class Version(_Entity_):
                 """
                 Specify export version parameters
                 
@@ -657,7 +719,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowExporterMaps.FlowExporterMap.Version, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Version, self).__init__()
 
                     self.yang_name = "version"
                     self.yang_parent_name = "flow-exporter-map"
@@ -687,7 +752,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Version, ['version_type', 'options_template_timeout', 'common_template_timeout', 'data_template_timeout'], name, value)
 
 
-                class Options(Entity):
+                class Options(_Entity_):
                     """
                     Specify options for exporting templates
                     
@@ -726,7 +791,10 @@ class NetFlow(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options, self).__init__()
 
                         self.yang_name = "options"
                         self.yang_parent_name = "version"
@@ -748,12 +816,28 @@ class NetFlow(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options, ['interface_table_export_timeout', 'sampler_table_export_timeout', 'vrf_table_export_timeout'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowExporterMaps']['meta_info']
 
 
-
-
-
-    class FlowSamplerMaps(Entity):
+    class FlowSamplerMaps(_Entity_):
         """
         Flow sampler map configuration
         
@@ -770,7 +854,10 @@ class NetFlow(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(NetFlow.FlowSamplerMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetFlow.FlowSamplerMaps, self).__init__()
 
             self.yang_name = "flow-sampler-maps"
             self.yang_parent_name = "net-flow"
@@ -789,7 +876,7 @@ class NetFlow(Entity):
             self._perform_setattr(NetFlow.FlowSamplerMaps, [], name, value)
 
 
-        class FlowSamplerMap(Entity):
+        class FlowSamplerMap(_Entity_):
             """
             Sampler map name
             
@@ -813,7 +900,10 @@ class NetFlow(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetFlow.FlowSamplerMaps.FlowSamplerMap, self).__init__()
 
                 self.yang_name = "flow-sampler-map"
                 self.yang_parent_name = "flow-sampler-maps"
@@ -837,7 +927,7 @@ class NetFlow(Entity):
                 self._perform_setattr(NetFlow.FlowSamplerMaps.FlowSamplerMap, ['sampler_map_name'], name, value)
 
 
-            class SamplingModes(Entity):
+            class SamplingModes(_Entity_):
                 """
                 Configure packet sampling mode
                 
@@ -854,7 +944,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, self).__init__()
 
                     self.yang_name = "sampling-modes"
                     self.yang_parent_name = "flow-sampler-map"
@@ -872,7 +965,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes, [], name, value)
 
 
-                class SamplingMode(Entity):
+                class SamplingMode(_Entity_):
                     """
                     Configure sampling mode
                     
@@ -907,7 +1000,10 @@ class NetFlow(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, self).__init__()
 
                         self.yang_name = "sampling-mode"
                         self.yang_parent_name = "sampling-modes"
@@ -929,12 +1025,28 @@ class NetFlow(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, ['mode', 'sample_number', 'interval'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowSamplerMaps.FlowSamplerMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowSamplerMaps']['meta_info']
 
 
-
-
-
-    class FlowMonitorMapTable(Entity):
+    class FlowMonitorMapTable(_Entity_):
         """
         Flow monitor map configuration
         
@@ -951,7 +1063,10 @@ class NetFlow(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(NetFlow.FlowMonitorMapTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetFlow.FlowMonitorMapTable, self).__init__()
 
             self.yang_name = "flow-monitor-map-table"
             self.yang_parent_name = "net-flow"
@@ -970,7 +1085,7 @@ class NetFlow(Entity):
             self._perform_setattr(NetFlow.FlowMonitorMapTable, [], name, value)
 
 
-        class FlowMonitorMap(Entity):
+        class FlowMonitorMap(_Entity_):
             """
             Monitor map name
             
@@ -1052,7 +1167,10 @@ class NetFlow(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap, self).__init__()
 
                 self.yang_name = "flow-monitor-map"
                 self.yang_parent_name = "flow-monitor-map-table"
@@ -1095,7 +1213,7 @@ class NetFlow(Entity):
                 self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap, ['monitor_map_name', 'cache_update_aging_timeout', 'cache_entries', 'cache_inactive_aging_timeout', 'cache_active_aging_timeout', 'cache_timeout_rate_limit', 'cache_aging_mode'], name, value)
 
 
-            class Option(Entity):
+            class Option(_Entity_):
                 """
                 Specify an option for the flow cache
                 
@@ -1127,7 +1245,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, self).__init__()
 
                     self.yang_name = "option"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1151,9 +1272,13 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, ['filtered', 'out_bundle_member', 'out_phys_int', 'bgp_attr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option']['meta_info']
 
 
-            class Exporters(Entity):
+            class Exporters(_Entity_):
                 """
                 Configure exporters to be used by the
                 monitor\-map
@@ -1171,7 +1296,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, self).__init__()
 
                     self.yang_name = "exporters"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1189,7 +1317,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters, [], name, value)
 
 
-                class Exporter(Entity):
+                class Exporter(_Entity_):
                     """
                     Configure exporter to be used by the
                     monitor\-map
@@ -1209,7 +1337,10 @@ class NetFlow(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
 
                         self.yang_name = "exporter"
                         self.yang_parent_name = "exporters"
@@ -1227,10 +1358,18 @@ class NetFlow(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, ['exporter_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters']['meta_info']
 
 
-
-            class Record(Entity):
+            class Record(_Entity_):
                 """
                 Specify a flow record format
                 
@@ -1258,7 +1397,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, self).__init__()
 
                     self.yang_name = "record"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1279,11 +1421,23 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, ['record_format', 'label'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowMonitorMapTable']['meta_info']
 
 
-
-
-    class FlowMonitorMapPerformanceTable(Entity):
+    class FlowMonitorMapPerformanceTable(_Entity_):
         """
         Configure a performance traffic flow monitor map
         
@@ -1300,7 +1454,10 @@ class NetFlow(Entity):
         _revision = '2018-06-15'
 
         def __init__(self):
-            super(NetFlow.FlowMonitorMapPerformanceTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetFlow.FlowMonitorMapPerformanceTable, self).__init__()
 
             self.yang_name = "flow-monitor-map-performance-table"
             self.yang_parent_name = "net-flow"
@@ -1319,7 +1476,7 @@ class NetFlow(Entity):
             self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable, [], name, value)
 
 
-        class FlowMonitorMap(Entity):
+        class FlowMonitorMap(_Entity_):
             """
             Monitor map name
             
@@ -1401,7 +1558,10 @@ class NetFlow(Entity):
             _revision = '2018-06-15'
 
             def __init__(self):
-                super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, self).__init__()
 
                 self.yang_name = "flow-monitor-map"
                 self.yang_parent_name = "flow-monitor-map-performance-table"
@@ -1444,7 +1604,7 @@ class NetFlow(Entity):
                 self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap, ['monitor_map_name', 'cache_update_aging_timeout', 'cache_entries', 'cache_inactive_aging_timeout', 'cache_active_aging_timeout', 'cache_timeout_rate_limit', 'cache_aging_mode'], name, value)
 
 
-            class Option(Entity):
+            class Option(_Entity_):
                 """
                 Specify an option for the flow cache
                 
@@ -1476,7 +1636,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, self).__init__()
 
                     self.yang_name = "option"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1500,9 +1663,13 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, ['filtered', 'out_bundle_member', 'out_phys_int', 'bgp_attr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option']['meta_info']
 
 
-            class Exporters(Entity):
+            class Exporters(_Entity_):
                 """
                 Configure exporters to be used by the
                 monitor\-map
@@ -1520,7 +1687,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, self).__init__()
 
                     self.yang_name = "exporters"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1538,7 +1708,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters, [], name, value)
 
 
-                class Exporter(Entity):
+                class Exporter(_Entity_):
                     """
                     Configure exporter to be used by the
                     monitor\-map
@@ -1558,7 +1728,10 @@ class NetFlow(Entity):
                     _revision = '2018-06-15'
 
                     def __init__(self):
-                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, self).__init__()
 
                         self.yang_name = "exporter"
                         self.yang_parent_name = "exporters"
@@ -1576,10 +1749,18 @@ class NetFlow(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, ['exporter_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters']['meta_info']
 
 
-
-            class Record(Entity):
+            class Record(_Entity_):
                 """
                 Specify a flow record format
                 
@@ -1607,7 +1788,10 @@ class NetFlow(Entity):
                 _revision = '2018-06-15'
 
                 def __init__(self):
-                    super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, self).__init__()
 
                     self.yang_name = "record"
                     self.yang_parent_name = "flow-monitor-map"
@@ -1628,12 +1812,28 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, ['record_format', 'label'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NetFlow()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+        return meta._meta_table['NetFlow']['meta_info']
 
 

@@ -2,8 +2,11 @@
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -12,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SNMPMPDMIB(Entity):
+class SNMPMPDMIB(_Entity_):
     """
     
     
@@ -31,7 +34,10 @@ class SNMPMPDMIB(Entity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        super(SNMPMPDMIB, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SNMPMPDMIB, self).__init__()
         self._top_entity = None
 
         self.yang_name = "SNMP-MPD-MIB"
@@ -52,7 +58,7 @@ class SNMPMPDMIB(Entity):
         self._perform_setattr(SNMPMPDMIB, [], name, value)
 
 
-    class SnmpMPDStats(Entity):
+    class SnmpMPDStats(_Entity_):
         """
         
         
@@ -91,7 +97,10 @@ class SNMPMPDMIB(Entity):
         _revision = '2002-10-14'
 
         def __init__(self):
-            super(SNMPMPDMIB.SnmpMPDStats, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SNMPMPDMIB.SnmpMPDStats, self).__init__()
 
             self.yang_name = "snmpMPDStats"
             self.yang_parent_name = "SNMP-MPD-MIB"
@@ -114,10 +123,18 @@ class SNMPMPDMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPMPDMIB.SnmpMPDStats, ['snmpunknownsecuritymodels', 'snmpinvalidmsgs', 'snmpunknownpduhandlers'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _SNMP_MPD_MIB as meta
+            return meta._meta_table['SNMPMPDMIB.SnmpMPDStats']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SNMPMPDMIB()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _SNMP_MPD_MIB as meta
+        return meta._meta_table['SNMPMPDMIB']['meta_info']
 
 

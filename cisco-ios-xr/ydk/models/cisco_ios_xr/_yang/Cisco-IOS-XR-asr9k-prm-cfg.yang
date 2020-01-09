@@ -71,7 +71,7 @@ module Cisco-IOS-XR-asr9k-prm-cfg {
           "Default Package";
       }
       enum "services" {
-        value 9;
+        value 10;
         description
           "Services Package";
       }
@@ -120,7 +120,7 @@ module Cisco-IOS-XR-asr9k-prm-cfg {
           "Default feature profile";
       }
       enum "l2" {
-        value 8;
+        value 9;
         description
           "L2 feature profile";
       }
@@ -207,18 +207,23 @@ module Cisco-IOS-XR-asr9k-prm-cfg {
         description
           "BNG scale profile";
       }
-      enum "lsr" {
+      enum "evpnconv" {
         value 5;
+        description
+          "EVPN convergence scale profile";
+      }
+      enum "lsr" {
+        value 6;
         description
           "LSR scale profile";
       }
       enum "sat" {
-        value 6;
+        value 7;
         description
           "SAT scale profile";
       }
       enum "sfp" {
-        value 7;
+        value 8;
         description
           "Single-flow perf scale profile";
       }

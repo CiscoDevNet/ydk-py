@@ -32,6 +32,10 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-08-29 {
+    description
+      "Removed mandatory statement of leaf sample-interval.";
+  }
   revision 2018-07-23 {
     description
       "Changed no-tls to presence leaf";
@@ -338,7 +342,6 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
                 range "0..4294967295";
               }
               units "millisecond";
-              mandatory true;
               description
                 "Sample interval in milliseconds";
             }

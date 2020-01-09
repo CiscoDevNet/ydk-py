@@ -361,7 +361,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
             leaf probe-interval-day {
               type dt2:Sla-probe-interval-day-enum;
               description
-                "Day of week on which to schedule probes. 
+                "Day of week on which to schedule probes.
                  This must be specified if, and only if,
                  ProbeIntervalUnit is 'Week'.";
             }
@@ -425,7 +425,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
             container send {
               presence "Indicates a send node is configured.";
               description
-                "Schedule to use for packets within a burst. 
+                "Schedule to use for packets within a burst.
                  The default value is to send a single packet
                  once.";
               leaf burst-interval {

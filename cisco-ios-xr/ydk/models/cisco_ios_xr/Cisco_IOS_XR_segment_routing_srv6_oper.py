@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -47,6 +50,12 @@ class SidAllocation(Enum):
     explicit = Enum.YLeaf(2, "explicit")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+        return meta._meta_table['SidAllocation']
+
+
 class SidState(Enum):
     """
     SidState (Enum Class)
@@ -78,6 +87,12 @@ class SidState(Enum):
     pending = Enum.YLeaf(2, "pending")
 
     stale = Enum.YLeaf(3, "stale")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+        return meta._meta_table['SidState']
 
 
 class Srv6EndFunction(Enum):
@@ -251,6 +266,12 @@ class Srv6EndFunction(Enum):
     end_s = Enum.YLeaf(26, "end-s")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+        return meta._meta_table['Srv6EndFunction']
+
+
 class Srv6OutOfResourceState(Enum):
     """
     Srv6OutOfResourceState (Enum Class)
@@ -280,8 +301,14 @@ class Srv6OutOfResourceState(Enum):
     oor_red = Enum.YLeaf(2, "oor-red")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+        return meta._meta_table['Srv6OutOfResourceState']
 
-class Srv6(Entity):
+
+
+class Srv6(_Entity_):
     """
     Segment Routing with IPv6 dataplane
     
@@ -307,7 +334,10 @@ class Srv6(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Srv6, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Srv6, self).__init__()
         self._top_entity = None
 
         self.yang_name = "srv6"
@@ -332,7 +362,7 @@ class Srv6(Entity):
         self._perform_setattr(Srv6, [], name, value)
 
 
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Active SRv6 operational data
         
@@ -379,7 +409,10 @@ class Srv6(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Srv6.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srv6.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "srv6"
@@ -416,7 +449,7 @@ class Srv6(Entity):
             self._perform_setattr(Srv6.Active, [], name, value)
 
 
-        class LocatorAllStaleSids(Entity):
+        class LocatorAllStaleSids(_Entity_):
             """
             Operational container for all Stale SIDs across
             all Locators
@@ -436,7 +469,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Active.LocatorAllStaleSids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Active.LocatorAllStaleSids, self).__init__()
 
                 self.yang_name = "locator-all-stale-sids"
                 self.yang_parent_name = "active"
@@ -455,7 +491,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Active.LocatorAllStaleSids, [], name, value)
 
 
-            class LocatorAllStaleSid(Entity):
+            class LocatorAllStaleSid(_Entity_):
                 """
                 Operational data for given locator and SID
                 opcode
@@ -549,7 +585,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid, self).__init__()
 
                     self.yang_name = "locator-all-stale-sid"
                     self.yang_parent_name = "locator-all-stale-sids"
@@ -593,7 +632,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid, ['locator_name', 'sid_opcode', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                class SidContext(Entity):
+                class SidContext(_Entity_):
                     """
                     SID Context
                     
@@ -621,7 +660,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext, self).__init__()
 
                         self.yang_name = "sid-context"
                         self.yang_parent_name = "locator-all-stale-sid"
@@ -644,7 +686,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext, ['application_data'], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         SID Key
                         
@@ -691,7 +733,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "sid-context"
@@ -726,7 +771,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                        class E(Entity):
+                        class E(_Entity_):
                             """
                             End (PSP) SID context
                             
@@ -756,7 +801,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.E, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.E, self).__init__()
 
                                 self.yang_name = "e"
                                 self.yang_parent_name = "key"
@@ -776,9 +824,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.E']['meta_info']
 
 
-                        class X(Entity):
+                        class X(_Entity_):
                             """
                             End.X (PSP) SID context
                             
@@ -824,7 +876,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.X, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.X, self).__init__()
 
                                 self.yang_name = "x"
                                 self.yang_parent_name = "key"
@@ -848,9 +903,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.X']['meta_info']
 
 
-                        class Dx4(Entity):
+                        class Dx4(_Entity_):
                             """
                             End.DX4 SID context
                             
@@ -880,7 +939,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dx4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dx4, self).__init__()
 
                                 self.yang_name = "dx4"
                                 self.yang_parent_name = "key"
@@ -900,9 +962,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dx4']['meta_info']
 
 
-                        class Dt4(Entity):
+                        class Dt4(_Entity_):
                             """
                             End.DT4 SID context
                             
@@ -923,7 +989,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dt4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dt4, self).__init__()
 
                                 self.yang_name = "dt4"
                                 self.yang_parent_name = "key"
@@ -941,11 +1010,23 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key.Dt4']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.SidContext']['meta_info']
 
 
-
-
-                class CreateTimestamp(Entity):
+                class CreateTimestamp(_Entity_):
                     """
                     Creation timestamp
                     
@@ -979,7 +1060,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.CreateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.CreateTimestamp, self).__init__()
 
                         self.yang_name = "create-timestamp"
                         self.yang_parent_name = "locator-all-stale-sid"
@@ -999,9 +1083,13 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.CreateTimestamp']['meta_info']
 
 
-                class Owner(Entity):
+                class Owner(_Entity_):
                     """
                     Owner
                     
@@ -1020,7 +1108,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.Owner, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.Owner, self).__init__()
 
                         self.yang_name = "owner"
                         self.yang_parent_name = "locator-all-stale-sid"
@@ -1038,11 +1129,23 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.Owner, ['owner'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid.Owner']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.LocatorAllStaleSids.LocatorAllStaleSid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Active.LocatorAllStaleSids']['meta_info']
 
 
-
-
-        class Manager(Entity):
+        class Manager(_Entity_):
             """
             SID Manager information
             
@@ -1075,7 +1178,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Active.Manager, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Active.Manager, self).__init__()
 
                 self.yang_name = "manager"
                 self.yang_parent_name = "active"
@@ -1104,7 +1210,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Active.Manager, [], name, value)
 
 
-            class SidMgrParams(Entity):
+            class SidMgrParams(_Entity_):
                 """
                 SID Mgr parameters
                 
@@ -1173,7 +1279,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.Manager.SidMgrParams, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.Manager.SidMgrParams, self).__init__()
 
                     self.yang_name = "sid-mgr-params"
                     self.yang_parent_name = "manager"
@@ -1207,7 +1316,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.Manager.SidMgrParams, ['srv6_enabled', 'configured_encap_source_address', 'default_encap_source_address', 'encap_ttl_propagate', 'is_sid_holdtime_configured', 'sid_holdtime_mins_configured'], name, value)
 
 
-                class EncapHopLimit(Entity):
+                class EncapHopLimit(_Entity_):
                     """
                     Encap Hop\-limit info
                     
@@ -1242,7 +1351,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.Manager.SidMgrParams.EncapHopLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.Manager.SidMgrParams.EncapHopLimit, self).__init__()
 
                         self.yang_name = "encap-hop-limit"
                         self.yang_parent_name = "sid-mgr-params"
@@ -1265,10 +1377,18 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.Manager.SidMgrParams.EncapHopLimit, ['use_default', 'do_propagate', 'value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.Manager.SidMgrParams.EncapHopLimit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.Manager.SidMgrParams']['meta_info']
 
 
-
-            class SidMgrSummary(Entity):
+            class SidMgrSummary(_Entity_):
                 """
                 SID Mgr summary info
                 
@@ -1332,7 +1452,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.Manager.SidMgrSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.Manager.SidMgrSummary, self).__init__()
 
                     self.yang_name = "sid-mgr-summary"
                     self.yang_parent_name = "manager"
@@ -1364,7 +1487,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.Manager.SidMgrSummary, ['locators_count', 'oper_locators_count', 'sids_count', 'stale_sids_count', 'maximum_sids_count'], name, value)
 
 
-                class SidsOutOfResourceSummary(Entity):
+                class SidsOutOfResourceSummary(_Entity_):
                     """
                     SIDs Global Out of Resource info
                     
@@ -1428,7 +1551,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.Manager.SidMgrSummary.SidsOutOfResourceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.Manager.SidMgrSummary.SidsOutOfResourceSummary, self).__init__()
 
                         self.yang_name = "sids-out-of-resource-summary"
                         self.yang_parent_name = "sid-mgr-summary"
@@ -1457,10 +1583,18 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.Manager.SidMgrSummary.SidsOutOfResourceSummary, ['out_of_resources_state', 'oor_yellow_free_sid_threshold', 'oor_green_free_sid_threshold', 'oor_green_count', 'oor_yellow_count', 'oor_red_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.Manager.SidMgrSummary.SidsOutOfResourceSummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.Manager.SidMgrSummary']['meta_info']
 
 
-
-            class PlatformCapabilities(Entity):
+            class PlatformCapabilities(_Entity_):
                 """
                 Platform Capabilities
                 
@@ -1499,7 +1633,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.Manager.PlatformCapabilities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.Manager.PlatformCapabilities, self).__init__()
 
                     self.yang_name = "platform-capabilities"
                     self.yang_parent_name = "manager"
@@ -1525,7 +1662,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities, ['max_sid', 'sid_holdtime_mins'], name, value)
 
 
-                class Support(Entity):
+                class Support(_Entity_):
                     """
                     Feature support
                     
@@ -1593,7 +1730,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.Manager.PlatformCapabilities.Support, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.Manager.PlatformCapabilities.Support, self).__init__()
 
                         self.yang_name = "support"
                         self.yang_parent_name = "platform-capabilities"
@@ -1626,7 +1766,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support, ['srv6', 'tilfa', 'microloop_avoidance'], name, value)
 
 
-                    class SignaledParameters(Entity):
+                    class SignaledParameters(_Entity_):
                         """
                         Signaled Parameters
                         
@@ -1683,7 +1823,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Manager.PlatformCapabilities.Support.SignaledParameters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Manager.PlatformCapabilities.Support.SignaledParameters, self).__init__()
 
                             self.yang_name = "signaled-parameters"
                             self.yang_parent_name = "support"
@@ -1710,9 +1853,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support.SignaledParameters, ['max_sl', 'max_end_pop_srh', 'max_t_insert', 'max_t_encap', 'max_end_d'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support.SignaledParameters']['meta_info']
 
 
-                    class EndFunc(Entity):
+                    class EndFunc(_Entity_):
                         """
                         Supported end functions
                         
@@ -1731,7 +1878,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Manager.PlatformCapabilities.Support.EndFunc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Manager.PlatformCapabilities.Support.EndFunc, self).__init__()
 
                             self.yang_name = "end-func"
                             self.yang_parent_name = "support"
@@ -1750,9 +1900,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support.EndFunc, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support.EndFunc']['meta_info']
 
 
-                    class TransitFunc(Entity):
+                    class TransitFunc(_Entity_):
                         """
                         Supported Transit functions
                         
@@ -1771,7 +1925,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Manager.PlatformCapabilities.Support.TransitFunc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Manager.PlatformCapabilities.Support.TransitFunc, self).__init__()
 
                             self.yang_name = "transit-func"
                             self.yang_parent_name = "support"
@@ -1790,9 +1947,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support.TransitFunc, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support.TransitFunc']['meta_info']
 
 
-                    class SecurityRule(Entity):
+                    class SecurityRule(_Entity_):
                         """
                         Security rules
                         
@@ -1811,7 +1972,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Manager.PlatformCapabilities.Support.SecurityRule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Manager.PlatformCapabilities.Support.SecurityRule, self).__init__()
 
                             self.yang_name = "security-rule"
                             self.yang_parent_name = "support"
@@ -1830,9 +1994,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support.SecurityRule, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support.SecurityRule']['meta_info']
 
 
-                    class Counter(Entity):
+                    class Counter(_Entity_):
                         """
                         Counters
                         
@@ -1851,7 +2019,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Manager.PlatformCapabilities.Support.Counter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Manager.PlatformCapabilities.Support.Counter, self).__init__()
 
                             self.yang_name = "counter"
                             self.yang_parent_name = "support"
@@ -1870,12 +2041,28 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Manager.PlatformCapabilities.Support.Counter, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support.Counter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities.Support']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.Manager.PlatformCapabilities']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Active.Manager']['meta_info']
 
 
-
-
-
-        class Locators(Entity):
+        class Locators(_Entity_):
             """
             SRv6 locators related information
             
@@ -1894,7 +2081,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Active.Locators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Active.Locators, self).__init__()
 
                 self.yang_name = "locators"
                 self.yang_parent_name = "active"
@@ -1913,7 +2103,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Active.Locators, [], name, value)
 
 
-            class Locator(Entity):
+            class Locator(_Entity_):
                 """
                 Operational data for given SRv6 locator
                 
@@ -1948,7 +2138,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.Locators.Locator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.Locators.Locator, self).__init__()
 
                     self.yang_name = "locator"
                     self.yang_parent_name = "locators"
@@ -1976,7 +2169,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.Locators.Locator, ['name'], name, value)
 
 
-                class Info(Entity):
+                class Info(_Entity_):
                     """
                     Operational data for given SRv6 locator
                     
@@ -2046,7 +2239,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.Locators.Locator.Info, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.Locators.Locator.Info, self).__init__()
 
                         self.yang_name = "info"
                         self.yang_parent_name = "locator"
@@ -2083,7 +2279,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.Locators.Locator.Info, ['name', 'id', 'prefix', 'is_operational', 'is_default', 'out_of_resources_state'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Locator IM intf info
                         
@@ -2118,7 +2314,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Locators.Locator.Info.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Locators.Locator.Info.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "info"
@@ -2140,9 +2339,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Locators.Locator.Info.Interface, ['name', 'if_handle', 'programmed_prefix'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Locators.Locator.Info.Interface']['meta_info']
 
 
-                    class CreateTimestamp(Entity):
+                    class CreateTimestamp(_Entity_):
                         """
                         Creation timestamp
                         
@@ -2176,7 +2379,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Locators.Locator.Info.CreateTimestamp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Locators.Locator.Info.CreateTimestamp, self).__init__()
 
                             self.yang_name = "create-timestamp"
                             self.yang_parent_name = "info"
@@ -2196,10 +2402,18 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Active.Locators.Locator.Info.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Locators.Locator.Info.CreateTimestamp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.Locators.Locator.Info']['meta_info']
 
 
-
-                class Sids(Entity):
+                class Sids(_Entity_):
                     """
                     SRv6 locator SID table
                     
@@ -2218,7 +2432,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.Locators.Locator.Sids, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.Locators.Locator.Sids, self).__init__()
 
                         self.yang_name = "sids"
                         self.yang_parent_name = "locator"
@@ -2236,7 +2453,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.Locators.Locator.Sids, [], name, value)
 
 
-                    class Sid(Entity):
+                    class Sid(_Entity_):
                         """
                         Operational data for given SRv6 SID
                         
@@ -2326,7 +2543,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.Locators.Locator.Sids.Sid, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.Locators.Locator.Sids.Sid, self).__init__()
 
                             self.yang_name = "sid"
                             self.yang_parent_name = "sids"
@@ -2367,7 +2587,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid, ['address', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                        class SidContext(Entity):
+                        class SidContext(_Entity_):
                             """
                             SID Context
                             
@@ -2395,7 +2615,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext, self).__init__()
 
                                 self.yang_name = "sid-context"
                                 self.yang_parent_name = "sid"
@@ -2418,7 +2641,7 @@ class Srv6(Entity):
                                 self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext, ['application_data'], name, value)
 
 
-                            class Key(Entity):
+                            class Key(_Entity_):
                                 """
                                 SID Key
                                 
@@ -2465,7 +2688,10 @@ class Srv6(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key, self).__init__()
 
                                     self.yang_name = "key"
                                     self.yang_parent_name = "sid-context"
@@ -2500,7 +2726,7 @@ class Srv6(Entity):
                                     self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                                class E(Entity):
+                                class E(_Entity_):
                                     """
                                     End (PSP) SID context
                                     
@@ -2530,7 +2756,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.E, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.E, self).__init__()
 
                                         self.yang_name = "e"
                                         self.yang_parent_name = "key"
@@ -2550,9 +2779,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.E']['meta_info']
 
 
-                                class X(Entity):
+                                class X(_Entity_):
                                     """
                                     End.X (PSP) SID context
                                     
@@ -2598,7 +2831,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.X, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.X, self).__init__()
 
                                         self.yang_name = "x"
                                         self.yang_parent_name = "key"
@@ -2622,9 +2858,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.X']['meta_info']
 
 
-                                class Dx4(Entity):
+                                class Dx4(_Entity_):
                                     """
                                     End.DX4 SID context
                                     
@@ -2654,7 +2894,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, self).__init__()
 
                                         self.yang_name = "dx4"
                                         self.yang_parent_name = "key"
@@ -2674,9 +2917,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dx4']['meta_info']
 
 
-                                class Dt4(Entity):
+                                class Dt4(_Entity_):
                                     """
                                     End.DT4 SID context
                                     
@@ -2697,7 +2944,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, self).__init__()
 
                                         self.yang_name = "dt4"
                                         self.yang_parent_name = "key"
@@ -2715,11 +2965,23 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key.Dt4']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                    return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext.Key']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.SidContext']['meta_info']
 
 
-
-
-                        class CreateTimestamp(Entity):
+                        class CreateTimestamp(_Entity_):
                             """
                             Creation timestamp
                             
@@ -2753,7 +3015,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.Locators.Locator.Sids.Sid.CreateTimestamp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.Locators.Locator.Sids.Sid.CreateTimestamp, self).__init__()
 
                                 self.yang_name = "create-timestamp"
                                 self.yang_parent_name = "sid"
@@ -2773,9 +3038,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.CreateTimestamp']['meta_info']
 
 
-                        class Owner(Entity):
+                        class Owner(_Entity_):
                             """
                             Owner
                             
@@ -2794,7 +3063,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.Locators.Locator.Sids.Sid.Owner, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.Locators.Locator.Sids.Sid.Owner, self).__init__()
 
                                 self.yang_name = "owner"
                                 self.yang_parent_name = "sid"
@@ -2812,13 +3084,33 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.Locators.Locator.Sids.Sid.Owner, ['owner'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid.Owner']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.Locators.Locator.Sids.Sid']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.Locators.Locator.Sids']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.Locators.Locator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Active.Locators']['meta_info']
 
 
-
-
-
-
-        class LocatorAllSids(Entity):
+        class LocatorAllSids(_Entity_):
             """
             Operational container for all (Active and Stale)
             SIDs across all Locators
@@ -2838,7 +3130,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Active.LocatorAllSids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Active.LocatorAllSids, self).__init__()
 
                 self.yang_name = "locator-all-sids"
                 self.yang_parent_name = "active"
@@ -2857,7 +3152,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Active.LocatorAllSids, [], name, value)
 
 
-            class LocatorAllSid(Entity):
+            class LocatorAllSid(_Entity_):
                 """
                 Operational data for given locator and SID
                 opcode
@@ -2951,7 +3246,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.LocatorAllSids.LocatorAllSid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.LocatorAllSids.LocatorAllSid, self).__init__()
 
                     self.yang_name = "locator-all-sid"
                     self.yang_parent_name = "locator-all-sids"
@@ -2995,7 +3293,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid, ['locator_name', 'sid_opcode', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                class SidContext(Entity):
+                class SidContext(_Entity_):
                     """
                     SID Context
                     
@@ -3023,7 +3321,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext, self).__init__()
 
                         self.yang_name = "sid-context"
                         self.yang_parent_name = "locator-all-sid"
@@ -3046,7 +3347,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext, ['application_data'], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         SID Key
                         
@@ -3093,7 +3394,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "sid-context"
@@ -3128,7 +3432,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                        class E(Entity):
+                        class E(_Entity_):
                             """
                             End (PSP) SID context
                             
@@ -3158,7 +3462,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.E, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.E, self).__init__()
 
                                 self.yang_name = "e"
                                 self.yang_parent_name = "key"
@@ -3178,9 +3485,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.E']['meta_info']
 
 
-                        class X(Entity):
+                        class X(_Entity_):
                             """
                             End.X (PSP) SID context
                             
@@ -3226,7 +3537,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.X, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.X, self).__init__()
 
                                 self.yang_name = "x"
                                 self.yang_parent_name = "key"
@@ -3250,9 +3564,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.X']['meta_info']
 
 
-                        class Dx4(Entity):
+                        class Dx4(_Entity_):
                             """
                             End.DX4 SID context
                             
@@ -3282,7 +3600,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, self).__init__()
 
                                 self.yang_name = "dx4"
                                 self.yang_parent_name = "key"
@@ -3302,9 +3623,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4']['meta_info']
 
 
-                        class Dt4(Entity):
+                        class Dt4(_Entity_):
                             """
                             End.DT4 SID context
                             
@@ -3325,7 +3650,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, self).__init__()
 
                                 self.yang_name = "dt4"
                                 self.yang_parent_name = "key"
@@ -3343,11 +3671,23 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.SidContext']['meta_info']
 
 
-
-
-                class CreateTimestamp(Entity):
+                class CreateTimestamp(_Entity_):
                     """
                     Creation timestamp
                     
@@ -3381,7 +3721,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllSids.LocatorAllSid.CreateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllSids.LocatorAllSid.CreateTimestamp, self).__init__()
 
                         self.yang_name = "create-timestamp"
                         self.yang_parent_name = "locator-all-sid"
@@ -3401,9 +3744,13 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.CreateTimestamp']['meta_info']
 
 
-                class Owner(Entity):
+                class Owner(_Entity_):
                     """
                     Owner
                     
@@ -3422,7 +3769,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllSids.LocatorAllSid.Owner, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllSids.LocatorAllSid.Owner, self).__init__()
 
                         self.yang_name = "owner"
                         self.yang_parent_name = "locator-all-sid"
@@ -3440,11 +3790,23 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllSids.LocatorAllSid.Owner, ['owner'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid.Owner']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.LocatorAllSids.LocatorAllSid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Active.LocatorAllSids']['meta_info']
 
 
-
-
-        class LocatorAllActiveSids(Entity):
+        class LocatorAllActiveSids(_Entity_):
             """
             Operational container for Active SIDs across all
             Locators
@@ -3464,7 +3826,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Active.LocatorAllActiveSids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Active.LocatorAllActiveSids, self).__init__()
 
                 self.yang_name = "locator-all-active-sids"
                 self.yang_parent_name = "active"
@@ -3483,7 +3848,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Active.LocatorAllActiveSids, [], name, value)
 
 
-            class LocatorAllActiveSid(Entity):
+            class LocatorAllActiveSid(_Entity_):
                 """
                 Operational data for given locator and SID
                 opcode
@@ -3577,7 +3942,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid, self).__init__()
 
                     self.yang_name = "locator-all-active-sid"
                     self.yang_parent_name = "locator-all-active-sids"
@@ -3621,7 +3989,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid, ['locator_name', 'sid_opcode', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                class SidContext(Entity):
+                class SidContext(_Entity_):
                     """
                     SID Context
                     
@@ -3649,7 +4017,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, self).__init__()
 
                         self.yang_name = "sid-context"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -3672,7 +4043,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, ['application_data'], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         SID Key
                         
@@ -3719,7 +4090,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "sid-context"
@@ -3754,7 +4128,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                        class E(Entity):
+                        class E(_Entity_):
                             """
                             End (PSP) SID context
                             
@@ -3784,7 +4158,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, self).__init__()
 
                                 self.yang_name = "e"
                                 self.yang_parent_name = "key"
@@ -3804,9 +4181,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E']['meta_info']
 
 
-                        class X(Entity):
+                        class X(_Entity_):
                             """
                             End.X (PSP) SID context
                             
@@ -3852,7 +4233,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, self).__init__()
 
                                 self.yang_name = "x"
                                 self.yang_parent_name = "key"
@@ -3876,9 +4260,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X']['meta_info']
 
 
-                        class Dx4(Entity):
+                        class Dx4(_Entity_):
                             """
                             End.DX4 SID context
                             
@@ -3908,7 +4296,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, self).__init__()
 
                                 self.yang_name = "dx4"
                                 self.yang_parent_name = "key"
@@ -3928,9 +4319,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4']['meta_info']
 
 
-                        class Dt4(Entity):
+                        class Dt4(_Entity_):
                             """
                             End.DT4 SID context
                             
@@ -3951,7 +4346,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, self).__init__()
 
                                 self.yang_name = "dt4"
                                 self.yang_parent_name = "key"
@@ -3969,11 +4367,23 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.SidContext']['meta_info']
 
 
-
-
-                class CreateTimestamp(Entity):
+                class CreateTimestamp(_Entity_):
                     """
                     Creation timestamp
                     
@@ -4007,7 +4417,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, self).__init__()
 
                         self.yang_name = "create-timestamp"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -4027,9 +4440,13 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp']['meta_info']
 
 
-                class Owner(Entity):
+                class Owner(_Entity_):
                     """
                     Owner
                     
@@ -4048,7 +4465,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.Owner, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.Owner, self).__init__()
 
                         self.yang_name = "owner"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -4066,12 +4486,28 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.Owner, ['owner'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid.Owner']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Active.LocatorAllActiveSids.LocatorAllActiveSid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Active.LocatorAllActiveSids']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+            return meta._meta_table['Srv6.Active']['meta_info']
 
 
-
-
-
-    class Standby(Entity):
+    class Standby(_Entity_):
         """
         Standby SRv6 operational data
         
@@ -4111,7 +4547,10 @@ class Srv6(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Srv6.Standby, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Srv6.Standby, self).__init__()
 
             self.yang_name = "standby"
             self.yang_parent_name = "srv6"
@@ -4144,7 +4583,7 @@ class Srv6(Entity):
             self._perform_setattr(Srv6.Standby, [], name, value)
 
 
-        class Manager(Entity):
+        class Manager(_Entity_):
             """
             SID Manager information
             
@@ -4177,7 +4616,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Standby.Manager, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Standby.Manager, self).__init__()
 
                 self.yang_name = "manager"
                 self.yang_parent_name = "standby"
@@ -4206,7 +4648,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Standby.Manager, [], name, value)
 
 
-            class SidMgrParams(Entity):
+            class SidMgrParams(_Entity_):
                 """
                 SID Mgr parameters
                 
@@ -4275,7 +4717,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.Manager.SidMgrParams, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.Manager.SidMgrParams, self).__init__()
 
                     self.yang_name = "sid-mgr-params"
                     self.yang_parent_name = "manager"
@@ -4309,7 +4754,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.Manager.SidMgrParams, ['srv6_enabled', 'configured_encap_source_address', 'default_encap_source_address', 'encap_ttl_propagate', 'is_sid_holdtime_configured', 'sid_holdtime_mins_configured'], name, value)
 
 
-                class EncapHopLimit(Entity):
+                class EncapHopLimit(_Entity_):
                     """
                     Encap Hop\-limit info
                     
@@ -4344,7 +4789,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.Manager.SidMgrParams.EncapHopLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.Manager.SidMgrParams.EncapHopLimit, self).__init__()
 
                         self.yang_name = "encap-hop-limit"
                         self.yang_parent_name = "sid-mgr-params"
@@ -4367,10 +4815,18 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.Manager.SidMgrParams.EncapHopLimit, ['use_default', 'do_propagate', 'value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.Manager.SidMgrParams.EncapHopLimit']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.Manager.SidMgrParams']['meta_info']
 
 
-
-            class SidMgrSummary(Entity):
+            class SidMgrSummary(_Entity_):
                 """
                 SID Mgr summary info
                 
@@ -4434,7 +4890,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.Manager.SidMgrSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.Manager.SidMgrSummary, self).__init__()
 
                     self.yang_name = "sid-mgr-summary"
                     self.yang_parent_name = "manager"
@@ -4466,7 +4925,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.Manager.SidMgrSummary, ['locators_count', 'oper_locators_count', 'sids_count', 'stale_sids_count', 'maximum_sids_count'], name, value)
 
 
-                class SidsOutOfResourceSummary(Entity):
+                class SidsOutOfResourceSummary(_Entity_):
                     """
                     SIDs Global Out of Resource info
                     
@@ -4530,7 +4989,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.Manager.SidMgrSummary.SidsOutOfResourceSummary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.Manager.SidMgrSummary.SidsOutOfResourceSummary, self).__init__()
 
                         self.yang_name = "sids-out-of-resource-summary"
                         self.yang_parent_name = "sid-mgr-summary"
@@ -4559,10 +5021,18 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.Manager.SidMgrSummary.SidsOutOfResourceSummary, ['out_of_resources_state', 'oor_yellow_free_sid_threshold', 'oor_green_free_sid_threshold', 'oor_green_count', 'oor_yellow_count', 'oor_red_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.Manager.SidMgrSummary.SidsOutOfResourceSummary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.Manager.SidMgrSummary']['meta_info']
 
 
-
-            class PlatformCapabilities(Entity):
+            class PlatformCapabilities(_Entity_):
                 """
                 Platform Capabilities
                 
@@ -4601,7 +5071,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.Manager.PlatformCapabilities, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.Manager.PlatformCapabilities, self).__init__()
 
                     self.yang_name = "platform-capabilities"
                     self.yang_parent_name = "manager"
@@ -4627,7 +5100,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities, ['max_sid', 'sid_holdtime_mins'], name, value)
 
 
-                class Support(Entity):
+                class Support(_Entity_):
                     """
                     Feature support
                     
@@ -4695,7 +5168,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.Manager.PlatformCapabilities.Support, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.Manager.PlatformCapabilities.Support, self).__init__()
 
                         self.yang_name = "support"
                         self.yang_parent_name = "platform-capabilities"
@@ -4728,7 +5204,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support, ['srv6', 'tilfa', 'microloop_avoidance'], name, value)
 
 
-                    class SignaledParameters(Entity):
+                    class SignaledParameters(_Entity_):
                         """
                         Signaled Parameters
                         
@@ -4785,7 +5261,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Manager.PlatformCapabilities.Support.SignaledParameters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Manager.PlatformCapabilities.Support.SignaledParameters, self).__init__()
 
                             self.yang_name = "signaled-parameters"
                             self.yang_parent_name = "support"
@@ -4812,9 +5291,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support.SignaledParameters, ['max_sl', 'max_end_pop_srh', 'max_t_insert', 'max_t_encap', 'max_end_d'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support.SignaledParameters']['meta_info']
 
 
-                    class EndFunc(Entity):
+                    class EndFunc(_Entity_):
                         """
                         Supported end functions
                         
@@ -4833,7 +5316,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Manager.PlatformCapabilities.Support.EndFunc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Manager.PlatformCapabilities.Support.EndFunc, self).__init__()
 
                             self.yang_name = "end-func"
                             self.yang_parent_name = "support"
@@ -4852,9 +5338,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support.EndFunc, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support.EndFunc']['meta_info']
 
 
-                    class TransitFunc(Entity):
+                    class TransitFunc(_Entity_):
                         """
                         Supported Transit functions
                         
@@ -4873,7 +5363,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Manager.PlatformCapabilities.Support.TransitFunc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Manager.PlatformCapabilities.Support.TransitFunc, self).__init__()
 
                             self.yang_name = "transit-func"
                             self.yang_parent_name = "support"
@@ -4892,9 +5385,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support.TransitFunc, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support.TransitFunc']['meta_info']
 
 
-                    class SecurityRule(Entity):
+                    class SecurityRule(_Entity_):
                         """
                         Security rules
                         
@@ -4913,7 +5410,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Manager.PlatformCapabilities.Support.SecurityRule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Manager.PlatformCapabilities.Support.SecurityRule, self).__init__()
 
                             self.yang_name = "security-rule"
                             self.yang_parent_name = "support"
@@ -4932,9 +5432,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support.SecurityRule, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support.SecurityRule']['meta_info']
 
 
-                    class Counter(Entity):
+                    class Counter(_Entity_):
                         """
                         Counters
                         
@@ -4953,7 +5457,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Manager.PlatformCapabilities.Support.Counter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Manager.PlatformCapabilities.Support.Counter, self).__init__()
 
                             self.yang_name = "counter"
                             self.yang_parent_name = "support"
@@ -4972,12 +5479,28 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Manager.PlatformCapabilities.Support.Counter, ['string'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support.Counter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities.Support']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.Manager.PlatformCapabilities']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Standby.Manager']['meta_info']
 
 
-
-
-
-        class Locators(Entity):
+        class Locators(_Entity_):
             """
             SRv6 locators related information
             
@@ -4996,7 +5519,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Standby.Locators, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Standby.Locators, self).__init__()
 
                 self.yang_name = "locators"
                 self.yang_parent_name = "standby"
@@ -5015,7 +5541,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Standby.Locators, [], name, value)
 
 
-            class Locator(Entity):
+            class Locator(_Entity_):
                 """
                 Operational data for given SRv6 locator
                 
@@ -5050,7 +5576,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.Locators.Locator, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.Locators.Locator, self).__init__()
 
                     self.yang_name = "locator"
                     self.yang_parent_name = "locators"
@@ -5078,7 +5607,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.Locators.Locator, ['name'], name, value)
 
 
-                class Info(Entity):
+                class Info(_Entity_):
                     """
                     Operational data for given SRv6 locator
                     
@@ -5148,7 +5677,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.Locators.Locator.Info, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.Locators.Locator.Info, self).__init__()
 
                         self.yang_name = "info"
                         self.yang_parent_name = "locator"
@@ -5185,7 +5717,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Standby.Locators.Locator.Info, ['name', 'id', 'prefix', 'is_operational', 'is_default', 'out_of_resources_state'], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Locator IM intf info
                         
@@ -5220,7 +5752,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Locators.Locator.Info.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Locators.Locator.Info.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "info"
@@ -5242,9 +5777,13 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Locators.Locator.Info.Interface, ['name', 'if_handle', 'programmed_prefix'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Locators.Locator.Info.Interface']['meta_info']
 
 
-                    class CreateTimestamp(Entity):
+                    class CreateTimestamp(_Entity_):
                         """
                         Creation timestamp
                         
@@ -5278,7 +5817,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Locators.Locator.Info.CreateTimestamp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Locators.Locator.Info.CreateTimestamp, self).__init__()
 
                             self.yang_name = "create-timestamp"
                             self.yang_parent_name = "info"
@@ -5298,10 +5840,18 @@ class Srv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srv6.Standby.Locators.Locator.Info.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Locators.Locator.Info.CreateTimestamp']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.Locators.Locator.Info']['meta_info']
 
 
-
-                class Sids(Entity):
+                class Sids(_Entity_):
                     """
                     SRv6 locator SID table
                     
@@ -5320,7 +5870,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.Locators.Locator.Sids, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.Locators.Locator.Sids, self).__init__()
 
                         self.yang_name = "sids"
                         self.yang_parent_name = "locator"
@@ -5338,7 +5891,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Standby.Locators.Locator.Sids, [], name, value)
 
 
-                    class Sid(Entity):
+                    class Sid(_Entity_):
                         """
                         Operational data for given SRv6 SID
                         
@@ -5428,7 +5981,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.Locators.Locator.Sids.Sid, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.Locators.Locator.Sids.Sid, self).__init__()
 
                             self.yang_name = "sid"
                             self.yang_parent_name = "sids"
@@ -5469,7 +6025,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid, ['address', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                        class SidContext(Entity):
+                        class SidContext(_Entity_):
                             """
                             SID Context
                             
@@ -5497,7 +6053,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext, self).__init__()
 
                                 self.yang_name = "sid-context"
                                 self.yang_parent_name = "sid"
@@ -5520,7 +6079,7 @@ class Srv6(Entity):
                                 self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext, ['application_data'], name, value)
 
 
-                            class Key(Entity):
+                            class Key(_Entity_):
                                 """
                                 SID Key
                                 
@@ -5567,7 +6126,10 @@ class Srv6(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key, self).__init__()
 
                                     self.yang_name = "key"
                                     self.yang_parent_name = "sid-context"
@@ -5602,7 +6164,7 @@ class Srv6(Entity):
                                     self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                                class E(Entity):
+                                class E(_Entity_):
                                     """
                                     End (PSP) SID context
                                     
@@ -5632,7 +6194,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.E, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.E, self).__init__()
 
                                         self.yang_name = "e"
                                         self.yang_parent_name = "key"
@@ -5652,9 +6217,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.E']['meta_info']
 
 
-                                class X(Entity):
+                                class X(_Entity_):
                                     """
                                     End.X (PSP) SID context
                                     
@@ -5700,7 +6269,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.X, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.X, self).__init__()
 
                                         self.yang_name = "x"
                                         self.yang_parent_name = "key"
@@ -5724,9 +6296,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.X']['meta_info']
 
 
-                                class Dx4(Entity):
+                                class Dx4(_Entity_):
                                     """
                                     End.DX4 SID context
                                     
@@ -5756,7 +6332,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, self).__init__()
 
                                         self.yang_name = "dx4"
                                         self.yang_parent_name = "key"
@@ -5776,9 +6355,13 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dx4']['meta_info']
 
 
-                                class Dt4(Entity):
+                                class Dt4(_Entity_):
                                     """
                                     End.DT4 SID context
                                     
@@ -5799,7 +6382,10 @@ class Srv6(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, self).__init__()
 
                                         self.yang_name = "dt4"
                                         self.yang_parent_name = "key"
@@ -5817,11 +6403,23 @@ class Srv6(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                        return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key.Dt4']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                    return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext.Key']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.SidContext']['meta_info']
 
 
-
-
-                        class CreateTimestamp(Entity):
+                        class CreateTimestamp(_Entity_):
                             """
                             Creation timestamp
                             
@@ -5855,7 +6453,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.Locators.Locator.Sids.Sid.CreateTimestamp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.Locators.Locator.Sids.Sid.CreateTimestamp, self).__init__()
 
                                 self.yang_name = "create-timestamp"
                                 self.yang_parent_name = "sid"
@@ -5875,9 +6476,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.CreateTimestamp']['meta_info']
 
 
-                        class Owner(Entity):
+                        class Owner(_Entity_):
                             """
                             Owner
                             
@@ -5896,7 +6501,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.Locators.Locator.Sids.Sid.Owner, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.Locators.Locator.Sids.Sid.Owner, self).__init__()
 
                                 self.yang_name = "owner"
                                 self.yang_parent_name = "sid"
@@ -5914,13 +6522,33 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.Locators.Locator.Sids.Sid.Owner, ['owner'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid.Owner']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.Locators.Locator.Sids.Sid']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.Locators.Locator.Sids']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.Locators.Locator']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Standby.Locators']['meta_info']
 
 
-
-
-
-
-        class LocatorAllSids(Entity):
+        class LocatorAllSids(_Entity_):
             """
             Operational container for all (Active and Stale)
             SIDs across all Locators
@@ -5940,7 +6568,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Standby.LocatorAllSids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Standby.LocatorAllSids, self).__init__()
 
                 self.yang_name = "locator-all-sids"
                 self.yang_parent_name = "standby"
@@ -5959,7 +6590,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Standby.LocatorAllSids, [], name, value)
 
 
-            class LocatorAllSid(Entity):
+            class LocatorAllSid(_Entity_):
                 """
                 Operational data for given locator and SID
                 opcode
@@ -6053,7 +6684,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.LocatorAllSids.LocatorAllSid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.LocatorAllSids.LocatorAllSid, self).__init__()
 
                     self.yang_name = "locator-all-sid"
                     self.yang_parent_name = "locator-all-sids"
@@ -6097,7 +6731,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid, ['locator_name', 'sid_opcode', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                class SidContext(Entity):
+                class SidContext(_Entity_):
                     """
                     SID Context
                     
@@ -6125,7 +6759,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext, self).__init__()
 
                         self.yang_name = "sid-context"
                         self.yang_parent_name = "locator-all-sid"
@@ -6148,7 +6785,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext, ['application_data'], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         SID Key
                         
@@ -6195,7 +6832,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "sid-context"
@@ -6230,7 +6870,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                        class E(Entity):
+                        class E(_Entity_):
                             """
                             End (PSP) SID context
                             
@@ -6260,7 +6900,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.E, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.E, self).__init__()
 
                                 self.yang_name = "e"
                                 self.yang_parent_name = "key"
@@ -6280,9 +6923,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.E']['meta_info']
 
 
-                        class X(Entity):
+                        class X(_Entity_):
                             """
                             End.X (PSP) SID context
                             
@@ -6328,7 +6975,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.X, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.X, self).__init__()
 
                                 self.yang_name = "x"
                                 self.yang_parent_name = "key"
@@ -6352,9 +7002,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.X']['meta_info']
 
 
-                        class Dx4(Entity):
+                        class Dx4(_Entity_):
                             """
                             End.DX4 SID context
                             
@@ -6384,7 +7038,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, self).__init__()
 
                                 self.yang_name = "dx4"
                                 self.yang_parent_name = "key"
@@ -6404,9 +7061,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dx4']['meta_info']
 
 
-                        class Dt4(Entity):
+                        class Dt4(_Entity_):
                             """
                             End.DT4 SID context
                             
@@ -6427,7 +7088,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, self).__init__()
 
                                 self.yang_name = "dt4"
                                 self.yang_parent_name = "key"
@@ -6445,11 +7109,23 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key.Dt4']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.SidContext']['meta_info']
 
 
-
-
-                class CreateTimestamp(Entity):
+                class CreateTimestamp(_Entity_):
                     """
                     Creation timestamp
                     
@@ -6483,7 +7159,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllSids.LocatorAllSid.CreateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllSids.LocatorAllSid.CreateTimestamp, self).__init__()
 
                         self.yang_name = "create-timestamp"
                         self.yang_parent_name = "locator-all-sid"
@@ -6503,9 +7182,13 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.CreateTimestamp']['meta_info']
 
 
-                class Owner(Entity):
+                class Owner(_Entity_):
                     """
                     Owner
                     
@@ -6524,7 +7207,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllSids.LocatorAllSid.Owner, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllSids.LocatorAllSid.Owner, self).__init__()
 
                         self.yang_name = "owner"
                         self.yang_parent_name = "locator-all-sid"
@@ -6542,11 +7228,23 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.LocatorAllSids.LocatorAllSid.Owner, ['owner'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid.Owner']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.LocatorAllSids.LocatorAllSid']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Standby.LocatorAllSids']['meta_info']
 
 
-
-
-        class LocatorAllActiveSids(Entity):
+        class LocatorAllActiveSids(_Entity_):
             """
             Operational container for Active SIDs across all
             Locators
@@ -6566,7 +7264,10 @@ class Srv6(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Srv6.Standby.LocatorAllActiveSids, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Srv6.Standby.LocatorAllActiveSids, self).__init__()
 
                 self.yang_name = "locator-all-active-sids"
                 self.yang_parent_name = "standby"
@@ -6585,7 +7286,7 @@ class Srv6(Entity):
                 self._perform_setattr(Srv6.Standby.LocatorAllActiveSids, [], name, value)
 
 
-            class LocatorAllActiveSid(Entity):
+            class LocatorAllActiveSid(_Entity_):
                 """
                 Operational data for given locator and SID
                 opcode
@@ -6679,7 +7380,10 @@ class Srv6(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid, self).__init__()
 
                     self.yang_name = "locator-all-active-sid"
                     self.yang_parent_name = "locator-all-active-sids"
@@ -6723,7 +7427,7 @@ class Srv6(Entity):
                     self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid, ['locator_name', 'sid_opcode', 'sid', 'allocation_type', 'function_type', 'state', 'has_forwarding', 'locator'], name, value)
 
 
-                class SidContext(Entity):
+                class SidContext(_Entity_):
                     """
                     SID Context
                     
@@ -6751,7 +7455,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, self).__init__()
 
                         self.yang_name = "sid-context"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -6774,7 +7481,7 @@ class Srv6(Entity):
                         self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext, ['application_data'], name, value)
 
 
-                    class Key(Entity):
+                    class Key(_Entity_):
                         """
                         SID Key
                         
@@ -6821,7 +7528,10 @@ class Srv6(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, self).__init__()
 
                             self.yang_name = "key"
                             self.yang_parent_name = "sid-context"
@@ -6856,7 +7566,7 @@ class Srv6(Entity):
                             self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key, ['sid_context_type'], name, value)
 
 
-                        class E(Entity):
+                        class E(_Entity_):
                             """
                             End (PSP) SID context
                             
@@ -6886,7 +7596,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, self).__init__()
 
                                 self.yang_name = "e"
                                 self.yang_parent_name = "key"
@@ -6906,9 +7619,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E, ['table_id', 'opaque_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.E']['meta_info']
 
 
-                        class X(Entity):
+                        class X(_Entity_):
                             """
                             End.X (PSP) SID context
                             
@@ -6954,7 +7671,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, self).__init__()
 
                                 self.yang_name = "x"
                                 self.yang_parent_name = "key"
@@ -6978,9 +7698,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X, ['is_protected', 'opaque_id', 'interface', 'nexthop_address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.X']['meta_info']
 
 
-                        class Dx4(Entity):
+                        class Dx4(_Entity_):
                             """
                             End.DX4 SID context
                             
@@ -7010,7 +7734,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, self).__init__()
 
                                 self.yang_name = "dx4"
                                 self.yang_parent_name = "key"
@@ -7030,9 +7757,13 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4, ['table_id', 'next_hop_set_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dx4']['meta_info']
 
 
-                        class Dt4(Entity):
+                        class Dt4(_Entity_):
                             """
                             End.DT4 SID context
                             
@@ -7053,7 +7784,10 @@ class Srv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, self).__init__()
 
                                 self.yang_name = "dt4"
                                 self.yang_parent_name = "key"
@@ -7071,11 +7805,23 @@ class Srv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4, ['table_id'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                                return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key.Dt4']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                            return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext.Key']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.SidContext']['meta_info']
 
 
-
-
-                class CreateTimestamp(Entity):
+                class CreateTimestamp(_Entity_):
                     """
                     Creation timestamp
                     
@@ -7109,7 +7855,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, self).__init__()
 
                         self.yang_name = "create-timestamp"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -7129,9 +7878,13 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp, ['time_in_nano_seconds', 'age_in_nano_seconds'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.CreateTimestamp']['meta_info']
 
 
-                class Owner(Entity):
+                class Owner(_Entity_):
                     """
                     Owner
                     
@@ -7150,7 +7903,10 @@ class Srv6(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.Owner, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.Owner, self).__init__()
 
                         self.yang_name = "owner"
                         self.yang_parent_name = "locator-all-active-sid"
@@ -7168,13 +7924,33 @@ class Srv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.Owner, ['owner'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                        return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid.Owner']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                    return meta._meta_table['Srv6.Standby.LocatorAllActiveSids.LocatorAllActiveSid']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+                return meta._meta_table['Srv6.Standby.LocatorAllActiveSids']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+            return meta._meta_table['Srv6.Standby']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Srv6()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_srv6_oper as meta
+        return meta._meta_table['Srv6']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -39,6 +42,12 @@ class MplsVpnAfi(Enum):
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+        return meta._meta_table['MplsVpnAfi']
 
 
 class MplsVpnRt(Enum):
@@ -68,6 +77,12 @@ class MplsVpnRt(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+        return meta._meta_table['MplsVpnRt']
+
+
 class MplsVpnSafi(Enum):
     """
     MplsVpnSafi (Enum Class)
@@ -95,8 +110,14 @@ class MplsVpnSafi(Enum):
     flowspec = Enum.YLeaf(133, "flowspec")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+        return meta._meta_table['MplsVpnSafi']
 
-class L3vpn(Entity):
+
+
+class L3vpn(_Entity_):
     """
     L3VPN operational data
     
@@ -122,7 +143,10 @@ class L3vpn(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(L3vpn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(L3vpn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l3vpn"
@@ -147,7 +171,7 @@ class L3vpn(Entity):
         self._perform_setattr(L3vpn, [], name, value)
 
 
-    class InvalidVrfs(Entity):
+    class InvalidVrfs(_Entity_):
         """
         Invalid VRF Table (VRFs that are forward
         referenced)
@@ -167,7 +191,10 @@ class L3vpn(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(L3vpn.InvalidVrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L3vpn.InvalidVrfs, self).__init__()
 
             self.yang_name = "invalid-vrfs"
             self.yang_parent_name = "l3vpn"
@@ -186,7 +213,7 @@ class L3vpn(Entity):
             self._perform_setattr(L3vpn.InvalidVrfs, [], name, value)
 
 
-        class InvalidVrf(Entity):
+        class InvalidVrf(_Entity_):
             """
             Invalid VRF (VRF that is forward referenced)
             
@@ -247,7 +274,10 @@ class L3vpn(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(L3vpn.InvalidVrfs.InvalidVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L3vpn.InvalidVrfs.InvalidVrf, self).__init__()
 
                 self.yang_name = "invalid-vrf"
                 self.yang_parent_name = "invalid-vrfs"
@@ -278,7 +308,7 @@ class L3vpn(Entity):
                 self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Interfaces in VRF
                 
@@ -297,7 +327,10 @@ class L3vpn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(L3vpn.InvalidVrfs.InvalidVrf.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L3vpn.InvalidVrfs.InvalidVrf.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "invalid-vrf"
@@ -315,9 +348,13 @@ class L3vpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, ['interface_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                    return meta._meta_table['L3vpn.InvalidVrfs.InvalidVrf.Interface']['meta_info']
 
 
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 AF/SAF information
                 
@@ -364,7 +401,10 @@ class L3vpn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(L3vpn.InvalidVrfs.InvalidVrf.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L3vpn.InvalidVrfs.InvalidVrf.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "invalid-vrf"
@@ -391,7 +431,7 @@ class L3vpn(Entity):
                     self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
 
 
-                class RouteTarget(Entity):
+                class RouteTarget(_Entity_):
                     """
                     Route Targets
                     
@@ -431,7 +471,10 @@ class L3vpn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, self).__init__()
 
                         self.yang_name = "route-target"
                         self.yang_parent_name = "af"
@@ -455,12 +498,28 @@ class L3vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                        return meta._meta_table['L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                    return meta._meta_table['L3vpn.InvalidVrfs.InvalidVrf.Af']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                return meta._meta_table['L3vpn.InvalidVrfs.InvalidVrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+            return meta._meta_table['L3vpn.InvalidVrfs']['meta_info']
 
 
-
-
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF Table
         
@@ -479,7 +538,10 @@ class L3vpn(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(L3vpn.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(L3vpn.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "l3vpn"
@@ -498,7 +560,7 @@ class L3vpn(Entity):
             self._perform_setattr(L3vpn.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF
             
@@ -559,7 +621,10 @@ class L3vpn(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(L3vpn.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(L3vpn.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -590,7 +655,7 @@ class L3vpn(Entity):
                 self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 Interfaces in VRF
                 
@@ -609,7 +674,10 @@ class L3vpn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(L3vpn.Vrfs.Vrf.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L3vpn.Vrfs.Vrf.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "vrf"
@@ -627,9 +695,13 @@ class L3vpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, ['interface_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                    return meta._meta_table['L3vpn.Vrfs.Vrf.Interface']['meta_info']
 
 
-            class Af(Entity):
+            class Af(_Entity_):
                 """
                 AF/SAF information
                 
@@ -676,7 +748,10 @@ class L3vpn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(L3vpn.Vrfs.Vrf.Af, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(L3vpn.Vrfs.Vrf.Af, self).__init__()
 
                     self.yang_name = "af"
                     self.yang_parent_name = "vrf"
@@ -703,7 +778,7 @@ class L3vpn(Entity):
                     self._perform_setattr(L3vpn.Vrfs.Vrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
 
 
-                class RouteTarget(Entity):
+                class RouteTarget(_Entity_):
                     """
                     Route Targets
                     
@@ -743,7 +818,10 @@ class L3vpn(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(L3vpn.Vrfs.Vrf.Af.RouteTarget, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(L3vpn.Vrfs.Vrf.Af.RouteTarget, self).__init__()
 
                         self.yang_name = "route-target"
                         self.yang_parent_name = "af"
@@ -767,13 +845,33 @@ class L3vpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                        return meta._meta_table['L3vpn.Vrfs.Vrf.Af.RouteTarget']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                    return meta._meta_table['L3vpn.Vrfs.Vrf.Af']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+                return meta._meta_table['L3vpn.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+            return meta._meta_table['L3vpn.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = L3vpn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_vpn_oper as meta
+        return meta._meta_table['L3vpn']['meta_info']
 
 

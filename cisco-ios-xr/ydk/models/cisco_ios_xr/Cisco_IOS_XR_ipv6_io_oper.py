@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ipv6Io(Entity):
+class Ipv6Io(_Entity_):
     """
     IPv6 IO Operational Data
     
@@ -40,7 +43,10 @@ class Ipv6Io(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Ipv6Io, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6Io, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6-io"
@@ -61,7 +67,7 @@ class Ipv6Io(Entity):
         self._perform_setattr(Ipv6Io, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node\-specific IPv6 IO operational data
         
@@ -80,7 +86,10 @@ class Ipv6Io(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Ipv6Io.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6Io.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ipv6-io"
@@ -99,7 +108,7 @@ class Ipv6Io(Entity):
             self._perform_setattr(Ipv6Io.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             IPv6 network operational data for a particular
             node
@@ -128,7 +137,10 @@ class Ipv6Io(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Ipv6Io.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6Io.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -152,7 +164,7 @@ class Ipv6Io(Entity):
                 self._perform_setattr(Ipv6Io.Nodes.Node, ['node_name'], name, value)
 
 
-            class Statistics(Entity):
+            class Statistics(_Entity_):
                 """
                 Statistical IPv6 network operational data for
                 a node
@@ -172,7 +184,10 @@ class Ipv6Io(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipv6Io.Nodes.Node.Statistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6Io.Nodes.Node.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "node"
@@ -192,7 +207,7 @@ class Ipv6Io(Entity):
                     self._perform_setattr(Ipv6Io.Nodes.Node.Statistics, [], name, value)
 
 
-                class Traffic(Entity):
+                class Traffic(_Entity_):
                     """
                     Traffic statistics for a node
                     
@@ -225,7 +240,10 @@ class Ipv6Io(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv6Io.Nodes.Node.Statistics.Traffic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6Io.Nodes.Node.Statistics.Traffic, self).__init__()
 
                         self.yang_name = "traffic"
                         self.yang_parent_name = "statistics"
@@ -253,7 +271,7 @@ class Ipv6Io(Entity):
                         self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic, [], name, value)
 
 
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         IPv6 Statistics
                         
@@ -553,7 +571,10 @@ class Ipv6Io(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "traffic"
@@ -633,9 +654,13 @@ class Ipv6Io(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, ['total_packets', 'local_destination_packets', 'format_errors', 'truncated_packets', 'hop_count_exceeded_packets', 'bad_source_address_packets', 'bad_header_packets', 'unknown_option_type_packets', 'unknown_protocol_packets', 'fragments', 'reassembled_packets', 'reassembly_timeouts', 'reassembly_failures', 'reassembly_maximum_drops', 'generated_packets', 'forwarded_packets', 'source_routed_packets', 'fragmented_packets', 'fragment_count', 'fragment_failures', 'no_route_packets', 'too_big_packets', 'received_multicast_packets', 'sent_multicast_packets', 'miscellaneous_drops', 'lisp_v4_encap_packets', 'lisp_v4_decap_packets', 'lisp_v6_encap_packets', 'lisp_v6_decap_packets', 'lisp_encap_errors', 'lisp_decap_errors', 'io_puntback'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                            return meta._meta_table['Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6']['meta_info']
 
 
-                    class Icmp(Entity):
+                    class Icmp(_Entity_):
                         """
                         ICMP Statistics
                         
@@ -989,7 +1014,10 @@ class Ipv6Io(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, self).__init__()
 
                             self.yang_name = "icmp"
                             self.yang_parent_name = "traffic"
@@ -1081,9 +1109,13 @@ class Ipv6Io(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, ['total_messages', 'too_short_error_messages', 'checksum_error_messages', 'unknown_error_type_messages', 'output_messages', 'sent_rate_limited_packets', 'sent_unreachable_routing_messages', 'sent_unreachable_admin_messages', 'sent_unreachable_neighbor_messages', 'sent_unreachable_address_messages', 'sent_unreachable_port_messages', 'received_unreachable_routing_messages', 'received_unreachable_admin_messages', 'received_unreachable_neighbor_messages', 'received_unreachable_address_messages', 'received_unreachable_port_messages', 'sent_hop_count_expired_messages', 'sent_reassembly_timeouts', 'received_hop_count_expired_messages', 'received_reassembly_timeouts', 'sent_too_big_messages', 'received_too_big_messages', 'sent_parameter_error_messages', 'sent_parameter_header_messages', 'sent_parameter_option_messages', 'received_parameter_error_messages', 'received_parameter_header_messages', 'received_parameter_option_messages', 'sent_echo_request_messages', 'sent_echo_reply_messages', 'received_echo_request_messages', 'received_echo_reply_messages', 'sent_unknown_timeout_messages', 'received_unknown_timeout_messages', 'sent_parameter_unknown_type_messages', 'received_parameter_unknown_type_messages', 'sent_unreachable_unknown_type_messages', 'received_unreachable_unknown_type_messages'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                            return meta._meta_table['Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp']['meta_info']
 
 
-                    class Ipv6NodeDiscovery(Entity):
+                    class Ipv6NodeDiscovery(_Entity_):
                         """
                         IPv6 Node Discovery Statistics
                         
@@ -1185,7 +1217,10 @@ class Ipv6Io(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, self).__init__()
 
                             self.yang_name = "ipv6-node-discovery"
                             self.yang_parent_name = "traffic"
@@ -1221,14 +1256,38 @@ class Ipv6Io(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, ['sent_router_solicitation_messages', 'sent_router_advertisement_messages', 'sent_neighbor_solicitation_messages', 'sent_neighbor_advertisement_messages', 'sent_redirect_messages', 'received_router_solicitation_messages', 'received_router_advertisement_messages', 'received_neighbor_solicitation_messages', 'received_neighbor_advertisement_messages', 'received_redirect_messages'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                            return meta._meta_table['Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                        return meta._meta_table['Ipv6Io.Nodes.Node.Statistics.Traffic']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                    return meta._meta_table['Ipv6Io.Nodes.Node.Statistics']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+                return meta._meta_table['Ipv6Io.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+            return meta._meta_table['Ipv6Io.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6Io()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
+        return meta._meta_table['Ipv6Io']['meta_info']
 
 

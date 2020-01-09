@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class AddressPoolService(Entity):
+class AddressPoolService(_Entity_):
     """
     Address Pool configuration data
     
@@ -38,7 +41,10 @@ class AddressPoolService(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(AddressPoolService, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(AddressPoolService, self).__init__()
         self._top_entity = None
 
         self.yang_name = "address-pool-service"
@@ -59,7 +65,7 @@ class AddressPoolService(Entity):
         self._perform_setattr(AddressPoolService, [], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         Enter VRF specific config mode
         
@@ -76,7 +82,10 @@ class AddressPoolService(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(AddressPoolService.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(AddressPoolService.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "address-pool-service"
@@ -95,7 +104,7 @@ class AddressPoolService(Entity):
             self._perform_setattr(AddressPoolService.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             Specify VRF Name
             
@@ -124,7 +133,10 @@ class AddressPoolService(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(AddressPoolService.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(AddressPoolService.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -152,7 +164,7 @@ class AddressPoolService(Entity):
                 self._perform_setattr(AddressPoolService.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class Ipv6(Entity):
+            class Ipv6(_Entity_):
                 """
                 Enter IPv6 specific mode
                 
@@ -169,7 +181,10 @@ class AddressPoolService(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AddressPoolService.Vrfs.Vrf.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AddressPoolService.Vrfs.Vrf.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "vrf"
@@ -189,7 +204,7 @@ class AddressPoolService(Entity):
                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6, [], name, value)
 
 
-                class Pools(Entity):
+                class Pools(_Entity_):
                     """
                     IPv6 Pool Name
                     
@@ -206,7 +221,10 @@ class AddressPoolService(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools, self).__init__()
 
                         self.yang_name = "pools"
                         self.yang_parent_name = "ipv6"
@@ -224,7 +242,7 @@ class AddressPoolService(Entity):
                         self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools, [], name, value)
 
 
-                    class Pool(Entity):
+                    class Pool(_Entity_):
                         """
                         Enter the IPv6 Pool name
                         
@@ -277,7 +295,10 @@ class AddressPoolService(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool, self).__init__()
 
                             self.yang_name = "pool"
                             self.yang_parent_name = "pools"
@@ -317,7 +338,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool, ['ipv6_pool_name', 'prefix_length'], name, value)
 
 
-                        class AddressRanges(Entity):
+                        class AddressRanges(_Entity_):
                             """
                             Specify address range for allocation
                             
@@ -334,7 +355,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges, self).__init__()
 
                                 self.yang_name = "address-ranges"
                                 self.yang_parent_name = "pool"
@@ -352,7 +376,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges, [], name, value)
 
 
-                            class AddressRange(Entity):
+                            class AddressRange(_Entity_):
                                 """
                                 None
                                 
@@ -399,7 +423,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange, self).__init__()
 
                                     self.yang_name = "address-range"
                                     self.yang_parent_name = "address-ranges"
@@ -421,10 +448,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'blocked', 'end_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges']['meta_info']
 
 
-
-                        class Excludes(Entity):
+                        class Excludes(_Entity_):
                             """
                             Exclude IPv6 addresses / prefixes
                             
@@ -441,7 +476,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes, self).__init__()
 
                                 self.yang_name = "excludes"
                                 self.yang_parent_name = "pool"
@@ -459,7 +497,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes, [], name, value)
 
 
-                            class Exclude(Entity):
+                            class Exclude(_Entity_):
                                 """
                                 None
                                 
@@ -499,7 +537,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude, self).__init__()
 
                                     self.yang_name = "exclude"
                                     self.yang_parent_name = "excludes"
@@ -519,10 +560,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude, ['start_address', 'end_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes']['meta_info']
 
 
-
-                        class UtilizationMark(Entity):
+                        class UtilizationMark(_Entity_):
                             """
                             Specify utilization mark
                             
@@ -558,7 +607,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark, self).__init__()
 
                                 self.yang_name = "utilization-mark"
                                 self.yang_parent_name = "pool"
@@ -579,9 +631,13 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark, ['high_mark', 'low_mark'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark']['meta_info']
 
 
-                        class PrefixRanges(Entity):
+                        class PrefixRanges(_Entity_):
                             """
                             Specify prefix range for allocation
                             
@@ -598,7 +654,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges, self).__init__()
 
                                 self.yang_name = "prefix-ranges"
                                 self.yang_parent_name = "pool"
@@ -616,7 +675,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges, [], name, value)
 
 
-                            class PrefixRange(Entity):
+                            class PrefixRange(_Entity_):
                                 """
                                 None
                                 
@@ -663,7 +722,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange, self).__init__()
 
                                     self.yang_name = "prefix-range"
                                     self.yang_parent_name = "prefix-ranges"
@@ -685,10 +747,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange, ['start_prefix', 'blocked', 'end_prefix'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges']['meta_info']
 
 
-
-                        class Networks(Entity):
+                        class Networks(_Entity_):
                             """
                             Specify network for allocation
                             
@@ -705,7 +775,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks, self).__init__()
 
                                 self.yang_name = "networks"
                                 self.yang_parent_name = "pool"
@@ -723,7 +796,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks, [], name, value)
 
 
-                            class Network(Entity):
+                            class Network(_Entity_):
                                 """
                                 None
                                 
@@ -764,7 +837,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network, self).__init__()
 
                                     self.yang_name = "network"
                                     self.yang_parent_name = "networks"
@@ -786,13 +862,33 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network, ['prefix', 'blocked', 'prefix_length'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                            return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                        return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6.Pools']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv6']['meta_info']
 
 
-
-
-
-
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 Enter IPv4 specific configuration
                 
@@ -809,7 +905,10 @@ class AddressPoolService(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(AddressPoolService.Vrfs.Vrf.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(AddressPoolService.Vrfs.Vrf.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "vrf"
@@ -829,7 +928,7 @@ class AddressPoolService(Entity):
                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4, [], name, value)
 
 
-                class Pools(Entity):
+                class Pools(_Entity_):
                     """
                     IPv4 Pool Table
                     
@@ -846,7 +945,10 @@ class AddressPoolService(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools, self).__init__()
 
                         self.yang_name = "pools"
                         self.yang_parent_name = "ipv4"
@@ -864,7 +966,7 @@ class AddressPoolService(Entity):
                         self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools, [], name, value)
 
 
-                    class Pool(Entity):
+                    class Pool(_Entity_):
                         """
                         IPv4 Pool name
                         
@@ -905,7 +1007,10 @@ class AddressPoolService(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool, self).__init__()
 
                             self.yang_name = "pool"
                             self.yang_parent_name = "pools"
@@ -939,7 +1044,7 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool, ['pool_name'], name, value)
 
 
-                        class AddressRanges(Entity):
+                        class AddressRanges(_Entity_):
                             """
                             address range for allocation
                             
@@ -956,7 +1061,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges, self).__init__()
 
                                 self.yang_name = "address-ranges"
                                 self.yang_parent_name = "pool"
@@ -974,7 +1082,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges, [], name, value)
 
 
-                            class AddressRange(Entity):
+                            class AddressRange(_Entity_):
                                 """
                                 Specify first address in range
                                 
@@ -1015,7 +1123,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange, self).__init__()
 
                                     self.yang_name = "address-range"
                                     self.yang_parent_name = "address-ranges"
@@ -1037,10 +1148,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'end_address', 'blocked'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges']['meta_info']
 
 
-
-                        class Excludes(Entity):
+                        class Excludes(_Entity_):
                             """
                             Exclude addresses
                             
@@ -1057,7 +1176,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes, self).__init__()
 
                                 self.yang_name = "excludes"
                                 self.yang_parent_name = "pool"
@@ -1075,7 +1197,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes, [], name, value)
 
 
-                            class Exclude(Entity):
+                            class Exclude(_Entity_):
                                 """
                                 First address in range
                                 
@@ -1109,7 +1231,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude, self).__init__()
 
                                     self.yang_name = "exclude"
                                     self.yang_parent_name = "excludes"
@@ -1129,10 +1254,18 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude, ['start_address', 'end_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes']['meta_info']
 
 
-
-                        class UtilizationMark(Entity):
+                        class UtilizationMark(_Entity_):
                             """
                             Specify utilization mark
                             
@@ -1168,7 +1301,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark, self).__init__()
 
                                 self.yang_name = "utilization-mark"
                                 self.yang_parent_name = "pool"
@@ -1189,9 +1325,13 @@ class AddressPoolService(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark, ['high', 'low'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark']['meta_info']
 
 
-                        class Networks(Entity):
+                        class Networks(_Entity_):
                             """
                             Specify network for allocation
                             
@@ -1208,7 +1348,10 @@ class AddressPoolService(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks, self).__init__()
 
                                 self.yang_name = "networks"
                                 self.yang_parent_name = "pool"
@@ -1226,7 +1369,7 @@ class AddressPoolService(Entity):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks, [], name, value)
 
 
-                            class Network(Entity):
+                            class Network(_Entity_):
                                 """
                                 Network Prefix
                                 
@@ -1274,7 +1417,10 @@ class AddressPoolService(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network, self).__init__()
 
                                     self.yang_name = "network"
                                     self.yang_parent_name = "networks"
@@ -1298,16 +1444,48 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network, ['ipv4_prefix', 'blocked', 'prefix_length', 'default_router'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                                return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                            return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                        return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4.Pools']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                    return meta._meta_table['AddressPoolService.Vrfs.Vrf.Ipv4']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+                return meta._meta_table['AddressPoolService.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+            return meta._meta_table['AddressPoolService.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = AddressPoolService()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_daps_cfg as meta
+        return meta._meta_table['AddressPoolService']['meta_info']
 
 

@@ -15,8 +15,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Statistics(Entity):
+class Statistics(_Entity_):
     """
     Global statistics configuration
     
@@ -42,7 +45,10 @@ class Statistics(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Statistics, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Statistics, self).__init__()
         self._top_entity = None
 
         self.yang_name = "statistics"
@@ -63,7 +69,7 @@ class Statistics(Entity):
         self._perform_setattr(Statistics, [], name, value)
 
 
-    class Period(Entity):
+    class Period(_Entity_):
         """
         Collection period for statistics polling
         
@@ -80,7 +86,10 @@ class Statistics(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Statistics.Period, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Statistics.Period, self).__init__()
 
             self.yang_name = "period"
             self.yang_parent_name = "statistics"
@@ -101,7 +110,7 @@ class Statistics(Entity):
             self._perform_setattr(Statistics.Period, [], name, value)
 
 
-        class ServiceAccounting(Entity):
+        class ServiceAccounting(_Entity_):
             """
             Collection polling period for service
             accounting collectors
@@ -126,7 +135,10 @@ class Statistics(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Statistics.Period.ServiceAccounting, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Statistics.Period.ServiceAccounting, self).__init__()
 
                 self.yang_name = "service-accounting"
                 self.yang_parent_name = "period"
@@ -147,11 +159,23 @@ class Statistics(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Statistics.Period.ServiceAccounting, ['polling_period', 'polling_disable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_cfg as meta
+                return meta._meta_table['Statistics.Period.ServiceAccounting']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_cfg as meta
+            return meta._meta_table['Statistics.Period']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Statistics()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_cfg as meta
+        return meta._meta_table['Statistics']['meta_info']
 
 

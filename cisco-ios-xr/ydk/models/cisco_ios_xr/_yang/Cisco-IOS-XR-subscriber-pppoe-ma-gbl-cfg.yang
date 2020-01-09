@@ -36,6 +36,10 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-10-07 {
+    description
+      "Added new cli under bba-group to disconnect existing sessions,if same host-uniq tag padi packet come.";
+  }
   revision 2017-09-30 {
     description
       "Ensure propagation of MDA mandatory state to YANG model.";
@@ -874,6 +878,11 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               "Configure PADO delay dependent on the
                received Remote ID";
           }
+        }
+        leaf enable-renegotiate-on-padi {
+          type empty;
+          description
+            "Disconnect on padi with same host_uniq";
         }
         leaf completion-timeout {
           type uint32 {

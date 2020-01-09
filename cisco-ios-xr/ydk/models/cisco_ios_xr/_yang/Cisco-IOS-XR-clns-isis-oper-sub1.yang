@@ -851,6 +851,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         description
           "Cleared route table";
       }
+      enum "isis-spf-trig-null0-intf" {
+        description
+          "Null0 intf up";
+      }
       enum "isis-spf-trig-newadj" {
         description
           "New adjacency";
@@ -2218,6 +2222,11 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type boolean;
       description
         "Locator exists in global configuration";
+    }
+    leaf locator-out-of-resources {
+      type boolean;
+      description
+        "Locator has no more SIDs available";
     }
     leaf locator-name {
       type string;

@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ipv6arm(Entity):
+class Ipv6arm(_Entity_):
     """
     IPv6 Address Repository Manager (IPv6 ARM)
     operational data
@@ -65,7 +68,10 @@ class Ipv6arm(Entity):
     _revision = '2019-01-22'
 
     def __init__(self):
-        super(Ipv6arm, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Ipv6arm, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ipv6arm"
@@ -97,7 +103,7 @@ class Ipv6arm(Entity):
         self._perform_setattr(Ipv6arm, ['multicast_host_interface'], name, value)
 
 
-    class Addresses(Entity):
+    class Addresses(_Entity_):
         """
         IPv6 ARM address database information
         
@@ -116,7 +122,10 @@ class Ipv6arm(Entity):
         _revision = '2019-01-22'
 
         def __init__(self):
-            super(Ipv6arm.Addresses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6arm.Addresses, self).__init__()
 
             self.yang_name = "addresses"
             self.yang_parent_name = "ipv6arm"
@@ -137,7 +146,7 @@ class Ipv6arm(Entity):
             self._perform_setattr(Ipv6arm.Addresses, [], name, value)
 
 
-        class Vrfs(Entity):
+        class Vrfs(_Entity_):
             """
             IPv6 ARM address database information per VRF
             
@@ -156,7 +165,10 @@ class Ipv6arm(Entity):
             _revision = '2019-01-22'
 
             def __init__(self):
-                super(Ipv6arm.Addresses.Vrfs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6arm.Addresses.Vrfs, self).__init__()
 
                 self.yang_name = "vrfs"
                 self.yang_parent_name = "addresses"
@@ -175,7 +187,7 @@ class Ipv6arm(Entity):
                 self._perform_setattr(Ipv6arm.Addresses.Vrfs, [], name, value)
 
 
-            class Vrf(Entity):
+            class Vrf(_Entity_):
                 """
                 IPv6 ARM address database information in a VRF
                 
@@ -210,7 +222,10 @@ class Ipv6arm(Entity):
                 _revision = '2019-01-22'
 
                 def __init__(self):
-                    super(Ipv6arm.Addresses.Vrfs.Vrf, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Ipv6arm.Addresses.Vrfs.Vrf, self).__init__()
 
                     self.yang_name = "vrf"
                     self.yang_parent_name = "vrfs"
@@ -238,7 +253,7 @@ class Ipv6arm(Entity):
                     self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                class Networks(Entity):
+                class Networks(_Entity_):
                     """
                     IPv6 ARM address database information by
                     network
@@ -258,7 +273,10 @@ class Ipv6arm(Entity):
                     _revision = '2019-01-22'
 
                     def __init__(self):
-                        super(Ipv6arm.Addresses.Vrfs.Vrf.Networks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6arm.Addresses.Vrfs.Vrf.Networks, self).__init__()
 
                         self.yang_name = "networks"
                         self.yang_parent_name = "vrf"
@@ -276,7 +294,7 @@ class Ipv6arm(Entity):
                         self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Networks, [], name, value)
 
 
-                    class Network(Entity):
+                    class Network(_Entity_):
                         """
                         An IPv6 Address in IPv6 ARM
                         
@@ -343,7 +361,10 @@ class Ipv6arm(Entity):
                         _revision = '2019-01-22'
 
                         def __init__(self):
-                            super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network, self).__init__()
 
                             self.yang_name = "network"
                             self.yang_parent_name = "networks"
@@ -376,7 +397,7 @@ class Ipv6arm(Entity):
                             self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'interface', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
 
 
-                        class AddressXr(Entity):
+                        class AddressXr(_Entity_):
                             """
                             Address info
                             
@@ -441,7 +462,10 @@ class Ipv6arm(Entity):
                             _revision = '2019-01-22'
 
                             def __init__(self):
-                                super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, self).__init__()
 
                                 self.yang_name = "address-xr"
                                 self.yang_parent_name = "network"
@@ -474,7 +498,7 @@ class Ipv6arm(Entity):
                                 self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
-                            class Address(Entity):
+                            class Address(_Entity_):
                                 """
                                 IPv4/IPv6 address
                                 
@@ -513,7 +537,10 @@ class Ipv6arm(Entity):
                                 _revision = '2019-01-22'
 
                                 def __init__(self):
-                                    super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "address-xr"
@@ -535,12 +562,28 @@ class Ipv6arm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                                    return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                                return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                            return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Networks.Network']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                        return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Networks']['meta_info']
 
 
-
-
-
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     IPv6 ARM address database information by
                     interface
@@ -560,7 +603,10 @@ class Ipv6arm(Entity):
                     _revision = '2019-01-22'
 
                     def __init__(self):
-                        super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "vrf"
@@ -578,7 +624,7 @@ class Ipv6arm(Entity):
                         self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         An IPv6 address in IPv6 ARM
                         
@@ -620,7 +666,10 @@ class Ipv6arm(Entity):
                         _revision = '2019-01-22'
 
                         def __init__(self):
-                            super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -645,7 +694,7 @@ class Ipv6arm(Entity):
                             self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             Address info
                             
@@ -710,7 +759,10 @@ class Ipv6arm(Entity):
                             _revision = '2019-01-22'
 
                             def __init__(self):
-                                super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "interface"
@@ -743,7 +795,7 @@ class Ipv6arm(Entity):
                                 self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
-                            class Address_(Entity):
+                            class Address_(_Entity_):
                                 """
                                 IPv4/IPv6 address
                                 
@@ -782,7 +834,10 @@ class Ipv6arm(Entity):
                                 _revision = '2019-01-22'
 
                                 def __init__(self):
-                                    super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "address"
@@ -804,15 +859,43 @@ class Ipv6arm(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                                    return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                                return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                            return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                        return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf.Interfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                    return meta._meta_table['Ipv6arm.Addresses.Vrfs.Vrf']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                return meta._meta_table['Ipv6arm.Addresses.Vrfs']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+            return meta._meta_table['Ipv6arm.Addresses']['meta_info']
 
 
-
-
-
-
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         IPv6 ARM summary information
         
@@ -869,7 +952,10 @@ class Ipv6arm(Entity):
         _revision = '2019-01-22'
 
         def __init__(self):
-            super(Ipv6arm.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6arm.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "ipv6arm"
@@ -896,9 +982,13 @@ class Ipv6arm(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+            return meta._meta_table['Ipv6arm.Summary']['meta_info']
 
 
-    class VrfSummaries(Entity):
+    class VrfSummaries(_Entity_):
         """
         IPv6 ARM VRFs summary information
         
@@ -917,7 +1007,10 @@ class Ipv6arm(Entity):
         _revision = '2019-01-22'
 
         def __init__(self):
-            super(Ipv6arm.VrfSummaries, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Ipv6arm.VrfSummaries, self).__init__()
 
             self.yang_name = "vrf-summaries"
             self.yang_parent_name = "ipv6arm"
@@ -936,7 +1029,7 @@ class Ipv6arm(Entity):
             self._perform_setattr(Ipv6arm.VrfSummaries, [], name, value)
 
 
-        class VrfSummary(Entity):
+        class VrfSummary(_Entity_):
             """
             IPv6 ARM VRF summary information
             
@@ -973,7 +1066,10 @@ class Ipv6arm(Entity):
             _revision = '2019-01-22'
 
             def __init__(self):
-                super(Ipv6arm.VrfSummaries.VrfSummary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Ipv6arm.VrfSummaries.VrfSummary, self).__init__()
 
                 self.yang_name = "vrf-summary"
                 self.yang_parent_name = "vrf-summaries"
@@ -996,11 +1092,23 @@ class Ipv6arm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+                return meta._meta_table['Ipv6arm.VrfSummaries.VrfSummary']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+            return meta._meta_table['Ipv6arm.VrfSummaries']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Ipv6arm()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iarm_v6_oper as meta
+        return meta._meta_table['Ipv6arm']['meta_info']
 
 

@@ -6,7 +6,7 @@ for Cisco IOS\-XR asr9k\-lpts package operational data.
 This module contains definitions
 for the following management objects\:
   platform\-lptsp\-ifib\-static\: ASR9K platform ifib operational
-    data 
+    data
   platform\-lptsp\-ifib\: platform lptsp ifib
   platform\-lptsp\-ifib\-np\-stats\: platform lptsp ifib np stats
 
@@ -14,8 +14,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -24,7 +27,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PlatformLptspIfibStatic(Entity):
+class PlatformLptspIfibStatic(_Entity_):
     """
     ASR9K platform ifib operational data 
     
@@ -43,7 +46,10 @@ class PlatformLptspIfibStatic(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(PlatformLptspIfibStatic, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformLptspIfibStatic, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-lptsp-ifib-static"
@@ -64,7 +70,7 @@ class PlatformLptspIfibStatic(Entity):
         self._perform_setattr(PlatformLptspIfibStatic, [], name, value)
 
 
-    class NodeStatics(Entity):
+    class NodeStatics(_Entity_):
         """
         List of nodes with platform specific lpts
         operation data
@@ -84,7 +90,10 @@ class PlatformLptspIfibStatic(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(PlatformLptspIfibStatic.NodeStatics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformLptspIfibStatic.NodeStatics, self).__init__()
 
             self.yang_name = "node-statics"
             self.yang_parent_name = "platform-lptsp-ifib-static"
@@ -103,7 +112,7 @@ class PlatformLptspIfibStatic(Entity):
             self._perform_setattr(PlatformLptspIfibStatic.NodeStatics, [], name, value)
 
 
-        class NodeStatic(Entity):
+        class NodeStatic(_Entity_):
             """
             Node with platform specific lpts data
             
@@ -138,7 +147,10 @@ class PlatformLptspIfibStatic(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PlatformLptspIfibStatic.NodeStatics.NodeStatic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformLptspIfibStatic.NodeStatics.NodeStatic, self).__init__()
 
                 self.yang_name = "node-static"
                 self.yang_parent_name = "node-statics"
@@ -166,7 +178,7 @@ class PlatformLptspIfibStatic(Entity):
                 self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic, ['node_name'], name, value)
 
 
-            class Police(Entity):
+            class Police(_Entity_):
                 """
                 pl\_pifib police data
                 
@@ -185,7 +197,10 @@ class PlatformLptspIfibStatic(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police, self).__init__()
 
                     self.yang_name = "police"
                     self.yang_parent_name = "node-static"
@@ -203,7 +218,7 @@ class PlatformLptspIfibStatic(Entity):
                     self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police, [], name, value)
 
 
-                class StaticInfo(Entity):
+                class StaticInfo(_Entity_):
                     """
                     Per punt reason info
                     
@@ -287,7 +302,10 @@ class PlatformLptspIfibStatic(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo, self).__init__()
 
                         self.yang_name = "static-info"
                         self.yang_parent_name = "police"
@@ -319,10 +337,18 @@ class PlatformLptspIfibStatic(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo, ['punt_reason', 'sid', 'flow_rate', 'burst_rate', 'accepted', 'dropped', 'punt_reason_string', 'change_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                        return meta._meta_table['PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police.StaticInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                    return meta._meta_table['PlatformLptspIfibStatic.NodeStatics.NodeStatic.Police']['meta_info']
 
 
-
-            class Stats(Entity):
+            class Stats(_Entity_):
                 """
                 pl\_pifib stats
                 
@@ -370,7 +396,10 @@ class PlatformLptspIfibStatic(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats, self).__init__()
 
                     self.yang_name = "stats"
                     self.yang_parent_name = "node-static"
@@ -394,16 +423,32 @@ class PlatformLptspIfibStatic(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                    return meta._meta_table['PlatformLptspIfibStatic.NodeStatics.NodeStatic.Stats']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                return meta._meta_table['PlatformLptspIfibStatic.NodeStatics.NodeStatic']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+            return meta._meta_table['PlatformLptspIfibStatic.NodeStatics']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformLptspIfibStatic()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+        return meta._meta_table['PlatformLptspIfibStatic']['meta_info']
 
 
-class PlatformLptspIfib(Entity):
+class PlatformLptspIfib(_Entity_):
     """
     platform lptsp ifib
     
@@ -422,7 +467,10 @@ class PlatformLptspIfib(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(PlatformLptspIfib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformLptspIfib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-lptsp-ifib"
@@ -443,7 +491,7 @@ class PlatformLptspIfib(Entity):
         self._perform_setattr(PlatformLptspIfib, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         List of nodes with platform specific lpts
         operation data
@@ -463,7 +511,10 @@ class PlatformLptspIfib(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(PlatformLptspIfib.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformLptspIfib.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "platform-lptsp-ifib"
@@ -482,7 +533,7 @@ class PlatformLptspIfib(Entity):
             self._perform_setattr(PlatformLptspIfib.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node with platform specific lpts data
             
@@ -517,7 +568,10 @@ class PlatformLptspIfib(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PlatformLptspIfib.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformLptspIfib.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -545,7 +599,7 @@ class PlatformLptspIfib(Entity):
                 self._perform_setattr(PlatformLptspIfib.Nodes.Node, ['node_name'], name, value)
 
 
-            class Police(Entity):
+            class Police(_Entity_):
                 """
                 pl\_pifib police data
                 
@@ -564,7 +618,10 @@ class PlatformLptspIfib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PlatformLptspIfib.Nodes.Node.Police, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformLptspIfib.Nodes.Node.Police, self).__init__()
 
                     self.yang_name = "police"
                     self.yang_parent_name = "node"
@@ -582,7 +639,7 @@ class PlatformLptspIfib(Entity):
                     self._perform_setattr(PlatformLptspIfib.Nodes.Node.Police, [], name, value)
 
 
-                class PoliceInfo(Entity):
+                class PoliceInfo(_Entity_):
                     """
                     Per flow type police info
                     
@@ -702,7 +759,10 @@ class PlatformLptspIfib(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(PlatformLptspIfib.Nodes.Node.Police.PoliceInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformLptspIfib.Nodes.Node.Police.PoliceInfo, self).__init__()
 
                         self.yang_name = "police-info"
                         self.yang_parent_name = "police"
@@ -742,10 +802,18 @@ class PlatformLptspIfib(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformLptspIfib.Nodes.Node.Police.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'flow_type', 'accepted_stats', 'dropped_stats', 'policer', 'str_iptos_val', 'change_type', 'acl_config', 'acl_str'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                        return meta._meta_table['PlatformLptspIfib.Nodes.Node.Police.PoliceInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                    return meta._meta_table['PlatformLptspIfib.Nodes.Node.Police']['meta_info']
 
 
-
-            class Stats(Entity):
+            class Stats(_Entity_):
                 """
                 pl\_pifib stats
                 
@@ -793,7 +861,10 @@ class PlatformLptspIfib(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PlatformLptspIfib.Nodes.Node.Stats, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformLptspIfib.Nodes.Node.Stats, self).__init__()
 
                     self.yang_name = "stats"
                     self.yang_parent_name = "node"
@@ -817,16 +888,32 @@ class PlatformLptspIfib(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformLptspIfib.Nodes.Node.Stats, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                    return meta._meta_table['PlatformLptspIfib.Nodes.Node.Stats']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                return meta._meta_table['PlatformLptspIfib.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+            return meta._meta_table['PlatformLptspIfib.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformLptspIfib()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+        return meta._meta_table['PlatformLptspIfib']['meta_info']
 
 
-class PlatformLptspIfibNpStats(Entity):
+class PlatformLptspIfibNpStats(_Entity_):
     """
     platform lptsp ifib np stats
     
@@ -845,7 +932,10 @@ class PlatformLptspIfibNpStats(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(PlatformLptspIfibNpStats, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformLptspIfibNpStats, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-lptsp-ifib-np-stats"
@@ -866,7 +956,7 @@ class PlatformLptspIfibNpStats(Entity):
         self._perform_setattr(PlatformLptspIfibNpStats, [], name, value)
 
 
-    class NodeNpStats(Entity):
+    class NodeNpStats(_Entity_):
         """
         List of nodes with platform specific lpts
         operation data
@@ -886,7 +976,10 @@ class PlatformLptspIfibNpStats(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(PlatformLptspIfibNpStats.NodeNpStats, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformLptspIfibNpStats.NodeNpStats, self).__init__()
 
             self.yang_name = "node-np-stats"
             self.yang_parent_name = "platform-lptsp-ifib-np-stats"
@@ -905,7 +998,7 @@ class PlatformLptspIfibNpStats(Entity):
             self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats, [], name, value)
 
 
-        class NodeNpStat(Entity):
+        class NodeNpStat(_Entity_):
             """
             Node with platform specific lpts data
             
@@ -933,7 +1026,10 @@ class PlatformLptspIfibNpStats(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat, self).__init__()
 
                 self.yang_name = "node-np-stat"
                 self.yang_parent_name = "node-np-stats"
@@ -957,7 +1053,7 @@ class PlatformLptspIfibNpStats(Entity):
                 self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat, ['node_name'], name, value)
 
 
-            class Nps(Entity):
+            class Nps(_Entity_):
                 """
                 List of all NP
                 
@@ -976,7 +1072,10 @@ class PlatformLptspIfibNpStats(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps, self).__init__()
 
                     self.yang_name = "nps"
                     self.yang_parent_name = "node-np-stat"
@@ -994,7 +1093,7 @@ class PlatformLptspIfibNpStats(Entity):
                     self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps, [], name, value)
 
 
-                class Np(Entity):
+                class Np(_Entity_):
                     """
                     np0 to np7
                     
@@ -1022,7 +1121,10 @@ class PlatformLptspIfibNpStats(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np, self).__init__()
 
                         self.yang_name = "np"
                         self.yang_parent_name = "nps"
@@ -1045,7 +1147,7 @@ class PlatformLptspIfibNpStats(Entity):
                         self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np, ['np_name'], name, value)
 
 
-                    class NpPolice(Entity):
+                    class NpPolice(_Entity_):
                         """
                         pl\_pifib police data
                         
@@ -1064,7 +1166,10 @@ class PlatformLptspIfibNpStats(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice, self).__init__()
 
                             self.yang_name = "np-police"
                             self.yang_parent_name = "np"
@@ -1082,7 +1187,7 @@ class PlatformLptspIfibNpStats(Entity):
                             self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice, [], name, value)
 
 
-                        class PoliceInfo(Entity):
+                        class PoliceInfo(_Entity_):
                             """
                             Per flow type police info
                             
@@ -1202,7 +1307,10 @@ class PlatformLptspIfibNpStats(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo, self).__init__()
 
                                 self.yang_name = "police-info"
                                 self.yang_parent_name = "np-police"
@@ -1242,15 +1350,43 @@ class PlatformLptspIfibNpStats(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'flow_type', 'accepted_stats', 'dropped_stats', 'policer', 'str_iptos_val', 'change_type', 'acl_config', 'acl_str'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                                return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice.PoliceInfo']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                            return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np.NpPolice']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                        return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps.Np']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                    return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat.Nps']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+                return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats.NodeNpStat']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+            return meta._meta_table['PlatformLptspIfibNpStats.NodeNpStats']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformLptspIfibNpStats()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lpts_oper as meta
+        return meta._meta_table['PlatformLptspIfibNpStats']['meta_info']
 
 

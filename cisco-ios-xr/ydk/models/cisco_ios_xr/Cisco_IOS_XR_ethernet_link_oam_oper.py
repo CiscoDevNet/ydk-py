@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -51,6 +54,12 @@ class Action(Enum):
     log = Enum.YLeaf(3, "log")
 
     efd = Enum.YLeaf(4, "efd")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['Action']
 
 
 class Log(Enum):
@@ -106,6 +115,12 @@ class Log(Enum):
     log_type_critical_event = Enum.YLeaf(258, "log-type-critical-event")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['Log']
+
+
 class LogLocation(Enum):
     """
     LogLocation (Enum Class)
@@ -125,6 +140,12 @@ class LogLocation(Enum):
     log_location_local = Enum.YLeaf(1, "log-location-local")
 
     log_location_remote = Enum.YLeaf(2, "log-location-remote")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['LogLocation']
 
 
 class LoopbackStatus(Enum):
@@ -172,6 +193,12 @@ class LoopbackStatus(Enum):
     unknown = Enum.YLeaf(6, "unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['LoopbackStatus']
+
+
 class Mode(Enum):
     """
     Mode (Enum Class)
@@ -197,6 +224,12 @@ class Mode(Enum):
     active = Enum.YLeaf(1, "active")
 
     dont_care = Enum.YLeaf(2, "dont-care")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['Mode']
 
 
 class OperationalState(Enum):
@@ -274,6 +307,12 @@ class OperationalState(Enum):
     operational_half_duplex = Enum.YLeaf(10, "operational-half-duplex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['OperationalState']
+
+
 class ProtocolState(Enum):
     """
     ProtocolState (Enum Class)
@@ -325,8 +364,14 @@ class ProtocolState(Enum):
     protocol_state_send_any = Enum.YLeaf(6, "protocol-state-send-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['ProtocolState']
 
-class EtherLinkOam(Entity):
+
+
+class EtherLinkOam(_Entity_):
     """
     Ethernet Link OAM operational data
     
@@ -380,7 +425,10 @@ class EtherLinkOam(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(EtherLinkOam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(EtherLinkOam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "ether-link-oam"
@@ -421,7 +469,7 @@ class EtherLinkOam(Entity):
         self._perform_setattr(EtherLinkOam, [], name, value)
 
 
-    class DiscoveryInfoInterfaces(Entity):
+    class DiscoveryInfoInterfaces(_Entity_):
         """
         Table of Ethernet Link OAM enabled interfaces
         within Discovery Info container
@@ -441,7 +489,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.DiscoveryInfoInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.DiscoveryInfoInterfaces, self).__init__()
 
             self.yang_name = "discovery-info-interfaces"
             self.yang_parent_name = "ether-link-oam"
@@ -460,7 +511,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces, [], name, value)
 
 
-        class DiscoveryInfoInterface(Entity):
+        class DiscoveryInfoInterface(_Entity_):
             """
             Ethernet Link OAM interface to get Discovery
             Info for
@@ -851,7 +902,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, self).__init__()
 
                 self.yang_name = "discovery-info-interface"
                 self.yang_parent_name = "discovery-info-interfaces"
@@ -968,10 +1022,18 @@ class EtherLinkOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, ['member_interface', 'name', 'operational_status', 'loopback_mode', 'local_mode', 'miswired', 'local_mwd_key', 'local_function_unidirectional', 'local_function_loopback', 'local_function_event', 'local_functionvariable', 'local_revision', 'local_mtu', 'local_operational', 'local_evaluating', 'remote_mode', 'remote_unidirectional', 'remote_loopback', 'remote_event', 'remote_variable', 'remote_mtu', 'remote_mac_address', 'remote_vendor_oui', 'remote_revision', 'remote_vendor_info', 'remote_mwd_key', 'operational_status_valid', 'loopback_mode_valid', 'local_mode_valid', 'miswired_valid', 'local_mwd_key_valid', 'local_function_unidirectional_valid', 'local_function_loopback_valid', 'local_function_event_valid', 'local_functionvariable_valid', 'local_revisionvalid', 'local_mtu_valid', 'remote_mode_valid', 'remote_unidirectional_valid', 'remote_loopback_valid', 'remote_event_valid', 'remote_variable_valid', 'remote_mtu_valid', 'remote_mac_address_valid', 'remote_vendor_oui_valid', 'remote_revisionvalid', 'remote_vendor_info_valid', 'remote_mwd_key_valid', 'received_at_risk_notification_timestamp', 'received_at_risk_notification_time_remaining'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.DiscoveryInfoInterfaces']['meta_info']
 
 
-
-    class InterfaceStateInterfaces(Entity):
+    class InterfaceStateInterfaces(_Entity_):
         """
         Table of Ethernet Link OAM enabled interfaces
         within Interface State container
@@ -991,7 +1053,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.InterfaceStateInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.InterfaceStateInterfaces, self).__init__()
 
             self.yang_name = "interface-state-interfaces"
             self.yang_parent_name = "ether-link-oam"
@@ -1010,7 +1075,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces, [], name, value)
 
 
-        class InterfaceStateInterface(Entity):
+        class InterfaceStateInterface(_Entity_):
             """
             Ethernet Link OAM interface to get Interface
             State for
@@ -1085,7 +1150,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, self).__init__()
 
                 self.yang_name = "interface-state-interface"
                 self.yang_parent_name = "interface-state-interfaces"
@@ -1123,7 +1191,7 @@ class EtherLinkOam(Entity):
                 self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, ['member_interface', 'protocol_code', 'rx_fault', 'local_mwd_key', 'remote_mwd_key_present', 'remote_mwd_key'], name, value)
 
 
-            class Errors(Entity):
+            class Errors(_Entity_):
                 """
                 The errors that have occurred on this interface
                 
@@ -1215,7 +1283,10 @@ class EtherLinkOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, self).__init__()
 
                     self.yang_name = "errors"
                     self.yang_parent_name = "interface-state-interface"
@@ -1251,9 +1322,13 @@ class EtherLinkOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, ['pfi_reason', 'pfi_error_code', 'platform_reason', 'platform_error_code', 'spio_reason', 'spio_error_code', 'epi_reason', 'epi_error_code', 'caps_add_reason', 'caps_add_error_code'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors']['meta_info']
 
 
-            class EfdTriggers(Entity):
+            class EfdTriggers(_Entity_):
                 """
                 Any present EFD triggers
                 
@@ -1300,7 +1375,10 @@ class EtherLinkOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, self).__init__()
 
                     self.yang_name = "efd-triggers"
                     self.yang_parent_name = "interface-state-interface"
@@ -1326,11 +1404,23 @@ class EtherLinkOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, ['link_fault_received', 'discovery_timed_out', 'capabilities_conflict', 'wiring_conflict', 'session_down'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces']['meta_info']
 
 
-
-
-    class RunningConfigInterfaces(Entity):
+    class RunningConfigInterfaces(_Entity_):
         """
         Table of Ethernet Link OAM enabled interfaces
         within Running Config container
@@ -1350,7 +1440,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.RunningConfigInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.RunningConfigInterfaces, self).__init__()
 
             self.yang_name = "running-config-interfaces"
             self.yang_parent_name = "ether-link-oam"
@@ -1369,7 +1462,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.RunningConfigInterfaces, [], name, value)
 
 
-        class RunningConfigInterface(Entity):
+        class RunningConfigInterface(_Entity_):
             """
             Ethernet Link OAM interface to get Running
             Config for
@@ -1993,7 +2086,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, self).__init__()
 
                 self.yang_name = "running-config-interface"
                 self.yang_parent_name = "running-config-interfaces"
@@ -2168,10 +2264,18 @@ class EtherLinkOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, ['member_interface', 'fast_hello_interval_enabled', 'link_monitor_enabled', 'remote_loopback_enabled', 'mib_retrieval_enabled', 'udlf_enabled', 'mode', 'connection_timeout', 'symbol_period_window', 'symbol_period_window_units', 'symbol_period_window_multiplier', 'symbol_period_threshold_low', 'symbol_period_threshold_high', 'symbol_period_threshold_units', 'symbol_period_threshold_low_multiplier', 'symbol_period_threshold_high_multiplier', 'frame_window', 'frame_threshold_low', 'frame_threshold_high', 'frame_threshold_low_multiplier', 'frame_threshold_high_multiplier', 'frame_period_window', 'frame_period_window_units', 'frame_period_window_multiplier', 'frame_period_threshold_low', 'frame_period_threshold_high', 'frame_period_threshold_units', 'frame_period_threshold_low_multiplier', 'frame_period_threshold_high_multiplier', 'frame_seconds_window', 'frame_seconds_threshold_low', 'frame_seconds_threshold_high', 'high_threshold_action', 'link_fault_action', 'dying_gasp_action', 'critical_event_action', 'discovery_timeout_action', 'capabilities_conflict_action', 'wiring_conflict_action', 'session_up_action', 'session_down_action', 'remote_loopback_action', 'require_remote_mode', 'require_remote_mib_retrieval', 'require_loopback', 'require_link_monitoring', 'fast_hello_interval_enabled_overridden', 'link_monitoring_enabled_overridden', 'remote_loopback_enabled_overridden', 'mib_retrieval_enabled_overridden', 'udlf_enabled_overridden', 'mode_overridden', 'connection_timeout_overridden', 'symbol_period_window_overridden', 'symbol_period_threshold_low_overridden', 'symbol_period_threshold_high_overridden', 'frame_window_overridden', 'frame_threshold_low_overridden', 'frame_threshold_high_overridden', 'frame_period_window_overridden', 'frame_period_threshold_low_overridden', 'frame_period_threshold_high_overridden', 'frame_seconds_window_overridden', 'frame_seconds_threshold_low_overridden', 'frame_seconds_threshold_high_overridden', 'high_threshold_action_overridden', 'link_fault_action_overridden', 'dying_gasp_action_overridden', 'critical_event_action_overridden', 'discovery_timeout_action_overridden', 'capabilities_conflict_action_overridden', 'wiring_conflict_action_overridden', 'session_down_action_overridden', 'session_up_action_overridden', 'remote_loopback_action_overridden', 'require_mode_overridden', 'require_mib_retrieval_overridden', 'require_loopback_overridden', 'require_link_monitoring_overridden'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.RunningConfigInterfaces']['meta_info']
 
 
-
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Node table for node\-specific operational data
         
@@ -2190,7 +2294,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "ether-link-oam"
@@ -2209,7 +2316,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Node\-specific data for a particular node
             
@@ -2237,7 +2344,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -2261,7 +2371,7 @@ class EtherLinkOam(Entity):
                 self._perform_setattr(EtherLinkOam.Nodes.Node, ['node_name'], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Ethernet Link OAM Summary information for the
                 entire node
@@ -2472,7 +2582,10 @@ class EtherLinkOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EtherLinkOam.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EtherLinkOam.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -2532,11 +2645,23 @@ class EtherLinkOam(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EtherLinkOam.Nodes.Node.Summary, ['interfaces', 'port_down', 'passive_wait', 'active_send', 'evaluating', 'local_accept', 'local_reject', 'remote_reject', 'operational', 'loopback_mode', 'miswired_connections', 'events', 'local_events', 'local_symbol_period', 'local_frame', 'local_frame_period', 'local_frame_seconds', 'remote_events', 'remote_symbol_period', 'remote_frame', 'remote_frame_period', 'remote_frame_seconds'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.Nodes.Node.Summary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.Nodes']['meta_info']
 
 
-
-
-    class EventLogEntryInterfaces(Entity):
+    class EventLogEntryInterfaces(_Entity_):
         """
         Table of Ethernet Link OAM enabled interfaces
         within Event Log Entry container
@@ -2556,7 +2681,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.EventLogEntryInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.EventLogEntryInterfaces, self).__init__()
 
             self.yang_name = "event-log-entry-interfaces"
             self.yang_parent_name = "ether-link-oam"
@@ -2575,7 +2703,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces, [], name, value)
 
 
-        class EventLogEntryInterface(Entity):
+        class EventLogEntryInterface(_Entity_):
             """
             Ethernet Link OAM enabled interface to get
             Event Log Entry for
@@ -2604,7 +2732,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface, self).__init__()
 
                 self.yang_name = "event-log-entry-interface"
                 self.yang_parent_name = "event-log-entry-interfaces"
@@ -2628,7 +2759,7 @@ class EtherLinkOam(Entity):
                 self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface, ['member_interface'], name, value)
 
 
-            class EventLogEntryIndexes(Entity):
+            class EventLogEntryIndexes(_Entity_):
                 """
                 Table of Ethernet Link OAM Event Log entries
                 on the interface
@@ -2648,7 +2779,10 @@ class EtherLinkOam(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes, self).__init__()
 
                     self.yang_name = "event-log-entry-indexes"
                     self.yang_parent_name = "event-log-entry-interface"
@@ -2666,7 +2800,7 @@ class EtherLinkOam(Entity):
                     self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes, [], name, value)
 
 
-                class EventLogEntryIndex(Entity):
+                class EventLogEntryIndex(_Entity_):
                     """
                     Ethernet Link OAM Event Log Entry Index to
                     get data for
@@ -2853,7 +2987,10 @@ class EtherLinkOam(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, self).__init__()
 
                         self.yang_name = "event-log-entry-index"
                         self.yang_parent_name = "event-log-entry-indexes"
@@ -2909,12 +3046,28 @@ class EtherLinkOam(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, ['event_log_entry_index', 'index', 'handle', 'oui', 'timestamp', 'type', 'location', 'event_total', 'action_taken', 'window', 'threshold', 'local_high_threshold', 'value', 'running_total', 'window_config_units', 'window_units', 'threshold_config_units', 'threshold_units', 'local_high_threshold_config_units', 'value_config_units'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                        return meta._meta_table['EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.EventLogEntryInterfaces']['meta_info']
 
 
-
-
-
-    class StatsInterfaces(Entity):
+    class StatsInterfaces(_Entity_):
         """
         Table of Ethernet Link OAM enabled interfaces
         within Stats container
@@ -2934,7 +3087,10 @@ class EtherLinkOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(EtherLinkOam.StatsInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(EtherLinkOam.StatsInterfaces, self).__init__()
 
             self.yang_name = "stats-interfaces"
             self.yang_parent_name = "ether-link-oam"
@@ -2953,7 +3109,7 @@ class EtherLinkOam(Entity):
             self._perform_setattr(EtherLinkOam.StatsInterfaces, [], name, value)
 
 
-        class StatsInterface(Entity):
+        class StatsInterface(_Entity_):
             """
             Ethernet Link OAM interface to get Stats for
             
@@ -3208,7 +3364,10 @@ class EtherLinkOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(EtherLinkOam.StatsInterfaces.StatsInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(EtherLinkOam.StatsInterfaces.StatsInterface, self).__init__()
 
                 self.yang_name = "stats-interface"
                 self.yang_parent_name = "stats-interfaces"
@@ -3279,11 +3438,23 @@ class EtherLinkOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLinkOam.StatsInterfaces.StatsInterface, ['member_interface', 'information_tx', 'information_rx', 'unique_event_notification_tx', 'unique_event_notification_rx', 'duplicate_event_notification_tx', 'duplicate_event_notification_rx', 'loopback_control_tx', 'loopback_control_rx', 'variable_request_tx', 'variable_request_rx', 'variable_response_tx', 'variable_response_rx', 'org_specific_tx', 'org_specific_rx', 'unsupported_codes_tx', 'unsupported_codes_rx', 'frames_lost_due_to_oam', 'fixed_frames_rx', 'local_error_symbol_period_records', 'local_error_frame_records', 'local_error_frame_period_records', 'local_error_frame_second_records', 'remote_error_symbol_period_records', 'remote_error_frame_records', 'remote_error_frame_period_records', 'remote_error_frame_second_records'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.StatsInterfaces.StatsInterface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.StatsInterfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = EtherLinkOam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['EtherLinkOam']['meta_info']
 
 

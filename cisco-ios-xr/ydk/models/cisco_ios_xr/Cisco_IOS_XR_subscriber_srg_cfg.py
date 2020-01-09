@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class SrgAddrFamily(Enum):
     ipv6 = Enum.YLeaf(10, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+        return meta._meta_table['SrgAddrFamily']
+
+
 class SubscriberRedundancyGroupRole(Enum):
     """
     SubscriberRedundancyGroupRole (Enum Class)
@@ -60,6 +69,12 @@ class SubscriberRedundancyGroupRole(Enum):
     master = Enum.YLeaf(1, "master")
 
     slave = Enum.YLeaf(2, "slave")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+        return meta._meta_table['SubscriberRedundancyGroupRole']
 
 
 class SubscriberRedundancyGroupSlaveMode(Enum):
@@ -83,8 +98,14 @@ class SubscriberRedundancyGroupSlaveMode(Enum):
     hot = Enum.YLeaf(2, "hot")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+        return meta._meta_table['SubscriberRedundancyGroupSlaveMode']
 
-class SubscriberRedundancy(Entity):
+
+
+class SubscriberRedundancy(_Entity_):
     """
     Subscriber Redundancy configuration
     
@@ -97,6 +118,11 @@ class SubscriberRedundancy(Entity):
     
     	None
     	**type**\:  :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
+    
+    .. attribute:: cpe_tracking
+    
+    	Enable
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
@@ -162,7 +188,10 @@ class SubscriberRedundancy(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SubscriberRedundancy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberRedundancy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-redundancy"
@@ -173,6 +202,7 @@ class SubscriberRedundancy(Entity):
         self._child_classes = OrderedDict([("groups", ("groups", SubscriberRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SubscriberRedundancy.RevertiveTimer))])
         self.is_presence_container = True
         self._leafs = OrderedDict([
+            ('cpe_tracking', (YLeaf(YType.empty, 'cpe-tracking'), ['Empty'])),
             ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ('virtual_mac_prefix', (YLeaf(YType.str, 'virtual-mac-prefix'), ['str'])),
             ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupRole', '')])),
@@ -182,6 +212,7 @@ class SubscriberRedundancy(Entity):
             ('sync_timer', (YLeaf(YType.uint32, 'sync-timer'), ['int'])),
             ('redundancy_disable', (YLeaf(YType.empty, 'redundancy-disable'), ['Empty'])),
         ])
+        self.cpe_tracking = None
         self.enable = None
         self.virtual_mac_prefix = None
         self.preferred_role = None
@@ -202,10 +233,10 @@ class SubscriberRedundancy(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SubscriberRedundancy, ['enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'sync_timer', 'redundancy_disable'], name, value)
+        self._perform_setattr(SubscriberRedundancy, ['cpe_tracking', 'enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'sync_timer', 'redundancy_disable'], name, value)
 
 
-    class Groups(Entity):
+    class Groups(_Entity_):
         """
         Table of Group
         
@@ -222,7 +253,10 @@ class SubscriberRedundancy(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberRedundancy.Groups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancy.Groups, self).__init__()
 
             self.yang_name = "groups"
             self.yang_parent_name = "subscriber-redundancy"
@@ -241,7 +275,7 @@ class SubscriberRedundancy(Entity):
             self._perform_setattr(SubscriberRedundancy.Groups, [], name, value)
 
 
-        class Group(Entity):
+        class Group(_Entity_):
             """
             Redundancy Group configuration
             
@@ -350,7 +384,10 @@ class SubscriberRedundancy(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SubscriberRedundancy.Groups.Group, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberRedundancy.Groups.Group, self).__init__()
 
                 self.yang_name = "group"
                 self.yang_parent_name = "groups"
@@ -411,7 +448,7 @@ class SubscriberRedundancy(Entity):
                 self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'disable_tracking_object', 'core_tracking_object', 'enable', 'preferred_role', 'description', 'l2tp_source_ip_address', 'slave_mode', 'hold_timer', 'access_tracking_object', 'enable_fast_switchover', 'redundancy_disable'], name, value)
 
 
-            class InterfaceList(Entity):
+            class InterfaceList(_Entity_):
                 """
                 List of Interfaces for this Group
                 
@@ -442,7 +479,10 @@ class SubscriberRedundancy(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.InterfaceList, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancy.Groups.Group.InterfaceList, self).__init__()
 
                     self.yang_name = "interface-list"
                     self.yang_parent_name = "group"
@@ -470,7 +510,7 @@ class SubscriberRedundancy(Entity):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList, ['enable'], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Table of Interface
                     
@@ -487,7 +527,10 @@ class SubscriberRedundancy(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "interface-list"
@@ -505,7 +548,7 @@ class SubscriberRedundancy(Entity):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Interface for this Group
                         
@@ -533,7 +576,10 @@ class SubscriberRedundancy(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -553,10 +599,18 @@ class SubscriberRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                            return meta._meta_table['SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                        return meta._meta_table['SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
 
 
-
-                class InterfaceRanges(Entity):
+                class InterfaceRanges(_Entity_):
                     """
                     Table of InterfaceRange
                     
@@ -573,7 +627,10 @@ class SubscriberRedundancy(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
 
                         self.yang_name = "interface-ranges"
                         self.yang_parent_name = "interface-list"
@@ -591,7 +648,7 @@ class SubscriberRedundancy(Entity):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges, [], name, value)
 
 
-                    class InterfaceRange(Entity):
+                    class InterfaceRange(_Entity_):
                         """
                         Interface for this Group
                         
@@ -638,7 +695,10 @@ class SubscriberRedundancy(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
 
                             self.yang_name = "interface-range"
                             self.yang_parent_name = "interface-ranges"
@@ -664,11 +724,23 @@ class SubscriberRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                            return meta._meta_table['SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                        return meta._meta_table['SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                    return meta._meta_table['SubscriberRedundancy.Groups.Group.InterfaceList']['meta_info']
 
 
-
-
-            class Peer(Entity):
+            class Peer(_Entity_):
                 """
                 None
                 
@@ -690,7 +762,10 @@ class SubscriberRedundancy(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.Peer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancy.Groups.Group.Peer, self).__init__()
 
                     self.yang_name = "peer"
                     self.yang_parent_name = "group"
@@ -713,7 +788,7 @@ class SubscriberRedundancy(Entity):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.Peer, ['route_add_disable'], name, value)
 
 
-                class Ipaddress(Entity):
+                class Ipaddress(_Entity_):
                     """
                     IPv4 or IPv6 Address of SRG Peer
                     
@@ -743,7 +818,10 @@ class SubscriberRedundancy(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
 
                         self.yang_name = "ipaddress"
                         self.yang_parent_name = "peer"
@@ -763,10 +841,18 @@ class SubscriberRedundancy(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                        return meta._meta_table['SubscriberRedundancy.Groups.Group.Peer.Ipaddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                    return meta._meta_table['SubscriberRedundancy.Groups.Group.Peer']['meta_info']
 
 
-
-            class RevertiveTimer(Entity):
+            class RevertiveTimer(_Entity_):
                 """
                 None
                 
@@ -794,7 +880,10 @@ class SubscriberRedundancy(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.RevertiveTimer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancy.Groups.Group.RevertiveTimer, self).__init__()
 
                     self.yang_name = "revertive-timer"
                     self.yang_parent_name = "group"
@@ -814,9 +903,13 @@ class SubscriberRedundancy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                    return meta._meta_table['SubscriberRedundancy.Groups.Group.RevertiveTimer']['meta_info']
 
 
-            class VirtualMac(Entity):
+            class VirtualMac(_Entity_):
                 """
                 Virtual MAC Address for this Group
                 
@@ -840,7 +933,10 @@ class SubscriberRedundancy(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancy.Groups.Group.VirtualMac, self).__init__()
 
                     self.yang_name = "virtual-mac"
                     self.yang_parent_name = "group"
@@ -860,9 +956,13 @@ class SubscriberRedundancy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.VirtualMac, ['address', 'disable'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                    return meta._meta_table['SubscriberRedundancy.Groups.Group.VirtualMac']['meta_info']
 
 
-            class StateControlRoute(Entity):
+            class StateControlRoute(_Entity_):
                 """
                 None
                 
@@ -884,7 +984,10 @@ class SubscriberRedundancy(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberRedundancy.Groups.Group.StateControlRoute, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberRedundancy.Groups.Group.StateControlRoute, self).__init__()
 
                     self.yang_name = "state-control-route"
                     self.yang_parent_name = "group"
@@ -908,7 +1011,7 @@ class SubscriberRedundancy(Entity):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute, [], name, value)
 
 
-                class Ipv4Routes(Entity):
+                class Ipv4Routes(_Entity_):
                     """
                     Table of IPv4Route
                     
@@ -925,7 +1028,10 @@ class SubscriberRedundancy(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, self).__init__()
 
                         self.yang_name = "ipv4-routes"
                         self.yang_parent_name = "state-control-route"
@@ -943,7 +1049,7 @@ class SubscriberRedundancy(Entity):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes, [], name, value)
 
 
-                    class Ipv4Route(Entity):
+                    class Ipv4Route(_Entity_):
                         """
                         None
                         
@@ -991,7 +1097,10 @@ class SubscriberRedundancy(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, self).__init__()
 
                             self.yang_name = "ipv4-route"
                             self.yang_parent_name = "ipv4-routes"
@@ -1015,10 +1124,18 @@ class SubscriberRedundancy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                            return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                        return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes']['meta_info']
 
 
-
-                class Ipv6Route(Entity):
+                class Ipv6Route(_Entity_):
                     """
                     None
                     
@@ -1040,7 +1157,10 @@ class SubscriberRedundancy(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route, self).__init__()
 
                         self.yang_name = "ipv6-route"
                         self.yang_parent_name = "state-control-route"
@@ -1064,7 +1184,7 @@ class SubscriberRedundancy(Entity):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route, [], name, value)
 
 
-                    class Ipv6naRoutes(Entity):
+                    class Ipv6naRoutes(_Entity_):
                         """
                         Table of IPv6NARoute
                         
@@ -1081,7 +1201,10 @@ class SubscriberRedundancy(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes, self).__init__()
 
                             self.yang_name = "ipv6na-routes"
                             self.yang_parent_name = "ipv6-route"
@@ -1099,7 +1222,7 @@ class SubscriberRedundancy(Entity):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes, [], name, value)
 
 
-                        class Ipv6naRoute(Entity):
+                        class Ipv6naRoute(_Entity_):
                             """
                             None
                             
@@ -1147,7 +1270,10 @@ class SubscriberRedundancy(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, self).__init__()
 
                                 self.yang_name = "ipv6na-route"
                                 self.yang_parent_name = "ipv6na-routes"
@@ -1171,10 +1297,18 @@ class SubscriberRedundancy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                                return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                            return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes']['meta_info']
 
 
-
-                    class Ipv6pdRoutes(Entity):
+                    class Ipv6pdRoutes(_Entity_):
                         """
                         Table of IPv6PDRoute
                         
@@ -1191,7 +1325,10 @@ class SubscriberRedundancy(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes, self).__init__()
 
                             self.yang_name = "ipv6pd-routes"
                             self.yang_parent_name = "ipv6-route"
@@ -1209,7 +1346,7 @@ class SubscriberRedundancy(Entity):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes, [], name, value)
 
 
-                        class Ipv6pdRoute(Entity):
+                        class Ipv6pdRoute(_Entity_):
                             """
                             None
                             
@@ -1257,7 +1394,10 @@ class SubscriberRedundancy(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, self).__init__()
 
                                 self.yang_name = "ipv6pd-route"
                                 self.yang_parent_name = "ipv6pd-routes"
@@ -1281,14 +1421,38 @@ class SubscriberRedundancy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                                return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                            return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                        return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                    return meta._meta_table['SubscriberRedundancy.Groups.Group.StateControlRoute']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+                return meta._meta_table['SubscriberRedundancy.Groups.Group']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+            return meta._meta_table['SubscriberRedundancy.Groups']['meta_info']
 
 
-
-
-
-
-
-    class RevertiveTimer(Entity):
+    class RevertiveTimer(_Entity_):
         """
         None
         
@@ -1316,7 +1480,10 @@ class SubscriberRedundancy(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberRedundancy.RevertiveTimer, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberRedundancy.RevertiveTimer, self).__init__()
 
             self.yang_name = "revertive-timer"
             self.yang_parent_name = "subscriber-redundancy"
@@ -1337,10 +1504,18 @@ class SubscriberRedundancy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancy.RevertiveTimer, ['max_value', 'value'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+            return meta._meta_table['SubscriberRedundancy.RevertiveTimer']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
+        return meta._meta_table['SubscriberRedundancy']['meta_info']
 
 
